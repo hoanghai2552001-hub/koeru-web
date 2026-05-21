@@ -1,0 +1,10 @@
+[
+  {"id":1,"lang":"jp","cat":"vocab","thumb":"🇯🇵","bg":"#eef2ff","title":"50 từ vựng N5 thông dụng nhất","type":"Từ vựng","dur":"5 phút","xp":15},
+  {"id":2,"lang":"jp","cat":"grammar","thumb":"✏️","bg":"#f0eeff","title":"Ngữ pháp ～てください","type":"Ngữ pháp","dur":"4 phút","xp":12},
+  {"id":3,"lang":"jp","cat":"kanji","thumb":"🖊","bg":"#e8eeff","title":"Kanji N5 — 10 chữ đầu tiên","type":"Kanji","dur":"6 phút","xp":18},
+  {"id":4,"lang":"cn","cat":"vocab","thumb":"🇨🇳","bg":"#fff4e8","title":"150 từ vựng HSK 1 bắt buộc","type":"Từ vựng","dur":"5 phút","xp":15},
+  {"id":5,"lang":"cn","cat":"grammar","thumb":"📐","bg":"#ffeef5","title":"Câu \"把\" — Tác động lên tân ngữ","type":"Ngữ pháp","dur":"5 phút","xp":14},
+  {"id":6,"lang":"jp","cat":"vocab","thumb":"🎌","bg":"#e8f0ff","title":"Từ vựng chủ đề Gia đình N5","type":"Từ vựng","dur":"4 phút","xp":12},
+  {"id":7,"lang":"cn","cat":"kanji","thumb":"🀄","bg":"#fff8e8","title":"Thanh điệu tiếng Trung — 4 thanh","type":"Phát âm","dur":"6 phút","xp":16},
+  {"id":8,"lang":"jp","cat":"grammar","thumb":"🗾","bg":"#ede8ff","title":"Ngữ pháp ～ながら","type":"Ngữ pháp","dur":"4 phút","xp":12}
+]

@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>KOERU</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#2d3561;--navy-d:#1e2445;--navy-l:#3d4880;
+  --navy-10:rgba(45,53,97,.10);--navy-06:rgba(45,53,97,.06);
+  --cream:#fdf8f4;--cream-d:#f5ede4;--cream-dd:#ede0d4;
+  --accent:#e8845a;--accent-l:#fdf0e8;
+  --yellow:#f5c842;--yellow-l:#fffbe6;
+  --ink:#2d3561;--ink2:#5a5f7a;--ink3:#9196ae;--ink4:#c8cad8;
+  --white:#ffffff;--border:#e8e4f0;
+  --r:14px;--rs:9px;--rl:22px;
+  --shadow:0 4px 24px rgba(45,53,97,.08);
+}
+body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;padding:0 1.5rem}
+.nav-inner{max-width:1080px;margin:auto;display:flex;align-items:center;height:60px;gap:1.2rem}
+.logo{font-size:20px;font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-.5px;display:flex;align-items:center;gap:8px;flex-shrink:0;cursor:pointer}
+.nav-links{display:flex;gap:2px;flex:1;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--ink3);font-size:13px;font-weight:600;padding:5px 11px;border-radius:20px;transition:all .18s;cursor:pointer}
+.nav-links a:hover{background:var(--navy-06);color:var(--navy)}
+.nav-links a.active{background:var(--navy);color:#fff}
+.nav-links a.admin-link{color:#7a5f00;background:var(--yellow-l)}
+.nav-links a.admin-link.active{background:var(--yellow);color:var(--navy)}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.streak-pill{display:flex;align-items:center;gap:5px;background:var(--yellow-l);border:1px solid #f0d87a;border-radius:20px;padding:5px 12px;font-size:13px;font-weight:700;color:#7a5f00}
+.btn{padding:8px 18px;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:5px;transition:all .18s;text-decoration:none}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:var(--navy-d)}
+.btn-ghost{background:transparent;border:1.5px solid var(--border);color:var(--ink2)}.btn-ghost:hover{border-color:var(--navy);color:var(--navy)}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{background:#d4724a}
+.btn-red{background:#e24b4a;color:#fff}
+.btn-sm{padding:5px 11px;font-size:12px}
+
+/* ── PAGE ── */
+.page{display:none}
+.page.active{display:block;animation:up .22s ease}
+@keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.wrap{max-width:1080px;margin:auto;padding:0 1.5rem}
+
+/* ── HERO ── */
+.hero{padding:64px 1.5rem 72px;text-align:center;background:var(--white);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;border:80px solid var(--cream);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:.6}
+.hero::after{content:'';position:absolute;width:900px;height:900px;border-radius:50%;border:60px solid var(--cream-d);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:.3}
+.hero-inner{position:relative;z-index:1}
+.hero-mascot{margin-bottom:20px;display:inline-block}
+.hero h1{font-size:42px;font-weight:800;letter-spacing:-2px;line-height:1.15;margin-bottom:14px;color:var(--navy)}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero p{font-size:16px;color:var(--ink3);max-width:430px;margin:0 auto 30px;line-height:1.7}
+.hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-hero{padding:13px 26px;font-size:15px;border-radius:var(--r)}
+
+/* ── STATS ── */
+.stats-strip{background:var(--navy);color:#fff;padding:18px 1.5rem}
+.stats-inner{max-width:1080px;margin:auto;display:flex;justify-content:center;gap:52px;flex-wrap:wrap}
+.sstat{text-align:center}
+.sstat-n{font-size:22px;font-weight:800;color:var(--yellow)}
+.sstat-l{font-size:11px;opacity:.55;margin-top:2px;letter-spacing:.3px}
+
+/* ── SEC ── */
+.sec{padding:44px 0}
+.bg-white{background:var(--white)}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy);opacity:.5;margin-bottom:8px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px}
+.sec-title{font-size:20px;font-weight:800;letter-spacing:-.5px;color:var(--navy)}
+.sec-more{font-size:13px;color:var(--accent);font-weight:700;cursor:pointer}
+.sec-more:hover{text-decoration:underline}
+
+/* ── DAILY ── */
+.daily-card{background:var(--navy);border-radius:var(--rl);padding:26px 30px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px;position:relative;overflow:hidden}
+.daily-card::before{content:'';position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.daily-left h3{font-size:11px;font-weight:800;opacity:.55;letter-spacing:.8px;text-transform:uppercase;margin-bottom:5px}
+.daily-left h2{font-size:20px;font-weight:800;margin-bottom:3px}
+.daily-left p{font-size:13px;opacity:.65}
+.daily-right{display:flex;gap:8px;flex-wrap:wrap;position:relative}
+
+/* ── LESSON CARDS ── */
+.lesson-feed{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.lcard{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all .2s;display:flex;flex-direction:column}
+.lcard:hover{box-shadow:var(--shadow);transform:translateY(-2px);border-color:var(--navy-10)}
+.lcard-thumb{height:100px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative}
+.lcard-lang{position:absolute;top:8px;left:8px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--navy);color:#fff}
+.lcard-dur{position:absolute;top:8px;right:8px;font-size:11px;background:rgba(0,0,0,.35);color:#fff;padding:2px 7px;border-radius:20px}
+.lcard-body{padding:13px;flex:1;display:flex;flex-direction:column;gap:4px}
+.lcard-type{font-size:10px;font-weight:800;color:var(--ink3);letter-spacing:.5px;text-transform:uppercase}
+.lcard-title{font-size:14px;font-weight:700;line-height:1.4;color:var(--navy)}
+.lcard-meta{font-size:12px;color:var(--ink3);margin-top:auto;padding-top:7px;display:flex;align-items:center}
+.xp-badge{background:var(--yellow-l);color:#7a5f00;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:auto;border:1px solid #f0d87a}
+
+/* ── QUIZ STRIP ── */
+.quiz-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.quiz-strip::-webkit-scrollbar{display:none}
+.qchip{flex-shrink:0;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:14px 18px;cursor:pointer;transition:all .18s;text-align:center;min-width:130px}
+.qchip:hover{border-color:var(--navy);background:var(--navy-06)}
+.qchip-flag{font-size:24px;margin-bottom:5px;display:block}
+.qchip-name{font-size:13px;font-weight:700;color:var(--navy)}
+.qchip-sub{font-size:11px;color:var(--ink3);margin-top:2px}
+
+/* ── TOOLS ── */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 18px;cursor:pointer;transition:all .2s;text-align:center}
+.tool-card:hover{border-color:var(--navy);box-shadow:var(--shadow)}
+.tool-icon{font-size:30px;margin-bottom:10px;display:block}
+.tool-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.tool-card p{font-size:12px;color:var(--ink3);line-height:1.5}
+.tool-soon{display:inline-block;font-size:10px;font-weight:700;background:var(--accent-l);color:var(--accent);padding:2px 8px;border-radius:20px;margin-top:7px}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.bcard{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all .2s}
+.bcard:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.bcard-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:46px}
+.bcard-body{padding:15px}
+.bcard-tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:8px}
+.bcard-title{font-size:15px;font-weight:700;line-height:1.4;margin-bottom:6px;color:var(--navy)}
+.bcard-excerpt{font-size:13px;color:var(--ink3);line-height:1.6;margin-bottom:8px}
+.bcard-meta{font-size:12px;color:var(--ink4)}
+
+/* ── CATS ── */
+.cats{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:22px}
+.cat-btn{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--ink3);transition:all .18s}
+.cat-btn.active,.cat-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── FLASH ── */
+.fc-wrap{max-width:460px;margin:0 auto;padding:28px 0 60px;text-align:center}
+.fc-selects{display:flex;gap:8px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+select{padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:13px;background:var(--white);color:var(--navy);outline:none;cursor:pointer;font-weight:600}
+select:focus{border-color:var(--navy)}
+.fc-card{background:var(--white);border:2px solid var(--border);border-radius:var(--rl);min-height:210px;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;transition:all .3s;padding:28px;margin-bottom:14px}
+.fc-card:hover{border-color:var(--navy);box-shadow:var(--shadow)}
+.fc-back{display:none}
+.fc-card.flipped .fc-front{display:none}
+.fc-card.flipped .fc-back{display:block}
+.fc-jp{font-size:50px;font-weight:800;color:var(--navy);margin-bottom:7px;line-height:1}
+.fc-read{font-size:15px;color:var(--ink3);margin-bottom:3px}
+.fc-hint{font-size:12px;color:var(--ink4);margin-top:8px}
+.fc-meaning{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.fc-example{font-size:13px;color:var(--ink3);line-height:1.65}
+.fc-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.fc-counter{font-size:13px;color:var(--ink3);margin-top:8px}
+.fc-prog{width:180px;height:4px;background:var(--border);border-radius:4px;margin:8px auto 0;overflow:hidden}
+.fc-prog-fill{height:100%;background:var(--navy);border-radius:4px;transition:width .3s}
+
+/* ── QUIZ ── */
+.quiz-wrap{max-width:620px;margin:0 auto;padding:28px 0 60px}
+.quiz-top{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:22px 26px;margin-bottom:16px}
+.quiz-top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+.quiz-top-title{font-size:18px;font-weight:800;color:var(--navy)}
+.api-row{background:var(--yellow-l);border:1px solid #f0d87a;border-radius:var(--rs);padding:9px 13px;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.api-row label{font-size:12px;font-weight:700;color:#7a5f00;flex-shrink:0}
+.api-row input{flex:1;min-width:160px;padding:5px 9px;border:1px solid var(--border);border-radius:var(--rs);font-size:12px;font-family:monospace;outline:none}
+.pbar-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:5px}
+.pbar{height:5px;background:var(--border);border-radius:5px;overflow:hidden}
+.pbar-fill{height:100%;background:var(--navy);border-radius:5px;transition:width .4s}
+.qcard{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:22px 26px;margin-bottom:10px}
+.qn{font-size:10px;font-weight:800;color:var(--ink3);letter-spacing:.6px;text-transform:uppercase;margin-bottom:9px}
+.qt{font-size:17px;font-weight:700;margin-bottom:16px;line-height:1.5;color:var(--navy)}
+.opts{display:grid;gap:8px}
+.opt{padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--rs);cursor:pointer;transition:all .15s;font-size:14px;color:var(--ink2);font-weight:500}
+.opt:hover{border-color:var(--navy);background:var(--navy-06);color:var(--navy)}
+.opt.sel{border-color:var(--navy);background:var(--navy-06);color:var(--navy);font-weight:700}
+.opt.ok{border-color:#22a87a;background:#e6faf2;color:#1a6b4a;font-weight:700}
+.opt.no{border-color:#e24b4a;background:#fdf2f2;color:#a32d2d}
+.fb{margin-top:10px;padding:9px 13px;border-radius:var(--rs);font-size:13px;display:none}
+.fb.show{display:block}
+.fb.ok{background:#e6faf2;color:#1a6b4a;border:1px solid #95d5b2}
+.fb.no{background:#fdf2f2;color:#a32d2d;border:1px solid #f5c1c1}
+.exp{background:rgba(45,53,97,.06);border:1px solid var(--navy-10);border-radius:var(--rs);padding:11px 13px;margin-top:7px;font-size:13px;line-height:1.7;color:var(--navy-l);display:none}
+.exp.show{display:block}
+.submit-row{text-align:center;margin:18px 0}
+.score-wrap{background:var(--white);border:2px solid var(--navy);border-radius:var(--rl);padding:32px;text-align:center;margin-bottom:16px;display:none}
+.score-wrap.show{display:block}
+.score-big{font-size:56px;font-weight:800;color:var(--navy);letter-spacing:-3px}
+.score-sub{font-size:13px;color:var(--ink3);margin-top:4px}
+.xp-earned{display:inline-flex;align-items:center;gap:5px;background:var(--yellow-l);border:1px solid #f0d87a;border-radius:20px;padding:5px 14px;font-size:13px;font-weight:700;color:#7a5f00;margin-top:12px}
+.ai-lbl{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.3px;margin-bottom:7px;display:none;align-items:center;gap:5px}
+.ai-lbl.show{display:flex}
+.ai-wrap{background:var(--navy-06);border:1px solid var(--navy-10);border-radius:var(--r);padding:16px 20px;font-size:14px;line-height:1.85;white-space:pre-wrap;display:none;color:var(--navy)}
+.ai-wrap.show{display:block}
+.dots span{width:5px;height:5px;border-radius:50%;background:var(--navy);animation:d .8s infinite;display:inline-block;margin:0 1px}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes d{0%,80%,100%{opacity:.2}40%{opacity:1}}
+
+/* ── ADMIN ── */
+.admin-wrap{max-width:980px;margin:0 auto;padding:28px 1.5rem 60px}
+.admin-header{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:22px 28px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.admin-header h2{font-size:20px;font-weight:800;color:var(--navy)}
+.admin-header p{font-size:13px;color:var(--ink3);margin-top:3px}
+.admin-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.atab{padding:8px 18px;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--ink3);transition:all .18s}
+.atab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.admin-table-wrap{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+.admin-table{width:100%;border-collapse:collapse}
+.admin-table th{background:var(--cream);font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:.4px;text-transform:uppercase;padding:10px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.admin-table td{padding:12px 16px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:middle;color:var(--ink2)}
+.admin-table tr:last-child td{border-bottom:none}
+.admin-table tr:hover td{background:var(--cream)}
+.td-title{font-weight:700;color:var(--navy);max-width:260px}
+.td-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
+.td-actions{display:flex;gap:6px}
+.empty-state{text-align:center;padding:40px 20px;color:var(--ink3);font-size:14px}
+.sheets-box{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:18px}
+.sheets-box h3{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:5px}
+.sheets-box p{font-size:13px;color:var(--ink3);margin-bottom:14px;line-height:1.65}
+.sheets-input-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.sheets-input-row input{flex:1;min-width:220px;padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:13px;font-family:monospace;outline:none;color:var(--navy)}
+.sheets-input-row input:focus{border-color:var(--navy)}
+.sync-status{font-size:12px;margin-top:8px;padding:8px 12px;border-radius:var(--rs);display:none}
+.sync-status.show{display:block}
+.sync-ok{background:#e6faf2;color:#1a6b4a;border:1px solid #95d5b2}
+.sync-err{background:#fdf2f2;color:#a32d2d;border:1px solid #f5c1c1}
+.sync-info{background:var(--navy-06);color:var(--navy);border:1px solid var(--navy-10)}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(45,53,97,.35);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.hidden{display:none}
+.modal{background:var(--white);border-radius:var(--rl);padding:28px 32px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto}
+.modal h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:14px;font-family:inherit;color:var(--navy);outline:none;transition:border-color .18s;background:var(--white)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--navy)}
+.form-group textarea{min-height:85px;resize:vertical;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+
+/* ── LANDING SECTIONS ── */
+.land-sec{padding:64px 1.5rem}
+.land-sec .wrap{max-width:960px;margin:auto}
+.land-center{text-align:center}
+.land-eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.land-h2{font-size:32px;font-weight:800;letter-spacing:-1px;color:var(--navy);margin-bottom:12px;line-height:1.25}
+.land-sub{font-size:15px;color:var(--ink3);max-width:520px;margin:0 auto 36px;line-height:1.75}
+
+/* ── COURSES GRID ── */
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.course-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:32px 26px;transition:all .25s;cursor:pointer}
+.course-card:hover{box-shadow:0 8px 40px rgba(45,53,97,.1);transform:translateY(-4px);border-color:var(--navy-10)}
+.course-icon{font-size:36px;margin-bottom:14px;display:block}
+.course-card h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.course-card p{font-size:13px;color:var(--ink3);line-height:1.65}
+.course-tag{display:inline-block;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-top:12px;letter-spacing:.4px}
+.course-tag.jp{background:#eef2ff;color:var(--navy)}
+.course-tag.cn{background:#fff4e8;color:#8b4a00}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.testi-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:28px 24px;position:relative}
+.testi-card::before{content:'❝';font-size:48px;color:var(--navy-10);position:absolute;top:14px;right:20px;line-height:1}
+.testi-text{font-size:14px;color:var(--ink2);line-height:1.75;margin-bottom:16px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0}
+.testi-name{font-size:13px;font-weight:700;color:var(--navy)}
+.testi-role{font-size:11px;color:var(--ink3)}
+
+/* ── ROADMAP ── */
+.roadmap{display:flex;flex-direction:column;gap:0;position:relative;max-width:600px;margin:0 auto}
+.roadmap::before{content:'';position:absolute;left:23px;top:24px;bottom:24px;width:3px;background:var(--border);border-radius:2px}
+.rm-step{display:flex;gap:18px;padding:18px 0;position:relative}
+.rm-dot{width:48px;height:48px;border-radius:50%;background:var(--white);border:3px solid var(--navy);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--navy);flex-shrink:0;z-index:1}
+.rm-dot.active{background:var(--navy);color:#fff}
+.rm-dot.accent{background:var(--accent);border-color:var(--accent);color:#fff}
+.rm-body h4{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:3px}
+.rm-body p{font-size:13px;color:var(--ink3);line-height:1.6}
+
+/* ── FAQ ── */
+.faq-list{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--navy-10)}
+.faq-q{padding:18px 22px;font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.faq-q::after{content:'+';font-size:20px;font-weight:300;color:var(--ink3);transition:transform .2s;flex-shrink:0}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{padding:0 22px 18px;font-size:14px;color:var(--ink3);line-height:1.75;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* ── CTA ── */
+.cta-band{background:var(--navy);text-align:center;padding:72px 1.5rem;color:#fff;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;border:80px solid rgba(255,255,255,.03);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-band::after{content:'';position:absolute;width:900px;height:900px;border-radius:50%;border:60px solid rgba(255,255,255,.02);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-inner{position:relative;z-index:1}
+.cta-band h2{font-size:30px;font-weight:800;letter-spacing:-.8px;margin-bottom:10px}
+.cta-band p{opacity:.6;margin-bottom:28px;font-size:15px;line-height:1.7}
+
+/* ── FOOTER ── */
+footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
+.foot-inner{max-width:1080px;margin:auto}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:30px;margin-bottom:28px}
+.foot-logo{font-size:20px;font-weight:800;color:#c8ccde;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.foot-col h4{color:#6b709e;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:11px}
+.foot-col p{font-size:13px;line-height:1.7}
+.foot-col a{display:block;color:#4a5070;text-decoration:none;font-size:13px;margin-bottom:6px;transition:color .18s;cursor:pointer}
+.foot-col a:hover{color:#c8ccde}
+.foot-bottom{border-top:1px solid #252a44;padding-top:16px;font-size:12px;text-align:center;color:#2e334e}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:var(--r);font-size:14px;font-weight:700;z-index:999;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none}
+.toast.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" onclick="showPage('home')">
+      <img src="koeru-logo.png" alt="KOERU" style="height:32px;width:auto"/>
+      KOERU
+    </a>
+    <div class="nav-links">
+      <a onclick="showPage('home')" id="nav-home" class="active">🏠 Trang chủ</a>
+      <a onclick="showPage('learn')" id="nav-learn">📖 Bài học</a>
+      <a onclick="showPage('flash')" id="nav-flash">🃏 Flashcard</a>
+      <a onclick="showPage('quiz')" id="nav-quiz">🧪 Kiểm tra</a>
+      <a onclick="showPage('blog')" id="nav-blog">📰 Blog</a>
+      <a onclick="showPage('admin')" id="nav-admin" class="admin-link">⚙️ Admin</a>
+    </div>
+    <div class="nav-right">
+      <div class="streak-pill">🔥 7 ngày</div>
+      <button class="btn btn-navy" onclick="showPage('register')">Đăng ký</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HOME ═══ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero" style="padding:80px 1.5rem 88px">
+    <div class="hero-inner">
+      <div class="hero-mascot" style="margin-bottom:24px">
+        <img src="koeru-logo.png" alt="KOERU" style="height:120px;width:auto"/>
+      </div>
+      <h1 style="font-size:46px;letter-spacing:-2.5px">Học ngôn ngữ.<br/><em>Thay đổi bản thân.</em></h1>
+      <p style="font-size:17px;max-width:460px;line-height:1.8">Tiếng Nhật & Tiếng Trung — bài học ngắn, AI nhận xét cá nhân, lộ trình rõ ràng. Bắt đầu từ con số 0.</p>
+      <div class="hero-cta" style="margin-top:32px">
+        <button class="btn btn-navy btn-hero" onclick="showPage('register')" style="padding:15px 32px;font-size:16px">Đăng ký học thử miễn phí →</button>
+        <button class="btn btn-ghost btn-hero" onclick="showPage('learn')" style="padding:15px 28px;font-size:15px">Khám phá bài học</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="sstat"><div class="sstat-n">200+</div><div class="sstat-l">Học viên</div></div>
+      <div class="sstat"><div class="sstat-n">5 phút</div><div class="sstat-l">Mỗi bài học</div></div>
+      <div class="sstat"><div class="sstat-n">AI</div><div class="sstat-l">Nhận xét cá nhân</div></div>
+      <div class="sstat"><div class="sstat-n">BR-VT</div><div class="sstat-l">Bà Rịa – Vũng Tàu</div></div>
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <div class="land-sec" style="background:var(--white)">
+    <div class="wrap land-center">
+      <div class="land-eyebrow">Chương trình học</div>
+      <div class="land-h2">Khóa học phù hợp với bạn</div>
+      <p class="land-sub">Dù bạn mới bắt đầu hay muốn nâng cao — KOERU có lộ trình cho bạn.</p>
+      <div class="courses-grid">
+        <div class="course-card" onclick="showPage('register')">
+          <span class="course-icon">🗣️</span>
+          <h3>Speaking Program</h3>
+          <p>Luyện nói tiếng Nhật thật sự. Online, nhóm nhỏ, roleplay tình huống thật.</p>
+          <span class="course-tag jp">🇯🇵 Tiếng Nhật</span>
+        </div>
+        <div class="course-card" onclick="showPage('register')">
+          <span class="course-icon">📖</span>
+          <h3>JLPT N5 → N3 Prep</h3>
+          <p>Lộ trình thi JLPT bài bản. Từ vựng, ngữ pháp, đọc hiểu — AI hỗ trợ ôn tập.</p>
+          <span class="course-tag jp">🇯🇵 Tiếng Nhật</span>
+        </div>
+        <div class="course-card" onclick="showPage('register')">
+          <span class="course-icon">💼</span>
+          <h3>Business Japanese</h3>
+          <p>Tiếng Nhật công sở. Kính ngữ, email, họp — thực tế cho người đi làm.</p>
+          <span class="course-tag jp">🇯🇵 Tiếng Nhật</span>
+        </div>
+        <div class="course-card" onclick="showPage('register')">
+          <span class="course-icon">🀄</span>
+          <h3>HSK 1 → HSK 3</h3>
+          <p>Tiếng Trung từ cơ bản đến giao tiếp. Phát âm chuẩn, từ vựng thực dụng.</p>
+          <span class="course-tag cn">🇨🇳 Tiếng Trung</span>
+        </div>
+        <div class="course-card" onclick="showPage('register')">
+          <span class="course-icon">💬</span>
+          <h3>Giao tiếp tiếng Trung</h3>
+          <p>Nói được ngay. Hội thoại thực tế, văn hóa Trung Quốc, luyện tone chuẩn.</p>
+          <span class="course-tag cn">🇨🇳 Tiếng Trung</span>
+        </div>
+        <div class="course-card" onclick="showPage('quiz')">
+          <span class="course-icon">🤖</span>
+          <h3>AI Learning Tools</h3>
+          <p>Quiz AI, Flashcard thông minh, nhận xét cá nhân hóa — miễn phí.</p>
+          <span class="course-tag jp" style="background:var(--accent-l);color:var(--accent)">✨ Miễn phí</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="land-sec">
+    <div class="wrap land-center">
+      <div class="land-eyebrow">Học viên nói gì</div>
+      <div class="land-h2">Câu chuyện thật từ KOERU</div>
+      <p class="land-sub">Không phải review giả. Đây là những người đã thay đổi nhờ việc bắt đầu.</p>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-text">"Học N3 rồi mà vẫn đứng hình khi nói. Vào Speaking Program của KOERU 2 tháng, giờ tôi tự tin giao tiếp với đồng nghiệp Nhật."</div>
+          <div class="testi-author">
+            <div class="testi-avatar">M</div>
+            <div><div class="testi-name">Minh Anh</div><div class="testi-role">Nhân viên công ty Nhật · BR-VT</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-text">"Mất gốc tiếng Nhật 2 năm, không dám quay lại. KOERU giúp mình bắt đầu lại từ từ, không áp lực. Giờ mình đang ôn N4."</div>
+          <div class="testi-author">
+            <div class="testi-avatar">T</div>
+            <div><div class="testi-name">Thanh Trúc</div><div class="testi-role">Sinh viên năm 3 · TP.HCM</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-text">"Tiếng Trung HSK 1 trong 3 tháng. Cô giáo dạy rất dễ hiểu, bài tập AI chấm ngay. Tôi học ban đêm sau giờ làm, rất tiện."</div>
+          <div class="testi-author">
+            <div class="testi-avatar">H</div>
+            <div><div class="testi-name">Hải Đăng</div><div class="testi-role">Nhân viên logistics · Bà Rịa</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JLPT / HSK ROADMAP -->
+  <div class="land-sec" style="background:var(--white)">
+    <div class="wrap land-center">
+      <div class="land-eyebrow">Lộ trình học</div>
+      <div class="land-h2">Từ con số 0 đến tự tin giao tiếp</div>
+      <p class="land-sub">Không cần kinh nghiệm. KOERU đưa bạn qua từng cấp độ rõ ràng.</p>
+      <div class="roadmap">
+        <div class="rm-step">
+          <div class="rm-dot active">N5</div>
+          <div class="rm-body">
+            <h4>🇯🇵 JLPT N5 · HSK 1</h4>
+            <p>Nền tảng: bảng chữ, 800 từ, ngữ pháp cơ bản. Hiểu được biển hiệu, menu, câu đơn giản.</p>
+          </div>
+        </div>
+        <div class="rm-step">
+          <div class="rm-dot active">N4</div>
+          <div class="rm-body">
+            <h4>🇯🇵 JLPT N4 · HSK 2</h4>
+            <p>Giao tiếp cơ bản: mua sắm, đặt hàng, tự giới thiệu bản thân. Bắt đầu nói được.</p>
+          </div>
+        </div>
+        <div class="rm-step">
+          <div class="rm-dot accent">N3</div>
+          <div class="rm-body">
+            <h4>🇯🇵 JLPT N3 · HSK 3</h4>
+            <p>Hiểu tin tức, phim không sub, email công việc. Đây là cấp "sống được" ở Nhật/Trung.</p>
+          </div>
+        </div>
+        <div class="rm-step">
+          <div class="rm-dot">🗣️</div>
+          <div class="rm-body">
+            <h4>Speaking Program</h4>
+            <p>Nói tự nhiên, không script. Roleplay tình huống thật, luyện shadowing, AI feedback.</p>
+          </div>
+        </div>
+        <div class="rm-step">
+          <div class="rm-dot">💼</div>
+          <div class="rm-body">
+            <h4>Business · Career</h4>
+            <p>Kính ngữ, họp tiếng Nhật, phỏng vấn xin việc, email chuyên nghiệp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI TOOLS -->
+  <div class="land-sec">
+    <div class="wrap land-center">
+      <div class="land-eyebrow">Công cụ AI</div>
+      <div class="land-h2">Học thông minh hơn với AI</div>
+      <p class="land-sub">KOERU dùng AI để cá nhân hóa việc học — không phải để thay thế giáo viên.</p>
+      <div class="tools-grid">
+        <div class="tool-card" onclick="showPage('quiz')"><span class="tool-icon">🧪</span><h3>Quiz AI</h3><p>AI chấm điểm & nhận xét cá nhân hóa từng câu sai</p></div>
+        <div class="tool-card" onclick="showPage('flash')"><span class="tool-icon">🃏</span><h3>Flashcard</h3><p>Ôn từ vựng theo spaced repetition — nhớ lâu hơn</p></div>
+        <div class="tool-card"><span class="tool-icon">💬</span><h3>AI giải thích</h3><p>Hỏi ngữ pháp, AI trả lời ngay bằng tiếng Việt</p><div class="tool-soon">Sắp ra mắt</div></div>
+        <div class="tool-card"><span class="tool-icon">🎯</span><h3>Lộ trình AI</h3><p>Gợi ý bài học phù hợp trình độ của bạn</p><div class="tool-soon">Sắp ra mắt</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="land-sec" style="background:var(--white)">
+    <div class="wrap land-center">
+      <div class="land-eyebrow">Câu hỏi thường gặp</div>
+      <div class="land-h2">FAQ</div>
+      <p class="land-sub" style="margin-bottom:28px">Những câu hỏi phổ biến nhất từ học viên mới.</p>
+      <div class="faq-list">
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q">Tôi chưa biết gì, có học được không?</div>
+          <div class="faq-a">Hoàn toàn được. KOERU bắt đầu từ con số 0 — bảng chữ cái, phát âm, từ vựng cơ bản. Bạn không cần kinh nghiệm trước đó.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q">Học online hay offline?</div>
+          <div class="faq-a">Online là chính — live class qua Zoom/Google Meet, nhóm nhỏ 4–6 người. Một số buổi đặc biệt có thể gặp mặt tại Bà Rịa – Vũng Tàu.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q">AI hỗ trợ học tập là gì?</div>
+          <div class="faq-a">KOERU dùng AI để chấm quiz, nhận xét cá nhân, gợi ý bài học phù hợp trình độ. AI hỗ trợ — không thay thế giáo viên thật.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q">Học phí bao nhiêu?</div>
+          <div class="faq-a">Các công cụ AI (Quiz, Flashcard) miễn phí. Khóa Speaking Program và JLPT/HSK Prep có học phí — liên hệ để được tư vấn phù hợp.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q">Tôi bận đi làm, học ban đêm được không?</div>
+          <div class="faq-a">Được. KOERU có lịch linh hoạt — buổi tối và cuối tuần. Bài học online 5 phút có thể học bất cứ lúc nào.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-q">KOERU có gì khác trung tâm ngoại ngữ khác?</div>
+          <div class="faq-a">KOERU không chỉ dạy ngữ pháp — KOERU giúp bạn nói được, tự tin giao tiếp, và thay đổi bản thân thông qua ngôn ngữ. Modern, tối giản, AI-assisted.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG -->
+  <div class="land-sec">
+    <div class="wrap">
+      <div class="land-center" style="margin-bottom:28px">
+        <div class="land-eyebrow">Blog</div>
+        <div class="land-h2">Bài viết mới nhất</div>
+      </div>
+      <div class="blog-grid" id="home-blog"></div>
+      <div style="text-align:center;margin-top:22px">
+        <button class="btn btn-ghost" onclick="showPage('blog')">Xem tất cả bài viết →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="cta-inner">
+      <img src="koeru-logo.png" alt="KOERU" style="height:60px;width:auto;opacity:.3;margin-bottom:20px;filter:brightness(10)"/>
+      <h2>Bắt đầu hành trình của bạn</h2>
+      <p>Không cần kinh nghiệm. Không cần thẻ tín dụng. Chỉ cần bắt đầu.</p>
+      <button class="btn" style="background:#fff;color:var(--navy);font-size:16px;padding:15px 32px;border-radius:var(--r);font-weight:800" onclick="showPage('register')">Đăng ký học thử miễn phí →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ LEARN ═══ -->
+<div class="page" id="page-learn">
+  <div class="sec"><div class="wrap">
+    <div class="eyebrow">Thư viện</div>
+    <div style="font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:18px">Chọn bài học</div>
+    <div class="cats" id="learn-cats">
+      <button class="cat-btn active" onclick="filterLearn('all',this)">Tất cả</button>
+      <button class="cat-btn" onclick="filterLearn('jp',this)">🇯🇵 Tiếng Nhật</button>
+      <button class="cat-btn" onclick="filterLearn('cn',this)">🇨🇳 Tiếng Trung</button>
+      <button class="cat-btn" onclick="filterLearn('vocab',this)">📝 Từ vựng</button>
+      <button class="cat-btn" onclick="filterLearn('grammar',this)">📐 Ngữ pháp</button>
+      <button class="cat-btn" onclick="filterLearn('kanji',this)">🖊 Kanji</button>
+    </div>
+    <div class="lesson-feed" id="learn-feed"></div>
+  </div></div>
+</div>
+
+<!-- ═══ FLASH ═══ -->
+<div class="page" id="page-flash">
+  <div class="sec"><div class="wrap">
+    <div class="fc-wrap">
+      <div class="eyebrow" style="text-align:center">🃏 Flashcard</div>
+      <div style="font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;text-align:center;margin-bottom:18px">Ôn từ vựng mỗi ngày</div>
+      <div class="fc-selects">
+        <select id="fc-lang" onchange="loadFlash()"><option value="jp">🇯🇵 Tiếng Nhật</option><option value="cn">🇨🇳 Tiếng Trung</option></select>
+        <select id="fc-set" onchange="loadFlash()"><option value="n5">N5 · Sơ cấp</option><option value="n4">N4 · Trung cấp</option></select>
+      </div>
+      <div class="fc-card" id="fc-card" onclick="flipCard()">
+        <div class="fc-front"><div class="fc-jp" id="fc-word"></div><div class="fc-read" id="fc-read"></div><div class="fc-hint">👆 Nhấn để xem nghĩa</div></div>
+        <div class="fc-back"><div class="fc-meaning" id="fc-meaning"></div><div class="fc-example" id="fc-example"></div></div>
+      </div>
+      <div class="fc-counter" id="fc-counter"></div>
+      <div class="fc-prog"><div class="fc-prog-fill" id="fc-prog-fill"></div></div>
+      <div class="fc-nav">
+        <button class="btn btn-ghost" onclick="prevCard()">← Trước</button>
+        <button class="btn" style="background:#fdf2f2;color:#a32d2d;border:1.5px solid #f5c1c1;font-weight:700" onclick="markUnknown()">❌ Chưa nhớ</button>
+        <button class="btn" style="background:#e6faf2;color:#1a6b4a;border:1.5px solid #95d5b2;font-weight:700" onclick="markKnown()">✅ Đã nhớ</button>
+        <button class="btn btn-ghost" onclick="nextCard()">Tiếp →</button>
+      </div>
+      <div style="text-align:center;margin-top:22px"><button class="btn btn-navy" onclick="showPage('quiz')">🧪 Kiểm tra ngay</button></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="page" id="page-quiz">
+  <div class="sec"><div class="wrap">
+    <div class="quiz-wrap">
+      <div class="quiz-top">
+        <div class="quiz-top-row">
+          <div class="quiz-top-title">🧪 Kiểm tra trình độ</div>
+          <div style="display:flex;gap:7px;flex-wrap:wrap">
+            <select id="ql" onchange="loadQuiz()"><option value="jp">🇯🇵 Tiếng Nhật</option><option value="cn">🇨🇳 Tiếng Trung</option></select>
+            <select id="qv" onchange="loadQuiz()"><option value="n5">Sơ cấp</option><option value="n4">Trung cấp</option><option value="n3">Nâng cao</option></select>
+          </div>
+        </div>
+        <div class="api-row">
+          <label>🤖 AI</label>
+          <select id="ai-provider" onchange="updateKeyPlaceholder()" style="padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:13px;color:var(--ink);background:var(--white);cursor:pointer">
+            <option value="groq">Groq (Miễn phí)</option>
+            <option value="claude">Claude (Anthropic)</option>
+            <option value="gemini">Gemini (Google)</option>
+          </select>
+          <input type="password" id="akey" placeholder="sk-ant-..."/>
+          <button class="btn btn-navy btn-sm" onclick="saveKey()">Lưu</button>
+        </div>
+        <div class="pbar-meta"><span id="pbar-txt">0 / 5 câu</span><span id="pbar-pct">0%</span></div>
+        <div class="pbar"><div class="pbar-fill" id="pbar-fill" style="width:0%"></div></div>
+      </div>
+      <div id="q-wrap"></div>
+      <div class="submit-row"><button class="btn btn-navy" id="sub-btn" onclick="submitQuiz()" style="font-size:15px;padding:12px 26px">Nộp bài & nhận nhận xét AI →</button></div>
+      <div class="score-wrap" id="score-wrap">
+        <div class="score-big" id="score-big">0/5</div>
+        <div class="score-sub">câu đúng</div>
+        <div class="xp-earned" id="xp-earned">⚡ +0 XP</div>
+        <div id="score-msg" style="margin-top:12px;font-size:14px;color:var(--ink3)"></div>
+      </div>
+      <div class="ai-lbl" id="ai-lbl"></div>
+      <div class="ai-wrap" id="ai-wrap"></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ═══ BLOG ═══ -->
+<div class="page" id="page-blog">
+  <div class="sec"><div class="wrap">
+    <div class="eyebrow">Blog</div>
+    <div style="font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:18px">Kiến thức ngoại ngữ</div>
+    <div class="cats" id="blog-cats">
+      <button class="cat-btn active" onclick="filterBlog('all',this)">Tất cả</button>
+      <button class="cat-btn" onclick="filterBlog('jp',this)">🇯🇵 Tiếng Nhật</button>
+      <button class="cat-btn" onclick="filterBlog('cn',this)">🇨🇳 Tiếng Trung</button>
+      <button class="cat-btn" onclick="filterBlog('tip',this)">💡 Mẹo học</button>
+    </div>
+    <div class="blog-grid" id="blog-grid"></div>
+  </div></div>
+</div>
+
+<!-- ═══ REGISTER ═══ -->
+<div class="page" id="page-register">
+  <div class="sec bg-white">
+    <div class="wrap" style="max-width:720px">
+      <div class="eyebrow">Đăng ký</div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px">
+        <h2 style="font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.5px">Bắt đầu hành trình của bạn</h2>
+      </div>
+      <p style="color:var(--ink3);font-size:14px;margin-bottom:28px;line-height:1.7">Điền thông tin bên dưới — KOERU sẽ liên hệ tư vấn trong vòng 24 giờ.</p>
+      <div style="border-radius:var(--rl);overflow:hidden;border:1.5px solid var(--border)">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform?embedded=true"
+          width="100%" height="1359" frameborder="0" marginheight="0" marginwidth="0"
+          style="display:block">Loading…</iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ADMIN ═══ -->
+<div class="page" id="page-admin">
+  <!-- Admin lock screen -->
+  <div id="admin-lock" style="display:flex;align-items:center;justify-content:center;min-height:60vh">
+    <div style="background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:40px;max-width:360px;width:100%;text-align:center;box-shadow:var(--shadow)">
+      <div style="font-size:36px;margin-bottom:12px">🔒</div>
+      <h3 style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:6px">Admin Panel</h3>
+      <p style="font-size:13px;color:var(--ink3);margin-bottom:20px">Nhập mật khẩu để tiếp tục</p>
+      <input type="password" id="admin-pw-input" placeholder="Mật khẩu..." style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:14px;margin-bottom:10px;outline:none" onkeydown="if(event.key==='Enter')checkAdminPw()"/>
+      <button class="btn btn-navy" style="width:100%" onclick="checkAdminPw()">Đăng nhập</button>
+      <div id="admin-pw-err" style="color:#c0392b;font-size:12px;margin-top:8px;display:none">Mật khẩu không đúng.</div>
+    </div>
+  </div>
+  <!-- Admin content (hidden until unlocked) -->
+  <div id="admin-content" style="display:none">
+  <div class="wrap"><div class="admin-wrap">
+    <div class="admin-header">
+      <div>
+        <h2>⚙️ Admin Panel — KOERU</h2>
+        <p>Quản lý nội dung website · Dữ liệu lưu trên trình duyệt này</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-ghost btn-sm" onclick="exportData()">📥 Export JSON</button>
+        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('import-file').click()">📤 Import JSON</button>
+        <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(this)"/>
+      </div>
+    </div>
+
+    <div class="sheets-box">
+      <h3>🔗 Đồng bộ Google Sheets</h3>
+      <p>Nhập URL <strong>Published CSV</strong> của Google Sheet để tự động nhập nội dung.<br/>Cách lấy: <em>File → Share → Publish to web → CSV → Copy link</em></p>
+      <div style="margin-bottom:12px">
+        <div style="font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px">Blog</div>
+        <div class="sheets-input-row">
+          <input id="sheets-blog-url" placeholder="https://docs.google.com/spreadsheets/d/.../pub?output=csv"/>
+          <button class="btn btn-navy btn-sm" onclick="syncSheet('blog')">Đồng bộ Blog</button>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px">Bài học</div>
+        <div class="sheets-input-row">
+          <input id="sheets-lesson-url" placeholder="https://docs.google.com/spreadsheets/d/.../pub?output=csv&gid=..."/>
+          <button class="btn btn-navy btn-sm" onclick="syncSheet('lesson')">Đồng bộ Bài học</button>
+        </div>
+      </div>
+      <div class="sync-status" id="sync-status"></div>
+      <div style="margin-top:10px;font-size:12px;color:var(--ink3)">
+        📋 Cột Blog: <code>title, excerpt, lang, cat, flag, tagBg, tagC, tag, date, views, bg</code><br/>
+        📋 Cột Bài học: <code>title, lang, cat, thumb, bg, type, dur, xp</code>
+      </div>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="atab active" onclick="switchAdminTab('blog',this)">📰 Blog (<span id="blog-count">0</span>)</button>
+      <button class="atab" onclick="switchAdminTab('lesson',this)">📖 Bài học (<span id="lesson-count">0</span>)</button>
+      <button class="atab" onclick="switchAdminTab('doc',this)">📄 Tài liệu (<span id="doc-count">0</span>)</button>
+    </div>
+
+    <div id="admin-blog" class="admin-section">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn btn-navy btn-sm" onclick="openModal('blog')">+ Thêm bài viết</button></div>
+      <div class="admin-table-wrap"><table class="admin-table">
+        <thead><tr><th>Tiêu đề</th><th>Ngôn ngữ</th><th>Danh mục</th><th>Ngày</th><th>Thao tác</th></tr></thead>
+        <tbody id="blog-tbody"></tbody>
+      </table></div>
+    </div>
+    <div id="admin-lesson" class="admin-section" style="display:none">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn btn-navy btn-sm" onclick="openModal('lesson')">+ Thêm bài học</button></div>
+      <div class="admin-table-wrap"><table class="admin-table">
+        <thead><tr><th>Tiêu đề</th><th>Ngôn ngữ</th><th>Loại</th><th>Thời gian</th><th>XP</th><th>Thao tác</th></tr></thead>
+        <tbody id="lesson-tbody"></tbody>
+      </table></div>
+    </div>
+    <div id="admin-doc" class="admin-section" style="display:none">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="btn btn-navy btn-sm" onclick="openModal('doc')">+ Thêm tài liệu</button></div>
+      <div class="admin-table-wrap"><table class="admin-table">
+        <thead><tr><th>Tên tài liệu</th><th>Ngôn ngữ</th><th>Định dạng</th><th>Link</th><th>Thao tác</th></tr></thead>
+        <tbody id="doc-tbody"></tbody>
+      </table></div>
+    </div>
+  </div></div>
+  </div><!-- /admin-content -->
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay hidden" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal"><h3 id="modal-title"></h3><div id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Hủy</button>
+      <button class="btn btn-navy" onclick="saveItem()">💾 Lưu</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="foot-logo">
+          <img src="koeru-logo.png" alt="KOERU" style="height:40px;width:auto;filter:brightness(1.8) contrast(1.1)"/>
+          KOERU
+        </div>
+        <p>Nền tảng microlearning ngoại ngữ. Nhật · Trung. Bà Rịa – Vũng Tàu.</p>
+      </div>
+      <div class="foot-col"><h4>Học tập</h4><a onclick="showPage('learn')">Bài học</a><a onclick="showPage('flash')">Flashcard</a><a onclick="showPage('quiz')">Kiểm tra</a><a onclick="showPage('blog')">Blog</a></div>
+      <div class="foot-col"><h4>Chương trình</h4><a>Tiếng Nhật JLPT</a><a>Tiếng Trung HSK</a></div>
+      <div class="foot-col"><h4>Liên hệ</h4><a>📍 Bà Rịa – Vũng Tàu</a><a href="tel:0797836395">📞 0797 836 395</a><a href="https://zalo.me/0797836395" target="_blank">💬 Zalo KOERU</a><a href="https://www.facebook.com/profile.php?id=61589306553617" target="_blank">📘 Facebook</a><a href="https://www.instagram.com/koeru2505" target="_blank">📸 Instagram</a></div>
+    </div>
+    <div class="foot-bottom">© 2026 KOERU Language Center</div>
+  </div>
+</footer>
+
+<script>
+/* ─── DEFAULT DATA ─── */
+const DEF_L=[
+  {id:1,lang:'jp',cat:'vocab',thumb:'🇯🇵',bg:'#eef2ff',title:'50 từ vựng N5 thông dụng nhất',type:'Từ vựng',dur:'5 phút',xp:15},
+  {id:2,lang:'jp',cat:'grammar',thumb:'✏️',bg:'#f0eeff',title:'Ngữ pháp ～てください',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:3,lang:'jp',cat:'kanji',thumb:'🖊',bg:'#e8eeff',title:'Kanji N5 — 10 chữ đầu tiên',type:'Kanji',dur:'6 phút',xp:18},
+  {id:4,lang:'cn',cat:'vocab',thumb:'🇨🇳',bg:'#fff4e8',title:'150 từ vựng HSK 1 bắt buộc',type:'Từ vựng',dur:'5 phút',xp:15},
+  {id:5,lang:'cn',cat:'grammar',thumb:'📐',bg:'#ffeef5',title:'Câu "把" — Tác động lên tân ngữ',type:'Ngữ pháp',dur:'5 phút',xp:14},
+  {id:6,lang:'jp',cat:'vocab',thumb:'🎌',bg:'#e8f0ff',title:'Từ vựng chủ đề Gia đình N5',type:'Từ vựng',dur:'4 phút',xp:12},
+  {id:7,lang:'cn',cat:'kanji',thumb:'🀄',bg:'#fff8e8',title:'Thanh điệu tiếng Trung — 4 thanh',type:'Phát âm',dur:'6 phút',xp:16},
+  {id:8,lang:'jp',cat:'grammar',thumb:'🗾',bg:'#ede8ff',title:'Ngữ pháp ～ながら',type:'Ngữ pháp',dur:'4 phút',xp:12},
+];
+const DEF_B=[
+  {id:1,lang:'jp',cat:'vocab',bg:'#eef2ff',flag:'🇯🇵',tagBg:'#e0e5ff',tagC:'#2d3561',tag:'Tiếng Nhật',title:'50 từ vựng N5 thông dụng nhất cần thuộc ngay',excerpt:'Danh sách từ vựng thiết yếu giúp bạn vượt qua JLPT N5, kèm ví dụ câu thực tế...',date:'12/05/2025',views:'1,240'},
+  {id:2,lang:'cn',cat:'vocab',bg:'#fff4e8',flag:'🇨🇳',tagBg:'#ffecd6',tagC:'#8b4a00',tag:'Tiếng Trung',title:'HSK 1 — Bộ 150 từ vựng bắt buộc và cách ghi nhớ nhanh',excerpt:'Chinh phục HSK 1 cần nắm chắc 150 từ vựng. KOERU tổng hợp kèm mẹo nhớ...',date:'05/05/2025',views:'756'},
+  {id:3,lang:'jp',cat:'grammar',bg:'#f0eeff',flag:'🇯🇵',tagBg:'#e0e5ff',tagC:'#2d3561',tag:'Tiếng Nhật',title:'Ngữ pháp N4 — 20 mẫu câu quan trọng nhất',excerpt:'20 cấu trúc N4 hay xuất hiện trong đề thi JLPT, kèm ví dụ và bẫy thường gặp...',date:'01/05/2025',views:'622'},
+  {id:4,lang:'cn',cat:'tip',bg:'#fff8e8',flag:'🇨🇳',tagBg:'#ffecd6',tagC:'#8b4a00',tag:'Tiếng Trung',title:'Thanh điệu tiếng Trung — Mẹo phân biệt 4 thanh',excerpt:'Người Việt có lợi thế lớn khi học thanh điệu. Cùng KOERU luyện phát âm chuẩn...',date:'28/04/2025',views:'890'},
+  {id:5,lang:'jp',cat:'tip',bg:'#e8f0ff',flag:'🇯🇵',tagBg:'#e0e5ff',tagC:'#2d3561',tag:'Tiếng Nhật',title:'Kanji N5 — 80 chữ Hán cần thuộc trước kỳ thi',excerpt:'80 Kanji N5 sắp xếp theo tần suất trong đề thi, kèm cách viết và ví dụ...',date:'25/04/2025',views:'1,100'},
+];
+const DEF_D=[
+  {id:1,lang:'jp',title:'Giáo trình Minna no Nihongo N5',format:'PDF',size:'180 trang',link:''},
+  {id:2,lang:'jp',title:'Bộ đề luyện thi JLPT N4 2024',format:'PDF',size:'95 trang',link:''},
+  {id:3,lang:'cn',title:'Giáo trình HSK 1 chuẩn',format:'PDF',size:'90 trang',link:''},
+  {id:4,lang:'cn',title:'Bảng chữ Pinyin đầy đủ',format:'PDF',size:'2 trang',link:''},
+];
+
+/* ─── STATE ─── */
+function load(k,d){try{const v=localStorage.getItem('koeru_'+k);return v?JSON.parse(v):d;}catch{return d;}}
+function save(k,v){try{localStorage.setItem('koeru_'+k,JSON.stringify(v));}catch{}}
+let LESSONS=load('lessons',DEF_L),BLOGS=load('blogs',DEF_B),DOCS=load('docs',DEF_D);
+let apiKey=load('apikey','');
+async function fetchExternalData(){
+  try{
+    const [lRes,bRes,dRes]=await Promise.all([
+      fetch('lessons.json'),
+      fetch('blogs.json'),
+      fetch('docs.json')
+    ]);
+    if(lRes.ok){LESSONS=await lRes.json();save('lessons',LESSONS);}
+    if(bRes.ok){BLOGS=await bRes.json();save('blogs',BLOGS);}
+    if(dRes.ok){DOCS=await dRes.json();save('docs',DOCS);}
+    try{renderHomeLesson();renderHomeBlog();renderAdminTable(adminTab);}catch(e){}
+    toast('✅ Đã nạp dữ liệu từ *.json');
+  }catch(err){console.warn('Không load được data/*.json:',err);}  
+}
+setTimeout(()=>{
+  const savedKey=load('apikey','');
+  const savedProvider=load('ai-provider','groq');
+  const sel=document.getElementById('ai-provider');
+  const inp=document.getElementById('akey');
+  if(sel)sel.value=savedProvider;
+  if(inp)inp.value=savedKey||'';
+  if(savedKey){apiKey=savedKey;}
+  updateKeyPlaceholder();
+},100);
+function nextId(a){return a.length?Math.max(...a.map(x=>x.id||0))+1:1;}
+
+/* ─── FLASH DATA ─── */
+const FLASH={jp:{n5:[{w:'食べる',r:'たべる (taberu)',m:'Ăn',ex:'毎日ご飯を食べる'},{w:'飲む',r:'のむ (nomu)',m:'Uống',ex:'水を飲む'},{w:'行く',r:'いく (iku)',m:'Đi',ex:'学校に行く'},{w:'見る',r:'みる (miru)',m:'Nhìn/Xem',ex:'テレビを見る'},{w:'話す',r:'はなす (hanasu)',m:'Nói chuyện',ex:'日本語を話す'},{w:'書く',r:'かく (kaku)',m:'Viết',ex:'手紙を書く'},{w:'読む',r:'よむ (yomu)',m:'Đọc',ex:'本を読む'}],n4:[{w:'決める',r:'きめる',m:'Quyết định',ex:'計画を決める'},{w:'続ける',r:'つづける',m:'Tiếp tục',ex:'勉強を続ける'},{w:'始める',r:'はじめる',m:'Bắt đầu',ex:'仕事を始める'},{w:'変える',r:'かえる',m:'Thay đổi',ex:'計画を変える'},{w:'集める',r:'あつめる',m:'Thu thập',ex:'情報を集める'}]},cn:{n5:[{w:'你好',r:'nǐ hǎo',m:'Xin chào',ex:'你好，我是老师'},{w:'谢谢',r:'xiè xie',m:'Cảm ơn',ex:'谢谢你的帮助'},{w:'苹果',r:'píng guǒ',m:'Táo',ex:'我喜欢吃苹果'},{w:'水',r:'shuǐ',m:'Nước',ex:'请给我一杯水'},{w:'学习',r:'xué xí',m:'Học tập',ex:'我每天学习中文'}],n4:[{w:'虽然',r:'suī rán',m:'Mặc dù',ex:'虽然累，但是很开心'},{w:'越来越',r:'yuè lái yuè',m:'Ngày càng',ex:'天气越来越热'},{w:'把',r:'bǎ',m:'Giới từ "把"',ex:'我把作业做完了'},{w:'被',r:'bèi',m:'Bị (bị động)',ex:'蛋糕被他吃了'}]}};
+
+const QUIZZES={jp:{n5:[{q:'「ありがとう」の意味は？',opts:['Xin chào','Cảm ơn','Xin lỗi','Tạm biệt'],ans:1,exp:'「ありがとう」= Cảm ơn.'},{q:'「水」(みず) の意味は？',opts:['Lửa','Gió','Nước','Đất'],ans:2,exp:'「水」(mizu) = nước.'},{q:'「私は学生___。」正しいのは？',opts:['が','は','の','です'],ans:3,exp:'「です」= trợ từ cuối câu, tương đương "là".'},{q:'「今日」の読み方は？',opts:['こんにち','きょう','あした','きのう'],ans:1,exp:'「今日」đọc là「きょう」= hôm nay.'},{q:'食べ物はどれ？',opts:['本','車','りんご','椅子'],ans:2,exp:'「りんご」= táo.'}],n4:[{q:'「〜ながら」の正しい使い方は？',opts:['音楽を聴きながら勉強する','食べながら寝た後','学校ながら行く','ながら楽しい'],ans:0,exp:'「〜ながら」= vừa...vừa (đồng thời).'},{q:'「〜てしまう」の意味は？',opts:['Đang làm','Đã xong (hối hận)','Sắp làm','Không muốn'],ans:1,exp:'「〜てしまう」= hoàn thành, thường có sắc thái hối tiếc.'},{q:'「優しい___親切だ」接続は？',opts:['が','し、','で','から'],ans:1,exp:'「〜し、〜し」liệt kê nhiều đặc điểm.'},{q:'「10分くらい」の意味は？',opts:['Đúng 10 phút','Khoảng 10 phút','Hơn 10 phút','Ít hơn'],ans:1,exp:'「くらい」= khoảng.'},{q:'敬語で「食べる」は？',opts:['食べます','召し上がります','いただきます','食べられます'],ans:1,exp:'「召し上がる」là tôn kính ngữ của 食べる.'}],n3:[{q:'「〜にもかかわらず」の意味は？',opts:['Vì vậy','Mặc dù','Nếu như','Trước khi'],ans:1,exp:'「〜にもかかわらず」= mặc dù, bất chấp.'},{q:'「〜をきっかけに」の意味は？',opts:['Nhờ vào','Bất chấp','Nhân dịp','Trong khi'],ans:2,exp:'「〜をきっかけに」= nhân dịp, lấy...làm cơ hội.'},{q:'「いかに〜か」の用法は？',opts:['Hỏi số lượng','Nhấn mạnh mức độ','Điều kiện','Nguyên nhân'],ans:1,exp:'「いかに〜か」nhấn mạnh mức độ.'},{q:'「固然」の意味は？',opts:['Vì vậy','Tuy đúng là','Nếu như','Trước khi'],ans:1,exp:'「固然」= tuy đúng là — thừa nhận trước rồi phản bác.'},{q:'「召し上がる」の用法は？',opts:['Bản thân','Người bề trên','Bạn bè','Trẻ em'],ans:1,exp:'「召し上がる」dùng khi nói về hành động của người bề trên.'}]},cn:{n5:[{q:'"你好"的意思？',opts:['Cảm ơn','Xin chào','Xin lỗi','Tạm biệt'],ans:1,exp:'"你好" = Xin chào.'},{q:'"苹果"的意思？',opts:['Cam','Táo','Chuối','Nho'],ans:1,exp:'"苹果" = táo.'},{q:'"几点了？"的意思？',opts:['Bao nhiêu tiền?','Mấy giờ rồi?','Bao nhiêu tuổi?','Ở đâu?'],ans:1,exp:'"几点了" = Mấy giờ rồi?'},{q:'哪个是动词？',opts:['美丽','书','跑步','快'],ans:2,exp:'"跑步" = chạy bộ, động từ.'},{q:'"谢谢"的意思？',opts:['Xin lỗi','Tạm biệt','Cảm ơn','Xin chào'],ans:2,exp:'"谢谢" = Cảm ơn.'}],n4:[{q:'"虽然...但是..."的用法？',opts:['Nguyên nhân','Mặc dù...nhưng','Điều kiện','Mục đích'],ans:1,exp:'"虽然...但是..." = mặc dù...nhưng.'},{q:'"越来越..."的意思？',opts:['Ngày càng','Vừa...vừa','Không bao giờ','Thỉnh thoảng'],ans:0,exp:'"越来越" = ngày càng.'},{q:'"一边...一边..."的意思？',opts:['Sau khi','Vừa...vừa (cùng lúc)','Trước khi','Hoặc là'],ans:1,exp:'"一边...一边..." = vừa...vừa.'},{q:'"把"字句的作用？',opts:['Bị động','Tác động lên tân ngữ','So sánh','Thời gian'],ans:1,exp:'Câu "把" nhấn mạnh kết quả tác động.'},{q:'"被"字句的意思？',opts:['Chủ động','Bị động','So sánh','Điều kiện'],ans:1,exp:'"被" = bị động.'}],n3:[{q:'"尽管...还是..."的意思？',opts:['Vì','Mặc dù...vẫn','Nếu','Bởi vì'],ans:1,exp:'"尽管...还是..." = mặc dù...vẫn.'},{q:'"与其...不如..."的意思？',opts:['Không chỉ...mà còn','Thà...còn hơn','Vừa...vừa','Nếu...thì'],ans:1,exp:'"与其...不如..." = thà...còn hơn.'},{q:'"以...为..."的用法？',opts:['Lấy...làm','Vì','Mặc dù','Khi'],ans:0,exp:'"以...为..." = lấy...làm.'},{q:'"固然...但是..."的意思？',opts:['Mặc dù...nhưng','Vì...nên','Nếu...thì','Không chỉ...mà còn'],ans:0,exp:'"固然...但是..." = tuy đúng là...nhưng.'},{q:'"宁可...也不..."的意思？',opts:['Không chỉ','Thà...còn hơn','Vừa...vừa','Mặc dù'],ans:1,exp:'"宁可...也不..." = thà...còn hơn không.'}]}};
+
+/* ─── ADMIN AUTH ─── */
+const ADMIN_PW='koeru2026';
+let adminUnlocked=load('admin-unlocked',false);
+function checkAdminPw(){
+  const v=document.getElementById('admin-pw-input').value;
+  if(v===ADMIN_PW){adminUnlocked=true;save('admin-unlocked',true);showAdminContent();}
+  else{document.getElementById('admin-pw-err').style.display='block';}
+}
+function showAdminContent(){
+  document.getElementById('admin-lock').style.display='none';
+  document.getElementById('admin-content').style.display='block';
+  renderAdmin();
+}
+
+/* ─── NAV ─── */
+function showPage(p){
+  document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(e=>e.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.getElementById('nav-'+p).classList.add('active');
+  window.scrollTo(0,0);
+  if(p==='admin'){if(adminUnlocked)showAdminContent();else{document.getElementById('admin-lock').style.display='flex';document.getElementById('admin-content').style.display='none';}}
+  else({home:()=>{renderHomeLesson();renderHomeBlog();},learn:()=>renderLearn('all'),blog:()=>renderBlog('all'),quiz:loadQuiz,flash:loadFlash}[p]||function(){})();
+}
+
+/* ─── RENDER ─── */
+function lm(l){return l==='jp'?{bg:'#e0e5ff',c:'#2d3561',label:'🇯🇵 Nhật'}:{bg:'#ffecd6',c:'#8b4a00',label:'🇨🇳 Trung'};}
+function lessonCard(l){const m=lm(l.lang);return `<div class="lcard"><div class="lcard-thumb" style="background:${l.bg||'#eef2ff'}">${l.thumb||'📖'}<span class="lcard-lang" style="background:${m.bg};color:${m.c}">${m.label}</span><span class="lcard-dur">⏱ ${l.dur||'5 phút'}</span></div><div class="lcard-body"><div class="lcard-type">${l.type||'Bài học'}</div><div class="lcard-title">${l.title}</div><div class="lcard-meta"><span style="font-size:12px">📖 Bài học</span><span class="xp-badge">+${l.xp||10} XP</span></div></div></div>`;}
+function blogCard(b){return `<div class="bcard"><div class="bcard-img" style="background:${b.bg||'#eef2ff'}">${b.flag||'📰'}</div><div class="bcard-body"><span class="bcard-tag" style="background:${b.tagBg||'#e0e5ff'};color:${b.tagC||'#2d3561'}">${b.tag||'Bài viết'}</span><div class="bcard-title">${b.title}</div><div class="bcard-excerpt">${b.excerpt||''}</div><div class="bcard-meta">📅 ${b.date||''} · 👁 ${b.views||'0'} lượt xem</div></div></div>`;}
+function renderHomeLesson(){const el=document.getElementById('home-lessons');if(el)el.innerHTML=LESSONS.slice(0,4).map(lessonCard).join('')||'<div class="empty-state">Chưa có bài học.</div>';}
+function renderHomeBlog(){document.getElementById('home-blog').innerHTML=BLOGS.slice(0,3).map(blogCard).join('')||'<div class="empty-state">Chưa có bài viết.</div>';}
+function renderLearn(f){const it=f==='all'?LESSONS:LESSONS.filter(l=>l.lang===f||l.cat===f);document.getElementById('learn-feed').innerHTML=it.map(lessonCard).join('')||'<div class="empty-state">Không có bài học nào.</div>';}
+function filterLearn(f,b){document.querySelectorAll('#learn-cats .cat-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderLearn(f);}
+function renderBlog(f){const it=f==='all'?BLOGS:BLOGS.filter(b=>b.lang===f||b.cat===f);document.getElementById('blog-grid').innerHTML=it.map(blogCard).join('')||'<div class="empty-state">Không có bài viết nào.</div>';}
+function filterBlog(f,b){document.querySelectorAll('#blog-cats .cat-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderBlog(f);}
+
+/* ─── FLASH ─── */
+let fcCards=[],fcQueue=[],fcIdx=0,fcKnown=0,fcUnknown=0;
+function loadFlash(){
+  const l=document.getElementById('fc-lang').value,s=document.getElementById('fc-set').value;
+  fcCards=FLASH[l][s]||FLASH[l]['n5'];
+  fcQueue=fcCards.map((_,i)=>i);fcIdx=0;fcKnown=0;fcUnknown=0;renderFC();
+}
+function renderFC(){
+  if(!fcQueue.length){
+    document.getElementById('fc-word').textContent='🎉';
+    document.getElementById('fc-read').textContent='';
+    document.getElementById('fc-meaning').textContent=`Xong! Nhớ: ${fcKnown} · Chưa nhớ: ${fcUnknown}`;
+    document.getElementById('fc-example').textContent='Nhấn "Học lại" để ôn thêm.';
+    document.getElementById('fc-card').classList.remove('flipped');
+    document.getElementById('fc-counter').textContent=`${fcKnown}/${fcCards.length} đã nhớ`;
+    document.getElementById('fc-prog-fill').style.width='100%';
+    return;
+  }
+  const c=fcCards[fcQueue[fcIdx%fcQueue.length]];
+  document.getElementById('fc-word').textContent=c.w;
+  document.getElementById('fc-read').textContent=c.r;
+  document.getElementById('fc-meaning').textContent=c.m;
+  document.getElementById('fc-example').textContent=c.ex;
+  document.getElementById('fc-card').classList.remove('flipped');
+  const total=fcCards.length,remaining=fcQueue.length;
+  document.getElementById('fc-counter').textContent=`Còn ${remaining} từ · Đã nhớ ${fcKnown}/${total}`;
+  document.getElementById('fc-prog-fill').style.width=Math.round(fcKnown/total*100)+'%';
+}
+function flipCard(){document.getElementById('fc-card').classList.toggle('flipped');}
+function markKnown(){
+  const cur=fcQueue[fcIdx%fcQueue.length];
+  fcQueue.splice(fcIdx%fcQueue.length,1);
+  fcKnown++;
+  if(fcIdx>=fcQueue.length&&fcQueue.length)fcIdx=0;
+  renderFC();
+}
+function markUnknown(){
+  fcUnknown++;
+  /* đưa thẻ này ra cuối queue để ôn lại */
+  const cur=fcQueue.splice(fcIdx%fcQueue.length,1)[0];
+  fcQueue.push(cur);
+  if(fcIdx>=fcQueue.length)fcIdx=0;
+  renderFC();
+}
+function nextCard(){fcIdx=(fcIdx+1)%Math.max(fcQueue.length,1);renderFC();}
+function prevCard(){fcIdx=(fcIdx-1+Math.max(fcQueue.length,1))%Math.max(fcQueue.length,1);renderFC();}
+
+/* ─── QUIZ ─── */
+let cQ=[],uA=[],done=[];
+function updateKeyPlaceholder(){const p=document.getElementById('ai-provider').value;const ph={'claude':'sk-ant-...','groq':'gsk_...','gemini':'AIza...'};document.getElementById('akey').placeholder=ph[p]||'API Key...';}
+function saveKey(){const provider=document.getElementById('ai-provider').value;apiKey=document.getElementById('akey').value.trim();if(apiKey){save('apikey',apiKey);save('ai-provider',provider);toast('✅ Đã lưu API Key — '+provider);}}
+function loadQuiz(){
+  const l=document.getElementById('ql').value,v=document.getElementById('qv').value;
+  cQ=QUIZZES[l][v]||QUIZZES[l]['n5'];uA=new Array(cQ.length).fill(-1);done=new Array(cQ.length).fill(false);
+  document.getElementById('score-wrap').classList.remove('show');document.getElementById('ai-wrap').classList.remove('show');document.getElementById('ai-lbl').classList.remove('show');document.getElementById('sub-btn').style.display='inline-flex';
+  document.getElementById('q-wrap').innerHTML=cQ.map((q,i)=>`<div class="qcard"><div class="qn">Câu ${i+1} / ${cQ.length}</div><div class="qt">${q.q}</div><div class="opts" id="o-${i}">${q.opts.map((o,j)=>`<div class="opt" id="o-${i}-${j}" onclick="pick(${i},${j})">${String.fromCharCode(65+j)}. ${o}</div>`).join('')}</div><div class="fb" id="fb-${i}"></div><div class="exp" id="exp-${i}"></div></div>`).join('');
+  updatePbar();
+}
+function pick(qi,oi){if(done[qi])return;uA[qi]=oi;done[qi]=true;document.querySelectorAll(`#o-${qi} .opt`).forEach(o=>o.classList.remove('sel'));document.getElementById(`o-${qi}-${oi}`).classList.add('sel');const cor=cQ[qi].ans;document.getElementById(`o-${qi}-${cor}`).classList.add('ok');const fb=document.getElementById(`fb-${qi}`);if(oi!==cor){document.getElementById(`o-${qi}-${oi}`).classList.add('no');fb.textContent=`❌ Sai. Đáp án: ${String.fromCharCode(65+cor)}. ${cQ[qi].opts[cor]}`;fb.className='fb show no';}else{fb.textContent='✅ Chính xác!';fb.className='fb show ok';}document.getElementById(`exp-${qi}`).innerHTML=`<strong>💡</strong> ${cQ[qi].exp}`;document.getElementById(`exp-${qi}`).classList.add('show');updatePbar();}
+function updatePbar(){const n=done.filter(Boolean).length,p=Math.round(n/cQ.length*100);document.getElementById('pbar-fill').style.width=p+'%';document.getElementById('pbar-txt').textContent=`${n} / ${cQ.length} câu`;document.getElementById('pbar-pct').textContent=p+'%';}
+async function submitQuiz(){
+  const cor=uA.filter((a,i)=>a===cQ[i].ans).length,tot=cQ.length,pct=Math.round(cor/tot*100),xp=cor*8+(pct===100?20:0);
+  document.getElementById('score-big').textContent=`${cor}/${tot}`;document.getElementById('xp-earned').textContent=`⚡ +${xp} XP`;document.getElementById('score-msg').textContent=pct>=80?'🎉 Xuất sắc!':pct>=60?'👍 Khá tốt, ôn thêm nhé!':'📖 Cần ôn thêm — xem lại flashcard!';document.getElementById('score-wrap').classList.add('show');document.getElementById('sub-btn').style.display='none';
+  const lbl=document.getElementById('ai-lbl'),wrap=document.getElementById('ai-wrap');lbl.innerHTML=`🤖 Nhận xét AI KOERU <span class="dots"><span></span><span></span><span></span></span>`;lbl.classList.add('show');
+  const ln={jp:'Tiếng Nhật',cn:'Tiếng Trung'}[document.getElementById('ql').value];const lv={n5:'Sơ cấp',n4:'Trung cấp',n3:'Nâng cao'}[document.getElementById('qv').value];
+  const details=cQ.map((q,i)=>`Câu ${i+1}: ${uA[i]===-1?'Bỏ qua':(uA[i]===q.ans?'Đúng':'Sai — đúng là "'+q.opts[q.ans]+'"')}`).join('\n');
+  const prompt=`Bạn là AI KOERU. Học viên vừa làm bài ${ln} cấp ${lv}.\nKết quả: ${cor}/${tot} (${pct}%)\n${details}\nViết nhận xét 4-5 câu tiếng Việt, thân thiện, gồm: đánh giá tổng quát, điểm cần cải thiện, gợi ý tiếp theo.`;
+  const key=document.getElementById('akey').value.trim()||apiKey;
+  const provider=document.getElementById('ai-provider').value||load('ai-provider','claude');
+  if(!key){wrap.textContent=`${cor}/${tot} câu đúng (${pct}%)\n\n${pct>=80?'Xuất sắc! Thử cấp độ cao hơn.':pct>=60?'Khá tốt! Xem lại các câu sai và ôn flashcard.':'Cần ôn thêm. Quay lại flashcard rồi thử lại nhé!'}\n\n💡 Chọn AI provider và nhập API Key để nhận nhận xét cá nhân hóa.`;wrap.classList.add('show');lbl.innerHTML='📝 Kết quả:';return;}
+  try{
+    let text='';
+    if(provider==='claude'){
+      const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:500,messages:[{role:'user',content:prompt}]})});
+      const data=await res.json();text=data.content?.[0]?.text||'Không kết nối được AI.';
+    }else if(provider==='groq'){
+      const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:500,messages:[{role:'user',content:prompt}]})});
+      const data=await res.json();text=data.choices?.[0]?.message?.content||'Không kết nối được AI.';
+    }else if(provider==='gemini'){
+      const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
+      const data=await res.json();text=data.candidates?.[0]?.content?.parts?.[0]?.text||'Không kết nối được AI.';
+    }
+    wrap.textContent=text;wrap.classList.add('show');lbl.innerHTML='🤖 Nhận xét từ AI KOERU ('+provider+'):';
+  }catch{wrap.textContent='Lỗi kết nối. Kiểm tra API Key và provider.';wrap.classList.add('show');}
+}
+
+/* ─── ADMIN ─── */
+let adminTab='blog',editingId=null,editingType=null;
+function switchAdminTab(t,b){adminTab=t;document.querySelectorAll('.atab').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.admin-section').forEach(s=>s.style.display='none');document.getElementById('admin-'+t).style.display='block';renderAdminTable(t);}
+function renderAdmin(){updateCounts();renderAdminTable('blog');document.querySelectorAll('.admin-section').forEach(s=>s.style.display='none');document.getElementById('admin-blog').style.display='block';document.querySelectorAll('.atab').forEach((b,i)=>b.classList.toggle('active',i===0));adminTab='blog';}
+function updateCounts(){document.getElementById('blog-count').textContent=BLOGS.length;document.getElementById('lesson-count').textContent=LESSONS.length;document.getElementById('doc-count').textContent=DOCS.length;}
+function renderAdminTable(tab){
+  updateCounts();
+  const nm=l=>l==='jp'?{bg:'#e0e5ff',c:'#2d3561',label:'🇯🇵 Nhật'}:{bg:'#ffecd6',c:'#8b4a00',label:'🇨🇳 Trung'};
+  if(tab==='blog'){document.getElementById('blog-tbody').innerHTML=BLOGS.length?BLOGS.map(b=>{const m=nm(b.lang);return`<tr><td class="td-title">${b.title}</td><td><span class="td-tag" style="background:${m.bg};color:${m.c}">${m.label}</span></td><td>${b.cat||'—'}</td><td>${b.date||'—'}</td><td><div class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openModal('blog',${b.id})">✏️ Sửa</button><button class="btn btn-red btn-sm" onclick="deleteItem('blog',${b.id})">🗑</button></div></td></tr>`;}).join(''):`<tr><td colspan="5" class="empty-state">Chưa có bài viết. Nhấn "+ Thêm bài viết"</td></tr>`;}
+  if(tab==='lesson'){document.getElementById('lesson-tbody').innerHTML=LESSONS.length?LESSONS.map(l=>{const m=nm(l.lang);return`<tr><td class="td-title">${l.title}</td><td><span class="td-tag" style="background:${m.bg};color:${m.c}">${m.label}</span></td><td>${l.type||'—'}</td><td>${l.dur||'—'}</td><td>${l.xp||0} XP</td><td><div class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openModal('lesson',${l.id})">✏️ Sửa</button><button class="btn btn-red btn-sm" onclick="deleteItem('lesson',${l.id})">🗑</button></div></td></tr>`;}).join(''):`<tr><td colspan="6" class="empty-state">Chưa có bài học. Nhấn "+ Thêm bài học"</td></tr>`;}
+  if(tab==='doc'){document.getElementById('doc-tbody').innerHTML=DOCS.length?DOCS.map(d=>{const m=nm(d.lang);return`<tr><td class="td-title">${d.title}</td><td><span class="td-tag" style="background:${m.bg};color:${m.c}">${m.label}</span></td><td>${d.format||'—'}</td><td>${d.link?`<a href="${d.link}" target="_blank" style="color:var(--navy);font-size:12px;font-weight:700">🔗 Xem</a>`:'—'}</td><td><div class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openModal('doc',${d.id})">✏️ Sửa</button><button class="btn btn-red btn-sm" onclick="deleteItem('doc',${d.id})">🗑</button></div></td></tr>`;}).join(''):`<tr><td colspan="5" class="empty-state">Chưa có tài liệu. Nhấn "+ Thêm tài liệu"</td></tr>`;}
+}
+const FORMS={blog:`<div class="form-group"><label>Tiêu đề</label><input id="f-title" placeholder="Tiêu đề bài viết..."/></div><div class="form-group"><label>Tóm tắt</label><textarea id="f-excerpt" placeholder="Mô tả ngắn..."></textarea></div><div class="form-row"><div class="form-group"><label>Ngôn ngữ</label><select id="f-lang"><option value="jp">🇯🇵 Nhật</option><option value="cn">🇨🇳 Trung</option></select></div><div class="form-group"><label>Danh mục</label><select id="f-cat"><option value="vocab">Từ vựng</option><option value="grammar">Ngữ pháp</option><option value="tip">Mẹo học</option><option value="culture">Văn hóa</option></select></div></div><div class="form-row"><div class="form-group"><label>Ngày đăng</label><input id="f-date" value="${new Date().toLocaleDateString('vi-VN')}"/></div><div class="form-group"><label>Emoji flag</label><input id="f-flag" placeholder="🇯🇵" maxlength="4"/></div></div>`,lesson:`<div class="form-group"><label>Tiêu đề</label><input id="f-title" placeholder="Tên bài học..."/></div><div class="form-row"><div class="form-group"><label>Ngôn ngữ</label><select id="f-lang"><option value="jp">🇯🇵 Nhật</option><option value="cn">🇨🇳 Trung</option></select></div><div class="form-group"><label>Danh mục</label><select id="f-cat"><option value="vocab">Từ vựng</option><option value="grammar">Ngữ pháp</option><option value="kanji">Kanji</option><option value="listen">Nghe</option></select></div></div><div class="form-row"><div class="form-group"><label>Loại bài</label><input id="f-type" placeholder="Từ vựng / Ngữ pháp..."/></div><div class="form-group"><label>Thời gian</label><input id="f-dur" placeholder="5 phút"/></div></div><div class="form-row"><div class="form-group"><label>XP thưởng</label><input id="f-xp" type="number" placeholder="15" min="1"/></div><div class="form-group"><label>Emoji</label><input id="f-thumb" placeholder="📖" maxlength="4"/></div></div>`,doc:`<div class="form-group"><label>Tên tài liệu</label><input id="f-title" placeholder="Tên file / giáo trình..."/></div><div class="form-group"><label>Link tải (Google Drive / URL)</label><input id="f-link" placeholder="https://drive.google.com/..."/></div><div class="form-row"><div class="form-group"><label>Ngôn ngữ</label><select id="f-lang"><option value="jp">🇯🇵 Nhật</option><option value="cn">🇨🇳 Trung</option></select></div><div class="form-group"><label>Định dạng</label><select id="f-format"><option>PDF</option><option>DOCX</option><option>XLSX</option><option>MP3</option><option>Video</option><option>ZIP</option></select></div></div><div class="form-group"><label>Kích thước</label><input id="f-size" placeholder="180 trang / 50MB..."/></div>`};
+function openModal(type,id=null){editingType=type;editingId=id;const titles={blog:'bài viết',lesson:'bài học',doc:'tài liệu'};document.getElementById('modal-title').textContent=(id?'✏️ Sửa ':'➕ Thêm ')+titles[type];document.getElementById('modal-body').innerHTML=FORMS[type];document.getElementById('modal-overlay').classList.remove('hidden');if(id!==null){const arr=type==='blog'?BLOGS:type==='lesson'?LESSONS:DOCS,item=arr.find(x=>x.id===id);if(!item)return;const g=k=>document.getElementById('f-'+k);['title','excerpt','lang','cat','date','flag','type','dur','xp','thumb','link','format','size'].forEach(k=>{if(g(k))g(k).value=item[k]||'';});}}
+function closeModal(){document.getElementById('modal-overlay').classList.add('hidden');editingId=null;editingType=null;}
+function closeModalOutside(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
+function saveItem(){
+  const g=k=>{const e=document.getElementById('f-'+k);return e?e.value.trim():'';};const title=g('title');if(!title){alert('Vui lòng nhập tiêu đề!');return;}
+  const lang=g('lang')||'jp';const tm={jp:{tag:'Tiếng Nhật',tagBg:'#e0e5ff',tagC:'#2d3561',flag:'🇯🇵',bg:'#eef2ff'},cn:{tag:'Tiếng Trung',tagBg:'#ffecd6',tagC:'#8b4a00',flag:'🇨🇳',bg:'#fff4e8'}}[lang];
+  if(editingType==='blog'){const item={id:editingId||nextId(BLOGS),title,excerpt:g('excerpt'),lang,cat:g('cat')||'vocab',date:g('date')||new Date().toLocaleDateString('vi-VN'),views:'0',flag:g('flag')||tm.flag,tag:tm.tag,tagBg:tm.tagBg,tagC:tm.tagC,bg:tm.bg};if(editingId){const i=BLOGS.findIndex(x=>x.id===editingId);BLOGS[i]={...BLOGS[i],...item};}else BLOGS.unshift(item);save('blogs',BLOGS);}
+  else if(editingType==='lesson'){const item={id:editingId||nextId(LESSONS),title,lang,cat:g('cat')||'vocab',type:g('type')||'Bài học',dur:g('dur')||'5 phút',xp:parseInt(g('xp'))||10,thumb:g('thumb')||'📖',bg:tm.bg};if(editingId){const i=LESSONS.findIndex(x=>x.id===editingId);LESSONS[i]={...LESSONS[i],...item};}else LESSONS.unshift(item);save('lessons',LESSONS);}
+  else if(editingType==='doc'){const item={id:editingId||nextId(DOCS),title,lang,link:g('link'),format:g('format')||'PDF',size:g('size')};if(editingId){const i=DOCS.findIndex(x=>x.id===editingId);DOCS[i]={...DOCS[i],...item};}else DOCS.unshift(item);save('docs',DOCS);}
+  closeModal();renderAdminTable(editingType||adminTab);toast(editingId?'✅ Đã cập nhật!':'✅ Đã thêm thành công!');
+}
+function deleteItem(type,id){if(!confirm('Xóa mục này?'))return;if(type==='blog'){BLOGS=BLOGS.filter(x=>x.id!==id);save('blogs',BLOGS);}else if(type==='lesson'){LESSONS=LESSONS.filter(x=>x.id!==id);save('lessons',LESSONS);}else{DOCS=DOCS.filter(x=>x.id!==id);save('docs',DOCS);}renderAdminTable(type);toast('🗑 Đã xóa.');}
+function exportData(){const d={blogs:BLOGS,lessons:LESSONS,docs:DOCS,exportedAt:new Date().toISOString()};const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='koeru-data-'+new Date().toISOString().slice(0,10)+'.json';a.click();toast('📥 Đã export!');}
+function importData(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.blogs)BLOGS=d.blogs;if(d.lessons)LESSONS=d.lessons;if(d.docs)DOCS=d.docs;save('blogs',BLOGS);save('lessons',LESSONS);save('docs',DOCS);renderAdmin();toast('📤 Import thành công!');}catch{toast('❌ File JSON không hợp lệ.');}};r.readAsText(file);input.value='';}
+async function syncSheet(type){const uid=type==='blog'?'sheets-blog-url':'sheets-lesson-url',url=document.getElementById(uid).value.trim(),st=document.getElementById('sync-status');if(!url){st.textContent='⚠️ Vui lòng nhập URL.';st.className='sync-status show sync-err';return;}st.textContent='⏳ Đang tải...';st.className='sync-status show sync-info';try{const res=await fetch(url);if(!res.ok)throw new Error('HTTP '+res.status);const csv=await res.text(),rows=csv.trim().split('\n').map(r=>r.split(',').map(c=>c.replace(/^"|"$/g,'').trim())),headers=rows[0],data=rows.slice(1).filter(r=>r.length>1&&r[0]).map((r,idx)=>{const o={id:nextId(type==='blog'?BLOGS:LESSONS)+idx};headers.forEach((h,i)=>{o[h.trim()]=r[i]||'';});return o;});if(type==='blog'){BLOGS=[...BLOGS,...data];save('blogs',BLOGS);}else{LESSONS=[...LESSONS,...data];save('lessons',LESSONS);}renderAdminTable(type);st.textContent=`✅ Đã đồng bộ ${data.length} mục!`;st.className='sync-status show sync-ok';toast(`✅ Sync OK: ${data.length} mục`);}catch(err){st.textContent=`❌ Lỗi: ${err.message}. Kiểm tra URL và đảm bảo Sheet đã Publish.`;st.className='sync-status show sync-err';}}
+function toast(msg){const e=document.getElementById('toast');e.textContent=msg;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2800);}
+
+/* ─── INIT ─── */
+renderHomeLesson();renderHomeBlog();loadFlash();
+// Try to load external JSON files (data/*.json) — fallback to defaults/localStorage if unavailable
+fetchExternalData();
+</script>
+</body>
+</html>
