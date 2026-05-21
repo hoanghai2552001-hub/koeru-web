@@ -301,6 +301,94 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 /* ── TOAST ── */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:var(--r);font-size:14px;font-weight:700;z-index:999;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none}
 .toast.show{opacity:1;transform:none}
+
+/* ── HAMBURGER ── */
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;flex-shrink:0}
+.ham span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;top:60px;background:rgba(253,248,244,.98);backdrop-filter:blur(16px);z-index:190;flex-direction:column;padding:16px 1.5rem;gap:4px;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:16px;font-weight:700;color:var(--ink2);padding:14px 16px;border-radius:var(--r);cursor:pointer;transition:all .15s;border:none;background:none;text-decoration:none;display:block}
+.mobile-menu a:active,.mobile-menu a.active{background:var(--navy);color:#fff}
+.mobile-menu .mob-divider{height:1px;background:var(--border);margin:8px 0}
+.mobile-menu .mob-cta{margin-top:8px}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:768px){
+  /* Nav */
+  .nav-links{display:none}
+  .nav-right .streak-pill{display:none}
+  .nav-right .btn{display:none}
+  .ham{display:flex}
+
+  /* Hero */
+  .hero{padding:48px 1.25rem 56px !important}
+  .hero h1{font-size:30px !important;letter-spacing:-1.2px !important}
+  .hero p{font-size:14px !important}
+  .hero-mascot img{height:80px !important}
+  .btn-hero{padding:12px 22px !important;font-size:14px !important}
+
+  /* Stats */
+  .stats-inner{gap:24px}
+  .sstat-n{font-size:18px}
+
+  /* Landing sections */
+  .land-sec{padding:44px 1.25rem}
+  .land-h2{font-size:24px;letter-spacing:-.5px}
+  .land-sub{font-size:14px;margin-bottom:24px}
+
+  /* Grids — 1 cột trên mobile */
+  .courses-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .tools-grid{grid-template-columns:1fr 1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .lesson-feed{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:20px}
+
+  /* CTA band */
+  .cta-band{padding:48px 1.25rem}
+  .cta-band h2{font-size:22px}
+
+  /* Flashcard */
+  .fc-wrap{padding:20px 0 40px}
+  .fc-jp{font-size:38px}
+  .fc-nav{gap:6px}
+  .fc-nav .btn{padding:9px 13px;font-size:12px}
+
+  /* Quiz */
+  .quiz-wrap{padding:16px 0 40px}
+  .quiz-top{padding:16px}
+  .api-row{flex-direction:column;align-items:stretch}
+  .api-row input{min-width:0}
+  .qt{font-size:15px}
+
+  /* Admin */
+  .admin-wrap{padding:16px 1rem 40px}
+  .admin-table-wrap{overflow-x:auto}
+  .sheets-input-row{flex-direction:column}
+  .sheets-input-row input{min-width:0}
+
+  /* Modal */
+  .modal{padding:20px 18px}
+  .form-row{grid-template-columns:1fr}
+
+  /* FAQ */
+  .faq-q{font-size:14px;padding:14px 16px}
+  .faq-a{padding:0 16px 14px;font-size:13px}
+
+  /* Section padding */
+  .sec{padding:30px 0}
+  .wrap{padding:0 1rem}
+}
+
+@media(max-width:400px){
+  .hero h1{font-size:26px !important}
+  .tools-grid{grid-template-columns:1fr}
+  .lesson-feed{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -322,9 +410,26 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
     <div class="nav-right">
       <div class="streak-pill">🔥 7 ngày</div>
       <button class="btn btn-navy" onclick="showPage('register')">Đăng ký</button>
+      <button class="ham" id="ham-btn" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a onclick="navTo('home')">🏠 Trang chủ</a>
+  <a onclick="navTo('learn')">📖 Bài học</a>
+  <a onclick="navTo('flash')">🃏 Flashcard</a>
+  <a onclick="navTo('quiz')">🧪 Kiểm tra</a>
+  <a onclick="navTo('blog')">📰 Blog</a>
+  <div class="mob-divider"></div>
+  <a onclick="window.open('kanji.html','_blank');closeMenu()">🖊 Luyện Kanji</a>
+  <div class="mob-divider"></div>
+  <button class="btn btn-navy mob-cta" style="width:100%;justify-content:center;padding:14px" onclick="navTo('register')">Đăng ký học thử miễn phí →</button>
+  <a onclick="navTo('admin')" style="font-size:13px;color:var(--ink3);text-align:center;margin-top:4px">⚙️ Admin</a>
+</div>
 
 <!-- ═══ HOME ═══ -->
 <div class="page active" id="page-home">
@@ -844,6 +949,11 @@ function nextId(a){return a.length?Math.max(...a.map(x=>x.id||0))+1:1;}
 const FLASH={jp:{n5:[{w:'食べる',r:'たべる (taberu)',m:'Ăn',ex:'毎日ご飯を食べる'},{w:'飲む',r:'のむ (nomu)',m:'Uống',ex:'水を飲む'},{w:'行く',r:'いく (iku)',m:'Đi',ex:'学校に行く'},{w:'見る',r:'みる (miru)',m:'Nhìn/Xem',ex:'テレビを見る'},{w:'話す',r:'はなす (hanasu)',m:'Nói chuyện',ex:'日本語を話す'},{w:'書く',r:'かく (kaku)',m:'Viết',ex:'手紙を書く'},{w:'読む',r:'よむ (yomu)',m:'Đọc',ex:'本を読む'}],n4:[{w:'決める',r:'きめる',m:'Quyết định',ex:'計画を決める'},{w:'続ける',r:'つづける',m:'Tiếp tục',ex:'勉強を続ける'},{w:'始める',r:'はじめる',m:'Bắt đầu',ex:'仕事を始める'},{w:'変える',r:'かえる',m:'Thay đổi',ex:'計画を変える'},{w:'集める',r:'あつめる',m:'Thu thập',ex:'情報を集める'}]},cn:{n5:[{w:'你好',r:'nǐ hǎo',m:'Xin chào',ex:'你好，我是老师'},{w:'谢谢',r:'xiè xie',m:'Cảm ơn',ex:'谢谢你的帮助'},{w:'苹果',r:'píng guǒ',m:'Táo',ex:'我喜欢吃苹果'},{w:'水',r:'shuǐ',m:'Nước',ex:'请给我一杯水'},{w:'学习',r:'xué xí',m:'Học tập',ex:'我每天学习中文'}],n4:[{w:'虽然',r:'suī rán',m:'Mặc dù',ex:'虽然累，但是很开心'},{w:'越来越',r:'yuè lái yuè',m:'Ngày càng',ex:'天气越来越热'},{w:'把',r:'bǎ',m:'Giới từ "把"',ex:'我把作业做完了'},{w:'被',r:'bèi',m:'Bị (bị động)',ex:'蛋糕被他吃了'}]}};
 
 const QUIZZES={jp:{n5:[{q:'「ありがとう」の意味は？',opts:['Xin chào','Cảm ơn','Xin lỗi','Tạm biệt'],ans:1,exp:'「ありがとう」= Cảm ơn.'},{q:'「水」(みず) の意味は？',opts:['Lửa','Gió','Nước','Đất'],ans:2,exp:'「水」(mizu) = nước.'},{q:'「私は学生___。」正しいのは？',opts:['が','は','の','です'],ans:3,exp:'「です」= trợ từ cuối câu, tương đương "là".'},{q:'「今日」の読み方は？',opts:['こんにち','きょう','あした','きのう'],ans:1,exp:'「今日」đọc là「きょう」= hôm nay.'},{q:'食べ物はどれ？',opts:['本','車','りんご','椅子'],ans:2,exp:'「りんご」= táo.'}],n4:[{q:'「〜ながら」の正しい使い方は？',opts:['音楽を聴きながら勉強する','食べながら寝た後','学校ながら行く','ながら楽しい'],ans:0,exp:'「〜ながら」= vừa...vừa (đồng thời).'},{q:'「〜てしまう」の意味は？',opts:['Đang làm','Đã xong (hối hận)','Sắp làm','Không muốn'],ans:1,exp:'「〜てしまう」= hoàn thành, thường có sắc thái hối tiếc.'},{q:'「優しい___親切だ」接続は？',opts:['が','し、','で','から'],ans:1,exp:'「〜し、〜し」liệt kê nhiều đặc điểm.'},{q:'「10分くらい」の意味は？',opts:['Đúng 10 phút','Khoảng 10 phút','Hơn 10 phút','Ít hơn'],ans:1,exp:'「くらい」= khoảng.'},{q:'敬語で「食べる」は？',opts:['食べます','召し上がります','いただきます','食べられます'],ans:1,exp:'「召し上がる」là tôn kính ngữ của 食べる.'}],n3:[{q:'「〜にもかかわらず」の意味は？',opts:['Vì vậy','Mặc dù','Nếu như','Trước khi'],ans:1,exp:'「〜にもかかわらず」= mặc dù, bất chấp.'},{q:'「〜をきっかけに」の意味は？',opts:['Nhờ vào','Bất chấp','Nhân dịp','Trong khi'],ans:2,exp:'「〜をきっかけに」= nhân dịp, lấy...làm cơ hội.'},{q:'「いかに〜か」の用法は？',opts:['Hỏi số lượng','Nhấn mạnh mức độ','Điều kiện','Nguyên nhân'],ans:1,exp:'「いかに〜か」nhấn mạnh mức độ.'},{q:'「固然」の意味は？',opts:['Vì vậy','Tuy đúng là','Nếu như','Trước khi'],ans:1,exp:'「固然」= tuy đúng là — thừa nhận trước rồi phản bác.'},{q:'「召し上がる」の用法は？',opts:['Bản thân','Người bề trên','Bạn bè','Trẻ em'],ans:1,exp:'「召し上がる」dùng khi nói về hành động của người bề trên.'}]},cn:{n5:[{q:'"你好"的意思？',opts:['Cảm ơn','Xin chào','Xin lỗi','Tạm biệt'],ans:1,exp:'"你好" = Xin chào.'},{q:'"苹果"的意思？',opts:['Cam','Táo','Chuối','Nho'],ans:1,exp:'"苹果" = táo.'},{q:'"几点了？"的意思？',opts:['Bao nhiêu tiền?','Mấy giờ rồi?','Bao nhiêu tuổi?','Ở đâu?'],ans:1,exp:'"几点了" = Mấy giờ rồi?'},{q:'哪个是动词？',opts:['美丽','书','跑步','快'],ans:2,exp:'"跑步" = chạy bộ, động từ.'},{q:'"谢谢"的意思？',opts:['Xin lỗi','Tạm biệt','Cảm ơn','Xin chào'],ans:2,exp:'"谢谢" = Cảm ơn.'}],n4:[{q:'"虽然...但是..."的用法？',opts:['Nguyên nhân','Mặc dù...nhưng','Điều kiện','Mục đích'],ans:1,exp:'"虽然...但是..." = mặc dù...nhưng.'},{q:'"越来越..."的意思？',opts:['Ngày càng','Vừa...vừa','Không bao giờ','Thỉnh thoảng'],ans:0,exp:'"越来越" = ngày càng.'},{q:'"一边...一边..."的意思？',opts:['Sau khi','Vừa...vừa (cùng lúc)','Trước khi','Hoặc là'],ans:1,exp:'"一边...一边..." = vừa...vừa.'},{q:'"把"字句的作用？',opts:['Bị động','Tác động lên tân ngữ','So sánh','Thời gian'],ans:1,exp:'Câu "把" nhấn mạnh kết quả tác động.'},{q:'"被"字句的意思？',opts:['Chủ động','Bị động','So sánh','Điều kiện'],ans:1,exp:'"被" = bị động.'}],n3:[{q:'"尽管...还是..."的意思？',opts:['Vì','Mặc dù...vẫn','Nếu','Bởi vì'],ans:1,exp:'"尽管...还是..." = mặc dù...vẫn.'},{q:'"与其...不如..."的意思？',opts:['Không chỉ...mà còn','Thà...còn hơn','Vừa...vừa','Nếu...thì'],ans:1,exp:'"与其...不如..." = thà...còn hơn.'},{q:'"以...为..."的用法？',opts:['Lấy...làm','Vì','Mặc dù','Khi'],ans:0,exp:'"以...为..." = lấy...làm.'},{q:'"固然...但是..."的意思？',opts:['Mặc dù...nhưng','Vì...nên','Nếu...thì','Không chỉ...mà còn'],ans:0,exp:'"固然...但是..." = tuy đúng là...nhưng.'},{q:'"宁可...也不..."的意思？',opts:['Không chỉ','Thà...còn hơn','Vừa...vừa','Mặc dù'],ans:1,exp:'"宁可...也不..." = thà...còn hơn không.'}]}};
+
+/* ─── MOBILE MENU ─── */
+function toggleMenu(){const m=document.getElementById('mobile-menu'),h=document.getElementById('ham-btn');m.classList.toggle('open');h.classList.toggle('open');}
+function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-btn').classList.remove('open');}
+function navTo(p){closeMenu();showPage(p);}
 
 /* ─── ADMIN AUTH ─── */
 const ADMIN_PW='koeru2026';
