@@ -582,8 +582,8 @@ body::before {
    KANJI DUNGEON — Game 3
    ══════════════════════════════════════ */
 
-/* Screen layout */
-#bubble-screen { display:flex; flex-direction:column; overflow:hidden; }
+/* Screen layout — overflow:hidden để arena không tràn */
+#bubble-screen { overflow:hidden; }
 
 /* Header */
 #dng-header {
