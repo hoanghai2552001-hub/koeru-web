@@ -160,22 +160,33 @@ function updateDngHUD() {
 // ══════════════════════════════════════════
 // AUDIO
 // ══════════════════════════════════════════
+let dngSpeakId = 0; // guard against duplicate speaks
 function speakJP(text) {
   if (!window.speechSynthesis) return;
   speechSynthesis.cancel();
+  const id = ++dngSpeakId;
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = 'ja-JP'; utter.rate = 0.85; utter.pitch = 1.0;
   const speak = () => {
+    if (id !== dngSpeakId) return; // cancelled by newer call
     const voices = speechSynthesis.getVoices().filter(v => v.lang === 'ja-JP');
     const pref   = ['Haruka','Sayaka','Ayumi','Ichiro'];
     let picked   = null;
     for (const n of pref) { picked = voices.find(v => v.name.includes(n)); if (picked) break; }
     if (!picked && voices.length) picked = voices[0];
     if (picked) utter.voice = picked;
-    setTimeout(() => speechSynthesis.speak(utter), 50);
+    speechSynthesis.speak(utter);
   };
   if (speechSynthesis.getVoices().length) speak();
   else speechSynthesis.addEventListener('voiceschanged', speak, { once: true });
+}
+
+// ══════════════════════════════════════════
+// KATAKANA → HIRAGANA
+// ══════════════════════════════════════════
+function toHiragana(str) {
+  if (!str) return str;
+  return str.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
 }
 
 // ══════════════════════════════════════════
@@ -183,9 +194,9 @@ function speakJP(text) {
 // ══════════════════════════════════════════
 function getReadingsForKanji(k) {
   const ons  = (k.on  && k.on  !== '—')
-    ? k.on.split('、').map(r => r.trim()).filter(Boolean) : [];
+    ? k.on.split('、').map(r => toHiragana(r.trim())).filter(Boolean) : [];
   const kuns = (k.kun && k.kun !== '—')
-    ? k.kun.split('、').map(r => r.replace(/[（）()]/g,'').trim()).filter(Boolean) : [];
+    ? k.kun.split('、').map(r => toHiragana(r.replace(/[（）()]/g,'').trim())).filter(Boolean) : [];
   return { ons, kuns, all: [...ons, ...kuns] };
 }
 function getTargetReading(k) {
@@ -258,7 +269,7 @@ function startDungeonTimer() {
   dTimerHandle = setInterval(() => {
     dTimeLeft--;
     renderTimer();
-    if (dTimeLeft <= 0) { stopDungeonTimer(); onTimeout(); }
+    if (dTimeLeft <= 0) { stopDungeonTimer(); dngOnTimeout(); }
   }, 1000);
 }
 function renderTimer() {
@@ -329,7 +340,7 @@ function renderEnemy(card) {
     btn.className   = 'dng-opt-btn';
     btn.style.animationDelay = (i * 0.06) + 's';
     btn.textContent = opt;
-    btn.addEventListener('click', () => onAnswer(btn, opt));
+    btn.addEventListener('click', () => dngOnAnswer(btn, opt));
     grid.appendChild(btn);
   });
 
@@ -359,7 +370,7 @@ function showAnswerReveal(card) {
       <span class="dng-reveal-reading">${card.correctReading}</span>
     </div>
     <div class="dng-reveal-detail">
-      On: ${card.on || '—'} · Kun: ${card.kun || '—'}
+      On: ${toHiragana(card.on) || '—'} · Kun: ${toHiragana(card.kun) || '—'}
     </div>`;
   el.classList.add('visible');
 }
@@ -367,7 +378,7 @@ function showAnswerReveal(card) {
 // ══════════════════════════════════════════
 // ANSWER
 // ══════════════════════════════════════════
-function onAnswer(btn, chosen) {
+function dngOnAnswer(btn, chosen) {
   if (dAnswering) return;
   dAnswering = true;
   stopDungeonTimer();
@@ -438,7 +449,7 @@ function onAnswer(btn, chosen) {
   }
 }
 
-function onTimeout() {
+function dngOnTimeout() {
   if (dAnswering) return;
   dAnswering = true;
   disableAllOptions();
