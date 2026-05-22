@@ -46,10 +46,10 @@
     <div class="game-card game-card-3" id="go-bubble">
       <div class="game-icon">🫧</div>
       <div class="game-info">
-        <div class="game-name">Bubble Reading</div>
-        <div class="game-desc">Tap bong bóng → chọn âm On/Kun đúng. Daily goal + mastery tracking!</div>
+        <div class="game-name">Kanji Dungeon</div>
+        <div class="game-desc">Tiêu diệt quái vật bằng cách đọc đúng âm On/Kun. Lên tầng, phá Boss!</div>
       </div>
-      <div class="game-badge">🔥 Daily · Mastery</div>
+      <div class="game-badge">⚔️ RPG · Daily</div>
     </div>
     <div class="game-card game-card-4" id="go-speed">
       <div class="game-icon">⚡</div>
@@ -182,40 +182,49 @@
   </div>
 </div>
 
-<!-- ══════════════════════ BUBBLE MATCH ══════════════════════ -->
+<!-- ══════════════════════ KANJI DUNGEON ══════════════════════ -->
 <div id="bubble-screen" class="screen">
-  <div id="bub-header">
+  <!-- Header -->
+  <div id="dng-header">
     <span class="hdr-back" id="bubble-back">←</span>
-    <div id="bub-title">🫧 Bubble Match</div>
-    <div id="bub-xp-wrap">
-      <span id="bub-level-badge">Lv.1</span>
-      <div id="bub-xp-bar-wrap"><div id="bub-xp-bar"></div></div>
-      <span id="bub-xp-text">0 XP</span>
+    <div id="dng-floor-num">Tầng 1</div>
+    <div id="dng-xp-wrap">
+      <span id="dng-lv-badge">Lv.1</span>
+      <div id="dng-xp-bar-wrap"><div id="dng-xp-bar"></div></div>
     </div>
   </div>
-  <div id="bub-stats-bar">
-    <div class="bub-stat"><span class="bub-stat-label">🔥 Streak</span><span id="bub-streak">0</span></div>
-    <div class="bub-stat"><span class="bub-stat-label">🎯 Accuracy</span><span id="bub-accuracy">—</span></div>
-    <div class="bub-stat"><span class="bub-stat-label">✅ Đúng</span><span id="bub-correct">0</span></div>
-    <div class="bub-stat timer-stat"><span class="bub-stat-label">⏱</span><span id="bub-timer">—</span></div>
+  <!-- Daily bar -->
+  <div id="dng-top-bar">
+    <span id="dng-daily-text">📅 0/3 tầng · 🔥0 ngày</span>
+    <div id="dng-daily-bar-wrap"><div id="dng-daily-bar"></div></div>
   </div>
-  <!-- Daily goal widget -->
-  <div id="bub-daily-wrap">
-    <span id="bub-daily-streak">🔥0</span>
-    <div id="bub-daily-bar-wrap"><div id="bub-daily-bar"></div></div>
-    <span id="bub-daily-text">0/10</span>
-    <span class="bub-daily-label">hôm nay</span>
+  <!-- Arena -->
+  <div id="dng-arena">
+    <div id="dng-enemy-side">
+      <div id="dng-enemy-wrap"></div>
+    </div>
+    <div id="dng-hero-side">
+      <div id="dng-hero-sprite">🧙</div>
+      <div id="dng-hero-hp"></div>
+    </div>
   </div>
-  <div id="bub-arena"></div>
-  <div id="bub-meanings"></div>
-  <div id="bub-overlay">
-    <div id="bub-overlay-inner">
-      <div id="bub-overlay-emoji"></div>
-      <div id="bub-overlay-title"></div>
-      <div id="bub-overlay-detail"></div>
-      <div id="bub-overlay-btns">
-        <button id="bub-btn-next">▶ Tiếp</button>
-        <button id="bub-btn-home">🏠 Thoát</button>
+  <!-- Reading options -->
+  <div id="dng-options"></div>
+  <!-- Stats footer -->
+  <div id="dng-stats-bar">
+    <div class="dng-stat"><span class="dng-stat-lbl">🔥 Streak</span><span id="dng-streak-val">0</span></div>
+    <div class="dng-stat"><span class="dng-stat-lbl">⏱</span><span id="dng-timer-val">—</span></div>
+    <div class="dng-stat"><span class="dng-stat-lbl">✅ Đúng</span><span id="dng-correct-val">0</span></div>
+  </div>
+  <!-- Floor overlay -->
+  <div id="dng-overlay">
+    <div id="dng-overlay-inner">
+      <div id="dng-ov-emoji"></div>
+      <div id="dng-ov-title"></div>
+      <div id="dng-ov-detail"></div>
+      <div id="dng-ov-btns">
+        <button id="dng-btn-next">▶ Tiếp tục</button>
+        <button id="dng-btn-home">🏠 Thoát</button>
       </div>
     </div>
   </div>

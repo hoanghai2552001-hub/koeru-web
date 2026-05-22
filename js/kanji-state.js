@@ -56,14 +56,15 @@ document.getElementById('go-bubble').addEventListener('click', () => {
   startBubbleGame();
 });
 document.getElementById('bubble-back').addEventListener('click', () => {
-  stopBubbleTimer();
+  stopDungeonTimer();
   showScreen('home-screen');
 });
-document.getElementById('bub-btn-next').addEventListener('click', () => {
-  nextBubbleRound();
+document.getElementById('dng-btn-next').addEventListener('click', () => {
+  startNextFloor();
 });
-document.getElementById('bub-btn-home').addEventListener('click', () => {
-  document.getElementById('bub-overlay').classList.remove('visible');
+document.getElementById('dng-btn-home').addEventListener('click', () => {
+  stopDungeonTimer();
+  document.getElementById('dng-overlay').classList.remove('visible');
   showScreen('home-screen');
 });
 
