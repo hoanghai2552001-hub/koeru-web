@@ -242,7 +242,7 @@ function buildCard() {
   }
   return {
     kanji: k.kanji, hanviet: k.hanviet, meaning: k.meaning,
-    on: k.on, kun: k.kun,
+    on: k.on, kun: k.kun, words: k.words || null,
     correctReading: reading, validReadings: valid,
     readingType: type, distractors: dists.slice(0, 3),
   };
@@ -413,13 +413,10 @@ function dngOnAnswer(btn, chosen) {
 
     // Boss needs 2 correct hits
     if (dEnemyHP > 0) {
-      // Boss still alive — rebuild options for same card
-      setTimeout(() => {
-        dAnswering = false;
-        renderEnemy(dCurrentCard);
-      }, 700);
+      setTimeout(() => { dAnswering = false; renderEnemy(dCurrentCard); }, 700);
     } else {
-      setTimeout(() => { dAnswering = false; nextEnemy(); }, 650);
+      // Show compound words popup before next enemy
+      showCompoundPopup(dCurrentCard, () => { dAnswering = false; nextEnemy(); });
     }
 
   } else {
@@ -470,6 +467,43 @@ function dngOnTimeout() {
     if (dHeroHP <= 0) showGameOver();
     else renderEnemy(dCurrentCard);
   }, 1600);
+}
+
+// ══════════════════════════════════════════
+// COMPOUND WORDS POPUP
+// ══════════════════════════════════════════
+function showCompoundPopup(card, cb) {
+  const words = card.words; // array [{w,r,m}] or undefined
+  // If no compound data, skip straight to next
+  if (!words || !words.length) { setTimeout(cb, 200); return; }
+
+  const panel = document.getElementById('dng-options');
+  const reveal = document.getElementById('dng-answer-reveal');
+  if (reveal) reveal.classList.remove('visible');
+
+  // Build popup HTML inside options panel
+  const items = words.map(w =>
+    `<div class="cmp-item">
+      <span class="cmp-word">${w.w}</span>
+      <span class="cmp-reading">${toHiragana(w.r)}</span>
+      <span class="cmp-meaning">${w.m}</span>
+    </div>`
+  ).join('');
+
+  panel.innerHTML = `
+    <div id="dng-compound-popup">
+      <div class="cmp-header">
+        <span class="cmp-kanji">${card.kanji}</span>
+        <span class="cmp-label">📦 Từ ghép thường gặp</span>
+      </div>
+      <div class="cmp-list">${items}</div>
+      <div class="cmp-footer">Tự động tiếp tục...</div>
+    </div>`;
+
+  // Speak first compound
+  setTimeout(() => speakJP(words[0].w), 200);
+
+  setTimeout(cb, 2200);
 }
 
 // ══════════════════════════════════════════
