@@ -486,6 +486,7 @@ function rebuildArena() {
 function startNextFloor() {
   dHeroHP    = HERO_MAX_HP;
   dEnemyIdx  = 0;
+  dCorrect   = 0; dTotal = 0;
   dAnswering = false;
   dPool      = getWeightedPool();
   dUsedIdx   = new Set();
@@ -505,7 +506,7 @@ function startBubbleGame() {
   checkAndResetDaily();
   loadProgress();
   dFloor   = 1;
-  dCorrect = 0; dTotal = 0; dStreak = 0;
+  dStreak  = 0;
   document.getElementById('dng-overlay').classList.remove('visible');
   rebuildArena();
   startNextFloor();
