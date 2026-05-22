@@ -92,6 +92,8 @@ function renderCard() {
       shownMeaning.innerHTML = k.meaning +
         '<div class="shown-reading"><span class="sr-on">' + k.on + '</span>' +
         '<span class="sr-kun">' + k.kun + '</span></div>';
+      readingOn.textContent  = `On: ${k.on}`;
+      readingKun.textContent = `Kun: ${k.kun}`;
     } else {
       const pool = deck.filter((_,i) => i !== idx);
       const fake = pool[Math.floor(Math.random() * pool.length)];
@@ -99,10 +101,10 @@ function renderCard() {
       shownMeaning.innerHTML = fk.meaning +
         '<div class="shown-reading"><span class="sr-on">' + fk.on + '</span>' +
         '<span class="sr-kun">' + fk.kun + '</span></div>';
+      readingOn.textContent  = `On: ${fk.on}`;
+      readingKun.textContent = `Kun: ${fk.kun}`;
       currentIsCorrectMeaning = false;
     }
-    readingOn.textContent  = `On: ${k.on}`;
-    readingKun.textContent = `Kun: ${k.kun}`;
     backContent.innerHTML = `
       <strong>${k.kanji}</strong> · ${k.hanviet}<br>
       <span style="color:#a78bfa">On: ${k.on}</span> · <span style="color:#67e8f9">Kun: ${k.kun}</span><br>

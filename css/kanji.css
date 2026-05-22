@@ -860,3 +860,84 @@ canvas#sp-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4
   letter-spacing: .03em;
 }
 
+/* ══════════════════════════════════════
+   DESKTOP RESPONSIVE — màn hình lớn
+   ══════════════════════════════════════ */
+@media (min-width: 768px) {
+  /* Layout trung tâm rộng hơn */
+  #game-area {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Card lớn hơn đáng kể */
+  #card-wrap {
+    width: min(560px, 90vw);
+    height: min(560px, 62vh);
+  }
+
+  /* Kanji to hơn */
+  #kanji {
+    font-size: clamp(7rem, 14vw, 11rem);
+  }
+
+  /* Hanviet & hard-reading */
+  #han-viet {
+    font-size: 1.25rem;
+    letter-spacing: .15em;
+  }
+  #hard-reading {
+    font-size: 1.05rem;
+  }
+
+  /* Nghĩa & readings */
+  #shown-meaning {
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  }
+  #reading-on, #reading-kun {
+    font-size: 1rem;
+  }
+  .sr-on, .sr-kun {
+    font-size: .95rem;
+    padding: 3px 12px;
+  }
+
+  /* Nút điều khiển */
+  .btn {
+    font-size: .95rem;
+    padding: 16px 26px;
+    min-height: 54px;
+  }
+  #btn-correct, #btn-incorrect { max-width: 150px; }
+  #btn-flip { max-width: 130px; }
+
+  /* Verdict & hint */
+  #verdict-badge { font-size: .88rem; padding: 4px 18px; }
+  #verdict-hint  { font-size: .8rem; }
+
+  /* Back card */
+  #back-kanji   { font-size: 5rem; }
+  #back-content { font-size: 1.05rem; }
+
+  /* Card back content padding */
+  #card-back { gap: 14px; padding: 32px; }
+
+  /* Progress / header */
+  #progress-wrap { max-width: 700px; margin: 0 auto; }
+}
+
+@media (min-width: 1200px) {
+  #card-wrap {
+    width: 620px;
+    height: 620px;
+  }
+  #kanji {
+    font-size: 10rem;
+  }
+  #han-viet {
+    font-size: 1.4rem;
+  }
+  #shown-meaning {
+    font-size: 1.7rem;
+  }
+}
