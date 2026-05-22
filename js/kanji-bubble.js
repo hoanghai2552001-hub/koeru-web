@@ -34,6 +34,7 @@ let dTimerHandle = null, dTimeLeft = ANSWER_TIME;
 let dAnswering = false;
 let dCurrentCard = null;
 let dPool = [], dUsedIdx = new Set();
+let dEnemyHP = 1; // enemy HP for visual bar (boss = 2)
 
 // ══════════════════════════════════════════
 // MASTERY (localStorage per kanji)
@@ -208,7 +209,6 @@ function getWeightedPool() {
 // ══════════════════════════════════════════
 const PAD_READINGS = ['ざい','ろく','てん','きく','もの','はな','さく','ふじ','なみ','いわ'];
 function buildCard() {
-  // Find next unused kanji from pool
   const available = dPool.filter((_, i) => !dUsedIdx.has(i));
   if (!available.length) return null;
   const k = available[0];
@@ -231,6 +231,7 @@ function buildCard() {
   }
   return {
     kanji: k.kanji, hanviet: k.hanviet, meaning: k.meaning,
+    on: k.on, kun: k.kun,
     correctReading: reading, validReadings: valid,
     readingType: type, distractors: dists.slice(0, 3),
   };
@@ -247,7 +248,7 @@ function getTheme(floor) {
 function isBoss(floor) { return floor % BOSS_EVERY === 0; }
 
 // ══════════════════════════════════════════
-// TIMER
+// TIMER (visual progress bar + text)
 // ══════════════════════════════════════════
 function stopDungeonTimer() { clearInterval(dTimerHandle); dTimerHandle = null; }
 function startDungeonTimer() {
@@ -265,6 +266,15 @@ function renderTimer() {
   if (!el) return;
   el.textContent = dTimeLeft + 's';
   el.style.color = dTimeLeft <= 3 ? '#ef4444' : '';
+  // Timer progress bar
+  const bar = document.getElementById('dng-timer-bar');
+  if (bar) {
+    const pct = (dTimeLeft / ANSWER_TIME) * 100;
+    bar.style.width = pct + '%';
+    bar.style.background = dTimeLeft <= 3
+      ? 'linear-gradient(90deg,#ef4444,#f97316)'
+      : 'linear-gradient(90deg,var(--accent),var(--accent2))';
+  }
 }
 
 // ══════════════════════════════════════════
@@ -276,6 +286,9 @@ function renderEnemy(card) {
   const m     = getMastery(card.kanji);
   const stars = '★'.repeat(m) + '☆'.repeat(MASTERY_MAX - m);
 
+  // Enemy HP: boss = 2 hits, normal = 1
+  dEnemyHP = boss ? 2 : 1;
+
   // Arena background
   const arena = document.getElementById('dng-arena');
   arena.style.background = `linear-gradient(170deg, ${theme.bg} 0%, #080808 100%)`;
@@ -283,11 +296,12 @@ function renderEnemy(card) {
   // Enemy wrap
   document.getElementById('dng-enemy-wrap').innerHTML = `
     <div class="dng-enemy-hp-wrap">
-      <div class="dng-enemy-hp-bar" id="dng-e-hp-bar"></div>
+      <div class="dng-enemy-hp-bar" id="dng-e-hp-bar" style="width:100%"></div>
     </div>
     <div id="dng-enemy-sprite" class="${boss ? 'dng-boss-sprite' : 'dng-enemy-sprite-el'}"
          style="color:${theme.accent}">${theme.sprite}</div>
     <div id="dng-enemy-kanji" style="color:${theme.accent};text-shadow:0 0 24px ${theme.accent}88">${card.kanji}</div>
+    <div class="dng-enemy-meaning">${card.meaning}</div>
     <div class="dng-enemy-meta">
       <span class="dng-mastery-stars">${stars}</span>
       <span class="dng-enemy-count">${dEnemyIdx + 1}/${ENEMIES_PER_FLOOR}</span>
@@ -305,21 +319,49 @@ function renderEnemy(card) {
         ${card.readingType === 'on' ? '音読み' : '訓読み'}
       </span>
     </div>
-    <div id="dng-opts-grid"></div>`;
+    <div class="dng-timer-bar-wrap"><div class="dng-timer-bar" id="dng-timer-bar"></div></div>
+    <div id="dng-opts-grid"></div>
+    <div id="dng-answer-reveal"></div>`;
 
   const grid = document.getElementById('dng-opts-grid');
-  opts.forEach(opt => {
+  opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className   = 'dng-opt-btn';
+    btn.style.animationDelay = (i * 0.06) + 's';
     btn.textContent = opt;
-    btn.addEventListener('click',      () => onAnswer(btn, opt));
-    btn.addEventListener('mouseenter', () => speakJP(opt));
+    btn.addEventListener('click', () => onAnswer(btn, opt));
     grid.appendChild(btn);
   });
 
-  // Speak kanji
+  // Speak kanji on appear
   setTimeout(() => speakJP(card.kanji), 250);
   startDungeonTimer();
+}
+
+// ══════════════════════════════════════════
+// DISABLE / ENABLE OPTIONS
+// ══════════════════════════════════════════
+function disableAllOptions() {
+  document.querySelectorAll('.dng-opt-btn').forEach(b => {
+    b.style.pointerEvents = 'none';
+  });
+}
+
+// ══════════════════════════════════════════
+// SHOW ANSWER DETAIL (after wrong/timeout)
+// ══════════════════════════════════════════
+function showAnswerReveal(card) {
+  const el = document.getElementById('dng-answer-reveal');
+  if (!el) return;
+  el.innerHTML = `
+    <div class="dng-reveal-row">
+      <span class="dng-reveal-kanji">${card.kanji}</span>
+      <span class="dng-reveal-reading">${card.correctReading}</span>
+    </div>
+    <div class="dng-reveal-detail">
+      On: ${card.on || '—'} · Kun: ${card.kun || '—'}
+    </div>`;
+  el.classList.add('visible');
 }
 
 // ══════════════════════════════════════════
@@ -329,6 +371,7 @@ function onAnswer(btn, chosen) {
   if (dAnswering) return;
   dAnswering = true;
   stopDungeonTimer();
+  disableAllOptions();
   dTotal++;
 
   const isCorrect = chosen === dCurrentCard.correctReading;
@@ -345,8 +388,28 @@ function onAnswer(btn, chosen) {
       : Math.floor(XP_PER_CORRECT / 2);
     addDungeonXP(xp, btn);
     animateEnemyHit();
+
+    // Reduce enemy HP bar
+    dEnemyHP = Math.max(0, dEnemyHP - 1);
+    const hpBar = document.getElementById('dng-e-hp-bar');
+    if (hpBar) {
+      const boss = isBoss(dFloor);
+      hpBar.style.width = boss ? (dEnemyHP / 2 * 100) + '%' : '0%';
+      if (dEnemyHP <= 0) hpBar.style.background = 'transparent';
+    }
+
     updateDngHUD();
-    setTimeout(() => { dAnswering = false; nextEnemy(); }, 650);
+
+    // Boss needs 2 correct hits
+    if (dEnemyHP > 0) {
+      // Boss still alive — rebuild options for same card
+      setTimeout(() => {
+        dAnswering = false;
+        renderEnemy(dCurrentCard);
+      }, 700);
+    } else {
+      setTimeout(() => { dAnswering = false; nextEnemy(); }, 650);
+    }
 
   } else {
     dStreak = 0;
@@ -354,38 +417,48 @@ function onAnswer(btn, chosen) {
     btn.classList.add('dng-opt-wrong');
     speakJP(dCurrentCard.correctReading);
     playTone(200, 'sawtooth', 0.15);
-    // Reveal correct
+    // Reveal correct button
     document.querySelectorAll('.dng-opt-btn').forEach(b => {
       if (b.textContent === dCurrentCard.correctReading) b.classList.add('dng-opt-correct');
     });
+    // Show answer detail
+    showAnswerReveal(dCurrentCard);
     animateHeroHit();
     updateDngHUD();
     setTimeout(() => {
-      btn.classList.remove('dng-opt-wrong');
       dAnswering = false;
+      const reveal = document.getElementById('dng-answer-reveal');
+      if (reveal) reveal.classList.remove('visible');
       if (dHeroHP <= 0) showGameOver();
-      else startDungeonTimer(); // retry same enemy
-    }, 950);
+      else {
+        // Re-render same enemy for retry
+        renderEnemy(dCurrentCard);
+      }
+    }, 1600);
   }
 }
 
 function onTimeout() {
   if (dAnswering) return;
   dAnswering = true;
+  disableAllOptions();
   dTotal++; dStreak = 0;
   updateMastery(dCurrentCard.kanji, false);
   document.querySelectorAll('.dng-opt-btn').forEach(b => {
     if (b.textContent === dCurrentCard.correctReading) b.classList.add('dng-opt-correct');
   });
+  showAnswerReveal(dCurrentCard);
   speakJP(dCurrentCard.correctReading);
   playTone(180, 'sawtooth', 0.15);
   animateHeroHit();
   updateDngHUD();
   setTimeout(() => {
     dAnswering = false;
+    const reveal = document.getElementById('dng-answer-reveal');
+    if (reveal) reveal.classList.remove('visible');
     if (dHeroHP <= 0) showGameOver();
-    else startDungeonTimer();
-  }, 950);
+    else renderEnemy(dCurrentCard);
+  }, 1600);
 }
 
 // ══════════════════════════════════════════
@@ -394,7 +467,6 @@ function onTimeout() {
 function animateEnemyHit() {
   const sprite = document.getElementById('dng-enemy-sprite');
   if (sprite) { sprite.classList.add('hit-anim'); setTimeout(() => sprite.classList.remove('hit-anim'), 400); }
-  // Damage float
   const wrap = document.getElementById('dng-enemy-wrap');
   if (wrap) {
     const el = document.createElement('div');
@@ -469,6 +541,7 @@ function showFloorIntro(cb) {
         ${boss ? '⚠️ BOSS FLOOR ⚠️' : `Tầng ${dFloor}`}
       </div>
       <div class="dfi-name">${theme.name}</div>
+      ${boss ? '<div class="dfi-boss-hint">Boss cần 2 lần đúng để hạ!</div>' : ''}
     </div>`;
   document.getElementById('dng-options').innerHTML = '';
   setTimeout(() => { rebuildArena(); cb(); }, 1300);
@@ -498,7 +571,7 @@ function startNextFloor() {
   });
 }
 
-// ── Entry point (giữ tên cũ để kanji-state.js gọi được) ──
+// ── Entry point ──
 function startBubbleGame() {
   loadDungeonXP();
   loadMastery();

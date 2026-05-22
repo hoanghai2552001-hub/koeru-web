@@ -652,6 +652,11 @@ body::before {
   font-size:clamp(2.2rem,10vw,3.5rem); font-weight:900; line-height:1;
   font-family:'Noto Sans JP',sans-serif;
 }
+.dng-enemy-meaning {
+  font-size:.75rem; color:var(--muted); opacity:.7; max-width:180px;
+  text-align:center; line-height:1.3; margin-top:2px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
 .dng-enemy-meta { display:flex; align-items:center; gap:8px; }
 .dng-mastery-stars { font-size:.65rem; color:#fbbf24; letter-spacing:-1px; }
 .dng-enemy-count   { font-size:.72rem; color:var(--muted); }
@@ -733,6 +738,42 @@ body::before {
 .dng-reading-badge.badge-on  { background:rgba(244,114,182,.14); color:var(--accent2); border-color:rgba(244,114,182,.28); }
 .dng-reading-badge.badge-kun { background:rgba(129,140,248,.14); color:var(--accent);  border-color:rgba(129,140,248,.28); }
 
+/* Timer progress bar */
+.dng-timer-bar-wrap {
+  height:4px; background:rgba(255,255,255,.08); border-radius:2px;
+  overflow:hidden; margin-bottom:8px;
+}
+.dng-timer-bar {
+  height:100%; width:100%; border-radius:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transition:width 1s linear;
+}
+
+/* Answer reveal after wrong/timeout */
+#dng-answer-reveal {
+  max-height:0; overflow:hidden; opacity:0;
+  transition:max-height .3s ease, opacity .3s ease;
+  text-align:center; margin-top:0;
+}
+#dng-answer-reveal.visible {
+  max-height:80px; opacity:1; margin-top:8px;
+}
+.dng-reveal-row {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+}
+.dng-reveal-kanji { font-size:1.3rem; font-weight:900; color:#fff; }
+.dng-reveal-reading {
+  font-size:1.1rem; font-weight:800; color:#4ade80;
+  background:rgba(74,222,128,.12); padding:3px 12px; border-radius:8px;
+}
+.dng-reveal-detail { font-size:.72rem; color:var(--muted); margin-top:4px; }
+
+/* Boss hint in floor intro */
+.dfi-boss-hint {
+  font-size:.72rem; color:#ef4444; margin-top:6px;
+  animation:introFade .4s ease;
+}
+
 #dng-opts-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 .dng-opt-btn {
   border-radius:14px; padding:13px 10px; text-align:center; cursor:pointer;
@@ -741,6 +782,11 @@ body::before {
   font-family:'Noto Sans JP',sans-serif; letter-spacing:.03em;
   transition:all .15s; -webkit-tap-highlight-color:transparent;
   touch-action:manipulation; min-height:52px;
+  animation:dngOptIn .25s ease backwards;
+}
+@keyframes dngOptIn {
+  from { transform:translateY(12px) scale(.94); opacity:0; }
+  to   { transform:translateY(0) scale(1); opacity:1; }
 }
 .dng-opt-btn:active { transform:scale(.95); }
 .dng-opt-btn:hover  { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.2); }
