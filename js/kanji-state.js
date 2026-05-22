@@ -1,4 +1,4 @@
-﻿// ══════════════════════════════════════════
+// ══════════════════════════════════════════
 // SHARED STATE
 // ══════════════════════════════════════════
 let selectedLevel = "ALL";
@@ -49,4 +49,22 @@ document.getElementById('btn-home-from-done').addEventListener('click', () => {
   document.getElementById('done-screen').classList.remove('visible');
   showScreen('home-screen');
 });
+
+// Bubble game event listeners
+document.getElementById('go-bubble').addEventListener('click', () => {
+  showScreen('bubble-screen');
+  startBubbleGame();
+});
+document.getElementById('bubble-back').addEventListener('click', () => {
+  stopBubbleTimer();
+  showScreen('home-screen');
+});
+document.getElementById('bub-btn-next').addEventListener('click', () => {
+  nextBubbleRound();
+});
+document.getElementById('bub-btn-home').addEventListener('click', () => {
+  document.getElementById('bub-overlay').classList.remove('visible');
+  showScreen('home-screen');
+});
+
 

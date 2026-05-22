@@ -1,4 +1,4 @@
-﻿<style>
+<style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --correct: #10b981; --incorrect: #f43f5e;
@@ -412,6 +412,10 @@ body::before {
 }
 .bub-k-text { font-size:clamp(1.1rem,6vw,1.8rem); font-weight:900; color:#fff; line-height:1; text-shadow:0 2px 8px rgba(0,0,0,.5); }
 .bub-k-read { font-size:clamp(.45rem,2vw,.62rem); color:#a78bfa; margin-top:2px; }
+.bub-k-hanviet { font-size:clamp(.55rem,2.2vw,.72rem); color:rgba(255,255,255,0.78); font-weight:700; margin-top:1px; text-shadow:0 1px 4px rgba(0,0,0,0.5); }
+.bub-k-stars { font-size:clamp(.45rem,1.8vw,.62rem); color:#fbbf24; margin-top:2px; letter-spacing:-0.5px; text-shadow:0 1px 3px rgba(0,0,0,0.4); }
+.bub-partial-note { position:absolute; bottom:-12px; left:50%; transform:translateX(-50%); background:var(--correct); color:#fff; font-size:0.6rem; padding:1px 5px; border-radius:10px; white-space:nowrap; box-shadow:0 2px 6px rgba(0,0,0,0.3); z-index:10; animation:bubbleSpawn 0.25s ease forwards; }
+
 
 @keyframes bubbleFloat {
   0%   { transform:translateY(0px) rotate(0deg); }
@@ -510,6 +514,69 @@ body::before {
   border:1px solid rgba(255,255,255,.12); padding:13px 22px;
   border-radius:50px; font-size:.88rem; font-weight:700; cursor:pointer; min-height:48px;
 }
+
+/* Bubble Game Question & Choices */
+#bub-question-label {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:6px; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:8px;
+}
+#bub-q-left { display:flex; align-items:baseline; gap:8px; }
+.bub-q-kanji { font-size:1.8rem; font-weight:900; color:#fff; }
+.bub-q-hanviet { font-size:0.95rem; font-weight:700; color:var(--muted); }
+#bub-q-right { display:flex; flex-direction:column; align-items:flex-end; gap:3px; }
+.bub-q-meaning { font-size:0.88rem; font-weight:600; color:#e2e8f0; }
+.bub-reading-badge {
+  font-size:0.65rem; font-weight:800; padding:2px 8px; border-radius:20px;
+  border:1.5px solid transparent; text-transform:uppercase; letter-spacing:0.02em;
+}
+.bub-reading-badge.badge-on {
+  background:rgba(244,114,182,0.14); color:var(--accent2); border-color:rgba(244,114,182,0.28);
+}
+.bub-reading-badge.badge-kun {
+  background:rgba(129,140,248,0.14); color:var(--accent); border-color:rgba(129,140,248,0.28);
+}
+#bub-options-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; }
+.bub-opt-kana { font-size:1.15rem; font-weight:800; }
+
+/* Daily goal widget & layout */
+#bub-daily-wrap {
+  display:flex; align-items:center; gap:8px; padding:8px 14px;
+  background:rgba(255,255,255,.02); border-bottom:1px solid rgba(255,255,255,.05);
+  font-size:0.75rem; color:var(--text); flex-shrink:0;
+}
+#bub-daily-streak { font-weight:800; color:#f97316; }
+#bub-daily-bar-wrap { flex:1; height:6px; background:rgba(255,255,255,.1); border-radius:3px; overflow:hidden; }
+#bub-daily-bar { height:100%; width:0%; background:linear-gradient(90deg, #f97316, #e11d48); transition:width .4s ease; }
+#bub-daily-text { font-weight:700; color:var(--muted); }
+.bub-daily-label { font-size:0.65rem; color:var(--muted); }
+#bub-daily-wrap.goal-done { animation:goalCelebration 0.5s ease-in-out 3; }
+@keyframes goalCelebration {
+  0%, 100% { transform:scale(1); background:rgba(255,255,255,.02); }
+  50% { transform:scale(1.03); background:rgba(34,197,94,.1); }
+}
+.bub-ov-stats { font-size:.9rem; color:var(--text); line-height:2; }
+.bub-dp-wrap { margin:12px 0; text-align:left; }
+.bub-dp-label { font-size:0.78rem; color:var(--text); margin-bottom:6px; }
+.bub-dp-bar-wrap { height:8px; background:rgba(255,255,255,.1); border-radius:4px; overflow:hidden; }
+.bub-dp-bar { height:100%; background:linear-gradient(90deg, #f97316, #e11d48); }
+
+/* Review section on overlay */
+.bub-review-title { font-size:0.88rem; font-weight:750; color:var(--muted); text-align:left; margin-top:12px; margin-bottom:6px; }
+.bub-review-list { display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto; padding-right:4px; margin-bottom:4px; }
+.bub-review-item {
+  display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08); padding:8px 12px; border-radius:12px;
+  cursor:pointer; transition:background .15s;
+}
+.bub-review-item:hover { background:rgba(255,255,255,.08); }
+.bub-rev-kanji { font-size:1.1rem; font-weight:800; color:#fff; }
+.bub-rev-arrow { color:var(--muted); font-size:0.8rem; }
+.bub-rev-reading { font-size:0.95rem; font-weight:700; color:var(--accent2); }
+.bub-rev-badge { font-size:0.65rem; padding:1px 5px; border-radius:4px; font-weight:800; border:1px solid transparent; }
+.bub-rev-badge.badge-on { background:rgba(244,114,182,0.15); color:var(--accent2); border-color:rgba(244,114,182,0.3); }
+.bub-rev-badge.badge-kun { background:rgba(129,140,248,0.15); color:var(--accent); border-color:rgba(129,140,248,0.3); }
+.bub-rev-meaning { font-size:0.8rem; color:var(--muted); margin-left:auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:110px; }
+
 
 .game-card-4{background:linear-gradient(135deg,#2a2010,#4a3800);box-shadow:0 8px 32px rgba(245,158,11,.22)}
 .game-card-4 .game-badge{background:rgba(245,158,11,.14);color:#f59e0b;border-color:rgba(245,158,11,.28)}
