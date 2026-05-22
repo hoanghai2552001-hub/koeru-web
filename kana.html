@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
 <title>Kana Speed — KOERU</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -345,6 +346,77 @@ body::before {
 }
 .wtab.active { background:rgba(232,132,90,.18); color:var(--accent); border-color:var(--accent); }
 
+/* ── Save score section ── */
+#save-score-section {
+  width:100%; max-width:380px; margin-bottom:14px;
+  background:rgba(245,200,66,.07); border:1px solid rgba(245,200,66,.25);
+  border-radius:16px; padding:16px; display:none;
+}
+#save-score-section.show { display:block; }
+.save-score-label { font-size:.72rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--accent2); margin-bottom:10px; }
+.save-score-row { display:flex; gap:8px; }
+#nickname-input {
+  flex:1; background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.15);
+  color:var(--text); border-radius:10px; font-size:.9rem; padding:10px 12px;
+  outline:none; font-family:'Noto Sans',sans-serif;
+}
+#nickname-input:focus { border-color:var(--accent2); }
+#save-btn {
+  border:none; background:linear-gradient(135deg,var(--accent2),#f59e0b);
+  color:#111; font-size:.85rem; font-weight:800; padding:10px 16px;
+  border-radius:10px; cursor:pointer; white-space:nowrap; transition:opacity .2s;
+}
+#save-btn:disabled { opacity:.5; cursor:default; }
+#save-status { font-size:.72rem; color:var(--correct); margin-top:6px; min-height:1em; }
+
+/* ── Leaderboard modal ── */
+#lb-overlay {
+  position:fixed; inset:0; z-index:200; background:rgba(0,0,0,.75);
+  backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center;
+  padding:20px;
+}
+#lb-overlay.show { display:flex; }
+#lb-modal {
+  background:#141414; border:1px solid rgba(255,255,255,.12); border-radius:24px;
+  width:100%; max-width:420px; max-height:85vh; display:flex; flex-direction:column;
+  overflow:hidden;
+}
+#lb-modal-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 20px 14px; border-bottom:1px solid rgba(255,255,255,.08);
+}
+#lb-modal-header h2 { font-size:1rem; font-weight:800; color:var(--accent2); }
+#lb-close {
+  background:rgba(255,255,255,.08); border:none; color:var(--muted);
+  border-radius:50%; width:34px; height:34px; font-size:1.1rem; cursor:pointer;
+}
+#lb-tabs {
+  display:flex; gap:6px; padding:10px 16px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.lb-tab {
+  font-size:.75rem; font-weight:700; padding:5px 14px; border-radius:50px;
+  border:1px solid rgba(255,255,255,.1); background:transparent; color:var(--muted); cursor:pointer;
+}
+.lb-tab.active { background:rgba(245,200,66,.15); color:var(--accent2); border-color:var(--accent2); }
+#lb-list { flex:1; overflow-y:auto; padding:12px 16px; }
+.lb-row {
+  display:flex; align-items:center; gap:12px;
+  padding:10px 12px; border-radius:12px; margin-bottom:6px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+}
+.lb-row.top1 { background:rgba(245,200,66,.12); border-color:rgba(245,200,66,.3); }
+.lb-row.top2 { background:rgba(192,192,192,.08); border-color:rgba(192,192,192,.2); }
+.lb-row.top3 { background:rgba(180,100,40,.1); border-color:rgba(180,100,40,.3); }
+.lb-rank { font-size:1.1rem; width:28px; text-align:center; flex-shrink:0; }
+.lb-name { flex:1; font-size:.88rem; font-weight:700; color:var(--text); }
+.lb-meta { font-size:.7rem; color:var(--muted); }
+.lb-score { text-align:right; }
+.lb-acc { font-size:1rem; font-weight:800; color:var(--accent2); }
+.lb-correct { font-size:.7rem; color:var(--muted); }
+.lb-empty { text-align:center; color:var(--muted); font-size:.85rem; padding:30px; }
+#lb-loading { text-align:center; color:var(--muted); font-size:.85rem; padding:30px; }
+
 /* ── Vocab mode: smaller char, show meaning hint ── */
 #kana-char.vocab-mode {
   font-size:clamp(2.4rem,10vw,4.2rem);
@@ -408,6 +480,7 @@ body::before {
 
   <button class="start-btn" onclick="startGame()">Bắt đầu →</button>
   <button class="write-mode-btn" onclick="openWriteMode()">✍️ Tập viết Hiragana & Katakana</button>
+  <button class="write-mode-btn" onclick="openLeaderboard()" style="margin-top:8px;border-color:rgba(245,200,66,.4);color:var(--accent2);background:rgba(245,200,66,.07)">🏆 Bảng xếp hạng</button>
 </div>
 
 <!-- ═══ GAME ═══ -->
@@ -507,9 +580,36 @@ body::before {
     <div class="missed-title">Cần ôn lại</div>
     <div class="missed-grid" id="missed-grid"></div>
   </div>
+  <!-- Save score -->
+  <div id="save-score-section">
+    <div class="save-score-label">🏆 Lưu điểm lên bảng xếp hạng</div>
+    <div class="save-score-row">
+      <input id="nickname-input" type="text" maxlength="20" placeholder="Nhập tên của bạn…">
+      <button id="save-btn" onclick="saveScore()">Lưu</button>
+    </div>
+    <div id="save-status"></div>
+  </div>
+
   <div class="result-btns">
     <button class="result-btn result-btn-primary" onclick="restartGame()">Chơi lại</button>
     <button class="result-btn result-btn-ghost" onclick="goHome()">Đổi chế độ</button>
+  </div>
+</div>
+
+<!-- ═══ LEADERBOARD MODAL ═══ -->
+<div id="lb-overlay" onclick="closeLbOnOverlay(event)">
+  <div id="lb-modal">
+    <div id="lb-modal-header">
+      <h2>🏆 Bảng xếp hạng</h2>
+      <button id="lb-close" onclick="closeLeaderboard()">✕</button>
+    </div>
+    <div id="lb-tabs">
+      <button class="lb-tab active" onclick="switchLbTab('all',this)">Tất cả</button>
+      <button class="lb-tab" onclick="switchLbTab(1,this)">Trình độ 1</button>
+      <button class="lb-tab" onclick="switchLbTab(2,this)">Trình độ 2</button>
+      <button class="lb-tab" onclick="switchLbTab(3,this)">Từ vựng</button>
+    </div>
+    <div id="lb-list"><div id="lb-loading">Đang tải…</div></div>
   </div>
 </div>
 
@@ -1278,6 +1378,112 @@ function switchWriteTab(tab) {
 
 // Init
 updateCounts();
+
+/* ════════════════════════════════
+   SUPABASE — LEADERBOARD
+════════════════════════════════ */
+const SUPA_URL = 'https://vjcxtnynjpbebhosynkw.supabase.co';
+const SUPA_KEY = 'sb_publishable_Hn4Dx5Gt7xuJkt35WRhU9w_aDaUwQHa';
+const supa = supabase.createClient(SUPA_URL, SUPA_KEY);
+
+let lbFilter = 'all';
+let scoreSaved = false;
+
+// Hiện save-score section khi kết quả được show
+const _origShowResult = showResult;
+showResult = function() {
+  _origShowResult();
+  scoreSaved = false;
+  document.getElementById('save-score-section').classList.add('show');
+  document.getElementById('save-status').textContent = '';
+  document.getElementById('nickname-input').value = localStorage.getItem('kana_nickname') || '';
+  document.getElementById('save-btn').disabled = false;
+};
+
+async function saveScore() {
+  const nick = document.getElementById('nickname-input').value.trim();
+  if (!nick) {
+    document.getElementById('save-status').textContent = '⚠️ Nhập tên trước nhé!';
+    return;
+  }
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  document.getElementById('save-status').textContent = 'Đang lưu…';
+
+  const total = scoreCorrect + scoreWrong;
+  const acc   = total > 0 ? Math.round((scoreCorrect / total) * 100) : 0;
+  const scriptLabel = selectedLevel === 3 ? 'vocab' : selectedScript;
+
+  const { error } = await supa.from('scores').insert({
+    nickname : nick,
+    correct  : scoreCorrect,
+    accuracy : acc,
+    streak   : maxStreak,
+    script   : scriptLabel,
+    level    : selectedLevel
+  });
+
+  if (error) {
+    document.getElementById('save-status').textContent = '❌ Lỗi: ' + error.message;
+    btn.disabled = false;
+  } else {
+    localStorage.setItem('kana_nickname', nick);
+    document.getElementById('save-status').textContent = '✅ Đã lưu! Xem bảng xếp hạng →';
+    scoreSaved = true;
+    // link "xem bảng xếp hạng"
+    document.getElementById('save-status').innerHTML =
+      '✅ Đã lưu! <span style="color:var(--accent2);cursor:pointer;text-decoration:underline" onclick="openLeaderboard()">Xem bảng xếp hạng →</span>';
+  }
+}
+
+async function openLeaderboard() {
+  document.getElementById('lb-overlay').classList.add('show');
+  await fetchLeaderboard();
+}
+
+function closeLeaderboard() {
+  document.getElementById('lb-overlay').classList.remove('show');
+}
+
+function closeLbOnOverlay(e) {
+  if (e.target === document.getElementById('lb-overlay')) closeLeaderboard();
+}
+
+async function switchLbTab(filter, btn) {
+  lbFilter = filter;
+  document.querySelectorAll('.lb-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  await fetchLeaderboard();
+}
+
+async function fetchLeaderboard() {
+  const list = document.getElementById('lb-list');
+  list.innerHTML = '<div id="lb-loading">Đang tải…</div>';
+
+  let q = supa.from('scores').select('*').order('accuracy', { ascending: false }).order('correct', { ascending: false }).limit(20);
+  if (lbFilter !== 'all') q = q.eq('level', lbFilter);
+
+  const { data, error } = await q;
+  if (error) { list.innerHTML = `<div class="lb-empty">Lỗi tải dữ liệu 😢</div>`; return; }
+  if (!data || data.length === 0) { list.innerHTML = `<div class="lb-empty">Chưa có điểm nào. Hãy là người đầu tiên! 🚀</div>`; return; }
+
+  const medals = ['🥇','🥈','🥉'];
+  const topClass = ['top1','top2','top3'];
+  list.innerHTML = data.map((row, i) => {
+    const rank = medals[i] || `#${i+1}`;
+    const cls  = topClass[i] || '';
+    const date = new Date(row.created_at).toLocaleDateString('vi-VN');
+    const levelTag = row.level === 3 ? '⚡Từ vựng' : `Trình độ ${row.level}`;
+    return `<div class="lb-row ${cls}">
+      <div class="lb-rank">${rank}</div>
+      <div class="lb-name">${row.nickname}<br><span class="lb-meta">${levelTag} · ${date}</span></div>
+      <div class="lb-score">
+        <div class="lb-acc">${row.accuracy}%</div>
+        <div class="lb-correct">${row.correct} đúng · 🔥${row.streak}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
 </script>
 </body>
 </html>
