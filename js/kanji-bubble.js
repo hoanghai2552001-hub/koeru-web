@@ -99,11 +99,11 @@ function flashDailyGoal() {
 // FLOOR PROGRESS (persistent)
 // ══════════════════════════════════════════
 let dProgress = { maxFloor: 1 };
-function loadProgress() {
+function dngLoadProgress() {
   try { dProgress = { maxFloor:1, ...JSON.parse(localStorage.getItem('dng_progress') || '{}') }; }
   catch(e) {}
 }
-function saveProgress() {
+function dngSaveProgress() {
   try { localStorage.setItem('dng_progress', JSON.stringify(dProgress)); } catch(e){}
 }
 
@@ -542,7 +542,7 @@ function nextEnemy() {
 
 function showFloorComplete() {
   stopDungeonTimer();
-  if (dFloor > dProgress.maxFloor) { dProgress.maxFloor = dFloor; saveProgress(); }
+  if (dFloor > dProgress.maxFloor) { dProgress.maxFloor = dFloor; dngSaveProgress(); }
   incrementDailyFloor();
   const acc  = dTotal > 0 ? Math.round((dCorrect / dTotal) * 100) : 0;
   const boss = isBoss(dFloor);
@@ -622,7 +622,7 @@ function startBubbleGame() {
   loadMastery();
   loadDaily();
   checkAndResetDaily();
-  loadProgress();
+  dngLoadProgress();
   dFloor   = 1;
   dStreak  = 0;
   document.getElementById('dng-overlay').classList.remove('visible');

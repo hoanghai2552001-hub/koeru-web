@@ -18,7 +18,15 @@ function shuffle(a) {
 // ══════════════════════════════════════════
 // SCREEN NAVIGATION
 // ══════════════════════════════════════════
-// showScreen defined below in SP section
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  ['s-sph','s-speed','s-spr'].forEach(s => document.getElementById(s)?.classList.remove('on'));
+  if (['s-sph','s-speed','s-spr'].includes(id)) {
+    document.getElementById(id)?.classList.add('on');
+  } else {
+    document.getElementById(id)?.classList.add('active');
+  }
+}
 
 // Home level buttons
 document.querySelectorAll('.home-lvl-btn').forEach(btn => {
