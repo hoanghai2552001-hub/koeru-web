@@ -309,14 +309,23 @@ async function gsPush() {
   const cfg = gsGetUrl(); if (!cfg) return;
   gsStatus('⏳ Đang đẩy ' + ALL_KANJI.length + ' từ lên Sheet...');
   try {
-    // Use text/plain to avoid CORS preflight (GAS doesn't handle OPTIONS)
+    // text/plain avoids CORS preflight (GAS doesn't handle OPTIONS)
     const r = await fetch(cfg.url, {
-      method:'POST',
+      method: 'POST',
       body: JSON.stringify({action:'set', sheet:cfg.sheet, data:ALL_KANJI}),
-      headers:{'Content-Type':'text/plain'}
+      headers: {'Content-Type':'text/plain'}
     });
-    const t = await r.text();
-    gsStatus('✅ Đã đẩy ' + ALL_KANJI.length + ' từ lên Sheet: ' + t.slice(0,60));
+    const text = await r.text();
+    // Parse response to detect server-side errors
+    let json = null;
+    try { json = JSON.parse(text); } catch(_) {}
+    if (json && json.error) {
+      gsStatus('❌ Lỗi từ Sheet: ' + json.error, true);
+    } else if (json && json.ok) {
+      gsStatus('✅ Đã đẩy ' + (json.written || ALL_KANJI.length) + ' từ lên Sheet thành công!');
+    } else {
+      gsStatus('⚠️ Phản hồi lạ: ' + text.slice(0, 80), true);
+    }
   } catch(e) { gsStatus('❌ Lỗi: ' + e.message, true); }
 }
 
