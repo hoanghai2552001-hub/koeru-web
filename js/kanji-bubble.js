@@ -16,13 +16,30 @@ const ANSWER_TIME      = 8;   // giây mỗi câu
 
 // ── Floor themes ──
 const FLOOR_THEMES = [
-  { range:[1,5],   sprite:'🐸', name:'Ếch Yêu Tinh', bg:'#061a0e', accent:'#4ade80' },
-  { range:[6,10],  sprite:'🦊', name:'Cáo Thần',      bg:'#1a0e06', accent:'#fb923c' },
-  { range:[11,15], sprite:'👺', name:'Quỷ Oni',        bg:'#1a0612', accent:'#f472b6' },
-  { range:[16,20], sprite:'🐉', name:'Rồng Xanh',     bg:'#060e1a', accent:'#60a5fa' },
-  { range:[21,99], sprite:'👾', name:'Ma Vương',       bg:'#0e061a', accent:'#a78bfa' },
+  { range:[1,5],   spriteKey:'frog',   name:'Ếch Yêu Tinh', bg:'#061a0e', accent:'#4ade80' },
+  { range:[6,10],  spriteKey:'fox',    name:'Cáo Thần',      bg:'#1a0e06', accent:'#fb923c' },
+  { range:[11,15], spriteKey:'oni',    name:'Quỷ Oni',        bg:'#1a0612', accent:'#f472b6' },
+  { range:[16,20], spriteKey:'dragon', name:'Rồng Xanh',     bg:'#060e1a', accent:'#60a5fa' },
+  { range:[21,99], spriteKey:'alien',  name:'Ma Vương',       bg:'#0e061a', accent:'#a78bfa' },
 ];
-const BOSS_THEME = { sprite:'👹', name:'⚠️ BOSS', bg:'#1a0606', accent:'#ef4444' };
+const BOSS_THEME = { spriteKey:'boss', name:'⚠️ BOSS', bg:'#1a0606', accent:'#ef4444' };
+
+// ── Pixel Art Sprites (SVG 16×16) ──
+const PIXEL_SPRITES = {
+  hero:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="4" height="1" fill="#7c3aed"/><rect x="5" y="1" width="6" height="3" fill="#7c3aed"/><rect x="6" y="1" width="1" height="2" fill="#a78bfa"/><rect x="3" y="4" width="10" height="1" fill="#5b21b6"/><rect x="5" y="5" width="6" height="4" fill="#fde68a"/><rect x="6" y="6" width="1" height="1" fill="#000"/><rect x="9" y="6" width="1" height="1" fill="#000"/><rect x="7" y="8" width="2" height="1" fill="#92400e"/><rect x="4" y="9" width="8" height="5" fill="#2563eb"/><rect x="3" y="9" width="2" height="4" fill="#1d4ed8"/><rect x="11" y="9" width="2" height="4" fill="#1d4ed8"/><rect x="4" y="11" width="8" height="1" fill="#d97706"/><rect x="5" y="14" width="2" height="2" fill="#1d4ed8"/><rect x="9" y="14" width="2" height="2" fill="#1d4ed8"/><rect x="5" y="15" width="2" height="1" fill="#78350f"/><rect x="9" y="15" width="2" height="1" fill="#78350f"/><rect x="13" y="5" width="1" height="8" fill="#d97706"/><rect x="12" y="3" width="3" height="3" fill="#fbbf24"/><rect x="13" y="2" width="1" height="2" fill="#f59e0b"/></svg>`,
+
+  frog:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="5" y="0" width="1" height="3" fill="#fbbf24"/><rect x="7" y="0" width="2" height="2" fill="#fbbf24"/><rect x="10" y="0" width="1" height="3" fill="#fbbf24"/><rect x="5" y="2" width="6" height="1" fill="#f59e0b"/><rect x="3" y="3" width="4" height="4" fill="#22c55e"/><rect x="9" y="3" width="4" height="4" fill="#22c55e"/><rect x="3" y="4" width="3" height="2" fill="#fff"/><rect x="10" y="4" width="3" height="2" fill="#fff"/><rect x="3" y="4" width="1" height="1" fill="#000"/><rect x="12" y="4" width="1" height="1" fill="#000"/><rect x="2" y="5" width="12" height="8" fill="#22c55e"/><rect x="4" y="8" width="8" height="4" fill="#bbf7d0"/><rect x="4" y="10" width="8" height="1" fill="#166534"/><rect x="5" y="11" width="1" height="1" fill="#166534"/><rect x="10" y="11" width="1" height="1" fill="#166534"/><rect x="0" y="11" width="3" height="4" fill="#16a34a"/><rect x="13" y="11" width="3" height="4" fill="#16a34a"/><rect x="0" y="14" width="4" height="1" fill="#15803d"/><rect x="12" y="14" width="4" height="1" fill="#15803d"/></svg>`,
+
+  fox:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="2" y="0" width="3" height="5" fill="#f97316"/><rect x="11" y="0" width="3" height="5" fill="#f97316"/><rect x="3" y="1" width="1" height="3" fill="#fde68a"/><rect x="12" y="1" width="1" height="3" fill="#fde68a"/><rect x="2" y="4" width="12" height="7" fill="#f97316"/><rect x="4" y="6" width="4" height="4" fill="#fde68a"/><rect x="8" y="6" width="4" height="4" fill="#fde68a"/><rect x="4" y="5" width="3" height="2" fill="#fff"/><rect x="9" y="5" width="3" height="2" fill="#fff"/><rect x="5" y="5" width="1" height="1" fill="#000"/><rect x="10" y="5" width="1" height="1" fill="#000"/><rect x="7" y="8" width="2" height="1" fill="#c2410c"/><rect x="3" y="11" width="10" height="5" fill="#f97316"/><rect x="12" y="9" width="4" height="5" fill="#f97316"/><rect x="13" y="8" width="3" height="2" fill="#fde68a"/><rect x="4" y="14" width="3" height="2" fill="#ea580c"/><rect x="9" y="14" width="3" height="2" fill="#ea580c"/></svg>`,
+
+  oni:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="4" y="0" width="2" height="4" fill="#fbbf24"/><rect x="10" y="0" width="2" height="4" fill="#fbbf24"/><rect x="5" y="0" width="1" height="3" fill="#fde68a"/><rect x="10" y="0" width="1" height="3" fill="#fde68a"/><rect x="2" y="3" width="12" height="8" fill="#ef4444"/><rect x="3" y="5" width="4" height="1" fill="#dc2626"/><rect x="9" y="5" width="4" height="1" fill="#dc2626"/><rect x="3" y="6" width="4" height="2" fill="#fff"/><rect x="9" y="6" width="4" height="2" fill="#fff"/><rect x="4" y="6" width="1" height="1" fill="#000"/><rect x="11" y="6" width="1" height="1" fill="#000"/><rect x="4" y="9" width="8" height="2" fill="#7f1d1d"/><rect x="5" y="9" width="1" height="3" fill="#fff"/><rect x="7" y="9" width="2" height="2" fill="#fff"/><rect x="10" y="9" width="1" height="3" fill="#fff"/><rect x="3" y="11" width="10" height="5" fill="#dc2626"/><rect x="13" y="4" width="2" height="9" fill="#6b7280"/><rect x="12" y="3" width="4" height="2" fill="#9ca3af"/></svg>`,
+
+  dragon:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="0" y="4" width="4" height="7" fill="#1d4ed8"/><rect x="12" y="4" width="4" height="7" fill="#1d4ed8"/><rect x="1" y="3" width="3" height="3" fill="#2563eb"/><rect x="12" y="3" width="3" height="3" fill="#2563eb"/><rect x="5" y="0" width="2" height="3" fill="#93c5fd"/><rect x="9" y="0" width="2" height="3" fill="#93c5fd"/><rect x="4" y="2" width="8" height="7" fill="#3b82f6"/><rect x="5" y="7" width="6" height="3" fill="#2563eb"/><rect x="5" y="4" width="2" height="2" fill="#fbbf24"/><rect x="9" y="4" width="2" height="2" fill="#fbbf24"/><rect x="6" y="4" width="1" height="1" fill="#000"/><rect x="10" y="4" width="1" height="1" fill="#000"/><rect x="6" y="9" width="1" height="1" fill="#1e40af"/><rect x="9" y="9" width="1" height="1" fill="#1e40af"/><rect x="5" y="9" width="6" height="7" fill="#3b82f6"/><rect x="6" y="10" width="4" height="5" fill="#bfdbfe"/><rect x="11" y="11" width="4" height="2" fill="#2563eb"/><rect x="13" y="13" width="2" height="1" fill="#1d4ed8"/><rect x="4" y="15" width="3" height="1" fill="#1d4ed8"/><rect x="9" y="15" width="3" height="1" fill="#1d4ed8"/></svg>`,
+
+  alien:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="3" y="0" width="1" height="3" fill="#a78bfa"/><rect x="12" y="0" width="1" height="3" fill="#a78bfa"/><rect x="2" y="0" width="2" height="1" fill="#a78bfa"/><rect x="12" y="0" width="2" height="1" fill="#a78bfa"/><rect x="3" y="2" width="10" height="9" fill="#7c3aed"/><rect x="4" y="4" width="3" height="3" fill="#e0e7ff"/><rect x="9" y="4" width="3" height="3" fill="#e0e7ff"/><rect x="4" y="4" width="2" height="2" fill="#c4b5fd"/><rect x="9" y="4" width="2" height="2" fill="#c4b5fd"/><rect x="5" y="4" width="1" height="1" fill="#000"/><rect x="10" y="4" width="1" height="1" fill="#000"/><rect x="5" y="8" width="1" height="2" fill="#4c1d95"/><rect x="7" y="8" width="2" height="2" fill="#4c1d95"/><rect x="10" y="8" width="1" height="2" fill="#4c1d95"/><rect x="4" y="9" width="2" height="1" fill="#4c1d95"/><rect x="10" y="9" width="2" height="1" fill="#4c1d95"/><rect x="1" y="5" width="2" height="3" fill="#6d28d9"/><rect x="13" y="5" width="2" height="3" fill="#6d28d9"/><rect x="3" y="11" width="2" height="4" fill="#7c3aed"/><rect x="7" y="11" width="2" height="4" fill="#7c3aed"/><rect x="11" y="11" width="2" height="4" fill="#7c3aed"/><rect x="2" y="13" width="2" height="2" fill="#6d28d9"/><rect x="7" y="13" width="2" height="2" fill="#6d28d9"/><rect x="12" y="13" width="2" height="2" fill="#6d28d9"/></svg>`,
+
+  boss:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="1" y="0" width="3" height="5" fill="#dc2626"/><rect x="12" y="0" width="3" height="5" fill="#dc2626"/><rect x="2" y="0" width="2" height="4" fill="#ef4444"/><rect x="12" y="0" width="2" height="4" fill="#ef4444"/><rect x="2" y="3" width="12" height="7" fill="#991b1b"/><rect x="4" y="3" width="8" height="2" fill="#7f1d1d"/><rect x="3" y="6" width="4" height="3" fill="#fbbf24"/><rect x="9" y="6" width="4" height="3" fill="#fbbf24"/><rect x="4" y="7" width="2" height="1" fill="#f59e0b"/><rect x="10" y="7" width="2" height="1" fill="#f59e0b"/><rect x="5" y="7" width="1" height="1" fill="#000"/><rect x="11" y="7" width="1" height="1" fill="#000"/><rect x="7" y="7" width="2" height="2" fill="#7f1d1d"/><rect x="3" y="9" width="10" height="3" fill="#450a0a"/><rect x="4" y="9" width="1" height="4" fill="#fff"/><rect x="6" y="9" width="2" height="3" fill="#fff"/><rect x="9" y="9" width="2" height="3" fill="#fff"/><rect x="12" y="9" width="1" height="4" fill="#fff"/><rect x="2" y="12" width="12" height="4" fill="#7f1d1d"/><rect x="0" y="11" width="3" height="5" fill="#991b1b"/><rect x="13" y="11" width="3" height="5" fill="#991b1b"/></svg>`
+};
 
 // ── State ──
 let dFloor = 1;
@@ -323,7 +340,7 @@ function renderEnemy(card) {
       <div class="dng-enemy-hp-bar" id="dng-e-hp-bar" style="width:100%"></div>
     </div>
     <div id="dng-enemy-sprite" class="${boss ? 'dng-boss-sprite' : 'dng-enemy-sprite-el'}"
-         style="color:${theme.accent}">${theme.sprite}</div>
+         style="color:${theme.accent}">${PIXEL_SPRITES[theme.spriteKey] || ''}</div>
     <div id="dng-enemy-kanji" style="color:${theme.accent};text-shadow:0 0 24px ${theme.accent}88">${card.kanji}</div>
     <div class="dng-enemy-meaning">${card.meaning}</div>
     <div class="dng-enemy-meta">
@@ -594,7 +611,7 @@ function showFloorIntro(cb) {
   arena.style.background = `linear-gradient(170deg, ${theme.bg} 0%, #080808 100%)`;
   arena.innerHTML = `
     <div id="dng-floor-intro">
-      <div class="dfi-sprite">${theme.sprite}</div>
+      <div class="dfi-sprite">${PIXEL_SPRITES[theme.spriteKey] || ''}</div>
       <div class="dfi-title" style="color:${theme.accent}">
         ${boss ? '⚠️ BOSS FLOOR ⚠️' : `Tầng ${dFloor}`}
       </div>
@@ -612,7 +629,7 @@ function rebuildArena() {
   document.getElementById('dng-arena').innerHTML = `
     <div id="dng-enemy-side"><div id="dng-enemy-wrap"></div></div>
     <div id="dng-hero-side">
-      <div id="dng-hero-sprite">🧙</div>
+      <div id="dng-hero-sprite">${PIXEL_SPRITES.hero}</div>
       <div id="dng-hero-hp"></div>
     </div>`;
 }

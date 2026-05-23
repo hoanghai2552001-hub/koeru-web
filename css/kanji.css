@@ -1044,6 +1044,38 @@ body::before {
   transition: none;
 }
 
+/* 13. Pixel art SVG sprites — sizing */
+.dng-enemy-sprite-el svg, .dng-boss-sprite svg {
+  width: clamp(56px, 14vw, 96px);
+  height: clamp(56px, 14vw, 96px);
+  image-rendering: pixelated;
+  display: block;
+}
+#dng-hero-sprite svg {
+  width: clamp(48px, 11vw, 80px);
+  height: clamp(48px, 11vw, 80px);
+  image-rendering: pixelated;
+  display: block;
+}
+.dfi-sprite svg {
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+  display: block;
+  margin: 0 auto;
+  animation: bossIdle 2s steps(1) infinite;
+}
+/* Remove old font-size on sprite containers now using SVG */
+.dng-enemy-sprite-el, .dng-boss-sprite {
+  font-size: 0 !important;
+  display: flex; align-items: center; justify-content: center;
+}
+#dng-hero-sprite {
+  font-size: 0 !important;
+  display: flex; align-items: center; justify-content: center;
+}
+.dfi-sprite { font-size: 0; }
+
 /* Game card */
 .game-card-4{background:linear-gradient(135deg,#2a2010,#4a3800);box-shadow:0 8px 32px rgba(245,158,11,.22)}
 .game-card-4 .game-badge{background:rgba(245,158,11,.14);color:#f59e0b;border-color:rgba(245,158,11,.28)}
