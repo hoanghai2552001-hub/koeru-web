@@ -166,11 +166,12 @@ function addDungeonXP(amount, anchorEl) {
 // ══════════════════════════════════════════
 function updateDngHUD() {
   const $ = id => document.getElementById(id);
-  $('dng-floor-num').textContent   = `Tầng ${dFloor}`;
-  $('dng-lv-badge').textContent    = `Lv.${dLevel}`;
-  $('dng-xp-bar').style.width      = `${(dXP / XP_PER_LEVEL) * 100}%`;
-  $('dng-streak-val').textContent  = dStreak;
-  $('dng-correct-val').textContent = dCorrect;
+  const set = (id, fn) => { const el = $(id); if (el) fn(el); };
+  set('dng-floor-num',   el => el.textContent  = `Tầng ${dFloor}`);
+  set('dng-lv-badge',    el => el.textContent  = `Lv.${dLevel}`);
+  set('dng-xp-bar',      el => el.style.width  = `${(dXP / XP_PER_LEVEL) * 100}%`);
+  set('dng-streak-val',  el => el.textContent  = dStreak);
+  set('dng-correct-val', el => el.textContent  = dCorrect);
   // Hero HP
   const hp = $('dng-hero-hp');
   if (hp) hp.innerHTML =
@@ -180,8 +181,8 @@ function updateDngHUD() {
   const pct = Math.min(100, (dailyData.floors / DAILY_GOAL) * 100);
   const bar = $('dng-daily-bar');
   if (bar) bar.style.width = pct + '%';
-  $('dng-daily-text').textContent =
-    `📅 ${dailyData.floors}/${DAILY_GOAL} tầng · 🔥${dailyData.streak} ngày`;
+  set('dng-daily-text', el => el.textContent =
+    `📅 ${dailyData.floors}/${DAILY_GOAL} tầng · 🔥${dailyData.streak} ngày`);
 }
 
 // ══════════════════════════════════════════
@@ -608,6 +609,7 @@ function showFloorIntro(cb) {
   const theme = getTheme(dFloor);
   const boss  = isBoss(dFloor);
   const arena = document.getElementById('dng-arena');
+  if (!arena) { console.error('[Dungeon] dng-arena not found in showFloorIntro'); return; }
   arena.style.background = `linear-gradient(170deg, ${theme.bg} 0%, #080808 100%)`;
   arena.innerHTML = `
     <div id="dng-floor-intro">
@@ -618,15 +620,28 @@ function showFloorIntro(cb) {
       <div class="dfi-name">${theme.name}</div>
       ${boss ? '<div class="dfi-boss-hint">Boss cần 2 lần đúng để hạ!</div>' : ''}
     </div>`;
-  document.getElementById('dng-options').innerHTML = '';
+  const opts = document.getElementById('dng-options');
+  if (opts) opts.innerHTML = '';
   setTimeout(() => {
-    try { rebuildArena(); cb(); }
-    catch(e) { console.error('[Dungeon] showFloorIntro callback error:', e); }
+    try {
+      rebuildArena();
+      cb();
+    } catch(e) {
+      console.error('[Dungeon] showFloorIntro callback error:', e);
+      // Show error visibly in arena so it's diagnosable without DevTools
+      const arenaEl = document.getElementById('dng-arena');
+      if (arenaEl) arenaEl.innerHTML += `
+        <div style="position:absolute;bottom:4px;left:4px;right:4px;background:rgba(220,0,0,.85);
+          color:#fff;font-size:11px;padding:6px 8px;border-radius:4px;z-index:20;word-break:break-all;">
+          ❌ ${e.message}</div>`;
+    }
   }, 1300);
 }
 
 function rebuildArena() {
-  document.getElementById('dng-arena').innerHTML = `
+  const arena = document.getElementById('dng-arena');
+  if (!arena) { console.error('[Dungeon] rebuildArena: dng-arena not found'); return; }
+  arena.innerHTML = `
     <div id="dng-enemy-side"><div id="dng-enemy-wrap"></div></div>
     <div id="dng-hero-side">
       <div id="dng-hero-sprite">${PIXEL_SPRITES.hero}</div>
@@ -639,25 +654,41 @@ function startNextFloor() {
   dEnemyIdx  = 0;
   dCorrect   = 0; dTotal = 0;
   dAnswering = false;
+
+  // Build pool — only keep valid kanji objects (must have .kanji and .on or .kun)
   try {
-    dPool = getWeightedPool();
+    const rawPool = getWeightedPool();
+    dPool = rawPool.filter(k => k && k.kanji && (k.on || k.kun));
+    if (!dPool.length) dPool = rawPool; // fallback to unfiltered if all filtered out
   } catch(e) {
     console.error('[Dungeon] getWeightedPool error:', e);
-    masteryData = {};  // reset corrupt mastery
-    dPool = shuffle([...ALL_KANJI]);
+    masteryData = {};
+    dPool = [];
   }
-  if (!dPool.length) dPool = shuffle([...ALL_KANJI]); // absolute fallback
+  // Absolute fallback
+  if (!dPool.length) {
+    try { dPool = ALL_KANJI.filter(k => k && k.kanji); } catch(e2) { dPool = []; }
+  }
+
   dUsedIdx   = new Set();
   dCurrentCard = buildCard();
   if (!dCurrentCard && dPool.length > 0) {
     dUsedIdx.clear();
     dCurrentCard = buildCard();
   }
+  console.log('[Dungeon] startNextFloor: pool=', dPool.length, 'card=', dCurrentCard ? dCurrentCard.kanji : 'NULL');
+
   document.getElementById('dng-overlay').classList.remove('visible');
   showFloorIntro(() => {
     updateDngHUD();
-    if (dCurrentCard) renderEnemy(dCurrentCard);
-    else console.error('[Dungeon] dCurrentCard is null after buildCard, pool size:', dPool.length);
+    if (dCurrentCard) {
+      renderEnemy(dCurrentCard);
+    } else {
+      console.error('[Dungeon] dCurrentCard is null, pool size:', dPool.length);
+      // Show error in options area
+      const opts = document.getElementById('dng-options');
+      if (opts) opts.innerHTML = '<div style="color:#f87171;text-align:center;padding:20px">Lỗi: không tải được dữ liệu kanji. Vui lòng thử lại.</div>';
+    }
   });
 }
 
