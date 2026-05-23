@@ -319,7 +319,8 @@ function renderTimer() {
 // ══════════════════════════════════════════
 // RENDER ENEMY + OPTIONS
 // ══════════════════════════════════════════
-function renderEnemy(card) {
+// resetHP=true when showing a NEW enemy; false when re-rendering same enemy (boss 2nd hit)
+function renderEnemy(card, resetHP = true) {
   if (!card) { console.error('[Dungeon] renderEnemy: card is null'); return; }
   const enemyWrap = document.getElementById('dng-enemy-wrap');
   if (!enemyWrap) { console.error('[Dungeon] dng-enemy-wrap not found - calling rebuildArena'); rebuildArena(); }
@@ -328,17 +329,18 @@ function renderEnemy(card) {
   const m     = getMastery(card.kanji);
   const stars = '★'.repeat(m) + '☆'.repeat(MASTERY_MAX - m);
 
-  // Enemy HP: boss = 2 hits, normal = 1
-  dEnemyHP = boss ? 2 : 1;
+  // Only reset HP when it's a brand-new enemy (not boss re-render after 1st hit)
+  if (resetHP) dEnemyHP = boss ? 2 : 1;
 
   // Arena background
   const arena = document.getElementById('dng-arena');
   arena.style.background = `linear-gradient(170deg, ${theme.bg} 0%, #080808 100%)`;
 
-  // Enemy wrap
+  // Enemy wrap — show current HP (boss may already have taken 1 hit)
+  const hpPct = boss ? (dEnemyHP / 2 * 100) : 100;
   document.getElementById('dng-enemy-wrap').innerHTML = `
     <div class="dng-enemy-hp-wrap">
-      <div class="dng-enemy-hp-bar" id="dng-e-hp-bar" style="width:100%"></div>
+      <div class="dng-enemy-hp-bar" id="dng-e-hp-bar" style="width:${hpPct}%"></div>
     </div>
     <div id="dng-enemy-sprite" class="${boss ? 'dng-boss-sprite' : 'dng-enemy-sprite-el'}"
          style="color:${theme.accent}">${PIXEL_SPRITES[theme.spriteKey] || ''}</div>
@@ -442,9 +444,9 @@ function dngOnAnswer(btn, chosen) {
 
     updateDngHUD();
 
-    // Boss needs 2 correct hits
+    // Boss needs 2 correct hits — re-render same card, do NOT reset HP
     if (dEnemyHP > 0) {
-      setTimeout(() => { dAnswering = false; renderEnemy(dCurrentCard); }, 700);
+      setTimeout(() => { dAnswering = false; renderEnemy(dCurrentCard, false); }, 700);
     } else {
       // Show compound words popup before next enemy
       showCompoundPopup(dCurrentCard, () => { dAnswering = false; nextEnemy(); });
@@ -503,6 +505,11 @@ function dngOnTimeout() {
 // ══════════════════════════════════════════
 // COMPOUND WORDS POPUP
 // ══════════════════════════════════════════
+// Detect if string is Vietnamese (contains at least one diacritic or đ/Đ)
+function isVietnamese(str) {
+  return str && /[àáảãạăắặẳẵâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđÀÁẢÃẠĂẮẶẲẴÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ]/.test(str);
+}
+
 function showCompoundPopup(card, cb) {
   const words = card.words; // array [{w,r,m}] or undefined
   // If no compound data, skip straight to next
@@ -512,14 +519,15 @@ function showCompoundPopup(card, cb) {
   const reveal = document.getElementById('dng-answer-reveal');
   if (reveal) reveal.classList.remove('visible');
 
-  // Build popup HTML inside options panel
-  const items = words.map(w =>
-    `<div class="cmp-item">
+  // Build popup HTML — only show meaning if it's Vietnamese
+  const items = words.map(w => {
+    const meaning = isVietnamese(w.m) ? `<span class="cmp-meaning">${w.m}</span>` : '';
+    return `<div class="cmp-item">
       <span class="cmp-word">${w.w}</span>
       <span class="cmp-reading">${toHiragana(w.r)}</span>
-      <span class="cmp-meaning">${w.m}</span>
-    </div>`
-  ).join('');
+      ${meaning}
+    </div>`;
+  }).join('');
 
   panel.innerHTML = `
     <div id="dng-compound-popup">
