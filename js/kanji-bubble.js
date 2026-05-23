@@ -292,6 +292,9 @@ function renderTimer() {
 // RENDER ENEMY + OPTIONS
 // ══════════════════════════════════════════
 function renderEnemy(card) {
+  if (!card) { console.error('[Dungeon] renderEnemy: card is null'); return; }
+  const enemyWrap = document.getElementById('dng-enemy-wrap');
+  if (!enemyWrap) { console.error('[Dungeon] dng-enemy-wrap not found - calling rebuildArena'); rebuildArena(); }
   const theme = getTheme(dFloor);
   const boss  = isBoss(dFloor);
   const m     = getMastery(card.kanji);
@@ -589,7 +592,10 @@ function showFloorIntro(cb) {
       ${boss ? '<div class="dfi-boss-hint">Boss cần 2 lần đúng để hạ!</div>' : ''}
     </div>`;
   document.getElementById('dng-options').innerHTML = '';
-  setTimeout(() => { rebuildArena(); cb(); }, 1300);
+  setTimeout(() => {
+    try { rebuildArena(); cb(); }
+    catch(e) { console.error('[Dungeon] showFloorIntro callback error:', e); }
+  }, 1300);
 }
 
 function rebuildArena() {
@@ -609,6 +615,10 @@ function startNextFloor() {
   dPool      = getWeightedPool();
   dUsedIdx   = new Set();
   dCurrentCard = buildCard();
+  if (!dCurrentCard && dPool.length > 0) {
+    dUsedIdx.clear();
+    dCurrentCard = buildCard();
+  }
   document.getElementById('dng-overlay').classList.remove('visible');
   showFloorIntro(() => {
     updateDngHUD();
