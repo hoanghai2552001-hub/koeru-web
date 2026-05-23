@@ -309,13 +309,14 @@ async function gsPush() {
   const cfg = gsGetUrl(); if (!cfg) return;
   gsStatus('⏳ Đang đẩy ' + ALL_KANJI.length + ' từ lên Sheet...');
   try {
+    // Use text/plain to avoid CORS preflight (GAS doesn't handle OPTIONS)
     const r = await fetch(cfg.url, {
       method:'POST',
       body: JSON.stringify({action:'set', sheet:cfg.sheet, data:ALL_KANJI}),
-      headers:{'Content-Type':'application/json'}
+      headers:{'Content-Type':'text/plain'}
     });
     const t = await r.text();
-    gsStatus('✅ Đã đẩy ' + ALL_KANJI.length + ' từ lên Sheet: ' + t.slice(0,40));
+    gsStatus('✅ Đã đẩy ' + ALL_KANJI.length + ' từ lên Sheet: ' + t.slice(0,60));
   } catch(e) { gsStatus('❌ Lỗi: ' + e.message, true); }
 }
 
