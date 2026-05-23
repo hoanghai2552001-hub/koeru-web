@@ -359,7 +359,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// ── Hook vào endGame để tự log lịch sử ──
+// ── Hook vào endGame (Speed Kanji) để tự log lịch sử ──
 const _origEndGame = typeof endGame === 'function' ? endGame : null;
 if (_origEndGame) {
   window.endGame = function() {
@@ -374,4 +374,16 @@ if (_origEndGame) {
   };
 }
 
-</script>
+// ── Hook vào showFloorComplete (Kanji Dungeon) để log lịch sử ──
+const _origFloorComplete = typeof showFloorComplete === 'function' ? showFloorComplete : null;
+if (_origFloorComplete) {
+  window.showFloorComplete = function() {
+    _origFloorComplete.apply(this, arguments);
+    setTimeout(() => {
+      const acc = typeof dCorrect !== 'undefined' && typeof dTotal !== 'undefined' && dTotal > 0
+        ? Math.round((dCorrect / dTotal) * 100) + '%' : '?%';
+      const floor = typeof dFloor !== 'undefined' ? 'Tầng ' + (dFloor - 1) : '';
+      fpLogResult('🏰 Kanji Dungeon', acc, null, floor);
+    }, 100);
+  };
+}
