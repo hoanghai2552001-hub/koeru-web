@@ -41,14 +41,24 @@ let dEnemyHP = 1; // enemy HP for visual bar (boss = 2)
 // ══════════════════════════════════════════
 let masteryData = {};
 function loadMastery() {
-  try { masteryData = JSON.parse(localStorage.getItem('bubble_mastery') || '{}'); }
-  catch(e) { masteryData = {}; }
+  try {
+    const raw    = localStorage.getItem('bubble_mastery');
+    const parsed = JSON.parse(raw || '{}');
+    // JSON.parse("null") returns null — must guard against that
+    masteryData = (parsed && typeof parsed === 'object' && !Array.isArray(parsed))
+      ? parsed : {};
+  } catch(e) { masteryData = {}; }
 }
 function saveMastery() {
   try { localStorage.setItem('bubble_mastery', JSON.stringify(masteryData)); } catch(e){}
 }
-function getMastery(kanji) { return masteryData[kanji]?.m ?? 0; }
+// null-safe: masteryData might be null/non-object after bad localStorage read
+function getMastery(kanji) {
+  if (!masteryData || typeof masteryData !== 'object') return 0;
+  return masteryData[kanji]?.m ?? 0;
+}
 function updateMastery(kanji, correct) {
+  if (!masteryData || typeof masteryData !== 'object') masteryData = {};
   if (!masteryData[kanji]) masteryData[kanji] = { m: 0 };
   masteryData[kanji].m = correct
     ? Math.min(MASTERY_MAX, masteryData[kanji].m + 1)
@@ -612,7 +622,14 @@ function startNextFloor() {
   dEnemyIdx  = 0;
   dCorrect   = 0; dTotal = 0;
   dAnswering = false;
-  dPool      = getWeightedPool();
+  try {
+    dPool = getWeightedPool();
+  } catch(e) {
+    console.error('[Dungeon] getWeightedPool error:', e);
+    masteryData = {};  // reset corrupt mastery
+    dPool = shuffle([...ALL_KANJI]);
+  }
+  if (!dPool.length) dPool = shuffle([...ALL_KANJI]); // absolute fallback
   dUsedIdx   = new Set();
   dCurrentCard = buildCard();
   if (!dCurrentCard && dPool.length > 0) {
@@ -623,6 +640,7 @@ function startNextFloor() {
   showFloorIntro(() => {
     updateDngHUD();
     if (dCurrentCard) renderEnemy(dCurrentCard);
+    else console.error('[Dungeon] dCurrentCard is null after buildCard, pool size:', dPool.length);
   });
 }
 
