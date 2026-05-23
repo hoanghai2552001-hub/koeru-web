@@ -312,21 +312,3 @@ document.getElementById('btn-match-retry').addEventListener('click', () => {
   startMatchGame();
 });
 
-document.getElementById('go-bubble').addEventListener('click', () => {
-  showScreen('bubble-screen');
-  startBubbleGame();
-});
-document.getElementById('bubble-back').addEventListener('click', () => {
-  stopBubble();
-  showScreen('home-screen');
-});
-document.getElementById('bub-btn-home').addEventListener('click', () => {
-  stopBubble();
-  document.getElementById('bub-overlay').classList.remove('visible');
-  showScreen('home-screen');
-});
-document.getElementById('bub-btn-next').addEventListener('click', () => {
-  document.getElementById('bub-overlay').classList.remove('visible');
-  nextBubbleRound();
-});
-
