@@ -15,17 +15,7 @@ let backKanjiEl, backContent, progressText, progressBar;
 let timerWrap, timerBar, sCorrect, sIncorrect, feedbackEl;
 let doneScreen, streakBadge, instruction, kanjiArea;
 
-function playTone(freq, type, vol) {
-  try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const o = ctx.createOscillator(); const g = ctx.createGain();
-    o.connect(g); g.connect(ctx.destination);
-    o.type = type; o.frequency.value = freq;
-    g.gain.setValueAtTime(vol, ctx.currentTime);
-    g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .25);
-    o.start(); o.stop(ctx.currentTime + .25);
-  } catch(e){}
-}
+// playTone() được dùng từ kanji-state.js (đã load trước)
 
 function stopTimer() {
   clearInterval(timerHandle); timerHandle = null;

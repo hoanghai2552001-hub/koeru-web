@@ -60,7 +60,6 @@ let masteryData = {};
 // Mastery: đọc/ghi qua unified store (koeru-mastery.js).
 // getMastery() và updateMastery() được định nghĩa trong koeru-mastery.js
 // và dùng window.koeruMastery. masteryData ở đây chỉ là local cache cho UI.
-let masteryData = {};
 
 function loadMastery() {
   // Sync local cache từ unified store để UI dungeon không bị lệch

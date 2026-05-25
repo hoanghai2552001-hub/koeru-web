@@ -455,9 +455,9 @@ function endGame() {
 // INIT & EVENT LISTENERS
 // ══════════════════════════════════════════
 spLoadProgress();
-applyModeUI(); // từ kanji-flashcard.js — khởi tạo mode buttons
 
 document.addEventListener('DOMContentLoaded', () => {
+  applyModeUI(); // từ kanji-flashcard.js — khởi tạo mode buttons (phải sau khi DOM sẵn sàng)
   spUpdateHome();
 
   // Level filter (home SP)
