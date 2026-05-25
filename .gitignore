@@ -1,0 +1,52 @@
+# =============================================================
+# KOERU — .gitignore
+# =============================================================
+
+# ── Python cache ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# ── Môi trường ────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.env
+
+# ── API Cache (tự sinh, không commit) ─────────────────────────
+kanji_api_cache.json
+kanji_words_cache.json
+*_cache.json
+
+# ── QA Reports (output tạm, sinh lại được) ────────────────────
+qa_report.json
+qa_report.html
+qa_kana_report.json
+qa_static_report.json
+qa_data_report.json
+
+# ── Node / Playwright ─────────────────────────────────────────
+node_modules/
+test-results/
+playwright-report/
+.playwright/
+
+# ── Input assets nặng (ảnh, gif raw) ──────────────────────────
+input/images/
+
+# ── Editor / OS ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log
+npm-debug.log*

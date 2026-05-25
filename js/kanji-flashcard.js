@@ -3,33 +3,17 @@
 // ══════════════════════════════════════════
 let deck = [], idx = 0, correct = 0, incorrect = 0;
 let isAnimating = false, isFlipped = false;
+let cardShownTime = 0;
 let currentIsCorrectMeaning = true;
 let mode = "easy", streak = 0;
 let timerHandle = null, TIME_LIMIT = 6000;
 
-const cardEl       = document.getElementById('card');
-const kanjiEl      = document.getElementById('kanji');
-const hanvietEl    = document.getElementById('han-viet');
-const hardReadingEl= document.getElementById('hard-reading');
-const shownMeaning = document.getElementById('shown-meaning');
-const readingOn    = document.getElementById('reading-on');
-const readingKun   = document.getElementById('reading-kun');
-const verdictBadge = document.getElementById('verdict-badge');
-const verdictHint  = document.getElementById('verdict-hint');
-const meaningArea  = document.getElementById('meaning-area');
-const backKanjiEl  = document.getElementById('back-kanji');
-const backContent  = document.getElementById('back-content');
-const progressText = document.getElementById('progress-text');
-const progressBar  = document.getElementById('progress-bar');
-const timerWrap    = document.getElementById('timer-wrap');
-const timerBar     = document.getElementById('timer-bar');
-const sCorrect     = document.getElementById('s-correct');
-const sIncorrect   = document.getElementById('s-incorrect');
-const feedbackEl   = document.getElementById('feedback');
-const doneScreen   = document.getElementById('done-screen');
-const streakBadge  = document.getElementById('streak-badge');
-const instruction  = document.getElementById('instruction');
-const kanjiArea    = document.getElementById('kanji-area');
+// DOM refs — assigned in DOMContentLoaded below
+let cardEl, kanjiEl, hanvietEl, hardReadingEl, shownMeaning;
+let readingOn, readingKun, verdictBadge, verdictHint, meaningArea;
+let backKanjiEl, backContent, progressText, progressBar;
+let timerWrap, timerBar, sCorrect, sIncorrect, feedbackEl;
+let doneScreen, streakBadge, instruction, kanjiArea;
 
 function playTone(freq, type, vol) {
   try {
@@ -66,7 +50,7 @@ function startTimer() {
 
 function renderCard() {
   if (idx >= deck.length) { showDone(); return; }
-  stopTimer(); isFlipped = false;
+  stopTimer(); isFlipped = false; cardShownTime = Date.now();
   cardEl.classList.remove('flipped');
   const k = deck[idx];
   kanjiEl.textContent = k.kanji;
@@ -89,26 +73,28 @@ function renderCard() {
     const showCorrect = Math.random() > .45;
     currentIsCorrectMeaning = showCorrect;
     if (showCorrect) {
-      shownMeaning.innerHTML = k.meaning +
-        '<div class="shown-reading"><span class="sr-on">' + k.on + '</span>' +
-        '<span class="sr-kun">' + k.kun + '</span></div>';
-      readingOn.textContent  = `On: ${k.on}`;
-      readingKun.textContent = `Kun: ${k.kun}`;
+      shownMeaning.textContent = k.meaning;
+      readingOn.textContent  = `On: ${k.on || '—'}`;
+      readingKun.textContent = `Kun: ${k.kun || '—'}`;
     } else {
       const pool = deck.filter((_,i) => i !== idx);
       const fake = pool[Math.floor(Math.random() * pool.length)];
       const fk = fake || k;
-      shownMeaning.innerHTML = fk.meaning +
-        '<div class="shown-reading"><span class="sr-on">' + fk.on + '</span>' +
-        '<span class="sr-kun">' + fk.kun + '</span></div>';
-      readingOn.textContent  = `On: ${fk.on}`;
-      readingKun.textContent = `Kun: ${fk.kun}`;
+      shownMeaning.textContent = fk.meaning;
+      readingOn.textContent  = `On: ${fk.on || '—'}`;
+      readingKun.textContent = `Kun: ${fk.kun || '—'}`;
       currentIsCorrectMeaning = false;
     }
+    const wordsHtml = filterWordsForLevel(k.words, selectedLevel).slice(0,3).map(w =>
+      `<span class="back-word"><span class="bw-kanji">${w.w}</span><span class="bw-read">${w.r||''}</span><span class="bw-mean">${w.m||''}</span></span>`
+    ).join('');
     backContent.innerHTML = `
-      <strong>${k.kanji}</strong> · ${k.hanviet}<br>
-      <span style="color:#a78bfa">On: ${k.on}</span> · <span style="color:#67e8f9">Kun: ${k.kun}</span><br>
-      <span class="correct-meaning">${k.meaning}</span>`;
+      <div class="back-reading">
+        <span class="back-on">On: ${k.on||'—'}</span>
+        <span class="back-kun">Kun: ${k.kun||'—'}</span>
+      </div>
+      <div class="back-correct-meaning">${k.meaning}</div>
+      ${wordsHtml ? `<div class="back-words">${wordsHtml}</div>` : ''}`;
   } else {
     // HARD: giống Easy — hiện nghĩa ngẫu nhiên đúng/sai
     // Không hiện On/Kun để khó hơn, có timer, sai = reset streak
@@ -123,30 +109,32 @@ function renderCard() {
     const showCorrect = Math.random() > .45;
     currentIsCorrectMeaning = showCorrect;
     if (showCorrect) {
-      shownMeaning.innerHTML = k.meaning +
-        '<div class="shown-reading"><span class="sr-on">' + k.on + '</span>' +
-        '<span class="sr-kun">' + k.kun + '</span></div>';
+      shownMeaning.textContent = k.meaning;
     } else {
       const pool = deck.filter((_,i) => i !== idx);
       const fake = pool[Math.floor(Math.random() * pool.length)];
-      const fk = fake || k;
-      shownMeaning.innerHTML = fk.meaning +
-        '<div class="shown-reading"><span class="sr-on">' + fk.on + '</span>' +
-        '<span class="sr-kun">' + fk.kun + '</span></div>';
+      shownMeaning.textContent = (fake || k).meaning;
       currentIsCorrectMeaning = false;
     }
     verdictHint.style.display = 'block';
     verdictHint.textContent   = 'Nghĩa đúng hay sai? ⏱';
+    const wordsHtmlH = filterWordsForLevel(k.words, selectedLevel).slice(0,3).map(w =>
+      `<span class="back-word"><span class="bw-kanji">${w.w}</span><span class="bw-read">${w.r||''}</span><span class="bw-mean">${w.m||''}</span></span>`
+    ).join('');
     backContent.innerHTML = `
-      <strong>${k.kanji}</strong> · ${k.hanviet}<br>
-      <span style="color:#a78bfa">On: ${k.on}</span> · <span style="color:#67e8f9">Kun: ${k.kun}</span><br>
-      <span class="correct-meaning">${k.meaning}</span>`;
+      <div class="back-reading">
+        <span class="back-on">On: ${k.on||'—'}</span>
+        <span class="back-kun">Kun: ${k.kun||'—'}</span>
+      </div>
+      <div class="back-correct-meaning">${k.meaning}</div>
+      ${wordsHtmlH ? `<div class="back-words">${wordsHtmlH}</div>` : ''}`;
     startTimer();
   }
 }
 
 function answer(userSaysCorrect) {
   if (isAnimating) return;
+  if (Date.now() - cardShownTime < 500) return;
   isAnimating = true;
   stopTimer();
   const isRight = userSaysCorrect === currentIsCorrectMeaning;
@@ -246,49 +234,89 @@ function applyModeUI() {
   }
 }
 
-document.querySelectorAll('.mode-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    mode = btn.dataset.mode;
-    document.getElementById('timer-select-wrap').style.display = mode === 'hard' ? 'flex' : 'none';
-    applyModeUI(); buildDeck();
+// ── DOM init + event binding ──────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // Assign DOM refs
+  cardEl       = document.getElementById('card');
+  kanjiEl      = document.getElementById('kanji');
+  hanvietEl    = document.getElementById('han-viet');
+  hardReadingEl= document.getElementById('hard-reading');
+  shownMeaning = document.getElementById('shown-meaning');
+  readingOn    = document.getElementById('reading-on');
+  readingKun   = document.getElementById('reading-kun');
+  verdictBadge = document.getElementById('verdict-badge');
+  verdictHint  = document.getElementById('verdict-hint');
+  meaningArea  = document.getElementById('meaning-area');
+  backKanjiEl  = document.getElementById('back-kanji');
+  backContent  = document.getElementById('back-content');
+  progressText = document.getElementById('progress-text');
+  progressBar  = document.getElementById('progress-bar');
+  timerWrap    = document.getElementById('timer-wrap');
+  timerBar     = document.getElementById('timer-bar');
+  sCorrect     = document.getElementById('s-correct');
+  sIncorrect   = document.getElementById('s-incorrect');
+  feedbackEl   = document.getElementById('feedback');
+  doneScreen   = document.getElementById('done-screen');
+  streakBadge  = document.getElementById('streak-badge');
+  instruction  = document.getElementById('instruction');
+  kanjiArea    = document.getElementById('kanji-area');
+
+  // Guard: không bind nếu đây không phải trang kanji.html
+  if (!cardEl) return;
+
+  // Mode buttons
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      mode = btn.dataset.mode;
+      document.getElementById('timer-select-wrap').style.display = mode === 'hard' ? 'flex' : 'none';
+      applyModeUI(); buildDeck();
+    });
   });
-});
-document.querySelectorAll('.timer-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.timer-btn').forEach(b => b.classList.remove('active-timer'));
-    btn.classList.add('active-timer');
-    TIME_LIMIT = parseInt(btn.dataset.sec) * 1000;
-    buildDeck();
+
+  // Timer buttons
+  document.querySelectorAll('.timer-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.timer-btn').forEach(b => b.classList.remove('active-timer'));
+      btn.classList.add('active-timer');
+      TIME_LIMIT = parseInt(btn.dataset.sec) * 1000;
+      buildDeck();
+    });
   });
+
+  // Action buttons
+  document.getElementById('btn-correct').addEventListener('click',   () => answer(true));
+  document.getElementById('btn-incorrect').addEventListener('click', () => answer(false));
+  document.getElementById('btn-flip').addEventListener('click', flipCard);
+  document.getElementById('btn-shuffle').addEventListener('click', () => {
+    stopTimer(); deck = shuffle(deck); idx = 0; correct = 0; incorrect = 0; streak = 0; renderCard();
+  });
+  document.getElementById('btn-restart').addEventListener('click', buildDeck);
+  document.getElementById('modal-btn').addEventListener('click', () => {
+    if (mode === 'hard') resetHard(); else buildDeck();
+  });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('flash-screen').classList.contains('active')) {
+      if (e.key === 'ArrowLeft')  answer(true);
+      if (e.key === 'ArrowRight') answer(false);
+      if (e.key === ' ' || e.key === 'ArrowUp') { e.preventDefault(); flipCard(); }
+    }
+  });
+
+  // Touch swipe on card
+  let touchX = 0, touchY = 0, touchT = 0;
+  cardEl.addEventListener('touchstart', e => {
+    touchX = e.changedTouches[0].clientX;
+    touchY = e.changedTouches[0].clientY;
+    touchT = Date.now();
+  }, { passive: true });
+  cardEl.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    const dt = Date.now() - touchT;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) answer(dx > 0);
+    else if (Math.abs(dx) < 10 && Math.abs(dy) < 10 && dt < 300) flipCard();
+  }, { passive: true });
 });
-document.getElementById('btn-correct').addEventListener('click',   () => answer(true));
-document.getElementById('btn-incorrect').addEventListener('click', () => answer(false));
-document.getElementById('btn-flip').addEventListener('click', flipCard);
-document.getElementById('btn-shuffle').addEventListener('click', () => {
-  stopTimer(); deck = shuffle(deck); idx = 0; correct = 0; incorrect = 0; streak = 0; renderCard();
-});
-document.getElementById('btn-restart').addEventListener('click', buildDeck);
-document.getElementById('modal-btn').addEventListener('click', () => {
-  if (mode === 'hard') resetHard(); else buildDeck();
-});
-document.addEventListener('keydown', e => {
-  if (document.getElementById('flash-screen').classList.contains('active')) {
-    if (e.key === 'ArrowLeft')  answer(true);
-    if (e.key === 'ArrowRight') answer(false);
-    if (e.key === ' ' || e.key === 'ArrowUp') { e.preventDefault(); flipCard(); }
-  }
-});
-let touchX = 0, touchY = 0, touchT = 0;
-cardEl.addEventListener('touchstart', e => {
-  touchX = e.changedTouches[0].clientX;
-  touchY = e.changedTouches[0].clientY;
-  touchT = Date.now();
-}, { passive: true });
-cardEl.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchX;
-  const dy = e.changedTouches[0].clientY - touchY;
-  const dt = Date.now() - touchT;
-  if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) answer(dx > 0);
-  else if (Math.abs(dx) < 10 && Math.abs(dy) < 10 && dt < 300) flipCard();
-}, { passive: true });
 

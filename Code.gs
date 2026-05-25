@@ -4,10 +4,18 @@
 // Deploy as Web App: Execute as Me, Anyone can access
 // ══════════════════════════════════════════════════════
 
-// ⚠️ Thay SPREADSHEET_ID bằng ID từ URL Google Sheet của bạn
-// URL dạng: https://docs.google.com/spreadsheets/d/<ID>/edit
-const SPREADSHEET_ID   = '18L12LLSISwxwaolxC6AlJT04ei7Fib9ea90UC96qdT0';
-const SHEET_NAME_DEFAULT = 'Kanji';
+// ── Cấu hình qua Script Properties (không hardcode) ──
+// Cách setup: Apps Script → Project Settings → Script Properties
+//   Key: KANJI_SHEET_ID   Value: <ID của Google Sheet>
+// Xem .env.example để biết danh sách tất cả keys cần thiết.
+function getConfig() {
+  const props = PropertiesService.getScriptProperties();
+  return {
+    spreadsheetId : props.getProperty('KANJI_SHEET_ID') || '',
+    sheetDefault  : props.getProperty('KANJI_SHEET_NAME') || 'Kanji',
+  };
+}
+const SHEET_NAME_DEFAULT = 'Kanji'; // fallback nếu getConfig() chưa set
 
 // ── GET handler ──────────────────────────────────────
 function doGet(e) {
@@ -43,6 +51,12 @@ function doPost(e) {
       writeSheet(sheet, data);
       return jsonResponse({ ok: true, written: data.length });
     }
+    // append: thêm hàng mới, không xoá data cũ (dùng khi import từ sách)
+    if (action === 'append') {
+      if (!Array.isArray(data)) throw new Error('data phải là array');
+      var appended = appendToSheet(sheet, data);
+      return jsonResponse({ ok: true, appended: appended });
+    }
     return jsonResponse({ error: 'Unknown action: ' + action });
   } catch (err) {
     return jsonResponse({ error: err.message });
@@ -51,13 +65,11 @@ function doPost(e) {
 
 // ── Mở spreadsheet theo ID (works for both bound & standalone) ─
 function getSpreadsheet() {
-  // Thử dùng ID cụ thể trước
+  const id = getConfig().spreadsheetId;
   try {
-    if (SPREADSHEET_ID && SPREADSHEET_ID !== 'YOUR_SPREADSHEET_ID') {
-      return SpreadsheetApp.openById(SPREADSHEET_ID);
-    }
+    if (id) return SpreadsheetApp.openById(id);
   } catch (e) {}
-  // Fallback: bound script
+  // Fallback: bound script (khi chạy từ sheet trực tiếp)
   return SpreadsheetApp.getActiveSpreadsheet();
 }
 
@@ -109,6 +121,55 @@ function writeSheet(sheetName, data) {
     .setFontColor('#ffffff')
     .setFontWeight('bold');
   sheet.setFrozenRows(1);
+}
+
+// ── Thêm hàng mới vào sheet (không xoá dữ liệu cũ) ───
+function appendToSheet(sheetName, data) {
+  var ss    = getSpreadsheet();
+  var sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    // Sheet chưa có → tạo mới với writeSheet
+    writeSheet(sheetName, data);
+    return data.length;
+  }
+  if (!data || !data.length) return 0;
+
+  // Lấy headers hiện tại từ hàng 1
+  var existingHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+    .map(function(h) { return String(h).trim(); })
+    .filter(function(h) { return h; });
+
+  if (!existingHeaders.length) {
+    // Sheet trống → ghi mới
+    writeSheet(sheetName, data);
+    return data.length;
+  }
+
+  // Kiểm tra trùng (theo cột 'kanji' nếu có)
+  var kanjiCol = existingHeaders.indexOf('kanji');
+  var existingKanji = new Set();
+  if (kanjiCol >= 0 && sheet.getLastRow() > 1) {
+    var existing = sheet.getRange(2, kanjiCol + 1, sheet.getLastRow() - 1, 1).getValues();
+    existing.forEach(function(r) { if (r[0]) existingKanji.add(String(r[0])); });
+  }
+
+  // Lọc chỉ lấy từ chưa có
+  var newRows = data.filter(function(obj) {
+    if (kanjiCol >= 0 && obj.kanji) return !existingKanji.has(String(obj.kanji));
+    return true;
+  }).map(function(obj) {
+    return existingHeaders.map(function(h) {
+      return (obj[h] !== undefined && obj[h] !== null) ? obj[h] : '';
+    });
+  });
+
+  if (!newRows.length) return 0;
+
+  // Append vào cuối
+  sheet.getRange(sheet.getLastRow() + 1, 1, newRows.length, existingHeaders.length)
+    .setValues(newRows);
+
+  return newRows.length;
 }
 
 // ── JSON response helper ──────────────────────────────
