@@ -984,8 +984,10 @@ function showAdminContent(){
 function showPage(p){
   document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(e=>e.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-  document.getElementById('nav-'+p).classList.add('active');
+  const pageEl = document.getElementById('page-'+p);
+  if (pageEl) pageEl.classList.add('active');
+  const navEl = document.getElementById('nav-'+p);
+  if (navEl) navEl.classList.add('active');
   window.scrollTo(0,0);
   if(p==='admin'){if(adminUnlocked)showAdminContent();else{document.getElementById('admin-lock').style.display='flex';document.getElementById('admin-content').style.display='none';}}
   else({home:()=>{renderHomeLesson();renderHomeBlog();},learn:()=>renderLearn('all'),blog:()=>renderBlog('all'),quiz:loadQuiz,flash:loadFlash}[p]||function(){})();
@@ -1115,11 +1117,74 @@ function saveItem(){
 function deleteItem(type,id){if(!confirm('Xóa mục này?'))return;if(type==='blog'){BLOGS=BLOGS.filter(x=>x.id!==id);save('blogs',BLOGS);}else if(type==='lesson'){LESSONS=LESSONS.filter(x=>x.id!==id);save('lessons',LESSONS);}else{DOCS=DOCS.filter(x=>x.id!==id);save('docs',DOCS);}renderAdminTable(type);toast('🗑 Đã xóa.');}
 function exportData(){const d={blogs:BLOGS,lessons:LESSONS,docs:DOCS,exportedAt:new Date().toISOString()};const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='koeru-data-'+new Date().toISOString().slice(0,10)+'.json';a.click();toast('📥 Đã export!');}
 function importData(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);if(d.blogs)BLOGS=d.blogs;if(d.lessons)LESSONS=d.lessons;if(d.docs)DOCS=d.docs;save('blogs',BLOGS);save('lessons',LESSONS);save('docs',DOCS);renderAdmin();toast('📤 Import thành công!');}catch{toast('❌ File JSON không hợp lệ.');}};r.readAsText(file);input.value='';}
-async function syncSheet(type){const uid=type==='blog'?'sheets-blog-url':'sheets-lesson-url',url=document.getElementById(uid).value.trim(),st=document.getElementById('sync-status');if(!url){st.textContent='⚠️ Vui lòng nhập URL.';st.className='sync-status show sync-err';return;}st.textContent='⏳ Đang tải...';st.className='sync-status show sync-info';try{const res=await fetch(url);if(!res.ok)throw new Error('HTTP '+res.status);const csv=await res.text(),rows=csv.trim().split('\n').map(r=>r.split(',').map(c=>c.replace(/^"|"$/g,'').trim())),headers=rows[0],data=rows.slice(1).filter(r=>r.length>1&&r[0]).map((r,idx)=>{const o={id:nextId(type==='blog'?BLOGS:LESSONS)+idx};headers.forEach((h,i)=>{o[h.trim()]=r[i]||'';});return o;});if(type==='blog'){BLOGS=[...BLOGS,...data];save('blogs',BLOGS);}else{LESSONS=[...LESSONS,...data];save('lessons',LESSONS);}renderAdminTable(type);st.textContent=`✅ Đã đồng bộ ${data.length} mục!`;st.className='sync-status show sync-ok';toast(`✅ Sync OK: ${data.length} mục`);}catch(err){st.textContent=`❌ Lỗi: ${err.message}. Kiểm tra URL và đảm bảo Sheet đã Publish.`;st.className='sync-status show sync-err';}}
+/* Parse CSV đúng chuẩn RFC-4180 (hỗ trợ field có dấu phẩy trong quotes) */
+function parseCSV(text){
+  const rows=[];let row=[],field='',inQ=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i],next=text[i+1];
+    if(inQ){if(c==='"'&&next==='"'){field+='"';i++;}else if(c==='"'){inQ=false;}else{field+=c;}}
+    else{if(c==='"'){inQ=true;}else if(c===','){row.push(field.trim());field='';}
+    else if(c==='\n'||c==='\r'){if(c==='\r'&&next==='\n')i++;row.push(field.trim());if(row.some(Boolean))rows.push(row);row=[];field='';}
+    else{field+=c;}}
+  }
+  if(field||row.length){row.push(field.trim());if(row.some(Boolean))rows.push(row);}
+  return rows;
+}
+/* Lưu URL để tự động nạp lại sau khi reload */
+function saveSyncUrl(type,url){save('sync-url-'+type,url);}
+function loadSyncUrls(){
+  ['blog','lesson'].forEach(t=>{
+    const url=load('sync-url-'+t,'');
+    const el=document.getElementById('sheets-'+(t==='blog'?'blog':'lesson')+'-url');
+    if(el&&url)el.value=url;
+  });
+}
+async function syncSheet(type){
+  const uid=type==='blog'?'sheets-blog-url':'sheets-lesson-url';
+  const url=document.getElementById(uid).value.trim();
+  const st=document.getElementById('sync-status');
+  if(!url){st.textContent='⚠️ Vui lòng nhập URL.';st.className='sync-status show sync-err';return;}
+  saveSyncUrl(type,url); // nhớ URL cho lần sau
+  st.textContent='⏳ Đang tải dữ liệu từ Google Sheets...';st.className='sync-status show sync-info';
+  try{
+    const res=await fetch(url);
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const csv=await res.text();
+    const rows=parseCSV(csv);
+    if(rows.length<2)throw new Error('Sheet trống hoặc không đủ dữ liệu');
+    const headers=rows[0];
+    const data=rows.slice(1).filter(r=>r.length>1&&r[0]).map((r,idx)=>{
+      const o={id:idx+1}; // id sẽ được reset khi REPLACE
+      headers.forEach((h,i)=>{o[h.trim()]=r[i]||'';});
+      return o;
+    });
+    // REPLACE toàn bộ (không append → tránh duplicate khi sync nhiều lần)
+    if(type==='blog'){
+      BLOGS=data.map((b,i)=>({...b,id:i+1,
+        flag:b.flag||'📰',tagBg:b.tagBg||'#e0e5ff',tagC:b.tagC||'#2d3561',
+        bg:b.bg||'#eef2ff',views:b.views||'0'}));
+      save('blogs',BLOGS);
+      renderHomeBlog(); // cập nhật trang chủ
+    }else{
+      LESSONS=data.map((l,i)=>({...l,id:i+1,
+        thumb:l.thumb||'📖',bg:l.bg||'#eef2ff',xp:parseInt(l.xp)||10,dur:l.dur||'5 phút'}));
+      save('lessons',LESSONS);
+      renderHomeLesson(); // cập nhật trang chủ
+    }
+    renderAdminTable(type);
+    st.textContent=`✅ Đã đồng bộ ${data.length} mục từ Google Sheets!`;
+    st.className='sync-status show sync-ok';
+    toast(`✅ Sync ${type==='blog'?'Blog':'Bài học'}: ${data.length} mục`);
+  }catch(err){
+    st.textContent=`❌ Lỗi: ${err.message}. Kiểm tra URL và đảm bảo Sheet đã "Publish to web".`;
+    st.className='sync-status show sync-err';
+  }
+}
 function toast(msg){const e=document.getElementById('toast');e.textContent=msg;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2800);}
 
 /* ─── INIT ─── */
 renderHomeLesson();renderHomeBlog();loadFlash();
+loadSyncUrls(); // nạp lại URL đã lưu vào ô input
 // Try to load external JSON files (data/*.json) — fallback to defaults/localStorage if unavailable
 fetchExternalData();
 </script>
