@@ -1,0 +1,123 @@
+name: KOERU CI
+
+# Chạy khi push lên dev hoặc mở Pull Request vào main
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ─────────────────────────────────────────────
+  # JOB 1: Kiểm tra data kanji (nhanh, ~20 giây)
+  # ─────────────────────────────────────────────
+  qa-data:
+    name: QA Data (kanji-data.js)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Chạy QA kanji
+        run: python tools/qa_kanji.py
+        # qa_kanji.py exit code 1 nếu có lỗi → CI tự fail
+
+  # ─────────────────────────────────────────────
+  # JOB 2: Kiểm tra JS syntax (nhanh, ~10 giây)
+  # ─────────────────────────────────────────────
+  js-syntax:
+    name: JS Syntax Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Kiểm tra syntax tất cả file JS
+        run: |
+          echo "Checking JS syntax..."
+          find js/ -name "*.js" ! -name "*.backup.js" | while read f; do
+            node --check "$f" && echo "  OK: $f" || { echo "  FAIL: $f"; exit 1; }
+          done
+          echo "All JS files OK"
+
+  # ─────────────────────────────────────────────
+  # JOB 3: E2E Tests với Playwright (~3 phút)
+  # ─────────────────────────────────────────────
+  e2e:
+    name: E2E Tests (Playwright)
+    runs-on: ubuntu-latest
+    # Chỉ chạy sau khi 2 job trên pass
+    needs: [qa-data, js-syntax]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Khởi động HTTP server
+        run: |
+          python3 -m http.server 8000 &
+          echo "Server PID: $!"
+          sleep 2  # chờ server sẵn sàng
+
+      - name: Chạy E2E tests
+        run: npx playwright test --project=chromium
+
+      - name: Upload test report (khi fail)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # ─────────────────────────────────────────────
+  # JOB 4: Thông báo tóm tắt kết quả
+  # ─────────────────────────────────────────────
+  summary:
+    name: CI Summary
+    runs-on: ubuntu-latest
+    needs: [qa-data, js-syntax, e2e]
+    if: always()  # chạy dù pass hay fail
+
+    steps:
+      - name: Báo cáo kết quả
+        run: |
+          echo "================================================"
+          echo "  KOERU CI Results"
+          echo "================================================"
+          echo "  QA Data    : ${{ needs.qa-data.result }}"
+          echo "  JS Syntax  : ${{ needs.js-syntax.result }}"
+          echo "  E2E Tests  : ${{ needs.e2e.result }}"
+          echo "================================================"
+          # Fail job này nếu bất kỳ job quan trọng nào fail
+          if [[ "${{ needs.qa-data.result }}" != "success" ]] || \
+             [[ "${{ needs.js-syntax.result }}" != "success" ]] || \
+             [[ "${{ needs.e2e.result }}" != "success" ]]; then
+            echo "  STATUS: FAILED"
+            exit 1
+          fi
+          echo "  STATUS: ALL PASSED"
