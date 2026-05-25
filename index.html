@@ -1624,27 +1624,32 @@ function loadSyncUrls(){
     if(el&&url)el.value=url;
   });
 }
-/* Fetch CSV — thử trực tiếp trước, nếu CORS fail thì dùng proxy */
+/* Fetch CSV — thử trực tiếp, sau đó lần lượt qua nhiều proxy */
 async function fetchCSV(url, st){
-  // Cảnh báo nếu dùng file:// protocol (CORS luôn bị chặn)
   if(location.protocol==='file:'){
     st.innerHTML='⚠️ Bạn đang mở file trực tiếp (file://). Cần chạy qua server:<br><code>python -m http.server 8000</code><br>rồi mở <b>http://localhost:8000</b>';
     st.className='sync-status show sync-err';
     throw new Error('file:// protocol không hỗ trợ fetch');
   }
-  // Thử fetch trực tiếp
-  try{
-    const r=await fetch(url,{mode:'cors'});
-    if(!r.ok)throw new Error('HTTP '+r.status);
-    return await r.text();
-  }catch(e){
-    // Fallback: CORS proxy (allorigins.win)
-    st.textContent='⏳ Đang thử qua CORS proxy...';
-    const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);
-    const r2=await fetch(proxy);
-    if(!r2.ok)throw new Error('Proxy lỗi HTTP '+r2.status+' — '+e.message);
-    return await r2.text();
+  const proxies=[
+    u=>u,                                                        // trực tiếp
+    u=>'https://corsproxy.io/?'+encodeURIComponent(u),          // proxy 1
+    u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u), // proxy 2
+    u=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(u), // proxy 3
+  ];
+  let lastErr;
+  for(let i=0;i<proxies.length;i++){
+    const label=i===0?'trực tiếp':`proxy ${i}`;
+    try{
+      st.textContent=`⏳ Đang tải (${label})...`;
+      const r=await fetch(proxies[i](url),{signal:AbortSignal.timeout(8000)});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      const text=await r.text();
+      if(!text||text.trim().length<5)throw new Error('Dữ liệu rỗng');
+      return text;
+    }catch(e){lastErr=e;}
   }
+  throw new Error('Lỗi: Failed to fetch. Kiểm tra URL và đảm bảo Sheet đã "Publish to web".');
 }
 async function syncSheet(type){
   const uid=type==='blog'?'sheets-blog-url':'sheets-lesson-url';
