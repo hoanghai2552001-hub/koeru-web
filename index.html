@@ -1139,17 +1139,44 @@ function loadSyncUrls(){
     if(el&&url)el.value=url;
   });
 }
+/* Fetch CSV — thử trực tiếp trước, nếu CORS fail thì dùng proxy */
+async function fetchCSV(url, st){
+  // Cảnh báo nếu dùng file:// protocol (CORS luôn bị chặn)
+  if(location.protocol==='file:'){
+    st.innerHTML='⚠️ Bạn đang mở file trực tiếp (file://). Cần chạy qua server:<br><code>python -m http.server 8000</code><br>rồi mở <b>http://localhost:8000</b>';
+    st.className='sync-status show sync-err';
+    throw new Error('file:// protocol không hỗ trợ fetch');
+  }
+  // Thử fetch trực tiếp
+  try{
+    const r=await fetch(url,{mode:'cors'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return await r.text();
+  }catch(e){
+    // Fallback: CORS proxy (allorigins.win)
+    st.textContent='⏳ Đang thử qua CORS proxy...';
+    const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);
+    const r2=await fetch(proxy);
+    if(!r2.ok)throw new Error('Proxy lỗi HTTP '+r2.status+' — '+e.message);
+    return await r2.text();
+  }
+}
 async function syncSheet(type){
   const uid=type==='blog'?'sheets-blog-url':'sheets-lesson-url';
   const url=document.getElementById(uid).value.trim();
   const st=document.getElementById('sync-status');
   if(!url){st.textContent='⚠️ Vui lòng nhập URL.';st.className='sync-status show sync-err';return;}
+  // Kiểm tra URL hợp lệ
+  if(!url.includes('docs.google.com/spreadsheets')){
+    st.textContent='⚠️ URL không đúng định dạng Google Sheets. Phải lấy từ File → Share → Publish to web.';
+    st.className='sync-status show sync-err';return;
+  }
+  // Đảm bảo có ?output=csv ở cuối
+  const csvUrl=url.includes('output=csv')?url:(url.includes('?')?url+'&output=csv':url+'?output=csv');
   saveSyncUrl(type,url); // nhớ URL cho lần sau
   st.textContent='⏳ Đang tải dữ liệu từ Google Sheets...';st.className='sync-status show sync-info';
   try{
-    const res=await fetch(url);
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    const csv=await res.text();
+    const csv=await fetchCSV(csvUrl,st);
     const rows=parseCSV(csv);
     if(rows.length<2)throw new Error('Sheet trống hoặc không đủ dữ liệu');
     const headers=rows[0];
