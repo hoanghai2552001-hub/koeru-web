@@ -54,3 +54,15 @@ npm-debug.log*
 # Backup files (tu sinh boi scripts)
 *.backup.js
 *.backup.json
+
+# ── Logs sinh ra bởi scripts ──────────────────────────────────
+*.log
+batch_fix_kanji.log
+still_english_n54.log
+untranslated.log
+all_english.txt
+
+# ── Export / cache tạm ────────────────────────────────────────
+kanji_export.csv
+kanji_api_cache.json
+kanji_words_cache.json
