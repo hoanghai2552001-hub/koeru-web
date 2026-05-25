@@ -135,6 +135,7 @@ function answer(userSaysCorrect) {
   }
 
   cardEl.classList.remove('flash-correct','flash-incorrect');
+  const prevStreak = streak; // lưu trước khi reset — dùng cho modal
   if (isRight) {
     correct++; streak++;
     cardEl.classList.add('flash-correct');
@@ -155,7 +156,7 @@ function answer(userSaysCorrect) {
   feedbackEl.classList.add('show');
   setTimeout(() => feedbackEl.classList.remove('show'), 450);
   if (mode === 'hard' && !isRight) {
-    setTimeout(() => { cardEl.classList.remove('flash-correct','flash-incorrect'); handleWrong(false); isAnimating = false; }, 500);
+    setTimeout(() => { cardEl.classList.remove('flash-correct','flash-incorrect'); handleWrong(false, prevStreak); isAnimating = false; }, 500);
   } else {
     setTimeout(() => {
       cardEl.classList.remove('flash-correct','flash-incorrect');
@@ -165,13 +166,14 @@ function answer(userSaysCorrect) {
   }
 }
 
-function handleWrong(isTimeout = false) {
+// displayStreak: streak tại thời điểm mắc lỗi (trước khi bị reset về 0)
+function handleWrong(isTimeout = false, displayStreak = streak) {
   stopTimer(); isAnimating = false;
   document.getElementById('modal-emoji').textContent  = isTimeout ? '⏱' : '💥';
   document.getElementById('modal-title').textContent  = isTimeout ? '⏱ Hết giờ!' : '💥 Sai rồi!';
-  document.getElementById('modal-streak').textContent = `${streak}`;
+  document.getElementById('modal-streak').textContent = `${displayStreak}`;
   document.getElementById('modal-detail').innerHTML =
-    `Bạn đã đúng <strong style="color:#22c55e">${streak}</strong> câu liên tiếp<br>
+    `Bạn đã đúng <strong style="color:#22c55e">${displayStreak}</strong> câu liên tiếp<br>
      <small style="opacity:.6">Trên ${idx + (isTimeout?1:0)} thẻ đã qua</small>`;
   document.getElementById('modal-overlay').classList.add('visible');
 }
