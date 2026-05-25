@@ -10,31 +10,32 @@ function fpSave(data) {
   try { localStorage.setItem(FP_KEY, JSON.stringify(data)); } catch(e) {}
 }
 
-// Toggle panel
-document.getElementById('fp-toggle').addEventListener('click', () => {
-  const panel = document.getElementById('fp-panel');
-  panel.classList.toggle('open');
-  if (panel.classList.contains('open')) fpRenderAll();
-});
-
-// Tabs
-document.querySelectorAll('.fp-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.fp-tab').forEach(t => t.classList.remove('on'));
-    document.querySelectorAll('.fp-section').forEach(s => s.classList.remove('on'));
-    tab.classList.add('on');
-    document.getElementById('fp-' + tab.dataset.tab).classList.add('on');
+// Toggle panel — guard: panel chỉ tồn tại trên trang có fp-toggle
+const _fpToggleBtn = document.getElementById('fp-toggle');
+const _fpPanel     = document.getElementById('fp-panel');
+if (_fpToggleBtn && _fpPanel) {
+  _fpToggleBtn.addEventListener('click', () => {
+    _fpPanel.classList.toggle('open');
+    if (_fpPanel.classList.contains('open')) fpRenderAll();
   });
-});
 
-// Đóng khi click bên ngoài
-document.addEventListener('click', e => {
-  const panel = document.getElementById('fp-panel');
-  const btn   = document.getElementById('fp-toggle');
-  if (panel.classList.contains('open') && !panel.contains(e.target) && !btn.contains(e.target)) {
-    panel.classList.remove('open');
-  }
-});
+  // Tabs
+  document.querySelectorAll('.fp-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.fp-tab').forEach(t => t.classList.remove('on'));
+      document.querySelectorAll('.fp-section').forEach(s => s.classList.remove('on'));
+      tab.classList.add('on');
+      document.getElementById('fp-' + tab.dataset.tab).classList.add('on');
+    });
+  });
+
+  // Đóng khi click bên ngoài
+  document.addEventListener('click', e => {
+    if (_fpPanel.classList.contains('open') && !_fpPanel.contains(e.target) && !_fpToggleBtn.contains(e.target)) {
+      _fpPanel.classList.remove('open');
+    }
+  });
+}
 
 // ── Mục tiêu ──
 function fpSaveGoal() {
@@ -42,8 +43,7 @@ function fpSaveGoal() {
   data.goal = document.getElementById('fp-goal-input').value;
   fpSave(data);
   const btn = document.querySelector('.fp-save-btn');
-  btn.textContent = '✅ Đã lưu!';
-  setTimeout(() => btn.textContent = '💾 Lưu', 1500);
+  if (btn) { btn.textContent = '✅ Đã lưu!'; setTimeout(() => btn.textContent = '💾 Lưu', 1500); }
 }
 
 function fpAddMilestone() {
@@ -98,11 +98,13 @@ function fpLogResult(game, score, grade, detail) {
   });
   if (data.history.length > 100) data.history = data.history.slice(0, 100);
   fpSave(data);
-  // badge
+  // badge — guard: không crash nếu panel chưa mount
   const badge = document.getElementById('fp-badge');
-  badge.textContent = '!';
-  badge.classList.add('on');
-  setTimeout(() => badge.classList.remove('on'), 4000);
+  if (badge) {
+    badge.textContent = '!';
+    badge.classList.add('on');
+    setTimeout(() => badge.classList.remove('on'), 4000);
+  }
 }
 
 function fpRenderHistory() {
@@ -212,17 +214,32 @@ function fpReadFile(input) {
   reader.readAsText(file, 'UTF-8');
 }
 
+// RFC-4180 CSV parser — xử lý đúng field có dấu phẩy bên trong dấu ngoặc kép
+function _parseCSVRow(line) {
+  const cols = []; let cur = '', inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') {
+      if (inQ && line[i+1] === '"') { cur += '"'; i++; }
+      else inQ = !inQ;
+    } else if (c === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+    else cur += c;
+  }
+  cols.push(cur.trim());
+  return cols;
+}
+
 function fpImportCSV() {
   const raw = document.getElementById('gs-csv-paste')?.value || '';
   if (!raw.trim()) { gsStatus('❌ Chưa có dữ liệu', true); return; }
   try {
     const lines = raw.trim().split(/\r?\n/);
-    const headers = lines[0].toLowerCase().split(',').map(h => h.replace(/"/g,'').trim());
+    const headers = _parseCSVRow(lines[0]).map(h => h.toLowerCase().replace(/"/g,'').trim());
     const ki = headers.indexOf('kanji'), mi = headers.indexOf('meaning'), li = headers.indexOf('level');
     if (ki<0||mi<0||li<0) { gsStatus('❌ Thiếu cột kanji/meaning/level', true); return; }
     let added = 0, skipped = 0;
     for (let i=1;i<lines.length;i++) {
-      const cols = lines[i].split(',').map(c => c.replace(/^"|"$/g,'').trim());
+      const cols = _parseCSVRow(lines[i]);
       if (!cols[ki]) continue;
       const existing = ALL_KANJI.findIndex(k => k.kanji === cols[ki]);
       const entry = {

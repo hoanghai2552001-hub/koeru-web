@@ -102,6 +102,47 @@ nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1p
 .lcard-meta{font-size:12px;color:var(--ink3);margin-top:auto;padding-top:7px;display:flex;align-items:center}
 .xp-badge{background:var(--yellow-l);color:#7a5f00;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:auto;border:1px solid #f0d87a}
 
+/* ── LESSON DETAIL ── */
+.lesson-hero{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:28px;margin-bottom:24px;display:flex;gap:20px;align-items:center}
+.lesson-hero-thumb{width:72px;height:72px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+.lesson-hero h1{font-size:20px;font-weight:800;color:var(--navy);line-height:1.3;margin-bottom:6px}
+.lesson-hero-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--ink3)}
+.lesson-hero-meta span{background:var(--navy-06);padding:2px 10px;border-radius:20px;font-weight:600}
+.lesson-block{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:16px}
+.lesson-block h2{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1.5px solid var(--border)}
+.lesson-block h3{font-size:14px;font-weight:700;color:var(--navy);margin:14px 0 8px}
+.lesson-block p{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:10px}
+.vocab-table{width:100%;border-collapse:collapse;font-size:13px}
+.vocab-table th{background:var(--navy-06);color:var(--ink2);font-weight:700;padding:8px 10px;text-align:left;font-size:11px;letter-spacing:.4px}
+.vocab-table td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+.vocab-table tr:last-child td{border-bottom:none}
+.vocab-table .jp{font-size:16px;font-weight:700;color:var(--navy)}
+.vocab-table .kana{font-size:12px;color:var(--ink3)}
+.vocab-table .cn-char{font-size:18px;font-weight:700;color:#8b4a00}
+.vocab-table .pinyin{font-size:12px;color:#c07030}
+.grammar-box{background:var(--accent-l);border-left:4px solid var(--accent);border-radius:0 var(--rs) var(--rs) 0;padding:14px 16px;margin:12px 0;font-size:14px}
+.grammar-box .formula{font-weight:800;color:var(--navy);font-size:15px;margin-bottom:6px}
+.example-row{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid var(--border)}
+.example-row:last-child{border-bottom:none}
+.example-row .jp-ex{font-size:15px;font-weight:600;color:var(--navy)}
+.example-row .kana-ex{font-size:12px;color:var(--ink3)}
+.example-row .vi-ex{font-size:13px;color:var(--ink2)}
+.kanji-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.kanji-card-l{border:1.5px solid var(--border);border-radius:var(--rs);padding:16px;display:flex;gap:14px;align-items:flex-start}
+.kanji-big{font-size:52px;line-height:1;color:var(--navy);font-weight:400;flex-shrink:0}
+.kanji-info{flex:1}
+.kanji-info .readings{font-size:12px;color:var(--ink3);margin-bottom:4px}
+.kanji-info .meaning{font-size:13px;font-weight:700;color:var(--navy)}
+.kanji-info .example{font-size:12px;color:var(--ink2);margin-top:6px}
+.tone-row{display:flex;gap:10px;margin:12px 0}
+.tone-box{flex:1;border:1.5px solid var(--border);border-radius:var(--rs);padding:12px;text-align:center}
+.tone-box .tone-mark{font-size:28px;font-weight:800;color:var(--navy)}
+.tone-box .tone-name{font-size:11px;font-weight:700;color:var(--ink3);margin:4px 0}
+.tone-box .tone-desc{font-size:11px;color:var(--ink2)}
+.lesson-done-btn{width:100%;padding:14px;background:var(--navy);color:#fff;font-size:15px;font-weight:800;border:none;border-radius:var(--r);cursor:pointer;margin-top:8px;transition:all .18s}
+.lesson-done-btn:hover{background:var(--navy-d)}
+.lesson-done-btn.done{background:#27ae60}
+
 /* ── QUIZ STRIP ── */
 .quiz-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .quiz-strip::-webkit-scrollbar{display:none}
@@ -688,6 +729,14 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   </div></div>
 </div>
 
+<!-- ═══ LESSON DETAIL ═══ -->
+<div class="page" id="page-lesson">
+  <div class="sec"><div class="wrap" style="max-width:760px">
+    <button class="btn btn-ghost btn-sm" onclick="showPage('learn')" style="margin-bottom:20px">← Quay lại</button>
+    <div id="lesson-detail-content"></div>
+  </div></div>
+</div>
+
 <!-- ═══ FLASH ═══ -->
 <div class="page" id="page-flash">
   <div class="sec"><div class="wrap">
@@ -993,9 +1042,445 @@ function showPage(p){
   else({home:()=>{renderHomeLesson();renderHomeBlog();},learn:()=>renderLearn('all'),blog:()=>renderBlog('all'),quiz:loadQuiz,flash:loadFlash}[p]||function(){})();
 }
 
+/* ─── LESSON CONTENT ─── */
+const LESSON_CONTENT = {
+  1: `
+    <div class="lesson-block">
+      <h2>📋 Danh sách 50 từ vựng N5 thông dụng nhất</h2>
+      <table class="vocab-table">
+        <thead><tr><th>Từ</th><th>Cách đọc</th><th>Nghĩa</th></tr></thead>
+        <tbody>
+          <tr><td class="jp">私<span class="kana">わたし</span></td><td>Watashi</td><td>Tôi</td></tr>
+          <tr><td class="jp">あなた</td><td>Anata</td><td>Bạn (ngôi 2)</td></tr>
+          <tr><td class="jp">彼<span class="kana">かれ</span></td><td>Kare</td><td>Anh ấy / Bạn trai</td></tr>
+          <tr><td class="jp">彼女<span class="kana">かのじょ</span></td><td>Kanojo</td><td>Cô ấy / Bạn gái</td></tr>
+          <tr><td class="jp">人<span class="kana">ひと</span></td><td>Hito</td><td>Người</td></tr>
+          <tr><td class="jp">子供<span class="kana">こども</span></td><td>Kodomo</td><td>Trẻ em</td></tr>
+          <tr><td class="jp">学生<span class="kana">がくせい</span></td><td>Gakusei</td><td>Học sinh / Sinh viên</td></tr>
+          <tr><td class="jp">先生<span class="kana">せんせい</span></td><td>Sensei</td><td>Giáo viên</td></tr>
+          <tr><td class="jp">友達<span class="kana">ともだち</span></td><td>Tomodachi</td><td>Bạn bè</td></tr>
+          <tr><td class="jp">家族<span class="kana">かぞく</span></td><td>Kazoku</td><td>Gia đình</td></tr>
+          <tr><td class="jp">学校<span class="kana">がっこう</span></td><td>Gakkou</td><td>Trường học</td></tr>
+          <tr><td class="jp">会社<span class="kana">かいしゃ</span></td><td>Kaisha</td><td>Công ty</td></tr>
+          <tr><td class="jp">家<span class="kana">いえ</span></td><td>Ie</td><td>Ngôi nhà</td></tr>
+          <tr><td class="jp">車<span class="kana">くるま</span></td><td>Kuruma</td><td>Xe hơi</td></tr>
+          <tr><td class="jp">電車<span class="kana">でんしゃ</span></td><td>Densha</td><td>Tàu điện</td></tr>
+          <tr><td class="jp">本<span class="kana">ほん</span></td><td>Hon</td><td>Sách</td></tr>
+          <tr><td class="jp">水<span class="kana">みず</span></td><td>Mizu</td><td>Nước</td></tr>
+          <tr><td class="jp">食べ物<span class="kana">たべもの</span></td><td>Tabemono</td><td>Thức ăn</td></tr>
+          <tr><td class="jp">時間<span class="kana">じかん</span></td><td>Jikan</td><td>Thời gian</td></tr>
+          <tr><td class="jp">今日<span class="kana">きょう</span></td><td>Kyou</td><td>Hôm nay</td></tr>
+          <tr><td class="jp">明日<span class="kana">あした</span></td><td>Ashita</td><td>Ngày mai</td></tr>
+          <tr><td class="jp">昨日<span class="kana">きのう</span></td><td>Kinou</td><td>Hôm qua</td></tr>
+          <tr><td class="jp">今<span class="kana">いま</span></td><td>Ima</td><td>Bây giờ</td></tr>
+          <tr><td class="jp">何時<span class="kana">なんじ</span></td><td>Nanji</td><td>Mấy giờ</td></tr>
+          <tr><td class="jp">大きい<span class="kana">おおきい</span></td><td>Ookii</td><td>To, lớn</td></tr>
+          <tr><td class="jp">小さい<span class="kana">ちいさい</span></td><td>Chiisai</td><td>Nhỏ, bé</td></tr>
+          <tr><td class="jp">新しい<span class="kana">あたらしい</span></td><td>Atarashii</td><td>Mới</td></tr>
+          <tr><td class="jp">古い<span class="kana">ふるい</span></td><td>Furui</td><td>Cũ</td></tr>
+          <tr><td class="jp">高い<span class="kana">たかい</span></td><td>Takai</td><td>Đắt / Cao</td></tr>
+          <tr><td class="jp">安い<span class="kana">やすい</span></td><td>Yasui</td><td>Rẻ</td></tr>
+          <tr><td class="jp">いい / よい</td><td>Ii / Yoi</td><td>Tốt, được</td></tr>
+          <tr><td class="jp">悪い<span class="kana">わるい</span></td><td>Warui</td><td>Xấu, tệ</td></tr>
+          <tr><td class="jp">多い<span class="kana">おおい</span></td><td>Ooi</td><td>Nhiều</td></tr>
+          <tr><td class="jp">少ない<span class="kana">すくない</span></td><td>Sukunai</td><td>Ít</td></tr>
+          <tr><td class="jp">食べる<span class="kana">たべる</span></td><td>Taberu</td><td>Ăn</td></tr>
+          <tr><td class="jp">飲む<span class="kana">のむ</span></td><td>Nomu</td><td>Uống</td></tr>
+          <tr><td class="jp">行く<span class="kana">いく</span></td><td>Iku</td><td>Đi</td></tr>
+          <tr><td class="jp">来る<span class="kana">くる</span></td><td>Kuru</td><td>Đến</td></tr>
+          <tr><td class="jp">帰る<span class="kana">かえる</span></td><td>Kaeru</td><td>Trở về</td></tr>
+          <tr><td class="jp">見る<span class="kana">みる</span></td><td>Miru</td><td>Nhìn, xem</td></tr>
+          <tr><td class="jp">聞く<span class="kana">きく</span></td><td>Kiku</td><td>Nghe / Hỏi</td></tr>
+          <tr><td class="jp">話す<span class="kana">はなす</span></td><td>Hanasu</td><td>Nói</td></tr>
+          <tr><td class="jp">読む<span class="kana">よむ</span></td><td>Yomu</td><td>Đọc</td></tr>
+          <tr><td class="jp">書く<span class="kana">かく</span></td><td>Kaku</td><td>Viết</td></tr>
+          <tr><td class="jp">買う<span class="kana">かう</span></td><td>Kau</td><td>Mua</td></tr>
+          <tr><td class="jp">わかる</td><td>Wakaru</td><td>Hiểu</td></tr>
+          <tr><td class="jp">できる</td><td>Dekiru</td><td>Có thể, làm được</td></tr>
+          <tr><td class="jp">ある / いる</td><td>Aru / Iru</td><td>Có (vật / người)</td></tr>
+          <tr><td class="jp">はい / いいえ</td><td>Hai / Iie</td><td>Vâng / Không</td></tr>
+          <tr><td class="jp">ありがとう</td><td>Arigatou</td><td>Cảm ơn</td></tr>
+          <tr><td class="jp">すみません</td><td>Sumimasen</td><td>Xin lỗi / Excuse me</td></tr>
+        </tbody>
+      </table>
+    </div>`,
+
+  2: `
+    <div class="lesson-block">
+      <h2>📐 Ngữ pháp ～てください</h2>
+      <div class="grammar-box">
+        <div class="formula">Động từ (thể て) + ください</div>
+        <div>→ Yêu cầu lịch sự: "Xin hãy làm gì đó"</div>
+      </div>
+      <h3>Cách chia thể て</h3>
+      <table class="vocab-table">
+        <thead><tr><th>Nhóm</th><th>Quy tắc</th><th>Ví dụ</th></tr></thead>
+        <tbody>
+          <tr><td>Nhóm 1 (う-verb)</td><td>く→いて、ぐ→いで、す→して、つ/る/う→って、ぬ/ぶ/む→んで</td><td>書く→書いて、読む→読んで</td></tr>
+          <tr><td>Nhóm 2 (る-verb)</td><td>Bỏ る, thêm て</td><td>食べる→食べて、見る→見て</td></tr>
+          <tr><td>Nhóm 3 (bất quy tắc)</td><td>する→して、くる→きて</td><td>勉強する→勉強して</td></tr>
+        </tbody>
+      </table>
+      <h3>Ví dụ</h3>
+      <div class="example-row"><div class="jp-ex">ここに名前を書いてください。</div><div class="kana-ex">Koko ni namae wo kaite kudasai.</div><div class="vi-ex">Xin hãy viết tên ở đây.</div></div>
+      <div class="example-row"><div class="jp-ex">ちょっと待ってください。</div><div class="kana-ex">Chotto matte kudasai.</div><div class="vi-ex">Xin hãy đợi một chút.</div></div>
+      <div class="example-row"><div class="jp-ex">ゆっくり話してください。</div><div class="kana-ex">Yukkuri hanashite kudasai.</div><div class="vi-ex">Xin hãy nói chậm thôi.</div></div>
+      <div class="example-row"><div class="jp-ex">窓を開けてください。</div><div class="kana-ex">Mado wo akete kudasai.</div><div class="vi-ex">Xin hãy mở cửa sổ.</div></div>
+      <div class="example-row"><div class="jp-ex">この薬を飲んでください。</div><div class="kana-ex">Kono kusuri wo nonde kudasai.</div><div class="vi-ex">Xin hãy uống thuốc này.</div></div>
+      <h3>Dạng phủ định: ～ないでください</h3>
+      <div class="grammar-box">
+        <div class="formula">Động từ (thể ない) + でください</div>
+        <div>→ "Xin đừng làm gì đó"</div>
+      </div>
+      <div class="example-row"><div class="jp-ex">ここで写真を撮らないでください。</div><div class="kana-ex">Koko de shashin wo toranaide kudasai.</div><div class="vi-ex">Xin đừng chụp ảnh ở đây.</div></div>
+    </div>`,
+
+  3: `
+    <div class="lesson-block">
+      <h2>🖊 Kanji N5 — 10 chữ đầu tiên</h2>
+      <p style="margin-bottom:16px">10 kanji cơ bản nhất trong JLPT N5. Mỗi chữ kèm âm On, âm Kun và từ ví dụ thực tế.</p>
+      <div class="kanji-grid">
+        <div class="kanji-card-l"><div class="kanji-big">日</div><div class="kanji-info"><div class="meaning">Mặt trời / Ngày</div><div class="readings">On: ニチ、ジツ　Kun: ひ、か</div><div class="example">今日 (きょう) hôm nay · 日本 (にほん) Nhật Bản</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">月</div><div class="kanji-info"><div class="meaning">Mặt trăng / Tháng</div><div class="readings">On: ゲツ、ガツ　Kun: つき</div><div class="example">月曜日 (げつようび) thứ Hai · 一月 (いちがつ) tháng 1</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">火</div><div class="kanji-info"><div class="meaning">Lửa</div><div class="readings">On: カ　Kun: ひ</div><div class="example">火曜日 (かようび) thứ Ba · 花火 (はなび) pháo hoa</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">水</div><div class="kanji-info"><div class="meaning">Nước</div><div class="readings">On: スイ　Kun: みず</div><div class="example">水曜日 (すいようび) thứ Tư · 水道 (すいどう) đường nước</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">木</div><div class="kanji-info"><div class="meaning">Cây / Gỗ</div><div class="readings">On: モク、ボク　Kun: き</div><div class="example">木曜日 (もくようび) thứ Năm · 木村 (きむら) họ Kimura</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">金</div><div class="kanji-info"><div class="meaning">Vàng / Tiền</div><div class="readings">On: キン、コン　Kun: かね</div><div class="example">金曜日 (きんようび) thứ Sáu · お金 (おかね) tiền</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">土</div><div class="kanji-info"><div class="meaning">Đất</div><div class="readings">On: ド、ト　Kun: つち</div><div class="example">土曜日 (どようび) thứ Bảy · 土地 (とち) đất đai</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">山</div><div class="kanji-info"><div class="meaning">Núi</div><div class="readings">On: サン　Kun: やま</div><div class="example">富士山 (ふじさん) núi Fuji · 山田 (やまだ) họ Yamada</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">川</div><div class="kanji-info"><div class="meaning">Sông</div><div class="readings">On: セン　Kun: かわ</div><div class="example">小川 (おがわ) suối nhỏ · 川口 (かわぐち) Kawaguchi</div></div></div>
+        <div class="kanji-card-l"><div class="kanji-big">田</div><div class="kanji-info"><div class="meaning">Ruộng lúa</div><div class="readings">On: デン　Kun: た</div><div class="example">田中 (たなか) họ Tanaka · 田舎 (いなか) nông thôn</div></div></div>
+      </div>
+    </div>`,
+
+  4: `
+    <div class="lesson-block">
+      <h2>📋 150 từ vựng HSK 1 bắt buộc</h2>
+      <p style="margin-bottom:16px">HSK 1 gồm 150 từ thiết yếu nhất trong tiếng Trung. Nắm chắc các từ này là nền tảng để học tiếp.</p>
+      <table class="vocab-table">
+        <thead><tr><th>Chữ</th><th>Pinyin</th><th>Nghĩa</th></tr></thead>
+        <tbody>
+          <tr><td class="cn-char">爱<span class="pinyin">ài</span></td><td>ài</td><td>Yêu</td></tr>
+          <tr><td class="cn-char">八<span class="pinyin">bā</span></td><td>bā</td><td>Tám (8)</td></tr>
+          <tr><td class="cn-char">爸爸<span class="pinyin">bàba</span></td><td>bàba</td><td>Bố, cha</td></tr>
+          <tr><td class="cn-char">杯子<span class="pinyin">bēizi</span></td><td>bēizi</td><td>Cái cốc</td></tr>
+          <tr><td class="cn-char">北京<span class="pinyin">Běijīng</span></td><td>Běijīng</td><td>Bắc Kinh</td></tr>
+          <tr><td class="cn-char">本<span class="pinyin">běn</span></td><td>běn</td><td>Quyển (lượng từ)</td></tr>
+          <tr><td class="cn-char">不<span class="pinyin">bù</span></td><td>bù</td><td>Không (phủ định)</td></tr>
+          <tr><td class="cn-char">不客气<span class="pinyin">bú kèqi</span></td><td>bú kèqi</td><td>Không có gì (cảm ơn)</td></tr>
+          <tr><td class="cn-char">菜<span class="pinyin">cài</span></td><td>cài</td><td>Rau / Món ăn</td></tr>
+          <tr><td class="cn-char">茶<span class="pinyin">chá</span></td><td>chá</td><td>Trà</td></tr>
+          <tr><td class="cn-char">吃<span class="pinyin">chī</span></td><td>chī</td><td>Ăn</td></tr>
+          <tr><td class="cn-char">出租车<span class="pinyin">chūzūchē</span></td><td>chūzūchē</td><td>Taxi</td></tr>
+          <tr><td class="cn-char">打电话<span class="pinyin">dǎ diànhuà</span></td><td>dǎ diànhuà</td><td>Gọi điện</td></tr>
+          <tr><td class="cn-char">大<span class="pinyin">dà</span></td><td>dà</td><td>To, lớn</td></tr>
+          <tr><td class="cn-char">的<span class="pinyin">de</span></td><td>de</td><td>Của (trợ từ)</td></tr>
+          <tr><td class="cn-char">点<span class="pinyin">diǎn</span></td><td>diǎn</td><td>Giờ (đồng hồ)</td></tr>
+          <tr><td class="cn-char">电脑<span class="pinyin">diànnǎo</span></td><td>diànnǎo</td><td>Máy tính</td></tr>
+          <tr><td class="cn-char">电视<span class="pinyin">diànshì</span></td><td>diànshì</td><td>Tivi</td></tr>
+          <tr><td class="cn-char">电影<span class="pinyin">diànyǐng</span></td><td>diànyǐng</td><td>Phim</td></tr>
+          <tr><td class="cn-char">东西<span class="pinyin">dōngxi</span></td><td>dōngxi</td><td>Đồ vật, thứ gì đó</td></tr>
+          <tr><td class="cn-char">都<span class="pinyin">dōu</span></td><td>dōu</td><td>Đều, cả</td></tr>
+          <tr><td class="cn-char">读<span class="pinyin">dú</span></td><td>dú</td><td>Đọc</td></tr>
+          <tr><td class="cn-char">对不起<span class="pinyin">duìbuqǐ</span></td><td>duìbuqǐ</td><td>Xin lỗi</td></tr>
+          <tr><td class="cn-char">多<span class="pinyin">duō</span></td><td>duō</td><td>Nhiều</td></tr>
+          <tr><td class="cn-char">多少<span class="pinyin">duōshao</span></td><td>duōshao</td><td>Bao nhiêu</td></tr>
+          <tr><td class="cn-char">儿子<span class="pinyin">érzi</span></td><td>érzi</td><td>Con trai</td></tr>
+          <tr><td class="cn-char">二<span class="pinyin">èr</span></td><td>èr</td><td>Hai (2)</td></tr>
+          <tr><td class="cn-char">饭馆<span class="pinyin">fànguǎn</span></td><td>fànguǎn</td><td>Nhà hàng</td></tr>
+          <tr><td class="cn-char">飞机<span class="pinyin">fēijī</span></td><td>fēijī</td><td>Máy bay</td></tr>
+          <tr><td class="cn-char">分钟<span class="pinyin">fēnzhōng</span></td><td>fēnzhōng</td><td>Phút</td></tr>
+          <tr><td class="cn-char">高兴<span class="pinyin">gāoxìng</span></td><td>gāoxìng</td><td>Vui mừng</td></tr>
+          <tr><td class="cn-char">个<span class="pinyin">gè</span></td><td>gè</td><td>Cái (lượng từ chung)</td></tr>
+          <tr><td class="cn-char">工作<span class="pinyin">gōngzuò</span></td><td>gōngzuò</td><td>Công việc / Làm việc</td></tr>
+          <tr><td class="cn-char">狗<span class="pinyin">gǒu</span></td><td>gǒu</td><td>Con chó</td></tr>
+          <tr><td class="cn-char">汉语<span class="pinyin">Hànyǔ</span></td><td>Hànyǔ</td><td>Tiếng Trung</td></tr>
+          <tr><td class="cn-char">好<span class="pinyin">hǎo</span></td><td>hǎo</td><td>Tốt, khoẻ</td></tr>
+          <tr><td class="cn-char">好吃<span class="pinyin">hǎochī</span></td><td>hǎochī</td><td>Ngon</td></tr>
+          <tr><td class="cn-char">号<span class="pinyin">hào</span></td><td>hào</td><td>Ngày (trong tháng)</td></tr>
+          <tr><td class="cn-char">喝<span class="pinyin">hē</span></td><td>hē</td><td>Uống</td></tr>
+          <tr><td class="cn-char">和<span class="pinyin">hé</span></td><td>hé</td><td>Và</td></tr>
+          <tr><td class="cn-char">很<span class="pinyin">hěn</span></td><td>hěn</td><td>Rất</td></tr>
+          <tr><td class="cn-char">后面<span class="pinyin">hòumiàn</span></td><td>hòumiàn</td><td>Phía sau</td></tr>
+          <tr><td class="cn-char">回<span class="pinyin">huí</span></td><td>huí</td><td>Quay về</td></tr>
+          <tr><td class="cn-char">会<span class="pinyin">huì</span></td><td>huì</td><td>Biết (kỹ năng)</td></tr>
+          <tr><td class="cn-char">机场<span class="pinyin">jīchǎng</span></td><td>jīchǎng</td><td>Sân bay</td></tr>
+          <tr><td class="cn-char">鸡蛋<span class="pinyin">jīdàn</span></td><td>jīdàn</td><td>Trứng gà</td></tr>
+          <tr><td class="cn-char">几<span class="pinyin">jǐ</span></td><td>jǐ</td><td>Mấy, bao nhiêu</td></tr>
+          <tr><td class="cn-char">家<span class="pinyin">jiā</span></td><td>jiā</td><td>Nhà, gia đình</td></tr>
+          <tr><td class="cn-char">叫<span class="pinyin">jiào</span></td><td>jiào</td><td>Gọi là, tên là</td></tr>
+          <tr><td class="cn-char">今天<span class="pinyin">jīntiān</span></td><td>jīntiān</td><td>Hôm nay</td></tr>
+          <tr><td class="cn-char">九<span class="pinyin">jiǔ</span></td><td>jiǔ</td><td>Chín (9)</td></tr>
+          <tr><td class="cn-char">开<span class="pinyin">kāi</span></td><td>kāi</td><td>Mở</td></tr>
+          <tr><td class="cn-char">看<span class="pinyin">kàn</span></td><td>kàn</td><td>Nhìn, xem</td></tr>
+          <tr><td class="cn-char">看见<span class="pinyin">kànjiàn</span></td><td>kànjiàn</td><td>Nhìn thấy</td></tr>
+          <tr><td class="cn-char">块<span class="pinyin">kuài</span></td><td>kuài</td><td>Đồng (tiền tệ)</td></tr>
+          <tr><td class="cn-char">来<span class="pinyin">lái</span></td><td>lái</td><td>Đến</td></tr>
+          <tr><td class="cn-char">老师<span class="pinyin">lǎoshī</span></td><td>lǎoshī</td><td>Giáo viên</td></tr>
+          <tr><td class="cn-char">了<span class="pinyin">le</span></td><td>le</td><td>Trợ từ hoàn thành</td></tr>
+          <tr><td class="cn-char">冷<span class="pinyin">lěng</span></td><td>lěng</td><td>Lạnh</td></tr>
+          <tr><td class="cn-char">里<span class="pinyin">lǐ</span></td><td>lǐ</td><td>Trong, bên trong</td></tr>
+          <tr><td class="cn-char">六<span class="pinyin">liù</span></td><td>liù</td><td>Sáu (6)</td></tr>
+          <tr><td class="cn-char">妈妈<span class="pinyin">māma</span></td><td>māma</td><td>Mẹ</td></tr>
+          <tr><td class="cn-char">吗<span class="pinyin">ma</span></td><td>ma</td><td>Trợ từ hỏi</td></tr>
+          <tr><td class="cn-char">买<span class="pinyin">mǎi</span></td><td>mǎi</td><td>Mua</td></tr>
+          <tr><td class="cn-char">猫<span class="pinyin">māo</span></td><td>māo</td><td>Con mèo</td></tr>
+          <tr><td class="cn-char">没关系<span class="pinyin">méi guānxi</span></td><td>méi guānxi</td><td>Không sao</td></tr>
+          <tr><td class="cn-char">没有<span class="pinyin">méiyǒu</span></td><td>méiyǒu</td><td>Không có</td></tr>
+          <tr><td class="cn-char">米饭<span class="pinyin">mǐfàn</span></td><td>mǐfàn</td><td>Cơm</td></tr>
+          <tr><td class="cn-char">明天<span class="pinyin">míngtiān</span></td><td>míngtiān</td><td>Ngày mai</td></tr>
+          <tr><td class="cn-char">名字<span class="pinyin">míngzi</span></td><td>míngzi</td><td>Tên</td></tr>
+          <tr><td class="cn-char">哪<span class="pinyin">nǎ</span></td><td>nǎ</td><td>Cái nào, đâu</td></tr>
+          <tr><td class="cn-char">哪儿<span class="pinyin">nǎr</span></td><td>nǎr</td><td>Ở đâu</td></tr>
+          <tr><td class="cn-char">那<span class="pinyin">nà</span></td><td>nà</td><td>Đó, kia</td></tr>
+          <tr><td class="cn-char">呢<span class="pinyin">ne</span></td><td>ne</td><td>Trợ từ hỏi lại</td></tr>
+          <tr><td class="cn-char">能<span class="pinyin">néng</span></td><td>néng</td><td>Có thể (năng lực)</td></tr>
+          <tr><td class="cn-char">你<span class="pinyin">nǐ</span></td><td>nǐ</td><td>Bạn (ngôi 2)</td></tr>
+          <tr><td class="cn-char">年<span class="pinyin">nián</span></td><td>nián</td><td>Năm</td></tr>
+          <tr><td class="cn-char">女儿<span class="pinyin">nǚér</span></td><td>nǚér</td><td>Con gái</td></tr>
+          <tr><td class="cn-char">朋友<span class="pinyin">péngyou</span></td><td>péngyou</td><td>Bạn bè</td></tr>
+          <tr><td class="cn-char">漂亮<span class="pinyin">piàoliang</span></td><td>piàoliang</td><td>Đẹp</td></tr>
+          <tr><td class="cn-char">苹果<span class="pinyin">píngguǒ</span></td><td>píngguǒ</td><td>Quả táo</td></tr>
+          <tr><td class="cn-char">七<span class="pinyin">qī</span></td><td>qī</td><td>Bảy (7)</td></tr>
+          <tr><td class="cn-char">钱<span class="pinyin">qián</span></td><td>qián</td><td>Tiền</td></tr>
+          <tr><td class="cn-char">请<span class="pinyin">qǐng</span></td><td>qǐng</td><td>Xin mời / Làm ơn</td></tr>
+          <tr><td class="cn-char">去<span class="pinyin">qù</span></td><td>qù</td><td>Đi</td></tr>
+          <tr><td class="cn-char">热<span class="pinyin">rè</span></td><td>rè</td><td>Nóng</td></tr>
+          <tr><td class="cn-char">人<span class="pinyin">rén</span></td><td>rén</td><td>Người</td></tr>
+          <tr><td class="cn-char">认识<span class="pinyin">rènshi</span></td><td>rènshi</td><td>Quen biết</td></tr>
+          <tr><td class="cn-char">日<span class="pinyin">rì</span></td><td>rì</td><td>Ngày</td></tr>
+          <tr><td class="cn-char">三<span class="pinyin">sān</span></td><td>sān</td><td>Ba (3)</td></tr>
+          <tr><td class="cn-char">商店<span class="pinyin">shāngdiàn</span></td><td>shāngdiàn</td><td>Cửa hàng</td></tr>
+          <tr><td class="cn-char">上<span class="pinyin">shàng</span></td><td>shàng</td><td>Trên</td></tr>
+          <tr><td class="cn-char">上午<span class="pinyin">shàngwǔ</span></td><td>shàngwǔ</td><td>Buổi sáng</td></tr>
+          <tr><td class="cn-char">少<span class="pinyin">shǎo</span></td><td>shǎo</td><td>Ít</td></tr>
+          <tr><td class="cn-char">谁<span class="pinyin">shéi</span></td><td>shéi</td><td>Ai</td></tr>
+          <tr><td class="cn-char">什么<span class="pinyin">shénme</span></td><td>shénme</td><td>Cái gì</td></tr>
+          <tr><td class="cn-char">十<span class="pinyin">shí</span></td><td>shí</td><td>Mười (10)</td></tr>
+          <tr><td class="cn-char">时候<span class="pinyin">shíhou</span></td><td>shíhou</td><td>Lúc, khi</td></tr>
+          <tr><td class="cn-char">是<span class="pinyin">shì</span></td><td>shì</td><td>Là</td></tr>
+          <tr><td class="cn-char">书<span class="pinyin">shū</span></td><td>shū</td><td>Sách</td></tr>
+          <tr><td class="cn-char">水<span class="pinyin">shuǐ</span></td><td>shuǐ</td><td>Nước</td></tr>
+          <tr><td class="cn-char">水果<span class="pinyin">shuǐguǒ</span></td><td>shuǐguǒ</td><td>Hoa quả</td></tr>
+          <tr><td class="cn-char">睡觉<span class="pinyin">shuìjiào</span></td><td>shuìjiào</td><td>Ngủ</td></tr>
+          <tr><td class="cn-char">说<span class="pinyin">shuō</span></td><td>shuō</td><td>Nói</td></tr>
+          <tr><td class="cn-char">四<span class="pinyin">sì</span></td><td>sì</td><td>Bốn (4)</td></tr>
+          <tr><td class="cn-char">岁<span class="pinyin">suì</span></td><td>suì</td><td>Tuổi</td></tr>
+          <tr><td class="cn-char">他<span class="pinyin">tā</span></td><td>tā</td><td>Anh ấy</td></tr>
+          <tr><td class="cn-char">她<span class="pinyin">tā</span></td><td>tā</td><td>Cô ấy</td></tr>
+          <tr><td class="cn-char">太<span class="pinyin">tài</span></td><td>tài</td><td>Quá (mức)</td></tr>
+          <tr><td class="cn-char">天气<span class="pinyin">tiānqì</span></td><td>tiānqì</td><td>Thời tiết</td></tr>
+          <tr><td class="cn-char">听<span class="pinyin">tīng</span></td><td>tīng</td><td>Nghe</td></tr>
+          <tr><td class="cn-char">同学<span class="pinyin">tóngxué</span></td><td>tóngxué</td><td>Bạn cùng lớp</td></tr>
+          <tr><td class="cn-char">喂<span class="pinyin">wèi</span></td><td>wèi</td><td>Alo (điện thoại)</td></tr>
+          <tr><td class="cn-char">我<span class="pinyin">wǒ</span></td><td>wǒ</td><td>Tôi</td></tr>
+          <tr><td class="cn-char">我们<span class="pinyin">wǒmen</span></td><td>wǒmen</td><td>Chúng tôi</td></tr>
+          <tr><td class="cn-char">五<span class="pinyin">wǔ</span></td><td>wǔ</td><td>Năm (5)</td></tr>
+          <tr><td class="cn-char">西瓜<span class="pinyin">xīguā</span></td><td>xīguā</td><td>Dưa hấu</td></tr>
+          <tr><td class="cn-char">下<span class="pinyin">xià</span></td><td>xià</td><td>Dưới</td></tr>
+          <tr><td class="cn-char">下午<span class="pinyin">xiàwǔ</span></td><td>xiàwǔ</td><td>Buổi chiều</td></tr>
+          <tr><td class="cn-char">下雨<span class="pinyin">xià yǔ</span></td><td>xià yǔ</td><td>Trời mưa</td></tr>
+          <tr><td class="cn-char">先生<span class="pinyin">xiānsheng</span></td><td>xiānsheng</td><td>Ông, thầy</td></tr>
+          <tr><td class="cn-char">现在<span class="pinyin">xiànzài</span></td><td>xiànzài</td><td>Bây giờ</td></tr>
+          <tr><td class="cn-char">想<span class="pinyin">xiǎng</span></td><td>xiǎng</td><td>Muốn, nghĩ</td></tr>
+          <tr><td class="cn-char">小<span class="pinyin">xiǎo</span></td><td>xiǎo</td><td>Nhỏ</td></tr>
+          <tr><td class="cn-char">小姐<span class="pinyin">xiǎojiě</span></td><td>xiǎojiě</td><td>Cô, tiểu thư</td></tr>
+          <tr><td class="cn-char">写<span class="pinyin">xiě</span></td><td>xiě</td><td>Viết</td></tr>
+          <tr><td class="cn-char">谢谢<span class="pinyin">xièxie</span></td><td>xièxie</td><td>Cảm ơn</td></tr>
+          <tr><td class="cn-char">星期<span class="pinyin">xīngqī</span></td><td>xīngqī</td><td>Tuần</td></tr>
+          <tr><td class="cn-char">学生<span class="pinyin">xuésheng</span></td><td>xuésheng</td><td>Học sinh</td></tr>
+          <tr><td class="cn-char">学习<span class="pinyin">xuéxí</span></td><td>xuéxí</td><td>Học tập</td></tr>
+          <tr><td class="cn-char">学校<span class="pinyin">xuéxiào</span></td><td>xuéxiào</td><td>Trường học</td></tr>
+          <tr><td class="cn-char">一<span class="pinyin">yī</span></td><td>yī</td><td>Một (1)</td></tr>
+          <tr><td class="cn-char">衣服<span class="pinyin">yīfu</span></td><td>yīfu</td><td>Quần áo</td></tr>
+          <tr><td class="cn-char">医生<span class="pinyin">yīshēng</span></td><td>yīshēng</td><td>Bác sĩ</td></tr>
+          <tr><td class="cn-char">医院<span class="pinyin">yīyuàn</span></td><td>yīyuàn</td><td>Bệnh viện</td></tr>
+          <tr><td class="cn-char">椅子<span class="pinyin">yǐzi</span></td><td>yǐzi</td><td>Ghế</td></tr>
+          <tr><td class="cn-char">有<span class="pinyin">yǒu</span></td><td>yǒu</td><td>Có</td></tr>
+          <tr><td class="cn-char">月<span class="pinyin">yuè</span></td><td>yuè</td><td>Tháng</td></tr>
+          <tr><td class="cn-char">再见<span class="pinyin">zàijiàn</span></td><td>zàijiàn</td><td>Tạm biệt</td></tr>
+          <tr><td class="cn-char">在<span class="pinyin">zài</span></td><td>zài</td><td>Ở, đang</td></tr>
+          <tr><td class="cn-char">怎么<span class="pinyin">zěnme</span></td><td>zěnme</td><td>Như thế nào</td></tr>
+          <tr><td class="cn-char">怎么样<span class="pinyin">zěnmeyàng</span></td><td>zěnmeyàng</td><td>Thế nào rồi</td></tr>
+          <tr><td class="cn-char">这<span class="pinyin">zhè</span></td><td>zhè</td><td>Này</td></tr>
+          <tr><td class="cn-char">中国<span class="pinyin">Zhōngguó</span></td><td>Zhōngguó</td><td>Trung Quốc</td></tr>
+          <tr><td class="cn-char">中午<span class="pinyin">zhōngwǔ</span></td><td>zhōngwǔ</td><td>Buổi trưa</td></tr>
+          <tr><td class="cn-char">住<span class="pinyin">zhù</span></td><td>zhù</td><td>Ở, sống</td></tr>
+          <tr><td class="cn-char">桌子<span class="pinyin">zhuōzi</span></td><td>zhuōzi</td><td>Bàn</td></tr>
+          <tr><td class="cn-char">字<span class="pinyin">zì</span></td><td>zì</td><td>Chữ, ký tự</td></tr>
+          <tr><td class="cn-char">昨天<span class="pinyin">zuótiān</span></td><td>zuótiān</td><td>Hôm qua</td></tr>
+          <tr><td class="cn-char">坐<span class="pinyin">zuò</span></td><td>zuò</td><td>Ngồi / Đi (phương tiện)</td></tr>
+          <tr><td class="cn-char">做<span class="pinyin">zuò</span></td><td>zuò</td><td>Làm</td></tr>
+        </tbody>
+      </table>
+    </div>`,
+
+  5: `
+    <div class="lesson-block">
+      <h2>📐 Câu "把" — Tác động lên tân ngữ</h2>
+      <div class="grammar-box">
+        <div class="formula">主语 + 把 + 宾语 + 动词 + 补语</div>
+        <div>→ Chủ ngữ + 把 + Tân ngữ + Động từ + Bổ ngữ</div>
+      </div>
+      <h3>Khi nào dùng 把?</h3>
+      <p>Câu 把 nhấn mạnh kết quả hoặc sự xử lý của chủ ngữ lên tân ngữ. Tân ngữ phải là vật xác định (đã biết), và động từ phải có kết quả rõ ràng.</p>
+      <h3>Ví dụ cơ bản</h3>
+      <div class="example-row"><div class="jp-ex">我把书放在桌子上了。</div><div class="kana-ex">Wǒ bǎ shū fàng zài zhuōzi shàng le.</div><div class="vi-ex">Tôi đã đặt cuốn sách lên bàn rồi.</div></div>
+      <div class="example-row"><div class="jp-ex">她把作业做完了。</div><div class="kana-ex">Tā bǎ zuòyè zuò wán le.</div><div class="vi-ex">Cô ấy đã làm xong bài tập rồi.</div></div>
+      <div class="example-row"><div class="jp-ex">请把窗户关上。</div><div class="kana-ex">Qǐng bǎ chuānghu guān shàng.</div><div class="vi-ex">Xin hãy đóng cửa sổ lại.</div></div>
+      <div class="example-row"><div class="jp-ex">他把钱都花完了。</div><div class="kana-ex">Tā bǎ qián dōu huā wán le.</div><div class="vi-ex">Anh ấy đã tiêu hết tiền rồi.</div></div>
+      <h3>Lỗi thường gặp</h3>
+      <table class="vocab-table">
+        <thead><tr><th>Sai ❌</th><th>Đúng ✅</th><th>Lý do</th></tr></thead>
+        <tbody>
+          <tr><td>我把书看。</td><td>我把书看完了。</td><td>Thiếu bổ ngữ kết quả</td></tr>
+          <tr><td>我把一本书放在这里。</td><td>我把那本书放在这里。</td><td>Tân ngữ phải xác định</td></tr>
+          <tr><td>我喜欢把她。</td><td>我喜欢她。</td><td>Động từ tâm lý không dùng 把</td></tr>
+        </tbody>
+      </table>
+    </div>`,
+
+  6: `
+    <div class="lesson-block">
+      <h2>👨‍👩‍👧 Từ vựng chủ đề Gia đình N5</h2>
+      <table class="vocab-table">
+        <thead><tr><th>Từ</th><th>Cách đọc</th><th>Nghĩa</th><th>Ghi chú</th></tr></thead>
+        <tbody>
+          <tr><td class="jp">家族<span class="kana">かぞく</span></td><td>Kazoku</td><td>Gia đình</td><td>Gia đình của mình</td></tr>
+          <tr><td class="jp">父<span class="kana">ちち</span></td><td>Chichi</td><td>Bố (của mình)</td><td>Nói về bố mình với người khác</td></tr>
+          <tr><td class="jp">お父さん<span class="kana">おとうさん</span></td><td>Otousan</td><td>Bố</td><td>Nói với / về bố người khác</td></tr>
+          <tr><td class="jp">母<span class="kana">はは</span></td><td>Haha</td><td>Mẹ (của mình)</td><td>Nói về mẹ mình với người khác</td></tr>
+          <tr><td class="jp">お母さん<span class="kana">おかあさん</span></td><td>Okaasan</td><td>Mẹ</td><td>Nói với / về mẹ người khác</td></tr>
+          <tr><td class="jp">兄<span class="kana">あに</span></td><td>Ani</td><td>Anh trai (của mình)</td><td></td></tr>
+          <tr><td class="jp">お兄さん<span class="kana">おにいさん</span></td><td>Oniisan</td><td>Anh trai</td><td>Nói với người khác</td></tr>
+          <tr><td class="jp">姉<span class="kana">あね</span></td><td>Ane</td><td>Chị gái (của mình)</td><td></td></tr>
+          <tr><td class="jp">お姉さん<span class="kana">おねえさん</span></td><td>Oneesan</td><td>Chị gái</td><td>Nói với người khác</td></tr>
+          <tr><td class="jp">弟<span class="kana">おとうと</span></td><td>Otouto</td><td>Em trai</td><td></td></tr>
+          <tr><td class="jp">妹<span class="kana">いもうと</span></td><td>Imouto</td><td>Em gái</td><td></td></tr>
+          <tr><td class="jp">祖父<span class="kana">そふ</span></td><td>Sofu</td><td>Ông nội/ngoại (của mình)</td><td></td></tr>
+          <tr><td class="jp">おじいさん</td><td>Ojiisan</td><td>Ông</td><td>Nói với người khác</td></tr>
+          <tr><td class="jp">祖母<span class="kana">そぼ</span></td><td>Sobo</td><td>Bà nội/ngoại (của mình)</td><td></td></tr>
+          <tr><td class="jp">おばあさん</td><td>Obaasan</td><td>Bà</td><td>Nói với người khác</td></tr>
+          <tr><td class="jp">息子<span class="kana">むすこ</span></td><td>Musuko</td><td>Con trai</td><td></td></tr>
+          <tr><td class="jp">娘<span class="kana">むすめ</span></td><td>Musume</td><td>Con gái</td><td></td></tr>
+          <tr><td class="jp">夫<span class="kana">おっと</span></td><td>Otto</td><td>Chồng (của mình)</td><td></td></tr>
+          <tr><td class="jp">妻<span class="kana">つま</span></td><td>Tsuma</td><td>Vợ (của mình)</td><td></td></tr>
+          <tr><td class="jp">子供<span class="kana">こども</span></td><td>Kodomo</td><td>Trẻ em / Con cái</td><td></td></tr>
+        </tbody>
+      </table>
+      <h3>💡 Mẹo quan trọng</h3>
+      <div class="grammar-box">
+        <p>Tiếng Nhật phân biệt cách gọi gia đình <strong>của mình</strong> và <strong>của người khác</strong>. Khi nói về gia đình mình với người ngoài, dùng từ khiêm nhường (ちち、はは). Khi đề cập hoặc nói với gia đình người khác, dùng từ tôn kính (お父さん、お母さん).</p>
+      </div>
+    </div>`,
+
+  7: `
+    <div class="lesson-block">
+      <h2>🎵 Thanh điệu tiếng Trung — 4 thanh + thanh nhẹ</h2>
+      <p>Tiếng Trung là ngôn ngữ thanh điệu. Cùng một âm nhưng khác thanh = khác nghĩa hoàn toàn. Ví dụ: <strong>mā/má/mǎ/mà</strong> = mẹ / cây gai / ngựa / mắng.</p>
+      <div class="tone-row">
+        <div class="tone-box"><div class="tone-mark">ā</div><div class="tone-name">Thanh 1 (第一声)</div><div class="tone-desc">Bằng phẳng, cao và dài. Giữ nguyên âm.</div></div>
+        <div class="tone-box"><div class="tone-mark">á</div><div class="tone-name">Thanh 2 (第二声)</div><div class="tone-desc">Lên cao, như hỏi ngạc nhiên "hả?"</div></div>
+        <div class="tone-box"><div class="tone-mark">ǎ</div><div class="tone-name">Thanh 3 (第三声)</div><div class="tone-desc">Xuống thấp rồi lên. Uốn lượn.</div></div>
+        <div class="tone-box"><div class="tone-mark">à</div><div class="tone-name">Thanh 4 (第四声)</div><div class="tone-desc">Xuống dứt khoát, mạnh và ngắn.</div></div>
+      </div>
+      <h3>Ví dụ 4 thanh với "ma"</h3>
+      <table class="vocab-table">
+        <thead><tr><th>Thanh</th><th>Phiên âm</th><th>Chữ</th><th>Nghĩa</th></tr></thead>
+        <tbody>
+          <tr><td>Thanh 1</td><td>mā</td><td class="cn-char">妈</td><td>Mẹ</td></tr>
+          <tr><td>Thanh 2</td><td>má</td><td class="cn-char">麻</td><td>Cây gai dầu / Tê liệt</td></tr>
+          <tr><td>Thanh 3</td><td>mǎ</td><td class="cn-char">马</td><td>Con ngựa</td></tr>
+          <tr><td>Thanh 4</td><td>mà</td><td class="cn-char">骂</td><td>Mắng, chửi</td></tr>
+          <tr><td>Thanh nhẹ</td><td>ma</td><td class="cn-char">吗</td><td>Trợ từ hỏi</td></tr>
+        </tbody>
+      </table>
+      <h3>Ví dụ 4 thanh với "shi"</h3>
+      <table class="vocab-table">
+        <thead><tr><th>Thanh</th><th>Phiên âm</th><th>Chữ</th><th>Nghĩa</th></tr></thead>
+        <tbody>
+          <tr><td>Thanh 1</td><td>shī</td><td class="cn-char">诗</td><td>Bài thơ</td></tr>
+          <tr><td>Thanh 2</td><td>shí</td><td class="cn-char">十</td><td>Mười (10)</td></tr>
+          <tr><td>Thanh 3</td><td>shǐ</td><td class="cn-char">史</td><td>Lịch sử</td></tr>
+          <tr><td>Thanh 4</td><td>shì</td><td class="cn-char">是</td><td>Là</td></tr>
+        </tbody>
+      </table>
+      <h3>💡 Mẹo luyện thanh điệu</h3>
+      <div class="grammar-box">
+        <p>• Thanh 1: Hát nốt nhạc Mi (E) dài.<br>• Thanh 2: Ngữ điệu hỏi "hả?" khi ngạc nhiên.<br>• Thanh 3: Ngữ điệu "ừmmm" lưỡng lự.<br>• Thanh 4: Trả lời dứt khoát "Đúng!" (mạnh, xuống).</p>
+      </div>
+    </div>`,
+
+  8: `
+    <div class="lesson-block">
+      <h2>📐 Ngữ pháp ～ながら</h2>
+      <div class="grammar-box">
+        <div class="formula">動詞ます形 (bỏ ます) + ながら + 動詞</div>
+        <div>→ Vừa làm A, vừa làm B (cùng lúc)</div>
+      </div>
+      <h3>Ý nghĩa</h3>
+      <p>～ながら diễn tả hai hành động xảy ra đồng thời. Hành động sau ながら là hành động <strong>chính</strong>, hành động trước là hành động <strong>phụ</strong>.</p>
+      <h3>Cách chia</h3>
+      <table class="vocab-table">
+        <thead><tr><th>Động từ</th><th>Thể ます</th><th>+ ながら</th></tr></thead>
+        <tbody>
+          <tr><td>聞く (nghe)</td><td>聞きます</td><td>聞き<strong>ながら</strong></td></tr>
+          <tr><td>歩く (đi bộ)</td><td>歩きます</td><td>歩き<strong>ながら</strong></td></tr>
+          <tr><td>食べる (ăn)</td><td>食べます</td><td>食べ<strong>ながら</strong></td></tr>
+          <tr><td>見る (xem)</td><td>見ます</td><td>見<strong>ながら</strong></td></tr>
+        </tbody>
+      </table>
+      <h3>Ví dụ</h3>
+      <div class="example-row"><div class="jp-ex">音楽を聴きながら、勉強します。</div><div class="kana-ex">Ongaku wo kikinagara, benkyou shimasu.</div><div class="vi-ex">Vừa nghe nhạc, vừa học bài.</div></div>
+      <div class="example-row"><div class="jp-ex">歩きながら、スマホを見るのは危険です。</div><div class="kana-ex">Arukinagara, sumaho wo miru no wa kiken desu.</div><div class="vi-ex">Vừa đi bộ vừa nhìn điện thoại rất nguy hiểm.</div></div>
+      <div class="example-row"><div class="jp-ex">テレビを見ながら、ご飯を食べます。</div><div class="kana-ex">Terebi wo minagara, gohan wo tabemasu.</div><div class="vi-ex">Vừa xem tivi, vừa ăn cơm.</div></div>
+      <div class="example-row"><div class="jp-ex">泣きながら、謝りました。</div><div class="kana-ex">Nakinagara, ayamarimashita.</div><div class="vi-ex">Vừa khóc, vừa xin lỗi.</div></div>
+      <h3>Lưu ý quan trọng</h3>
+      <div class="grammar-box">
+        <p>Chủ ngữ của hai hành động <strong>phải là cùng một người</strong>.<br>❌ 私は音楽を聴きながら、彼は料理します。<br>✅ 私は音楽を聴きながら、料理します。</p>
+      </div>
+    </div>`
+};
+
+function showLesson(id) {
+  const l = LESSONS.find(x => x.id === id);
+  if (!l) return;
+  const m = lm(l.lang);
+  const done = (JSON.parse(localStorage.getItem('lesson_done')||'{}')||{})[id];
+  document.getElementById('lesson-detail-content').innerHTML = `
+    <div class="lesson-hero">
+      <div class="lesson-hero-thumb" style="background:${l.bg||'#eef2ff'}">${l.thumb||'📖'}</div>
+      <div>
+        <div class="lesson-hero-meta">
+          <span style="background:${m.bg};color:${m.c}">${m.label}</span>
+          <span>${l.type||'Bài học'}</span>
+          <span>⏱ ${l.dur||'5 phút'}</span>
+          <span class="xp-badge">+${l.xp||10} XP</span>
+        </div>
+        <h1>${l.title}</h1>
+      </div>
+    </div>
+    ${LESSON_CONTENT[id] || '<div class="lesson-block"><p>Nội dung đang cập nhật...</p></div>'}
+    <button class="lesson-done-btn${done?' done':''}" onclick="markLessonDone(${id})">
+      ${done ? '✅ Đã hoàn thành' : '🎯 Đánh dấu hoàn thành & nhận ' + (l.xp||10) + ' XP'}
+    </button>`;
+  showPage('lesson');
+}
+
+function markLessonDone(id) {
+  const l = LESSONS.find(x => x.id === id);
+  const done = JSON.parse(localStorage.getItem('lesson_done')||'{}');
+  if (done[id]) return;
+  done[id] = Date.now();
+  localStorage.setItem('lesson_done', JSON.stringify(done));
+  const btn = document.querySelector('.lesson-done-btn');
+  if (btn) { btn.textContent = '✅ Đã hoàn thành!'; btn.classList.add('done'); }
+  toast('🎉 +' + (l?.xp||10) + ' XP! Hoàn thành bài học!');
+}
+
 /* ─── RENDER ─── */
 function lm(l){return l==='jp'?{bg:'#e0e5ff',c:'#2d3561',label:'🇯🇵 Nhật'}:{bg:'#ffecd6',c:'#8b4a00',label:'🇨🇳 Trung'};}
-function lessonCard(l){const m=lm(l.lang);return `<div class="lcard"><div class="lcard-thumb" style="background:${l.bg||'#eef2ff'}">${l.thumb||'📖'}<span class="lcard-lang" style="background:${m.bg};color:${m.c}">${m.label}</span><span class="lcard-dur">⏱ ${l.dur||'5 phút'}</span></div><div class="lcard-body"><div class="lcard-type">${l.type||'Bài học'}</div><div class="lcard-title">${l.title}</div><div class="lcard-meta"><span style="font-size:12px">📖 Bài học</span><span class="xp-badge">+${l.xp||10} XP</span></div></div></div>`;}
+function lessonCard(l){const m=lm(l.lang);return `<div class="lcard" onclick="showLesson(${l.id})"><div class="lcard-thumb" style="background:${l.bg||'#eef2ff'}">${l.thumb||'📖'}<span class="lcard-lang" style="background:${m.bg};color:${m.c}">${m.label}</span><span class="lcard-dur">⏱ ${l.dur||'5 phút'}</span></div><div class="lcard-body"><div class="lcard-type">${l.type||'Bài học'}</div><div class="lcard-title">${l.title}</div><div class="lcard-meta"><span style="font-size:12px">📖 Bài học</span><span class="xp-badge">+${l.xp||10} XP</span></div></div></div>`;}
 function blogCard(b){return `<div class="bcard"><div class="bcard-img" style="background:${b.bg||'#eef2ff'}">${b.flag||'📰'}</div><div class="bcard-body"><span class="bcard-tag" style="background:${b.tagBg||'#e0e5ff'};color:${b.tagC||'#2d3561'}">${b.tag||'Bài viết'}</span><div class="bcard-title">${b.title}</div><div class="bcard-excerpt">${b.excerpt||''}</div><div class="bcard-meta">📅 ${b.date||''} · 👁 ${b.views||'0'} lượt xem</div></div></div>`;}
 function renderHomeLesson(){const el=document.getElementById('home-lessons');if(el)el.innerHTML=LESSONS.slice(0,4).map(lessonCard).join('')||'<div class="empty-state">Chưa có bài học.</div>';}
 function renderHomeBlog(){document.getElementById('home-blog').innerHTML=BLOGS.slice(0,3).map(blogCard).join('')||'<div class="empty-state">Chưa có bài viết.</div>';}
