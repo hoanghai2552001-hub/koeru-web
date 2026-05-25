@@ -138,6 +138,12 @@ function answer(userSaysCorrect) {
   isAnimating = true;
   stopTimer();
   const isRight = userSaysCorrect === currentIsCorrectMeaning;
+
+  // ── Ghi nhận vào unified mastery store ──
+  if (deck[idx] && window.koeruMastery) {
+    window.koeruMastery.record(deck[idx].kanji, isRight, 'flash');
+  }
+
   cardEl.classList.remove('flash-correct','flash-incorrect');
   if (isRight) {
     correct++; streak++;
@@ -202,7 +208,13 @@ function buildDeck() {
     document.getElementById('btn-correct').style.visibility   = 'visible';
     document.getElementById('btn-incorrect').style.visibility = 'visible';
   }
-  deck = shuffle(getFilteredDeck());
+  // SRS: ưu tiên thẻ đến hạn ôn, sau đó mới random phần còn lại
+  const allCards = getFilteredDeck();
+  if (window.koeruMastery) {
+    deck = window.koeruMastery.sortDeckByPriority(allCards);
+  } else {
+    deck = shuffle(allCards);
+  }
   idx = 0; correct = 0; incorrect = 0; streak = 0;
   isFlipped = false; isAnimating = false;
   doneScreen.classList.remove('visible');

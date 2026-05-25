@@ -172,6 +172,8 @@ function stopGame() {
   clearInterval(sessionHandle);
   clearTimeout(speedHandle);
   sessionHandle = speedHandle = null;
+  const hintEl = document.getElementById('sp-jp-hint');
+  if (hintEl) { hintEl.style.color = ''; hintEl.textContent = ''; }
 }
 
 function updateHUD() {
@@ -215,9 +217,14 @@ function setFever(on) {
 
 function nextCard() {
   spAns = true; // kích hoạt trả lời
-  if (spUsed.size >= spDeck.length) { spUsed.clear(); spDeck = shuffle(spGetDeck()); }
+  if (spUsed.size >= spDeck.length) {
+    spUsed.clear();
+    // SRS: re-sort deck mỗi vòng để ưu tiên thẻ đến hạn
+    const base = spGetDeck();
+    spDeck = window.koeruMastery ? window.koeruMastery.sortDeckByPriority(base) : shuffle(base);
+  }
   let idx;
-  // SRS: 40% cơ hội ôn lại từ sai
+  // Ưu tiên thẻ sai trong phiên (40% cơ hội)
   const wrongAvail = spWrong.filter(w => w.count > 0);
   if (wrongAvail.length > 0 && Math.random() < 0.4) {
     const w = wrongAvail[Math.floor(Math.random() * wrongAvail.length)];
@@ -239,6 +246,16 @@ function nextCard() {
   document.getElementById('sp-hv').textContent = spCard.hanviet;
   const reading = spCard.on !== '—' ? spCard.on : spCard.kun;
   document.getElementById('sp-rd').textContent = reading;
+
+  // Phát âm kanji sau 0.8s (không chặn UX)
+  if (soundEnabled && window.speechSynthesis) {
+    speechSynthesis.cancel();
+    setTimeout(() => {
+      const utt = new SpeechSynthesisUtterance(spCard.kanji);
+      utt.lang = 'ja-JP'; utt.rate = 0.9; utt.volume = 0.7;
+      speechSynthesis.speak(utt);
+    }, 800);
+  }
 
   renderOptions();
   startSpeedBar();
@@ -300,7 +317,9 @@ function spOnAnswer(btn, chosen, e) {
     if (spCmb >= 3) showComboText();
     if (spCmb >= FEVER_COMBO && !isFever) setFever(true);
 
-    // Giảm đếm SRS
+    // Ghi nhận vào unified mastery
+    if (window.koeruMastery) window.koeruMastery.record(spCard.kanji, true, 'speed');
+    // Giảm đếm SRS phiên
     const wi = spWrong.findIndex(w => w.kanji === spCard.kanji);
     if (wi > -1) spWrong[wi].count = Math.max(0, spWrong[wi].count - 1);
 
@@ -322,6 +341,14 @@ function spOnAnswer(btn, chosen, e) {
     stage.classList.add('wrong-shake');
     setTimeout(() => stage.classList.remove('wrong-shake'), 400);
 
+    const hint = document.getElementById('sp-jp-hint');
+    if (hint) {
+      hint.style.color = '#f87171';
+      hint.textContent = `✗  ${spCard.meaning}  ·  ${spCard.on !== '—' ? spCard.on : spCard.kun}`;
+    }
+
+    // Ghi nhận sai vào unified mastery
+    if (window.koeruMastery) window.koeruMastery.record(spCard.kanji, false, 'speed');
     const wi = spWrong.findIndex(w => w.kanji === spCard.kanji);
     if (wi > -1) spWrong[wi].count++;
     else spWrong.push({ kanji: spCard.kanji, meaning: spCard.meaning, count: 2 });
@@ -329,8 +356,9 @@ function spOnAnswer(btn, chosen, e) {
     setTimeout(() => {
       btn.classList.remove('wrong');
       document.querySelectorAll('.opt-btn.reveal').forEach(b => b.classList.remove('reveal'));
+      if (hint) { hint.style.color = ''; hint.textContent = spAnswerMode === 'jp' ? spCard.meaning : ''; }
       nextCard();
-    }, 700);
+    }, 1200);
   }
   updateHUD();
 }
@@ -347,14 +375,21 @@ function spOnTimeout() {
   });
   playTone(180, 'sawtooth', 0.1);
 
+  const hintT = document.getElementById('sp-jp-hint');
+  if (hintT) {
+    hintT.style.color = '#f87171';
+    hintT.textContent = `⏱  ${spCard.meaning}  ·  ${spCard.on !== '—' ? spCard.on : spCard.kun}`;
+  }
+
   const wi = spWrong.findIndex(w => w.kanji === spCard.kanji);
   if (wi > -1) spWrong[wi].count++;
   else spWrong.push({ kanji: spCard.kanji, meaning: spCard.meaning, count: 2 });
 
   setTimeout(() => {
     document.querySelectorAll('.opt-btn.reveal').forEach(b => b.classList.remove('reveal'));
+    if (hintT) { hintT.style.color = ''; hintT.textContent = spAnswerMode === 'jp' ? spCard.meaning : ''; }
     nextCard();
-  }, 600);
+  }, 1000);
   updateHUD();
 }
 

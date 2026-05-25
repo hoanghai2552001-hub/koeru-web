@@ -57,31 +57,32 @@ let dEnemyHP = 1; // enemy HP for visual bar (boss = 2)
 // MASTERY (localStorage per kanji)
 // ══════════════════════════════════════════
 let masteryData = {};
+// Mastery: đọc/ghi qua unified store (koeru-mastery.js).
+// getMastery() và updateMastery() được định nghĩa trong koeru-mastery.js
+// và dùng window.koeruMastery. masteryData ở đây chỉ là local cache cho UI.
+let masteryData = {};
+
 function loadMastery() {
+  // Sync local cache từ unified store để UI dungeon không bị lệch
   try {
-    const raw    = localStorage.getItem('bubble_mastery');
-    const parsed = JSON.parse(raw || '{}');
-    // JSON.parse("null") returns null — must guard against that
-    masteryData = (parsed && typeof parsed === 'object' && !Array.isArray(parsed))
-      ? parsed : {};
+    if (window.koeruMastery && typeof ALL_KANJI !== 'undefined') {
+      masteryData = {};
+      for (const k of ALL_KANJI) {
+        const m = window.koeruMastery.getMasteryLevel(k.kanji);
+        if (m > 0) masteryData[k.kanji] = { m, seen: Date.now() };
+      }
+    } else {
+      // Fallback: đọc legacy key
+      const raw    = localStorage.getItem('bubble_mastery');
+      const parsed = JSON.parse(raw || '{}');
+      masteryData  = (parsed && typeof parsed === 'object' && !Array.isArray(parsed))
+        ? parsed : {};
+    }
   } catch(e) { masteryData = {}; }
 }
 function saveMastery() {
-  try { localStorage.setItem('bubble_mastery', JSON.stringify(masteryData)); } catch(e){}
-}
-// null-safe: masteryData might be null/non-object after bad localStorage read
-function getMastery(kanji) {
-  if (!masteryData || typeof masteryData !== 'object') return 0;
-  return masteryData[kanji]?.m ?? 0;
-}
-function updateMastery(kanji, correct) {
-  if (!masteryData || typeof masteryData !== 'object') masteryData = {};
-  if (!masteryData[kanji]) masteryData[kanji] = { m: 0 };
-  masteryData[kanji].m = correct
-    ? Math.min(MASTERY_MAX, masteryData[kanji].m + 1)
-    : Math.max(0, masteryData[kanji].m - 1);
-  masteryData[kanji].seen = Date.now();
-  saveMastery();
+  // Không cần ghi riêng — unified store đã được ghi trong updateMastery()
+  // Giữ lại để tránh lỗi nếu code khác gọi saveMastery()
 }
 
 // ══════════════════════════════════════════
@@ -191,6 +192,7 @@ function updateDngHUD() {
 let dngSpeakId = 0; // guard against duplicate speaks
 function speakJP(text) {
   if (!window.speechSynthesis) return;
+  if (typeof soundEnabled !== 'undefined' && !soundEnabled) return;
   speechSynthesis.cancel();
   const id = ++dngSpeakId;
   const utter = new SpeechSynthesisUtterance(text);
@@ -224,7 +226,7 @@ function getReadingsForKanji(k) {
   const ons  = (k.on  && k.on  !== '—')
     ? k.on.split('、').map(r => toHiragana(r.trim())).filter(Boolean) : [];
   const kuns = (k.kun && k.kun !== '—')
-    ? k.kun.split('、').map(r => toHiragana(r.replace(/[（）()]/g,'').trim())).filter(Boolean) : [];
+    ? k.kun.split('、').map(r => toHiragana(r.replace(/[（）().\-]/g,'').trim())).filter(Boolean) : [];
   return { ons, kuns, all: [...ons, ...kuns] };
 }
 function getTargetReading(k) {
@@ -511,7 +513,7 @@ function isVietnamese(str) {
 }
 
 function showCompoundPopup(card, cb) {
-  const words = card.words; // array [{w,r,m}] or undefined
+  const words = filterWordsForLevel(card.words, selectedLevel); // array [{w,r,m}] or undefined
   // If no compound data, skip straight to next
   if (!words || !words.length) { setTimeout(cb, 200); return; }
 

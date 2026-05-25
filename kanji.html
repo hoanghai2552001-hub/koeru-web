@@ -8,16 +8,27 @@
 <meta name="theme-color" content="#0d0d0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kanji.css?v=20260523j">
+<link rel="stylesheet" href="css/kanji.css?v=20260523f">
 <title>漢字 App</title>
 </head>
 <body>
 
 <!-- ══════════════════════ HOME ══════════════════════ -->
 <div id="home-screen" class="screen active">
+  <button id="sound-toggle" title="Bật/tắt âm thanh">🔊</button>
   <div class="home-logo">漢</div>
   <div class="home-title">漢字 Flashcard</div>
   <div class="home-sub">Luyện kanji N5 → N1</div>
+
+  <!-- Progress bar -->
+  <div id="home-progress-wrap">
+    <div id="home-progress-bar-bg">
+      <div id="home-progress-bar-fill"></div>
+    </div>
+    <div id="home-progress-text">0 / 1765 kanji đã gặp</div>
+    <div id="home-due-count" style="display:none;font-size:.78rem;color:#f59e0b;margin-top:4px;font-weight:600"></div>
+  </div>
+
   <div id="home-level-wrap">
     <button class="home-lvl-btn active" data-lvl="ALL">Tất cả</button>
     <button class="home-lvl-btn" data-lvl="N5">N5</button>
@@ -192,6 +203,7 @@
       <span id="dng-lv-badge">Lv.1</span>
       <div id="dng-xp-bar-wrap"><div id="dng-xp-bar"></div></div>
     </div>
+    <button id="dng-sound-btn" class="dng-sound-btn" title="Bật/tắt âm thanh">🔊</button>
   </div>
   <!-- Daily bar -->
   <div id="dng-top-bar">
@@ -386,13 +398,52 @@
   </div>
 </div>
 
+<!-- ══════════════════════ ONBOARDING MODAL ══════════════════════ -->
+<div id="onboarding-overlay">
+  <div id="onboarding-modal">
+    <div class="ob-logo">漢</div>
+    <h2 class="ob-title">Chào mừng đến với<br><span>漢字 Flashcard</span></h2>
+    <p class="ob-sub">Luyện 1765 chữ Hán từ N5 đến N1<br>theo phong cách tiếng Việt</p>
+
+    <div class="ob-steps">
+      <div class="ob-step">
+        <span class="ob-step-num">1</span>
+        <div class="ob-step-body">
+          <strong>Chọn cấp độ N5</strong>
+          <span>— 103 kanji cơ bản nhất, học xong dùng được ngay</span>
+        </div>
+      </div>
+      <div class="ob-step">
+        <span class="ob-step-num">2</span>
+        <div class="ob-step-body">
+          <strong>Bắt đầu bằng Flashcard</strong>
+          <span>— lật thẻ, tự đánh giá đúng/sai để não nhớ lâu</span>
+        </div>
+      </div>
+      <div class="ob-step">
+        <span class="ob-step-num">3</span>
+        <div class="ob-step-body">
+          <strong>Thử Kanji Dungeon</strong>
+          <span>— khi đã quen, luyện On/Kun theo cơ chế RPG mỗi ngày</span>
+        </div>
+      </div>
+    </div>
+
+    <button id="ob-start-btn" class="ob-btn-primary">
+      🚀 Bắt đầu với N5
+    </button>
+    <button id="ob-skip-btn" class="ob-btn-skip">Tôi đã biết, bỏ qua</button>
+  </div>
+</div>
+
 <!-- Scripts: thứ tự quan trọng — data trước, logic sau -->
-<script src="js/kanji-data.js?v=20260523j"></script>
-<script src="js/kanji-state.js?v=20260523j"></script>
-<script src="js/kanji-flashcard.js?v=20260523j"></script>
-<script src="js/kanji-match.js?v=20260523j"></script>
-<script src="js/kanji-bubble.js?v=20260523j"></script>
-<script src="js/kanji-speed.js?v=20260523j"></script>
-<script src="js/kanji-panel.js?v=20260523j"></script>
+<script src="js/kanji-data.js?v=20260523f"></script>
+<script src="js/koeru-mastery.js?v=20260525"></script>
+<script src="js/kanji-state.js?v=20260523f"></script>
+<script src="js/kanji-flashcard.js?v=20260523f"></script>
+<script src="js/kanji-match.js?v=20260523f"></script>
+<script src="js/kanji-bubble.js?v=20260523f"></script>
+<script src="js/kanji-speed.js?v=20260523f"></script>
+<script src="js/kanji-panel.js?v=20260523f"></script>
 </body>
 </html>

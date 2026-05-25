@@ -2,14 +2,16 @@
    KANA SPEED — Supabase Leaderboard
 ════════════════════════════════ */
 
-const SUPA_URL = 'https://vjcxtnynjpbebhosynkw.supabase.co';
-const SUPA_KEY = 'sb_publishable_Hn4Dx5Gt7xuJkt35WRhU9w_aDaUwQHa';
-const supa     = supabase.createClient(SUPA_URL, SUPA_KEY);
+// Keys được quản lý trong js/kana-config.js
+const supa = KANA_CONFIG.leaderboardEnabled
+  ? supabase.createClient(KANA_CONFIG.supabaseUrl, KANA_CONFIG.supabaseKey)
+  : null;
 
 let lbFilter  = 'all';
 let scoreSaved = false;
 
 async function saveScore() {
+  if (!supa) { document.getElementById('save-status').textContent = '⚠️ Leaderboard tạm thời không khả dụng.'; return; }
   const nick = document.getElementById('nickname-input').value.trim();
   if (!nick) { document.getElementById('save-status').textContent = '⚠️ Nhập tên trước nhé!'; return; }
 
@@ -63,6 +65,7 @@ async function switchLbTab(filter, btn) {
 
 async function fetchLeaderboard() {
   const list = document.getElementById('lb-list');
+  if (!supa) { list.innerHTML = '<div class="lb-empty">Leaderboard tạm thời không khả dụng.</div>'; return; }
   list.innerHTML = '<div id="lb-loading">Đang tải…</div>';
 
   let q = supa.from('scores').select('*')

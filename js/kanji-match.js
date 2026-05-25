@@ -93,32 +93,48 @@ let mTimerHandle = null, mTimerStart = 0, mTimeLimit = 30000;
 let mMatchAnimating = false;
 let mCompoundMode = false;
 
-const leftCol  = document.getElementById('left-col');
-const rightCol = document.getElementById('right-col');
-const matchTimerBar   = document.getElementById('match-timer-bar');
-const matchRoundText  = document.getElementById('match-round-text');
-const matchPairsLeft  = document.getElementById('match-pairs-left');
-const matchStreakDisp = document.getElementById('match-streak-display');
-const matchLivesDisp  = document.getElementById('match-lives');
-const matchCombo      = document.getElementById('match-combo-text');
-const matchResult     = document.getElementById('match-result');
+// DOM refs — gán trong DOMContentLoaded
+let leftCol, rightCol, matchTimerBar, matchRoundText, matchPairsLeft;
+let matchStreakDisp, matchLivesDisp, matchCombo, matchResult;
 
-// Toggle buttons
-document.getElementById('toggle-compound').addEventListener('click', () => {
-  mCompoundMode = !mCompoundMode;
-  document.getElementById('toggle-compound').classList.toggle('active', mCompoundMode);
-  startMatchGame();
-});
+document.addEventListener('DOMContentLoaded', () => {
+  leftCol        = document.getElementById('left-col');
+  rightCol       = document.getElementById('right-col');
+  matchTimerBar  = document.getElementById('match-timer-bar');
+  matchRoundText = document.getElementById('match-round-text');
+  matchPairsLeft = document.getElementById('match-pairs-left');
+  matchStreakDisp = document.getElementById('match-streak-display');
+  matchLivesDisp = document.getElementById('match-lives');
+  matchCombo     = document.getElementById('match-combo-text');
+  matchResult    = document.getElementById('match-result');
+
+  // Toggle buttons
+  document.getElementById('toggle-compound').addEventListener('click', () => {
+    mCompoundMode = !mCompoundMode;
+    document.getElementById('toggle-compound').classList.toggle('active', mCompoundMode);
+    startMatchGame();
+  });
+}); // end DOMContentLoaded
+
+function buildCompoundDeck() {
+  const seen = new Set();
+  const result = [];
+  const base = selectedLevel === 'ALL' ? ALL_KANJI : ALL_KANJI.filter(k => k.level === selectedLevel);
+  for (const k of base) {
+    const words = filterWordsForLevel(k.words, selectedLevel);
+    for (const w of (words || [])) {
+      if (!w.w || seen.has(w.w)) continue;
+      if ([...w.w].filter(ch => /[一-鿿]/.test(ch)).length < 2) continue;
+      seen.add(w.w);
+      result.push({ kanji: w.w, reading: w.r || '', meaning_vi: w.m || '', level: k.level });
+    }
+  }
+  return result.length >= 8 ? result : COMPOUND_WORDS;
+}
 
 function getMatchDeck() {
-  if (mCompoundMode) {
-    const base = selectedLevel === 'ALL'
-      ? COMPOUND_WORDS
-      : COMPOUND_WORDS.filter(w => w.level === selectedLevel);
-    return base;
-  } else {
-    return getFilteredDeck();
-  }
+  if (mCompoundMode) return buildCompoundDeck();
+  return getFilteredDeck();
 }
 
 function stopMatchTimer() {
@@ -229,6 +245,15 @@ function checkMatchPair() {
     L.classList.remove('selected'); R.classList.remove('selected');
     L.classList.add('matched'); R.classList.add('matched');
     playTone(660, 'sine', 0.12);
+    // Ghi nhận đúng vào unified mastery
+    if (window.koeruMastery) window.koeruMastery.record(L.dataset.id, true, 'match');
+    // Phát âm kanji khi ghép đúng
+    if (soundEnabled && window.speechSynthesis) {
+      speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(L.dataset.id);
+      utt.lang = 'ja-JP'; utt.rate = 0.9; utt.volume = 0.7;
+      speechSynthesis.speak(utt);
+    }
     if (mStreak > 1) {
       showComboFloat(`+${mStreak} 🔥`, L);
       matchCombo.textContent = `Combo ×${mStreak}!`;
@@ -250,6 +275,10 @@ function checkMatchPair() {
     L.classList.add('wrong'); R.classList.add('wrong');
     matchCombo.textContent = '';
     playTone(180, 'sawtooth', 0.15);
+    // Ghi nhận sai vào unified mastery (cả hai kanji bị nhầm)
+    if (window.koeruMastery) {
+      window.koeruMastery.record(L.dataset.id, false, 'match');
+    }
     updateMatchHUD();
     mTimerStart -= 5000;
     setTimeout(() => {
@@ -299,16 +328,18 @@ function showComboFloat(text, anchorEl) {
   setTimeout(() => el.remove(), 800);
 }
 
-document.getElementById('btn-match-home').addEventListener('click', () => {
-  stopMatchTimer();
-  showScreen('home-screen');
-});
-document.getElementById('btn-match-home2').addEventListener('click', () => {
-  matchResult.classList.remove('visible');
-  showScreen('home-screen');
-});
-document.getElementById('btn-match-retry').addEventListener('click', () => {
-  matchResult.classList.remove('visible');
-  startMatchGame();
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('btn-match-home').addEventListener('click', () => {
+    stopMatchTimer();
+    showScreen('home-screen');
+  });
+  document.getElementById('btn-match-home2').addEventListener('click', () => {
+    matchResult.classList.remove('visible');
+    showScreen('home-screen');
+  });
+  document.getElementById('btn-match-retry').addEventListener('click', () => {
+    matchResult.classList.remove('visible');
+    startMatchGame();
+  });
 });
 
