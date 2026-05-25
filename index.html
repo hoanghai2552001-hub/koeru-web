@@ -143,6 +143,23 @@ nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1p
 .lesson-done-btn:hover{background:var(--navy-d)}
 .lesson-done-btn.done{background:#27ae60}
 
+/* ── LEARN FILTERS ── */
+.learn-filter-label{font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:.6px;text-transform:uppercase;margin:14px 0 6px}
+.level-row{margin-bottom:2px}
+.lvl-btn{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--ink2);transition:all .15s;margin:3px 3px 3px 0}
+.lvl-btn:hover{border-color:var(--navy);color:var(--navy)}
+.lvl-btn.active{border-color:transparent;color:#fff}
+.lvl-btn.active,.lvl-btn.n5.active{background:#2d7dd2}
+.lvl-btn.n4.active{background:#2db67d}
+.lvl-btn.n3.active{background:#e8845a}
+.lvl-btn.n2.active{background:#9b59b6}
+.lvl-btn.n1.active{background:#e74c3c}
+.lvl-btn.hsk1.active{background:#e8845a}
+.lvl-btn.hsk2.active{background:#f5a623}
+.lvl-btn.hsk3.active{background:#e74c3c}
+.lvl-btn.hsk4.active{background:#9b59b6}
+.lcard-level{position:absolute;bottom:8px;right:8px;font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;background:rgba(0,0,0,.45);color:#fff}
+
 /* ── QUIZ STRIP ── */
 .quiz-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .quiz-strip::-webkit-scrollbar{display:none}
@@ -716,15 +733,51 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 <div class="page" id="page-learn">
   <div class="sec"><div class="wrap">
     <div class="eyebrow">Thư viện</div>
-    <div style="font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:18px">Chọn bài học</div>
-    <div class="cats" id="learn-cats">
-      <button class="cat-btn active" onclick="filterLearn('all',this)">Tất cả</button>
-      <button class="cat-btn" onclick="filterLearn('jp',this)">🇯🇵 Tiếng Nhật</button>
-      <button class="cat-btn" onclick="filterLearn('cn',this)">🇨🇳 Tiếng Trung</button>
-      <button class="cat-btn" onclick="filterLearn('vocab',this)">📝 Từ vựng</button>
-      <button class="cat-btn" onclick="filterLearn('grammar',this)">📐 Ngữ pháp</button>
-      <button class="cat-btn" onclick="filterLearn('kanji',this)">🖊 Kanji</button>
+    <div style="font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:14px">Chọn bài học</div>
+
+    <!-- Ngôn ngữ -->
+    <div class="learn-filter-label">🌐 Ngôn ngữ</div>
+    <div class="cats" id="learn-lang-tabs">
+      <button class="cat-btn active" onclick="setLearnLang('all',this)">Tất cả</button>
+      <button class="cat-btn" onclick="setLearnLang('jp',this)">🇯🇵 Tiếng Nhật</button>
+      <button class="cat-btn" onclick="setLearnLang('cn',this)">🇨🇳 Tiếng Trung</button>
     </div>
+
+    <!-- Level JP -->
+    <div id="jp-level-row" class="level-row" style="display:none">
+      <div class="learn-filter-label">📊 Trình độ</div>
+      <div class="cats">
+        <button class="lvl-btn active" onclick="setLearnLevel('all',this)">Tất cả</button>
+        <button class="lvl-btn n5" onclick="setLearnLevel('N5',this)">N5</button>
+        <button class="lvl-btn n4" onclick="setLearnLevel('N4',this)">N4</button>
+        <button class="lvl-btn n3" onclick="setLearnLevel('N3',this)">N3</button>
+        <button class="lvl-btn n2" onclick="setLearnLevel('N2',this)">N2</button>
+        <button class="lvl-btn n1" onclick="setLearnLevel('N1',this)">N1</button>
+      </div>
+    </div>
+
+    <!-- Level CN -->
+    <div id="cn-level-row" class="level-row" style="display:none">
+      <div class="learn-filter-label">📊 Trình độ</div>
+      <div class="cats">
+        <button class="lvl-btn active" onclick="setLearnLevel('all',this)">Tất cả</button>
+        <button class="lvl-btn hsk1" onclick="setLearnLevel('HSK1',this)">HSK 1</button>
+        <button class="lvl-btn hsk2" onclick="setLearnLevel('HSK2',this)">HSK 2</button>
+        <button class="lvl-btn hsk3" onclick="setLearnLevel('HSK3',this)">HSK 3</button>
+        <button class="lvl-btn hsk4" onclick="setLearnLevel('HSK4',this)">HSK 4</button>
+      </div>
+    </div>
+
+    <!-- Danh mục -->
+    <div class="learn-filter-label">📂 Danh mục</div>
+    <div class="cats" id="learn-cats">
+      <button class="cat-btn active" onclick="setLearnCat('all',this)">Tất cả</button>
+      <button class="cat-btn" onclick="setLearnCat('vocab',this)">📝 Từ vựng</button>
+      <button class="cat-btn" onclick="setLearnCat('grammar',this)">📐 Ngữ pháp</button>
+      <button class="cat-btn" onclick="setLearnCat('kanji',this)">🖊 Kanji</button>
+      <button class="cat-btn" onclick="setLearnCat('listen',this)">🎧 Nghe</button>
+    </div>
+
     <div class="lesson-feed" id="learn-feed"></div>
   </div></div>
 </div>
@@ -951,14 +1004,41 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 <script>
 /* ─── DEFAULT DATA ─── */
 const DEF_L=[
-  {id:1,lang:'jp',cat:'vocab',thumb:'🇯🇵',bg:'#eef2ff',title:'50 từ vựng N5 thông dụng nhất',type:'Từ vựng',dur:'5 phút',xp:15},
-  {id:2,lang:'jp',cat:'grammar',thumb:'✏️',bg:'#f0eeff',title:'Ngữ pháp ～てください',type:'Ngữ pháp',dur:'4 phút',xp:12},
-  {id:3,lang:'jp',cat:'kanji',thumb:'🖊',bg:'#e8eeff',title:'Kanji N5 — 10 chữ đầu tiên',type:'Kanji',dur:'6 phút',xp:18},
-  {id:4,lang:'cn',cat:'vocab',thumb:'🇨🇳',bg:'#fff4e8',title:'150 từ vựng HSK 1 bắt buộc',type:'Từ vựng',dur:'5 phút',xp:15},
-  {id:5,lang:'cn',cat:'grammar',thumb:'📐',bg:'#ffeef5',title:'Câu "把" — Tác động lên tân ngữ',type:'Ngữ pháp',dur:'5 phút',xp:14},
-  {id:6,lang:'jp',cat:'vocab',thumb:'🎌',bg:'#e8f0ff',title:'Từ vựng chủ đề Gia đình N5',type:'Từ vựng',dur:'4 phút',xp:12},
-  {id:7,lang:'cn',cat:'kanji',thumb:'🀄',bg:'#fff8e8',title:'Thanh điệu tiếng Trung — 4 thanh',type:'Phát âm',dur:'6 phút',xp:16},
-  {id:8,lang:'jp',cat:'grammar',thumb:'🗾',bg:'#ede8ff',title:'Ngữ pháp ～ながら',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  // ── Bài cũ (đã có nội dung) ──────────────────────────────
+  {id:1,lang:'jp',level:'N5',cat:'vocab',thumb:'🇯🇵',bg:'#eef2ff',title:'50 từ vựng N5 thông dụng nhất',type:'Từ vựng',dur:'5 phút',xp:15},
+  {id:2,lang:'jp',level:'N5',cat:'grammar',thumb:'✏️',bg:'#f0eeff',title:'Ngữ pháp ～てください',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:3,lang:'jp',level:'N5',cat:'kanji',thumb:'🖊',bg:'#e8eeff',title:'Kanji N5 — 10 chữ đầu tiên',type:'Kanji',dur:'6 phút',xp:18},
+  {id:4,lang:'cn',level:'HSK1',cat:'vocab',thumb:'🇨🇳',bg:'#fff4e8',title:'150 từ vựng HSK 1 bắt buộc',type:'Từ vựng',dur:'5 phút',xp:15},
+  {id:5,lang:'cn',level:'HSK2',cat:'grammar',thumb:'📐',bg:'#ffeef5',title:'Câu "把" — Tác động lên tân ngữ',type:'Ngữ pháp',dur:'5 phút',xp:14},
+  {id:6,lang:'jp',level:'N5',cat:'vocab',thumb:'🎌',bg:'#e8f0ff',title:'Từ vựng chủ đề Gia đình N5',type:'Từ vựng',dur:'4 phút',xp:12},
+  {id:7,lang:'cn',level:'HSK1',cat:'kanji',thumb:'🀄',bg:'#fff8e8',title:'Thanh điệu tiếng Trung — 4 thanh',type:'Phát âm',dur:'6 phút',xp:16},
+  {id:8,lang:'jp',level:'N5',cat:'grammar',thumb:'🗾',bg:'#ede8ff',title:'Ngữ pháp ～ながら',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  // ── 25 bài Ngữ pháp N5 ────────────────────────────────────
+  {id:9, lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～は～です — Câu khẳng định cơ bản',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:10,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～は～じゃないです — Câu phủ định',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:11,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～が好きです・嫌いです — Thích / Ghét',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:12,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～たい / ～たくない — Muốn / Không muốn',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:13,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ている — Đang làm / Trạng thái',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:14,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～てもいいです — Được phép làm',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:15,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～てはいけません — Không được làm',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:16,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～なければなりません — Phải làm',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:17,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ましょう / ～ましょうか — Cùng làm',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:18,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ませんか — Mời / Đề nghị lịch sự',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:19,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～たことがある — Đã từng trải qua',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:20,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～てから — Sau khi làm xong',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:21,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～前に — Trước khi làm',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:22,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～時 — Khi / Lúc',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:23,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～から — Vì... nên... (lý do)',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:24,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ので — Vì... (lịch sự)',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:25,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～が — Nhưng / Tuy nhiên',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:26,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～より / ～の方が — So sánh hơn kém',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:27,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～だけ / ～しか～ない — Chỉ...',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:28,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～で — Bằng / Tại / Do',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:29,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～に — Đến / Vào lúc / Để',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:30,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～まで / ～までに — Cho đến / Trước khi',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:31,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ないでください — Xin đừng...',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:32,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～か～か — ...hay...',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:33,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～はどうですか — ...thì thế nào?',type:'Ngữ pháp',dur:'3 phút',xp:10},
 ];
 const DEF_B=[
   {id:1,lang:'jp',cat:'vocab',bg:'#eef2ff',flag:'🇯🇵',tagBg:'#e0e5ff',tagC:'#2d3561',tag:'Tiếng Nhật',title:'50 từ vựng N5 thông dụng nhất cần thuộc ngay',excerpt:'Danh sách từ vựng thiết yếu giúp bạn vượt qua JLPT N5, kèm ví dụ câu thực tế...',date:'12/05/2025',views:'1,240'},
@@ -1046,7 +1126,7 @@ function showPage(p){
   if (navEl) navEl.classList.add('active');
   window.scrollTo(0,0);
   if(p==='admin'){if(adminUnlocked)showAdminContent();else{document.getElementById('admin-lock').style.display='flex';document.getElementById('admin-content').style.display='none';}}
-  else({home:()=>{renderHomeLesson();renderHomeBlog();},learn:()=>renderLearn('all'),blog:()=>renderBlog('all'),quiz:loadQuiz,flash:loadFlash}[p]||function(){})();
+  else({home:()=>{renderHomeLesson();renderHomeBlog();},learn:()=>renderLearn(),blog:()=>renderBlog('all'),quiz:loadQuiz,flash:loadFlash}[p]||function(){})();
 }
 
 /* ─── LESSON CONTENT ─── */
@@ -1449,6 +1529,341 @@ const LESSON_CONTENT = {
     </div>`
 };
 
+// ── 25 bài ngữ pháp N5 ──────────────────────────────────────
+Object.assign(LESSON_CONTENT, {
+  9: `<div class="lesson-block"><h2>📘 ～は～です — Câu khẳng định cơ bản</h2>
+    <div class="grammar-box"><div class="formula">名詞 + は + 名詞 + です</div><div>→ [Chủ ngữ] là [danh từ].</div></div>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">私は学生です。</div><div class="kana-ex">Watashi wa gakusei desu.</div><div class="vi-ex">Tôi là học sinh.</div></div>
+    <div class="example-row"><div class="jp-ex">これは本です。</div><div class="kana-ex">Kore wa hon desu.</div><div class="vi-ex">Đây là quyển sách.</div></div>
+    <div class="example-row"><div class="jp-ex">田中さんは先生です。</div><div class="kana-ex">Tanaka-san wa sensei desu.</div><div class="vi-ex">Anh Tanaka là giáo viên.</div></div>
+    <div class="example-row"><div class="jp-ex">あれは私の車です。</div><div class="kana-ex">Are wa watashi no kuruma desu.</div><div class="vi-ex">Kia là xe của tôi.</div></div>
+    <h3>Câu hỏi: ～ですか</h3>
+    <div class="example-row"><div class="jp-ex">あなたは日本人ですか。</div><div class="kana-ex">Anata wa nihonjin desu ka.</div><div class="vi-ex">Bạn là người Nhật à?</div></div>
+  </div>`,
+
+  10: `<div class="lesson-block"><h2>📘 ～は～じゃないです — Câu phủ định</h2>
+    <div class="grammar-box"><div class="formula">名詞 + は + 名詞 + じゃないです / ではありません</div><div>→ [Chủ ngữ] không phải là [danh từ].</div></div>
+    <h3>Hai cách nói</h3>
+    <table class="vocab-table"><thead><tr><th>Thân mật</th><th>Lịch sự</th></tr></thead><tbody>
+    <tr><td>じゃないです</td><td>ではありません</td></tr>
+    <tr><td>じゃない（thể thông thường）</td><td>ではない（văn viết）</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">私は学生じゃないです。</div><div class="kana-ex">Watashi wa gakusei ja nai desu.</div><div class="vi-ex">Tôi không phải là học sinh.</div></div>
+    <div class="example-row"><div class="jp-ex">これは私の本じゃないです。</div><div class="kana-ex">Kore wa watashi no hon ja nai desu.</div><div class="vi-ex">Đây không phải sách của tôi.</div></div>
+    <div class="example-row"><div class="jp-ex">田中さんは先生ではありません。</div><div class="kana-ex">Tanaka-san wa sensei dewa arimasen.</div><div class="vi-ex">Anh Tanaka không phải giáo viên.</div></div>
+  </div>`,
+
+  11: `<div class="lesson-block"><h2>📘 ～が好きです・嫌いです — Thích / Ghét</h2>
+    <div class="grammar-box"><div class="formula">名詞 + が + 好き/嫌い/上手/下手 + です</div><div>→ Thích / Ghét / Giỏi / Kém [danh từ]</div></div>
+    <h3>Lưu ý quan trọng</h3>
+    <div class="grammar-box"><p>Tiếng Nhật dùng <strong>が</strong> chứ không phải を với các động từ cảm xúc: 好き、嫌い、上手、下手、得意、苦手.</p></div>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">私は音楽が好きです。</div><div class="kana-ex">Watashi wa ongaku ga suki desu.</div><div class="vi-ex">Tôi thích âm nhạc.</div></div>
+    <div class="example-row"><div class="jp-ex">彼女は野菜が嫌いです。</div><div class="kana-ex">Kanojo wa yasai ga kirai desu.</div><div class="vi-ex">Cô ấy ghét rau.</div></div>
+    <div class="example-row"><div class="jp-ex">田中さんはテニスが上手です。</div><div class="kana-ex">Tanaka-san wa tenisu ga jouzu desu.</div><div class="vi-ex">Anh Tanaka giỏi tennis.</div></div>
+    <div class="example-row"><div class="jp-ex">私は料理が下手です。</div><div class="kana-ex">Watashi wa ryouri ga heta desu.</div><div class="vi-ex">Tôi nấu ăn kém.</div></div>
+  </div>`,
+
+  12: `<div class="lesson-block"><h2>📘 ～たい / ～たくない — Muốn / Không muốn</h2>
+    <div class="grammar-box"><div class="formula">動詞ます形（bỏ ます）+ たい / たくない</div><div>→ Muốn / Không muốn làm gì (ngôi 1)</div></div>
+    <h3>Chia động từ</h3>
+    <table class="vocab-table"><thead><tr><th>Động từ</th><th>Thể ます</th><th>たい</th><th>たくない</th></tr></thead><tbody>
+    <tr><td>食べる</td><td>食べます</td><td>食べたい</td><td>食べたくない</td></tr>
+    <tr><td>行く</td><td>行きます</td><td>行きたい</td><td>行きたくない</td></tr>
+    <tr><td>飲む</td><td>飲みます</td><td>飲みたい</td><td>飲みたくない</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">日本に行きたいです。</div><div class="kana-ex">Nihon ni ikitai desu.</div><div class="vi-ex">Tôi muốn đi Nhật.</div></div>
+    <div class="example-row"><div class="jp-ex">今日は勉強したくないです。</div><div class="kana-ex">Kyou wa benkyou shitakunai desu.</div><div class="vi-ex">Hôm nay tôi không muốn học.</div></div>
+    <div class="example-row"><div class="jp-ex">何が食べたいですか。</div><div class="kana-ex">Nani ga tabetai desu ka.</div><div class="vi-ex">Bạn muốn ăn gì?</div></div>
+    <div class="grammar-box"><p>⚠️ Chỉ dùng たい cho ngôi 1 (tôi muốn). Để nói về người khác dùng: ～たがっている.</p></div>
+  </div>`,
+
+  13: `<div class="lesson-block"><h2>📘 ～ている — Đang làm / Trạng thái</h2>
+    <div class="grammar-box"><div class="formula">動詞て形 + いる / います</div><div>→ Đang làm (hành động tiếp diễn) HOẶC ở trạng thái kết quả</div></div>
+    <h3>Hai ý nghĩa chính</h3>
+    <table class="vocab-table"><thead><tr><th>Ý nghĩa</th><th>Ví dụ</th></tr></thead><tbody>
+    <tr><td>Hành động đang diễn ra</td><td>ご飯を食べています → Đang ăn cơm</td></tr>
+    <tr><td>Trạng thái kết quả</td><td>結婚しています → Đã kết hôn (đang trong trạng thái có vợ/chồng)</td></tr>
+    <tr><td>Nghề nghiệp / thói quen</td><td>会社で働いています → Đang làm ở công ty</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">今、音楽を聴いています。</div><div class="kana-ex">Ima, ongaku wo kiite imasu.</div><div class="vi-ex">Bây giờ tôi đang nghe nhạc.</div></div>
+    <div class="example-row"><div class="jp-ex">彼は銀行で働いています。</div><div class="kana-ex">Kare wa ginkou de hataraite imasu.</div><div class="vi-ex">Anh ấy đang làm việc ở ngân hàng.</div></div>
+    <div class="example-row"><div class="jp-ex">窓が開いています。</div><div class="kana-ex">Mado ga aite imasu.</div><div class="vi-ex">Cửa sổ đang mở.</div></div>
+    <div class="example-row"><div class="jp-ex">田中さんは結婚しています。</div><div class="kana-ex">Tanaka-san wa kekkon shite imasu.</div><div class="vi-ex">Anh Tanaka đã kết hôn.</div></div>
+  </div>`,
+
+  14: `<div class="lesson-block"><h2>📘 ～てもいいです — Được phép làm</h2>
+    <div class="grammar-box"><div class="formula">動詞て形 + もいいです</div><div>→ Được phép / Có thể làm gì đó</div></div>
+    <h3>Cách hỏi xin phép: ～てもいいですか</h3>
+    <div class="example-row"><div class="jp-ex">ここに座ってもいいですか。</div><div class="kana-ex">Koko ni suwatte mo ii desu ka.</div><div class="vi-ex">Tôi ngồi đây được không?</div></div>
+    <div class="example-row"><div class="jp-ex">写真を撮ってもいいですか。</div><div class="kana-ex">Shashin wo totte mo ii desu ka.</div><div class="vi-ex">Tôi chụp ảnh được không?</div></div>
+    <h3>Trả lời</h3>
+    <table class="vocab-table"><thead><tr><th>Đồng ý ✅</th><th>Từ chối ❌</th></tr></thead><tbody>
+    <tr><td>はい、どうぞ。(Vâng, mời.)</td><td>すみません、ちょっと…</td></tr>
+    <tr><td>もちろんです。(Tất nhiên.)</td><td>～てはいけません (Không được.)</td></tr>
+    </tbody></table>
+    <div class="example-row"><div class="jp-ex">辞書を使ってもいいです。</div><div class="kana-ex">Jisho wo tsukatte mo ii desu.</div><div class="vi-ex">Bạn được phép dùng từ điển.</div></div>
+    <div class="example-row"><div class="jp-ex">もう帰ってもいいですよ。</div><div class="kana-ex">Mou kaette mo ii desu yo.</div><div class="vi-ex">Bạn có thể về rồi đó.</div></div>
+  </div>`,
+
+  15: `<div class="lesson-block"><h2>📘 ～てはいけません — Không được làm</h2>
+    <div class="grammar-box"><div class="formula">動詞て形 + はいけません / はいけない</div><div>→ Không được / Cấm làm gì đó</div></div>
+    <h3>Mức độ cứng rắn</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Mức độ</th></tr></thead><tbody>
+    <tr><td>～てはいけません</td><td>Quy tắc, cấm (lịch sự)</td></tr>
+    <tr><td>～てはいけない</td><td>Thể thông thường</td></tr>
+    <tr><td>～てはだめです</td><td>Thân mật hơn</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">ここでタバコを吸ってはいけません。</div><div class="kana-ex">Koko de tabako wo sutte wa ikemasen.</div><div class="vi-ex">Không được hút thuốc ở đây.</div></div>
+    <div class="example-row"><div class="jp-ex">授業中にスマホを使ってはいけません。</div><div class="kana-ex">Jugyouchuu ni sumaho wo tsukatte wa ikemasen.</div><div class="vi-ex">Không được dùng điện thoại trong giờ học.</div></div>
+    <div class="example-row"><div class="jp-ex">嘘をついてはいけません。</div><div class="kana-ex">Uso wo tsuite wa ikemasen.</div><div class="vi-ex">Không được nói dối.</div></div>
+  </div>`,
+
+  16: `<div class="lesson-block"><h2>📘 ～なければなりません — Phải làm</h2>
+    <div class="grammar-box"><div class="formula">動詞ない形（bỏ ない）+ なければなりません</div><div>→ Phải / Bắt buộc làm (nghĩa vụ)</div></div>
+    <h3>Rút gọn thân mật</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Dùng khi</th></tr></thead><tbody>
+    <tr><td>～なければなりません</td><td>Lịch sự, văn viết</td></tr>
+    <tr><td>～なければならない</td><td>Thể thông thường</td></tr>
+    <tr><td>～なきゃ / ～なきゃいけない</td><td>Hội thoại thân mật</td></tr>
+    </tbody></table>
+    <h3>Cách chia: ない形 → bỏ い → + なければ</h3>
+    <table class="vocab-table"><thead><tr><th>Động từ</th><th>Thể ない</th><th>なければ</th></tr></thead><tbody>
+    <tr><td>行く</td><td>行かない</td><td>行かなければ</td></tr>
+    <tr><td>食べる</td><td>食べない</td><td>食べなければ</td></tr>
+    <tr><td>する</td><td>しない</td><td>しなければ</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">毎日薬を飲まなければなりません。</div><div class="kana-ex">Mainichi kusuri wo nomanakere ba narimasen.</div><div class="vi-ex">Tôi phải uống thuốc mỗi ngày.</div></div>
+    <div class="example-row"><div class="jp-ex">明日早く起きなければならない。</div><div class="kana-ex">Ashita hayaku okinakere ba naranai.</div><div class="vi-ex">Ngày mai tôi phải dậy sớm.</div></div>
+    <div class="example-row"><div class="jp-ex">宿題をしなきゃ。</div><div class="kana-ex">Shukudai wo shinakya.</div><div class="vi-ex">Phải làm bài tập thôi!</div></div>
+  </div>`,
+
+  17: `<div class="lesson-block"><h2>📘 ～ましょう / ～ましょうか — Cùng làm / Đề nghị</h2>
+    <div class="grammar-box"><div class="formula">動詞ます形（bỏ ます）+ ましょう</div><div>→ "Hãy cùng làm..." (rủ rê, đề nghị)</div></div>
+    <h3>Phân biệt hai dạng</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Ý nghĩa</th></tr></thead><tbody>
+    <tr><td>～ましょう</td><td>Cùng làm nào! (chủ động)</td></tr>
+    <tr><td>～ましょうか</td><td>Để tôi làm giúp? / Cùng...nhé?</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">一緒に食べましょう。</div><div class="kana-ex">Issho ni tabemashou.</div><div class="vi-ex">Cùng ăn nào!</div></div>
+    <div class="example-row"><div class="jp-ex">そろそろ行きましょうか。</div><div class="kana-ex">Sorosoro ikimashou ka.</div><div class="vi-ex">Đi thôi nhỉ?</div></div>
+    <div class="example-row"><div class="jp-ex">荷物を持ちましょうか。</div><div class="kana-ex">Nimotsu wo mochimashou ka.</div><div class="vi-ex">Để tôi mang hành lý cho nhé?</div></div>
+    <div class="example-row"><div class="jp-ex">窓を開けましょうか。</div><div class="kana-ex">Mado wo akemashou ka.</div><div class="vi-ex">Tôi mở cửa sổ nhé?</div></div>
+  </div>`,
+
+  18: `<div class="lesson-block"><h2>📘 ～ませんか — Mời / Đề nghị lịch sự</h2>
+    <div class="grammar-box"><div class="formula">動詞ます形（bỏ ます）+ ませんか</div><div>→ "...không?" — Mời ai đó làm gì (lịch sự)</div></div>
+    <h3>So sánh</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Ý nghĩa</th><th>Tình huống</th></tr></thead><tbody>
+    <tr><td>～ましょう</td><td>Cùng làm nào!</td><td>Ra lệnh nhẹ, thân mật</td></tr>
+    <tr><td>～ませんか</td><td>...không ạ?</td><td>Mời lịch sự, chờ đồng ý</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">一緒に映画を見ませんか。</div><div class="kana-ex">Issho ni eiga wo mimasen ka.</div><div class="vi-ex">Cùng xem phim không?</div></div>
+    <div class="example-row"><div class="jp-ex">コーヒーを飲みませんか。</div><div class="kana-ex">Koohii wo nomimasen ka.</div><div class="vi-ex">Uống cà phê không?</div></div>
+    <div class="example-row"><div class="jp-ex">明日、公園を散歩しませんか。</div><div class="kana-ex">Ashita, kouen wo sanpo shimasen ka.</div><div class="vi-ex">Ngày mai đi dạo công viên không?</div></div>
+  </div>`,
+
+  19: `<div class="lesson-block"><h2>📘 ～たことがある — Đã từng trải qua</h2>
+    <div class="grammar-box"><div class="formula">動詞た形 + ことがある / あります</div><div>→ Đã từng làm gì đó (kinh nghiệm trong quá khứ)</div></div>
+    <h3>Phủ định: ～たことがない</h3>
+    <div class="grammar-box"><div class="formula">動詞た形 + ことがない / ありません</div><div>→ Chưa từng làm gì đó</div></div>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">日本に行ったことがあります。</div><div class="kana-ex">Nihon ni itta koto ga arimasu.</div><div class="vi-ex">Tôi đã từng đến Nhật.</div></div>
+    <div class="example-row"><div class="jp-ex">富士山に登ったことがありますか。</div><div class="kana-ex">Fujisan ni nobotta koto ga arimasu ka.</div><div class="vi-ex">Bạn đã từng leo núi Fuji chưa?</div></div>
+    <div class="example-row"><div class="jp-ex">寿司を食べたことがありません。</div><div class="kana-ex">Sushi wo tabeta koto ga arimasen.</div><div class="vi-ex">Tôi chưa từng ăn sushi.</div></div>
+    <div class="example-row"><div class="jp-ex">一人で旅行したことがある。</div><div class="kana-ex">Hitori de ryokou shita koto ga aru.</div><div class="vi-ex">Tôi đã từng đi du lịch một mình.</div></div>
+  </div>`,
+
+  20: `<div class="lesson-block"><h2>📘 ～てから — Sau khi làm xong</h2>
+    <div class="grammar-box"><div class="formula">動詞て形 + から + [hành động tiếp theo]</div><div>→ Sau khi làm A xong, rồi mới làm B</div></div>
+    <h3>So sánh với ～前に</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Ý nghĩa</th></tr></thead><tbody>
+    <tr><td>AてからB</td><td>Sau khi A xong thì B</td></tr>
+    <tr><td>BのまえにA</td><td>Trước khi B thì A</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">手を洗ってから、ご飯を食べます。</div><div class="kana-ex">Te wo aratte kara, gohan wo tabemasu.</div><div class="vi-ex">Sau khi rửa tay xong thì ăn cơm.</div></div>
+    <div class="example-row"><div class="jp-ex">シャワーを浴びてから、寝ます。</div><div class="kana-ex">Shawaa wo abite kara, nemasu.</div><div class="vi-ex">Sau khi tắm xong thì đi ngủ.</div></div>
+    <div class="example-row"><div class="jp-ex">仕事が終わってから、友達と会います。</div><div class="kana-ex">Shigoto ga owatte kara, tomodachi to aimasu.</div><div class="vi-ex">Sau khi xong việc thì gặp bạn bè.</div></div>
+  </div>`,
+
+  21: `<div class="lesson-block"><h2>📘 ～前に — Trước khi làm</h2>
+    <div class="grammar-box"><div class="formula">動詞辞書形 / 名詞 + の + 前に + [hành động]</div><div>→ Trước khi làm A thì làm B</div></div>
+    <h3>Lưu ý: động từ trước 前に dùng thể từ điển (gốc)</h3>
+    <div class="grammar-box"><p>❌ 食べてから前に → Sai<br>✅ 食べる前に → Đúng</p></div>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">寝る前に、歯を磨きます。</div><div class="kana-ex">Neru mae ni, ha wo migakimasu.</div><div class="vi-ex">Trước khi ngủ, đánh răng.</div></div>
+    <div class="example-row"><div class="jp-ex">食事の前に手を洗います。</div><div class="kana-ex">Shokuji no mae ni te wo araimasu.</div><div class="vi-ex">Trước bữa ăn, rửa tay.</div></div>
+    <div class="example-row"><div class="jp-ex">日本に来る前に、日本語を勉強しました。</div><div class="kana-ex">Nihon ni kuru mae ni, nihongo wo benkyou shimashita.</div><div class="vi-ex">Trước khi đến Nhật, tôi đã học tiếng Nhật.</div></div>
+  </div>`,
+
+  22: `<div class="lesson-block"><h2>📘 ～時 — Khi / Lúc</h2>
+    <div class="grammar-box"><div class="formula">動詞/形容詞 + 時 + [mệnh đề chính]</div><div>→ Khi / Lúc [điều kiện thời gian]</div></div>
+    <h3>Thể dùng trước 時</h3>
+    <table class="vocab-table"><thead><tr><th>Loại từ</th><th>Thể dùng</th><th>Ví dụ</th></tr></thead><tbody>
+    <tr><td>Động từ (hành động chưa xảy ra)</td><td>Từ điển</td><td>行く時</td></tr>
+    <tr><td>Động từ (hành động đã/đang xảy ra)</td><td>た形</td><td>行った時</td></tr>
+    <tr><td>Tính từ い</td><td>い形</td><td>寒い時</td></tr>
+    <tr><td>Tính từ な / Danh từ</td><td>な/の + 時</td><td>元気な時、子供の時</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">困った時は、電話してください。</div><div class="kana-ex">Komatta toki wa, denwa shite kudasai.</div><div class="vi-ex">Khi gặp khó khăn, hãy gọi điện cho tôi.</div></div>
+    <div class="example-row"><div class="jp-ex">子供の時、よく公園で遊びました。</div><div class="kana-ex">Kodomo no toki, yoku kouen de asobimashita.</div><div class="vi-ex">Hồi nhỏ, tôi hay chơi ở công viên.</div></div>
+    <div class="example-row"><div class="jp-ex">日本に行く時、お土産を買ってきてください。</div><div class="kana-ex">Nihon ni iku toki, omiyage wo katte kite kudasai.</div><div class="vi-ex">Khi đi Nhật, hãy mua quà về nhé.</div></div>
+  </div>`,
+
+  23: `<div class="lesson-block"><h2>📘 ～から — Vì... nên... (lý do)</h2>
+    <div class="grammar-box"><div class="formula">[Lý do] + から + [Kết quả/Hành động]</div><div>→ Vì... cho nên...</div></div>
+    <h3>Vị trí của から</h3>
+    <div class="grammar-box"><p>から đứng sau mệnh đề lý do. Mệnh đề lý do thường đứng <strong>trước</strong>.<br>Nhưng trong hội thoại, có thể đảo: [Kết quả] + [lý do] + から.</p></div>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">お腹が痛いから、学校を休みます。</div><div class="kana-ex">Onaka ga itai kara, gakkou wo yasumimasu.</div><div class="vi-ex">Vì đau bụng nên tôi nghỉ học.</div></div>
+    <div class="example-row"><div class="jp-ex">雨が降っているから、傘を持って行ってください。</div><div class="kana-ex">Ame ga futte iru kara, kasa wo motte itte kudasai.</div><div class="vi-ex">Vì trời đang mưa nên hãy mang ô đi.</div></div>
+    <div class="example-row"><div class="jp-ex">どうして遅刻しましたか。電車が遅れたからです。</div><div class="kana-ex">Doushite chikoku shimashita ka. Densha ga okureta kara desu.</div><div class="vi-ex">Sao đến muộn vậy? Vì tàu bị trễ.</div></div>
+  </div>`,
+
+  24: `<div class="lesson-block"><h2>📘 ～ので — Vì... (lịch sự hơn から)</h2>
+    <div class="grammar-box"><div class="formula">[Lý do] + ので + [Kết quả]</div><div>→ Vì... nên... (lịch sự, khách quan)</div></div>
+    <h3>So sánh から và ので</h3>
+    <table class="vocab-table"><thead><tr><th></th><th>から</th><th>ので</th></tr></thead><tbody>
+    <tr><td>Độ lịch sự</td><td>Thông thường</td><td>Lịch sự hơn</td></tr>
+    <tr><td>Tính chủ quan</td><td>Cao (cảm xúc cá nhân)</td><td>Thấp (khách quan)</td></tr>
+    <tr><td>Dùng với</td><td>Hội thoại, giải thích</td><td>Xin phép, lý do chính thức</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">用事があるので、先に失礼します。</div><div class="kana-ex">Youji ga aru node, saki ni shitsurei shimasu.</div><div class="vi-ex">Vì có việc bận nên tôi xin phép về trước.</div></div>
+    <div class="example-row"><div class="jp-ex">明日試験があるので、今日は早く寝ます。</div><div class="kana-ex">Ashita shiken ga aru node, kyou wa hayaku nemasu.</div><div class="vi-ex">Vì ngày mai có thi nên hôm nay ngủ sớm.</div></div>
+  </div>`,
+
+  25: `<div class="lesson-block"><h2>📘 ～が — Nhưng / Tuy nhiên</h2>
+    <div class="grammar-box"><div class="formula">[Mệnh đề 1] + が + [Mệnh đề 2]</div><div>→ ...nhưng... / ...tuy nhiên...</div></div>
+    <h3>Hai cách dùng của が</h3>
+    <table class="vocab-table"><thead><tr><th>Cách dùng</th><th>Ví dụ</th></tr></thead><tbody>
+    <tr><td>Tương phản (nhưng)</td><td>日本語は好きですが、難しいです。</td></tr>
+    <tr><td>Mở đầu câu lịch sự</td><td>すみませんが、ちょっといいですか。</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">このレストランは高いですが、美味しいです。</div><div class="kana-ex">Kono resutoran wa takai desu ga, oishii desu.</div><div class="vi-ex">Nhà hàng này đắt nhưng ngon.</div></div>
+    <div class="example-row"><div class="jp-ex">行きたいですが、時間がありません。</div><div class="kana-ex">Ikitai desu ga, jikan ga arimasen.</div><div class="vi-ex">Tôi muốn đi nhưng không có thời gian.</div></div>
+    <div class="example-row"><div class="jp-ex">すみませんが、駅はどこですか。</div><div class="kana-ex">Sumimasen ga, eki wa doko desu ka.</div><div class="vi-ex">Xin lỗi, ga tàu ở đâu vậy?</div></div>
+  </div>`,
+
+  26: `<div class="lesson-block"><h2>📘 ～より / ～の方が — So sánh hơn kém</h2>
+    <div class="grammar-box"><div class="formula">AよりBの方が + 形容詞</div><div>→ B [hơn] A (B tốt hơn / lớn hơn / nhanh hơn...)</div></div>
+    <h3>Công thức so sánh</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Ý nghĩa</th></tr></thead><tbody>
+    <tr><td>AよりBの方が～</td><td>B hơn A</td></tr>
+    <tr><td>AとBとどちらの方が～</td><td>A và B, cái nào hơn?</td></tr>
+    <tr><td>～の中で一番～</td><td>...nhất trong...</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">電車よりバスの方が安いです。</div><div class="kana-ex">Densha yori basu no hou ga yasui desu.</div><div class="vi-ex">Xe buýt rẻ hơn tàu điện.</div></div>
+    <div class="example-row"><div class="jp-ex">夏と冬とどちらの方が好きですか。</div><div class="kana-ex">Natsu to fuyu to dochira no hou ga suki desu ka.</div><div class="vi-ex">Bạn thích mùa hè hay mùa đông hơn?</div></div>
+    <div class="example-row"><div class="jp-ex">クラスの中で田中さんが一番背が高いです。</div><div class="kana-ex">Kurasu no naka de Tanaka-san ga ichiban se ga takai desu.</div><div class="vi-ex">Trong lớp, anh Tanaka cao nhất.</div></div>
+  </div>`,
+
+  27: `<div class="lesson-block"><h2>📘 ～だけ / ～しか～ない — Chỉ...</h2>
+    <div class="grammar-box"><div class="formula">名詞 + だけ + [động từ thường]</div><div>→ Chỉ... (trung tính, không có ý phàn nàn)</div></div>
+    <div class="grammar-box"><div class="formula">名詞 + しか + [động từ phủ định]</div><div>→ Chỉ... (có ý nuối tiếc, không đủ)</div></div>
+    <h3>So sánh</h3>
+    <table class="vocab-table"><thead><tr><th></th><th>だけ</th><th>しか～ない</th></tr></thead><tbody>
+    <tr><td>Ý nghĩa</td><td>Chỉ (trung tính)</td><td>Chỉ (thiếu, tiếc)</td></tr>
+    <tr><td>Động từ</td><td>Thể thường</td><td>Phủ định</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">一つだけ質問があります。</div><div class="kana-ex">Hitotsu dake shitsumon ga arimasu.</div><div class="vi-ex">Tôi chỉ có một câu hỏi.</div></div>
+    <div class="example-row"><div class="jp-ex">百円しかありません。</div><div class="kana-ex">Hyaku-en shika arimasen.</div><div class="vi-ex">Tôi chỉ có 100 yên (thôi).</div></div>
+    <div class="example-row"><div class="jp-ex">あなただけが知っています。</div><div class="kana-ex">Anata dake ga shitte imasu.</div><div class="vi-ex">Chỉ có bạn biết chuyện này.</div></div>
+  </div>`,
+
+  28: `<div class="lesson-block"><h2>📘 ～で — Bằng / Tại / Do</h2>
+    <div class="grammar-box"><div class="formula">名詞 + で + [hành động]</div><div>→ で có 3 cách dùng chính ở N5</div></div>
+    <table class="vocab-table"><thead><tr><th>Ý nghĩa</th><th>Ví dụ</th></tr></thead><tbody>
+    <tr><td>Phương tiện / Công cụ</td><td>バスで行く → Đi bằng xe buýt</td></tr>
+    <tr><td>Địa điểm xảy ra hành động</td><td>公園で遊ぶ → Chơi ở công viên</td></tr>
+    <tr><td>Nguyên nhân / Lý do</td><td>病気で休む → Nghỉ vì bệnh</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">電車で学校に行きます。</div><div class="kana-ex">Densha de gakkou ni ikimasu.</div><div class="vi-ex">Đi học bằng tàu điện.</div></div>
+    <div class="example-row"><div class="jp-ex">図書館で本を読みます。</div><div class="kana-ex">Toshokan de hon wo yomimasu.</div><div class="vi-ex">Đọc sách ở thư viện.</div></div>
+    <div class="example-row"><div class="jp-ex">風邪で会社を休みました。</div><div class="kana-ex">Kaze de kaisha wo yasumimashita.</div><div class="vi-ex">Nghỉ công ty vì bị cảm.</div></div>
+  </div>`,
+
+  29: `<div class="lesson-block"><h2>📘 ～に — Đến / Vào lúc / Để</h2>
+    <div class="grammar-box"><div class="formula">名詞 + に → nhiều ý nghĩa quan trọng</div></div>
+    <table class="vocab-table"><thead><tr><th>Ý nghĩa</th><th>Ví dụ</th></tr></thead><tbody>
+    <tr><td>Điểm đến (hướng đi)</td><td>日本に行く → Đi đến Nhật</td></tr>
+    <tr><td>Thời gian cụ thể</td><td>三時に → Lúc 3 giờ</td></tr>
+    <tr><td>Mục đích (đi để làm gì)</td><td>買い物に行く → Đi mua sắm</td></tr>
+    <tr><td>Tồn tại (いる・ある)</td><td>公園にいる → Ở công viên</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">七時に起きます。</div><div class="kana-ex">Shichi-ji ni okimasu.</div><div class="vi-ex">Dậy lúc 7 giờ.</div></div>
+    <div class="example-row"><div class="jp-ex">スーパーに買い物に行きます。</div><div class="kana-ex">Suupaa ni kaimono ni ikimasu.</div><div class="vi-ex">Đi siêu thị để mua sắm.</div></div>
+    <div class="example-row"><div class="jp-ex">猫がソファの上にいます。</div><div class="kana-ex">Neko ga sofa no ue ni imasu.</div><div class="vi-ex">Con mèo đang ở trên ghế sofa.</div></div>
+  </div>`,
+
+  30: `<div class="lesson-block"><h2>📘 ～まで / ～までに — Cho đến / Trước khi</h2>
+    <div class="grammar-box"><div class="formula">名詞/動詞 + まで → Cho đến khi... (liên tục)</div></div>
+    <div class="grammar-box"><div class="formula">名詞/動詞 + までに → Trước khi... (deadline)</div></div>
+    <h3>Phân biệt</h3>
+    <table class="vocab-table"><thead><tr><th></th><th>まで</th><th>までに</th></tr></thead><tbody>
+    <tr><td>Ý nghĩa</td><td>Cho đến (liên tục)</td><td>Trước thời hạn</td></tr>
+    <tr><td>Động từ</td><td>Động từ liên tục</td><td>Động từ hoàn thành</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">六時まで働きます。</div><div class="kana-ex">Roku-ji made hatarakimasu.</div><div class="vi-ex">Làm việc đến 6 giờ (liên tục).</div></div>
+    <div class="example-row"><div class="jp-ex">六時までに帰ってください。</div><div class="kana-ex">Roku-ji made ni kaette kudasai.</div><div class="vi-ex">Hãy về trước 6 giờ.</div></div>
+    <div class="example-row"><div class="jp-ex">駅まで歩きます。</div><div class="kana-ex">Eki made arukimasu.</div><div class="vi-ex">Đi bộ đến tận ga.</div></div>
+  </div>`,
+
+  31: `<div class="lesson-block"><h2>📘 ～ないでください — Xin đừng...</h2>
+    <div class="grammar-box"><div class="formula">動詞ない形（bỏ い）+ ないでください</div><div>→ Xin đừng / Không được làm gì (yêu cầu nhẹ nhàng)</div></div>
+    <h3>So sánh mức độ cấm</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Mức độ</th></tr></thead><tbody>
+    <tr><td>～ないでください</td><td>Nhẹ nhàng, lịch sự (xin đừng)</td></tr>
+    <tr><td>～てはいけません</td><td>Cứng hơn, là quy tắc (không được)</td></tr>
+    <tr><td>～てはだめです</td><td>Thân mật, không được</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">ここで写真を撮らないでください。</div><div class="kana-ex">Koko de shashin wo toranaide kudasai.</div><div class="vi-ex">Xin đừng chụp ảnh ở đây.</div></div>
+    <div class="example-row"><div class="jp-ex">心配しないでください。</div><div class="kana-ex">Shinpai shinaide kudasai.</div><div class="vi-ex">Xin đừng lo lắng.</div></div>
+    <div class="example-row"><div class="jp-ex">ドアを開けないでください。</div><div class="kana-ex">Doa wo akenaide kudasai.</div><div class="vi-ex">Xin đừng mở cửa.</div></div>
+  </div>`,
+
+  32: `<div class="lesson-block"><h2>📘 ～か～か — ...hay...</h2>
+    <div class="grammar-box"><div class="formula">A + か + B + か + [động từ]</div><div>→ ...hay... (lựa chọn giữa hai phương án)</div></div>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">コーヒーか紅茶か、どちらにしますか。</div><div class="kana-ex">Koohii ka koucha ka, dochira ni shimasu ka.</div><div class="vi-ex">Cà phê hay trà, bạn chọn cái nào?</div></div>
+    <div class="example-row"><div class="jp-ex">行くか行かないか、まだ決めていません。</div><div class="kana-ex">Iku ka ikanai ka, mada kimete imasen.</div><div class="vi-ex">Tôi vẫn chưa quyết định đi hay không.</div></div>
+    <div class="example-row"><div class="jp-ex">電車かバスで行きましょう。</div><div class="kana-ex">Densha ka basu de ikimashou.</div><div class="vi-ex">Hãy đi bằng tàu điện hoặc xe buýt.</div></div>
+    <div class="example-row"><div class="jp-ex">山田さんか田中さんに聞いてください。</div><div class="kana-ex">Yamada-san ka Tanaka-san ni kiite kudasai.</div><div class="vi-ex">Hãy hỏi anh Yamada hoặc anh Tanaka.</div></div>
+  </div>`,
+
+  33: `<div class="lesson-block"><h2>📘 ～はどうですか — ...thì thế nào?</h2>
+    <div class="grammar-box"><div class="formula">名詞 + はどうですか</div><div>→ ...thì thế nào? (hỏi ý kiến, gợi ý)</div></div>
+    <h3>Các biến thể</h3>
+    <table class="vocab-table"><thead><tr><th>Cấu trúc</th><th>Ý nghĩa</th></tr></thead><tbody>
+    <tr><td>～はどうですか</td><td>...thì thế nào? (gợi ý/hỏi)</td></tr>
+    <tr><td>～はいかがですか</td><td>Lịch sự hơn (dùng với khách hàng)</td></tr>
+    <tr><td>～についてどう思いますか</td><td>Bạn nghĩ thế nào về...?</td></tr>
+    </tbody></table>
+    <h3>Ví dụ</h3>
+    <div class="example-row"><div class="jp-ex">お茶はどうですか。</div><div class="kana-ex">Ocha wa dou desu ka.</div><div class="vi-ex">Uống trà không? (Trà thì sao?)</div></div>
+    <div class="example-row"><div class="jp-ex">明日はどうですか。</div><div class="kana-ex">Ashita wa dou desu ka.</div><div class="vi-ex">Ngày mai thì thế nào?</div></div>
+    <div class="example-row"><div class="jp-ex">日本料理はどうですか。お口に合いましたか。</div><div class="kana-ex">Nihon ryouri wa dou desu ka. Okuchi ni aimashita ka.</div><div class="vi-ex">Đồ ăn Nhật thế nào? Hợp khẩu vị không?</div></div>
+    <div class="example-row"><div class="jp-ex">こちらの商品はいかがですか。</div><div class="kana-ex">Kochira no shouhin wa ikaga desu ka.</div><div class="vi-ex">Sản phẩm này thì sao ạ? (người bán hỏi khách)</div></div>
+  </div>`,
+});
+
 function showLesson(id) {
   const l = LESSONS.find(x => x.id === id);
   if (!l) return;
@@ -1487,12 +1902,52 @@ function markLessonDone(id) {
 
 /* ─── RENDER ─── */
 function lm(l){return l==='jp'?{bg:'#e0e5ff',c:'#2d3561',label:'🇯🇵 Nhật'}:{bg:'#ffecd6',c:'#8b4a00',label:'🇨🇳 Trung'};}
-function lessonCard(l){const m=lm(l.lang);return `<div class="lcard" onclick="showLesson(${l.id})"><div class="lcard-thumb" style="background:${l.bg||'#eef2ff'}">${l.thumb||'📖'}<span class="lcard-lang" style="background:${m.bg};color:${m.c}">${m.label}</span><span class="lcard-dur">⏱ ${l.dur||'5 phút'}</span></div><div class="lcard-body"><div class="lcard-type">${l.type||'Bài học'}</div><div class="lcard-title">${l.title}</div><div class="lcard-meta"><span style="font-size:12px">📖 Bài học</span><span class="xp-badge">+${l.xp||10} XP</span></div></div></div>`;}
+function lessonCard(l){
+  const m=lm(l.lang);
+  const lvlColor={'N5':'#2d7dd2','N4':'#2db67d','N3':'#e8845a','N2':'#9b59b6','N1':'#e74c3c','HSK1':'#e8845a','HSK2':'#f5a623','HSK3':'#e74c3c','HSK4':'#9b59b6'}[l.level]||'rgba(0,0,0,.4)';
+  const lvlBadge=l.level?`<span class="lcard-level" style="background:${lvlColor}">${l.level}</span>`:'';
+  return `<div class="lcard" onclick="showLesson(${l.id})"><div class="lcard-thumb" style="background:${l.bg||'#eef2ff'}">${l.thumb||'📖'}<span class="lcard-lang" style="background:${m.bg};color:${m.c}">${m.label}</span><span class="lcard-dur">⏱ ${l.dur||'5 phút'}</span>${lvlBadge}</div><div class="lcard-body"><div class="lcard-type">${l.type||'Bài học'}</div><div class="lcard-title">${l.title}</div><div class="lcard-meta"><span style="font-size:12px">📖 Bài học</span><span class="xp-badge">+${l.xp||10} XP</span></div></div></div>`;
+}
 function blogCard(b){return `<div class="bcard"><div class="bcard-img" style="background:${b.bg||'#eef2ff'}">${b.flag||'📰'}</div><div class="bcard-body"><span class="bcard-tag" style="background:${b.tagBg||'#e0e5ff'};color:${b.tagC||'#2d3561'}">${b.tag||'Bài viết'}</span><div class="bcard-title">${b.title}</div><div class="bcard-excerpt">${b.excerpt||''}</div><div class="bcard-meta">📅 ${b.date||''} · 👁 ${b.views||'0'} lượt xem</div></div></div>`;}
 function renderHomeLesson(){const el=document.getElementById('home-lessons');if(el)el.innerHTML=LESSONS.slice(0,4).map(lessonCard).join('')||'<div class="empty-state">Chưa có bài học.</div>';}
 function renderHomeBlog(){document.getElementById('home-blog').innerHTML=BLOGS.slice(0,3).map(blogCard).join('')||'<div class="empty-state">Chưa có bài viết.</div>';}
-function renderLearn(f){const it=f==='all'?LESSONS:LESSONS.filter(l=>l.lang===f||l.cat===f);document.getElementById('learn-feed').innerHTML=it.map(lessonCard).join('')||'<div class="empty-state">Không có bài học nào.</div>';}
-function filterLearn(f,b){document.querySelectorAll('#learn-cats .cat-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderLearn(f);}
+
+/* ─── LEARN FILTER STATE ─── */
+let _learnLang='all', _learnLevel='all', _learnCat='all';
+function renderLearn(){
+  let it=LESSONS;
+  if(_learnLang!=='all') it=it.filter(l=>l.lang===_learnLang);
+  if(_learnLevel!=='all') it=it.filter(l=>l.level===_learnLevel);
+  if(_learnCat!=='all') it=it.filter(l=>l.cat===_learnCat);
+  document.getElementById('learn-feed').innerHTML=it.map(lessonCard).join('')||'<div class="empty-state">Không có bài học nào.</div>';
+}
+function setLearnLang(lang,btn){
+  _learnLang=lang; _learnLevel='all';
+  document.querySelectorAll('#learn-lang-tabs .cat-btn').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  // show/hide level rows
+  document.getElementById('jp-level-row').style.display=lang==='jp'?'block':'none';
+  document.getElementById('cn-level-row').style.display=lang==='cn'?'block':'none';
+  // reset level buttons
+  document.querySelectorAll('.lvl-btn').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.lvl-btn:first-child').forEach(x=>x.classList.add('active'));
+  renderLearn();
+}
+function setLearnLevel(level,btn){
+  _learnLevel=level;
+  const row=_learnLang==='jp'?'jp-level-row':'cn-level-row';
+  document.querySelectorAll('#'+row+' .lvl-btn').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  renderLearn();
+}
+function setLearnCat(cat,btn){
+  _learnCat=cat;
+  document.querySelectorAll('#learn-cats .cat-btn').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  renderLearn();
+}
+// legacy alias for showPage callback
+function filterLearn(f,b){setLearnLang(f==='jp'||f==='cn'?f:'all',b||document.querySelector('#learn-lang-tabs .cat-btn'));}
 function renderBlog(f){const it=f==='all'?BLOGS:BLOGS.filter(b=>b.lang===f||b.cat===f);document.getElementById('blog-grid').innerHTML=it.map(blogCard).join('')||'<div class="empty-state">Không có bài viết nào.</div>';}
 function filterBlog(f,b){document.querySelectorAll('#blog-cats .cat-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderBlog(f);}
 
