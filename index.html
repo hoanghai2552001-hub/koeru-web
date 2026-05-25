@@ -975,7 +975,14 @@ const DEF_D=[
 ];
 
 /* ─── STATE ─── */
-function load(k,d){try{const v=localStorage.getItem('koeru_'+k);return v?JSON.parse(v):d;}catch{return d;}}
+function load(k,d){
+  try{
+    const v=localStorage.getItem('koeru_'+k);
+    const p=v?JSON.parse(v):null;
+    // Dùng DEF nếu localStorage rỗng hoặc ít hơn DEF (tránh mất data khi sync sheet trống)
+    return (Array.isArray(p)&&p.length>=d.length)?p:d;
+  }catch{return d;}
+}
 function save(k,v){try{localStorage.setItem('koeru_'+k,JSON.stringify(v));}catch{}}
 let LESSONS=load('lessons',DEF_L),BLOGS=load('blogs',DEF_B),DOCS=load('docs',DEF_D);
 let apiKey=load('apikey','');
