@@ -1073,9 +1073,9 @@ async function fetchExternalData(){
       fetch('blogs.json'),
       fetch('docs.json')
     ]);
-    if(lRes.ok){LESSONS=await lRes.json();save('lessons',LESSONS);}
-    if(bRes.ok){BLOGS=await bRes.json();save('blogs',BLOGS);}
-    if(dRes.ok){DOCS=await dRes.json();save('docs',DOCS);}
+    if(lRes.ok){const d=await lRes.json();if(d.length>=DEF_L.length){LESSONS=d;save('lessons',LESSONS);}}
+    if(bRes.ok){const d=await bRes.json();if(d.length>=DEF_B.length){BLOGS=d;save('blogs',BLOGS);}}
+    if(dRes.ok){const d=await dRes.json();if(d.length>=DEF_D.length){DOCS=d;save('docs',DOCS);}}
     try{renderHomeLesson();renderHomeBlog();renderAdminTable(adminTab);}catch(e){}
     toast('✅ Đã nạp dữ liệu từ *.json');
   }catch(err){console.warn('Không load được data/*.json:',err);}  
