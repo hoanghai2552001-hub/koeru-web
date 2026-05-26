@@ -787,58 +787,16 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   </div>
 
   <!-- LEAD CAPTURE -->
-  <!-- Để nhận lead: tạo tài khoản Formspree tại formspree.io, thay YOUR_FORM_ID bên dưới -->
   <div id="section-tuvan" class="lead-sec">
-    <div class="lead-box">
+    <div class="lead-box" style="max-width:680px">
       <div class="land-eyebrow" style="text-align:left">Tư vấn miễn phí</div>
       <div class="land-h2">Không chắc nên bắt đầu từ đâu?</div>
       <p class="land-sub">Để lại thông tin — KOERU sẽ gợi ý lộ trình học phù hợp với mục tiêu của bạn trong vòng 24 giờ.</p>
-
-      <div id="lead-success" class="lead-success">
-        ✅ Đã nhận thông tin! KOERU sẽ liên hệ bạn trong vòng 24 giờ.
+      <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin-top:8px">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform?embedded=true"
+          width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+          style="display:block">Đang tải…</iframe>
       </div>
-
-      <form class="lead-form" id="lead-form"
-            action="https://formspree.io/f/xkoeqdep"
-            method="POST"
-            onsubmit="handleLeadSubmit(event)">
-
-        <div class="lead-form-row">
-          <div>
-            <label>Họ tên</label>
-            <input type="text" name="name" placeholder="Nguyễn Văn A" required/>
-          </div>
-          <div>
-            <label>Zalo / SĐT</label>
-            <input type="text" name="contact" placeholder="0912 345 678" required/>
-          </div>
-        </div>
-
-        <div>
-          <label>Mục tiêu học</label>
-          <select name="goal" required>
-            <option value="">-- Chọn mục tiêu --</option>
-            <option value="N5">Mới bắt đầu (N5 / HSK 1)</option>
-            <option value="N4">Ôn JLPT N4 / HSK 2</option>
-            <option value="N3">Ôn JLPT N3 / HSK 3</option>
-            <option value="duhoc">Du học Nhật / Trung</option>
-            <option value="dilan">Đi làm / Công ty Nhật</option>
-            <option value="giaotiep">Giao tiếp cơ bản</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Thời gian học được</label>
-          <select name="schedule" required>
-            <option value="">-- Chọn thời gian --</option>
-            <option value="evening">Buổi tối (sau 18h)</option>
-            <option value="weekend">Cuối tuần</option>
-            <option value="flexible">Linh hoạt</option>
-          </select>
-        </div>
-
-        <button type="submit" class="lead-submit">Nhận tư vấn lộ trình →</button>
-      </form>
     </div>
   </div>
 
