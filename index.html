@@ -65,6 +65,10 @@ nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1p
 .hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .btn-hero{padding:13px 26px;font-size:15px;border-radius:var(--r)}
 
+/* ── HERO GROUP CHIPS ── */
+.hero-group-chip{display:inline-flex;align-items:center;gap:5px;background:var(--navy-06);border:1.5px solid var(--navy-10);border-radius:20px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--navy);cursor:pointer;transition:all .18s}
+.hero-group-chip:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
 /* ── STATS ── */
 .stats-strip{background:var(--navy);color:#fff;padding:18px 1.5rem}
 .stats-inner{max-width:1080px;margin:auto;display:flex;justify-content:center;gap:52px;flex-wrap:wrap}
@@ -305,6 +309,29 @@ select:focus{border-color:var(--navy)}
 .land-h2{font-size:32px;font-weight:800;letter-spacing:-1px;color:var(--navy);margin-bottom:12px;line-height:1.25}
 .land-sub{font-size:15px;color:var(--ink3);max-width:520px;margin:0 auto 36px;line-height:1.75}
 
+/* ── START CARDS ── */
+.start-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:28px 24px;cursor:pointer;transition:all .22s;text-align:left}
+.start-card:hover{box-shadow:0 8px 32px rgba(45,53,97,.1);transform:translateY(-3px);border-color:var(--navy)}
+.start-icon{font-size:32px;margin-bottom:12px}
+.start-card h3{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.start-card p{font-size:13px;color:var(--ink3);line-height:1.65;margin-bottom:14px}
+.start-cta{font-size:13px;font-weight:700;color:var(--accent)}
+
+/* ── LEAD CAPTURE ── */
+.lead-sec{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 1.5rem}
+.lead-box{max-width:600px;margin:0 auto}
+.lead-box .land-h2{font-size:26px;text-align:left}
+.lead-box .land-sub{text-align:left;margin:0 0 28px}
+.lead-form{display:flex;flex-direction:column;gap:14px}
+.lead-form input,.lead-form select{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:14px;font-family:inherit;color:var(--navy);outline:none;background:var(--cream);transition:border-color .18s}
+.lead-form input:focus,.lead-form select:focus{border-color:var(--navy);background:var(--white)}
+.lead-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lead-form label{font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:.4px;text-transform:uppercase;display:block;margin-bottom:5px}
+.lead-submit{background:var(--navy);color:#fff;border:none;padding:14px;border-radius:var(--r);font-size:15px;font-weight:800;cursor:pointer;transition:background .18s}
+.lead-submit:hover{background:var(--navy-d)}
+.lead-success{display:none;background:#e6faf2;border:1px solid #95d5b2;border-radius:var(--r);padding:18px 20px;color:#1a6b4a;font-weight:700;font-size:14px;text-align:center}
+@media(max-width:600px){.lead-form-row{grid-template-columns:1fr}}
+
 /* ── COURSES GRID ── */
 .courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
 .course-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:32px 26px;transition:all .25s;cursor:pointer}
@@ -506,14 +533,23 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   <div class="hero" style="padding:80px 1.5rem 88px">
     <div class="hero-inner">
       <div class="hero-mascot" style="margin-bottom:24px">
-        <img src="koeru-logo.png" alt="KOERU" style="height:120px;width:auto"/>
+        <img src="koeru-logo.png" alt="KOERU" style="height:100px;width:auto"/>
       </div>
-      <h1 style="font-size:46px;letter-spacing:-2.5px">Học ngôn ngữ.<br/><em>Thay đổi bản thân.</em></h1>
-      <p style="font-size:17px;max-width:460px;line-height:1.8">Tiếng Nhật & Tiếng Trung — bài học ngắn, AI nhận xét cá nhân, lộ trình rõ ràng. Bắt đầu từ con số 0.</p>
-      <div class="hero-cta" style="margin-top:32px">
-        <button class="btn btn-navy btn-hero" onclick="showPage('register')" style="padding:15px 32px;font-size:16px">Đăng ký học thử miễn phí →</button>
-        <button class="btn btn-ghost btn-hero" onclick="showPage('learn')" style="padding:15px 28px;font-size:15px">Khám phá bài học</button>
+      <h1 style="font-size:44px;letter-spacing:-2.2px">Học tiếng Nhật dễ nhớ hơn.<br/><em>Dùng được hơn.</em></h1>
+      <p style="font-size:16px;max-width:480px;line-height:1.8;margin-top:12px">KOERU giúp bạn luyện kana, kanji, từ vựng và ngữ pháp — với AI nhận xét cá nhân và lộ trình JLPT/HSK rõ ràng.</p>
+
+      <!-- 3 nhóm người học -->
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:22px 0 28px">
+        <span class="hero-group-chip" onclick="document.getElementById('section-start').scrollIntoView({behavior:'smooth'})">🌱 Mới bắt đầu</span>
+        <span class="hero-group-chip" onclick="document.getElementById('section-start').scrollIntoView({behavior:'smooth'})">📚 Ôn JLPT / HSK</span>
+        <span class="hero-group-chip" onclick="document.getElementById('section-start').scrollIntoView({behavior:'smooth'})">💼 Đi làm / Du học</span>
       </div>
+
+      <div class="hero-cta">
+        <button class="btn btn-accent btn-hero" onclick="showPage('register')" style="padding:15px 32px;font-size:16px">Bắt đầu học thử miễn phí →</button>
+        <button class="btn btn-ghost btn-hero" onclick="document.getElementById('section-tuvan').scrollIntoView({behavior:'smooth'})" style="padding:15px 24px;font-size:15px">Nhận tư vấn lộ trình</button>
+      </div>
+      <p style="font-size:12px;color:var(--ink4);margin-top:16px">Phù hợp cho N5–N3 · Người mới bắt đầu · Người học lại từ đầu</p>
     </div>
   </div>
 
@@ -527,6 +563,39 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
     </div>
   </div>
 
+  <!-- BẮT ĐẦU TỪ ĐÂU -->
+  <div id="section-start" class="land-sec" style="background:var(--cream-d);padding:52px 1.5rem">
+    <div class="wrap land-center">
+      <div class="land-eyebrow">Dành cho bạn</div>
+      <div class="land-h2" style="font-size:26px">Bạn nên bắt đầu từ đâu?</div>
+      <p class="land-sub" style="margin-bottom:32px">Chọn mục tiêu để KOERU gợi ý đúng tính năng phù hợp với bạn.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:860px;margin:0 auto">
+
+        <div class="start-card" onclick="window.open('kana.html','_blank')">
+          <div class="start-icon">🌱</div>
+          <h3>Tôi mới bắt đầu</h3>
+          <p>Chưa biết gì về tiếng Nhật/Trung. Học bảng chữ cái Hiragana/Katakana trước.</p>
+          <span class="start-cta">Vào Kana Game →</span>
+        </div>
+
+        <div class="start-card" onclick="showPage('learn')">
+          <div class="start-icon">📚</div>
+          <h3>Tôi đang ôn JLPT / HSK</h3>
+          <p>Đang học N5/N4/N3 hoặc HSK. Luyện từ vựng, kanji, flashcard và quiz theo cấp độ.</p>
+          <span class="start-cta">Luyện tập ngay →</span>
+        </div>
+
+        <div class="start-card" onclick="document.getElementById('section-tuvan').scrollIntoView({behavior:'smooth'})">
+          <div class="start-icon">💼</div>
+          <h3>Tôi học để đi làm / du học</h3>
+          <p>Cần tiếng Nhật/Trung cho công việc hoặc du học. Nhận lộ trình học phù hợp mục tiêu.</p>
+          <span class="start-cta">Nhận tư vấn lộ trình →</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- COURSES -->
   <div class="land-sec" style="background:var(--white)">
     <div class="wrap land-center">
@@ -534,12 +603,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <div class="land-h2">Khóa học phù hợp với bạn</div>
       <p class="land-sub">Dù bạn mới bắt đầu hay muốn nâng cao — KOERU có lộ trình cho bạn.</p>
       <div class="courses-grid">
-        <div class="course-card" onclick="showPage('register')">
-          <span class="course-icon">🗣️</span>
-          <h3>Speaking Program</h3>
-          <p>Luyện nói tiếng Nhật thật sự. Online, nhóm nhỏ, roleplay tình huống thật.</p>
-          <span class="course-tag jp">🇯🇵 Tiếng Nhật</span>
-        </div>
         <div class="course-card" onclick="showPage('register')">
           <span class="course-icon">📖</span>
           <h3>JLPT N5 → N3 Prep</h3>
@@ -714,6 +777,62 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <div style="text-align:center;margin-top:22px">
         <button class="btn btn-ghost" onclick="showPage('blog')">Xem tất cả bài viết →</button>
       </div>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE -->
+  <!-- Để nhận lead: tạo tài khoản Formspree tại formspree.io, thay YOUR_FORM_ID bên dưới -->
+  <div id="section-tuvan" class="lead-sec">
+    <div class="lead-box">
+      <div class="land-eyebrow" style="text-align:left">Tư vấn miễn phí</div>
+      <div class="land-h2">Không chắc nên bắt đầu từ đâu?</div>
+      <p class="land-sub">Để lại thông tin — KOERU sẽ gợi ý lộ trình học phù hợp với mục tiêu của bạn trong vòng 24 giờ.</p>
+
+      <div id="lead-success" class="lead-success">
+        ✅ Đã nhận thông tin! KOERU sẽ liên hệ bạn trong vòng 24 giờ.
+      </div>
+
+      <form class="lead-form" id="lead-form"
+            action="https://formspree.io/f/xkoeqdep"
+            method="POST"
+            onsubmit="handleLeadSubmit(event)">
+
+        <div class="lead-form-row">
+          <div>
+            <label>Họ tên</label>
+            <input type="text" name="name" placeholder="Nguyễn Văn A" required/>
+          </div>
+          <div>
+            <label>Zalo / SĐT</label>
+            <input type="text" name="contact" placeholder="0912 345 678" required/>
+          </div>
+        </div>
+
+        <div>
+          <label>Mục tiêu học</label>
+          <select name="goal" required>
+            <option value="">-- Chọn mục tiêu --</option>
+            <option value="N5">Mới bắt đầu (N5 / HSK 1)</option>
+            <option value="N4">Ôn JLPT N4 / HSK 2</option>
+            <option value="N3">Ôn JLPT N3 / HSK 3</option>
+            <option value="duhoc">Du học Nhật / Trung</option>
+            <option value="dilan">Đi làm / Công ty Nhật</option>
+            <option value="giaotiep">Giao tiếp cơ bản</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Thời gian học được</label>
+          <select name="schedule" required>
+            <option value="">-- Chọn thời gian --</option>
+            <option value="evening">Buổi tối (sau 18h)</option>
+            <option value="weekend">Cuối tuần</option>
+            <option value="flexible">Linh hoạt</option>
+          </select>
+        </div>
+
+        <button type="submit" class="lead-submit">Nhận tư vấn lộ trình →</button>
+      </form>
     </div>
   </div>
 
@@ -1114,6 +1233,32 @@ function showAdminContent(){
   document.getElementById('admin-lock').style.display='none';
   document.getElementById('admin-content').style.display='block';
   renderAdmin();
+}
+
+/* ─── LEAD FORM ─── */
+async function handleLeadSubmit(e){
+  e.preventDefault();
+  const form = document.getElementById('lead-form');
+  const btn = form.querySelector('.lead-submit');
+  btn.textContent = 'Đang gửi...';
+  btn.disabled = true;
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {Accept: 'application/json'}
+    });
+    if(res.ok){
+      form.style.display = 'none';
+      document.getElementById('lead-success').style.display = 'block';
+    } else {
+      btn.textContent = 'Gửi thất bại, thử lại';
+      btn.disabled = false;
+    }
+  } catch(_){
+    btn.textContent = 'Gửi thất bại, thử lại';
+    btn.disabled = false;
+  }
 }
 
 /* ─── NAV ─── */
