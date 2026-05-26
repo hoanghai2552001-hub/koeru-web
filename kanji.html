@@ -87,7 +87,7 @@
   <!-- CTA nhận lộ trình -->
   <div id="home-cta-block">
     <div class="hcta-text">Muốn có lộ trình học Kanji phù hợp mục tiêu của bạn?</div>
-    <button class="hcta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn lộ trình miễn phí →</button>
+    <button class="hcta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận lộ trình Kanji miễn phí →</button>
   </div>
 </div>
 
@@ -101,15 +101,30 @@
     <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)" style="display:flex;flex-direction:column;gap:10px">
       <input name="name" placeholder="Họ tên" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
       <input name="contact" placeholder="Zalo / SĐT" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <select name="current_level" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+        <option value="">Trình độ hiện tại</option>
+        <option value="zero">Chưa biết gì</option>
+        <option value="kana">Biết Hiragana / Katakana</option>
+        <option value="N5">Đang học N5</option>
+        <option value="N4">Đang học N4</option>
+        <option value="N3+">Đang học N3 trở lên</option>
+      </select>
       <select name="goal" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
         <option value="">Mục tiêu của bạn</option>
-        <option value="N5">Mới bắt đầu (N5)</option>
-        <option value="N4">Ôn JLPT N4</option>
-        <option value="N3">Ôn JLPT N3</option>
+        <option value="jlpt">Thi JLPT</option>
         <option value="dilan">Đi làm / Công ty Nhật</option>
         <option value="duhoc">Du học Nhật Bản</option>
+        <option value="giaotiep">Giao tiếp</option>
+        <option value="restart">Học lại từ đầu</option>
+      </select>
+      <select name="available_time" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+        <option value="">Thời gian học được</option>
+        <option value="evening">Buổi tối</option>
+        <option value="weekend">Cuối tuần</option>
+        <option value="flexible">Linh hoạt</option>
       </select>
       <button type="submit" id="kanji-lead-submit" style="padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer">Nhận lộ trình →</button>
+      <div style="font-size:.72rem;color:rgba(255,255,255,.3);text-align:center">KOERU chỉ dùng thông tin này để gửi lộ trình học, không spam.</div>
     </form>
   </div>
 </div>
@@ -186,8 +201,8 @@
     <button class="btn" id="btn-restart">↺ Học lại</button>
     <button class="btn" id="btn-home-from-done">🏠 Về trang chủ</button>
     <div class="done-cta-block">
-      <div class="done-cta-text">Muốn có lộ trình Kanji cá nhân hoá?</div>
-      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn miễn phí →</button>
+      <div class="done-cta-text">Muốn biết lộ trình Kanji phù hợp với bạn?</div>
+      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Xem gợi ý lộ trình của tôi →</button>
     </div>
   </div>
 </div>
@@ -236,8 +251,8 @@
       <button id="btn-match-home2">🏠 Về nhà</button>
     </div>
     <div class="done-cta-block" style="margin-top:16px">
-      <div class="done-cta-text">Muốn có lộ trình Kanji cá nhân hoá?</div>
-      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn miễn phí →</button>
+      <div class="done-cta-text">Muốn biết lộ trình Kanji phù hợp với bạn?</div>
+      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Xem gợi ý lộ trình của tôi →</button>
     </div>
   </div>
 </div>
@@ -518,9 +533,16 @@ async function handleKanjiLead(e){
   e.preventDefault();
   const form=document.getElementById('kanji-lead-form');
   const btn=document.getElementById('kanji-lead-submit');
+  const fd=new FormData(form);
+  // Backup vào localStorage trước khi gửi
+  try{
+    const leads=JSON.parse(localStorage.getItem('koeru_kanji_leads')||'[]');
+    leads.push({name:fd.get('name'),contact:fd.get('contact'),current_level:fd.get('current_level'),goal:fd.get('goal'),available_time:fd.get('available_time'),createdAt:new Date().toISOString()});
+    localStorage.setItem('koeru_kanji_leads',JSON.stringify(leads));
+  }catch(_){}
   btn.textContent='Đang gửi...';btn.disabled=true;
   try{
-    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+    const res=await fetch(form.action,{method:'POST',body:fd,headers:{Accept:'application/json'}});
     if(res.ok){
       form.style.display='none';
       document.getElementById('kanji-lead-success').style.display='block';
