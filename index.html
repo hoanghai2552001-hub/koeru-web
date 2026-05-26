@@ -499,7 +499,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <a onclick="showPage('flash')" id="nav-flash">🃏 Flashcard</a>
       <a onclick="showPage('quiz')" id="nav-quiz">🧪 Kiểm tra</a>
       <a onclick="showPage('blog')" id="nav-blog">📰 Blog</a>
-      <a onclick="showPage('admin')" id="nav-admin" class="admin-link">⚙️ Admin</a>
+      <a onclick="showPage('admin')" id="nav-admin" class="admin-link" style="display:none">⚙️ Admin</a>
     </div>
     <div class="nav-right">
       <div class="streak-pill">🔥 7 ngày</div>
@@ -523,7 +523,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   <a onclick="window.open('kana.html','_blank');closeMenu()">🎌 Kana Speed</a>
   <div class="mob-divider"></div>
   <button class="btn btn-navy mob-cta" style="width:100%;justify-content:center;padding:14px" onclick="navTo('register')">Đăng ký học thử miễn phí →</button>
-  <a onclick="navTo('admin')" style="font-size:13px;color:var(--ink3);text-align:center;margin-top:4px">⚙️ Admin</a>
 </div>
 
 <!-- ═══ HOME ═══ -->
@@ -556,8 +555,8 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   <!-- STATS -->
   <div class="stats-strip">
     <div class="stats-inner">
-      <div class="sstat"><div class="sstat-n">200+</div><div class="sstat-l">Học viên</div></div>
       <div class="sstat"><div class="sstat-n">5 phút</div><div class="sstat-l">Mỗi bài học</div></div>
+      <div class="sstat"><div class="sstat-n">N5 → N3</div><div class="sstat-l">Lộ trình JLPT rõ ràng</div></div>
       <div class="sstat"><div class="sstat-n">AI</div><div class="sstat-l">Nhận xét cá nhân</div></div>
       <div class="sstat"><div class="sstat-n">BR-VT</div><div class="sstat-l">Bà Rịa – Vũng Tàu</div></div>
     </div>
@@ -640,29 +639,29 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   <!-- TESTIMONIALS -->
   <div class="land-sec">
     <div class="wrap land-center">
-      <div class="land-eyebrow">Học viên nói gì</div>
-      <div class="land-h2">Câu chuyện thật từ KOERU</div>
-      <p class="land-sub">Không phải review giả. Đây là những người đã thay đổi nhờ việc bắt đầu.</p>
+      <div class="land-eyebrow">Học viên KOERU</div>
+      <div class="land-h2">Những tình huống thường gặp</div>
+      <p class="land-sub">Bạn đang ở đâu trong hành trình học ngôn ngữ? KOERU có lộ trình cho từng tình huống.</p>
       <div class="testi-grid">
         <div class="testi-card">
-          <div class="testi-text">"Học N3 rồi mà vẫn đứng hình khi nói. Vào Speaking Program của KOERU 2 tháng, giờ tôi tự tin giao tiếp với đồng nghiệp Nhật."</div>
+          <div class="testi-text">"Học N3 rồi nhưng vẫn đứng hình khi nói chuyện thật. Tôi cần luyện phản xạ và giao tiếp thực tế, không chỉ làm bài tập ngữ pháp."</div>
           <div class="testi-author">
-            <div class="testi-avatar">M</div>
-            <div><div class="testi-name">Minh Anh</div><div class="testi-role">Nhân viên công ty Nhật · BR-VT</div></div>
+            <div class="testi-avatar">💼</div>
+            <div><div class="testi-name">Đi làm công ty Nhật</div><div class="testi-role">Cần giao tiếp tự tin, không đứng hình</div></div>
           </div>
         </div>
         <div class="testi-card">
-          <div class="testi-text">"Mất gốc tiếng Nhật 2 năm, không dám quay lại. KOERU giúp mình bắt đầu lại từ từ, không áp lực. Giờ mình đang ôn N4."</div>
+          <div class="testi-text">"Từng học tiếng Nhật rồi bỏ giữa chừng. Muốn bắt đầu lại nhưng không biết nên học từ đâu và mất bao lâu để đạt N4."</div>
           <div class="testi-author">
-            <div class="testi-avatar">T</div>
-            <div><div class="testi-name">Thanh Trúc</div><div class="testi-role">Sinh viên năm 3 · TP.HCM</div></div>
+            <div class="testi-avatar">🔄</div>
+            <div><div class="testi-name">Học lại từ đầu</div><div class="testi-role">Cần lộ trình rõ, không áp lực</div></div>
           </div>
         </div>
         <div class="testi-card">
-          <div class="testi-text">"Tiếng Trung HSK 1 trong 3 tháng. Cô giáo dạy rất dễ hiểu, bài tập AI chấm ngay. Tôi học ban đêm sau giờ làm, rất tiện."</div>
+          <div class="testi-text">"Bận đi làm ban ngày, chỉ có thời gian tối và cuối tuần. Cần khóa học linh hoạt, bài ngắn, có thể học theo tiến độ của mình."</div>
           <div class="testi-author">
-            <div class="testi-avatar">H</div>
-            <div><div class="testi-name">Hải Đăng</div><div class="testi-role">Nhân viên logistics · Bà Rịa</div></div>
+            <div class="testi-avatar">🌙</div>
+            <div><div class="testi-name">Người đi làm bận rộn</div><div class="testi-role">Học tối / cuối tuần, 5–15 phút/ngày</div></div>
           </div>
         </div>
       </div>
@@ -2308,9 +2307,12 @@ function toast(msg){const e=document.getElementById('toast');e.textContent=msg;e
 
 /* ─── INIT ─── */
 renderHomeLesson();renderHomeBlog();loadFlash();
-loadSyncUrls(); // nạp lại URL đã lưu vào ô input
-// Try to load external JSON files (data/*.json) — fallback to defaults/localStorage if unavailable
+loadSyncUrls();
 fetchExternalData();
+// Cho phép truy cập Admin bằng ?admin=true
+if(new URLSearchParams(window.location.search).get('admin')==='true'){
+  document.getElementById('nav-admin').style.display='';
+}
 </script>
 </body>
 </html>
