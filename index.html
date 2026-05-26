@@ -591,6 +591,13 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
           <span class="start-cta">Nhận tư vấn lộ trình →</span>
         </div>
 
+        <div class="start-card" onclick="window.open('kanji.html','_blank')">
+          <div class="start-icon">漢</div>
+          <h3>Tôi muốn luyện Kanji</h3>
+          <p>Học Kanji N5→N1 qua flashcard, game nối từ, Dungeon RPG và Speed quiz.</p>
+          <span class="start-cta">Vào Kanji Lab →</span>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1132,31 +1139,31 @@ const DEF_L=[
   {id:7,lang:'cn',level:'HSK1',cat:'kanji',thumb:'🀄',bg:'#fff8e8',title:'Thanh điệu tiếng Trung — 4 thanh',type:'Phát âm',dur:'6 phút',xp:16},
   {id:8,lang:'jp',level:'N5',cat:'grammar',thumb:'🗾',bg:'#ede8ff',title:'Ngữ pháp ～ながら',type:'Ngữ pháp',dur:'4 phút',xp:12},
   // ── 25 bài Ngữ pháp N5 ────────────────────────────────────
-  {id:9, lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～は～です — Câu khẳng định cơ bản',type:'Ngữ pháp',dur:'3 phút',xp:10},
-  {id:10,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～は～じゃないです — Câu phủ định',type:'Ngữ pháp',dur:'3 phút',xp:10},
-  {id:11,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～が好きです・嫌いです — Thích / Ghét',type:'Ngữ pháp',dur:'4 phút',xp:11},
-  {id:12,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～たい / ～たくない — Muốn / Không muốn',type:'Ngữ pháp',dur:'4 phút',xp:11},
-  {id:13,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ている — Đang làm / Trạng thái',type:'Ngữ pháp',dur:'5 phút',xp:13},
-  {id:14,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～てもいいです — Được phép làm',type:'Ngữ pháp',dur:'4 phút',xp:11},
-  {id:15,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～てはいけません — Không được làm',type:'Ngữ pháp',dur:'4 phút',xp:11},
-  {id:16,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～なければなりません — Phải làm',type:'Ngữ pháp',dur:'5 phút',xp:13},
-  {id:17,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ましょう / ～ましょうか — Cùng làm',type:'Ngữ pháp',dur:'3 phút',xp:10},
-  {id:18,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ませんか — Mời / Đề nghị lịch sự',type:'Ngữ pháp',dur:'3 phút',xp:10},
-  {id:19,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～たことがある — Đã từng trải qua',type:'Ngữ pháp',dur:'4 phút',xp:12},
-  {id:20,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～てから — Sau khi làm xong',type:'Ngữ pháp',dur:'4 phút',xp:12},
-  {id:21,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～前に — Trước khi làm',type:'Ngữ pháp',dur:'4 phút',xp:12},
-  {id:22,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～時 — Khi / Lúc',type:'Ngữ pháp',dur:'4 phút',xp:12},
-  {id:23,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～から — Vì... nên... (lý do)',type:'Ngữ pháp',dur:'4 phút',xp:11},
-  {id:24,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ので — Vì... (lịch sự)',type:'Ngữ pháp',dur:'4 phút',xp:11},
-  {id:25,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～が — Nhưng / Tuy nhiên',type:'Ngữ pháp',dur:'3 phút',xp:10},
-  {id:26,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～より / ～の方が — So sánh hơn kém',type:'Ngữ pháp',dur:'5 phút',xp:13},
-  {id:27,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～だけ / ～しか～ない — Chỉ...',type:'Ngữ pháp',dur:'4 phút',xp:12},
-  {id:28,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～で — Bằng / Tại / Do',type:'Ngữ pháp',dur:'4 phút',xp:11},
-  {id:29,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～に — Đến / Vào lúc / Để',type:'Ngữ pháp',dur:'5 phút',xp:13},
-  {id:30,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～まで / ～までに — Cho đến / Trước khi',type:'Ngữ pháp',dur:'4 phút',xp:12},
-  {id:31,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～ないでください — Xin đừng...',type:'Ngữ pháp',dur:'3 phút',xp:10},
-  {id:32,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～か～か — ...hay...',type:'Ngữ pháp',dur:'3 phút',xp:10},
-  {id:33,lang:'jp',level:'N5',cat:'grammar',thumb:'📘',bg:'#eef2ff',title:'～はどうですか — ...thì thế nào?',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:9, lang:'jp',level:'N5',cat:'grammar',thumb:'💬',bg:'#eef2ff',title:'～は～です — Câu khẳng định cơ bản',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:10,lang:'jp',level:'N5',cat:'grammar',thumb:'🚫',bg:'#fff0f3',title:'～は～じゃないです — Câu phủ định',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:11,lang:'jp',level:'N5',cat:'grammar',thumb:'❤️',bg:'#fff0f6',title:'～が好きです・嫌いです — Thích / Ghét',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:12,lang:'jp',level:'N5',cat:'grammar',thumb:'🌟',bg:'#fffbeb',title:'～たい / ～たくない — Muốn / Không muốn',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:13,lang:'jp',level:'N5',cat:'grammar',thumb:'🔄',bg:'#ecfdf5',title:'～ている — Đang làm / Trạng thái',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:14,lang:'jp',level:'N5',cat:'grammar',thumb:'✅',bg:'#f0fdf4',title:'～てもいいです — Được phép làm',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:15,lang:'jp',level:'N5',cat:'grammar',thumb:'⛔',bg:'#fff1f2',title:'～てはいけません — Không được làm',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:16,lang:'jp',level:'N5',cat:'grammar',thumb:'📋',bg:'#faf5ff',title:'～なければなりません — Phải làm',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:17,lang:'jp',level:'N5',cat:'grammar',thumb:'🤝',bg:'#eff6ff',title:'～ましょう / ～ましょうか — Cùng làm',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:18,lang:'jp',level:'N5',cat:'grammar',thumb:'💌',bg:'#fdf4ff',title:'～ませんか — Mời / Đề nghị lịch sự',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:19,lang:'jp',level:'N5',cat:'grammar',thumb:'🗺️',bg:'#fff7ed',title:'～たことがある — Đã từng trải qua',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:20,lang:'jp',level:'N5',cat:'grammar',thumb:'⏭️',bg:'#ecfdf5',title:'～てから — Sau khi làm xong',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:21,lang:'jp',level:'N5',cat:'grammar',thumb:'⏮️',bg:'#eff6ff',title:'～前に — Trước khi làm',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:22,lang:'jp',level:'N5',cat:'grammar',thumb:'🕐',bg:'#fffbeb',title:'～時 — Khi / Lúc',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:23,lang:'jp',level:'N5',cat:'grammar',thumb:'💡',bg:'#fefce8',title:'～から — Vì... nên... (lý do)',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:24,lang:'jp',level:'N5',cat:'grammar',thumb:'🎓',bg:'#f0fdf4',title:'～ので — Vì... (lịch sự)',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:25,lang:'jp',level:'N5',cat:'grammar',thumb:'↔️',bg:'#f8fafc',title:'～が — Nhưng / Tuy nhiên',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:26,lang:'jp',level:'N5',cat:'grammar',thumb:'⚖️',bg:'#faf5ff',title:'～より / ～の方が — So sánh hơn kém',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:27,lang:'jp',level:'N5',cat:'grammar',thumb:'🔍',bg:'#eff6ff',title:'～だけ / ～しか～ない — Chỉ...',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:28,lang:'jp',level:'N5',cat:'grammar',thumb:'🔧',bg:'#fff7ed',title:'～で — Bằng / Tại / Do',type:'Ngữ pháp',dur:'4 phút',xp:11},
+  {id:29,lang:'jp',level:'N5',cat:'grammar',thumb:'📍',bg:'#fdf4ff',title:'～に — Đến / Vào lúc / Để',type:'Ngữ pháp',dur:'5 phút',xp:13},
+  {id:30,lang:'jp',level:'N5',cat:'grammar',thumb:'⏰',bg:'#fefce8',title:'～まで / ～までに — Cho đến / Trước khi',type:'Ngữ pháp',dur:'4 phút',xp:12},
+  {id:31,lang:'jp',level:'N5',cat:'grammar',thumb:'🙏',bg:'#fff0f6',title:'～ないでください — Xin đừng...',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:32,lang:'jp',level:'N5',cat:'grammar',thumb:'🔀',bg:'#ecfdf5',title:'～か～か — ...hay...',type:'Ngữ pháp',dur:'3 phút',xp:10},
+  {id:33,lang:'jp',level:'N5',cat:'grammar',thumb:'💭',bg:'#f0f9ff',title:'～はどうですか — ...thì thế nào?',type:'Ngữ pháp',dur:'3 phút',xp:10},
 ];
 const DEF_B=[
   {id:1,lang:'jp',cat:'vocab',bg:'#eef2ff',flag:'🇯🇵',tagBg:'#e0e5ff',tagC:'#2d3561',tag:'Tiếng Nhật',title:'50 từ vựng N5 thông dụng nhất cần thuộc ngay',excerpt:'Danh sách từ vựng thiết yếu giúp bạn vượt qua JLPT N5, kèm ví dụ câu thực tế...',date:'12/05/2025',views:'1,240'},

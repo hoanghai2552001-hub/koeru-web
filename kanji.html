@@ -8,13 +8,14 @@
 <meta name="theme-color" content="#0d0d0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kanji.css?v=20260523f">
+<link rel="stylesheet" href="css/kanji.css?v=20260526a">
 <title>KOERU Kanji Lab — Luyện Kanji N5→N1</title>
 </head>
 <body>
 
 <!-- ══════════════════════ HOME ══════════════════════ -->
 <div id="home-screen" class="screen active">
+  <a href="index.html" id="back-to-main" title="Về trang chủ KOERU">← KOERU</a>
   <button id="sound-toggle" title="Bật/tắt âm thanh">🔊</button>
   <div class="home-logo">漢</div>
   <div class="home-title">KOERU Kanji Lab</div>
@@ -87,7 +88,7 @@
   <!-- CTA nhận lộ trình -->
   <div id="home-cta-block">
     <div class="hcta-text">Muốn có lộ trình học Kanji phù hợp mục tiêu của bạn?</div>
-    <button class="hcta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận lộ trình Kanji miễn phí →</button>
+    <button class="hcta-btn" onclick="openKanjiLeadModal('home_cta')">Nhận lộ trình Kanji miễn phí →</button>
   </div>
 </div>
 
@@ -97,7 +98,10 @@
     <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(255,255,255,.4);font-size:20px;cursor:pointer">✕</button>
     <div style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:6px">Nhận lộ trình học Kanji</div>
     <div style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:18px">KOERU sẽ gợi ý lộ trình phù hợp với mục tiêu của bạn trong 24 giờ.</div>
-    <div id="kanji-lead-success" style="display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);border-radius:8px;padding:14px;color:#86efac;font-size:.85rem;text-align:center;margin-bottom:12px">✅ Đã nhận! KOERU sẽ liên hệ bạn sớm.</div>
+    <div id="kanji-lead-success" style="display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);border-radius:8px;padding:14px;color:#86efac;font-size:.85rem;text-align:center;margin-bottom:12px">
+      <div style="margin-bottom:10px">✅ Đã nhận! KOERU sẽ liên hệ bạn trong 24 giờ.</div>
+      <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="padding:8px 18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:.82rem;font-weight:700;cursor:pointer">Tiếp tục luyện Kanji →</button>
+    </div>
     <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)" style="display:flex;flex-direction:column;gap:10px">
       <input name="name" placeholder="Họ tên" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
       <input name="contact" placeholder="Zalo / SĐT" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
@@ -123,6 +127,8 @@
         <option value="weekend">Cuối tuần</option>
         <option value="flexible">Linh hoạt</option>
       </select>
+      <input type="hidden" name="source" value="kanji_lab">
+      <input type="hidden" name="cta_location" id="cta-location" value="unknown">
       <button type="submit" id="kanji-lead-submit" style="padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer">Nhận lộ trình →</button>
       <div style="font-size:.72rem;color:rgba(255,255,255,.3);text-align:center">KOERU chỉ dùng thông tin này để gửi lộ trình học, không spam.</div>
     </form>
@@ -202,7 +208,7 @@
     <button class="btn" id="btn-home-from-done">🏠 Về trang chủ</button>
     <div class="done-cta-block">
       <div class="done-cta-text">Muốn biết lộ trình Kanji phù hợp với bạn?</div>
-      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Xem gợi ý lộ trình của tôi →</button>
+      <button class="done-cta-btn" onclick="openKanjiLeadModal('game_done')">Xem gợi ý lộ trình của tôi →</button>
     </div>
   </div>
 </div>
@@ -252,7 +258,7 @@
     </div>
     <div class="done-cta-block" style="margin-top:16px">
       <div class="done-cta-text">Muốn biết lộ trình Kanji phù hợp với bạn?</div>
-      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Xem gợi ý lộ trình của tôi →</button>
+      <button class="done-cta-btn" onclick="openKanjiLeadModal('game_done')">Xem gợi ý lộ trình của tôi →</button>
     </div>
   </div>
 </div>
@@ -381,8 +387,8 @@
     <button class="sr-h" id="sr-home">🏠 Về trang chủ</button>
   </div>
   <div class="done-cta-block" style="margin-top:16px">
-    <div class="done-cta-text">Muốn có lộ trình Kanji cá nhân hoá?</div>
-    <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn miễn phí →</button>
+    <div class="done-cta-text">Muốn biết lộ trình Kanji phù hợp với bạn?</div>
+    <button class="done-cta-btn" onclick="openKanjiLeadModal('speed_result')">Xem gợi ý lộ trình của tôi →</button>
   </div>
 </div>
 
@@ -529,6 +535,11 @@
 </style>
 
 <script>
+function openKanjiLeadModal(location){
+  const input=document.getElementById('cta-location');
+  if(input) input.value=location||'unknown';
+  document.getElementById('kanji-lead-modal').style.display='flex';
+}
 async function handleKanjiLead(e){
   e.preventDefault();
   const form=document.getElementById('kanji-lead-form');
@@ -537,7 +548,7 @@ async function handleKanjiLead(e){
   // Backup vào localStorage trước khi gửi
   try{
     const leads=JSON.parse(localStorage.getItem('koeru_kanji_leads')||'[]');
-    leads.push({name:fd.get('name'),contact:fd.get('contact'),current_level:fd.get('current_level'),goal:fd.get('goal'),available_time:fd.get('available_time'),createdAt:new Date().toISOString()});
+    leads.push({name:fd.get('name'),contact:fd.get('contact'),current_level:fd.get('current_level'),goal:fd.get('goal'),available_time:fd.get('available_time'),source:'kanji_lab',cta_location:fd.get('cta_location'),createdAt:new Date().toISOString()});
     localStorage.setItem('koeru_kanji_leads',JSON.stringify(leads));
   }catch(_){}
   btn.textContent='Đang gửi...';btn.disabled=true;

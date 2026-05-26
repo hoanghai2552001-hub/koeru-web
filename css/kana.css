@@ -104,6 +104,14 @@ body::before {
   cursor:pointer; transition:all .2s; display:flex; align-items:center; justify-content:center;
 }
 #audio-toggle:hover { background:rgba(255,255,255,.14); }
+#back-to-main {
+  position:absolute; top:calc(16px + var(--sat)); left:18px;
+  color:rgba(255,255,255,.4); text-decoration:none; font-size:.78rem; font-weight:700;
+  letter-spacing:.04em; padding:6px 10px; border-radius:8px;
+  border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05);
+  transition:color .2s, background .2s; z-index:10;
+}
+#back-to-main:hover { color:rgba(255,255,255,.85); background:rgba(255,255,255,.1); }
 #audio-toggle.muted { background:rgba(244,63,94,.12); border-color:rgba(244,63,94,.3); filter:grayscale(.4); }
 
 /* ══════════════════════════
