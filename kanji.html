@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/kanji.css?v=20260523f">
-<title>漢字 App</title>
+<title>KOERU Kanji Lab — Luyện Kanji N5→N1</title>
 </head>
 <body>
 
@@ -17,8 +17,9 @@
 <div id="home-screen" class="screen active">
   <button id="sound-toggle" title="Bật/tắt âm thanh">🔊</button>
   <div class="home-logo">漢</div>
-  <div class="home-title">漢字 Flashcard</div>
-  <div class="home-sub">Luyện kanji N5 → N1</div>
+  <div class="home-title">KOERU Kanji Lab</div>
+  <div class="home-sub">Luyện Kanji N5 → N1 bằng flashcard, game và lộ trình ôn tập cá nhân</div>
+  <div style="font-size:.72rem;opacity:.4;margin-top:4px;letter-spacing:.5px">by KOERU Japanese</div>
 
   <!-- Progress bar -->
   <div id="home-progress-wrap">
@@ -70,6 +71,46 @@
       </div>
       <div class="game-badge">🔥 Gây nghiện</div>
     </div>
+  </div>
+
+  <!-- Hướng dẫn chọn mode -->
+  <div id="mode-guide">
+    <div class="mg-title">Không biết bắt đầu từ đâu?</div>
+    <div class="mg-rows">
+      <div class="mg-row"><span class="mg-tag">Mới bắt đầu</span><span class="mg-arrow">→</span><span class="mg-hint">Chọn <b>N5</b> · Học <b>Flashcard</b> trước</span></div>
+      <div class="mg-row"><span class="mg-tag">Muốn nhớ nghĩa</span><span class="mg-arrow">→</span><span class="mg-hint">Chơi <b>Nối từ</b></span></div>
+      <div class="mg-row"><span class="mg-tag">Luyện On/Kun</span><span class="mg-arrow">→</span><span class="mg-hint">Vào <b>Kanji Dungeon</b></span></div>
+      <div class="mg-row"><span class="mg-tag">Kiểm tra phản xạ</span><span class="mg-arrow">→</span><span class="mg-hint">Chơi <b>Speed Kanji</b></span></div>
+    </div>
+  </div>
+
+  <!-- CTA nhận lộ trình -->
+  <div id="home-cta-block">
+    <div class="hcta-text">Muốn có lộ trình học Kanji phù hợp mục tiêu của bạn?</div>
+    <button class="hcta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn lộ trình miễn phí →</button>
+  </div>
+</div>
+
+<!-- ══ LEAD MODAL ══ -->
+<div id="kanji-lead-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#1a1a2e;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:28px 24px;width:100%;max-width:400px;position:relative">
+    <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(255,255,255,.4);font-size:20px;cursor:pointer">✕</button>
+    <div style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:6px">Nhận lộ trình học Kanji</div>
+    <div style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:18px">KOERU sẽ gợi ý lộ trình phù hợp với mục tiêu của bạn trong 24 giờ.</div>
+    <div id="kanji-lead-success" style="display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);border-radius:8px;padding:14px;color:#86efac;font-size:.85rem;text-align:center;margin-bottom:12px">✅ Đã nhận! KOERU sẽ liên hệ bạn sớm.</div>
+    <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)" style="display:flex;flex-direction:column;gap:10px">
+      <input name="name" placeholder="Họ tên" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <input name="contact" placeholder="Zalo / SĐT" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <select name="goal" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+        <option value="">Mục tiêu của bạn</option>
+        <option value="N5">Mới bắt đầu (N5)</option>
+        <option value="N4">Ôn JLPT N4</option>
+        <option value="N3">Ôn JLPT N3</option>
+        <option value="dilan">Đi làm / Công ty Nhật</option>
+        <option value="duhoc">Du học Nhật Bản</option>
+      </select>
+      <button type="submit" id="kanji-lead-submit" style="padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer">Nhận lộ trình →</button>
+    </form>
   </div>
 </div>
 
@@ -144,6 +185,10 @@
     <p id="final-detail"></p>
     <button class="btn" id="btn-restart">↺ Học lại</button>
     <button class="btn" id="btn-home-from-done">🏠 Về trang chủ</button>
+    <div class="done-cta-block">
+      <div class="done-cta-text">Muốn có lộ trình Kanji cá nhân hoá?</div>
+      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn miễn phí →</button>
+    </div>
   </div>
 </div>
 
@@ -189,6 +234,10 @@
     <div class="match-result-btns">
       <button id="btn-match-retry">↺ Chơi lại</button>
       <button id="btn-match-home2">🏠 Về nhà</button>
+    </div>
+    <div class="done-cta-block" style="margin-top:16px">
+      <div class="done-cta-text">Muốn có lộ trình Kanji cá nhân hoá?</div>
+      <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn miễn phí →</button>
     </div>
   </div>
 </div>
@@ -316,6 +365,10 @@
     <button class="sr-r" id="sr-retry">↺ Chơi lại</button>
     <button class="sr-h" id="sr-home">🏠 Về trang chủ</button>
   </div>
+  <div class="done-cta-block" style="margin-top:16px">
+    <div class="done-cta-text">Muốn có lộ trình Kanji cá nhân hoá?</div>
+    <button class="done-cta-btn" onclick="document.getElementById('kanji-lead-modal').style.display='flex'">Nhận tư vấn miễn phí →</button>
+  </div>
 </div>
 
 <!-- ══ FLOATING PANEL ══ -->
@@ -358,11 +411,11 @@
           <span class="fp-vocab-icon">📤</span>
           <div><div>Xuất ra Excel / CSV</div><div class="fp-vocab-sub">Tải file .csv mở bằng Excel hoặc Google Sheet</div></div>
         </button>
-        <button class="fp-vocab-btn" onclick="fpShowImport()">
+        <button class="fp-vocab-btn fp-admin-only" onclick="fpShowImport()" style="display:none">
           <span class="fp-vocab-icon">📥</span>
           <div><div>Nhập từ vựng mới</div><div class="fp-vocab-sub">Từ CSV hoặc dán trực tiếp</div></div>
         </button>
-        <button class="fp-vocab-btn" onclick="fpShowGSheet()">
+        <button class="fp-vocab-btn fp-admin-only" onclick="fpShowGSheet()" style="display:none">
           <span class="fp-vocab-icon">🔗</span>
           <div><div>Kết nối Google Sheet</div><div class="fp-vocab-sub">Đồng bộ qua Google Apps Script</div></div>
         </button>
@@ -402,7 +455,7 @@
 <div id="onboarding-overlay">
   <div id="onboarding-modal">
     <div class="ob-logo">漢</div>
-    <h2 class="ob-title">Chào mừng đến với<br><span>漢字 Flashcard</span></h2>
+    <h2 class="ob-title">Chào mừng đến với<br><span>KOERU Kanji Lab</span></h2>
     <p class="ob-sub">Luyện 1765 chữ Hán từ N5 đến N1<br>theo phong cách tiếng Việt</p>
 
     <div class="ob-steps">
@@ -435,6 +488,50 @@
     <button id="ob-skip-btn" class="ob-btn-skip">Tôi đã biết, bỏ qua</button>
   </div>
 </div>
+
+<style>
+/* ── MODE GUIDE ── */
+#mode-guide{margin:18px auto 0;max-width:420px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 16px}
+.mg-title{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px}
+.mg-rows{display:flex;flex-direction:column;gap:7px}
+.mg-row{display:flex;align-items:center;gap:8px;font-size:.8rem}
+.mg-tag{background:rgba(139,92,246,.2);color:#c4b5fd;border-radius:6px;padding:2px 8px;font-weight:700;font-size:.75rem;white-space:nowrap}
+.mg-arrow{color:rgba(255,255,255,.2);font-size:.75rem}
+.mg-hint{color:rgba(255,255,255,.5)}
+.mg-hint b{color:rgba(255,255,255,.8)}
+
+/* ── HOME CTA ── */
+#home-cta-block{margin:18px auto 24px;max-width:420px;text-align:center}
+.hcta-text{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:8px}
+.hcta-btn{background:transparent;border:1px solid rgba(139,92,246,.5);color:#c4b5fd;border-radius:20px;padding:9px 20px;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .18s}
+.hcta-btn:hover{background:rgba(139,92,246,.15);border-color:#8b5cf6}
+
+/* ── DONE CTA ── */
+.done-cta-block{border-top:1px solid rgba(255,255,255,.08);padding-top:14px;text-align:center}
+.done-cta-text{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:8px}
+.done-cta-btn{background:transparent;border:1px solid rgba(139,92,246,.5);color:#c4b5fd;border-radius:20px;padding:8px 18px;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .18s}
+.done-cta-btn:hover{background:rgba(139,92,246,.15);border-color:#8b5cf6}
+</style>
+
+<script>
+async function handleKanjiLead(e){
+  e.preventDefault();
+  const form=document.getElementById('kanji-lead-form');
+  const btn=document.getElementById('kanji-lead-submit');
+  btn.textContent='Đang gửi...';btn.disabled=true;
+  try{
+    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('kanji-lead-success').style.display='block';
+    } else {btn.textContent='Thử lại';btn.disabled=false;}
+  }catch(_){btn.textContent='Thử lại';btn.disabled=false;}
+}
+// Bật admin tools nếu ?admin=true
+if(new URLSearchParams(location.search).get('admin')==='true'){
+  document.querySelectorAll('.fp-admin-only').forEach(el=>el.style.display='');
+}
+</script>
 
 <!-- Scripts: thứ tự quan trọng — data trước, logic sau -->
 <script src="js/kanji-data.js?v=20260523f"></script>
