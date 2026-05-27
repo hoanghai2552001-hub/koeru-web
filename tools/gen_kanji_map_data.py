@@ -86,9 +86,10 @@ for line in lines:
         'mnemonic':   mn_vi or mnemonic,   # ưu tiên tiếng Việt
         'mn_vi':      mn_vi,
     }
-    kanji_entries.append(entry)
+    if level in ('N5','N4','N3','N2'):   # N1 chưa triển khai
+        kanji_entries.append(entry)
 
-print(f'Parsed {len(kanji_entries)} kanji, {len(radicals_dict)} unique radicals')
+print(f'Parsed {len(kanji_entries)} kanji (N5–N2), {len(radicals_dict)} unique radicals')
 
 # ── lấy phần vocab từ kanji-map-data.js cũ ───────────────────────────────
 with open(OLD, encoding='utf-8') as f:
