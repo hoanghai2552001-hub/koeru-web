@@ -91,17 +91,33 @@ for line in lines:
 
 print(f'Parsed {len(kanji_entries)} kanji (N5–N2), {len(radicals_dict)} unique radicals')
 
-# ── lấy phần vocab từ kanji-map-data.js cũ ───────────────────────────────
-with open(OLD, encoding='utf-8') as f:
-    old_content = f.read()
+# ── lấy phần vocab + relations từ kanji-map-data.js cũ ──────────────────
+# Vocab và relations được giữ nguyên trong một file riêng để không bị mất
+# khi chạy lại script. File vocab gốc: tools/kanji-map-vocab.js
+VOCAB_FILE = os.path.join(BASE, 'tools', 'kanji-map-vocab.js')
 
-# trích vocab block nguyên văn
-vocab_m = re.search(r'(vocab\s*:\s*\[.*?\])', old_content, re.DOTALL)
-vocab_block = vocab_m.group(1) if vocab_m else 'vocab: []'
-
-# trích kanji_relations block
-rel_m = re.search(r'(kanji_relations\s*:\s*\[.*?\])', old_content, re.DOTALL)
-rel_block = rel_m.group(1) if rel_m else 'kanji_relations: []'
+if os.path.exists(VOCAB_FILE):
+    with open(VOCAB_FILE, encoding='utf-8') as f:
+        vocab_content = f.read()
+    # trích vocab block — dùng bộ đếm ngoặc để xử lý nested arrays
+    def extract_block(text, key):
+        m = re.search(r'\b' + re.escape(key) + r'\s*:\s*\[', text)
+        if not m: return key + ': []'
+        start = m.end() - 1   # vị trí '[' mở
+        depth = 0
+        for i, c in enumerate(text[start:], start):
+            if c == '[': depth += 1
+            elif c == ']':
+                depth -= 1
+                if depth == 0:
+                    return key + ': ' + text[start:i+1]
+        return key + ': []'
+    vocab_block    = extract_block(vocab_content, 'vocab')
+    rel_block      = extract_block(vocab_content, 'kanji_relations')
+else:
+    print(f'WARNING: {VOCAB_FILE} không tồn tại — vocab sẽ rỗng')
+    vocab_block = 'vocab: []'
+    rel_block   = 'kanji_relations: []'
 
 # ── viết JS entry ─────────────────────────────────────────────────────────
 def js_str(s):

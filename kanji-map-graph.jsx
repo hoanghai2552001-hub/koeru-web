@@ -342,6 +342,7 @@ const KanjiGraph = ({
   };
   const resetZoom = () => {
     targetTransformRef.current = { x: 0, y: 0, k: 1 };
+    setTransform({ x: 0, y: 0, k: 1 });
   };
 
   // viewport center

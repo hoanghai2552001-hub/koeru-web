@@ -1,10 +1,27 @@
 // kanji-map-app.jsx — main shell: top bar + controls + graph + panel + recent.
 
 const RECENT_MAX = 12;
-const ALL_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
+// N1 chưa có data → chỉ hiện N5–N2
+const ALL_LEVELS = ['N5', 'N4', 'N3', 'N2'];
 
 const KanjiMapApp = () => {
   const data = window.KANJI_DATA;
+
+  // Guard: nếu data chưa load (script lỗi/chậm) → hiển thị lỗi thay vì crash
+  if (!data || !data.kanji) {
+    return (
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'center',
+                    height:'100vh', flexDirection:'column', gap:16, fontFamily:'sans-serif' }}>
+        <div style={{ fontSize:48 }}>⚠️</div>
+        <div style={{ fontSize:18, fontWeight:700 }}>Không tải được dữ liệu Kanji Map</div>
+        <div style={{ color:'#888', fontSize:14 }}>Thử tải lại trang (F5)</div>
+        <button onClick={() => location.reload()}
+          style={{ marginTop:8, padding:'8px 20px', borderRadius:8, border:'1px solid #ccc', cursor:'pointer' }}>
+          🔄 Tải lại
+        </button>
+      </div>
+    );
+  }
 
   // initial selection from URL ?k=生
   const initialFromURL = (() => {
