@@ -188,13 +188,13 @@ const KanjiPanel = ({ data, selectedId, onSelect, onClose }) => {
         </button>
       </div>
 
-      {/* MNEMONIC (kanji only) */}
-      {!isVocab && item.mnemonic ? (
+      {/* MNEMONIC (kanji only) — ưu tiên mn_vi, fallback mnemonic */}
+      {!isVocab && (item.mn_vi || item.mnemonic) ? (
         <div className="km-mnemonic">
           <div className="km-section-title" style={{ marginBottom:6, color:'var(--hanko)' }}>
-            ✦ Cách nhớ
+            💡 Gợi nhớ
           </div>
-          <div className="km-mnemonic-text">{item.mnemonic}</div>
+          <div className="km-mnemonic-text">{item.mn_vi || item.mnemonic}</div>
         </div>
       ) : null}
 
@@ -228,32 +228,33 @@ const KanjiPanel = ({ data, selectedId, onSelect, onClose }) => {
       ) : null}
 
       {/* RADICAL + COMPONENTS (kanji only) */}
-      {!isVocab && item.radical && data.radicals?.[item.radical] ? (
+      {!isVocab && item.radical ? (
         <div>
-          <div className="km-section-title">Bộ thủ</div>
+          <div className="km-section-title">Bộ thủ &amp; Thành phần</div>
           <div className="km-radical" onClick={() => {
-            // surface other kanji with same radical
             const same = data.kanji.filter(k => k.radical === item.radical && k.id !== item.id);
             if (same.length) onSelect(same[0].id);
           }}>
             <div className="km-radical-glyph">{item.radical}</div>
             <div className="km-radical-meta">
-              <div className="km-radical-name">bộ {data.radicals[item.radical].han_viet}</div>
-              <div className="km-radical-desc">
-                {data.radicals[item.radical].meaning} · {data.radicals[item.radical].strokes} nét
-              </div>
+              {data.radicals?.[item.radical] ? (<>
+                <div className="km-radical-name">{data.radicals[item.radical].name_ja}</div>
+                <div className="km-radical-desc">{data.radicals[item.radical].meaning}</div>
+              </>) : (
+                <div className="km-radical-name" style={{ color:'var(--ink-faint)' }}>bộ thủ</div>
+              )}
             </div>
           </div>
-          {item.components?.length > 1 ? (
+          {item.components?.length ? (
             <div style={{ marginTop:10 }}>
-              <div className="km-section-title" style={{ marginBottom:6 }}>Cấu tạo</div>
+              <div className="km-section-title" style={{ marginBottom:6 }}>Thành phần</div>
               <div className="km-components">
                 {item.components.map((c, i) => {
                   const inData = data.kanji.find(k => k.id === c);
                   return (
                     <div key={i} className="km-component"
                       onClick={() => inData && onSelect(c)}
-                      title={inData ? `${inData.han_viet} — ${inData.meaning}` : 'thành phần'}
+                      title={inData ? `${inData.han_viet} — ${inData.meaning}` : c}
                       style={{ cursor: inData ? 'pointer' : 'default' }}>
                       {c}
                     </div>
