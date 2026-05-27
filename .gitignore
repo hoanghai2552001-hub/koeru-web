@@ -66,3 +66,25 @@ all_english.txt
 kanji_export.csv
 kanji_api_cache.json
 kanji_words_cache.json
+
+# ── Claude AI workspace (không cần public) ─────────────────────
+.claude/
+
+# ── Thư mục thiết kế / prototype cũ ──────────────────────────
+Kanji map/
+the-kanji-map-main*/
+
+# ── Raw data JSON (tạm, đã được xử lý vào kanji-data.js) ─────
+N1_translated.json
+N2_translated.json
+N3_translated.json
+N4_translated.json
+N5_translated.json
+
+# ── Input assets: audio mp3, ảnh raw, zip ─────────────────────
+input/
+*.zip
+
+# ── Tools nội bộ (script sinh data, không cần deploy) ─────────
+tools/KOERU_Template.xlsx
+tools/export_translate.py
