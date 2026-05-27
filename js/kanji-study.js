@@ -115,8 +115,10 @@ function openDetail(k, cellEl) {
   const radWrap = document.getElementById('detail-radical');
   if (radWrap) {
     if (k.radical) {
-      const [rc, rn, rm] = k.radical.split('|');
-      radWrap.innerHTML = `<span class="rad-char">${rc}</span><span class="rad-info">${rn} · ${rm}</span>`;
+      const segs = k.radical.split('|');
+      const rc = segs[0], rn = segs[1], rm = segs[2], rv = segs[3];
+      const radLabel = rv ? `${rv} (${rm})` : rm;
+      radWrap.innerHTML = `<span class="rad-char">${rc}</span><span class="rad-info">${rn} · ${radLabel}</span>`;
       radWrap.style.display = '';
     } else {
       radWrap.style.display = 'none';
@@ -133,11 +135,12 @@ function openDetail(k, cellEl) {
     }
   }
 
-  // Mnemonic
+  // Mnemonic — ưu tiên bản tiếng Việt nếu có
   const mnWrap = document.getElementById('detail-mnemonic');
   if (mnWrap) {
-    if (k.mnemonic) {
-      mnWrap.textContent = k.mnemonic;
+    const mnText = k.mn_vi || k.mnemonic || '';
+    if (mnText) {
+      mnWrap.textContent = mnText;
       mnWrap.parentElement.style.display = '';
     } else {
       mnWrap.parentElement.style.display = 'none';
