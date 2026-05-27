@@ -1,0 +1,273 @@
+// ══════════════════════════════════════════
+// KOERU · Học Kanji — kanji-study.js
+// ══════════════════════════════════════════
+// Dữ liệu: ALL_KANJI từ kanji-data.js
+// Stroke order: animCJK (Arphic Public License)
+//   via cdn.jsdelivr.net/gh/parsimonhi/animCJK
+
+const ANIMCJK = 'https://cdn.jsdelivr.net/gh/parsimonhi/animCJK@master/svgsJa/';
+
+// ── State ──────────────────────────────────
+let currentLevel  = 'N5';
+let currentSearch = '';
+let currentKanji  = null;   // kanji object đang xem
+let svgCache      = {};     // { hex: svgText }
+let masteryStore  = null;   // window.koeruMastery (nếu có)
+
+// ── Mastery (từ koeru-mastery.js nếu đã load) ──
+function getStatus(kanji) {
+  if (!masteryStore) return '';
+  const data = masteryStore.get ? masteryStore.get(kanji) : null;
+  if (!data) return '';
+  if (data.box >= 4)  return 'learned';
+  if (data.seen > 0)  return 'seen';
+  return '';
+}
+
+// ── Filtering ──────────────────────────────
+function getFilteredKanji() {
+  let list = ALL_KANJI;
+  if (currentLevel !== 'ALL') {
+    list = list.filter(k => k.level === currentLevel);
+  }
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    list = list.filter(k =>
+      k.kanji.includes(q) ||
+      (k.hanviet  || '').toLowerCase().includes(q) ||
+      (k.meaning  || '').toLowerCase().includes(q) ||
+      (k.on       || '').toLowerCase().includes(q) ||
+      (k.kun      || '').toLowerCase().includes(q)
+    );
+  }
+  return list;
+}
+
+// ── Render grid ────────────────────────────
+function renderGrid() {
+  const list  = getFilteredKanji();
+  const grid  = document.getElementById('kanji-grid');
+  const empty = document.getElementById('study-empty');
+  const count = document.getElementById('study-stats-count');
+
+  count.textContent = list.length + ' kanji';
+
+  if (list.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'flex';
+    return;
+  }
+  empty.style.display = 'none';
+
+  // Render tất cả — 1765 kanji vẫn nhanh với DOM thuần
+  const frag = document.createDocumentFragment();
+  list.forEach((k, i) => {
+    const cell = document.createElement('div');
+    const status = getStatus(k.kanji);
+    cell.className = 'k-cell' + (status ? ' ' + status : '');
+    cell.style.animationDelay = Math.min(i * 12, 300) + 'ms';
+    cell.dataset.kanji = k.kanji;
+    cell.innerHTML = `
+      <span class="k-dot"></span>
+      <span class="k-char">${k.kanji}</span>
+      <span class="k-hv">${k.hanviet || ''}</span>
+      <span class="k-mean">${(k.meaning || '').split(';')[0].trim()}</span>
+      <span class="k-level lv-${k.level}">${k.level}</span>`;
+    cell.addEventListener('click', () => openDetail(k, cell));
+    frag.appendChild(cell);
+  });
+
+  grid.innerHTML = '';
+  grid.appendChild(frag);
+}
+
+// ── Detail panel ────────────────────────────
+function openDetail(k, cellEl) {
+  currentKanji = k;
+
+  // Highlight cell
+  document.querySelectorAll('.k-cell.selected').forEach(c => c.classList.remove('selected'));
+  if (cellEl) cellEl.classList.add('selected');
+
+  // Fill data
+  document.getElementById('detail-kanji-big').textContent = k.kanji;
+  document.getElementById('detail-hanviet').textContent   = (k.hanviet || '').toUpperCase();
+  document.getElementById('detail-meaning').textContent   = k.meaning || '';
+
+  // Readings
+  document.getElementById('detail-on').textContent  = k.on  || '—';
+  document.getElementById('detail-kun').textContent = k.kun || '—';
+
+  // Badges
+  const badges = document.getElementById('detail-badges');
+  badges.innerHTML = `<span class="detail-badge lv-${k.level}">${k.level}</span>`;
+  if (k.stroke) badges.innerHTML += `<span class="detail-badge">${k.stroke} nét</span>`;
+  if (k.freq_rank) badges.innerHTML += `<span class="detail-badge freq">Top ${k.freq_rank}</span>`;
+
+  // Stroke order
+  loadStrokeOrder(k.kanji);
+
+  // Vocabulary
+  renderVocab(k);
+
+  // Open panel
+  const panel = document.getElementById('detail-panel');
+  const backdrop = document.getElementById('detail-backdrop');
+  panel.classList.add('open');
+  backdrop.classList.add('show');
+
+  // Scroll to top of panel
+  panel.scrollTop = 0;
+}
+
+function closeDetail() {
+  document.getElementById('detail-panel').classList.remove('open');
+  document.getElementById('detail-backdrop').classList.remove('show');
+  document.querySelectorAll('.k-cell.selected').forEach(c => c.classList.remove('selected'));
+  currentKanji = null;
+}
+
+// ── Stroke order ────────────────────────────
+function loadStrokeOrder(kanji) {
+  const container = document.getElementById('detail-stroke-svg');
+  const cp = kanji.codePointAt(0).toString(16).toLowerCase();
+
+  // Count info
+  const k = ALL_KANJI.find(x => x.kanji === kanji);
+  document.getElementById('detail-stroke-count').textContent =
+    k && k.stroke ? `${k.stroke} nét vẽ` : 'Thứ tự nét vẽ';
+
+  if (svgCache[cp]) {
+    injectSvg(container, svgCache[cp]);
+    return;
+  }
+
+  container.innerHTML = '<span class="stroke-load-msg">⏳ Đang tải…</span>';
+
+  fetch(ANIMCJK + cp + '.svg')
+    .then(r => { if (!r.ok) throw new Error(); return r.text(); })
+    .then(svg => {
+      svgCache[cp] = svg;
+      injectSvg(container, svg);
+    })
+    .catch(() => {
+      container.innerHTML = '<span class="stroke-load-msg" style="font-size:.65rem">Chưa có dữ liệu</span>';
+    });
+}
+
+function injectSvg(container, svgText) {
+  container.innerHTML = svgText;
+  const svgEl = container.querySelector('svg');
+  if (svgEl) {
+    svgEl.removeAttribute('width');
+    svgEl.removeAttribute('height');
+    svgEl.style.cssText = 'width:90px;height:90px;display:block;';
+  }
+  container.dataset.svg = svgText;
+}
+
+function replayStroke() {
+  const container = document.getElementById('detail-stroke-svg');
+  const svg = container.dataset.svg;
+  if (svg) injectSvg(container, svg);
+}
+
+// ── Vocabulary ──────────────────────────────
+function renderVocab(k) {
+  const list = document.getElementById('detail-vocab-list');
+  const words = k.words || [];
+  if (!words.length) {
+    list.innerHTML = '<p style="font-size:.78rem;color:var(--muted)">Chưa có từ vựng mẫu.</p>';
+    return;
+  }
+  list.innerHTML = words.slice(0, 8).map(w => `
+    <div class="vocab-item">
+      <span class="vocab-w">${w.w || ''}</span>
+      <span class="vocab-r">${w.r || ''}</span>
+      <span class="vocab-m">${w.m || ''}</span>
+    </div>`).join('');
+}
+
+// ── Init & event binding ────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  masteryStore = window.koeruMastery || null;
+
+  // Level tabs
+  document.querySelectorAll('.lvl-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.lvl-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentLevel = tab.dataset.lvl;
+      currentSearch = '';
+      document.getElementById('study-search').value = '';
+      document.getElementById('study-search-clear').style.display = 'none';
+      closeDetail();
+      renderGrid();
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('study-search');
+  const clearBtn    = document.getElementById('study-search-clear');
+  searchInput.addEventListener('input', () => {
+    currentSearch = searchInput.value.trim();
+    clearBtn.style.display = currentSearch ? 'block' : 'none';
+    renderGrid();
+  });
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    currentSearch = '';
+    clearBtn.style.display = 'none';
+    searchInput.focus();
+    renderGrid();
+  });
+
+  // Close detail
+  document.getElementById('detail-backdrop').addEventListener('click', closeDetail);
+  document.getElementById('detail-close')?.addEventListener('click', closeDetail);
+
+  // Replay stroke
+  document.getElementById('btn-replay-stroke').addEventListener('click', replayStroke);
+
+  // Go to games button (header)
+  document.getElementById('study-goto-game').addEventListener('click', () => {
+    window.location.href = 'kanji.html';
+  });
+
+  // "Luyện ngay" in detail panel → mở kanji.html với level tương ứng
+  document.getElementById('detail-go-game').addEventListener('click', () => {
+    if (currentKanji) {
+      localStorage.setItem('koeru_study_launch_level', currentKanji.level);
+    }
+    window.location.href = 'kanji.html';
+  });
+
+  // Nút "Vào Kanji Map"
+  document.getElementById('detail-go-map')?.addEventListener('click', () => {
+    window.location.href = 'kanji-map.html';
+  });
+
+  // Keyboard: Escape đóng panel, ←→ điều hướng kanji
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeDetail(); return; }
+    if (!currentKanji) return;
+    const list = getFilteredKanji();
+    const idx  = list.findIndex(k => k.kanji === currentKanji.kanji);
+    if (e.key === 'ArrowRight' && idx < list.length - 1) {
+      openDetail(list[idx + 1]);
+    }
+    if (e.key === 'ArrowLeft' && idx > 0) {
+      openDetail(list[idx - 1]);
+    }
+  });
+
+  // Initial render
+  renderGrid();
+
+  // Nếu kanji.html đã set level gần nhất → áp dụng
+  const savedLevel = localStorage.getItem('koeru_study_launch_level');
+  if (savedLevel && ['N5','N4','N3','N2','N1'].includes(savedLevel)) {
+    const tab = document.querySelector(`.lvl-tab[data-lvl="${savedLevel}"]`);
+    if (tab) tab.click();
+  }
+});

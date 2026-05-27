@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a1c">
+<meta name="description" content="Học Kanji N5–N1 với stroke order, từ vựng và luyện tập trực tiếp. KOERU Japanese.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/study.css?v=20260527a">
+<title>KOERU · Học Kanji N5–N1</title>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div id="study-header">
+  <a href="index.html" id="study-back">← KOERU</a>
+  <div>
+    <div id="study-header-title">📖 Học Kanji</div>
+  </div>
+  <button id="study-goto-game">▶ Luyện tập →</button>
+</div>
+
+<!-- ══ MAIN LAYOUT (desktop: flex-row) ══ -->
+<div id="study-main">
+
+  <!-- ══ LEFT: grid + toolbar ══ -->
+  <div id="study-left">
+
+    <!-- Toolbar -->
+    <div id="study-toolbar">
+      <div id="level-tabs">
+        <button class="lvl-tab active" data-lvl="N5">N5 <small>(103)</small></button>
+        <button class="lvl-tab" data-lvl="N4">N4 <small>(181)</small></button>
+        <button class="lvl-tab" data-lvl="N3">N3 <small>(361)</small></button>
+        <button class="lvl-tab" data-lvl="N2">N2 <small>(415)</small></button>
+        <button class="lvl-tab" data-lvl="N1">N1 <small>(704)</small></button>
+        <button class="lvl-tab" data-lvl="ALL">Tất cả</button>
+      </div>
+      <div id="study-search-wrap">
+        <input id="study-search" type="search" placeholder="🔍  Tìm kanji, nghĩa, âm Hán Việt…" autocomplete="off" spellcheck="false">
+        <button id="study-search-clear">✕</button>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div id="study-stats">
+      <span>
+        <span id="study-stats-count">0 kanji</span>
+        <span style="margin-left:10px;opacity:.5;font-size:.68rem">← → điều hướng bàn phím</span>
+      </span>
+    </div>
+
+    <!-- Legend -->
+    <div id="study-legend">
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#f59e0b"></span>Đã gặp
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#22c55e"></span>Đã thuộc
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div id="kanji-grid-wrap">
+      <div id="kanji-grid"></div>
+      <div id="study-empty">
+        <div class="empty-icon">🔍</div>
+        <p>Không tìm thấy kanji nào.<br>Thử từ khoá khác.</p>
+      </div>
+    </div>
+
+  </div><!-- /study-left -->
+
+  <!-- ══ DETAIL PANEL (bottom sheet mobile / side panel desktop) ══ -->
+  <div id="detail-panel">
+    <div id="detail-handle"></div>
+
+    <!-- Kanji + meta -->
+    <div id="detail-top">
+      <div id="detail-kanji-big">漢</div>
+      <div id="detail-meta">
+        <div id="detail-hanviet">HÁN</div>
+        <div id="detail-meaning">chữ hán</div>
+        <div class="detail-readings">
+          <div class="reading-row"><b>On:</b> <span id="detail-on">—</span></div>
+          <div class="reading-row"><b>Kun:</b> <span id="detail-kun">—</span></div>
+        </div>
+        <div id="detail-badges"></div>
+      </div>
+    </div>
+
+    <!-- Stroke order animation -->
+    <div id="detail-stroke-wrap">
+      <div class="detail-section-title">Thứ tự nét vẽ · animCJK</div>
+      <div id="detail-stroke-inner">
+        <div id="detail-stroke-svg">
+          <span class="stroke-load-msg">Chọn kanji để xem</span>
+        </div>
+        <div id="detail-stroke-info">
+          <div id="detail-stroke-count"></div>
+          <button id="btn-replay-stroke">↺ Phát lại</button>
+          <div style="margin-top:8px;font-size:.62rem;color:rgba(255,255,255,.2)">
+            KanjiVG · CC BY-SA 3.0
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vocabulary -->
+    <div id="detail-vocab-wrap">
+      <div class="detail-section-title">Từ vựng trong trò chơi</div>
+      <div id="detail-vocab-list"></div>
+    </div>
+
+    <!-- Action buttons -->
+    <div id="detail-actions">
+      <button class="detail-action-btn detail-action-primary" id="detail-go-game">
+        ▶ Luyện trong Kanji Lab
+      </button>
+      <button class="detail-action-btn detail-action-secondary" id="detail-go-map">
+        🗺 Xem Kanji Map
+      </button>
+    </div>
+
+  </div><!-- /detail-panel -->
+
+</div><!-- /study-main -->
+
+<!-- Backdrop (mobile only) -->
+<div id="detail-backdrop"></div>
+
+<!-- Scripts -->
+<script src="js/kanji-data.js?v=20260523f"></script>
+<script src="js/koeru-mastery.js?v=20260525"></script>
+<script src="js/kanji-study.js?v=20260527a"></script>
+</body>
+</html>
