@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KOERU · Bản đồ Kanji</title>
+<meta name="description" content="Khám phá mạng lưới Kanji & từ vựng. JLPT N5–N2.">
+
+<!-- fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap">
+
+<link rel="stylesheet" href="kanji-map.css">
+</head>
+
+<body>
+  <div id="root">
+    <!-- noscript fallback -->
+    <noscript>
+      <div style="padding:40px; max-width:600px; margin:0 auto; font-family:system-ui">
+        <h2>Cần bật JavaScript</h2>
+        <p>Bản đồ Kanji là 1 ứng dụng tương tác — cần JavaScript để chạy.</p>
+        <p><a href="./index.html">← Quay về trang chủ</a></p>
+      </div>
+    </noscript>
+  </div>
+
+  <!-- React 18 -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- d3 (force + utilities) — full bundle, ~270KB, exposes window.d3 -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+
+  <!-- data + helpers -->
+  <script src="kanji-map-data.js"></script>
+  <script src="kanji-romaji.js"></script>
+
+  <!-- app -->
+  <script type="text/babel" src="kanji-map-graph.jsx"></script>
+  <script type="text/babel" src="kanji-stroke-order.jsx"></script>
+  <script type="text/babel" src="kanji-map-panel.jsx"></script>
+  <script type="text/babel" src="kanji-map-app.jsx"></script>
+</body>
+</html>
