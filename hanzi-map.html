@@ -202,7 +202,7 @@ const HANZI_LOOKUP = {};
 const HSK_BG = {1:'#dcfce7',2:'#dbeafe',3:'#f3e8ff',0:'#f3f4f6'};
 const HSK_C  = {1:'#166534',2:'#1e40af',3:'#7e22ce',0:'#374151'};
 
-let activeRadIdx = -1, activeCharHanzi = null;
+let activeRadIdx = -1, activeRadicalKey = null, activeCharHanzi = null;
 const allRadicals = typeof HANZI_RADICAL_DATA !== 'undefined' ? HANZI_RADICAL_DATA : [];
 
 // ── RENDER SIDEBAR ──
@@ -211,7 +211,8 @@ function renderSidebar(list){
   sb.innerHTML = '<div class="sidebar-label">Bộ thủ</div>';
   list.forEach((rad, i)=>{
     const el = document.createElement('div');
-    el.className = 'rad-item' + (i===activeRadIdx?' active':'');
+    // dùng radical key (chữ) thay vì index để highlight đúng sau khi search
+    el.className = 'rad-item' + (rad.radical===activeRadicalKey?' active':'');
     el.innerHTML = `
       <div class="rad-main">${rad.radical}</div>
       <div class="rad-info">
@@ -227,6 +228,7 @@ function renderSidebar(list){
 // ── SELECT RADICAL ──
 function selectRadical(i, list){
   activeRadIdx = i;
+  activeRadicalKey = list[i].radical; // lưu bằng key để highlight đúng sau search
   activeCharHanzi = null;
   const rad = list[i];
   renderSidebar(list);

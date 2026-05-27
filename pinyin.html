@@ -447,7 +447,7 @@ function getWrongOptions(correct, field, pool, n){
 var currentMode = '';
 var resultData  = {correct:0,wrong:0,streak:0,maxStreak:0,missed:[]};
 
-function goHome(){ showScreen('home-screen'); }
+function goHome(){ clearInterval(speedTimer); showScreen('home-screen'); }
 function replayMode(){ startMode(currentMode); }
 
 // ════════════════════════════════
@@ -465,7 +465,7 @@ function startMode(mode){
 
 function startTone(){
   // Dùng toàn bộ data, ưu tiên đơn âm tiết
-  toneQueue = shuffle(HSK1_DATA.filter(x=>x.tone>0)); // bỏ thanh nhẹ
+  toneQueue = shuffle(HSK1_DATA.filter(x=>x.hanzi.length===1 && x.tone>0)); // chỉ đơn âm, bỏ thanh nhẹ
   toneIdx=0; toneCorrect=0; toneWrong=0; toneLocked=false;
   showScreen('tone-screen');
   renderToneQuestion();
