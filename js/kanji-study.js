@@ -89,6 +89,12 @@ function openDetail(k, cellEl) {
   document.querySelectorAll('.k-cell.selected').forEach(c => c.classList.remove('selected'));
   if (cellEl) cellEl.classList.add('selected');
 
+  // Show content, hide placeholder
+  const placeholder = document.getElementById('detail-placeholder');
+  const content     = document.getElementById('detail-content');
+  if (placeholder) placeholder.style.display = 'none';
+  if (content)     content.style.display     = '';
+
   // Fill data
   document.getElementById('detail-kanji-big').textContent = k.kanji;
   document.getElementById('detail-hanviet').textContent   = (k.hanviet || '').toUpperCase();
