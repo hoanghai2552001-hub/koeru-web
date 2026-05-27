@@ -1,17 +1,16 @@
 // ══════════════════════════════════════════
-// ══ STROKE ORDER ANIMATION (animCJK) ══
+// ══ STROKE ORDER (KanjiVG + JS animation) ══
 // ══════════════════════════════════════════
-// Source: animCJK (Arphic Public License)
-// CDN: cdn.jsdelivr.net/gh/parsimonhi/animCJK
+// Data: KanjiVG (CC BY-SA 3.0)
+// CDN: cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/
 
-const ANIMCJK_BASE = 'https://cdn.jsdelivr.net/gh/parsimonhi/animCJK@master/svgsJa/';
-let _strokeSvgCache = {}; // cache để không fetch lại
+const _KANJIVG = 'https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/';
+let _strokeCache = {};
 
-function showStrokeOrder(kanji) {
+async function showStrokeOrder(kanji) {
   if (!kanji || !kanji.trim()) return;
-  const char = kanji.trim()[0]; // chỉ lấy ký tự đầu
+  const char = kanji.trim()[0];
   const cp   = char.codePointAt(0).toString(16).toLowerCase().padStart(5, '0');
-  const url  = ANIMCJK_BASE + cp + '.svg';
 
   const overlay   = document.getElementById('stroke-overlay');
   const container = document.getElementById('stroke-svg-wrap');
@@ -22,67 +21,90 @@ function showStrokeOrder(kanji) {
   container.innerHTML = '<div class="stroke-loading">⏳ Đang tải nét vẽ…</div>';
   overlay.classList.add('visible');
 
-  // Dùng cache nếu đã fetch rồi
-  if (_strokeSvgCache[cp]) {
-    _injectStrokeSvg(container, _strokeSvgCache[cp]);
+  let svgText = _strokeCache[cp];
+  if (!svgText) {
+    try {
+      const r = await fetch(_KANJIVG + cp + '.svg');
+      if (!r.ok) throw new Error();
+      svgText = await r.text();
+      _strokeCache[cp] = svgText;
+    } catch(_) {
+      container.innerHTML = '<div class="stroke-not-found">Chưa có dữ liệu nét vẽ cho kanji này</div>';
+      return;
+    }
+  }
+  _buildAndPlay(container, svgText);
+}
+
+function _buildAndPlay(container, svgText) {
+  const NS  = 'http://www.w3.org/2000/svg';
+  const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
+  const paths = Array.from(doc.querySelectorAll('path'))
+    .map(p => p.getAttribute('d')).filter(Boolean);
+
+  if (!paths.length) {
+    container.innerHTML = '<div class="stroke-not-found">Chưa có dữ liệu</div>';
     return;
   }
 
-  fetch(url)
-    .then(r => {
-      if (!r.ok) throw new Error('not_found');
-      return r.text();
-    })
-    .then(svg => {
-      _strokeSvgCache[cp] = svg;
-      _injectStrokeSvg(container, svg);
-    })
-    .catch(() => {
-      container.innerHTML =
-        '<div class="stroke-not-found">Chưa có dữ liệu nét vẽ cho kanji này</div>';
-    });
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 109 109');
+  svg.style.cssText = 'width:100%;max-width:220px;height:auto;display:block;margin:0 auto;';
+
+  paths.forEach(d => {
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', d);
+    p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', '#c4b5fd');
+    p.setAttribute('stroke-width', '3.5');
+    p.setAttribute('stroke-linecap', 'round');
+    p.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(p);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(svg);
+  container._kanjivgPaths = paths;
+  _playAnim(svg);
 }
 
-function _injectStrokeSvg(container, svgText) {
-  container.innerHTML = svgText;
-  const svgEl = container.querySelector('svg');
-  if (svgEl) {
-    // Xoá width/height cứng, cho CSS điều khiển kích thước
-    svgEl.removeAttribute('width');
-    svgEl.removeAttribute('height');
-    svgEl.style.cssText =
-      'width:100%;max-width:240px;height:auto;display:block;margin:0 auto;';
-  }
-  // Lưu lại để replay
-  container.dataset.lastSvg = svgText;
-  container.dataset.lastCp  = container.dataset.lastCp || '';
+function _playAnim(svg) {
+  const els = Array.from(svg.querySelectorAll('path'));
+  els.forEach(p => {
+    const len = p.getTotalLength() || 100;
+    p.style.transition = 'none';
+    p.style.strokeDasharray  = len;
+    p.style.strokeDashoffset = len;
+    p.style.stroke = 'rgba(196,181,253,.12)';
+  });
+  let delay = 0;
+  els.forEach(p => {
+    const len = p.getTotalLength() || 100;
+    const dur = Math.min(Math.max(len * 4, 250), 900);
+    setTimeout(() => {
+      p.style.stroke = '#c4b5fd';
+      p.style.transition = `stroke-dashoffset ${dur}ms ease, stroke 80ms`;
+      p.style.strokeDashoffset = '0';
+    }, delay);
+    delay += dur + 80;
+  });
 }
 
 function replayStrokeOrder() {
   const container = document.getElementById('stroke-svg-wrap');
-  if (!container || !container.dataset.lastSvg) return;
-  // Re-inject SVG → animations restart
-  _injectStrokeSvg(container, container.dataset.lastSvg);
+  const svg = container?.querySelector('svg');
+  if (svg) _playAnim(svg);
 }
 
 function closeStrokeOverlay() {
-  const overlay = document.getElementById('stroke-overlay');
-  if (overlay) overlay.classList.remove('visible');
+  document.getElementById('stroke-overlay')?.classList.remove('visible');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('stroke-overlay');
   if (!overlay) return;
-
-  // Đóng khi click vùng tối bên ngoài modal
-  overlay.addEventListener('click', e => {
-    if (e.target === overlay) closeStrokeOverlay();
-  });
-
-  // Đóng bằng Escape
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeStrokeOverlay(); });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('visible')) {
-      closeStrokeOverlay();
-    }
+    if (e.key === 'Escape' && overlay.classList.contains('visible')) closeStrokeOverlay();
   });
 });

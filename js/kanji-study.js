@@ -5,7 +5,7 @@
 // Stroke order: animCJK (Arphic Public License)
 //   via cdn.jsdelivr.net/gh/parsimonhi/animCJK
 
-const ANIMCJK = 'https://cdn.jsdelivr.net/gh/parsimonhi/animCJK@master/svgsJa/';
+const KANJIVG_CDN = 'https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/';
 
 // ── State ──────────────────────────────────
 let currentLevel  = 'N5';
@@ -133,49 +133,93 @@ function closeDetail() {
   currentKanji = null;
 }
 
-// ── Stroke order ────────────────────────────
-function loadStrokeOrder(kanji) {
+// ── Stroke order (KanjiVG + JS animation) ───
+async function loadStrokeOrder(kanji) {
   const container = document.getElementById('detail-stroke-svg');
   const cp = kanji.codePointAt(0).toString(16).toLowerCase().padStart(5, '0');
 
-  // Count info
   const k = ALL_KANJI.find(x => x.kanji === kanji);
   document.getElementById('detail-stroke-count').textContent =
     k && k.stroke ? `${k.stroke} nét vẽ` : 'Thứ tự nét vẽ';
 
-  if (svgCache[cp]) {
-    injectSvg(container, svgCache[cp]);
+  container.innerHTML = '<span class="stroke-load-msg">⏳</span>';
+
+  // dùng cache nếu đã fetch
+  let svgText = svgCache[cp];
+  if (!svgText) {
+    try {
+      const r = await fetch(KANJIVG_CDN + cp + '.svg');
+      if (!r.ok) throw new Error();
+      svgText = await r.text();
+      svgCache[cp] = svgText;
+    } catch(_) {
+      container.innerHTML = '<span class="stroke-load-msg">Chưa có dữ liệu</span>';
+      return;
+    }
+  }
+  buildStrokeSvg(container, svgText);
+}
+
+function buildStrokeSvg(container, svgText) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml');
+  const paths = Array.from(doc.querySelectorAll('path'))
+    .map(p => p.getAttribute('d')).filter(Boolean);
+
+  if (!paths.length) {
+    container.innerHTML = '<span class="stroke-load-msg">Chưa có dữ liệu</span>';
     return;
   }
 
-  container.innerHTML = '<span class="stroke-load-msg">⏳ Đang tải…</span>';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 109 109');
+  svg.style.cssText = 'width:86px;height:86px;display:block;';
 
-  fetch(ANIMCJK + cp + '.svg')
-    .then(r => { if (!r.ok) throw new Error(); return r.text(); })
-    .then(svg => {
-      svgCache[cp] = svg;
-      injectSvg(container, svg);
-    })
-    .catch(() => {
-      container.innerHTML = '<span class="stroke-load-msg" style="font-size:.65rem">Chưa có dữ liệu</span>';
-    });
+  paths.forEach(d => {
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', d);
+    p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', '#a5b4fc');
+    p.setAttribute('stroke-width', '3.5');
+    p.setAttribute('stroke-linecap', 'round');
+    p.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(p);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(svg);
+  container._paths = paths;   // lưu cho replay
+  playStrokeAnim(svg);
 }
 
-function injectSvg(container, svgText) {
-  container.innerHTML = svgText;
-  const svgEl = container.querySelector('svg');
-  if (svgEl) {
-    svgEl.removeAttribute('width');
-    svgEl.removeAttribute('height');
-    svgEl.style.cssText = 'width:90px;height:90px;display:block;';
-  }
-  container.dataset.svg = svgText;
+function playStrokeAnim(svg) {
+  const pathEls = Array.from(svg.querySelectorAll('path'));
+  // reset
+  pathEls.forEach(p => {
+    const len = p.getTotalLength() || 100;
+    p.style.transition = 'none';
+    p.style.strokeDasharray = len;
+    p.style.strokeDashoffset = len;
+    p.style.stroke = 'rgba(165,180,252,.15)';
+  });
+
+  let delay = 0;
+  pathEls.forEach(p => {
+    const len = p.getTotalLength() || 100;
+    const dur  = Math.min(Math.max(len * 4, 250), 900); // 250–900ms per stroke
+    setTimeout(() => {
+      p.style.stroke = '#a5b4fc';
+      p.style.transition = `stroke-dashoffset ${dur}ms ease, stroke 80ms`;
+      p.style.strokeDashoffset = '0';
+    }, delay);
+    delay += dur + 80;
+  });
 }
 
 function replayStroke() {
   const container = document.getElementById('detail-stroke-svg');
-  const svg = container.dataset.svg;
-  if (svg) injectSvg(container, svg);
+  const svg = container.querySelector('svg');
+  if (svg) playStrokeAnim(svg);
 }
 
 // ── Vocabulary ──────────────────────────────
