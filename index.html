@@ -51,6 +51,17 @@ nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1p
 .page{display:none}
 .page.active{display:block;animation:up .22s ease}
 @keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.course-meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.course-meta span{font-size:11px;color:var(--ink3);background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:3px 9px;white-space:nowrap}
+.ai-teacher-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start;margin-top:32px;text-align:left}
+.ai-teacher-col{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:28px 24px}
+.ai-teacher-icon{font-size:32px;margin-bottom:10px}
+.ai-teacher-col h3{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:14px}
+.ai-teacher-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.ai-teacher-list li{font-size:14px;color:var(--ink2);line-height:1.5}
+.ai-teacher-divider{font-size:28px;font-weight:900;color:var(--accent);padding-top:80px;text-align:center}
+@media(max-width:680px){.ai-teacher-grid{grid-template-columns:1fr}.ai-teacher-divider{padding-top:0;text-align:center}}
 .wrap{max-width:1080px;margin:auto;padding:0 1.5rem}
 
 /* ── HERO ── */
@@ -622,30 +633,55 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
           <span class="course-icon">📖</span>
           <h3>JLPT N5 → N3 Prep</h3>
           <p>Lộ trình thi JLPT bài bản. Từ vựng, ngữ pháp, đọc hiểu — AI hỗ trợ ôn tập.</p>
+          <div class="course-meta">
+            <span>⏱ 8–16 tuần</span>
+            <span>👥 Nhóm nhỏ / 1-1</span>
+            <span>🎯 Người mới & ôn thi</span>
+          </div>
           <span class="course-tag jp">🇯🇵 Tiếng Nhật</span>
         </div>
         <div class="course-card" onclick="showPage('register')">
           <span class="course-icon">💼</span>
           <h3>Business Japanese</h3>
           <p>Tiếng Nhật công sở. Kính ngữ, email, họp — thực tế cho người đi làm.</p>
+          <div class="course-meta">
+            <span>⏱ 8 tuần</span>
+            <span>👥 Nhóm nhỏ / 1-1</span>
+            <span>🎯 Người đi làm / du học</span>
+          </div>
           <span class="course-tag jp">🇯🇵 Tiếng Nhật</span>
         </div>
         <div class="course-card" onclick="showPage('register')">
           <span class="course-icon">🀄</span>
           <h3>HSK 1 → HSK 3</h3>
           <p>Tiếng Trung từ cơ bản đến giao tiếp. Phát âm chuẩn, từ vựng thực dụng.</p>
+          <div class="course-meta">
+            <span>⏱ 10–18 tuần</span>
+            <span>👥 Nhóm nhỏ / 1-1</span>
+            <span>🎯 Người mới bắt đầu</span>
+          </div>
           <span class="course-tag cn">🇨🇳 Tiếng Trung</span>
         </div>
         <div class="course-card" onclick="showPage('register')">
           <span class="course-icon">💬</span>
           <h3>Giao tiếp tiếng Trung</h3>
           <p>Nói được ngay. Hội thoại thực tế, văn hóa Trung Quốc, luyện tone chuẩn.</p>
+          <div class="course-meta">
+            <span>⏱ 8 tuần</span>
+            <span>👥 Nhóm nhỏ</span>
+            <span>🎯 Giao tiếp & du lịch</span>
+          </div>
           <span class="course-tag cn">🇨🇳 Tiếng Trung</span>
         </div>
         <div class="course-card" onclick="showPage('quiz')">
           <span class="course-icon">🤖</span>
           <h3>AI Learning Tools</h3>
           <p>Quiz AI, Flashcard thông minh, nhận xét cá nhân hóa — miễn phí.</p>
+          <div class="course-meta">
+            <span>⏱ Học bất cứ lúc nào</span>
+            <span>📱 Online tự do</span>
+            <span>🎯 Mọi trình độ</span>
+          </div>
           <span class="course-tag jp" style="background:var(--accent-l);color:var(--accent)">✨ Miễn phí</span>
         </div>
       </div>
@@ -709,7 +745,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
           <div class="rm-dot accent">N3</div>
           <div class="rm-body">
             <h4>🇯🇵 JLPT N3 · HSK 3</h4>
-            <p>Hiểu tin tức, phim không sub, email công việc. Đây là cấp "sống được" ở Nhật/Trung.</p>
+            <p>Đọc hiểu nội dung đời sống & công việc, nghe quen nhiều tình huống, xử lý được email và giao tiếp công việc cơ bản. Đây là nền để "sống được" ở Nhật/Trung.</p>
           </div>
         </div>
         <div class="rm-step">
@@ -746,8 +782,42 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
     </div>
   </div>
 
-  <!-- FAQ -->
+  <!-- AI vs TEACHER -->
   <div class="land-sec" style="background:var(--white)">
+    <div class="wrap land-center">
+      <div class="land-eyebrow">Phương pháp</div>
+      <div class="land-h2">AI hỗ trợ — Giáo viên thật theo sát</div>
+      <p class="land-sub">Công nghệ giúp bạn học nhanh hơn. Con người giúp bạn tiến xa hơn.</p>
+      <div class="ai-teacher-grid">
+        <div class="ai-teacher-col">
+          <div class="ai-teacher-icon">🤖</div>
+          <h3>AI làm tốt nhất</h3>
+          <ul class="ai-teacher-list">
+            <li>✅ Chấm quiz tức thì, nhận xét từng câu sai</li>
+            <li>✅ Gợi ý bài cần ôn theo trình độ</li>
+            <li>✅ Tạo flashcard cá nhân hóa</li>
+            <li>✅ Theo dõi tiến độ học mỗi ngày</li>
+            <li>✅ Sẵn sàng 24/7, không chờ đợi</li>
+          </ul>
+        </div>
+        <div class="ai-teacher-divider">+</div>
+        <div class="ai-teacher-col">
+          <div class="ai-teacher-icon">👩‍🏫</div>
+          <h3>Giáo viên thật làm tốt nhất</h3>
+          <ul class="ai-teacher-list">
+            <li>✅ Sửa phát âm, ngữ điệu tự nhiên</li>
+            <li>✅ Giải thích ngữ pháp theo ngữ cảnh thật</li>
+            <li>✅ Luyện hội thoại & phản xạ nói</li>
+            <li>✅ Định hướng lộ trình sát với mục tiêu bạn</li>
+            <li>✅ Động viên khi bạn mất động lực</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="land-sec">
     <div class="wrap land-center">
       <div class="land-eyebrow">Câu hỏi thường gặp</div>
       <div class="land-h2">FAQ</div>
@@ -801,10 +871,17 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <div class="land-eyebrow" style="text-align:left">Tư vấn miễn phí</div>
       <div class="land-h2">Không chắc nên bắt đầu từ đâu?</div>
       <p class="land-sub">Để lại thông tin — KOERU sẽ gợi ý lộ trình học phù hợp với mục tiêu của bạn trong vòng 24 giờ.</p>
-      <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin-top:8px">
+      <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin-top:8px;position:relative">
+        <div id="form-tuvan-skeleton" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:60px 24px;background:var(--cream)">
+          <div style="width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite"></div>
+          <p style="color:var(--ink3);font-size:14px;margin:0">Đang tải form tư vấn…</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform" target="_blank" style="font-size:13px;color:var(--navy);text-decoration:underline">Mở trực tiếp nếu form không hiện →</a>
+        </div>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform?embedded=true"
           width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
-          style="display:block">Đang tải…</iframe>
+          style="display:none"
+          onload="this.style.display='block';document.getElementById('form-tuvan-skeleton').style.display='none'">
+        </iframe>
       </div>
     </div>
   </div>
@@ -972,10 +1049,17 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
         <h2 style="font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.5px">Bắt đầu hành trình của bạn</h2>
       </div>
       <p style="color:var(--ink3);font-size:14px;margin-bottom:28px;line-height:1.7">Điền thông tin bên dưới — KOERU sẽ liên hệ tư vấn trong vòng 24 giờ.</p>
-      <div style="border-radius:var(--rl);overflow:hidden;border:1.5px solid var(--border)">
+      <div style="border-radius:var(--rl);overflow:hidden;border:1.5px solid var(--border);position:relative">
+        <div id="form-register-skeleton" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:60px 24px;background:var(--cream)">
+          <div style="width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite"></div>
+          <p style="color:var(--ink3);font-size:14px;margin:0">Đang tải form đăng ký…</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform" target="_blank" style="font-size:13px;color:var(--navy);text-decoration:underline">Mở trực tiếp nếu form không hiện →</a>
+        </div>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform?embedded=true"
           width="100%" height="1359" frameborder="0" marginheight="0" marginwidth="0"
-          style="display:block">Loading…</iframe>
+          style="display:none"
+          onload="this.style.display='block';document.getElementById('form-register-skeleton').style.display='none'">
+        </iframe>
       </div>
     </div>
   </div>
