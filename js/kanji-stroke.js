@@ -10,7 +10,7 @@ let _strokeSvgCache = {}; // cache để không fetch lại
 function showStrokeOrder(kanji) {
   if (!kanji || !kanji.trim()) return;
   const char = kanji.trim()[0]; // chỉ lấy ký tự đầu
-  const cp   = char.codePointAt(0).toString(16).toLowerCase();
+  const cp   = char.codePointAt(0).toString(16).toLowerCase().padStart(5, '0');
   const url  = ANIMCJK_BASE + cp + '.svg';
 
   const overlay   = document.getElementById('stroke-overlay');

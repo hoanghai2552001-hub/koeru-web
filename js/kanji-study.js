@@ -136,7 +136,7 @@ function closeDetail() {
 // ── Stroke order ────────────────────────────
 function loadStrokeOrder(kanji) {
   const container = document.getElementById('detail-stroke-svg');
-  const cp = kanji.codePointAt(0).toString(16).toLowerCase();
+  const cp = kanji.codePointAt(0).toString(16).toLowerCase().padStart(5, '0');
 
   // Count info
   const k = ALL_KANJI.find(x => x.kanji === kanji);
