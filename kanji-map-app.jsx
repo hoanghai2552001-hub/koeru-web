@@ -181,8 +181,7 @@ const KanjiMapApp = () => {
       <div className="km-top">
         <div className="km-brand">
           <a href="./index.html" style={{ textDecoration:'none', color:'inherit', display:'flex', alignItems:'center', gap:8 }}>
-            <span className="km-brand-mark">越</span>
-            <span className="km-brand-name">KOERU</span>
+            <img src="./koeru-logo.png" alt="KOERU" style={{ height:32, width:'auto' }} />
           </a>
           <span className="km-brand-sub">Bản đồ Kanji</span>
         </div>
