@@ -658,7 +658,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
           </div>
           <span class="course-tag jp">🇯🇵 Tiếng Nhật</span>
         </div>
-        <div class="course-card" onclick="showPage('register')">
+        <div class="course-card">
           <span class="course-icon">🀄</span>
           <h3>HSK 1 → HSK 3</h3>
           <p>Tiếng Trung từ cơ bản đến giao tiếp. Phát âm chuẩn, từ vựng thực dụng.</p>
@@ -666,6 +666,10 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
             <span>⏱ 10–18 tuần</span>
             <span>👥 Nhóm nhỏ / 1-1</span>
             <span>🎯 Người mới bắt đầu</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+            <a href="pinyin.html" onclick="localStorage.setItem('lead_source','pinyin_speed')" style="display:inline-block;font-size:.8rem;font-weight:700;padding:7px 14px;background:#ffecd6;color:#8b4a00;border-radius:999px;text-decoration:none">🀄 Thử Pinyin Speed</a>
+            <button onclick="showPage('register')" style="font-size:.8rem;font-weight:700;padding:7px 14px;background:var(--navy);color:#fff;border:none;border-radius:999px;cursor:pointer">Nhận lộ trình HSK →</button>
           </div>
           <span class="course-tag cn">🇨🇳 Tiếng Trung</span>
         </div>
