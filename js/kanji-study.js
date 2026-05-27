@@ -1,9 +1,9 @@
 // ══════════════════════════════════════════
 // KOERU · Học Kanji — kanji-study.js
 // ══════════════════════════════════════════
-// Dữ liệu: ALL_KANJI từ kanji-data.js
-// Stroke order: animCJK (Arphic Public License)
-//   via cdn.jsdelivr.net/gh/parsimonhi/animCJK
+// Dữ liệu: ALL_KANJI lazy-load theo level (kanji-data-n5.js…)
+// Stroke order: KanjiVG (CC BY-SA 3.0)
+//   via cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/
 
 const KANJIVG_CDN = 'https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/';
 
@@ -291,7 +291,6 @@ function buildStrokeSvg(container, svgText) {
 
   container.innerHTML = '';
   container.appendChild(svg);
-  container._paths = paths;   // lưu cho replay
   playStrokeAnim(svg);
 }
 

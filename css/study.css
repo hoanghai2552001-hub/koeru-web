@@ -168,7 +168,7 @@ body {
   position: relative;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  /* animation set inline via animationDelay */
+  animation: kfadeIn .14s ease both;
 }
 .k-cell:hover  { border-color: rgba(99,102,241,.5); background: rgba(99,102,241,.1); }
 .k-cell:active { transform: scale(.93); }
@@ -469,7 +469,6 @@ body {
   from { opacity: 0; transform: scale(.92); }
   to   { opacity: 1; transform: none; }
 }
-.k-cell { animation: kfadeIn .14s ease both; }
 
 /* ── Radical & Parts ── */
 #detail-radical-wrap,

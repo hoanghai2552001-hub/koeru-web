@@ -147,14 +147,12 @@
 
 <div id="detail-backdrop"></div>
 
-<!-- Chỉ load N5 lúc đầu (~55KB), các level khác lazy load khi click tab -->
-<script>window.ALL_KANJI = [];</script>
-<script src="js/kanji-data-n5.js?v=20260527d"></script>
+<!-- Data: chỉ load N5 (~55KB) lúc đầu, các level khác lazy-load khi click tab -->
 <script>
-  // Seed ALL_KANJI từ N5 ngay lập tức
-  if (window.KANJI_N5) window.KANJI_N5.forEach(k => window.ALL_KANJI.push(k));
+  window.ALL_KANJI = [];
   window._koeruDataLoaded = function(){};
 </script>
+<script src="js/kanji-data-n5.js?v=20260527d" onload="window.KANJI_N5?.forEach(k=>ALL_KANJI.push(k))"></script>
 <script src="js/koeru-mastery.js?v=20260525"></script>
 <script src="js/kanji-study.js?v=20260527d"></script>
 </body>
