@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>KOERU Hanzi Lab — Luyện Chữ Hán HSK</title>
+<meta name="description" content="Luyện nhận diện chữ Hán tiếng Trung HSK 1·2·3 — Meaning Quiz, Pinyin Quiz, Speed Challenge. Miễn phí. by KOERU Chinese.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0f1a;--surface:#161929;--surface2:#1e2235;
+  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);
+  --red:#e53935;--gold:#f5c842;
+  --tone1:#4fc3f7;--tone2:#66bb6a;--tone3:#ffa726;--tone4:#ef5350;
+  --hsk1:#4ade80;--hsk2:#60a5fa;--hsk3:#c084fc;
+  --text:#e2e8f0;--muted:#64748b;--soft:#94a3b8;
+  --shadow:0 8px 32px rgba(0,0,0,.5);
+  --r:14px;--rl:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Be Vietnam Pro",system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.screen{display:none;min-height:100vh;padding:22px 18px;max-width:560px;margin:0 auto;flex-direction:column}
+.screen.active{display:flex}
+a.back{text-decoration:none;color:var(--soft);font-size:.82rem;font-weight:700;margin-bottom:20px;display:inline-flex;align-items:center;gap:4px}
+/* ── HOME ── */
+.home-hero{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:26px 20px;text-align:center;margin-bottom:18px;box-shadow:var(--shadow)}
+.app-logo{width:64px;height:64px;margin:0 auto 12px;border-radius:18px;background:linear-gradient(135deg,#e53935,#c62828);display:flex;align-items:center;justify-content:center;font-family:"Noto Sans SC",sans-serif;font-size:2rem;font-weight:900;color:#fff;box-shadow:0 4px 20px rgba(229,57,53,.4)}
+.app-title{font-size:1.55rem;font-weight:900;color:var(--text)}
+.app-sub{font-size:.85rem;color:var(--muted);margin:7px 0 4px;line-height:1.55}
+.brand{font-size:.7rem;color:var(--muted);letter-spacing:.4px}
+/* mode + level */
+.section-label{font-size:.78rem;font-weight:700;color:var(--soft);margin:14px 0 8px;letter-spacing:.3px;text-transform:uppercase}
+.mode-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:4px}
+.mode-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;text-align:left;transition:all .18s;border-left:3px solid transparent}
+.mode-card:hover,.mode-card.active{border-color:var(--red);background:var(--surface2)}
+.mode-card.active{border-left-color:var(--red)}
+.mode-name{font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:3px}
+.mode-desc{font-size:.78rem;color:var(--muted)}
+.level-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{border:1px solid var(--border);background:var(--surface);border-radius:999px;padding:7px 16px;cursor:pointer;font-size:.8rem;font-weight:700;color:var(--soft);transition:all .15s}
+.chip.on-1{border-color:var(--hsk1);color:var(--hsk1);background:rgba(74,222,128,.1)}
+.chip.on-2{border-color:var(--hsk2);color:var(--hsk2);background:rgba(96,165,250,.1)}
+.chip.on-3{border-color:var(--hsk3);color:var(--hsk3);background:rgba(192,132,252,.1)}
+.btn-start{border:none;background:var(--red);color:#fff;font-weight:900;border-radius:999px;padding:14px 24px;cursor:pointer;font-size:.95rem;font-family:inherit;width:100%;margin-bottom:10px;box-shadow:0 4px 16px rgba(229,57,53,.35)}
+.btn-ghost{border:1px solid var(--border2);background:transparent;color:var(--soft);font-weight:700;border-radius:999px;padding:11px;cursor:pointer;font-size:.82rem;font-family:inherit;width:100%}
+/* ── GAME ── */
+.game-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.btn-exit{border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.78rem;font-weight:700;border-radius:999px;padding:6px 12px;cursor:pointer;font-family:inherit}
+.score-pill{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:.82rem;font-weight:800;color:var(--gold)}
+.streak-pill{background:rgba(229,57,53,.15);border:1px solid rgba(229,57,53,.3);border-radius:999px;padding:5px 12px;font-size:.82rem;font-weight:800;color:var(--red)}
+/* timer */
+.timer-wrap{margin-bottom:14px}
+.timer-bar{height:5px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.timer-fill{height:100%;background:var(--gold);border-radius:99px;transition:width .5s linear}
+.timer-text{font-size:.72rem;color:var(--muted);margin-top:4px;text-align:right}
+/* question card */
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:24px 20px;text-align:center;margin-bottom:16px;box-shadow:var(--shadow)}
+.q-mode-tag{display:inline-block;font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:999px;margin-bottom:10px;letter-spacing:.3px}
+.tag-meaning{background:rgba(229,57,53,.15);color:var(--red)}
+.tag-pinyin{background:rgba(250,189,0,.1);color:var(--gold)}
+.tag-speed{background:rgba(99,102,241,.2);color:#818cf8}
+.q-hanzi{font-family:"Noto Sans SC",sans-serif;font-size:5rem;font-weight:900;color:var(--text);line-height:1;margin:6px 0}
+.q-sub{font-size:.82rem;color:var(--muted)}
+.q-hsk{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px;margin-top:8px}
+/* options */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:1px solid var(--border2);background:var(--surface2);border-radius:12px;padding:14px 10px;cursor:pointer;color:var(--text);font-weight:700;font-size:.88rem;font-family:inherit;transition:all .18s;text-align:center;line-height:1.3}
+.opt:hover:not(:disabled){border-color:var(--gold);background:rgba(245,200,66,.08)}
+.opt.correct{border-color:#4ade80;background:rgba(74,222,128,.12);color:#4ade80}
+.opt.wrong{border-color:#ef4444;background:rgba(239,68,68,.1);color:#ef4444}
+.opt:disabled{cursor:not-allowed}
+/* ── RESULT ── */
+.result-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:26px 20px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;box-shadow:var(--shadow)}
+.result-emoji{font-size:2.8rem}
+.result-h{font-size:1.3rem;font-weight:900}
+.result-pct{font-size:3rem;font-weight:900;color:var(--red)}
+.result-sub{font-size:.85rem;color:var(--muted);line-height:1.55}
+.stats-row{display:flex;gap:16px;justify-content:center}
+.stat-box{background:var(--surface2);border-radius:12px;padding:10px 20px;text-align:center}
+.stat-n{font-size:1.4rem;font-weight:900}
+.stat-l{font-size:.7rem;color:var(--muted)}
+.btn-play{border:none;background:var(--red);color:#fff;font-weight:900;border-radius:999px;padding:12px 24px;cursor:pointer;font-size:.88rem;font-family:inherit;box-shadow:0 4px 16px rgba(229,57,53,.3)}
+.btn-home-r{border:1px solid var(--border2);background:transparent;color:var(--soft);font-weight:700;border-radius:999px;padding:11px 22px;cursor:pointer;font-size:.82rem;font-family:inherit}
+.cta-band{border:1px solid rgba(245,200,66,.3);background:rgba(245,200,66,.07);border-radius:14px;padding:14px 16px;margin-top:4px;text-align:center;width:100%}
+.cta-band p{font-size:.8rem;color:var(--gold);margin-bottom:8px;font-weight:700}
+.btn-cta{border:none;background:var(--gold);color:#1a1a2e;font-weight:900;border-radius:999px;padding:10px 20px;cursor:pointer;font-size:.82rem;font-family:inherit}
+/* ── MODAL ── */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);align-items:center;justify-content:center;padding:20px;z-index:999}
+.modal.open{display:flex}
+.modal-box{width:100%;max-width:420px;background:#1e2235;border:1px solid var(--border2);border-radius:20px;padding:24px;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;right:14px;top:12px;border:none;background:transparent;font-size:1.2rem;cursor:pointer;color:var(--muted)}
+.modal-h{font-size:1.1rem;font-weight:900;color:var(--text);margin-bottom:4px}
+.modal-sub{font-size:.8rem;color:var(--muted);margin-bottom:14px;line-height:1.5}
+.lead-form{display:flex;flex-direction:column;gap:10px}
+.lead-form input,.lead-form select{padding:12px 14px;border:1px solid var(--border2);border-radius:10px;font:inherit;font-size:.88rem;color:var(--text);background:var(--surface)}
+.lead-form input:focus,.lead-form select:focus{outline:none;border-color:var(--gold)}
+.lead-form select option{background:var(--surface);color:var(--text)}
+.btn-submit{border:none;background:var(--red);color:#fff;font-weight:900;border-radius:999px;padding:13px;cursor:pointer;font-size:.9rem;font-family:inherit}
+.privacy{font-size:.68rem;color:var(--muted);text-align:center;line-height:1.4}
+.lead-success{display:none;background:rgba(74,222,128,.12);color:#4ade80;border-radius:12px;border:1px solid rgba(74,222,128,.2);padding:14px;text-align:center;font-weight:700;font-size:.85rem;line-height:1.5;margin-top:4px}
+.correct-answer-note{font-size:.78rem;color:var(--soft);margin-top:10px;background:var(--surface2);border-radius:8px;padding:8px 12px;text-align:left}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div id="home-screen" class="screen active">
+  <a href="index.html" class="back">← KOERU</a>
+  <div class="home-hero">
+    <div class="app-logo">汉</div>
+    <div class="app-title">KOERU Hanzi Lab</div>
+    <div class="app-sub">Luyện nhận diện chữ Hán — nghĩa, pinyin và phản xạ nhanh HSK 1·2·3.</div>
+    <div class="brand">by KOERU Chinese</div>
+  </div>
+
+  <div class="section-label">Chọn chế độ luyện</div>
+  <div class="mode-grid">
+    <button class="mode-card active" id="mode-meaning" onclick="pickMode('meaning',this)">
+      <div class="mode-name">📖 Nhận diện nghĩa</div>
+      <div class="mode-desc">Thấy chữ Hán → chọn nghĩa tiếng Việt đúng</div>
+    </button>
+    <button class="mode-card" id="mode-pinyin" onclick="pickMode('pinyin',this)">
+      <div class="mode-name">🎵 Nhận diện Pinyin</div>
+      <div class="mode-desc">Thấy chữ Hán → chọn pinyin (kèm thanh điệu) đúng</div>
+    </button>
+    <button class="mode-card" id="mode-speed" onclick="pickMode('speed',this)">
+      <div class="mode-name">⚡ Speed Challenge</div>
+      <div class="mode-desc">45 giây, hỗn hợp nghĩa + pinyin — tốc độ + streak</div>
+    </button>
+  </div>
+
+  <div class="section-label">Cấp độ từ vựng</div>
+  <div class="level-chips">
+    <div class="chip on-1" id="chip1" onclick="toggleChip(1,this)">HSK 1</div>
+    <div class="chip" id="chip2" onclick="toggleChip(2,this)">HSK 2</div>
+    <div class="chip" id="chip3" onclick="toggleChip(3,this)">HSK 3</div>
+  </div>
+
+  <button class="btn-start" onclick="startGame()">Bắt đầu luyện →</button>
+  <button class="btn-ghost" onclick="openLead('home_cta')">Nhận lộ trình tiếng Trung miễn phí</button>
+</div>
+
+<!-- GAME -->
+<div id="game-screen" class="screen">
+  <div class="game-header">
+    <button class="btn-exit" onclick="goHome()">← Thoát</button>
+    <div class="score-pill">✨ <span id="score-label">0</span></div>
+    <div class="streak-pill">🔥 <span id="streak-label">0</span></div>
+  </div>
+
+  <div class="timer-wrap" id="timer-wrap" style="display:none">
+    <div class="timer-bar"><div class="timer-fill" id="timer-fill" style="width:100%"></div></div>
+    <div class="timer-text" id="timer-text">45s</div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-mode-tag" id="q-mode-tag">Nghĩa</div>
+    <div class="q-hanzi" id="q-hanzi">你</div>
+    <div class="q-sub" id="q-sub"></div>
+    <div class="q-hsk" id="q-hsk-badge"></div>
+  </div>
+
+  <div class="opts" id="opts-grid"></div>
+  <div class="correct-answer-note" id="correct-note" style="display:none"></div>
+</div>
+
+<!-- RESULT -->
+<div id="result-screen" class="screen">
+  <div class="result-card">
+    <div class="result-emoji" id="r-emoji">🎉</div>
+    <div class="result-h">Kết quả luyện tập</div>
+    <div class="result-pct" id="r-pct">0%</div>
+    <div class="result-sub" id="r-sub"></div>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-n" id="r-correct" style="color:var(--hsk1)">0</div><div class="stat-l">Đúng ✅</div></div>
+      <div class="stat-box"><div class="stat-n" id="r-wrong" style="color:var(--red)">0</div><div class="stat-l">Sai ❌</div></div>
+      <div class="stat-box"><div class="stat-n" id="r-streak" style="color:var(--gold)">0</div><div class="stat-l">Max streak 🔥</div></div>
+    </div>
+    <button class="btn-play" onclick="startGame()">▶ Chơi lại</button>
+    <button class="btn-home-r" onclick="goHome()">Đổi chế độ</button>
+    <div class="cta-band">
+      <p>Bạn muốn học tiếng Trung bài bản?</p>
+      <button class="btn-cta" onclick="openLead('result_cta')">Nhận lộ trình HSK miễn phí →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="lead-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLead()">✕</button>
+    <div class="modal-h">Nhận lộ trình tiếng Trung</div>
+    <div class="modal-sub">KOERU gợi ý lộ trình phù hợp với mục tiêu của bạn trong 24 giờ.</div>
+    <div class="lead-success" id="lead-success">
+      ✅ Đã nhận thông tin! KOERU sẽ liên hệ bạn sớm.<br><br>
+      <button class="btn-submit" onclick="closeLead()">Tiếp tục luyện →</button>
+    </div>
+    <form class="lead-form" id="lead-form" onsubmit="submitLead(event)">
+      <input type="hidden" id="lead-cta-loc" value="unknown">
+      <input name="name" placeholder="Họ tên *" required>
+      <input name="contact" placeholder="Zalo / SĐT *" required>
+      <select name="current_level" required>
+        <option value="">Trình độ hiện tại</option>
+        <option value="zero">Chưa biết gì</option>
+        <option value="hsk1">Đang/đã xong HSK 1</option>
+        <option value="hsk2">Đang học HSK 2</option>
+        <option value="hsk3plus">HSK 3 trở lên</option>
+      </select>
+      <select name="goal" required>
+        <option value="">Mục tiêu học</option>
+        <option value="communication">Giao tiếp cơ bản</option>
+        <option value="hsk_exam">Thi HSK</option>
+        <option value="work">Làm việc / công ty Trung</option>
+        <option value="travel">Du lịch</option>
+      </select>
+      <select name="available_time" required>
+        <option value="">Thời gian học</option>
+        <option value="evening">Buổi tối</option>
+        <option value="weekend">Cuối tuần</option>
+        <option value="flexible">Linh hoạt</option>
+      </select>
+      <button type="submit" class="btn-submit" id="lead-submit">Nhận lộ trình →</button>
+      <div class="privacy">KOERU chỉ dùng thông tin này để gợi ý lộ trình, không spam.</div>
+    </form>
+  </div>
+</div>
+
+<script src="js/pinyin-data.js"></script>
+<script src="js/hsk-data.js"></script>
+<script>
+// ── DATA ──
+const LEVELS_DATA = {
+  1: typeof HSK1_DATA !== 'undefined' ? HSK1_DATA : [],
+  2: typeof HSK2_DATA !== 'undefined' ? HSK2_DATA : [],
+  3: typeof HSK3_DATA !== 'undefined' ? HSK3_DATA : []
+};
+let selectedLevels = new Set([1]);
+let gameMode = 'meaning'; // meaning | pinyin | speed
+let deck = [], idx = 0;
+let correct = 0, wrong = 0, streak = 0, maxStreak = 0;
+let answered = false;
+let timerInterval = null, timeLeft = 45;
+let ctaLoc = 'unknown';
+const MAX_Q = 20; // non-speed limit
+
+// ── UI HELPERS ──
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function goHome(){ clearTimer(); showScreen('home-screen'); }
+
+function pickMode(m, btn){
+  gameMode = m;
+  document.querySelectorAll('.mode-card').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function toggleChip(n, el){
+  if(selectedLevels.has(n)){
+    if(selectedLevels.size===1) return;
+    selectedLevels.delete(n);
+    el.className = 'chip';
+  } else {
+    selectedLevels.add(n);
+    el.className = 'chip on-'+n;
+  }
+}
+
+function shuffle(a){ return [...a].sort(()=>Math.random()-.5); }
+
+// ── GAME START ──
+function startGame(){
+  deck = [];
+  selectedLevels.forEach(l=>deck.push(...(LEVELS_DATA[l]||[])));
+  deck = shuffle(deck);
+  if(gameMode !== 'speed') deck = deck.slice(0, MAX_Q);
+  idx = 0; correct = 0; wrong = 0; streak = 0; maxStreak = 0; answered = false;
+  clearTimer();
+  showScreen('game-screen');
+  document.getElementById('timer-wrap').style.display = gameMode==='speed' ? 'block' : 'none';
+  if(gameMode==='speed'){ timeLeft = 45; startTimer(); }
+  document.getElementById('correct-note').style.display = 'none';
+  renderQ();
+}
+
+// ── TIMER (Speed) ──
+function startTimer(){
+  updateTimer();
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    updateTimer();
+    if(timeLeft <= 0){ clearTimer(); showResult(); }
+  }, 1000);
+}
+function clearTimer(){ clearInterval(timerInterval); timerInterval = null; }
+function updateTimer(){
+  const pct = (timeLeft/45)*100;
+  document.getElementById('timer-fill').style.width = pct + '%';
+  document.getElementById('timer-text').textContent = timeLeft + 's';
+  const fill = document.getElementById('timer-fill');
+  fill.style.background = timeLeft > 20 ? 'var(--gold)' : timeLeft > 10 ? 'var(--tone3)' : 'var(--red)';
+}
+
+// ── RENDER Q ──
+function renderQ(){
+  if(gameMode !== 'speed' && idx >= deck.length){ return showResult(); }
+  if(!deck.length){ return showResult(); }
+  answered = false;
+  document.getElementById('correct-note').style.display = 'none';
+
+  // cycle through deck for speed mode
+  const item = deck[idx % deck.length];
+  const subMode = gameMode === 'speed' ? (Math.random() > .5 ? 'meaning' : 'pinyin') : gameMode;
+
+  // tag
+  const tagEl = document.getElementById('q-mode-tag');
+  if(subMode==='meaning'){ tagEl.textContent='📖 Nghĩa'; tagEl.className='q-mode-tag tag-meaning'; }
+  else { tagEl.textContent='🎵 Pinyin'; tagEl.className='q-mode-tag tag-pinyin'; }
+  if(gameMode==='speed'){ tagEl.textContent='⚡ Speed'; tagEl.className='q-mode-tag tag-speed'; }
+
+  document.getElementById('q-hanzi').textContent = item.hanzi;
+  document.getElementById('q-sub').textContent = subMode === 'meaning' ? '' : 'Chọn pinyin đúng';
+
+  const lv = item.hsk || 1;
+  const lc = {1:'var(--hsk1)',2:'var(--hsk2)',3:'var(--hsk3)'};
+  const lb = {1:'rgba(74,222,128,.1)',2:'rgba(96,165,250,.1)',3:'rgba(192,132,252,.1)'};
+  const badge = document.getElementById('q-hsk-badge');
+  badge.textContent = 'HSK '+lv;
+  badge.style.background = lb[lv]||'rgba(255,255,255,.05)';
+  badge.style.color = lc[lv]||'#fff';
+
+  // options
+  let correctAns, allOpts;
+  if(subMode === 'meaning'){
+    correctAns = item.meaning_vi;
+    allOpts = shuffle(deck).slice(0,5).map(x=>x.meaning_vi).filter(x=>x!==correctAns);
+    allOpts = shuffle([...new Set(allOpts)].slice(0,3).concat(correctAns));
+  } else {
+    correctAns = item.pinyin;
+    allOpts = shuffle(deck).slice(0,5).map(x=>x.pinyin).filter(x=>x!==correctAns);
+    allOpts = shuffle([...new Set(allOpts)].slice(0,3).concat(correctAns));
+  }
+
+  const grid = document.getElementById('opts-grid');
+  grid.innerHTML = '';
+  allOpts.forEach(opt=>{
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.textContent = opt;
+    btn.onclick = ()=>answer(btn, opt, correctAns, item, subMode);
+    grid.appendChild(btn);
+  });
+  document.getElementById('score-label').textContent = correct;
+  document.getElementById('streak-label').textContent = streak;
+}
+
+function answer(btn, val, correct_ans, item, subMode){
+  if(answered) return;
+  answered = true;
+  const isRight = val === correct_ans;
+  btn.classList.add(isRight ? 'correct' : 'wrong');
+  // mark correct
+  document.querySelectorAll('.opt').forEach(b=>{
+    if(b.textContent === correct_ans) b.classList.add('correct');
+    b.disabled = true;
+  });
+  if(isRight){ correct++; streak++; if(streak>maxStreak)maxStreak=streak; }
+  else { wrong++; streak=0; }
+  document.getElementById('score-label').textContent = correct;
+  document.getElementById('streak-label').textContent = streak;
+
+  // show hint
+  const note = document.getElementById('correct-note');
+  const info = isRight ? `✅ ${item.hanzi} = ${item.meaning_vi} (${item.pinyin})` :
+    `❌ Đáp án đúng: ${correct_ans} — ${item.hanzi} nghĩa là "${item.meaning_vi}"`;
+  note.textContent = info; note.style.display = 'block';
+
+  idx++;
+  if(gameMode !== 'speed'){
+    setTimeout(()=>{ if(idx<deck.length) renderQ(); else showResult(); }, 900);
+  } else {
+    setTimeout(renderQ, 700);
+  }
+}
+
+// ── RESULT ──
+function showResult(){
+  clearTimer();
+  const total = correct + wrong;
+  const pct = total ? Math.round((correct/total)*100) : 0;
+  document.getElementById('r-pct').textContent = pct + '%';
+  document.getElementById('r-emoji').textContent = pct>=80?'🎉':pct>=50?'📚':'💪';
+  document.getElementById('r-sub').textContent =
+    `${correct}/${total} câu đúng · Streak cao nhất: ${maxStreak}. ` +
+    (pct>=80?'Xuất sắc!':'Luyện thêm để nâng phản xạ nhé!');
+  document.getElementById('r-correct').textContent = correct;
+  document.getElementById('r-wrong').textContent = wrong;
+  document.getElementById('r-streak').textContent = maxStreak;
+  showScreen('result-screen');
+}
+
+// ── LEAD ──
+function openLead(loc){
+  ctaLoc = loc;
+  document.getElementById('lead-cta-loc').value = loc;
+  document.getElementById('lead-modal').classList.add('open');
+}
+function closeLead(){ document.getElementById('lead-modal').classList.remove('open'); }
+function submitLead(e){
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const lead = {
+    name:fd.get('name'), contact:fd.get('contact'),
+    current_level:fd.get('current_level'), goal:fd.get('goal'),
+    available_time:fd.get('available_time'),
+    source:'hanzi_lab', cta_location:ctaLoc,
+    createdAt:new Date().toISOString()
+  };
+  try{
+    const leads = JSON.parse(localStorage.getItem('koeru_chinese_leads')||'[]');
+    leads.push(lead); localStorage.setItem('koeru_chinese_leads',JSON.stringify(leads));
+  }catch(_){}
+  const btn=document.getElementById('lead-submit');
+  btn.textContent='✅ Đã gửi!'; btn.disabled=true;
+  e.target.style.display='none';
+  document.getElementById('lead-success').style.display='block';
+  localStorage.setItem('lead_source','hanzi_lab');
+}
+</script>
+</body>
+</html>

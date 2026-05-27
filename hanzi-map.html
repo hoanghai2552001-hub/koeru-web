@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KOERU Hanzi Map — Bản đồ Bộ thủ Tiếng Trung</title>
+<meta name="description" content="Khám phá chữ Hán theo bộ thủ — 20 bộ thủ phổ biến + từ vựng HSK 1·2·3. Miễn phí. by KOERU Chinese.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#2d3561;--accent:#e8845a;--yellow:#f5c842;
+  --cream:#fdf8f4;--white:#fff;--border:#e8e4f0;
+  --ink:#25283d;--ink2:#5a5f7a;--ink3:#9196ae;
+  --shadow:0 4px 24px rgba(45,53,97,.08);
+  --r:14px;--rl:22px;
+  --hsk1:#16a34a;--hsk2:#1d4ed8;--hsk3:#7c3aed;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Be Vietnam Pro",system-ui,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+/* ── LAYOUT ── */
+.top-bar{background:var(--white);border-bottom:1.5px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
+.back-link{text-decoration:none;color:var(--navy);font-weight:800;font-size:.82rem}
+.top-title{font-size:1rem;font-weight:800;color:var(--navy);flex:1}
+.brand-tag{font-size:.7rem;color:var(--ink3)}
+.search-wrap{padding:16px 20px 0}
+.search-box{width:100%;padding:10px 16px;border:1.5px solid var(--border);border-radius:999px;font:inherit;font-size:.88rem;color:var(--ink);background:var(--white);transition:border-color .15s}
+.search-box:focus{outline:none;border-color:var(--navy)}
+.main-wrap{display:grid;grid-template-columns:200px 1fr;gap:0;min-height:calc(100vh - 120px)}
+@media(max-width:600px){
+  .main-wrap{grid-template-columns:1fr;min-height:auto}
+  .radical-sidebar{display:flex;flex-wrap:nowrap;overflow-x:auto;flex-direction:row;border-right:none;border-bottom:1.5px solid var(--border);padding:10px;gap:6px;max-height:none;height:auto}
+  .rad-item{flex-shrink:0;flex-direction:row;padding:8px 12px;min-width:auto}
+  .rad-main{font-size:1.4rem}
+  .rad-info{text-align:left;margin-left:8px}
+}
+/* ── SIDEBAR ── */
+.radical-sidebar{border-right:1.5px solid var(--border);overflow-y:auto;max-height:calc(100vh - 120px);background:var(--white);padding:8px}
+.sidebar-label{font-size:.7rem;font-weight:800;color:var(--ink3);padding:8px 10px 4px;letter-spacing:.5px;text-transform:uppercase}
+.rad-item{display:flex;flex-direction:column;align-items:center;padding:10px 6px;border-radius:12px;cursor:pointer;transition:all .15s;border:1.5px solid transparent;margin-bottom:4px}
+.rad-item:hover{background:var(--cream)}
+.rad-item.active{background:linear-gradient(135deg,#eef2ff,#e0e7ff);border-color:#c7d2fe}
+.rad-main{font-family:"Noto Sans SC",sans-serif;font-size:1.8rem;font-weight:900;color:var(--navy);line-height:1}
+.rad-info{text-align:center;margin-top:4px}
+.rad-vi{font-size:.65rem;color:var(--ink2);font-weight:600}
+.rad-py{font-size:.62rem;color:var(--ink3)}
+.rad-variant{display:inline-block;font-family:"Noto Sans SC",sans-serif;font-size:.75rem;background:var(--cream);border-radius:999px;padding:1px 6px;margin-top:2px;color:var(--ink2)}
+/* ── DETAIL ── */
+.detail-panel{padding:20px;overflow-y:auto}
+.rad-header{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow)}
+.rad-header-hanzi{font-family:"Noto Sans SC",sans-serif;font-size:4rem;font-weight:900;color:var(--navy);width:72px;text-align:center;flex-shrink:0}
+.rad-header-info{}
+.rad-header-name{font-size:1.15rem;font-weight:800;color:var(--navy)}
+.rad-header-py{font-size:.88rem;color:var(--accent);font-weight:600;margin:2px 0}
+.rad-header-vi{font-size:.82rem;color:var(--ink2)}
+.rad-header-stroke{font-size:.72rem;color:var(--ink3);margin-top:4px}
+.chars-label{font-size:.78rem;font-weight:800;color:var(--ink2);margin-bottom:10px;letter-spacing:.3px;text-transform:uppercase}
+.chars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.char-card{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;transition:all .18s;position:relative}
+.char-card:hover{border-color:var(--navy);box-shadow:var(--shadow)}
+.char-card.active-card{border-color:var(--accent);background:#fff5f0}
+.char-hz{font-family:"Noto Sans SC",sans-serif;font-size:2.4rem;font-weight:900;color:var(--navy);text-align:center;margin-bottom:6px}
+.char-py{font-size:.78rem;color:var(--accent);font-weight:700;text-align:center}
+.char-vi{font-size:.72rem;color:var(--ink2);text-align:center;margin-top:2px;line-height:1.3}
+.hsk-dot{position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%}
+/* char detail popup */
+.char-detail{background:linear-gradient(135deg,#fff5f0,#fff);border:1.5px solid #fde4d8;border-radius:var(--rl);padding:18px 20px;margin-top:16px;box-shadow:var(--shadow);display:none}
+.char-detail.show{display:block}
+.cd-row{display:flex;align-items:flex-start;gap:16px}
+.cd-hanzi{font-family:"Noto Sans SC",sans-serif;font-size:4.5rem;font-weight:900;color:var(--navy);line-height:1;width:80px;flex-shrink:0}
+.cd-info{}
+.cd-pinyin{font-size:1.3rem;font-weight:800;color:var(--accent);margin-bottom:4px}
+.cd-meaning{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+.cd-hanviet{font-size:.78rem;color:var(--ink2);font-style:italic;margin-bottom:10px}
+.cd-hsk{display:inline-block;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:999px}
+.cd-example{background:var(--cream);border-radius:10px;padding:10px 14px;margin-top:10px}
+.cd-ex-zh{font-family:"Noto Sans SC",sans-serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.cd-ex-py{font-size:.78rem;color:var(--accent);margin-bottom:2px}
+.cd-ex-vi{font-size:.78rem;color:var(--ink2)}
+/* empty/search states */
+.empty-state{text-align:center;padding:40px 20px;color:var(--ink3);font-size:.88rem}
+/* CTA footer */
+.cta-footer{background:var(--white);border-top:1.5px solid var(--border);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cta-footer p{font-size:.82rem;color:var(--ink2);flex:1}
+.btn-cta-navy{border:none;background:var(--navy);color:#fff;font-weight:800;border-radius:999px;padding:10px 20px;cursor:pointer;font-size:.82rem;font-family:inherit;white-space:nowrap}
+/* ── MODAL ── */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px;z-index:999}
+.modal.open{display:flex}
+.modal-box{width:100%;max-width:420px;background:#fff;border-radius:20px;padding:24px;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;right:14px;top:12px;border:none;background:transparent;font-size:1.2rem;cursor:pointer;color:var(--ink3)}
+.modal-h{font-size:1.1rem;font-weight:900;color:var(--navy);margin-bottom:4px}
+.modal-sub{font-size:.8rem;color:var(--ink2);margin-bottom:14px;line-height:1.5}
+.lead-form{display:flex;flex-direction:column;gap:10px}
+.lead-form input,.lead-form select{padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font:inherit;font-size:.88rem;color:var(--ink)}
+.lead-form input:focus,.lead-form select:focus{outline:none;border-color:var(--navy)}
+.btn-submit{border:none;background:var(--navy);color:#fff;font-weight:800;border-radius:999px;padding:13px;cursor:pointer;font-size:.9rem;font-family:inherit}
+.privacy{font-size:.7rem;color:var(--ink3);text-align:center;line-height:1.4}
+.lead-success{display:none;background:#dcfce7;color:#166534;border-radius:12px;padding:14px;text-align:center;font-weight:700;font-size:.85rem;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="back-link">← KOERU</a>
+  <div class="top-title">Hanzi Map · Bộ thủ</div>
+  <div class="brand-tag">by KOERU Chinese</div>
+</div>
+
+<div class="search-wrap">
+  <input class="search-box" id="search-box" placeholder="🔍 Tìm bộ thủ hoặc chữ Hán..." oninput="onSearch(this.value)">
+</div>
+
+<div class="main-wrap">
+  <!-- SIDEBAR -->
+  <div class="radical-sidebar" id="radical-sidebar">
+    <div class="sidebar-label">Bộ thủ</div>
+    <!-- Rendered by JS -->
+  </div>
+
+  <!-- DETAIL PANEL -->
+  <div class="detail-panel" id="detail-panel">
+    <div class="empty-state" id="empty-state">
+      👈 Chọn một bộ thủ để xem các chữ Hán liên quan<br><br>
+      <span style="font-size:.78rem">Mẹo: Bộ thủ là phần gốc chung của nhiều chữ Hán — học theo bộ thủ giúp nhớ nhanh hơn.</span>
+    </div>
+    <div id="radical-detail" style="display:none">
+      <div class="rad-header" id="rad-header"></div>
+      <div class="chars-label" id="chars-label"></div>
+      <div class="chars-grid" id="chars-grid"></div>
+      <div class="char-detail" id="char-detail"></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-footer">
+  <p>Muốn học tiếng Trung bài bản? KOERU có lộ trình HSK 1→3.</p>
+  <button class="btn-cta-navy" onclick="openLead('footer_cta')">Nhận lộ trình miễn phí →</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="lead-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLead()">✕</button>
+    <div class="modal-h">Nhận lộ trình tiếng Trung</div>
+    <div class="modal-sub">KOERU gợi ý lộ trình HSK phù hợp với trình độ và mục tiêu của bạn.</div>
+    <div class="lead-success" id="lead-success">
+      ✅ Đã nhận thông tin! KOERU sẽ liên hệ bạn sớm.<br><br>
+      <button class="btn-submit" onclick="closeLead()">Tiếp tục khám phá →</button>
+    </div>
+    <form class="lead-form" id="lead-form" onsubmit="submitLead(event)">
+      <input type="hidden" id="lead-cta-loc" value="unknown">
+      <input name="name" placeholder="Họ tên *" required>
+      <input name="contact" placeholder="Zalo / SĐT *" required>
+      <select name="current_level" required>
+        <option value="">Trình độ hiện tại</option>
+        <option value="zero">Chưa biết gì</option>
+        <option value="hsk1">Đang/đã xong HSK 1</option>
+        <option value="hsk2">Đang học HSK 2</option>
+        <option value="hsk3plus">HSK 3 trở lên</option>
+      </select>
+      <select name="goal" required>
+        <option value="">Mục tiêu học</option>
+        <option value="communication">Giao tiếp cơ bản</option>
+        <option value="hsk_exam">Thi HSK</option>
+        <option value="work">Làm việc / công ty Trung</option>
+        <option value="travel">Du lịch</option>
+      </select>
+      <select name="available_time" required>
+        <option value="">Thời gian học</option>
+        <option value="evening">Buổi tối</option>
+        <option value="weekend">Cuối tuần</option>
+        <option value="flexible">Linh hoạt</option>
+      </select>
+      <button type="submit" class="btn-submit" id="lead-submit">Nhận lộ trình →</button>
+      <div class="privacy">KOERU chỉ dùng thông tin này để gợi ý lộ trình, không spam.</div>
+    </form>
+  </div>
+</div>
+
+<!-- lookup table: find full entry for a hanzi from HSK data -->
+<script src="js/pinyin-data.js"></script>
+<script src="js/hsk-data.js"></script>
+<script src="js/hanzi-radical-data.js"></script>
+<script>
+// ── LOOKUP TABLE: hanzi → full entry ──
+const HANZI_LOOKUP = {};
+(function(){
+  const all = [
+    ...(typeof HSK1_DATA!=='undefined'?HSK1_DATA:[]),
+    ...(typeof HSK2_DATA!=='undefined'?HSK2_DATA:[]),
+    ...(typeof HSK3_DATA!=='undefined'?HSK3_DATA:[])
+  ];
+  all.forEach(item=>{
+    // index each character individually too
+    const chars = item.hanzi.split('');
+    chars.forEach(c=>{ if(!HANZI_LOOKUP[c]) HANZI_LOOKUP[c]=item; });
+    HANZI_LOOKUP[item.hanzi] = item;
+  });
+})();
+
+// HSK color helpers
+const HSK_BG = {1:'#dcfce7',2:'#dbeafe',3:'#f3e8ff',0:'#f3f4f6'};
+const HSK_C  = {1:'#166534',2:'#1e40af',3:'#7e22ce',0:'#374151'};
+
+let activeRadIdx = -1, activeCharHanzi = null;
+const allRadicals = typeof HANZI_RADICAL_DATA !== 'undefined' ? HANZI_RADICAL_DATA : [];
+
+// ── RENDER SIDEBAR ──
+function renderSidebar(list){
+  const sb = document.getElementById('radical-sidebar');
+  sb.innerHTML = '<div class="sidebar-label">Bộ thủ</div>';
+  list.forEach((rad, i)=>{
+    const el = document.createElement('div');
+    el.className = 'rad-item' + (i===activeRadIdx?' active':'');
+    el.innerHTML = `
+      <div class="rad-main">${rad.radical}</div>
+      <div class="rad-info">
+        <div class="rad-vi">${rad.meaning_vi}</div>
+        <div class="rad-py">${rad.pinyin}</div>
+        ${rad.variant && rad.variant!==rad.radical ? `<div class="rad-variant">${rad.variant}</div>` : ''}
+      </div>`;
+    el.onclick = ()=>selectRadical(i, list);
+    sb.appendChild(el);
+  });
+}
+
+// ── SELECT RADICAL ──
+function selectRadical(i, list){
+  activeRadIdx = i;
+  activeCharHanzi = null;
+  const rad = list[i];
+  renderSidebar(list);
+
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('radical-detail').style.display = 'block';
+  document.getElementById('char-detail').classList.remove('show');
+
+  // header
+  document.getElementById('rad-header').innerHTML = `
+    <div class="rad-header-hanzi">${rad.radical}${rad.variant&&rad.variant!==rad.radical?'<br><span style="font-size:1.8rem;opacity:.6">'+rad.variant+'</span>':''}</div>
+    <div class="rad-header-info">
+      <div class="rad-header-name">${rad.radical} — ${rad.meaning_vi}</div>
+      <div class="rad-header-py">${rad.pinyin}</div>
+      <div class="rad-header-vi">${rad.meaning_en}</div>
+      <div class="rad-header-stroke">✏️ ${rad.stroke} nét</div>
+    </div>`;
+
+  const chars = rad.characters || [];
+  document.getElementById('chars-label').textContent = `${chars.length} chữ Hán chứa bộ thủ này:`;
+
+  const grid = document.getElementById('chars-grid');
+  grid.innerHTML = '';
+  chars.forEach(ch=>{
+    const lv = ch.hsk || 0;
+    const card = document.createElement('div');
+    card.className = 'char-card';
+    card.innerHTML = `
+      <div class="hsk-dot" style="background:${HSK_C[lv]||'#9ca3af'}"></div>
+      <div class="char-hz">${ch.hanzi}</div>
+      <div class="char-py">${ch.pinyin}</div>
+      <div class="char-vi">${ch.meaning_vi}</div>`;
+    card.onclick = ()=>showCharDetail(ch.hanzi, ch, card);
+    grid.appendChild(card);
+  });
+}
+
+// ── CHAR DETAIL ──
+function showCharDetail(hz, chData, cardEl){
+  // toggle
+  if(activeCharHanzi === hz){
+    activeCharHanzi = null;
+    document.getElementById('char-detail').classList.remove('show');
+    document.querySelectorAll('.char-card').forEach(c=>c.classList.remove('active-card'));
+    return;
+  }
+  activeCharHanzi = hz;
+  document.querySelectorAll('.char-card').forEach(c=>c.classList.remove('active-card'));
+  cardEl.classList.add('active-card');
+
+  // look up full entry
+  const full = HANZI_LOOKUP[hz] || {};
+  const lv = chData.hsk || 0;
+  const det = document.getElementById('char-detail');
+  det.innerHTML = `
+    <div class="cd-row">
+      <div class="cd-hanzi">${hz}</div>
+      <div class="cd-info">
+        <div class="cd-pinyin">${chData.pinyin}${full.pinyin&&full.pinyin!==chData.pinyin?' / '+full.pinyin:''}</div>
+        <div class="cd-meaning">${chData.meaning_vi}${full.meaning_vi&&full.meaning_vi!==chData.meaning_vi?', '+full.meaning_vi:''}</div>
+        ${full.hanviet?`<div class="cd-hanviet">Hán Việt: ${full.hanviet}</div>`:''}
+        <span class="cd-hsk" style="background:${HSK_BG[lv]};color:${HSK_C[lv]}">HSK ${lv||'?'}</span>
+      </div>
+    </div>
+    ${full.example_zh?`
+    <div class="cd-example">
+      <div class="cd-ex-zh">${full.example_zh}</div>
+      <div class="cd-ex-py">${full.example_pinyin||''}</div>
+      <div class="cd-ex-vi">${full.example_vi||''}</div>
+    </div>`:''}
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <a href="hanzi-lab.html" style="display:inline-block;font-size:.78rem;font-weight:700;padding:7px 14px;background:var(--cream);border:1.5px solid var(--border);border-radius:999px;color:var(--navy);text-decoration:none">🀄 Luyện tập →</a>
+      <a href="hsk-flash.html" style="display:inline-block;font-size:.78rem;font-weight:700;padding:7px 14px;background:var(--cream);border:1.5px solid var(--border);border-radius:999px;color:var(--navy);text-decoration:none">🃏 Flashcard →</a>
+    </div>`;
+  det.classList.add('show');
+  setTimeout(()=>det.scrollIntoView({behavior:'smooth',block:'nearest'}), 100);
+}
+
+// ── SEARCH ──
+function onSearch(q){
+  q = q.trim().toLowerCase();
+  if(!q){ renderSidebar(allRadicals); return; }
+  const filtered = allRadicals.filter(r=>
+    r.radical.includes(q) ||
+    r.pinyin.toLowerCase().includes(q) ||
+    r.meaning_vi.toLowerCase().includes(q) ||
+    r.meaning_en.toLowerCase().includes(q) ||
+    (r.variant||'').includes(q) ||
+    (r.characters||[]).some(c=>c.hanzi.includes(q)||c.meaning_vi.toLowerCase().includes(q))
+  );
+  activeRadIdx = -1;
+  renderSidebar(filtered);
+  if(filtered.length === 0){
+    document.getElementById('empty-state').style.display = 'block';
+    document.getElementById('empty-state').textContent = `Không tìm thấy bộ thủ nào cho "${q}"`;
+    document.getElementById('radical-detail').style.display = 'none';
+  } else {
+    document.getElementById('empty-state').style.display = 'block';
+    document.getElementById('empty-state').innerHTML = `Tìm thấy ${filtered.length} bộ thủ — chọn để xem chi tiết.`;
+    document.getElementById('radical-detail').style.display = 'none';
+  }
+}
+
+// ── LEAD ──
+function openLead(loc){
+  document.getElementById('lead-cta-loc').value = loc;
+  document.getElementById('lead-modal').classList.add('open');
+  localStorage.setItem('lead_source','hanzi_map');
+}
+function closeLead(){ document.getElementById('lead-modal').classList.remove('open'); }
+function submitLead(e){
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const lead = {
+    name:fd.get('name'), contact:fd.get('contact'),
+    current_level:fd.get('current_level'), goal:fd.get('goal'),
+    available_time:fd.get('available_time'),
+    source:'hanzi_map', cta_location:document.getElementById('lead-cta-loc').value,
+    createdAt:new Date().toISOString()
+  };
+  try{
+    const leads = JSON.parse(localStorage.getItem('koeru_chinese_leads')||'[]');
+    leads.push(lead); localStorage.setItem('koeru_chinese_leads',JSON.stringify(leads));
+  }catch(_){}
+  const btn=document.getElementById('lead-submit');
+  btn.textContent='✅ Đã gửi!'; btn.disabled=true;
+  e.target.style.display='none';
+  document.getElementById('lead-success').style.display='block';
+}
+
+// ── INIT ──
+renderSidebar(allRadicals);
+// auto-select first radical on desktop
+if(window.innerWidth > 600 && allRadicals.length > 0){ selectRadical(0, allRadicals); }
+</script>
+</body>
+</html>
