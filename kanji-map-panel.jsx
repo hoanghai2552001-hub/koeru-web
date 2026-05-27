@@ -194,7 +194,8 @@ const KanjiPanel = ({ data, selectedId, onSelect, onClose }) => {
           <div className="km-section-title" style={{ marginBottom:6, color:'var(--hanko)' }}>
             💡 Gợi nhớ
           </div>
-          <div className="km-mnemonic-text">{item.mn_vi || item.mnemonic}</div>
+          <div className="km-mnemonic-text"
+            dangerouslySetInnerHTML={{ __html: item.mn_vi || item.mnemonic }} />
         </div>
       ) : null}
 

@@ -205,7 +205,7 @@ function openDetail(k, cellEl) {
   if (mnWrap) {
     const mnText = k.mn_vi || k.mnemonic || '';
     if (mnText) {
-      mnWrap.textContent = mnText;
+      mnWrap.innerHTML = mnText;
       mnWrap.parentElement.style.display = '';
     } else {
       mnWrap.parentElement.style.display = 'none';
