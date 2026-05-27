@@ -1969,12 +1969,8 @@ canvas#sp-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4
 /* ══════════════════════════════════════════
    VẼ KANJI GAME SCREEN
    ══════════════════════════════════════════ */
-#draw-screen {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-#draw-screen.active { display: flex; }
+/* display được điều khiển bởi .screen / .screen.active — không override ở đây */
+#draw-screen { overflow: hidden; }
 
 #draw-header {
   display: flex;
