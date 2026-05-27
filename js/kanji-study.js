@@ -10,9 +10,41 @@ const KANJIVG_CDN = 'https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/';
 // ── State ──────────────────────────────────
 let currentLevel  = 'N5';
 let currentSearch = '';
-let currentKanji  = null;   // kanji object đang xem
-let svgCache      = {};     // { hex: svgText }
-let masteryStore  = null;   // window.koeruMastery (nếu có)
+let currentKanji  = null;
+let svgCache      = {};
+let masteryStore  = null;
+
+// ── Lazy-load data theo level ───────────────
+const _loadedLevels = new Set();
+const _loadCallbacks = {};
+
+function ensureLevelLoaded(level, cb) {
+  if (level === 'ALL') {
+    // ALL cần tất cả levels
+    const all = ['N5','N4','N3','N2','N1'];
+    let pending = all.filter(lv => !_loadedLevels.has(lv));
+    if (!pending.length) { cb(); return; }
+    let done = 0;
+    pending.forEach(lv => ensureLevelLoaded(lv, () => { if(++done === pending.length) cb(); }));
+    return;
+  }
+  if (_loadedLevels.has(level)) { cb(); return; }
+  if (_loadCallbacks[level]) { _loadCallbacks[level].push(cb); return; }
+  _loadCallbacks[level] = [cb];
+  const s = document.createElement('script');
+  s.src = `js/kanji-data-${level.toLowerCase()}.js?v=20260527d`;
+  s.onload = () => {
+    // Merge window.KANJI_Nx vào ALL_KANJI
+    const key = `KANJI_${level}`;
+    if (window[key]) {
+      window[key].forEach(k => { if (!ALL_KANJI.find(x => x.kanji === k.kanji)) ALL_KANJI.push(k); });
+    }
+    _loadedLevels.add(level);
+    (_loadCallbacks[level] || []).forEach(fn => fn());
+    delete _loadCallbacks[level];
+  };
+  document.head.appendChild(s);
+}
 
 // ── Mastery (từ koeru-mastery.js nếu đã load) ──
 function getStatus(kanji) {
@@ -43,7 +75,48 @@ function getFilteredKanji() {
   return list;
 }
 
-// ── Render grid ────────────────────────────
+// ── Render grid (progressive — 150 cells đầu, load thêm khi scroll) ──
+const BATCH = 150;
+let _currentList = [];
+let _rendered = 0;
+let _scrollObserver = null;
+
+function makeCell(k, i) {
+  const cell = document.createElement('div');
+  const status = getStatus(k.kanji);
+  cell.className = 'k-cell' + (status ? ' ' + status : '');
+  cell.style.animationDelay = Math.min(i * 8, 200) + 'ms';
+  cell.dataset.kanji = k.kanji;
+  cell.innerHTML = `
+    <span class="k-dot"></span>
+    <span class="k-char">${k.kanji}</span>
+    <span class="k-hv">${k.hanviet || ''}</span>
+    <span class="k-mean">${(k.meaning || '').split(';')[0].trim()}</span>
+    <span class="k-level lv-${k.level}">${k.level}</span>`;
+  cell.addEventListener('click', () => openDetail(k, cell));
+  return cell;
+}
+
+function renderBatch(grid, from, to) {
+  const frag = document.createDocumentFragment();
+  for (let i = from; i < Math.min(to, _currentList.length); i++) {
+    frag.appendChild(makeCell(_currentList[i], i));
+  }
+  // Xóa sentinel cũ nếu có
+  const old = grid.querySelector('.grid-sentinel');
+  if (old) old.remove();
+  grid.appendChild(frag);
+  _rendered = Math.min(to, _currentList.length);
+  // Thêm sentinel nếu còn data
+  if (_rendered < _currentList.length) {
+    const sentinel = document.createElement('div');
+    sentinel.className = 'grid-sentinel';
+    sentinel.style.cssText = 'height:1px;width:100%;grid-column:1/-1;';
+    grid.appendChild(sentinel);
+    if (_scrollObserver) _scrollObserver.observe(sentinel);
+  }
+}
+
 function renderGrid() {
   const list  = getFilteredKanji();
   const grid  = document.getElementById('kanji-grid');
@@ -59,26 +132,19 @@ function renderGrid() {
   }
   empty.style.display = 'none';
 
-  // Render tất cả — 1765 kanji vẫn nhanh với DOM thuần
-  const frag = document.createDocumentFragment();
-  list.forEach((k, i) => {
-    const cell = document.createElement('div');
-    const status = getStatus(k.kanji);
-    cell.className = 'k-cell' + (status ? ' ' + status : '');
-    cell.style.animationDelay = Math.min(i * 12, 300) + 'ms';
-    cell.dataset.kanji = k.kanji;
-    cell.innerHTML = `
-      <span class="k-dot"></span>
-      <span class="k-char">${k.kanji}</span>
-      <span class="k-hv">${k.hanviet || ''}</span>
-      <span class="k-mean">${(k.meaning || '').split(';')[0].trim()}</span>
-      <span class="k-level lv-${k.level}">${k.level}</span>`;
-    cell.addEventListener('click', () => openDetail(k, cell));
-    frag.appendChild(cell);
-  });
-
+  _currentList = list;
+  _rendered = 0;
   grid.innerHTML = '';
-  grid.appendChild(frag);
+
+  // Setup IntersectionObserver để load thêm khi scroll tới đáy
+  if (_scrollObserver) _scrollObserver.disconnect();
+  _scrollObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && _rendered < _currentList.length) {
+      renderBatch(grid, _rendered, _rendered + BATCH);
+    }
+  }, { rootMargin: '200px' });
+
+  renderBatch(grid, 0, BATCH);
 }
 
 // ── Detail panel ────────────────────────────
@@ -278,6 +344,10 @@ function renderVocab(k) {
 // ── Init & event binding ────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   masteryStore = window.koeruMastery || null;
+  // N5 đã được load từ HTML — đánh dấu sẵn
+  _loadedLevels.add('N5');
+  // Preload N4 ngầm sau 2s khi browser rảnh
+  setTimeout(() => ensureLevelLoaded('N4', () => {}), 2000);
 
   // Level tabs
   document.querySelectorAll('.lvl-tab').forEach(tab => {
@@ -289,7 +359,10 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('study-search').value = '';
       document.getElementById('study-search-clear').style.display = 'none';
       closeDetail();
-      renderGrid();
+      // Hiện loading indicator nhẹ
+      const count = document.getElementById('study-stats-count');
+      count.textContent = 'Đang tải…';
+      ensureLevelLoaded(currentLevel, renderGrid);
     });
   });
 
