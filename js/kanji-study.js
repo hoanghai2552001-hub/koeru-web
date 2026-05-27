@@ -49,10 +49,9 @@ function ensureLevelLoaded(level, cb) {
 // ── Mastery (từ koeru-mastery.js nếu đã load) ──
 function getStatus(kanji) {
   if (!masteryStore) return '';
-  const data = masteryStore.get ? masteryStore.get(kanji) : null;
-  if (!data) return '';
-  if (data.box >= 4)  return 'learned';
-  if (data.seen > 0)  return 'seen';
+  const lvl = masteryStore.getMasteryLevel(kanji);
+  if (lvl >= 4) return 'learned';
+  if (lvl > 0)  return 'seen';
   return '';
 }
 
