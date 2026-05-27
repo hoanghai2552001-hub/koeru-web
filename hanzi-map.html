@@ -227,8 +227,10 @@ function renderSidebar(list){
 
 // ── SELECT RADICAL ──
 function selectRadical(i, list){
+  const rad = list[i];
+  if(!rad) return; // guard: index ngoài danh sách
   activeRadIdx = i;
-  activeRadicalKey = list[i].radical; // lưu bằng key để highlight đúng sau search
+  activeRadicalKey = rad.radical; // lưu bằng key để highlight đúng sau search
   activeCharHanzi = null;
   const rad = list[i];
   renderSidebar(list);
@@ -341,28 +343,41 @@ function openLead(loc){
 function closeLead(){ document.getElementById('lead-modal').classList.remove('open'); }
 function submitLead(e){
   e.preventDefault();
+  const btn = document.getElementById('lead-submit');
+  if(btn && btn.disabled) return; // chống double-submit
   const fd = new FormData(e.target);
+  const ctaLocEl = document.getElementById('lead-cta-loc');
   const lead = {
     name:fd.get('name'), contact:fd.get('contact'),
     current_level:fd.get('current_level'), goal:fd.get('goal'),
     available_time:fd.get('available_time'),
-    source:'hanzi_map', cta_location:document.getElementById('lead-cta-loc').value,
+    source:'hanzi_map', cta_location:ctaLocEl ? ctaLocEl.value : 'unknown',
     createdAt:new Date().toISOString()
   };
   try{
     const leads = JSON.parse(localStorage.getItem('koeru_chinese_leads')||'[]');
     leads.push(lead); localStorage.setItem('koeru_chinese_leads',JSON.stringify(leads));
   }catch(_){}
-  const btn=document.getElementById('lead-submit');
-  btn.textContent='✅ Đã gửi!'; btn.disabled=true;
+  if(btn){ btn.textContent='✅ Đã gửi!'; btn.disabled=true; }
   e.target.style.display='none';
-  document.getElementById('lead-success').style.display='block';
+  const successEl = document.getElementById('lead-success');
+  if(successEl) successEl.style.display='block';
 }
 
-// ── INIT ──
-renderSidebar(allRadicals);
-// auto-select first radical on desktop
-if(window.innerWidth > 600 && allRadicals.length > 0){ selectRadical(0, allRadicals); }
+// ── DATA GUARD ──
+(function(){
+  if(!allRadicals.length){
+    var panel = document.getElementById('detail-panel');
+    if(panel) panel.innerHTML = '<div class="empty-state">⚠️ Lỗi tải dữ liệu bộ thủ (js/hanzi-radical-data.js).<br><br><a href="" onclick="location.reload();return false" style="color:var(--navy)">Tải lại trang →</a></div>';
+    var sb = document.getElementById('radical-sidebar');
+    if(sb) sb.innerHTML = '<div class="sidebar-label" style="color:#ef4444">Lỗi dữ liệu</div>';
+    return;
+  }
+  // ── INIT ──
+  renderSidebar(allRadicals);
+  // auto-select first radical on desktop
+  if(window.innerWidth > 600){ selectRadical(0, allRadicals); }
+})();
 </script>
 </body>
 </html>

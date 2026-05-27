@@ -419,7 +419,22 @@ body{background:var(--bg);color:var(--text);font-family:'Be Vietnam Pro',system-
 
 // ── Helpers ──
 function shuffle(arr){ return [...arr].sort(()=>Math.random()-.5); }
-function $(id){ return document.getElementById(id); }
+
+// Null-safe getElementById: nếu id không tồn tại trả về dummy object thay vì crash
+function $(id){
+  var el = document.getElementById(id);
+  if(!el){
+    console.warn('[KOERU pinyin] Missing DOM element: #'+id);
+    // dummy object swallows property sets/classList ops
+    return {
+      textContent:'', innerHTML:'', value:'', style:{},
+      classList:{add:function(){},remove:function(){},toggle:function(){},contains:function(){return false;},add:function(){}},
+      disabled:false
+    };
+  }
+  return el;
+}
+
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   $(id).classList.add('active');
@@ -448,7 +463,8 @@ var currentMode = '';
 var resultData  = {correct:0,wrong:0,streak:0,maxStreak:0,missed:[]};
 
 function goHome(){ clearInterval(speedTimer); showScreen('home-screen'); }
-function replayMode(){ startMode(currentMode); }
+// clearInterval trước khi replay để tránh chạy đồng thời 2 timer nếu user replay giữa chừng Speed mode
+function replayMode(){ clearInterval(speedTimer); startMode(currentMode); }
 
 // ════════════════════════════════
 // TONE TRAINER
@@ -614,7 +630,7 @@ function renderFlash(){
   const item = flashDeck[flashIdx];
   $('f-progress').textContent=(flashIdx+1)+' / '+flashDeck.length;
   $('f-hanzi').textContent = item.hanzi;
-  $('f-hanviet').textContent = item.hanviet.toUpperCase();
+  $('f-hanviet').textContent = (item.hanviet||'').toUpperCase();
   $('f-pinyin').textContent = item.pinyin;
   var tb = $('f-tone-badge');
   tb.textContent = toneLabel(item.tone);
@@ -681,6 +697,7 @@ function showResult(correct, wrong, maxStreak, missed){
 // LEAD MODAL
 // ════════════════════════════════
 var _ctaLocation = '';
+var _leadSubmitted = false; // guard chống double-submit
 function openLeadModal(loc){
   _ctaLocation = loc||'result';
   $('lead-success').style.display='none';
@@ -695,6 +712,7 @@ function closeLead(e, force){
 }
 
 function submitLead(){
+  if(_leadSubmitted) return; // chống double-submit khi bấm nhiều lần
   var name    = $('lm-name').value.trim();
   var contact = $('lm-contact').value.trim();
   if(!name||!contact){ alert('Vui lòng nhập họ tên và Zalo/SĐT.'); return; }
@@ -715,13 +733,25 @@ function submitLead(){
   arr.push(lead);
   localStorage.setItem(key, JSON.stringify(arr));
 
+  _leadSubmitted = true;
   // Hiện success
   $('lead-form-wrap').style.display='none';
   $('lead-success').style.display='block';
 }
 
-// ── Stop speed timer khi rời trang ──
+// ── Cleanup khi rời/reload trang ──
 window.addEventListener('pagehide', ()=>clearInterval(speedTimer));
+window.addEventListener('visibilitychange', function(){ if(document.hidden) clearInterval(speedTimer); });
+
+// ── Data guard: nếu js/pinyin-data.js không load được ──
+(function(){
+  if(typeof HSK1_DATA === 'undefined' || !Array.isArray(HSK1_DATA) || HSK1_DATA.length === 0){
+    var errEl = document.createElement('div');
+    errEl.style.cssText = 'position:fixed;inset:0;background:#0d0f1a;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f0e6d3;font-family:system-ui;z-index:9999;gap:12px;text-align:center;padding:20px';
+    errEl.innerHTML = '<div style="font-size:2rem">⚠️</div><div style="font-weight:700">Lỗi tải dữ liệu từ vựng</div><div style="color:#7a8099;font-size:.85rem">File js/pinyin-data.js chưa được tải.<br>Vui lòng tải lại trang hoặc kiểm tra kết nối mạng.</div><button onclick="location.reload()" style="border:none;background:#e53935;color:#fff;padding:10px 22px;border-radius:999px;cursor:pointer;font-weight:700;margin-top:8px">Tải lại trang</button>';
+    document.body.appendChild(errEl);
+  }
+})();
 </script>
 </body>
 </html>

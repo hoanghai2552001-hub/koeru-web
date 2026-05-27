@@ -274,6 +274,10 @@ function shuffle(a){ return [...a].sort(()=>Math.random()-.5); }
 function startGame(){
   deck = [];
   selectedLevels.forEach(l=>deck.push(...(LEVELS_DATA[l]||[])));
+  if(!deck.length){
+    alert('Chưa có dữ liệu từ vựng cho cấp độ đã chọn. Vui lòng tải lại trang.');
+    return;
+  }
   deck = shuffle(deck);
   if(gameMode !== 'speed') deck = deck.slice(0, MAX_Q);
   idx = 0; correct = 0; wrong = 0; streak = 0; maxStreak = 0; answered = false;
@@ -410,6 +414,8 @@ function openLead(loc){
 function closeLead(){ document.getElementById('lead-modal').classList.remove('open'); }
 function submitLead(e){
   e.preventDefault();
+  const btn = document.getElementById('lead-submit');
+  if(btn && btn.disabled) return; // chống double-submit
   const fd = new FormData(e.target);
   const lead = {
     name:fd.get('name'), contact:fd.get('contact'),
@@ -428,6 +434,21 @@ function submitLead(e){
   document.getElementById('lead-success').style.display='block';
   localStorage.setItem('lead_source','hanzi_lab');
 }
+
+// ── Cleanup timer khi rời/reload trang ──
+window.addEventListener('pagehide', clearTimer);
+window.addEventListener('visibilitychange', function(){ if(document.hidden) clearTimer(); });
+
+// ── DATA GUARD ──
+(function(){
+  var anyData = Object.values(LEVELS_DATA).some(function(a){ return a.length > 0; });
+  if(!anyData){
+    var errEl = document.createElement('div');
+    errEl.style.cssText = 'position:fixed;inset:0;background:#0d0f1a;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#e2e8f0;font-family:system-ui;z-index:9999;gap:12px;text-align:center;padding:20px';
+    errEl.innerHTML = '<div style="font-size:2rem">⚠️</div><div style="font-weight:700">Lỗi tải dữ liệu từ vựng</div><div style="color:#64748b;font-size:.85rem">File js/pinyin-data.js hoặc js/hsk-data.js chưa tải được.<br>Vui lòng tải lại trang.</div><button onclick="location.reload()" style="border:none;background:#e53935;color:#fff;padding:10px 22px;border-radius:999px;cursor:pointer;font-weight:700;margin-top:8px">Tải lại trang</button>';
+    document.body.appendChild(errEl);
+  }
+})();
 </script>
 </body>
 </html>
