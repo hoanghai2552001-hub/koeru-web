@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0d0d0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/kanji.css?v=20260526a">
+<link rel="stylesheet" href="css/kanji.css?v=20260527a">
 <title>KOERU Kanji Lab — Luyện Kanji N5→N1</title>
 </head>
 <body>
@@ -71,6 +71,14 @@
         <div class="game-desc">5 phút · tap đúng nghĩa · combo tăng tốc · FEVER!</div>
       </div>
       <div class="game-badge">🔥 Gây nghiện</div>
+    </div>
+    <div class="game-card game-card-5" id="go-draw">
+      <div class="game-icon">✍️</div>
+      <div class="game-info">
+        <div class="game-name">Vẽ Kanji</div>
+        <div class="game-desc">Nhìn nghĩa → vẽ tay kanji → AI nhận dạng → chấm điểm!</div>
+      </div>
+      <div class="game-badge">✨ AI nhận dạng</div>
     </div>
   </div>
 
@@ -168,6 +176,9 @@
             <div id="kanji">漢</div>
             <div id="han-viet">HÁN</div>
             <div id="hard-reading"></div>
+            <button id="stroke-btn"
+              onclick="showStrokeOrder(document.getElementById('kanji').textContent)"
+              title="Xem thứ tự nét vẽ">▶ Nét vẽ</button>
           </div>
           <div id="meaning-area">
             <div id="shown-meaning">chữ hán</div>
@@ -392,6 +403,75 @@
   </div>
 </div>
 
+<!-- ══════════════════════ STROKE ORDER OVERLAY ══════════════════════ -->
+<div id="stroke-overlay">
+  <div id="stroke-modal">
+    <div id="stroke-modal-header">
+      <div id="stroke-kanji-title">漢</div>
+      <div id="stroke-modal-sub">Thứ tự nét vẽ</div>
+    </div>
+    <div id="stroke-svg-wrap"></div>
+    <div class="stroke-attribution">animCJK · Arphic Public License</div>
+    <div id="stroke-modal-btns">
+      <button class="stroke-btn-action" onclick="replayStrokeOrder()">↺ Phát lại</button>
+      <button class="stroke-btn-action stroke-btn-close" onclick="closeStrokeOverlay()">✕ Đóng</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ VẼ KANJI ══════════════════════ -->
+<div id="draw-screen" class="screen">
+  <div id="draw-header">
+    <span class="hdr-back" id="draw-back">←</span>
+    <h1>✍️ Vẽ Kanji</h1>
+    <span id="draw-score-text">0 / 0</span>
+  </div>
+
+  <div id="draw-body">
+    <!-- Hint area -->
+    <div id="draw-hint-area">
+      <div id="draw-progress-text">1 / 20</div>
+      <div id="draw-meaning">nghĩa</div>
+      <div id="draw-hanviet"></div>
+      <div id="draw-reading"></div>
+      <div id="draw-kanji-reveal"></div>
+      <button id="draw-show-kanji">👁 Gợi ý kanji</button>
+    </div>
+
+    <!-- Canvas vẽ -->
+    <div id="draw-canvas-wrap">
+      <canvas id="draw-canvas"></canvas>
+      <div id="draw-canvas-hint">Vẽ kanji vào đây</div>
+    </div>
+
+    <!-- Kết quả nhận dạng -->
+    <div id="draw-result"></div>
+
+    <!-- Nút điều khiển -->
+    <div id="draw-actions">
+      <button id="draw-clear" class="draw-action-btn">🗑 Xóa</button>
+      <button id="draw-submit" class="draw-action-btn draw-action-primary">✓ Nhận dạng</button>
+      <button id="draw-skip" class="draw-action-btn">⏭ Bỏ qua</button>
+    </div>
+  </div>
+
+  <!-- Done screen -->
+  <div id="draw-done">
+    <div class="draw-done-emoji">✍️</div>
+    <h2>Hoàn thành!</h2>
+    <div class="big-score" id="draw-done-pct">0%</div>
+    <p id="draw-done-detail"></p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+      <button class="btn" id="draw-restart">↺ Vẽ lại</button>
+      <button class="btn" id="draw-home">🏠 Về trang chủ</button>
+    </div>
+    <div class="done-cta-block" style="margin-top:16px">
+      <div class="done-cta-text">Muốn biết lộ trình Kanji phù hợp với bạn?</div>
+      <button class="done-cta-btn" onclick="openKanjiLeadModal('draw_done')">Xem gợi ý lộ trình của tôi →</button>
+    </div>
+  </div>
+</div>
+
 <!-- ══ FLOATING PANEL ══ -->
 <button id="fp-toggle" title="Bảng điều khiển">
   📋
@@ -566,6 +646,9 @@ if(new URLSearchParams(location.search).get('admin')==='true'){
 }
 </script>
 
+<!-- handwriting.js (MIT) — nhận dạng chữ viết tay -->
+<script src="https://cdn.jsdelivr.net/gh/ChenYuHo/handwriting.js@master/handwriting.js"></script>
+
 <!-- Scripts: thứ tự quan trọng — data trước, logic sau -->
 <script src="js/kanji-data.js?v=20260523f"></script>
 <script src="js/koeru-mastery.js?v=20260525"></script>
@@ -575,5 +658,7 @@ if(new URLSearchParams(location.search).get('admin')==='true'){
 <script src="js/kanji-bubble.js?v=20260523f"></script>
 <script src="js/kanji-speed.js?v=20260523f"></script>
 <script src="js/kanji-panel.js?v=20260523f"></script>
+<script src="js/kanji-stroke.js?v=20260527a"></script>
+<script src="js/kanji-draw.js?v=20260527a"></script>
 </body>
 </html>

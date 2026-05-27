@@ -1837,3 +1837,350 @@ canvas#sp-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4
   }
   #s-sph > * { max-width: 500px; width: 100%; }
 }
+
+/* ══════════════════════════════════════════
+   GAME CARD 5 — Vẽ Kanji
+   ══════════════════════════════════════════ */
+.game-card-5 {
+  background: linear-gradient(135deg,#0e1a2e,#1a3254);
+  box-shadow: 0 8px 32px rgba(99,102,241,.22);
+}
+.game-card-5 .game-badge {
+  background: rgba(99,102,241,.18);
+  color: #a5b4fc;
+  border-color: rgba(99,102,241,.3);
+}
+
+/* ══════════════════════════════════════════
+   STROKE ORDER BUTTON (trong flashcard)
+   ══════════════════════════════════════════ */
+#stroke-btn {
+  margin-top: 8px;
+  padding: 5px 14px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 20px;
+  color: rgba(255,255,255,.55);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+}
+#stroke-btn:hover { background: rgba(139,92,246,.18); color: #c4b5fd; border-color: rgba(139,92,246,.4); }
+
+/* ══════════════════════════════════════════
+   STROKE ORDER OVERLAY
+   ══════════════════════════════════════════ */
+#stroke-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.78);
+  z-index: 9998;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+#stroke-overlay.visible { display: flex; }
+
+#stroke-modal {
+  background: #13132a;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: 28px 24px;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  animation: fadeInUp .22s ease both;
+}
+
+#stroke-modal-header { margin-bottom: 16px; }
+#stroke-kanji-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+}
+#stroke-modal-sub {
+  font-size: .72rem;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+#stroke-svg-wrap {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+#stroke-svg-wrap svg {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.stroke-loading {
+  color: rgba(255,255,255,.4);
+  font-size: .85rem;
+  padding: 40px 0;
+}
+.stroke-not-found {
+  color: rgba(255,255,255,.35);
+  font-size: .82rem;
+  padding: 32px 0;
+}
+
+.stroke-attribution {
+  font-size: .62rem;
+  color: rgba(255,255,255,.2);
+  margin: 8px 0 14px;
+  letter-spacing: .04em;
+}
+
+#stroke-modal-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 4px;
+}
+.stroke-btn-action {
+  padding: 9px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.07);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s;
+}
+.stroke-btn-action:hover { background: rgba(255,255,255,.14); }
+.stroke-btn-close { background: rgba(239,68,68,.12); border-color: rgba(239,68,68,.25); color: #fca5a5; }
+.stroke-btn-close:hover { background: rgba(239,68,68,.22); }
+
+/* ══════════════════════════════════════════
+   VẼ KANJI GAME SCREEN
+   ══════════════════════════════════════════ */
+#draw-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#draw-screen.active { display: flex; }
+
+#draw-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: calc(12px + var(--sat)) 16px 10px;
+  background: rgba(10,10,28,.9);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  flex-shrink: 0;
+}
+#draw-header h1 {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #a5b4fc;
+  margin: 0;
+}
+#draw-score-text {
+  font-size: .82rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.45);
+}
+
+#draw-body {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 16px 20px;
+  gap: 14px;
+}
+
+/* Progress */
+#draw-progress-text {
+  font-size: .72rem;
+  color: rgba(255,255,255,.3);
+  font-weight: 600;
+  letter-spacing: .04em;
+  align-self: flex-start;
+}
+
+/* Hint area */
+#draw-hint-area {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+#draw-meaning {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+#draw-hanviet {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #f59e0b;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+#draw-reading {
+  font-size: .78rem;
+  color: rgba(255,255,255,.45);
+}
+#draw-kanji-reveal {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.0);
+  height: 0;
+  overflow: hidden;
+  transition: all .3s ease;
+}
+#draw-kanji-reveal.revealed {
+  color: rgba(255,200,100,.85);
+  height: auto;
+  margin-top: 4px;
+}
+#draw-show-kanji {
+  margin-top: 4px;
+  padding: 4px 14px;
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,.2);
+  border-radius: 16px;
+  color: rgba(255,255,255,.35);
+  font-size: .72rem;
+  cursor: pointer;
+  transition: all .18s;
+}
+#draw-show-kanji:hover { border-color: rgba(255,255,255,.4); color: rgba(255,255,255,.6); }
+
+/* Canvas */
+#draw-canvas-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+#draw-canvas {
+  display: block;
+  border-radius: 16px;
+  border: 2px solid rgba(255,255,255,.12);
+  background: #0a0a1c;
+  cursor: crosshair;
+  touch-action: none;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 1;
+  opacity: 1;
+  transition: opacity .15s;
+}
+#draw-canvas-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.1);
+  font-size: .82rem;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+
+/* Result */
+#draw-result {
+  min-height: 44px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.8);
+  text-align: center;
+  line-height: 1.6;
+}
+.draw-correct { color: #4ade80; font-size: 1rem; }
+.draw-wrong   { color: #f87171; font-size: 1rem; }
+.draw-loading { color: rgba(255,255,255,.45); }
+.draw-reveal-kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #fcd34d;
+  vertical-align: middle;
+}
+
+/* Action buttons */
+#draw-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.draw-action-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.7);
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .18s;
+}
+.draw-action-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+.draw-action-btn:disabled { opacity: .35; cursor: default; }
+.draw-action-primary {
+  background: linear-gradient(135deg,#6366f1,#8b5cf6);
+  border-color: transparent;
+  color: #fff;
+}
+.draw-action-primary:hover { background: linear-gradient(135deg,#818cf8,#a78bfa); }
+
+/* Done screen */
+#draw-done {
+  display: none;
+  position: absolute; inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background: rgba(10,10,28,.96);
+  text-align: center;
+  gap: 8px;
+}
+#draw-done.visible { display: flex; }
+#draw-done h2 { font-size: 1.4rem; font-weight: 800; color: #fff; margin: 0; }
+.draw-done-emoji { font-size: 2.8rem; }
+
+/* Desktop responsive */
+@media (min-width: 768px) {
+  #draw-body { max-width: 600px; margin: 0 auto; padding: 20px 24px; }
+  #draw-canvas-wrap { max-width: 340px; }
+  #draw-canvas { max-width: 340px; }
+  #draw-hint-area { max-width: 400px; }
+  #draw-meaning { font-size: 1.8rem; }
+}
+
+/* animCJK SVG stroke animation override — đảm bảo màu sắc hiện đúng trên dark bg */
+#stroke-svg-wrap svg path {
+  stroke: #c4b5fd;
+}
+#stroke-svg-wrap svg circle,
+#stroke-svg-wrap svg ellipse {
+  fill: #6366f1;
+}
