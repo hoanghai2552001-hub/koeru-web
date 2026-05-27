@@ -107,8 +107,42 @@ function openDetail(k, cellEl) {
   // Badges
   const badges = document.getElementById('detail-badges');
   badges.innerHTML = `<span class="detail-badge lv-${k.level}">${k.level}</span>`;
-  if (k.stroke) badges.innerHTML += `<span class="detail-badge">${k.stroke} nét</span>`;
+  if (k.stroke)    badges.innerHTML += `<span class="detail-badge">${k.stroke} nét</span>`;
   if (k.freq_rank) badges.innerHTML += `<span class="detail-badge freq">Top ${k.freq_rank}</span>`;
+  if (k.grade)     badges.innerHTML += `<span class="detail-badge grade">Lớp ${k.grade}</span>`;
+
+  // Radical & Components
+  const radWrap = document.getElementById('detail-radical');
+  if (radWrap) {
+    if (k.radical) {
+      const [rc, rn, rm] = k.radical.split('|');
+      radWrap.innerHTML = `<span class="rad-char">${rc}</span><span class="rad-info">${rn} · ${rm}</span>`;
+      radWrap.style.display = '';
+    } else {
+      radWrap.style.display = 'none';
+    }
+  }
+
+  const partsWrap = document.getElementById('detail-parts');
+  if (partsWrap) {
+    if (k.parts && k.parts.length) {
+      partsWrap.innerHTML = k.parts.map(p => `<span class="part-char">${p}</span>`).join('');
+      partsWrap.style.display = '';
+    } else {
+      partsWrap.style.display = 'none';
+    }
+  }
+
+  // Mnemonic
+  const mnWrap = document.getElementById('detail-mnemonic');
+  if (mnWrap) {
+    if (k.mnemonic) {
+      mnWrap.textContent = k.mnemonic;
+      mnWrap.parentElement.style.display = '';
+    } else {
+      mnWrap.parentElement.style.display = 'none';
+    }
+  }
 
   // Stroke order
   loadStrokeOrder(k.kanji);

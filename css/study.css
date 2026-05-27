@@ -470,3 +470,71 @@ body {
   to   { opacity: 1; transform: none; }
 }
 .k-cell { animation: kfadeIn .14s ease both; }
+
+/* ── Radical & Parts ── */
+#detail-radical-wrap,
+#detail-mnemonic-wrap {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+#detail-radical-row,
+#detail-parts-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+#detail-parts-row { margin-top: 8px; }
+.detail-sub-label {
+  font-size: .68rem;
+  color: var(--muted);
+  width: 64px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.rad-char {
+  font-size: 1.4rem;
+  font-family: 'Noto Serif JP', serif;
+  color: #c4b5fd;
+  line-height: 1;
+}
+.rad-info {
+  font-size: .75rem;
+  color: rgba(255,255,255,.55);
+}
+.part-char {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  background: rgba(165,180,252,.1);
+  border: 1px solid rgba(165,180,252,.2);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Noto Serif JP', serif;
+  color: #a5b4fc;
+  cursor: default;
+  transition: background .15s;
+}
+.part-char:hover { background: rgba(165,180,252,.2); }
+
+/* ── Mnemonic ── */
+#detail-mnemonic {
+  font-size: .8rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.55;
+  font-style: italic;
+  margin-top: 6px;
+  padding: 8px 10px;
+  background: rgba(251,191,36,.06);
+  border-left: 2px solid rgba(251,191,36,.4);
+  border-radius: 0 6px 6px 0;
+}
+
+/* ── Grade badge ── */
+.detail-badge.grade {
+  background: rgba(34,197,94,.15);
+  color: #4ade80;
+  border-color: rgba(34,197,94,.2);
+}
