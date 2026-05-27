@@ -414,3 +414,35 @@ if (_origFloorComplete) {
     }, 100);
   };
 }
+
+// ── Hook vào showDone (Flashcard) để log lịch sử ──
+const _origShowDone = typeof showDone === 'function' ? showDone : null;
+if (_origShowDone) {
+  window.showDone = function() {
+    _origShowDone.apply(this, arguments);
+    setTimeout(() => {
+      const pctText = document.getElementById('final-pct')?.textContent || '';
+      const detail  = document.getElementById('final-detail')?.textContent || '';
+      if (!pctText) return;
+      const pct = parseInt(pctText);
+      const grade = pct >= 90 ? 'S' : pct >= 70 ? 'A' : pct >= 50 ? 'B' : 'C';
+      fpLogResult('🃏 Flashcard', pctText, grade, detail);
+    }, 100);
+  };
+}
+
+// ── Hook vào showMatchResult (Kanji Match) để log lịch sử ──
+const _origShowMatchResult = typeof showMatchResult === 'function' ? showMatchResult : null;
+if (_origShowMatchResult) {
+  window.showMatchResult = function(win) {
+    _origShowMatchResult.apply(this, arguments);
+    setTimeout(() => {
+      const score  = document.getElementById('match-result-score')?.textContent || '';
+      const detail = document.getElementById('match-result-detail')?.innerText  || '';
+      if (!score) return;
+      const pairs = parseInt(score);
+      const grade = pairs >= 20 ? 'S' : pairs >= 12 ? 'A' : pairs >= 6 ? 'B' : 'C';
+      fpLogResult('🔗 Kanji Match', score, grade, detail.split('\n')[0] || '');
+    }, 100);
+  };
+}

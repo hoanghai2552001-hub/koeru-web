@@ -74,6 +74,7 @@ function spUpdateHome() {
 // ══════════════════════════════════════════
 let spCanvas = null, spCtx = null;
 let particles = [];
+let particleRafHandle = null;
 
 function initCanvas() {
   spCanvas = document.getElementById('sp-canvas');
@@ -103,7 +104,7 @@ function drawParticles() {
     if (p.x < 0 || p.x > spCanvas.width)  p.vx *= -1;
     if (p.y < 0 || p.y > spCanvas.height) p.vy *= -1;
   });
-  requestAnimationFrame(drawParticles);
+  particleRafHandle = requestAnimationFrame(drawParticles);
 }
 
 // ══════════════════════════════════════════
@@ -172,6 +173,8 @@ function stopGame() {
   clearInterval(sessionHandle);
   clearTimeout(speedHandle);
   sessionHandle = speedHandle = null;
+  if (particleRafHandle) { cancelAnimationFrame(particleRafHandle); particleRafHandle = null; }
+  particles = [];
   const hintEl = document.getElementById('sp-jp-hint');
   if (hintEl) { hintEl.style.color = ''; hintEl.textContent = ''; }
 }
