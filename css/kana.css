@@ -366,3 +366,17 @@ body::before {
 .lb-correct { font-size:.7rem; color:var(--muted); }
 .lb-empty { text-align:center; color:var(--muted); font-size:.85rem; padding:30px; }
 #lb-loading { text-align:center; color:var(--muted); font-size:.85rem; padding:30px; }
+
+/* ── Kana Guide Box ── */
+.kana-guide-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 16px;margin:14px 0 6px;text-align:left}
+.kana-guide-title{font-size:.78rem;font-weight:700;color:var(--accent2);margin-bottom:8px}
+.kana-guide-steps{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:.75rem;color:var(--muted)}
+.kana-guide-steps span{background:rgba(255,255,255,.07);border-radius:20px;padding:3px 10px}
+.kgs-arrow{background:none!important;padding:0!important;opacity:.4}
+
+/* ── Kana Result CTA ── */
+.kana-result-cta{background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(139,92,246,.2));border:1px solid rgba(99,102,241,.35);border-radius:14px;padding:20px 18px;margin:18px 0 4px;text-align:center}
+.kana-cta-text{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:12px}
+.kana-cta-btn{display:inline-block;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:.85rem;font-weight:700;padding:11px 22px;border-radius:50px;text-decoration:none;transition:opacity .2s}
+.kana-cta-btn:hover{opacity:.85}
+.kana-cta-sub{font-size:.7rem;color:var(--muted);margin-top:10px}

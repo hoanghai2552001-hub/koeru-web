@@ -15,13 +15,61 @@
 </head>
 
 <body>
+  <!-- Loading skeleton — hiện khi React/JS chưa render xong, bị React unmount sau khi render -->
+  <div id="map-loading-skeleton" style="min-height:100vh;background:#0f1117;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;font-family:system-ui">
+    <div style="width:40px;height:40px;border:3px solid rgba(255,255,255,.1);border-top-color:#6366f1;border-radius:50%;animation:mapSpin .8s linear infinite"></div>
+    <p style="color:#64748b;font-size:.85rem;margin:0">Đang tải bản đồ Kanji…</p>
+    <p style="color:#334155;font-size:.75rem;margin:0">Nếu quá 10 giây, hãy <a href="" onclick="location.reload();return false" style="color:#6366f1">tải lại</a> hoặc <a href="kanji.html" style="color:#6366f1">vào Kanji Lab</a>.</p>
+    <style>@keyframes mapSpin{to{transform:rotate(360deg)}}</style>
+  </div>
+  <script>
+    // Ẩn skeleton khi React đã render vào #root
+    (function(){
+      var sk = document.getElementById('map-loading-skeleton');
+      var observer = new MutationObserver(function(){
+        if(document.getElementById('root') && document.getElementById('root').children.length > 0){
+          if(sk) sk.style.display = 'none';
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, {childList:true, subtree:true});
+      // Fallback timeout 15s
+      setTimeout(function(){ if(sk) sk.style.display='none'; }, 15000);
+    })();
+  </script>
+
   <div id="root">
     <!-- noscript fallback -->
     <noscript>
-      <div style="padding:40px; max-width:600px; margin:0 auto; font-family:system-ui">
-        <h2>Cần bật JavaScript</h2>
-        <p>Bản đồ Kanji là 1 ứng dụng tương tác — cần JavaScript để chạy.</p>
-        <p><a href="./index.html">← Quay về trang chủ</a></p>
+      <div style="min-height:100vh;background:#0f1117;color:#e2e8f0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:40px 20px">
+        <div style="max-width:560px;width:100%;text-align:center">
+          <a href="./index.html" style="display:inline-block;font-size:.8rem;color:#94a3b8;text-decoration:none;margin-bottom:28px;letter-spacing:.5px">← KOERU</a>
+          <div style="font-size:48px;margin-bottom:12px">🗾</div>
+          <h1 style="font-size:1.8rem;font-weight:800;margin:0 0 6px;background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent">KOERU Kanji Map</h1>
+          <p style="font-size:.82rem;color:#6366f1;letter-spacing:.5px;margin:0 0 16px">by KOERU Japanese</p>
+          <p style="font-size:1rem;color:#94a3b8;line-height:1.7;margin:0 0 28px">Bản đồ liên kết Kanji theo nghĩa, bộ thủ, âm On/Kun và từ ghép — giúp bạn nhớ chữ Hán theo cụm thay vì từng chữ đơn lẻ.</p>
+
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 24px;margin-bottom:28px;text-align:left">
+            <p style="font-size:.8rem;font-weight:700;color:#e2e8f0;margin:0 0 12px">Dùng Kanji Map để:</p>
+            <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:.88rem;color:#94a3b8;line-height:1.5">
+              <li>Xem liên kết giữa các chữ Hán theo bộ thủ</li>
+              <li>Tra âm On/Kun và nghĩa tiếng Việt</li>
+              <li>Khám phá từ ghép thường gặp từ mỗi Kanji</li>
+              <li>Hệ thống hóa Kanji theo cụm nghĩa / JLPT</li>
+            </ul>
+            <p style="font-size:.76rem;color:#64748b;margin:14px 0 0">Phù hợp cho người đã học N5, đang ở N4/N3 và muốn nhớ Kanji theo mạng liên kết.</p>
+          </div>
+
+          <div style="background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);border-radius:12px;padding:14px 18px;margin-bottom:24px;font-size:.85rem;color:#a5b4fc">
+            ⚠️ Bản đồ này cần JavaScript để chạy. Hãy bật JavaScript trong trình duyệt rồi tải lại trang.
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+            <a href="kanji.html" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:.88rem;font-weight:700;padding:12px 24px;border-radius:50px;text-decoration:none">🖊 Vào Kanji Lab luyện tập →</a>
+            <a href="index.html#section-tuvan" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#e2e8f0;font-size:.88rem;font-weight:600;padding:12px 24px;border-radius:50px;text-decoration:none">Nhận lộ trình Kanji miễn phí</a>
+          </div>
+          <p style="font-size:.72rem;color:#334155;margin-top:28px">Công cụ học miễn phí bởi KOERU Japanese · <a href="./index.html" style="color:#475569;text-decoration:none">koeru.vn</a></p>
+        </div>
       </div>
     </noscript>
   </div>
