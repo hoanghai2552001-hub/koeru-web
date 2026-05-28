@@ -155,5 +155,21 @@
 <script src="js/kanji-data-n5.js?v=20260527d" onload="window.KANJI_N5?.forEach(k=>ALL_KANJI.push(k))"></script>
 <script src="js/koeru-mastery.js?v=20260525"></script>
 <script src="js/kanji-study.js?v=20260527d"></script>
+<!-- ── DATA ATTRIBUTION ── -->
+<button id="cred-btn" onclick="var p=document.getElementById('cred-pop');p.style.display=p.style.display==='block'?'none':'block'" title="Nguồn dữ liệu & License" style="position:fixed;bottom:14px;right:14px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.38);font-size:.72rem;cursor:pointer;z-index:9990;padding:0;font-family:system-ui;line-height:26px;text-align:center">ⓘ</button>
+<div id="cred-pop" style="display:none;position:fixed;bottom:48px;right:14px;width:268px;background:#12141f;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;z-index:9989;box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:system-ui,sans-serif">
+  <div style="font-size:.68rem;color:rgba(255,255,255,.32);letter-spacing:.6px;text-transform:uppercase;font-weight:700;margin-bottom:10px">Nguồn dữ liệu</div>
+  <div style="margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.06)">
+    <b style="font-size:.82rem;color:#e2e8f0">KanjiVG</b><br>
+    <span style="font-size:.72rem;color:rgba(255,255,255,.38)">Stroke order · © Ulrich Apel · <a href="https://kanjivg.tagaini.net" target="_blank" rel="noopener" style="color:#818cf8">kanjivg.tagaini.net</a></span><br>
+    <span style="display:inline-block;font-size:.62rem;padding:1px 5px;border-radius:3px;background:rgba(99,102,241,.18);color:#818cf8;font-weight:700;margin-top:3px">CC BY-SA 3.0</span>
+  </div>
+  <div>
+    <b style="font-size:.82rem;color:#e2e8f0">the-kanji-map</b><br>
+    <span style="font-size:.72rem;color:rgba(255,255,255,.38)">Radical · component · mnemonic data · <a href="https://github.com/thekanjimap/the-kanji-map" target="_blank" rel="noopener" style="color:#818cf8">github.com/thekanjimap</a></span><br>
+    <span style="display:inline-block;font-size:.62rem;padding:1px 5px;border-radius:3px;background:rgba(99,102,241,.18);color:#818cf8;font-weight:700;margin-top:3px">CC BY-SA 3.0</span>
+  </div>
+</div>
+<script>!function(){document.addEventListener('click',function(e){var p=document.getElementById('cred-pop'),b=document.getElementById('cred-btn');if(p&&p.style.display==='block'&&!p.contains(e.target)&&!b.contains(e.target))p.style.display='none'});document.addEventListener('keydown',function(e){if(e.key==='Escape'){var p=document.getElementById('cred-pop');if(p)p.style.display='none'}})}()</script>
 </body>
 </html>
