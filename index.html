@@ -185,12 +185,15 @@ nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1p
 .qchip-sub{font-size:11px;color:var(--ink3);margin-top:2px}
 
 /* ── TOOLS ── */
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
-.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:20px 18px;cursor:pointer;transition:all .2s;text-align:center}
+.tools-lang-group{margin-bottom:24px}
+.tools-lang-label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.tools-lang-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 14px;cursor:pointer;transition:all .2s;text-align:center}
 .tool-card:hover{border-color:var(--navy);box-shadow:var(--shadow)}
-.tool-icon{font-size:30px;margin-bottom:10px;display:block}
-.tool-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px}
-.tool-card p{font-size:12px;color:var(--ink3);line-height:1.5}
+.tool-icon{font-size:28px;margin-bottom:8px;display:block}
+.tool-card h3{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.tool-card p{font-size:11px;color:var(--ink3);line-height:1.5}
 .tool-soon{display:inline-block;font-size:10px;font-weight:700;background:var(--accent-l);color:var(--accent);padding:2px 8px;border-radius:20px;margin-top:7px}
 
 /* ── BLOG ── */
@@ -447,7 +450,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   /* Grids — 1 cột trên mobile */
   .courses-grid{grid-template-columns:1fr}
   .testi-grid{grid-template-columns:1fr}
-  .tools-grid{grid-template-columns:1fr 1fr}
+  .tools-grid{grid-template-columns:1fr 1fr;gap:8px}
   .blog-grid{grid-template-columns:1fr}
   .lesson-feed{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr;gap:20px}
@@ -514,7 +517,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <a onclick="showPage('admin')" id="nav-admin" class="admin-link" style="display:none">⚙️ Admin</a>
     </div>
     <div class="nav-right">
-      <div class="streak-pill">🔥 7 ngày</div>
+      <div class="streak-pill" id="streak-pill">🔥 0 ngày</div>
       <button class="btn btn-navy" onclick="showPage('register')">Đăng ký</button>
       <button class="ham" id="ham-btn" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -536,8 +539,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   <a onclick="window.open('kanji-map.html','_blank');closeMenu()">🗺 Bản đồ Kanji</a>
   <a onclick="window.open('kana.html','_blank');closeMenu()">🎌 Kana Speed</a>
   <div class="mob-divider"></div>
-  <a onclick="window.open('pinyin.html','_blank');closeMenu()">🀄 Pinyin Speed</a>
-  <a onclick="window.open('hsk-flash.html','_blank');closeMenu()">📇 HSK Flashcard</a>
+  <a onclick="window.open('pinyin.html','_blank');closeMenu()">🀄 HSK Practice</a>
   <a onclick="window.open('hanzi-lab.html','_blank');closeMenu()">🔬 Hanzi Lab</a>
   <a onclick="window.open('hanzi-map.html','_blank');closeMenu()">🗺 Hanzi Map</a>
   <div class="mob-divider"></div>
@@ -627,7 +629,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
           <div class="start-icon">🀄</div>
           <h3>Tôi muốn học tiếng Trung từ đầu</h3>
           <p>Chưa biết gì về tiếng Trung. Luyện phát âm thanh điệu và từ vựng HSK1 cơ bản.</p>
-          <span class="start-cta">Thử Pinyin Speed →</span>
+          <span class="start-cta">Thử HSK Practice →</span>
         </div>
 
       </div>
@@ -673,7 +675,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
             <span>🎯 Người mới bắt đầu</span>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
-            <a href="pinyin.html" onclick="localStorage.setItem('lead_source','pinyin_speed')" style="display:inline-block;font-size:.8rem;font-weight:700;padding:7px 14px;background:#ffecd6;color:#8b4a00;border-radius:999px;text-decoration:none">🀄 Thử Pinyin Speed</a>
+            <a href="pinyin.html" onclick="localStorage.setItem('lead_source','pinyin_speed')" style="display:inline-block;font-size:.8rem;font-weight:700;padding:7px 14px;background:#ffecd6;color:#8b4a00;border-radius:999px;text-decoration:none">🀄 Thử HSK Practice</a>
             <button onclick="showPage('register')" style="font-size:.8rem;font-weight:700;padding:7px 14px;background:var(--navy);color:#fff;border:none;border-radius:999px;cursor:pointer">Nhận lộ trình HSK →</button>
           </div>
           <span class="course-tag cn">🇨🇳 Tiếng Trung</span>
@@ -709,20 +711,27 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
     <div class="wrap land-center">
       <div class="land-eyebrow">Học viên KOERU</div>
       <div class="land-h2">Những tình huống thường gặp</div>
-      <p class="land-sub">Bạn đang ở đâu trong hành trình học ngôn ngữ? KOERU có lộ trình cho từng tình huống.</p>
+      <p class="land-sub">Dù học tiếng Nhật hay tiếng Trung — KOERU có lộ trình cho từng tình huống.</p>
       <div class="testi-grid">
         <div class="testi-card">
           <div class="testi-text">"Học N3 rồi nhưng vẫn đứng hình khi nói chuyện thật. Tôi cần luyện phản xạ và giao tiếp thực tế, không chỉ làm bài tập ngữ pháp."</div>
           <div class="testi-author">
             <div class="testi-avatar">💼</div>
-            <div><div class="testi-name">Đi làm công ty Nhật</div><div class="testi-role">Cần giao tiếp tự tin, không đứng hình</div></div>
+            <div><div class="testi-name">🇯🇵 Đi làm công ty Nhật</div><div class="testi-role">Cần giao tiếp tự tin, không đứng hình</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-text">"Muốn học tiếng Trung để làm việc với đối tác Trung Quốc. Không biết bắt đầu từ đâu, phát âm thanh điệu nghe rất khó."</div>
+          <div class="testi-author">
+            <div class="testi-avatar">🇨🇳</div>
+            <div><div class="testi-name">🇨🇳 Làm việc với đối tác Trung</div><div class="testi-role">Cần HSK cơ bản, phát âm chuẩn</div></div>
           </div>
         </div>
         <div class="testi-card">
           <div class="testi-text">"Từng học tiếng Nhật rồi bỏ giữa chừng. Muốn bắt đầu lại nhưng không biết nên học từ đâu và mất bao lâu để đạt N4."</div>
           <div class="testi-author">
             <div class="testi-avatar">🔄</div>
-            <div><div class="testi-name">Học lại từ đầu</div><div class="testi-role">Cần lộ trình rõ, không áp lực</div></div>
+            <div><div class="testi-name">🇯🇵 Học lại từ đầu</div><div class="testi-role">Cần lộ trình rõ, không áp lực</div></div>
           </div>
         </div>
         <div class="testi-card">
@@ -765,13 +774,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
           </div>
         </div>
         <div class="rm-step">
-          <div class="rm-dot">🗣️</div>
-          <div class="rm-body">
-            <h4>Speaking Program</h4>
-            <p>Nói tự nhiên, không script. Roleplay tình huống thật, luyện shadowing, AI feedback.</p>
-          </div>
-        </div>
-        <div class="rm-step">
           <div class="rm-dot">💼</div>
           <div class="rm-body">
             <h4>Business · Career</h4>
@@ -788,16 +790,22 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <div class="land-eyebrow">Công cụ AI</div>
       <div class="land-h2">Học thông minh hơn với AI</div>
       <p class="land-sub">KOERU dùng AI để cá nhân hóa việc học — không phải để thay thế giáo viên.</p>
-      <div class="tools-grid">
-        <div class="tool-card" onclick="showPage('quiz')"><span class="tool-icon">🧪</span><h3>Quiz AI</h3><p>AI chấm điểm & nhận xét cá nhân hóa từng câu sai</p></div>
-        <div class="tool-card" onclick="showPage('flash')"><span class="tool-icon">🃏</span><h3>Flashcard</h3><p>Ôn từ vựng theo spaced repetition — nhớ lâu hơn</p></div>
-        <div class="tool-card" onclick="window.open('kanji.html','_blank')" style="cursor:pointer"><span class="tool-icon">🖊</span><h3>Luyện Kanji</h3><p>Flashcard + Match game + Quiz Kanji N5/N4/N3 — dark mode, có timer</p></div>
-        <div class="tool-card" onclick="window.open('kana.html','_blank')" style="cursor:pointer"><span class="tool-icon">🎌</span><h3>Kana Speed</h3><p>Đọc nhanh & tập viết Hiragana / Katakana — 3 trình độ, từ vựng MNN1, animation nét vẽ</p></div>
-        <div class="tool-card" onclick="window.open('pinyin.html','_blank');localStorage.setItem('lead_source','pinyin_speed')" style="cursor:pointer"><span class="tool-icon">🀄</span><h3>Pinyin Speed</h3><p>Luyện thanh điệu & từ vựng HSK1 — Tone Trainer, Speed Quiz, Flashcard tiếng Trung</p></div>
-        <div class="tool-card" onclick="window.open('hsk-flash.html','_blank');localStorage.setItem('lead_source','hsk_flashcard')" style="cursor:pointer"><span class="tool-icon">📇</span><h3>HSK Flashcard</h3><p>Lật thẻ từ vựng HSK 1·2·3 — phân loại đã nhớ / cần ôn, theo dõi tiến độ</p></div>
-        <div class="tool-card" onclick="window.open('hanzi-lab.html','_blank');localStorage.setItem('lead_source','hanzi_lab')" style="cursor:pointer"><span class="tool-icon">🔬</span><h3>Hanzi Lab</h3><p>Game luyện chữ Hán — Meaning Quiz, Pinyin Quiz, Speed 45s · HSK 1·2·3</p></div>
-        <div class="tool-card" onclick="window.open('hanzi-map.html','_blank');localStorage.setItem('lead_source','hanzi_map_cn')" style="cursor:pointer"><span class="tool-icon">🗺</span><h3>Hanzi Map</h3><p>Khám phá chữ Hán theo bộ thủ — 20 bộ thủ + từ vựng HSK có kèm ví dụ</p></div>
-        <div class="tool-card"><span class="tool-icon">🎯</span><h3>Lộ trình AI</h3><p>Gợi ý bài học phù hợp trình độ của bạn</p><div class="tool-soon">Sắp ra mắt</div></div>
+      <div class="tools-lang-group">
+        <div class="tools-lang-label">🇯🇵 Tiếng Nhật</div>
+        <div class="tools-grid">
+          <div class="tool-card" onclick="showPage('quiz')"><span class="tool-icon">🧪</span><h3>Quiz AI</h3><p>AI chấm điểm & nhận xét cá nhân hóa từng câu sai</p></div>
+          <div class="tool-card" onclick="showPage('flash')"><span class="tool-icon">🃏</span><h3>Flashcard</h3><p>Ôn từ vựng spaced repetition — nhớ lâu hơn</p></div>
+          <div class="tool-card" onclick="window.open('kanji.html','_blank')"><span class="tool-icon">🖊</span><h3>Luyện Kanji</h3><p>Flashcard · Match · Quiz — Kanji N5/N4/N3</p></div>
+          <div class="tool-card" onclick="window.open('kana.html','_blank')"><span class="tool-icon">🎌</span><h3>Kana Speed</h3><p>Đọc nhanh Hiragana / Katakana — animation nét vẽ</p></div>
+        </div>
+      </div>
+      <div class="tools-lang-group">
+        <div class="tools-lang-label">🇨🇳 Tiếng Trung</div>
+        <div class="tools-grid">
+          <div class="tool-card" onclick="window.open('pinyin.html','_blank');localStorage.setItem('lead_source','hsk_practice')"><span class="tool-icon">🀄</span><h3>HSK Practice</h3><p>Tone Trainer, Speed Quiz, Flashcard HSK 1–9 — tất cả trong một</p></div>
+          <div class="tool-card" onclick="window.open('hanzi-lab.html','_blank');localStorage.setItem('lead_source','hanzi_lab')"><span class="tool-icon">🔬</span><h3>Hanzi Lab</h3><p>Quiz nghĩa, Pinyin, Speed 45s — HSK 1·2·3</p></div>
+          <div class="tool-card" onclick="window.open('hanzi-map.html','_blank');localStorage.setItem('lead_source','hanzi_map_cn')"><span class="tool-icon">🗺</span><h3>Hanzi Map</h3><p>Khám phá chữ Hán theo bộ thủ — 20 bộ thủ HSK</p></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1259,6 +1267,19 @@ function load(k,d){
   }catch{return d;}
 }
 function save(k,v){try{localStorage.setItem('koeru_'+k,JSON.stringify(v));}catch{}}
+
+(function initStreak(){
+  try{
+    const s = JSON.parse(localStorage.getItem('koeru_streak')||'{}');
+    const today = new Date().toISOString().slice(0,10);
+    const yesterday = new Date(Date.now()-86400000).toISOString().slice(0,10);
+    let count = s.count || 0;
+    if(s.lastDate !== today && s.lastDate !== yesterday) count = 0;
+    const el = document.getElementById('streak-pill');
+    if(el) el.textContent = '🔥 ' + count + ' ngày';
+  }catch(_){}
+})();
+
 let LESSONS=load('lessons',DEF_L),BLOGS=load('blogs',DEF_B),DOCS=load('docs',DEF_D);
 let apiKey=load('apikey','');
 async function fetchExternalData(){
