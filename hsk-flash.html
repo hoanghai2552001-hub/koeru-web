@@ -101,19 +101,44 @@ a.back{text-decoration:none;color:var(--navy);font-weight:800;font-size:.85rem;m
 .btn-submit{border:none;background:var(--navy);color:#fff;font-weight:800;border-radius:999px;padding:13px;cursor:pointer;font-size:.9rem;font-family:inherit}
 .privacy{font-size:.7rem;color:var(--ink3);text-align:center;line-height:1.4}
 .lead-success{display:none;background:#dcfce7;color:#166534;border-radius:12px;padding:14px;text-align:center;font-weight:700;font-size:.88rem;line-height:1.5;margin-top:4px}
+/* ── PROGRESS BANNER ── */
+.prog-banner{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.prog-banner-icon{font-size:1.5rem}
+.prog-banner-text{flex:1}
+.prog-banner-text strong{font-size:.88rem;font-weight:800;color:var(--navy);display:block}
+.prog-banner-text span{font-size:.75rem;color:var(--ink3)}
+.prog-banner-score{font-size:1.4rem;font-weight:900;color:var(--accent)}
+/* ── MOBILE ── */
+@media(max-width:480px){
+  .screen{padding:16px 14px}
+  .home-hero{padding:20px 16px}
+  .app-title{font-size:1.35rem}
+  .card-hanzi{font-size:3.5rem}
+  .action-row{gap:8px}
+  .result-card{padding:20px 16px}
+}
 </style>
 </head>
 <body>
 
 <!-- HOME -->
 <div id="home-screen" class="screen active">
-  <a href="index.html" class="back">← KOERU</a>
+  <a href="pinyin.html" class="back">← HSK Practice</a>
 
   <div class="home-hero">
     <div class="app-logo">卡</div>
     <div class="app-title">KOERU HSK Flashcard</div>
     <div class="app-sub">Lật thẻ từ vựng tiếng Trung HSK 1 · 2 · 3 — nhớ lâu hơn với spaced repetition nhẹ.</div>
     <div class="brand">by KOERU Chinese</div>
+  </div>
+
+  <div id="prog-banner" class="prog-banner" style="display:none">
+    <div class="prog-banner-icon">📊</div>
+    <div class="prog-banner-text">
+      <strong id="prog-banner-title">Lần trước</strong>
+      <span id="prog-banner-detail"></span>
+    </div>
+    <div class="prog-banner-score" id="prog-banner-score"></div>
   </div>
 
   <div style="margin-bottom:12px;font-size:.82rem;font-weight:700;color:var(--ink2)">Chọn cấp độ ôn tập:</div>
@@ -297,7 +322,7 @@ function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
-function goHome(){ showScreen('home-screen'); }
+function goHome(){ showScreen('home-screen'); loadHskBanner(); }
 
 // ── SHUFFLE ──
 function shuffle(arr){ return [...arr].sort(()=>Math.random()-.5); }
@@ -397,6 +422,7 @@ function showResult(){
   } else {
     note.style.display = 'none';
   }
+  saveHskProgress(pct, knewCount, total);
   showScreen('result-screen');
 }
 
@@ -454,8 +480,48 @@ window.addEventListener('pagehide', function(){});
   }
 })();
 
+// ── PROGRESS (localStorage) ──
+function saveHskProgress(pct, knew, total){
+  try{
+    const today = new Date().toISOString().slice(0,10);
+    const p = JSON.parse(localStorage.getItem('koeru_hsk_progress')||'{}');
+    p.sessions = (p.sessions||0) + 1;
+    p.bestPct = Math.max(p.bestPct||0, pct);
+    p.lastPct = pct;
+    p.lastKnew = knew;
+    p.lastTotal = total;
+    p.lastDate = today;
+    localStorage.setItem('koeru_hsk_progress', JSON.stringify(p));
+    updateStreak();
+  }catch(_){}
+}
+
+function updateStreak(){
+  try{
+    const today = new Date().toISOString().slice(0,10);
+    const s = JSON.parse(localStorage.getItem('koeru_streak')||'{}');
+    if(s.lastDate === today) return;
+    const yesterday = new Date(Date.now()-86400000).toISOString().slice(0,10);
+    s.count = (s.lastDate === yesterday) ? (s.count||0)+1 : 1;
+    s.lastDate = today;
+    localStorage.setItem('koeru_streak', JSON.stringify(s));
+  }catch(_){}
+}
+
+function loadHskBanner(){
+  try{
+    const p = JSON.parse(localStorage.getItem('koeru_hsk_progress')||'null');
+    if(!p || !p.sessions) return;
+    document.getElementById('prog-banner').style.display = 'flex';
+    document.getElementById('prog-banner-title').textContent = `${p.sessions} buổi đã học`;
+    document.getElementById('prog-banner-detail').textContent = `Lần trước: ${p.lastKnew}/${p.lastTotal} thẻ · ${p.lastDate||''}`;
+    document.getElementById('prog-banner-score').textContent = `Best ${p.bestPct}%`;
+  }catch(_){}
+}
+
 // ── INIT ──
 updateCounts();
+loadHskBanner();
 </script>
 </body>
 </html>

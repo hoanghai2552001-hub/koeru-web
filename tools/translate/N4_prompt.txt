@@ -1,0 +1,599 @@
+Dịch các trường sau sang tiếng Việt tự nhiên:
+- "rad_vi": nghĩa tiếng Việt của bộ thủ (rad_en) — ngắn gọn 1-3 từ
+- "mn_vi": dịch mnemonic sang tiếng Việt, GIỮ NGUYÊN ký tự Kanji trong câu (女, 宀, 木...)
+
+Trả về JSON array đúng format bên dưới, KHÔNG giải thích thêm.
+Ví dụ output mẫu:
+[
+  {
+    "k": "安",
+    "rad_en": "roof, house",
+    "rad_vi": "mái nhà",
+    "mn_en": "When the woman 女 remains at home 宀.",
+    "mn_vi": "Người phụ nữ 女 ở yên trong ngôi nhà 宀."
+  }
+]
+
+===INPUT===
+[
+  {
+    "k": "力",
+    "rad_en": "power",
+    "mn_en": "Please see the movie in the radical fields above."
+  },
+  {
+    "k": "工",
+    "rad_en": "work, carpenter, skill",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "元",
+    "rad_en": "human legs",
+    "mn_en": "Where every person 一 and thing 一 comes 儿 <span class='note'>(orig. “legs”)</span> from."
+  },
+  {
+    "k": "止",
+    "rad_en": "to stop",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "引",
+    "rad_en": "bow（in archery）",
+    "mn_en": "Bow 弓 and string 丨."
+  },
+  {
+    "k": "牛",
+    "rad_en": "cow",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "犬",
+    "rad_en": "dog",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "不",
+    "rad_en": "one, horizontal stroke",
+    "mn_en": "Stillborn baby 个 buried under the ground __ ; negative feeling in the family."
+  },
+  {
+    "k": "文",
+    "rad_en": "literature, letters",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "方",
+    "rad_en": "direction, flag",
+    "mn_en": "Please view the radical animation on the left."
+  },
+  {
+    "k": "心",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "Please view the radical animation on the left."
+  },
+  {
+    "k": "切",
+    "rad_en": "knife, sword",
+    "mn_en": "Cut in seven 七 pieces with a sword 刀."
+  },
+  {
+    "k": "代",
+    "rad_en": "person",
+    "mn_en": "Guards イ with spears 弋 changing shifts."
+  },
+  {
+    "k": "世",
+    "rad_en": "one, horizontal stroke",
+    "mn_en": "十十十: three generations of many 十 people met during one's lifetime 一."
+  },
+  {
+    "k": "正",
+    "rad_en": "to stop",
+    "mn_en": "Foot 止 moving toward a destination 一 using the correct route."
+  },
+  {
+    "k": "田",
+    "rad_en": "rice paddy",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "冬",
+    "rad_en": "ice",
+    "mn_en": "Season when one uses a stick 夂 to break the ice [68]."
+  },
+  {
+    "k": "兄",
+    "rad_en": "human legs",
+    "mn_en": "The high ranking one 儿 among the children who uses his mouth 口 to command."
+  },
+  {
+    "k": "用",
+    "rad_en": "to use",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "去",
+    "rad_en": "private, Katakana Mu",
+    "mn_en": "Individual ム buried under the ground 土 left the world."
+  },
+  {
+    "k": "市",
+    "rad_en": "cloth",
+    "mn_en": "Clothes 巾 sold under a shop's roof 亠."
+  },
+  {
+    "k": "広",
+    "rad_en": "slanting roof",
+    "mn_en": "Spacious house 广 can raise thousands of cocoons ム."
+  },
+  {
+    "k": "主",
+    "rad_en": "dot",
+    "mn_en": "King 王 with his crown 丶."
+  },
+  {
+    "k": "字",
+    "rad_en": "roof, house",
+    "mn_en": "Review and study of the characters: a child's 子 most important home 宀 work."
+  },
+  {
+    "k": "考",
+    "rad_en": "old, old-age",
+    "mn_en": "Meditating old person 老 sitting on his heels [22]."
+  },
+  {
+    "k": "光",
+    "rad_en": "human legs",
+    "mn_en": "Like a splendid diamond shining [36] on a pedestal [176]."
+  },
+  {
+    "k": "好",
+    "rad_en": "woman",
+    "mn_en": "Nothing more pleasing than a woman 女 taking care of her child 子."
+  },
+  {
+    "k": "有",
+    "rad_en": "moon, month, period",
+    "mn_en": "The moon 月 in hand [5]: an ultimate expression of possession."
+  },
+  {
+    "k": "同",
+    "rad_en": "mouth",
+    "mn_en": "One family [66] in their house 冂; same living standard for all the members."
+  },
+  {
+    "k": "肉",
+    "rad_en": "flesh, meat",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "色",
+    "rad_en": "color",
+    "mn_en": "Swirling 巴 colors on a palette ク <span class='note'>(orig. \"open mouth\")</span>."
+  },
+  {
+    "k": "早",
+    "rad_en": "sun, day, time",
+    "mn_en": "Rising very 十 <span class='note'>(orig. \"many\")</span> early with the sun 日."
+  },
+  {
+    "k": "地",
+    "rad_en": "earth",
+    "mn_en": "Earth 土 with earthworms 也."
+  },
+  {
+    "k": "村",
+    "rad_en": "tree, wood",
+    "mn_en": "To build a village, one has to cut off 寸 <span class='note'>(orig. \"inch\")</span> trees 木."
+  },
+  {
+    "k": "体",
+    "rad_en": "person",
+    "mn_en": "A person's イ physical basis 本."
+  },
+  {
+    "k": "低",
+    "rad_en": "person",
+    "mn_en": "Person イ of the lowest clan 氐."
+  },
+  {
+    "k": "弟",
+    "rad_en": "bow（in archery）",
+    "mn_en": "Younger brother seeks self affirmation丷by holding ノ bow 弓 and arrow |."
+  },
+  {
+    "k": "走",
+    "rad_en": "to run",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "赤",
+    "rad_en": "red",
+    "mn_en": "Please view the radical animation on the left."
+  },
+  {
+    "k": "売",
+    "rad_en": "man, scholar, samurai",
+    "mn_en": "Professional 士 merchant standing 儿 with his package 冖 of wares."
+  },
+  {
+    "k": "別",
+    "rad_en": "knife, sword",
+    "mn_en": "Cutting up an animal [76] with a knife 刂."
+  },
+  {
+    "k": "医",
+    "rad_en": "box",
+    "mn_en": "Army surgeon treating soldiers who have arrows 矢 in their sides 匚."
+  },
+  {
+    "k": "近",
+    "rad_en": "road, walk, to advance",
+    "mn_en": "A woodcutter goes [10] to cut down nearby trees with his ax 斤."
+  },
+  {
+    "k": "私",
+    "rad_en": "grain",
+    "mn_en": "Rice plants 禾 belonging to individuals ム."
+  },
+  {
+    "k": "作",
+    "rad_en": "person",
+    "mn_en": "Person's イ surprise 乍 at the sight of a beautifully made object."
+  },
+  {
+    "k": "者",
+    "rad_en": "old, old-age",
+    "mn_en": "Most people [28] work daily 日."
+  },
+  {
+    "k": "事",
+    "rad_en": "vertical stroke",
+    "mn_en": "Actions [38] and words 口 occurring 亅 under heaven 一."
+  },
+  {
+    "k": "使",
+    "rad_en": "person",
+    "mn_en": "Person イ used by the emperor as an official 吏."
+  },
+  {
+    "k": "始",
+    "rad_en": "woman",
+    "mn_en": "Start of new life/individual ム in a woman's 女 womb 口 <span class='note'>(orig. \"mouth, orifice\")</span>."
+  },
+  {
+    "k": "姉",
+    "rad_en": "woman",
+    "mn_en": "Woman 女 goes to a market 市 for her younger siblings."
+  },
+  {
+    "k": "妹",
+    "rad_en": "woman",
+    "mn_en": "Not yet 未 a woman 女."
+  },
+  {
+    "k": "味",
+    "rad_en": "mouth",
+    "mn_en": "In the mouth 口 and not yet 未 swallowed."
+  },
+  {
+    "k": "服",
+    "rad_en": "moon, month, period",
+    "mn_en": "People wearing [23] <span class='note'>(orig. \"wrap\")</span> special clothes at a full moon 月 viewing party."
+  },
+  {
+    "k": "物",
+    "rad_en": "cow",
+    "mn_en": "Most precious things to farmers: cattle 牛 and animals 勿."
+  },
+  {
+    "k": "歩",
+    "rad_en": "to stop",
+    "mn_en": "A few 少 steps taken with the feet on the ground 止 <span class='note'>(orig. \"stop, feet\")</span>."
+  },
+  {
+    "k": "門",
+    "rad_en": "gate, door",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "夜",
+    "rad_en": "evening",
+    "mn_en": "At night, a person イ goes under cover 亠 and holds in his hand 夂 his small valuables 乀."
+  },
+  {
+    "k": "明",
+    "rad_en": "sun, day, time",
+    "mn_en": "Bright and clear, when both the sun 日 and the moon 月 are in the sky."
+  },
+  {
+    "k": "林",
+    "rad_en": "tree, wood",
+    "mn_en": "Trees 木 together."
+  },
+  {
+    "k": "青",
+    "rad_en": "blue, green",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "注",
+    "rad_en": "water",
+    "mn_en": "When the master 主 washes his hands, a servant pours the water シ carefully."
+  },
+  {
+    "k": "知",
+    "rad_en": "arrow",
+    "mn_en": "When one knows the answer, it comes like an arrow 矢 from the mouth 口."
+  },
+  {
+    "k": "昼",
+    "rad_en": "sun, day, time",
+    "mn_en": "The sun 日 casting a one foot 尺 long shadow of a sundial rod on the ground 一."
+  },
+  {
+    "k": "茶",
+    "rad_en": "grass",
+    "mn_en": "Leaves [8] from the top [9] of the tea bush ホ plucked to produce tea."
+  },
+  {
+    "k": "待",
+    "rad_en": "step, stride, street, to go",
+    "mn_en": "When one goes 彳 to the temple 寺 to worship, one has to wait in line."
+  },
+  {
+    "k": "送",
+    "rad_en": "road, walk, to advance",
+    "mn_en": "Things are sent on the road [10] no matter what barriers [33] stand in the way."
+  },
+  {
+    "k": "海",
+    "rad_en": "water",
+    "mn_en": "Where every 毎 drop of water シ flows to."
+  },
+  {
+    "k": "音",
+    "rad_en": "sound, noise",
+    "mn_en": "Sound of the temple bell, when the sun 日 stands 立 on the horizon."
+  },
+  {
+    "k": "急",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "Running with open mouth ク and hand ヨ on the heart 心."
+  },
+  {
+    "k": "計",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Measure your words 言 many 十 times before speaking."
+  },
+  {
+    "k": "建",
+    "rad_en": "to move, stretch",
+    "mn_en": "Moving 廴 materials according to a plan written by brush 聿 to erect a building."
+  },
+  {
+    "k": "県",
+    "rad_en": "eye",
+    "mn_en": "The eye 目 of the government controlling the small 小 corners [184] of the country."
+  },
+  {
+    "k": "思",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "The fields 田 are always on a farmer's mind 心."
+  },
+  {
+    "k": "乗",
+    "rad_en": "diagonal sweeping stroke",
+    "mn_en": "People ノ in a tree 木 house [83]."
+  },
+  {
+    "k": "重",
+    "rad_en": "village, (3.93 km)",
+    "mn_en": "Person ノ trying to move a heavy cart 車 on the ground 一."
+  },
+  {
+    "k": "春",
+    "rad_en": "sun, day, time",
+    "mn_en": "The sun 日 rising higher [34] with greater intensity."
+  },
+  {
+    "k": "秋",
+    "rad_en": "grain",
+    "mn_en": "In fall, fire 火 can be made where the crops 禾 grew."
+  },
+  {
+    "k": "弱",
+    "rad_en": "bow（in archery）",
+    "mn_en": "Frozen ン bows 弓 are brittle/weak."
+  },
+  {
+    "k": "紙",
+    "rad_en": "thread",
+    "mn_en": "Contracts linking 糸 clans 氏 are written on paper."
+  },
+  {
+    "k": "帰",
+    "rad_en": "cloth",
+    "mn_en": "Husband, represented by the sword 刂, returns to his wife 帚."
+  },
+  {
+    "k": "起",
+    "rad_en": "to run",
+    "mn_en": "The self 己 gets up to run 走 in the morning."
+  },
+  {
+    "k": "夏",
+    "rad_en": "to go slowly",
+    "mn_en": "When it's hot, one's brain/head [67] moves slowly 夂."
+  },
+  {
+    "k": "家",
+    "rad_en": "roof, house",
+    "mn_en": "House 宀 with its members and its animals 豕."
+  },
+  {
+    "k": "病",
+    "rad_en": "sickness",
+    "mn_en": "Sick 疒 person lying 一 inside 内 house/hospital."
+  },
+  {
+    "k": "特",
+    "rad_en": "cow",
+    "mn_en": "The temple 寺 teaches special treatment for cows 牛."
+  },
+  {
+    "k": "旅",
+    "rad_en": "direction, flag",
+    "mn_en": "Person [5] leaving one's house and going away in some direction 方 to feel changed [29]."
+  },
+  {
+    "k": "通",
+    "rad_en": "road, walk, to advance",
+    "mn_en": "Main street where people move [10] around in action 甬."
+  },
+  {
+    "k": "鳥",
+    "rad_en": "bird",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "動",
+    "rad_en": "power",
+    "mn_en": "Moving heavy 重 objects requires strength 力."
+  },
+  {
+    "k": "強",
+    "rad_en": "bow（in archery）",
+    "mn_en": "Bow shaped 弓 cocoon ム insect 虫; the soft silkworm became a firm larva."
+  },
+  {
+    "k": "教",
+    "rad_en": "activity, to strike, hit",
+    "mn_en": "Teaching filial piety 孝 <span class='note'>(child 子 supporting one's parent [28])</span> by showing appropriate actions 攵."
+  },
+  {
+    "k": "黒",
+    "rad_en": "black",
+    "mn_en": "Please view the radical animation on the left."
+  },
+  {
+    "k": "終",
+    "rad_en": "thread",
+    "mn_en": "Winter 冬: end of the line 糸 of seasons."
+  },
+  {
+    "k": "習",
+    "rad_en": "feather, wing",
+    "mn_en": "Young bird still learning to fly 羽 <span class='note'>(orig. \"wings\")</span>, covered with white 白 down."
+  },
+  {
+    "k": "寒",
+    "rad_en": "roof, house",
+    "mn_en": "When the house 宀 well 井 has a thick layer [70] of ice [68]."
+  },
+  {
+    "k": "軽",
+    "rad_en": "vehicle, wheel, car",
+    "mn_en": "Wheelbarrow 車 used for light/easy activities 又 on the fields 土."
+  },
+  {
+    "k": "運",
+    "rad_en": "road, walk, to advance",
+    "mn_en": "Army 軍 on the go [10]."
+  },
+  {
+    "k": "開",
+    "rad_en": "gate, door",
+    "mn_en": "Two hands 廾 removing the gate bolt 閂."
+  },
+  {
+    "k": "飯",
+    "rad_en": "food, to eat",
+    "mn_en": "Food [15] on a curved 反 board."
+  },
+  {
+    "k": "答",
+    "rad_en": "bamboo",
+    "mn_en": "Calculation using sticks of bamboo 竹 matches 合 the answer."
+  },
+  {
+    "k": "森",
+    "rad_en": "tree, wood",
+    "mn_en": "Many trees 木 together."
+  },
+  {
+    "k": "暑",
+    "rad_en": "sun, day, time",
+    "mn_en": "People 者 working on the fields under the sun 日."
+  },
+  {
+    "k": "着",
+    "rad_en": "eye",
+    "mn_en": "Shepherd with staff ノ watches 目 sheep's [14] arrival to shear the wool for clothing."
+  },
+  {
+    "k": "短",
+    "rad_en": "arrow",
+    "mn_en": "If one shoots arrows 矢 at – a target 口 from a short distance, one will score lots of hits [13]."
+  },
+  {
+    "k": "楽",
+    "rad_en": "tree, wood",
+    "mn_en": "Feelings of people in wooded 木 areas when they can eat lots of [59] white 白 rice."
+  },
+  {
+    "k": "暗",
+    "rad_en": "sun, day, time",
+    "mn_en": "After the sun 日 goes down and the sound 音 of the temple bell is heard."
+  },
+  {
+    "k": "遠",
+    "rad_en": "road, walk, to advance",
+    "mn_en": "Only the nobility 袁 <span class='note'>(mouths 口 of robes [29] trailing on the ground 土)</span> could afford to travel [10] to distant places."
+  },
+  {
+    "k": "漢",
+    "rad_en": "water",
+    "mn_en": "Between the rivers シ, country where influential people 夫 eat lots of platters [46] of vegetables [8]."
+  },
+  {
+    "k": "試",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Trying experience one has to endure in giving a speech 言 at a ceremony 式."
+  },
+  {
+    "k": "銀",
+    "rad_en": "metal, gold, mineral",
+    "mn_en": "Firm 艮, long lasting metal 金."
+  },
+  {
+    "k": "歌",
+    "rad_en": "to lack, yawn",
+    "mn_en": "Double good 可 produced by person's open mouth 欠."
+  },
+  {
+    "k": "館",
+    "rad_en": "food, to eat",
+    "mn_en": "Where officials 官 go to eat [15]."
+  },
+  {
+    "k": "親",
+    "rad_en": "to see",
+    "mn_en": "Parents standing 立 behind a tree 木, watching 見 over their children."
+  },
+  {
+    "k": "頭",
+    "rad_en": "head, page",
+    "mn_en": "Round like a bean 豆 and full of knowledge like a book 頁 <span class='note'>(orig. \"page\")</span>."
+  },
+  {
+    "k": "薬",
+    "rad_en": "grass",
+    "mn_en": "Comforting/healing 楽 herbs [8]."
+  },
+  {
+    "k": "顔",
+    "rad_en": "head, page",
+    "mn_en": "A great person 彦 with a good face and head 頁."
+  }
+]

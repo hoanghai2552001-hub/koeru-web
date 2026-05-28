@@ -84,12 +84,1361 @@
 
   <!-- data + helpers -->
   <script src="kanji-map-data.js?v=20260527e"></script>
+  <script src="kanji-map-vocab-ext.js?v=20260528"></script>
   <script src="kanji-romaji.js"></script>
 
-  <!-- app -->
-  <script type="text/babel" src="kanji-map-graph.jsx"></script>
-  <script type="text/babel" src="kanji-stroke-order.jsx"></script>
-  <script type="text/babel" src="kanji-map-panel.jsx"></script>
-  <script type="text/babel" src="kanji-map-app.jsx"></script>
+  <!-- Expose React hooks globally so all inline Babel scripts can access them without re-declaring -->
+  <script>
+    window.useState    = React.useState;
+    window.useEffect   = React.useEffect;
+    window.useMemo     = React.useMemo;
+    window.useCallback = React.useCallback;
+    window.useRef      = React.useRef;
+    window.useContext  = React.useContext;
+    window.createContext = React.createContext;
+  </script>
+
+  <!-- kanji-map-graph.jsx (inlined to avoid file:// XHR block on Chrome) -->
+  <script type="text/babel">
+// kanji-map-graph.jsx — 2D force-directed graph using d3-force.
+// Renders SVG with pan/zoom + animated "fly-to" on selection.
+
+// --- helper: build node/edge sets for a given selected kanji ---
+function buildSubgraph({ data, jlptFilter, selectedId, expanded }) {
+  const allKanji = data.kanji.filter(k => jlptFilter.includes(k.jlpt));
+  const allVocab = data.vocab.filter(v => jlptFilter.includes(v.jlpt));
+  const kanjiById = Object.fromEntries(allKanji.map(k => [k.id, k]));
+  const vocabById = Object.fromEntries(allVocab.map(v => [v.id, v]));
+
+  const nodes = [];
+  const links = [];
+  const seenNodes = new Set();
+  const addNode = (n) => { if (!seenNodes.has(n.id)) { seenNodes.add(n.id); nodes.push(n); } };
+  const addLink = (s, t) => links.push({ source: s, target: t });
+
+  if (!selectedId) {
+    allKanji.forEach(k => addNode({ ...k, type: 'kanji' }));
+    (data.kanji_relations || []).forEach(r => {
+      if (kanjiById[r.source] && kanjiById[r.target]) addLink(r.source, r.target);
+    });
+    allVocab.slice(0, 0).forEach(() => {});
+    return { nodes, links };
+  }
+
+  const sel = kanjiById[selectedId] || vocabById[selectedId];
+  if (!sel) return { nodes, links };
+
+  if (sel.kanji) {
+    addNode({ ...sel, type: 'vocab' });
+    sel.kanji.forEach(kid => {
+      if (kanjiById[kid]) {
+        addNode({ ...kanjiById[kid], type: 'kanji' });
+        addLink(sel.id, kid);
+      }
+    });
+    const siblingVocab = allVocab.filter(v => v.id !== sel.id && v.kanji.some(k => sel.kanji.includes(k)));
+    const cap = expanded ? siblingVocab.length : Math.min(siblingVocab.length, 8);
+    siblingVocab.slice(0, cap).forEach(v => {
+      addNode({ ...v, type: 'vocab' });
+      v.kanji.forEach(kid => {
+        if (kanjiById[kid] && seenNodes.has(kid)) addLink(v.id, kid);
+      });
+    });
+    return { nodes, links, total: siblingVocab.length, shown: cap };
+  }
+
+  addNode({ ...sel, type: 'kanji', role: 'center' });
+  const compounds = allVocab.filter(v => v.kanji.includes(sel.id));
+  const cap = expanded ? compounds.length : Math.min(compounds.length, 8);
+  compounds.slice(0, cap).forEach(v => {
+    addNode({ ...v, type: 'vocab', role: 'compound' });
+    addLink(sel.id, v.id);
+    v.kanji.forEach(kid => {
+      if (kid !== sel.id && kanjiById[kid]) {
+        addNode({ ...kanjiById[kid], type: 'kanji', role: 'bridge' });
+        addLink(v.id, kid);
+      }
+    });
+  });
+  (data.kanji_relations || []).forEach(r => {
+    if (r.source === sel.id && kanjiById[r.target]) {
+      addNode({ ...kanjiById[r.target], type: 'kanji', role: 'bridge' });
+      addLink(r.source, r.target);
+    } else if (r.target === sel.id && kanjiById[r.source]) {
+      addNode({ ...kanjiById[r.source], type: 'kanji', role: 'bridge' });
+      addLink(r.source, r.target);
+    }
+  });
+
+  if (sel.onyomi?.length) {
+    const myOn = new Set(sel.onyomi);
+    const cousins = allKanji
+      .filter(k => k.id !== sel.id && k.onyomi?.some(o => myOn.has(o)))
+      .slice(0, 3);
+    cousins.forEach(c => {
+      const existing = nodes.find(n => n.id === c.id);
+      if (existing) { existing.role = 'cousin'; }
+      else { addNode({ ...c, type: 'kanji', role: 'cousin' }); }
+      const shared = c.onyomi.filter(o => myOn.has(o))[0];
+      links.push({ source: sel.id, target: c.id, kind: 'onyomi', label: shared });
+    });
+  }
+
+  return { nodes, links, total: compounds.length, shown: cap };
+}
+
+const KanjiGraph = ({
+  data, jlptFilter, selectedId, onSelect,
+  expanded, onExpandMore,
+  width, height,
+}) => {
+  const svgRef = useRef(null);
+  const simRef = useRef(null);
+  const prevPosRef = useRef({});
+  const dragMovedRef = useRef({});
+  const [positions, setPositions] = useState({});
+  const [hoverId, setHoverId] = useState(null);
+  const [dragId, setDragId] = useState(null);
+  const dragOffsetRef = useRef({ x: 0, y: 0 });
+  const dragStartPosRef = useRef({ x: 0, y: 0 });
+  const [transform, setTransform] = useState({ x: 0, y: 0, k: 1 });
+  const targetTransformRef = useRef({ x: 0, y: 0, k: 1 });
+  const isPanningRef = useRef(false);
+  const panStartRef = useRef({ mx: 0, my: 0, tx: 0, ty: 0 });
+  const pointersRef = useRef(new Map());
+  const pinchStartRef = useRef(null);
+
+  const { nodes, links, total, shown } = useMemo(
+    () => buildSubgraph({ data, jlptFilter, selectedId, expanded }),
+    [data, jlptFilter, selectedId, expanded]
+  );
+
+  useEffect(() => {
+    if (!nodes.length) { setPositions({}); return; }
+    const R = 120;
+    const prev = prevPosRef.current;
+    const nCopy = nodes.map((n, i) => {
+      const seeded = prev[n.id];
+      if (seeded) return { ...n, x: seeded.x, y: seeded.y };
+      const a = (i / nodes.length) * Math.PI * 2;
+      return { ...n, x: Math.cos(a) * R, y: Math.sin(a) * R };
+    });
+    const lCopy = links.map(l => ({ ...l }));
+    const selNode = nCopy.find(n => n.id === selectedId);
+    if (selNode) { selNode.fx = 0; selNode.fy = 0; }
+    const sim = d3.forceSimulation(nCopy)
+      .force('link', d3.forceLink(lCopy).id(d => d.id).distance(d => {
+        return (d.source.type === 'vocab' || d.target.type === 'vocab') ? 80 : 110;
+      }).strength(0.6))
+      .force('charge', d3.forceManyBody().strength(-180).distanceMax(380))
+      .force('x', d3.forceX(0).strength(0.08))
+      .force('y', d3.forceY(0).strength(0.08))
+      .force('collide', d3.forceCollide(d => {
+        if (d.role === 'center') return 48;
+        if (d.type === 'vocab')  return 42;
+        if (d.role === 'bridge') return 28;
+        return 34;
+      }))
+      .stop();
+    const ITER = 280;
+    for (let i = 0; i < ITER; i++) sim.tick();
+    const pos = {};
+    nCopy.forEach(n => { pos[n.id] = { x: n.x, y: n.y }; });
+    prevPosRef.current = pos;
+    setPositions(pos);
+    return () => sim.stop();
+  }, [nodes.length, links.length, selectedId, expanded]);
+
+  useEffect(() => {
+    if (!selectedId) {
+      targetTransformRef.current = { x: 0, y: 0, k: 1 };
+    } else {
+      targetTransformRef.current = { x: 0, y: 0, k: 1.15 };
+    }
+    let raf;
+    const ease = (a, b, t) => a + (b - a) * t;
+    const step = () => {
+      setTransform(prev => {
+        const t = targetTransformRef.current;
+        const nx = ease(prev.x, t.x, 0.12);
+        const ny = ease(prev.y, t.y, 0.12);
+        const nk = ease(prev.k, t.k, 0.12);
+        if (Math.abs(nx - t.x) < 0.5 && Math.abs(ny - t.y) < 0.5 && Math.abs(nk - t.k) < 0.005) {
+          return t;
+        }
+        raf = requestAnimationFrame(step);
+        return { x: nx, y: ny, k: nk };
+      });
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [selectedId]);
+
+  const onPointerDown = useCallback((e) => {
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointersRef.current.size === 2) {
+      const pts = [...pointersRef.current.values()];
+      const dx = pts[1].x - pts[0].x, dy = pts[1].y - pts[0].y;
+      pinchStartRef.current = {
+        dist: Math.hypot(dx, dy),
+        k: transform.k,
+        midX: (pts[0].x + pts[1].x) / 2,
+        midY: (pts[0].y + pts[1].y) / 2,
+        tx: transform.x, ty: transform.y,
+      };
+      isPanningRef.current = false;
+      if (dragId) setDragId(null);
+      return;
+    }
+    if (e.target.closest('.km-node')) return;
+    isPanningRef.current = true;
+    panStartRef.current = { mx: e.clientX, my: e.clientY, tx: transform.x, ty: transform.y };
+  }, [transform, dragId]);
+
+  const clientToGraph = useCallback((cx, cy) => {
+    const rect = svgRef.current?.getBoundingClientRect();
+    if (!rect) return { x: 0, y: 0 };
+    return {
+      x: (cx - rect.left - rect.width / 2 - transform.x) / transform.k,
+      y: (cy - rect.top - rect.height / 2 - transform.y) / transform.k,
+    };
+  }, [transform]);
+
+  const onNodeDown = useCallback((e, id) => {
+    e.stopPropagation();
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointersRef.current.size >= 2) return;
+    const p = positions[id];
+    if (!p) return;
+    const g = clientToGraph(e.clientX, e.clientY);
+    dragOffsetRef.current = { x: g.x - p.x, y: g.y - p.y };
+    dragStartPosRef.current = { x: e.clientX, y: e.clientY };
+    dragMovedRef.current[id] = false;
+    setDragId(id);
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  }, [positions, clientToGraph]);
+
+  useEffect(() => {
+    const onMove = (e) => {
+      if (pointersRef.current.has(e.pointerId)) {
+        pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      }
+      if (pinchStartRef.current && pointersRef.current.size >= 2) {
+        const pts = [...pointersRef.current.values()];
+        const dx = pts[1].x - pts[0].x, dy = pts[1].y - pts[0].y;
+        const newDist = Math.hypot(dx, dy);
+        const start = pinchStartRef.current;
+        const newK = Math.max(0.4, Math.min(2.5, start.k * (newDist / start.dist)));
+        const newMid = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
+        const newTx = start.tx + (newMid.x - start.midX);
+        const newTy = start.ty + (newMid.y - start.midY);
+        setTransform({ x: newTx, y: newTy, k: newK });
+        targetTransformRef.current = { x: newTx, y: newTy, k: newK };
+        return;
+      }
+      if (dragId) {
+        const dx0 = e.clientX - dragStartPosRef.current.x;
+        const dy0 = e.clientY - dragStartPosRef.current.y;
+        if (Math.hypot(dx0, dy0) > 4) dragMovedRef.current[dragId] = true;
+        const g = clientToGraph(e.clientX, e.clientY);
+        const nx = g.x - dragOffsetRef.current.x;
+        const ny = g.y - dragOffsetRef.current.y;
+        setPositions(p => ({ ...p, [dragId]: { x: nx, y: ny } }));
+        prevPosRef.current[dragId] = { x: nx, y: ny };
+        return;
+      }
+      if (!isPanningRef.current) return;
+      const dx = e.clientX - panStartRef.current.mx;
+      const dy = e.clientY - panStartRef.current.my;
+      setTransform(t => ({ ...t, x: panStartRef.current.tx + dx, y: panStartRef.current.ty + dy }));
+      targetTransformRef.current = { ...targetTransformRef.current,
+        x: panStartRef.current.tx + dx, y: panStartRef.current.ty + dy };
+    };
+    const onUp = (e) => {
+      pointersRef.current.delete(e.pointerId);
+      if (pointersRef.current.size < 2) pinchStartRef.current = null;
+      if (pointersRef.current.size === 0) {
+        isPanningRef.current = false;
+        if (dragId) {
+          const id = dragId;
+          setDragId(null);
+          setTimeout(() => { dragMovedRef.current[id] = false; }, 50);
+        }
+      }
+    };
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
+    return () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
+    };
+  }, [dragId, clientToGraph]);
+
+  const onWheel = useCallback((e) => {
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.1 : 0.9;
+    setTransform(t => {
+      const newK = Math.max(0.4, Math.min(2.5, t.k * factor));
+      return { ...t, k: newK };
+    });
+    targetTransformRef.current = { ...targetTransformRef.current,
+      k: Math.max(0.4, Math.min(2.5, targetTransformRef.current.k * factor)) };
+  }, []);
+
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el) return;
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, [onWheel]);
+
+  const setZoom = (mul) => {
+    targetTransformRef.current = { ...targetTransformRef.current,
+      k: Math.max(0.4, Math.min(2.5, targetTransformRef.current.k * mul)) };
+    setTransform(t => ({ ...t, k: Math.max(0.4, Math.min(2.5, t.k * mul)) }));
+  };
+  const resetZoom = () => {
+    targetTransformRef.current = { x: 0, y: 0, k: 1 };
+    setTransform({ x: 0, y: 0, k: 1 });
+  };
+
+  const cx = width / 2 + transform.x;
+  const cy = height / 2 + transform.y;
+  const k = transform.k;
+  const hasMore = !expanded && total && total > shown;
+
+  return (
+    <div className="km-graph-wrap" style={{ position:'relative' }}>
+      <svg
+        ref={svgRef}
+        width={width} height={height}
+        onPointerDown={onPointerDown}
+        style={{ cursor: isPanningRef.current ? 'grabbing' : 'grab', touchAction: 'none' }}
+      >
+        <g transform={`translate(${cx} ${cy}) scale(${k})`}>
+          {links.map((l, i) => {
+            const sId = typeof l.source === 'object' ? l.source.id : l.source;
+            const tId = typeof l.target === 'object' ? l.target.id : l.target;
+            const s = positions[sId];
+            const t = positions[tId];
+            if (!s || !t) return null;
+            const isHi = selectedId && (sId === selectedId || tId === selectedId);
+            const isOnyomi = l.kind === 'onyomi';
+            const mx = (s.x + t.x) / 2;
+            const my = (s.y + t.y) / 2;
+            return (
+              <g key={i}>
+                <line
+                  x1={s.x} y1={s.y} x2={t.x} y2={t.y}
+                  className={'km-edge ' + (isHi ? 'is-highlighted' : '')}
+                  strokeDasharray={isOnyomi ? '4 4' : undefined}
+                  stroke={isOnyomi ? 'var(--hanko)' : undefined}
+                  strokeOpacity={isOnyomi ? .65 : undefined}
+                />
+                {l.label ? (
+                  <text x={mx} y={my} className="km-edge-label">{l.label}</text>
+                ) : null}
+              </g>
+            );
+          })}
+          {nodes.map(n => {
+            const p = positions[n.id];
+            if (!p) return null;
+            const isSelected = n.id === selectedId;
+            const isHover = n.id === hoverId;
+            const isKanji = n.type === 'kanji';
+            const role = n.role || 'default';
+            let size;
+            if (isKanji) {
+              if (role === 'center')  size = 40;
+              else if (role === 'cousin') size = 26;
+              else if (role === 'bridge') size = 22;
+              else size = 28;
+            } else {
+              size = 28;
+            }
+            const opacity =
+              role === 'bridge' ? 0.55 :
+              role === 'cousin' ? 0.92 : 1;
+            return (
+              <g key={n.id}
+                className={`km-node ${isKanji ? 'is-kanji' : 'is-vocab'} role-${role} ${dragId === n.id ? 'is-dragging' : ''}`}
+                transform={`translate(${p.x} ${p.y})`}
+                opacity={opacity}
+                style={{ transition: dragId ? 'none' : 'transform .55s cubic-bezier(.2,.7,.3,1), opacity .25s' }}
+                onPointerDown={(e) => onNodeDown(e, n.id)}
+                onMouseEnter={() => setHoverId(n.id)}
+                onMouseLeave={() => setHoverId(h => h === n.id ? null : h)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (dragMovedRef.current[n.id]) return;
+                  onSelect(n.id);
+                }}
+              >
+                {isKanji ? (
+                  <circle r={size} className={`km-node-circle lvl-${n.jlpt} ${isSelected ? 'is-selected' : ''}`} />
+                ) : (
+                  <rect
+                    x={-(Math.max(n.id.length, 2) * 9 + 12)}
+                    y={-18}
+                    width={(Math.max(n.id.length, 2) * 9 + 12) * 2}
+                    height={36}
+                    rx={18}
+                    className={`km-node-circle lvl-${n.jlpt} ${isSelected ? 'is-selected' : ''}`}
+                  />
+                )}
+                <text className="km-node-glyph" style={{ fontSize: isKanji ? size * 0.9 : 15 }}>
+                  {n.id}
+                </text>
+                {isKanji && n.han_viet && (
+                  <text className="km-node-label" y={size + 14}
+                    style={{ fontSize: role === 'bridge' ? 9 : 10,
+                             opacity: role === 'bridge' ? 0.75 : 1 }}>
+                    {n.han_viet}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+        </g>
+      </svg>
+
+      {(() => {
+        if (!hoverId || hoverId === selectedId || dragId) return null;
+        const n = nodes.find(x => x.id === hoverId);
+        const p = positions[hoverId];
+        if (!n || !p) return null;
+        const screenX = width / 2 + transform.x + p.x * transform.k;
+        const screenY = height / 2 + transform.y + p.y * transform.k;
+        const isVocab = n.type === 'vocab';
+        return (
+          <div className="km-tooltip" style={{ left: screenX, top: screenY - 60 }}>
+            <div className="km-tooltip-glyph"
+              style={{ fontFamily: isVocab ? 'var(--font-jp)' : 'var(--font-kanji)' }}>
+              {n.id}
+            </div>
+            <div className="km-tooltip-meta">
+              <div className="km-tooltip-primary">{isVocab ? n.reading : n.han_viet}</div>
+              <div className="km-tooltip-meaning">{n.meaning}</div>
+              <div className="km-tooltip-tag">{n.jlpt}{isVocab ? '' : ` · ${n.stroke} nét`}</div>
+            </div>
+          </div>
+        );
+      })()}
+
+      <div className="km-graph-status">
+        <span>Đang xem <b>{nodes.length}</b> nodes</span>
+        <span style={{ color:'var(--ink-faint)' }}>·</span>
+        <span><b>{links.length}</b> liên kết</span>
+        {selectedId && (
+          <>
+            <span style={{ color:'var(--ink-faint)' }}>·</span>
+            <span>Tâm: <b>{selectedId}</b></span>
+          </>
+        )}
+      </div>
+
+      <div className="km-graph-toolbar">
+        <button className="km-btn is-icon" onClick={() => setZoom(1.2)} title="Phóng to">＋</button>
+        <button className="km-btn is-icon" onClick={() => setZoom(0.83)} title="Thu nhỏ">−</button>
+        <button className="km-btn is-icon" onClick={resetZoom} title="Reset">⤢</button>
+      </div>
+
+      {hasMore && (
+        <button className="km-expand-more" onClick={onExpandMore}>
+          Xem thêm {total - shown} liên kết
+          <span style={{ fontSize: 14 }}>↓</span>
+        </button>
+      )}
+
+      {!nodes.length && !selectedId && (
+        <div className="km-empty">
+          <div className="km-empty-glyph">無</div>
+          <div className="km-empty-title">Không có chữ nào</div>
+          <div className="km-empty-sub">Bật ít nhất 1 cấp JLPT để bắt đầu.</div>
+        </div>
+      )}
+      {!nodes.length && selectedId && (
+        <div className="km-empty">
+          <div className="km-empty-glyph">?</div>
+          <div className="km-empty-title">Không tìm thấy "{selectedId}"</div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+window.KanjiGraph = KanjiGraph;
+  </script>
+
+  <!-- kanji-stroke-order.jsx (inlined) -->
+  <script type="text/babel">
+// kanji-stroke-order.jsx — animated stroke order via KanjiVG
+
+const StrokeOrder = ({ kanji, size = 180 }) => {
+  const [paths, setPaths] = useState(null);
+  const [error, setError] = useState(null);
+  const [playing, setPlaying] = useState(false);
+  const [strokeIdx, setStrokeIdx] = useState(0);
+  const [lengths, setLengths] = useState([]);
+  const svgRef = useRef(null);
+  const rafRef = useRef(null);
+
+  const codepoint = kanji.codePointAt(0).toString(16).padStart(5, '0');
+  const url = `https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/${codepoint}.svg`;
+
+  useEffect(() => {
+    let cancelled = false;
+    setPaths(null); setError(null); setStrokeIdx(0); setPlaying(false);
+    fetch(url)
+      .then(r => {
+        if (!r.ok) throw new Error('not found');
+        return r.text();
+      })
+      .then(text => {
+        if (cancelled) return;
+        const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+        const ps = Array.from(doc.querySelectorAll('path'))
+          .map(p => p.getAttribute('d'))
+          .filter(Boolean);
+        if (!ps.length) throw new Error('no paths');
+        setPaths(ps);
+      })
+      .catch(e => { if (!cancelled) setError(e.message || 'load failed'); });
+    return () => { cancelled = true; };
+  }, [url]);
+
+  useEffect(() => {
+    if (!paths || !svgRef.current) return;
+    const els = svgRef.current.querySelectorAll('path[data-stroke]');
+    const lens = Array.from(els).map(el => {
+      try { return el.getTotalLength(); } catch { return 100; }
+    });
+    setLengths(lens);
+    setStrokeIdx(paths.length);
+  }, [paths]);
+
+  const play = () => {
+    if (!paths) return;
+    setPlaying(true);
+    setStrokeIdx(0);
+    const STROKE_MS = 380;
+    const PAUSE_MS = 120;
+    let i = 0;
+    let start = performance.now();
+    const step = (now) => {
+      const t = (now - start) / STROKE_MS;
+      if (t >= 1) {
+        i += 1;
+        if (i >= paths.length) {
+          setStrokeIdx(paths.length);
+          setPlaying(false);
+          return;
+        }
+        start = now + PAUSE_MS;
+        setStrokeIdx(i);
+      } else {
+        setStrokeIdx(i + Math.min(1, t));
+      }
+      rafRef.current = requestAnimationFrame(step);
+    };
+    rafRef.current = requestAnimationFrame(step);
+  };
+
+  useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
+  if (error) {
+    return (
+      <div className="km-stroke">
+        <div className="km-stroke-header">
+          <span className="km-label">Cách viết</span>
+          <span style={{ fontSize:11, color:'var(--ink-faint)' }}>Không có dữ liệu</span>
+        </div>
+        <div className="km-stroke-fallback">
+          <span style={{ fontFamily:'var(--font-kanji)', fontSize:84, fontWeight:900, color:'var(--ink-faint)' }}>{kanji}</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!paths) {
+    return (
+      <div className="km-stroke">
+        <div className="km-stroke-header">
+          <span className="km-label">Cách viết</span>
+        </div>
+        <div className="km-stroke-fallback">
+          <span style={{ fontSize:13, color:'var(--ink-faint)' }}>Đang tải…</span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="km-stroke">
+      <div className="km-stroke-header">
+        <span className="km-label">Cách viết · {paths.length} nét</span>
+        <button className="km-btn is-ghost" style={{ padding:'2px 8px', fontSize:12 }}
+          onClick={play} disabled={playing}>
+          {playing ? '▶ đang vẽ…' : '▶ phát lại'}
+        </button>
+      </div>
+      <div className="km-stroke-canvas">
+        <svg ref={svgRef} viewBox="0 0 109 109" width={size} height={size}>
+          <line x1="54.5" y1="0" x2="54.5" y2="109" className="km-stroke-grid" />
+          <line x1="0" y1="54.5" x2="109" y2="54.5" className="km-stroke-grid" />
+          {paths.map((d, i) => {
+            const len = lengths[i] || 100;
+            const isDone = i + 1 <= Math.floor(strokeIdx);
+            const isCurrent = !isDone && i === Math.floor(strokeIdx);
+            const frac = isCurrent ? (strokeIdx - i) : (isDone ? 1 : 0);
+            const offset = len * (1 - frac);
+            return (
+              <path key={i} data-stroke={i} d={d}
+                className={`km-stroke-path ${isDone ? 'is-done' : isCurrent ? 'is-current' : 'is-pending'}`}
+                style={{ strokeDasharray: len, strokeDashoffset: offset }} />
+            );
+          })}
+          {paths.map((d, i) => {
+            const m = /M\s*([-\d.]+)[ ,]([-\d.]+)/.exec(d);
+            if (!m) return null;
+            const x = parseFloat(m[1]), y = parseFloat(m[2]);
+            const isDone = i + 1 <= Math.floor(strokeIdx);
+            return (
+              <text key={'n'+i} x={x} y={y} className="km-stroke-num" opacity={isDone ? 1 : 0.3}>
+                {i + 1}
+              </text>
+            );
+          })}
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+window.StrokeOrder = StrokeOrder;
+  </script>
+
+  <!-- kanji-map-panel.jsx (inlined) -->
+  <script type="text/babel">
+// kanji-map-panel.jsx — Glass detail panel for selected kanji/vocab.
+
+function splitMora(kana) {
+  if (!kana) return [];
+  const small = new Set('ゃゅょャュョぁぃぅぇぉァィゥェォ');
+  const out = [];
+  for (const ch of kana) {
+    if (small.has(ch) && out.length) out[out.length - 1] += ch;
+    else out.push(ch);
+  }
+  return out;
+}
+
+function pitchPattern(moraCount, pitch) {
+  if (moraCount === 0) return [];
+  const arr = new Array(moraCount);
+  if (pitch === 0) {
+    arr[0] = 'L';
+    for (let i = 1; i < moraCount; i++) arr[i] = 'H';
+  } else if (pitch === 1) {
+    arr[0] = 'H';
+    for (let i = 1; i < moraCount; i++) arr[i] = 'L';
+  } else {
+    arr[0] = 'L';
+    for (let i = 1; i < moraCount; i++) arr[i] = i < pitch ? 'H' : 'L';
+  }
+  return arr;
+}
+
+const PitchAccent = ({ reading, pitch }) => {
+  const mora = splitMora(reading);
+  if (!mora.length) return null;
+  const pattern = pitchPattern(mora.length, pitch);
+  const label = pitch === 0 ? 'heiban (平板)'
+              : pitch === 1 ? 'atamadaka (頭高)'
+              : pitch === mora.length ? 'odaka (尾高)'
+              : 'nakadaka (中高)';
+  const w = mora.length * 32 + 16;
+  const h = 36;
+  const pts = pattern.map((p, i) => ({ x: 16 + i * 32, y: p === 'H' ? 8 : 24 }));
+  return (
+    <div className="km-pitch">
+      <div className="km-section-title">
+        Trọng âm
+        <span className="km-section-count">[{pitch}] {label}</span>
+      </div>
+      <div className="km-pitch-canvas">
+        <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
+          <polyline
+            points={pts.map(p => `${p.x},${p.y}`).join(' ')}
+            fill="none" stroke="var(--hanko)" strokeWidth="2"
+            strokeLinecap="round" strokeLinejoin="round"
+          />
+          {pts.map((p, i) => (
+            <circle key={i} cx={p.x} cy={p.y} r="4"
+              fill={pattern[i] === 'H' ? 'var(--hanko)' : '#fff'}
+              stroke="var(--hanko)" strokeWidth="2" />
+          ))}
+        </svg>
+        <div className="km-pitch-mora">
+          {mora.map((m, i) => (
+            <span key={i} className={pattern[i] === 'H' ? 'is-h' : 'is-l'}>{m}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const KanjiPanel = ({ data, selectedId, onSelect, onClose }) => {
+  const item = useMemo(() => {
+    if (!selectedId) return null;
+    return data.kanji.find(k => k.id === selectedId) || data.vocab.find(v => v.id === selectedId);
+  }, [selectedId, data]);
+
+  const isVocab = item && item.kanji && Array.isArray(item.kanji);
+
+  const related = useMemo(() => {
+    if (!item) return { compounds: [], examples: [] };
+    if (isVocab) {
+      const sibling = data.vocab.filter(v => v.id !== item.id && v.kanji.some(k => item.kanji.includes(k)));
+      return { compounds: sibling.slice(0, 10), components: item.kanji.map(k => data.kanji.find(x => x.id === k)).filter(Boolean) };
+    }
+    const compounds = data.vocab.filter(v => v.kanji.includes(item.id));
+    return { compounds };
+  }, [item, data, isVocab]);
+
+  const onyomiFamily = useMemo(() => {
+    if (!item || isVocab || !item.onyomi?.length) return [];
+    const myOn = new Set(item.onyomi);
+    return data.kanji
+      .filter(k => k.id !== item.id && k.onyomi?.some(o => myOn.has(o)))
+      .map(k => ({ ...k, shared: k.onyomi.filter(o => myOn.has(o)) }))
+      .slice(0, 12);
+  }, [item, data, isVocab]);
+
+  const exampleVocab = useMemo(() => {
+    if (!item) return null;
+    if (isVocab) return item;
+    return related.compounds.find(c => c.example_jp);
+  }, [item, related, isVocab]);
+
+  const speak = useCallback((text) => {
+    if (!('speechSynthesis' in window)) {
+      alert('Trình duyệt không hỗ trợ phát âm tự động.');
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'ja-JP';
+    utter.rate = 0.85;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  }, []);
+
+  const [bookmarked, setBookmarked] = useState(false);
+  useEffect(() => {
+    if (!item) return;
+    const set = new Set(JSON.parse(localStorage.getItem('km_bookmarks') || '[]'));
+    setBookmarked(set.has(item.id));
+  }, [item]);
+  const toggleBookmark = () => {
+    if (!item) return;
+    const set = new Set(JSON.parse(localStorage.getItem('km_bookmarks') || '[]'));
+    if (set.has(item.id)) set.delete(item.id); else set.add(item.id);
+    localStorage.setItem('km_bookmarks', JSON.stringify([...set]));
+    setBookmarked(set.has(item.id));
+  };
+
+  const progress = useMemo(() => {
+    if (!item) return null;
+    const learned = JSON.parse(localStorage.getItem('km_learned') || '[]');
+    const all = isVocab ? related.compounds.length + 1 : related.compounds.length;
+    if (all === 0) return null;
+    const done = (isVocab ? [item, ...related.compounds] : related.compounds)
+      .filter(v => learned.includes(v.id)).length;
+    return { done, total: all };
+  }, [item, related, isVocab]);
+
+  if (!item) {
+    return (
+      <aside className="km-detail" data-screen-label="detail-panel">
+        <div className="km-detail-grip" />
+        <div className="km-detail-empty">
+          <div className="km-detail-empty-icon">字</div>
+          <div>Chọn 1 chữ trong bản đồ<br/>để xem chi tiết.</div>
+          <div style={{ marginTop: 4, fontSize: 12 }}>Hoặc dùng search ở panel trái.</div>
+        </div>
+      </aside>
+    );
+  }
+
+  return (
+    <aside className="km-detail" data-screen-label="detail-panel">
+      <div className="km-detail-grip" onClick={onClose} />
+
+      <div className="km-detail-header">
+        <div className={`km-detail-glyph ${isVocab ? 'is-vocab' : ''}`}>{item.id}</div>
+        <div className="km-detail-meta">
+          <div className="km-detail-hanviet">{isVocab ? item.reading : item.han_viet}</div>
+          <div className="km-detail-meaning">{item.meaning}</div>
+          <span className={`km-detail-jlpt lvl-${item.jlpt}`}>JLPT {item.jlpt}</span>
+        </div>
+        <button className="km-btn is-icon is-ghost" onClick={() => speak(item.id)} title="Phát âm">
+          🔊
+        </button>
+      </div>
+
+      {!isVocab && (item.mn_vi || item.mnemonic) ? (
+        <div className="km-mnemonic">
+          <div className="km-section-title" style={{ marginBottom:6, color:'var(--hanko)' }}>
+            💡 Gợi nhớ
+          </div>
+          <div className="km-mnemonic-text"
+            dangerouslySetInnerHTML={{ __html: item.mn_vi || item.mnemonic }} />
+        </div>
+      ) : null}
+
+      {isVocab && typeof item.pitch === 'number' ? (
+        <PitchAccent reading={item.reading} pitch={item.pitch} />
+      ) : null}
+
+      {!isVocab && (item.onyomi?.length || item.kunyomi?.length) ? (
+        <div className="km-readings">
+          {item.onyomi?.length ? (<>
+            <div className="km-reading-label">音</div>
+            <div className="km-reading-value">{item.onyomi.join('・')}</div>
+          </>) : null}
+          {item.kunyomi?.length ? (<>
+            <div className="km-reading-label">訓</div>
+            <div className="km-reading-value">{item.kunyomi.join('・')}</div>
+          </>) : null}
+          <div className="km-reading-label">画</div>
+          <div className="km-reading-value" style={{ fontFamily: 'var(--font-sans)', color: 'var(--ink-soft)' }}>
+            {item.stroke} nét
+            {item.freq_rank ? <span style={{ marginLeft:10, color:'var(--ink-faint)' }}>· top {item.freq_rank} thường gặp</span> : null}
+          </div>
+        </div>
+      ) : null}
+
+      {!isVocab && window.StrokeOrder ? (
+        <StrokeOrder kanji={item.id} size={140} />
+      ) : null}
+
+      {!isVocab && item.radical ? (
+        <div>
+          <div className="km-section-title">Bộ thủ &amp; Thành phần</div>
+          <div className="km-radical" onClick={() => {
+            const same = data.kanji.filter(k => k.radical === item.radical && k.id !== item.id);
+            if (same.length) onSelect(same[0].id);
+          }}>
+            <div className="km-radical-glyph">{item.radical}</div>
+            <div className="km-radical-meta">
+              {data.radicals?.[item.radical] ? (<>
+                <div className="km-radical-name">{data.radicals[item.radical].name_ja}</div>
+                <div className="km-radical-desc">{data.radicals[item.radical].meaning}</div>
+              </>) : (
+                <div className="km-radical-name" style={{ color:'var(--ink-faint)' }}>bộ thủ</div>
+              )}
+            </div>
+          </div>
+          {item.components?.length ? (
+            <div style={{ marginTop:10 }}>
+              <div className="km-section-title" style={{ marginBottom:6 }}>Thành phần</div>
+              <div className="km-components">
+                {item.components.map((c, i) => {
+                  const inData = data.kanji.find(k => k.id === c);
+                  return (
+                    <div key={i} className="km-component"
+                      onClick={() => inData && onSelect(c)}
+                      title={inData ? `${inData.han_viet} — ${inData.meaning}` : c}
+                      style={{ cursor: inData ? 'pointer' : 'default' }}>
+                      {c}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+
+      {!isVocab && onyomiFamily.length ? (
+        <div>
+          <div className="km-section-title">
+            Cùng âm 音 (onyomi)
+            <span className="km-section-count">{onyomiFamily.length}</span>
+          </div>
+          <div className="km-onyomi-family">
+            {onyomiFamily.map(k => (
+              <div key={k.id} className="km-onyomi-pill" onClick={() => onSelect(k.id)}
+                title={`${k.han_viet} — ${k.meaning}`}>
+                <div className={`km-onyomi-pill-glyph lvl-${k.jlpt}`}>{k.id}</div>
+                <div className="km-onyomi-pill-text">
+                  <span className="km-onyomi-pill-reading">{k.shared.join('・')}</span>
+                  <span className="km-onyomi-pill-hanviet">{k.han_viet} · {k.jlpt}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {isVocab && related.components?.length ? (
+        <div>
+          <div className="km-section-title">
+            Kanji thành phần <span className="km-section-count">{related.components.length}</span>
+          </div>
+          <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
+            {related.components.map(k => (
+              <button key={k.id} className="km-btn"
+                style={{ padding:'6px 10px', display:'flex', gap:8, alignItems:'center' }}
+                onClick={() => onSelect(k.id)}>
+                <span style={{ fontFamily:'var(--font-kanji)', fontSize:20, fontWeight:700 }}>{k.id}</span>
+                <span style={{ display:'flex', flexDirection:'column', alignItems:'flex-start', lineHeight:1.1 }}>
+                  <span style={{ fontSize:12 }}>{k.han_viet}</span>
+                  <span style={{ fontSize:10, color:'var(--ink-faint)' }}>{k.jlpt}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {exampleVocab && exampleVocab.example_jp && (
+        <div>
+          <div className="km-section-title">Ví dụ</div>
+          <div className="km-example">
+            <div className="km-example-jp"
+              dangerouslySetInnerHTML={{ __html: highlightInExample(exampleVocab.example_jp, item.id) }} />
+            <div className="km-example-vi">{exampleVocab.example_vi}</div>
+            <button className="km-btn is-ghost"
+              style={{ padding:'4px 8px', fontSize:12, marginTop:6 }}
+              onClick={() => speak(exampleVocab.example_jp)}>
+              🔊 phát âm câu
+            </button>
+          </div>
+        </div>
+      )}
+
+      {related.compounds?.length ? (
+        <div>
+          <div className="km-section-title">
+            {isVocab ? 'Từ liên quan' : 'Từ ghép'}
+            <span className="km-section-count">{related.compounds.length}</span>
+          </div>
+          <div className="km-compounds">
+            {related.compounds.map(c => (
+              <div key={c.id} className="km-compound" onClick={() => onSelect(c.id)}>
+                <div className="km-compound-text">
+                  <div className="km-compound-word">{c.id}</div>
+                  <div className="km-compound-reading">{c.reading}</div>
+                  <div className="km-compound-meaning">{c.meaning}</div>
+                </div>
+                <span className={`km-compound-jlpt lvl-${c.jlpt}`}>{c.jlpt}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {progress && progress.total > 0 ? (
+        <div className="km-progress">
+          <div className="km-section-title" style={{ marginBottom: 0 }}>Tiến độ chữ này</div>
+          <div className="km-progress-bar">
+            <div className="km-progress-fill"
+              style={{ width: `${Math.round((progress.done / progress.total) * 100)}%` }} />
+          </div>
+          <div className="km-progress-meta">
+            <span>Đã học {progress.done}/{progress.total} từ</span>
+            <span>{Math.round((progress.done / progress.total) * 100)}%</span>
+          </div>
+        </div>
+      ) : null}
+
+      <div className="km-actions">
+        <button className="km-btn is-primary" style={{ flex: 1 }} onClick={() => markLearned(item.id)}>
+          ＋ Học từ này
+        </button>
+        <button className="km-btn is-icon" onClick={toggleBookmark}
+          style={{ color: bookmarked ? 'var(--hanko)' : 'inherit' }}>
+          {bookmarked ? '♥' : '♡'}
+        </button>
+      </div>
+    </aside>
+  );
+};
+
+function highlightInExample(text, kanjiId) {
+  if (!text || !kanjiId) return text;
+  return text.split(kanjiId).map(s =>
+    s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))
+  ).join(`<b>${kanjiId}</b>`);
+}
+
+function markLearned(id) {
+  const set = new Set(JSON.parse(localStorage.getItem('km_learned') || '[]'));
+  set.add(id);
+  localStorage.setItem('km_learned', JSON.stringify([...set]));
+  window.dispatchEvent(new CustomEvent('km-learned-updated'));
+}
+
+window.KanjiPanel = KanjiPanel;
+  </script>
+
+  <!-- kanji-map-app.jsx (inlined) -->
+  <script type="text/babel">
+// kanji-map-app.jsx — main shell
+
+const RECENT_MAX = 12;
+const ALL_LEVELS = ['N5', 'N4', 'N3', 'N2'];
+
+const KanjiMapApp = () => {
+  const data = window.KANJI_DATA;
+
+  if (!data || !data.kanji) {
+    return (
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'center',
+                    height:'100vh', flexDirection:'column', gap:16, fontFamily:'sans-serif' }}>
+        <div style={{ fontSize:48 }}>⚠️</div>
+        <div style={{ fontSize:18, fontWeight:700 }}>Không tải được dữ liệu Kanji Map</div>
+        <div style={{ color:'#888', fontSize:14 }}>Thử tải lại trang (F5)</div>
+        <button onClick={() => location.reload()}
+          style={{ marginTop:8, padding:'8px 20px', borderRadius:8, border:'1px solid #ccc', cursor:'pointer' }}>
+          🔄 Tải lại
+        </button>
+      </div>
+    );
+  }
+
+  const initialFromURL = (() => {
+    try {
+      const p = new URLSearchParams(window.location.search);
+      return p.get('k') || null;
+    } catch { return null; }
+  })();
+
+  const [selectedId, setSelectedId] = useState(initialFromURL);
+  const [jlptFilter, setJlptFilter] = useState(['N5', 'N4', 'N3', 'N2']);
+  const [viewMode, setViewMode] = useState('2D');
+  const [expanded, setExpanded] = useState(false);
+  const [recent, setRecent] = useState(() => JSON.parse(localStorage.getItem('km_recent') || '[]'));
+  const [search, setSearch] = useState('');
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const [mobilePanelOpen, setMobilePanelOpen] = useState(false);
+  const [size, setSize] = useState({ w: 800, h: 600 });
+  const graphWrapRef = useRef(null);
+
+  useEffect(() => {
+    const measure = () => {
+      const el = graphWrapRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      setSize({ w: r.width, h: r.height });
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
+  const select = useCallback((id) => {
+    if (!id) {
+      setSelectedId(null);
+      const url = new URL(window.location.href);
+      url.searchParams.delete('k');
+      window.history.pushState({}, '', url);
+      return;
+    }
+    setSelectedId(id);
+    setExpanded(false);
+    setShowSearchResults(false);
+    setMobilePanelOpen(true);
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('k') !== id) {
+      url.searchParams.set('k', id);
+      window.history.pushState({ k: id }, '', url);
+    }
+    setRecent(prev => {
+      const next = [id, ...prev.filter(x => x !== id)].slice(0, RECENT_MAX);
+      localStorage.setItem('km_recent', JSON.stringify(next));
+      return next;
+    });
+  }, []);
+
+  useEffect(() => {
+    const onPop = () => {
+      const p = new URLSearchParams(window.location.search);
+      const k = p.get('k');
+      setSelectedId(k || null);
+      setExpanded(false);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  const searchIndex = useMemo(() => {
+    const idx = [];
+    const KM = window.KMRomaji || { buildHaystack: parts => parts.filter(Boolean).join(' ').toLowerCase() };
+    data.kanji.forEach(k => {
+      idx.push({
+        id: k.id, type: 'kanji', jlpt: k.jlpt,
+        primary: k.id, secondary: `${k.han_viet} · ${k.meaning}`,
+        haystack: KM.buildHaystack([k.id, k.han_viet, k.meaning, ...(k.onyomi||[]), ...(k.kunyomi||[])])
+      });
+    });
+    data.vocab.forEach(v => {
+      idx.push({
+        id: v.id, type: 'vocab', jlpt: v.jlpt,
+        primary: v.id, secondary: `${v.reading} · ${v.meaning}`,
+        haystack: KM.buildHaystack([v.id, v.reading, v.meaning])
+      });
+    });
+    return idx;
+  }, [data]);
+
+  const searchResults = useMemo(() => {
+    const q = search.trim();
+    if (!q) return [];
+    const KM = window.KMRomaji;
+    const inFilter = (x) => jlptFilter.includes(x.jlpt);
+    if (!KM) {
+      const lower = q.toLowerCase();
+      return searchIndex.filter(x => inFilter(x) && x.haystack.includes(lower)).slice(0, 20);
+    }
+    const keys = KM.expandQuery(q);
+    return searchIndex
+      .filter(inFilter)
+      .map(x => ({ x, score: KM.scoreMatch(x.haystack, keys, x.id) }))
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 20)
+      .map(({ x }) => x);
+  }, [search, searchIndex, jlptFilter]);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      const inInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        document.querySelector('.km-search input')?.focus();
+        return;
+      }
+      if (e.key === 'Escape') {
+        setShowSearchResults(false);
+        if (document.activeElement?.tagName === 'INPUT') document.activeElement.blur();
+        return;
+      }
+      if (inInput) return;
+      if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+        const r = JSON.parse(localStorage.getItem('km_recent') || '[]');
+        if (r.length < 2) return;
+        e.preventDefault();
+        const cur = r.indexOf(selectedId);
+        const dir = e.key === 'ArrowRight' ? -1 : 1;
+        const next = (cur < 0 ? 0 : (cur + dir + r.length) % r.length);
+        select(r[next]);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedId, select]);
+
+  const [, forceTick] = useState(0);
+  useEffect(() => {
+    const h = () => forceTick(t => t + 1);
+    window.addEventListener('km-learned-updated', h);
+    return () => window.removeEventListener('km-learned-updated', h);
+  }, []);
+
+  const streak = 7;
+  const xpToday = 120;
+
+  const toggleLevel = (lvl) => {
+    setJlptFilter(prev => prev.includes(lvl) ? prev.filter(x => x !== lvl) : [...prev, lvl]);
+  };
+
+  const visibleCounts = useMemo(() => {
+    const k = data.kanji.filter(x => jlptFilter.includes(x.jlpt)).length;
+    const v = data.vocab.filter(x => jlptFilter.includes(x.jlpt)).length;
+    return { k, v, totalK: data.kanji.length, totalV: data.vocab.length };
+  }, [data, jlptFilter]);
+
+  return (
+    <div className="km-app">
+      <div className="km-top">
+        <div className="km-brand">
+          <a href="./index.html" style={{ textDecoration:'none', color:'inherit', display:'flex', alignItems:'center', gap:8 }}>
+            <img src="./koeru-logo.png" alt="KOERU" style={{ height:32, width:'auto' }} />
+          </a>
+          <span className="km-brand-sub">Bản đồ Kanji</span>
+        </div>
+        <div className="km-top-right">
+          <span className="km-stat">Đang xem <b>{visibleCounts.k}</b>/{visibleCounts.totalK} chữ</span>
+          <span style={{ color:'var(--hairline)' }}>·</span>
+          <span className="km-stat"><b>{visibleCounts.v}</b>/{visibleCounts.totalV} từ ghép</span>
+          {selectedId && (
+            <button className="km-btn is-ghost" title="Sao chép link" style={{ marginLeft:8 }}
+              onClick={(e) => {
+                navigator.clipboard.writeText(window.location.href).catch(() => {});
+                const btn = e.currentTarget;
+                const oldText = btn.textContent;
+                btn.textContent = '✓ đã copy';
+                setTimeout(() => { btn.textContent = oldText; }, 1500);
+              }}>
+              🔗 share
+            </button>
+          )}
+          <span className="km-btn is-ghost" style={{ marginLeft:4 }}>
+            <a href="./index.html" style={{ color:'inherit', textDecoration:'none' }}>← Trang chủ</a>
+          </span>
+        </div>
+      </div>
+
+      <aside className="km-controls">
+        <div className="km-section km-section-search">
+          <div className="km-label">Tìm kiếm</div>
+          <div className="km-search">
+            <span className="km-search-icon">🔍</span>
+            <input
+              type="text"
+              value={search}
+              onChange={e => { setSearch(e.target.value); setShowSearchResults(true); }}
+              onFocus={() => setShowSearchResults(true)}
+              onBlur={() => setTimeout(() => setShowSearchResults(false), 150)}
+              placeholder="kanji · từ · hán việt · nghĩa…"
+            />
+            {search && (
+              <button className="km-search-clear" onClick={() => { setSearch(''); setShowSearchResults(false); }}>×</button>
+            )}
+            {showSearchResults && searchResults.length > 0 && (
+              <div className="km-search-results">
+                {searchResults.map(r => (
+                  <div key={r.type + r.id} className={`km-search-result km-search-result-${r.type}`}
+                    onMouseDown={() => { select(r.id); setSearch(''); }}>
+                    <div className="km-search-result-glyph">{r.primary}</div>
+                    <div className="km-search-result-text">
+                      <div className="km-search-result-primary">{r.secondary}</div>
+                      <div className="km-search-result-meta">{r.type === 'kanji' ? 'Kanji' : 'Từ ghép'} · {r.jlpt}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {showSearchResults && search.trim() && searchResults.length === 0 && (
+              <div className="km-search-results">
+                <div className="km-search-result" style={{ cursor:'default', color:'var(--ink-faint)' }}>
+                  Không tìm thấy "{search}"
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="km-help">
+            <span className="km-kbd">⌘ K</span> tìm · <span className="km-kbd">←</span> <span className="km-kbd">→</span> đổi chữ · gõ <i>"gakusei"</i> hoặc <i>"hoc sinh"</i> cũng tìm được
+          </div>
+        </div>
+
+        <div className="km-section km-section-jlpt">
+          <div className="km-label">Cấp độ JLPT</div>
+          <div className="km-chips">
+            {ALL_LEVELS.map(lvl => (
+              <button key={lvl}
+                className={`km-chip lvl-${lvl} ${jlptFilter.includes(lvl) ? 'is-on' : ''}`}
+                onClick={() => toggleLevel(lvl)}>
+                {lvl}
+              </button>
+            ))}
+          </div>
+          <div className="km-help">Viền node = cấp JLPT của chữ đó.</div>
+        </div>
+
+        <div className="km-section">
+          <div className="km-label">Chế độ xem</div>
+          <div className="km-segmented">
+            <button className={viewMode === '2D' ? 'is-on' : ''} onClick={() => setViewMode('2D')}>2D Mindmap</button>
+            <button className={viewMode === '3D' ? 'is-on' : ''} onClick={() => alert('3D view sắp ra mắt!\n\nTrong MVP này, 2D là chế độ chính.')}>3D 🌐</button>
+          </div>
+          <div className="km-help">Bản đồ 2D dùng để học. 3D explore mode sắp ra mắt.</div>
+        </div>
+
+        <div className="km-section">
+          <div className="km-label">Bắt đầu nhanh</div>
+          <div style={{ display:'flex', flexDirection:'column', gap:6 }}>
+            {[
+              { id:'生', label:'Tâm: 生 (sinh)' },
+              { id:'学', label:'Tâm: 学 (học)' },
+              { id:'日', label:'Tâm: 日 (nhật)' },
+            ].map(s => (
+              <button key={s.id} className="km-btn" style={{ justifyContent:'flex-start' }}
+                onClick={() => select(s.id)}>
+                <span style={{ fontFamily:'var(--font-kanji)', fontSize:18, fontWeight:700, marginRight:6 }}>{s.id}</span>
+                {s.label.replace(/^.*: /, '')}
+              </button>
+            ))}
+            {selectedId && (
+              <button className="km-btn" onClick={() => select(null)}>
+                ← Quay về tổng quan
+              </button>
+            )}
+          </div>
+        </div>
+      </aside>
+
+      <div className="km-graph-wrap" ref={graphWrapRef} style={{ gridArea:'graph', position:'relative' }}>
+        <KanjiGraph
+          data={data}
+          jlptFilter={jlptFilter}
+          selectedId={selectedId}
+          onSelect={select}
+          expanded={expanded}
+          onExpandMore={() => setExpanded(true)}
+          width={size.w} height={size.h}
+        />
+      </div>
+
+      <div className={mobilePanelOpen ? 'is-open km-detail-wrap' : 'km-detail-wrap'} style={{ display:'contents' }}>
+        <div className={`km-detail-host ${mobilePanelOpen ? 'is-open' : ''}`} style={{ display:'contents' }}>
+          <KanjiPanel data={data} selectedId={selectedId} onSelect={select}
+            onClose={() => setMobilePanelOpen(false)} />
+        </div>
+      </div>
+
+      <div className="km-recent">
+        <div className="km-recent-title">
+          <span className="km-label">Gần đây</span>
+          <span className="km-recent-title-sub">{recent.length || 0} chữ tuần này</span>
+        </div>
+        <div className="km-recent-list">
+          {recent.length === 0 && (
+            <span className="km-recent-empty">Chưa có chữ nào — click 1 node để bắt đầu khám phá.</span>
+          )}
+          {recent.map(id => {
+            const k = data.kanji.find(x => x.id === id) || data.vocab.find(x => x.id === id);
+            if (!k) return null;
+            const isKanji = !k.kanji;
+            return (
+              <button key={id}
+                className={`km-recent-item lvl-${k.jlpt} ${selectedId === id ? 'is-current' : ''}`}
+                style={{ fontFamily: isKanji ? 'var(--font-kanji)' : 'var(--font-jp)',
+                         fontSize: isKanji ? 20 : 13, width: isKanji ? 44 : 'auto',
+                         padding: isKanji ? 0 : '0 12px', borderRadius: isKanji ? '50%' : '99px' }}
+                onClick={() => select(id)}
+                title={isKanji ? `${k.han_viet} — ${k.meaning}` : `${k.reading} — ${k.meaning}`}>
+                {id}
+              </button>
+            );
+          })}
+        </div>
+        <div className="km-streak">
+          <div className="km-streak-num">+{xpToday} XP</div>
+          <div className="km-streak-meta">🔥 {streak} ngày</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<KanjiMapApp />);
+  </script>
 </body>
 </html>

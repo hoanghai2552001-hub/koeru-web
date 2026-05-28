@@ -182,6 +182,11 @@ body{background:var(--bg);color:var(--text);font-family:'Be Vietnam Pro',system-
   .mode-grid{grid-template-columns:1fr}
   .mode-card.full-width{grid-column:auto}
 }
+/* ── AUDIO BUTTON ── */
+.audio-btn{background:none;border:1.5px solid var(--border);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:.9rem;color:var(--muted);transition:all .18s;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.audio-btn:hover{border-color:var(--gold);color:var(--gold)}
+.audio-btn.playing{border-color:var(--tone2);color:var(--tone2);animation:audioPulse .6s ease infinite alternate}
+@keyframes audioPulse{to{transform:scale(1.15)}}
 </style>
 </head>
 <body>
@@ -192,8 +197,8 @@ body{background:var(--bg);color:var(--text);font-family:'Be Vietnam Pro',system-
 
   <div style="margin-top:60px"></div>
   <div class="home-logo">🀄</div>
-  <div class="home-title">KOERU Pinyin Speed</div>
-  <div class="home-sub">Luyện pinyin, thanh điệu và từ vựng HSK 1 trong 5 phút mỗi ngày</div>
+  <div class="home-title">HSK Practice</div>
+  <div class="home-sub">Luyện thanh điệu, tốc độ đọc và từ vựng HSK — 5 phút mỗi ngày</div>
   <div class="home-brand">by KOERU Chinese</div>
 
   <div class="mode-grid">
@@ -205,15 +210,15 @@ body{background:var(--bg);color:var(--text);font-family:'Be Vietnam Pro',system-
     </div>
     <div class="mode-card" onclick="startMode('speed')">
       <span class="mc-icon">⚡</span>
-      <div class="mc-title">Pinyin Speed</div>
+      <div class="mc-title">Speed Quiz</div>
       <div class="mc-desc">60 giây, chọn nghĩa đúng của chữ Hán. Streak, accuracy, score</div>
       <span class="mc-tag tag-gold">60 giây</span>
     </div>
-    <div class="mode-card full-width" onclick="startMode('flash')">
+    <div class="mode-card full-width" onclick="location.href='hsk-flash.html'">
       <span class="mc-icon">🃏</span>
-      <div class="mc-title">HSK 1 Flashcard</div>
-      <div class="mc-desc">100 từ HSK 1 chuẩn — pinyin, nghĩa Việt, Hán Việt, ví dụ câu</div>
-      <span class="mc-tag tag-green">100 từ HSK 1</span>
+      <div class="mc-title">HSK Flashcard</div>
+      <div class="mc-desc">Lật thẻ từ vựng HSK 1–9 — pinyin, nghĩa Việt, ví dụ câu. Đánh dấu đã nhớ / cần ôn</div>
+      <span class="mc-tag tag-green">HSK 1–9</span>
     </div>
   </div>
 
@@ -235,10 +240,15 @@ body{background:var(--bg);color:var(--text);font-family:'Be Vietnam Pro',system-
   <div class="progress-bar"><div class="progress-fill" id="t-progress" style="width:0%"></div></div>
 
   <div class="tone-card">
-    <div class="tone-char" id="t-char">你</div>
-    <div class="tone-hint">Đọc chữ này — cần dùng thanh mấy?</div>
-    <div class="tone-pinyin-bare" id="t-pinyin-bare">ni</div>
-    <div class="tone-meaning" id="t-meaning">bạn, anh/chị</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+      <div style="flex:1;text-align:center">
+        <div class="tone-char" id="t-char">你</div>
+        <div class="tone-hint">Đọc chữ này — cần dùng thanh mấy?</div>
+        <div class="tone-pinyin-bare" id="t-pinyin-bare">ni</div>
+        <div class="tone-meaning" id="t-meaning">bạn, anh/chị</div>
+      </div>
+      <button class="audio-btn" id="t-audio-btn" onclick="playCurrentTone()" title="Nghe phát âm">🔊</button>
+    </div>
   </div>
 
   <div class="tone-btns">
@@ -281,8 +291,13 @@ body{background:var(--bg);color:var(--text);font-family:'Be Vietnam Pro',system-
   </div>
 
   <div class="speed-q-card">
-    <div class="speed-char" id="s-char">你好</div>
-    <div class="speed-qtype" id="s-qtype">→ Chọn nghĩa tiếng Việt</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+      <div style="flex:1;text-align:center">
+        <div class="speed-char" id="s-char">你好</div>
+        <div class="speed-qtype" id="s-qtype">→ Chọn nghĩa tiếng Việt</div>
+      </div>
+      <button class="audio-btn" id="s-audio-btn" onclick="playCurrentSpeed()" title="Nghe phát âm">🔊</button>
+    </div>
   </div>
 
   <div class="speed-opts" id="s-opts"></div>
@@ -303,7 +318,10 @@ body{background:var(--bg);color:var(--text);font-family:'Be Vietnam Pro',system-
         <div class="flash-tap">Nhấn để xem nghĩa & pinyin</div>
       </div>
       <div class="flash-face flash-back">
-        <div class="flash-pinyin" id="f-pinyin">nǐ</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <div class="flash-pinyin" id="f-pinyin" style="margin-bottom:0">nǐ</div>
+          <button class="audio-btn" id="f-audio-btn" onclick="playCurrentFlash(event)" title="Nghe phát âm">🔊</button>
+        </div>
         <div class="flash-tone-badge" id="f-tone-badge">Thanh 3 — ǎ</div>
         <div class="flash-meaning" id="f-meaning">bạn, anh/chị</div>
         <div class="flash-example" id="f-example">你好 — Nǐ hǎo — Xin chào</div>
@@ -503,6 +521,8 @@ function renderToneQuestion(){
     b.disabled = false;
   });
   toneLocked = false;
+  // auto-play audio after short delay (UX: let card render first)
+  setTimeout(()=>playPinyin(item.pinyin, $('t-audio-btn')), 300);
 }
 
 function checkTone(chosen){
@@ -737,6 +757,70 @@ function submitLead(){
   // Hiện success
   $('lead-form-wrap').style.display='none';
   $('lead-success').style.display='block';
+}
+
+// ════════════════════════════════
+// AUDIO
+// ════════════════════════════════
+const _PTMAP = {
+  'ā':['a',1],'á':['a',2],'ǎ':['a',3],'à':['a',4],
+  'ē':['e',1],'é':['e',2],'ě':['e',3],'è':['e',4],
+  'ī':['i',1],'í':['i',2],'ǐ':['i',3],'ì':['i',4],
+  'ō':['o',1],'ó':['o',2],'ǒ':['o',3],'ò':['o',4],
+  'ū':['u',1],'ú':['u',2],'ǔ':['u',3],'ù':['u',4],
+  'ǖ':['v',1],'ǘ':['v',2],'ǚ':['v',3],'ǜ':['v',4],
+};
+
+function _syllableKey(syl){
+  // strip punctuation first
+  syl = syl.replace(/[!?.,。！？、·]/g,'').toLowerCase();
+  let tone=5, bare='';
+  for(const ch of syl){
+    if(_PTMAP[ch]){ bare+=_PTMAP[ch][0]; tone=_PTMAP[ch][1]; }
+    else bare+=ch;
+  }
+  return bare+tone;
+}
+
+function _pinyinKeys(py){
+  // strip punctuation, split on spaces; skip keys > 6 chars (unsplit multi-syllable)
+  return py.replace(/[!?.,。！？、·]/g,'').trim().split(/\s+/)
+    .map(_syllableKey).filter(k=>k.length<=7);
+}
+
+var _audioPlaying = null;
+function playPinyin(pinyinStr, btnEl){
+  if(_audioPlaying){ _audioPlaying.pause(); _audioPlaying=null; }
+  document.querySelectorAll('.audio-btn').forEach(b=>b.classList.remove('playing'));
+  if(btnEl) btnEl.classList.add('playing');
+  _playSeq(_pinyinKeys(pinyinStr), 0, btnEl);
+}
+
+function _playSeq(keys, i, btnEl){
+  if(i>=keys.length){
+    if(btnEl) btnEl.classList.remove('playing');
+    return;
+  }
+  const audio = new Audio('audio/pinyin/'+keys[i]+'.mp3');
+  _audioPlaying = audio;
+  let advanced = false;
+  const next = ()=>{ if(!advanced){ advanced=true; _playSeq(keys, i+1, btnEl); } };
+  audio.onended = next;
+  audio.onerror = next;
+  audio.play().catch(next);
+}
+
+function playCurrentTone(){
+  const item = toneQueue[toneIdx-1] || toneQueue[toneIdx];
+  if(item) playPinyin(item.pinyin, $('t-audio-btn'));
+}
+function playCurrentSpeed(){
+  if(speedCurrent) playPinyin(speedCurrent.pinyin, $('s-audio-btn'));
+}
+function playCurrentFlash(e){
+  if(e) e.stopPropagation(); // prevent card flip
+  const item = flashDeck[flashIdx];
+  if(item) playPinyin(item.pinyin, $('f-audio-btn'));
 }
 
 // ── Cleanup khi rời/reload trang ──

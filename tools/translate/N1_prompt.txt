@@ -1,0 +1,784 @@
+Dịch các trường sau sang tiếng Việt tự nhiên:
+- "rad_vi": nghĩa tiếng Việt của bộ thủ (rad_en) — ngắn gọn 1-3 từ
+- "mn_vi": dịch mnemonic sang tiếng Việt, GIỮ NGUYÊN ký tự Kanji trong câu (女, 宀, 木...)
+
+Trả về JSON array đúng format bên dưới, KHÔNG giải thích thêm.
+Ví dụ output mẫu:
+[
+  {
+    "k": "安",
+    "rad_en": "roof, house",
+    "rad_vi": "mái nhà",
+    "mn_en": "When the woman 女 remains at home 宀.",
+    "mn_vi": "Người phụ nữ 女 ở yên trong ngôi nhà 宀."
+  }
+]
+
+===INPUT===
+[
+  {
+    "k": "恩",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "Feeling in a heart 心 caused 因 by someone's kindness."
+  },
+  {
+    "k": "介",
+    "rad_en": "person",
+    "mn_en": "Modified イ,イ; between two people イ belonging to different groups."
+  },
+  {
+    "k": "壊",
+    "rad_en": "earth",
+    "mn_en": "Earth 土 quake damages: many 十 broken homes 罒 <span class='note'>(orig. \"net, cover\")</span> and people with torn clothes 衣."
+  },
+  {
+    "k": "穫",
+    "rad_en": "grain",
+    "mn_en": "Grains 禾 harvested by hands 又 ; birds 隹 eating fallen seeds [8]."
+  },
+  {
+    "k": "株",
+    "rad_en": "tree, wood",
+    "mn_en": "People [5] cutting trees 林 to be shared."
+  },
+  {
+    "k": "敢",
+    "rad_en": "activity, to strike, hit",
+    "mn_en": "Piercing t one's ear 耳 used to be considered a bold action 攵."
+  },
+  {
+    "k": "甘",
+    "rad_en": "sweet",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "企",
+    "rad_en": "person",
+    "mn_en": "A commander stops 止 the army and plans the battle strategy in a tent [9]."
+  },
+  {
+    "k": "喫",
+    "rad_en": "mouth",
+    "mn_en": "Drinking 口 or smoking to promote a good relationship 契 with someone."
+  },
+  {
+    "k": "緊",
+    "rad_en": "thread",
+    "mn_en": "Severe official 臣 holding 又 whip 糸 makes people nervous/tense."
+  },
+  {
+    "k": "嫌",
+    "rad_en": "woman",
+    "mn_en": "Modern women 女 hate being unable to pursue both 兼 family and career."
+  },
+  {
+    "k": "己",
+    "rad_en": "self",
+    "mn_en": "n/a"
+  },
+  {
+    "k": "誇",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Shouting 丂 big 大 words 言, proud to be number one 一."
+  },
+  {
+    "k": "悟",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "Mind 忄 becoming independent 吾 <span class='note'>(yang number five 五 indicating the positive value of independency, mouth 口)</span>."
+  },
+  {
+    "k": "控",
+    "rad_en": "hand",
+    "mn_en": "Stand empty 空 handed扌waiting one's turn to act."
+  },
+  {
+    "k": "芝",
+    "rad_en": "grass",
+    "mn_en": "Area with 之 <span class='note'>(orig. \"belong to\")</span> grass [8]."
+  },
+  {
+    "k": "趣",
+    "rad_en": "to run",
+    "mn_en": "Run 走 to get 取 the best flavor or taste."
+  },
+  {
+    "k": "樹",
+    "rad_en": "tree, wood",
+    "mn_en": "To plant a tree 木, professional 士 gardener makes a hole 口, cuts the weeds [13] around and makes measurements 寸."
+  },
+  {
+    "k": "渉",
+    "rad_en": "water",
+    "mn_en": "Like walking 歩 over water シ to bridge relationships."
+  },
+  {
+    "k": "冗",
+    "rad_en": "cover, crown",
+    "mn_en": "Cover 冖 over cover 几 <span class='note'>(orig. \"bucket turned upside down\")</span>."
+  },
+  {
+    "k": "辱",
+    "rad_en": "Fifth zodiac sign, 7–9 A.M.",
+    "mn_en": "When one's body is covered 厂 in clothes [168] (var. of 衣) that are too small 寸 <span class='note'>(orig. \"inch\")</span>."
+  },
+  {
+    "k": "奏",
+    "rad_en": "large, big",
+    "mn_en": "Beautiful music ascending [34] to the heavens 天."
+  },
+  {
+    "k": "即",
+    "rad_en": "stamp, seal",
+    "mn_en": "A document is accepted immediately if it has been firmly 艮 sealed 卩."
+  },
+  {
+    "k": "脱",
+    "rad_en": "meat, flesh",
+    "mn_en": "Undressed elder brother 兄 removing body 月 hair [11]."
+  },
+  {
+    "k": "弾",
+    "rad_en": "bow（in archery）",
+    "mn_en": "Flexible bows 弓 snapping ツ in the field 田 in great numbers 十 at archery competition."
+  },
+  {
+    "k": "糖",
+    "rad_en": "rice",
+    "mn_en": "Brown crystalline granules resembling brown rice 米 in a china 唐 bowl."
+  },
+  {
+    "k": "肺",
+    "rad_en": "meat, flesh",
+    "mn_en": "Parts of the body 月 for exchanging air like a market 市."
+  },
+  {
+    "k": "偏",
+    "rad_en": "person",
+    "mn_en": "Biased bureaucrat イ at window 戸 accepting bundles [103] of goods as bribes."
+  },
+  {
+    "k": "模",
+    "rad_en": "tree, wood",
+    "mn_en": "Scale model with trees 木, grasses [8], and the sun 日, imitating the bigger 大 reality."
+  },
+  {
+    "k": "抑",
+    "rad_en": "hand",
+    "mn_en": "Keeping people under control; actions 扌 of officials holding seal 卬."
+  },
+  {
+    "k": "飼",
+    "rad_en": "food, to eat",
+    "mn_en": "Person in charge 司 feeds [15] animals."
+  },
+  {
+    "k": "沿",
+    "rad_en": "water",
+    "mn_en": "Many 八 people 口 living along the river シ."
+  },
+  {
+    "k": "狂",
+    "rad_en": "beast",
+    "mn_en": "When the king 王 behaves like a dog 犭."
+  },
+  {
+    "k": "従",
+    "rad_en": "step, stride, street, to go",
+    "mn_en": "Follow 彳 the enforced [11], correct 正 → [27] standards."
+  },
+  {
+    "k": "就",
+    "rad_en": "lame leg",
+    "mn_en": "Receiving employment in the capital 京, like a dog 尤 getting a master."
+  },
+  {
+    "k": "描",
+    "rad_en": "hand",
+    "mn_en": "Hand 扌 depicting rice paddies 田 and grasses [8]."
+  },
+  {
+    "k": "響",
+    "rad_en": "sound, noise",
+    "mn_en": "Nostalgic sounds 音 of one's native place 郷 <span class='note'>(firm [89] relation 糸 to one's hometown 阝)</span> echoing in one's heart."
+  },
+  {
+    "k": "驚",
+    "rad_en": "horse",
+    "mn_en": "Amazing horse 馬 commanding respect 敬 startles beholders."
+  },
+  {
+    "k": "騒",
+    "rad_en": "horse",
+    "mn_en": "Restless, noisy horse 馬 disturbed again 又 by fleas 虫 <span class='note'>(orig. \"insect\")</span>."
+  },
+  {
+    "k": "討",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Words 言 used to strike a target 寸 <span class='note'>(orig. \"inch\")</span>."
+  },
+  {
+    "k": "縮",
+    "rad_en": "thread",
+    "mn_en": "At a Japanese inn 宿, tall people have to shrink if they want to fit into the short robes 糸 provided."
+  },
+  {
+    "k": "盛",
+    "rad_en": "plate, bowl",
+    "mn_en": "Plate 皿 with lots of food forming 成 a heap."
+  },
+  {
+    "k": "至",
+    "rad_en": "to arrive, reach",
+    "mn_en": "Individual ム born on earth 土 arriving to heaven 一."
+  },
+  {
+    "k": "飽",
+    "rad_en": "food, to eat",
+    "mn_en": "Stomach containing 包 lots of/too much food [15]."
+  },
+  {
+    "k": "避",
+    "rad_en": "road, walk, to advance",
+    "mn_en": "Running away [10] seeking refuge 尸 <span class='note'>(orig. \"awning\")</span> and comfort 口 to avoid hardship 辛."
+  },
+  {
+    "k": "焦",
+    "rad_en": "fire",
+    "mn_en": "Like a bird 隹 scorched over fire 灬."
+  },
+  {
+    "k": "攻",
+    "rad_en": "activity, to strike, hit",
+    "mn_en": "Holding 攵 well-crafted 工 weapons to attack."
+  },
+  {
+    "k": "納",
+    "rad_en": "thread",
+    "mn_en": "Take silk 糸 from supply inside 内 the house to pay tax."
+  },
+  {
+    "k": "勧",
+    "rad_en": "power",
+    "mn_en": "Two birds [82] singing with all of their strength 力, urging you to enjoy life."
+  },
+  {
+    "k": "離",
+    "rad_en": "small bird",
+    "mn_en": "Birds 隹 and wild deer (seen from behind) [150] → [151] move away when people approach."
+  },
+  {
+    "k": "説",
+    "rad_en": "words, to speak, say",
+    "mn_en": "High ranking 儿 officer with mustache [11] explains 口 his theory in many words 言."
+  },
+  {
+    "k": "研",
+    "rad_en": "stone",
+    "mn_en": "Two hands 廾 sharpening a tool 一 against a stone 石."
+  },
+  {
+    "k": "果",
+    "rad_en": "tree, wood",
+    "mn_en": "Field 田 with trees 木 produces fruit."
+  },
+  {
+    "k": "危",
+    "rad_en": "stamp, seal",
+    "mn_en": "Open mouth ク shouting warning about a bad luck 厄 <span class='note'>(cliff 厂, wounded person [35])</span>."
+  },
+  {
+    "k": "図",
+    "rad_en": "border, territorial boundaries",
+    "mn_en": "Hand メ drawing items 丶丶 on a sketch-pad 口 <span class='note'>(orig. \"enclosure\")</span>."
+  },
+  {
+    "k": "映",
+    "rad_en": "sun, day, time",
+    "mn_en": "Like water in a big pot 央 reflecting/projecting sunlight 日 on a wall."
+  },
+  {
+    "k": "仕",
+    "rad_en": "person",
+    "mn_en": "Person イ standing in front of a master/professional 士 to serve him/her."
+  },
+  {
+    "k": "養",
+    "rad_en": "food, to eat",
+    "mn_en": "To raise/rear children one has to give them lots of [14] food to eat 食."
+  },
+  {
+    "k": "裁",
+    "rad_en": "clothing",
+    "mn_en": "Multiple 十 cutting 戈 <span class='note'>(orig. \"spear\")</span> actions required to make a garment 衣: the right judgment is necessary."
+  },
+  {
+    "k": "臨",
+    "rad_en": "retainer, minister",
+    "mn_en": "Minister 臣 present to watch over people [5] and goods 品 in emergency situation."
+  },
+  {
+    "k": "織",
+    "rad_en": "thread",
+    "mn_en": "Threads 糸 being woven 戠 in a loom."
+  },
+  {
+    "k": "染",
+    "rad_en": "tree, wood",
+    "mn_en": "Liquid シ from several 九 plants and trees 木 used as dyes."
+  },
+  {
+    "k": "唱",
+    "rad_en": "mouth",
+    "mn_en": "Mouth 口 producing clear 昌sounds."
+  },
+  {
+    "k": "傷",
+    "rad_en": "person",
+    "mn_en": "Wounded people イ, [5] feeling like animals [117] under the burning sun 日."
+  },
+  {
+    "k": "免",
+    "rad_en": "human legs",
+    "mn_en": "Loud mouths [94] do as they please and get away 儿 with it."
+  },
+  {
+    "k": "堅",
+    "rad_en": "earth",
+    "mn_en": "Subject's 臣 hand 又 building solid foundation 土."
+  },
+  {
+    "k": "怪",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "Feeling 忄 when seeing a hand 又 sticking out of the ground土."
+  },
+  {
+    "k": "厳",
+    "rad_en": "Katakana Tsu",
+    "mn_en": "Like climbing a steep cliff [92] against all odds 敢."
+  },
+  {
+    "k": "詳",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Lots of 羊 words 言 when giving a detailed description."
+  },
+  {
+    "k": "乏",
+    "rad_en": "diagonal sweeping stroke",
+    "mn_en": "Possessing 之 little ノ."
+  },
+  {
+    "k": "激",
+    "rad_en": "water",
+    "mn_en": "Like action 攵 of water シ with white 白 foam gushing out violently in all directions 方."
+  },
+  {
+    "k": "衛",
+    "rad_en": "to go",
+    "mn_en": "Good ノ people イ keeping gangsters 韋 out of the streets 亍."
+  },
+  {
+    "k": "護",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Shouting 言 at the birds 隹 to protect 又 <span class='note'>(orig. \"hand\")</span> one's crops [8]."
+  },
+  {
+    "k": "策",
+    "rad_en": "bamboo",
+    "mn_en": "Sharp bamboo 竹 like thorns 朿 placed inside a trap."
+  },
+  {
+    "k": "視",
+    "rad_en": "to see",
+    "mn_en": "Altar ネ held in high regard 見; pray at the altar ネ to recover one's eyesight 見."
+  },
+  {
+    "k": "射",
+    "rad_en": "inch, (2.25 cm)",
+    "mn_en": "Aim at a specific 寸 <span class='note'>(orig. \"inch\")</span> area on the body 身."
+  },
+  {
+    "k": "謝",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Expressing gratitude or apology with words 言 and body 身 actions carefully 寸 chosen."
+  },
+  {
+    "k": "証",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Words 言 proving something is true/correct 正."
+  },
+  {
+    "k": "障",
+    "rad_en": "hill, mound",
+    "mn_en": "People standing 立 behind a barricade阝from early 早 morning to interfere with questionable project."
+  },
+  {
+    "k": "推",
+    "rad_en": "hand",
+    "mn_en": "Ornithologist holding 扌 a bird 隹 to figure out its flight pattern and to recommend protection policy."
+  },
+  {
+    "k": "創",
+    "rad_en": "knife, sword",
+    "mn_en": "Creative chef 刂 <span class='note'>(orig. \"knife\")</span> with a storehouse 倉 of ideas."
+  },
+  {
+    "k": "態",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "An individual's ム physical 月 condition will little ヒ by little ヒ <span class='note'>(orig. \"cup, old\")</span> influence one's emotional 心 state."
+  },
+  {
+    "k": "提",
+    "rad_en": "hand",
+    "mn_en": "Hand 扌 submitting a correct 是 plan."
+  },
+  {
+    "k": "統",
+    "rad_en": "thread",
+    "mn_en": "Interconnected 糸 individuals 允 <span class='note'>(individual ム, high legs 儿)</span>, controlled 亠 <span class='note'>(orig. \"lid\")</span> by good governor."
+  },
+  {
+    "k": "秘",
+    "rad_en": "grain",
+    "mn_en": "Rice plants 禾 which farmers are sure 必 to hide from the tax collector."
+  },
+  {
+    "k": "密",
+    "rad_en": "roof, house",
+    "mn_en": "Hideout 宀 surely 必 locked in the mountains 山."
+  },
+  {
+    "k": "功",
+    "rad_en": "power",
+    "mn_en": "Work 工 with all one's strength 力."
+  },
+  {
+    "k": "充",
+    "rad_en": "human legs",
+    "mn_en": "Ensure baby [16] has sufficient nutrition to grow 儿 <span class='note'>(orig. \"high legs\")</span>."
+  },
+  {
+    "k": "属",
+    "rad_en": "corpse, awning",
+    "mn_en": "Good ノ silk worms 虫 in a box 冂 stay where 尸 they belong."
+  },
+  {
+    "k": "冒",
+    "rad_en": "eye",
+    "mn_en": "Eye 目 looking into the sun 日."
+  },
+  {
+    "k": "概",
+    "rad_en": "tree, wood",
+    "mn_en": "Generally speaking, most wooden 木 objects, no matter how strong [89] , will eventually disintegrate [119]."
+  },
+  {
+    "k": "革",
+    "rad_en": "leather",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "抗",
+    "rad_en": "hand",
+    "mn_en": "Hand 扌 struggling 亢."
+  },
+  {
+    "k": "興",
+    "rad_en": "mortar, quern",
+    "mn_en": "People with the same 同 interest holding hands [88] on a dancing floor/podium [70]."
+  },
+  {
+    "k": "奮",
+    "rad_en": "large, big",
+    "mn_en": "Becoming excited at the sight of enormous 大 bird 隹 on field 田."
+  },
+  {
+    "k": "災",
+    "rad_en": "fire",
+    "mn_en": "Winding river 巛 of fire 火 moving through the city."
+  },
+  {
+    "k": "衆",
+    "rad_en": "blood",
+    "mn_en": "Butchers collecting the blood 血 of slaughtered pigs 乑: a spectacle attracting the masses."
+  },
+  {
+    "k": "素",
+    "rad_en": "thread",
+    "mn_en": "Simple 一 life using only clay 土 and thread 糸 as raw materials."
+  },
+  {
+    "k": "抵",
+    "rad_en": "hand",
+    "mn_en": "Actions 扌 of clans 氏 to resist authority 一."
+  },
+  {
+    "k": "弁",
+    "rad_en": "folded hands",
+    "mn_en": "Oratorical expression of the self ム using both hands 廾 for emphasis."
+  },
+  {
+    "k": "潔",
+    "rad_en": "water",
+    "mn_en": "Ruler [132] holding the strings 糸 of power clean シ."
+  },
+  {
+    "k": "誠",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Words 言 that become 成 action."
+  },
+  {
+    "k": "貴",
+    "rad_en": "shell, property, wealth",
+    "mn_en": "Precious items 貝 inside 中 a safe 一, nobility inside their palaces."
+  },
+  {
+    "k": "華",
+    "rad_en": "grass",
+    "mn_en": "Image of spectacular flowers [111] resplendent on a wisteria trellis [112]."
+  },
+  {
+    "k": "患",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "Feeling 心 as if pierced and roasted on a skewer 串 when affected by disease."
+  },
+  {
+    "k": "眼",
+    "rad_en": "eye",
+    "mn_en": "Firm 艮, unfaltering eye 目."
+  },
+  {
+    "k": "筋",
+    "rad_en": "bamboo",
+    "mn_en": "Part of body 月 used for strength 力, with fibers 竹."
+  },
+  {
+    "k": "腸",
+    "rad_en": "meat, flesh",
+    "mn_en": "All mammals [117] under the sun 日have this part of the body 月."
+  },
+  {
+    "k": "酸",
+    "rad_en": "sake jar, bird",
+    "mn_en": "Wine 酉 left over by individuals ム who walked 儿 away, slowly 夂 turned into vinegar/acid."
+  },
+  {
+    "k": "磁",
+    "rad_en": "stone",
+    "mn_en": "Stone 石 issuing out [13] <span class='note'>(orig. \"sprouting\")</span> magnetic waves like threads 幺幺."
+  },
+  {
+    "k": "脈",
+    "rad_en": "meat, flesh",
+    "mn_en": "The blood tributaries [99] in the body 月."
+  },
+  {
+    "k": "往",
+    "rad_en": "step, stride, street, to go",
+    "mn_en": "Person/master 主 proceeding 彳."
+  },
+  {
+    "k": "幹",
+    "rad_en": "to dry, shield",
+    "mn_en": "Part of a tree, dry 干 under the foliage [9] in the morning [44]."
+  },
+  {
+    "k": "縦",
+    "rad_en": "thread",
+    "mn_en": "In vertical/hierarchical relationship 糸, lower person must obey 従."
+  },
+  {
+    "k": "益",
+    "rad_en": "plate, bowl",
+    "mn_en": "Platter 皿 with lots 八 of food in surplus [13]."
+  },
+  {
+    "k": "宣",
+    "rad_en": "roof, house",
+    "mn_en": "Modified image of a palace 宀 surrounded by a fence 亘, where proclamations are made."
+  },
+  {
+    "k": "倉",
+    "rad_en": "person",
+    "mn_en": "Person [9] putting bolt 一 on the door 戸 of a storehouse where provisions 口 are kept."
+  },
+  {
+    "k": "梅",
+    "rad_en": "tree, wood",
+    "mn_en": "The first blossoming tree 木, symbol of new year and spring, known by everyone 毎."
+  },
+  {
+    "k": "芽",
+    "rad_en": "grass",
+    "mn_en": "Sprouting [8] like a tooth 牙."
+  },
+  {
+    "k": "潮",
+    "rad_en": "water",
+    "mn_en": "Sea water シ increasing in the morning 朝."
+  },
+  {
+    "k": "松",
+    "rad_en": "tree, wood",
+    "mn_en": "Tree 木 planted in public 公 spaces, known as the symbol of long life."
+  },
+  {
+    "k": "桜",
+    "rad_en": "tree, wood",
+    "mn_en": "Tree 木 with pink flowers resembling cherry shells ツ used for girls' 女 necklaces."
+  },
+  {
+    "k": "豆",
+    "rad_en": "bean",
+    "mn_en": "Since beans swell when cooked, a large cooking pot with a cover is used."
+  },
+  {
+    "k": "跡",
+    "rad_en": "foot, leg",
+    "mn_en": "Succession 亦 of foot [30] prints."
+  },
+  {
+    "k": "穴",
+    "rad_en": "hole, cave",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "旗",
+    "rad_en": "direction, flag",
+    "mn_en": "Person [5] holding a flag indicating 其 <span class='note'>(orig. \"that\")</span> the direction 方 to advance in."
+  },
+  {
+    "k": "鏡",
+    "rad_en": "metal, gold, mineral",
+    "mn_en": "Metallic 金 mirror on a stand 立 reflecting the rising 儿 <span class='note'>(orig. \"high legs\")</span> sun 日."
+  },
+  {
+    "k": "絹",
+    "rad_en": "thread",
+    "mn_en": "Thread 糸 from the mouth 口 of a silkworm's body 月."
+  },
+  {
+    "k": "舌",
+    "rad_en": "tongue",
+    "mn_en": "Please view the animation in the radical field to the left."
+  },
+  {
+    "k": "訳",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Translation requires careful measuring 尺 (12\") of every word 言."
+  },
+  {
+    "k": "過",
+    "rad_en": "road, walk, to advance",
+    "mn_en": "Traveler [10] with a speech impediment [130] doesn't talk to strangers but passes them by."
+  },
+  {
+    "k": "賀",
+    "rad_en": "shell, property, wealth",
+    "mn_en": "Wishing 口 someone strength 力 and good fortune 貝."
+  },
+  {
+    "k": "喜",
+    "rad_en": "mouth",
+    "mn_en": "Singing 口 and drumming [24] in joy."
+  },
+  {
+    "k": "幕",
+    "rad_en": "cloth",
+    "mn_en": "Curtain 巾 used to keep stage props from view: plants [8], the sun 日 and many 八 other things on the stage 一."
+  },
+  {
+    "k": "宗",
+    "rad_en": "roof, house",
+    "mn_en": "Altar 示 under a roof 宀."
+  },
+  {
+    "k": "聖",
+    "rad_en": "ear",
+    "mn_en": "Sacred man 王 <span class='note'>(orig. \"king\")</span> listens 耳 to people's needs and brings them comfort when he speaks 口."
+  },
+  {
+    "k": "哲",
+    "rad_en": "mouth",
+    "mn_en": "Bending 折 minds with one's mouth 口."
+  },
+  {
+    "k": "宮",
+    "rad_en": "roof, house",
+    "mn_en": "Building 宀 with many connected rooms 呂."
+  },
+  {
+    "k": "徳",
+    "rad_en": "step, stride, street, to go",
+    "mn_en": "Behave/go 彳 according to the many 十 eyes 罒 of one's conscience 心."
+  },
+  {
+    "k": "侮",
+    "rad_en": "person",
+    "mn_en": "What every 毎 person イ would like to avoid: being insulted."
+  },
+  {
+    "k": "郷",
+    "rad_en": "village, country, city",
+    "mn_en": "Strong [89] link 幺 with one's native city阝."
+  },
+  {
+    "k": "孝",
+    "rad_en": "child, son",
+    "mn_en": "Quality of a good child 子 supporting and respecting one's old [28] parent."
+  },
+  {
+    "k": "熟",
+    "rad_en": "fire",
+    "mn_en": "Fattened, rounded 丸 lambs 享 ready for cooking 灬 <span class='note'>(orig. \"fire\")</span>."
+  },
+  {
+    "k": "誕",
+    "rad_en": "words, to speak, say",
+    "mn_en": "Congratulating words 言 postponed 延 until actual birth."
+  },
+  {
+    "k": "忠",
+    "rad_en": "heart, mind, spirit",
+    "mn_en": "When a person's word 口 \"has the backbone\" 丨, supported by a devoted heart 心."
+  },
+  {
+    "k": "輩",
+    "rad_en": "vehicle, wheel, car",
+    "mn_en": "Fellow, someone who would not refuse 非 to give you a ride 車."
+  },
+  {
+    "k": "墓",
+    "rad_en": "earth",
+    "mn_en": "Flower [8] blooming in the sun 日over 一 lots 八 of soil 土: grave."
+  },
+  {
+    "k": "僕",
+    "rad_en": "person",
+    "mn_en": "I <span class='note'>(used by males)</span>: person イ + ram <span class='note'>(male)</span> [57]."
+  },
+  {
+    "k": "紀",
+    "rad_en": "thread",
+    "mn_en": "Specific/individual 己 time in a historical succession 糸 of events."
+  },
+  {
+    "k": "径",
+    "rad_en": "step, stride, street, to go",
+    "mn_en": "Go 彳 along a straight 圣 line."
+  },
+  {
+    "k": "垂",
+    "rad_en": "earth",
+    "mn_en": "Modified image of wisteria trellis with flowers [138] hanging down to the ground 土."
+  },
+  {
+    "k": "端",
+    "rad_en": "to stand",
+    "mn_en": "Standing 立 at the edge of a mountain 山 cliff, where the waterfall descends like a long beard 而."
+  },
+  {
+    "k": "範",
+    "rad_en": "bamboo",
+    "mn_en": "Model/example car 車 ecologically 竹 <span class='note'>(orig. \"bamboo\")</span> built, while also comfortable to sit [35] in."
+  }
+]

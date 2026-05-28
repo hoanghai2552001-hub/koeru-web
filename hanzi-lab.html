@@ -100,6 +100,23 @@ a.back{text-decoration:none;color:var(--soft);font-size:.82rem;font-weight:700;m
 .privacy{font-size:.68rem;color:var(--muted);text-align:center;line-height:1.4}
 .lead-success{display:none;background:rgba(74,222,128,.12);color:#4ade80;border-radius:12px;border:1px solid rgba(74,222,128,.2);padding:14px;text-align:center;font-weight:700;font-size:.85rem;line-height:1.5;margin-top:4px}
 .correct-answer-note{font-size:.78rem;color:var(--soft);margin-top:10px;background:var(--surface2);border-radius:8px;padding:8px 12px;text-align:left}
+/* ── PROGRESS BANNER ── */
+.prog-banner{background:var(--surface2);border:1px solid rgba(245,200,66,.25);border-left:3px solid var(--gold);border-radius:12px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.prog-banner-icon{font-size:1.4rem}
+.prog-banner-text{flex:1}
+.prog-banner-text strong{font-size:.85rem;font-weight:800;color:var(--text);display:block}
+.prog-banner-text span{font-size:.72rem;color:var(--muted)}
+.prog-banner-score{font-size:1.3rem;font-weight:900;color:var(--gold)}
+/* ── MOBILE ── */
+@media(max-width:480px){
+  .screen{padding:16px 12px}
+  .home-hero{padding:20px 14px}
+  .app-title{font-size:1.3rem}
+  .q-hanzi{font-size:3.8rem}
+  .opts{gap:8px}
+  .opt{padding:12px 8px;font-size:.82rem}
+  .result-card{padding:20px 14px}
+}
 </style>
 </head>
 <body>
@@ -112,6 +129,15 @@ a.back{text-decoration:none;color:var(--soft);font-size:.82rem;font-weight:700;m
     <div class="app-title">KOERU Hanzi Lab</div>
     <div class="app-sub">Luyện nhận diện chữ Hán — nghĩa, pinyin và phản xạ nhanh HSK 1·2·3.</div>
     <div class="brand">by KOERU Chinese</div>
+  </div>
+
+  <div id="prog-banner" class="prog-banner" style="display:none">
+    <div class="prog-banner-icon">📊</div>
+    <div class="prog-banner-text">
+      <strong id="prog-banner-title">Lần trước</strong>
+      <span id="prog-banner-detail"></span>
+    </div>
+    <div class="prog-banner-score" id="prog-banner-score"></div>
   </div>
 
   <div class="section-label">Chọn chế độ luyện</div>
@@ -249,7 +275,7 @@ function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
-function goHome(){ clearTimer(); showScreen('home-screen'); }
+function goHome(){ clearTimer(); showScreen('home-screen'); loadLabBanner(); }
 
 function pickMode(m, btn){
   gameMode = m;
@@ -402,6 +428,7 @@ function showResult(){
   document.getElementById('r-correct').textContent = correct;
   document.getElementById('r-wrong').textContent = wrong;
   document.getElementById('r-streak').textContent = maxStreak;
+  saveLabProgress(pct, correct, total);
   showScreen('result-screen');
 }
 
@@ -428,7 +455,6 @@ function submitLead(e){
     const leads = JSON.parse(localStorage.getItem('koeru_chinese_leads')||'[]');
     leads.push(lead); localStorage.setItem('koeru_chinese_leads',JSON.stringify(leads));
   }catch(_){}
-  const btn=document.getElementById('lead-submit');
   btn.textContent='✅ Đã gửi!'; btn.disabled=true;
   e.target.style.display='none';
   document.getElementById('lead-success').style.display='block';
@@ -438,6 +464,47 @@ function submitLead(e){
 // ── Cleanup timer khi rời/reload trang ──
 window.addEventListener('pagehide', clearTimer);
 window.addEventListener('visibilitychange', function(){ if(document.hidden) clearTimer(); });
+
+// ── PROGRESS (localStorage) ──
+function saveLabProgress(pct, correctN, totalN){
+  try{
+    const today = new Date().toISOString().slice(0,10);
+    const p = JSON.parse(localStorage.getItem('koeru_hanzilab_progress')||'{}');
+    p.sessions = (p.sessions||0) + 1;
+    p.bestPct = Math.max(p.bestPct||0, pct);
+    p.lastPct = pct;
+    p.lastCorrect = correctN;
+    p.lastTotal = totalN;
+    p.lastMode = gameMode;
+    p.lastDate = today;
+    localStorage.setItem('koeru_hanzilab_progress', JSON.stringify(p));
+    updateStreak();
+  }catch(_){}
+}
+
+function updateStreak(){
+  try{
+    const today = new Date().toISOString().slice(0,10);
+    const s = JSON.parse(localStorage.getItem('koeru_streak')||'{}');
+    if(s.lastDate === today) return;
+    const yesterday = new Date(Date.now()-86400000).toISOString().slice(0,10);
+    s.count = (s.lastDate === yesterday) ? (s.count||0)+1 : 1;
+    s.lastDate = today;
+    localStorage.setItem('koeru_streak', JSON.stringify(s));
+  }catch(_){}
+}
+
+function loadLabBanner(){
+  try{
+    const p = JSON.parse(localStorage.getItem('koeru_hanzilab_progress')||'null');
+    if(!p || !p.sessions) return;
+    const modeLabel = {meaning:'Nghĩa', pinyin:'Pinyin', speed:'Speed'}[p.lastMode] || p.lastMode;
+    document.getElementById('prog-banner').style.display = 'flex';
+    document.getElementById('prog-banner-title').textContent = `${p.sessions} buổi đã luyện`;
+    document.getElementById('prog-banner-detail').textContent = `${modeLabel} · ${p.lastCorrect}/${p.lastTotal} đúng · ${p.lastDate||''}`;
+    document.getElementById('prog-banner-score').textContent = `Best ${p.bestPct}%`;
+  }catch(_){}
+}
 
 // ── DATA GUARD ──
 (function(){
@@ -449,6 +516,7 @@ window.addEventListener('visibilitychange', function(){ if(document.hidden) clea
     document.body.appendChild(errEl);
   }
 })();
+loadLabBanner();
 </script>
 </body>
 </html>
