@@ -233,6 +233,7 @@ body {
 
 #detail-panel {
   position: fixed; bottom: 0; left: 0; right: 0;
+  /* needed for #detail-close absolute positioning */
   z-index: 300;
   background: #13132e;
   border-top: 1px solid rgba(255,255,255,.12);
@@ -245,6 +246,22 @@ body {
   overscroll-behavior: contain;
 }
 #detail-panel.open { transform: translateY(0); }
+
+/* close button */
+#detail-close {
+  position: absolute; top: 10px; right: 12px;
+  width: 28px; height: 28px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+  color: rgba(255,255,255,.7);
+  font-size: 13px; line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+  z-index: 10;
+}
+#detail-close:hover { background: rgba(255,255,255,.18); color: #fff; }
 
 /* drag handle */
 #detail-handle {
