@@ -106,6 +106,8 @@ body {
 .lvl-tab small { opacity: .6; font-size: .68rem; }
 .lvl-tab:hover { color: var(--text); background: rgba(255,255,255,.08); }
 .lvl-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.lvl-coming-soon { opacity: .38 !important; cursor: not-allowed !important; pointer-events: none !important; }
+.lvl-coming-soon::after { content: " 🔒"; font-size: .65em; opacity: .7; }
 
 #study-search-wrap { position: relative; }
 #study-search {

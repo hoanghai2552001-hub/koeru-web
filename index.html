@@ -14,6 +14,9 @@
   gtag('config','G-M0KW1B4F53');
 </script>
 <style>
+/* Disabled levels */
+.lvl-coming-soon { opacity: .38 !important; cursor: not-allowed !important; pointer-events: none !important; }
+.lvl-coming-soon::after { content: " 🔒"; font-size: .65em; opacity: .7; }
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --navy:#2d3561;--navy-d:#1e2445;--navy-l:#3d4880;
@@ -950,8 +953,8 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
         <button class="lvl-btn n5" onclick="setLearnLevel('N5',this)">N5</button>
         <button class="lvl-btn n4" onclick="setLearnLevel('N4',this)">N4</button>
         <button class="lvl-btn n3" onclick="setLearnLevel('N3',this)">N3</button>
-        <button class="lvl-btn n2" onclick="setLearnLevel('N2',this)">N2</button>
-        <button class="lvl-btn n1" onclick="setLearnLevel('N1',this)">N1</button>
+        <button class="lvl-btn n2 lvl-coming-soon" disabled title="Sắp có">N2</button>
+        <button class="lvl-btn n1 lvl-coming-soon" disabled title="Sắp có">N1</button>
       </div>
     </div>
 
