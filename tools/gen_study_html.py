@@ -32,14 +32,56 @@ KANJIVG = "https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/{}.svg
 
 
 # ── Parse JS data ─────────────────────────────────────────────────────────────
+def _brace_parse_file(txt):
+    """Brace-depth parser: extract each {...} entry from a JS array."""
+    entries = []
+    depth = 0; start = None
+    for i, ch in enumerate(txt):
+        if ch == '{':
+            if depth == 0: start = i
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0 and start is not None:
+                block = txt[start:i+1]
+                entry = {}
+                for key, pat in [
+                    ("kanji",   r'kanji\s*:\s*"([^"]*)"'),
+                    ("hanviet", r'hanviet\s*:\s*"([^"]*)"'),
+                    ("on",      r'"on"\s*:\s*"([^"]*)"'),
+                    ("kun",     r'kun\s*:\s*"([^"]*)"'),
+                    ("meaning", r'meaning\s*:\s*"([^"]*)"'),
+                    ("level",   r'level\s*:\s*"([^"]*)"'),
+                    ("radical", r'radical\s*:\s*"([^"]*)"'),
+                ]:
+                    mo = re.search(pat, block)
+                    if mo: entry[key] = mo.group(1)
+                for key in ("stroke","freq_rank","grade"):
+                    mo = re.search(rf'\b{key}\s*:\s*(\d+)', block)
+                    if mo: entry[key] = int(mo.group(1))
+                words = re.findall(
+                    r'\{"w"\s*:\s*"([^"]*)","r"\s*:\s*"([^"]*)","m"\s*:\s*"([^"]*)"\}', block)
+                entry["words"] = [{"w":w,"r":r,"m":m} for w,r,m in words]
+                if entry.get("kanji"):
+                    entries.append(entry)
+                start = None
+    return entries
+
+
 def parse_level(level):
-    fpath = JS_DIR / f"kanji-data-{level.lower()}.js"
-    txt = fpath.read_text(encoding="utf-8")
-    m = re.search(r'=\s*(\[[\s\S]*\])\s*;?\s*$', txt, re.MULTILINE)
-    raw = m.group(1)
-    raw = re.sub(r'([{,]\s*)([a-zA-Z_]\w*)\s*:', r'\1"\2":', raw)
-    raw = re.sub(r',\s*([}\]])', r'\1', raw)
-    return json.loads(raw)
+    """Parse kanji for a level from ALL per-level files, filtering by level field.
+    This ensures reclassified kanji (e.g. N3 entries in n2.js) are included."""
+    all_kanji = []
+    seen = set()
+    for lv in ["n5", "n4", "n3", "n2", "n1"]:
+        txt = (JS_DIR / f"kanji-data-{lv}.js").read_text(encoding="utf-8")
+        for entry in _brace_parse_file(txt):
+            k = entry.get("kanji","")
+            if entry.get("level") == level and k not in seen:
+                all_kanji.append(entry)
+                seen.add(k)
+    all_kanji.sort(key=lambda k: (k.get("freq_rank", 9999), k.get("kanji", "")))
+    return all_kanji
 
 
 # ── Fetch & cache SVG ─────────────────────────────────────────────────────────
