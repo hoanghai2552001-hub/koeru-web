@@ -129,8 +129,10 @@ function floatScore(text, color, x, y) {
 // ══════════════════════════════════════════
 // GAME LOGIC
 // ══════════════════════════════════════════
+const _SP_ENABLED = new Set(['N5','N4','N3']);
 function spGetDeck() {
-  return spLvl === 'ALL' ? ALL_KANJI : ALL_KANJI.filter(k => k.level === spLvl);
+  const base = ALL_KANJI.filter(k => _SP_ENABLED.has(k.level));
+  return spLvl === 'ALL' ? base : base.filter(k => k.level === spLvl);
 }
 function getAnswerTime() {
   const reduction = Math.min(spCmb - 1, 12) * 200;

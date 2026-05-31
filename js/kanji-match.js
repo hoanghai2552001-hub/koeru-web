@@ -119,7 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function buildCompoundDeck() {
   const seen = new Set();
   const result = [];
-  const base = selectedLevel === 'ALL' ? ALL_KANJI : ALL_KANJI.filter(k => k.level === selectedLevel);
+  const _enabled = new Set(['N5','N4','N3']);
+  const base = (selectedLevel === 'ALL' ? ALL_KANJI : ALL_KANJI.filter(k => k.level === selectedLevel)).filter(k => _enabled.has(k.level));
   for (const k of base) {
     const words = filterWordsForLevel(k.words, selectedLevel);
     for (const w of (words || [])) {

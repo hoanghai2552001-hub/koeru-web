@@ -20,8 +20,8 @@ const _loadCallbacks = {};
 
 function ensureLevelLoaded(level, cb) {
   if (level === 'ALL') {
-    // ALL cần tất cả levels
-    const all = ['N5','N4','N3','N2','N1'];
+    // ALL chỉ load N5/N4/N3 (N2/N1 chưa sẵn sàng)
+    const all = ['N5','N4','N3'];
     let pending = all.filter(lv => !_loadedLevels.has(lv));
     if (!pending.length) { cb(); return; }
     let done = 0;
@@ -56,8 +56,9 @@ function getStatus(kanji) {
 }
 
 // ── Filtering ──────────────────────────────
+const ENABLED_LEVELS = new Set(['N5','N4','N3']);
 function getFilteredKanji() {
-  let list = ALL_KANJI;
+  let list = ALL_KANJI.filter(k => ENABLED_LEVELS.has(k.level));
   if (currentLevel !== 'ALL') {
     list = list.filter(k => k.level === currentLevel);
   }
