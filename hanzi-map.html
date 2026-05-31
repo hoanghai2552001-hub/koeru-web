@@ -385,8 +385,8 @@ function submitLead(e){
   }
   // ── INIT ──
   renderSidebar(allRadicals);
-  // auto-select first radical on desktop
-  if(window.innerWidth > 600){ selectRadical(0, allRadicals); }
+  // auto-select first radical on all devices
+  if(allRadicals.length) selectRadical(0, allRadicals);
 })();
 </script>
 </body>
