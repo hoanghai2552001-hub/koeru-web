@@ -906,7 +906,7 @@ const KanjiPanel = ({ data, selectedId, onSelect, onClose }) => {
             💡 Gợi nhớ
           </div>
           <div className="km-mnemonic-text"
-            dangerouslySetInnerHTML={{ __html: item.mn_vi || item.mnemonic }} />
+            dangerouslySetInnerHTML={{ __html: (item.mn_vi || item.mnemonic || '').replace(/\s*\[\d+\]/g, '').trim() }} />
         </div>
       ) : null}
 

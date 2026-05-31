@@ -203,7 +203,7 @@ function openDetail(k, cellEl) {
   // Mnemonic — ưu tiên bản tiếng Việt nếu có
   const mnWrap = document.getElementById('detail-mnemonic');
   if (mnWrap) {
-    const mnText = k.mn_vi || k.mnemonic || '';
+    const mnText = (k.mn_vi || k.mnemonic || '').replace(/\s*\[\d+\]/g, '').trim();
     if (mnText) {
       mnWrap.innerHTML = mnText;
       mnWrap.parentElement.style.display = '';

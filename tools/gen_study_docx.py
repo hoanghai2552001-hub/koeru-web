@@ -543,7 +543,7 @@ def build_kanji_table(doc: Document, kanji_list: list[dict], level: str):
         mv.font.color.rgb = RGBColor(0x1E, 0x29, 0x3B)
 
         # Mnemonic (goi nho)
-        mnemonic = entry.get("mnemonic", entry.get("mn_vi", ""))
+        mnemonic = re.sub(r'\s*\[\d+\]', '', entry.get("mnemonic", entry.get("mn_vi", ""))).strip()
         if mnemonic:
             mnp = mn_cell.add_paragraph()
             mnp.paragraph_format.space_before = Pt(0)
