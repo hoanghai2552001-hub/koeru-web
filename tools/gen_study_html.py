@@ -380,7 +380,7 @@ def build_html(level, kanji_list, color):
         on_r     = entry.get("on", "")
         kun_r    = entry.get("kun", "")
         meaning  = entry.get("meaning", "")
-        mnemonic = entry.get("mn_vi", entry.get("mnemonic", ""))
+        mnemonic = re.sub(r'\s*\[\d+\]', '', entry.get("mn_vi", entry.get("mnemonic", ""))).strip()
         strokes  = entry.get("stroke", "?")
         radical  = entry.get("radical", "").split("|")[0]
         words    = entry.get("words", [])[:5]
