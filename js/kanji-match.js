@@ -130,7 +130,8 @@ function buildCompoundDeck() {
       result.push({ kanji: w.w, reading: w.r || '', meaning_vi: w.m || '', level: k.level });
     }
   }
-  return result.length >= 8 ? result : COMPOUND_WORDS;
+  const _en = new Set(['N5','N4','N3']);
+  return result.length >= 8 ? result : COMPOUND_WORDS.filter(w => _en.has(w.level));
 }
 
 function getMatchDeck() {
