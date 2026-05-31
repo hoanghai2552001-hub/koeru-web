@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KOERU — Bảng Kanji Hoạt Họa JLPT</title>
+<meta name="description" content="Bảng Kanji JLPT N5–N3 với hoạt ảnh thứ tự nét viết, On/Kun, nghĩa tiếng Việt và từ mẫu. Miễn phí, offline, in được.">
+<meta property="og:title" content="KOERU — Bảng Kanji Hoạt Họa JLPT">
+<meta property="og:description" content="Học Kanji JLPT N5–N3 với animated stroke order, nghĩa Việt, gợi nhớ và từ mẫu.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KOERU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0f1117; --card: #1a1d2e; --border: rgba(255,255,255,0.07);
+  --text: #e2e8f0; --sub: #94a3b8; --muted: #475569;
+}
+body {
+  font-family: 'Noto Sans JP', 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg); color: var(--text);
+  min-height: 100vh; padding: 0;
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex; align-items: center; gap: 12px;
+}
+.header a { color: var(--sub); text-decoration: none; font-size: .85rem; }
+.header a:hover { color: var(--text); }
+.logo { font-weight: 800; font-size: 1.1rem; color: var(--text); }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 64px 24px 48px;
+}
+.hero h1 {
+  font-size: 2.2rem; font-weight: 800;
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+.hero p {
+  color: var(--sub); font-size: 1rem; max-width: 520px; margin: 0 auto 8px;
+  line-height: 1.7;
+}
+.hero-note {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px; padding: 6px 14px; border-radius: 20px;
+  background: rgba(129,140,248,.1); border: 1px solid rgba(129,140,248,.2);
+  font-size: .78rem; color: #818cf8;
+}
+
+/* Cards grid */
+.levels {
+  display: flex; flex-wrap: wrap; gap: 20px;
+  justify-content: center;
+  padding: 0 24px 64px;
+  max-width: 900px; margin: 0 auto;
+}
+
+.level-card {
+  flex: 1; min-width: 220px; max-width: 260px;
+  padding: 28px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .18s, border-color .18s, box-shadow .18s;
+  position: relative; overflow: hidden;
+}
+.level-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--lc) 0%, transparent 60%);
+  opacity: .07;
+  border-radius: 16px;
+}
+.level-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--lc);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+}
+
+.lv-badge {
+  display: inline-block;
+  padding: 4px 12px; border-radius: 20px;
+  font-size: .8rem; font-weight: 800; letter-spacing: .5px;
+  background: color-mix(in srgb, var(--lc) 18%, transparent);
+  color: var(--lc);
+  border: 1px solid color-mix(in srgb, var(--lc) 35%, transparent);
+  margin-bottom: 14px;
+}
+.lv-kanji { font-size: 3rem; font-weight: 700; color: var(--lc); margin-bottom: 6px; }
+.lv-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.lv-meta  { font-size: .78rem; color: var(--sub); line-height: 1.6; }
+.lv-tag {
+  display: inline-block; margin-top: 12px;
+  font-size: .7rem; padding: 2px 8px; border-radius: 6px;
+  background: rgba(255,255,255,.06); color: var(--muted);
+}
+
+/* Coming soon card */
+.level-card.soon {
+  opacity: .45; cursor: default; pointer-events: none;
+}
+.soon-label {
+  position: absolute; top: 12px; right: 12px;
+  font-size: .65rem; font-weight: 700; letter-spacing: .5px;
+  padding: 2px 8px; border-radius: 6px;
+  background: rgba(255,255,255,.06); color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* Attribution */
+.attr-section {
+  max-width: 900px; margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.attr-title {
+  font-size: .7rem; font-weight: 700; letter-spacing: .8px;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 12px;
+}
+.attr-row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.attr-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 10px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  font-size: .78rem; color: var(--sub);
+  text-decoration: none;
+  transition: border-color .15s;
+}
+.attr-chip:hover { border-color: rgba(255,255,255,.15); color: var(--text); }
+.attr-chip strong { color: var(--text); }
+.badge-cc {
+  font-size: .62rem; font-weight: 700; padding: 1px 5px; border-radius: 4px;
+  background: rgba(99,102,241,.15); color: #818cf8;
+}
+
+/* Footer */
+.site-footer-idx {
+  border-top: 1px solid var(--border);
+  padding: 16px 32px;
+  text-align: center;
+  font-size: .75rem; color: var(--muted);
+}
+.site-footer-idx a { color: #818cf8; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <span class="logo">KOERU</span>
+  <span style="color:var(--border)">|</span>
+  <a href="../index.html">← Trang chủ</a>
+  <a href="../kanji.html" style="margin-left:4px">Kanji Game</a>
+</header>
+
+<section class="hero">
+  <h1>Bảng Kanji Hoạt Họa</h1>
+  <p>Xem thứ tự nét viết từng Kanji bằng animation, kèm On/Kun, nghĩa tiếng Việt, gợi nhớ và từ mẫu.</p>
+  <p style="color:var(--muted);font-size:.85rem">Tất cả 308 kanji N5–N3 · Offline · In được (Ctrl+P)</p>
+  <div class="hero-note">
+    ✦ Click vào ô stroke order để replay animation bất kỳ lúc nào
+  </div>
+</section>
+
+<div class="levels">
+
+  <a class="level-card" href="n5.html" style="--lc:#22c55e">
+    <div class="lv-badge">JLPT N5</div>
+    <div class="lv-kanji">安</div>
+    <div class="lv-title">Sơ cấp</div>
+    <div class="lv-meta">103 kanji · ~309 từ mẫu<br>Dành cho người mới bắt đầu</div>
+    <span class="lv-tag">▶ Xem ngay</span>
+  </a>
+
+  <a class="level-card" href="n4.html" style="--lc:#3b82f6">
+    <div class="lv-badge">JLPT N4</div>
+    <div class="lv-kanji">働</div>
+    <div class="lv-title">Sơ-Trung cấp</div>
+    <div class="lv-meta">116 kanji · ~348 từ mẫu<br>Tương đương giáo trình N4</div>
+    <span class="lv-tag">▶ Xem ngay</span>
+  </a>
+
+  <a class="level-card" href="n3.html" style="--lc:#f59e0b">
+    <div class="lv-badge">JLPT N3</div>
+    <div class="lv-kanji">察</div>
+    <div class="lv-title">Trung cấp</div>
+    <div class="lv-meta">89 kanji · ~267 từ mẫu<br>Tương đương N3 thực chiến</div>
+    <span class="lv-tag">▶ Xem ngay</span>
+  </a>
+
+  <div class="level-card soon" style="--lc:#a855f7">
+    <span class="soon-label">Sắp có</span>
+    <div class="lv-badge">JLPT N2</div>
+    <div class="lv-kanji">憶</div>
+    <div class="lv-title">Thượng cấp</div>
+    <div class="lv-meta">545 kanji · ~1635 từ mẫu</div>
+  </div>
+
+  <div class="level-card soon" style="--lc:#ef4444">
+    <span class="soon-label">Sắp có</span>
+    <div class="lv-badge">JLPT N1</div>
+    <div class="lv-kanji">懸</div>
+    <div class="lv-title">Cao cấp</div>
+    <div class="lv-meta">628 kanji · ~1884 từ mẫu</div>
+  </div>
+
+</div>
+
+<!-- Attribution section -->
+<div class="attr-section">
+  <div class="attr-title">Nguồn dữ liệu</div>
+  <div class="attr-row">
+    <a class="attr-chip" href="https://github.com/KanjiVG/kanjivg" target="_blank" rel="noopener">
+      <span>⛩</span>
+      <span><strong>KanjiVG</strong> — Stroke order SVG data, © Ulrich Apel</span>
+      <span class="badge-cc">CC BY-SA 3.0</span>
+    </a>
+    <a class="attr-chip" href="https://github.com/thekanjimap/the-kanji-map" target="_blank" rel="noopener">
+      <span>🗺</span>
+      <span><strong>the-kanji-map</strong> — Radical, component &amp; mnemonic data</span>
+      <span class="badge-cc">CC BY-SA 3.0</span>
+    </a>
+    <a class="attr-chip" href="https://www.kanshudo.com/collections/jlpt_kanji" target="_blank" rel="noopener">
+      <span>📋</span>
+      <span><strong>JLPT Kanji list</strong> — Danh sách kanji theo cấp độ</span>
+    </a>
+  </div>
+  <p style="margin-top:12px;font-size:.72rem;color:var(--muted);line-height:1.7">
+    Stroke order SVG © KanjiVG (Ulrich Apel), licensed under
+    <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#818cf8">CC BY-SA 3.0</a>.
+    Nội dung tiếng Việt (nghĩa, Hán Việt, gợi nhớ) do KOERU biên soạn.
+    Việc sao chép lại yêu cầu ghi nguồn rõ ràng và giữ nguyên giấy phép CC BY-SA 3.0.
+  </p>
+</div>
+
+<footer class="site-footer-idx">
+  © 2025 KOERU Japanese ·
+  <a href="../index.html">Trang chủ</a> ·
+  <a href="../kanji.html">Kanji Game</a> ·
+  Dữ liệu stroke order: <a href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">KanjiVG</a> (CC BY-SA 3.0)
+</footer>
+
+</body>
+</html>

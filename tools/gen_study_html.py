@@ -17,8 +17,10 @@ from pathlib import Path
 ROOT      = Path(__file__).parent.parent
 JS_DIR    = ROOT / "js"
 OUT_DIR   = ROOT / "output"
+STUDY_DIR = ROOT / "study"       # deploy target
 SVG_CACHE = OUT_DIR / "kanji_svg"
 OUT_DIR.mkdir(exist_ok=True)
+STUDY_DIR.mkdir(exist_ok=True)
 SVG_CACHE.mkdir(exist_ok=True)
 
 LEVELS = ["N5","N4","N3","N2","N1"]
@@ -302,6 +304,42 @@ body {
   grid-column: 1/-1; padding: 60px; text-align:center;
   color: var(--muted); font-size: 1rem;
 }
+
+/* ── Footer attribution ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 28px;
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start;
+  background: rgba(0,0,0,.2);
+}
+.footer-title {
+  font-size: .68rem; font-weight: 700; letter-spacing: .8px;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 8px;
+}
+.attr-block {
+  flex: 1; min-width: 220px;
+  padding: 12px 16px; border-radius: 10px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+}
+.attr-name { font-size: .85rem; font-weight: 700; color: var(--text); }
+.attr-desc { font-size: .75rem; color: var(--sub); margin: 3px 0 6px; line-height: 1.5; }
+.attr-link { font-size: .72rem; color: #818cf8; text-decoration: none; }
+.attr-link:hover { text-decoration: underline; }
+.license-badge {
+  display: inline-block; font-size: .62rem; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px;
+  background: rgba(99,102,241,.15); color: #818cf8;
+  border: 1px solid rgba(99,102,241,.3);
+  margin-left: 6px; vertical-align: middle;
+}
+.footer-copy {
+  width: 100%; font-size: .7rem; color: var(--muted);
+  padding-top: 10px; border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+@media print { .site-footer { display:none; } }
 """
 
 PAGE_JS = """
@@ -460,6 +498,53 @@ def build_html(level, kanji_list, color):
   </div>
 </main>
 
+<footer class="site-footer">
+  <div style="width:100%"><div class="footer-title">Nguồn dữ liệu &amp; Bản quyền</div></div>
+
+  <div class="attr-block">
+    <div class="attr-name">KanjiVG <span class="license-badge">CC BY-SA 3.0</span></div>
+    <div class="attr-desc">
+      Dữ liệu thứ tự nét (stroke order) và hình ảnh SVG của từng chữ Kanji.<br>
+      © Ulrich Apel
+    </div>
+    <a class="attr-link" href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">
+      🔗 kanjivg.tagaini.net
+    </a>
+    &nbsp;·&nbsp;
+    <a class="attr-link" href="https://github.com/KanjiVG/kanjivg" target="_blank" rel="noopener">
+      GitHub: KanjiVG/kanjivg
+    </a>
+  </div>
+
+  <div class="attr-block">
+    <div class="attr-name">the-kanji-map <span class="license-badge">CC BY-SA 3.0</span></div>
+    <div class="attr-desc">
+      Dữ liệu bộ thủ (radical), thành phần chữ (parts) và câu gợi nhớ (mnemonic).
+    </div>
+    <a class="attr-link" href="https://github.com/thekanjimap/the-kanji-map" target="_blank" rel="noopener">
+      GitHub: thekanjimap/the-kanji-map
+    </a>
+  </div>
+
+  <div class="attr-block">
+    <div class="attr-name">KOERU Japanese</div>
+    <div class="attr-desc">
+      Biên soạn nội dung tiếng Việt: nghĩa, Hán Việt, gợi nhớ tiếng Việt, từ mẫu.<br>
+      Tổng hợp và trình bày bởi đội ngũ KOERU.
+    </div>
+    <a class="attr-link" href="https://hoanghai2552001-hub.github.io/koeru-web/" target="_blank" rel="noopener">
+      🔗 koeruapp.com
+    </a>
+  </div>
+
+  <div class="footer-copy">
+    Stroke order SVG data © KanjiVG (Ulrich Apel), licensed under
+    <a class="attr-link" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>.
+    Việc sử dụng lại yêu cầu ghi nguồn và giữ nguyên giấy phép.
+    File này được tạo tự động bởi KOERU — không dùng cho mục đích thương mại khi chưa có sự đồng ý.
+  </div>
+</footer>
+
 <script>
 {PAGE_JS}
 </script>
@@ -479,11 +564,15 @@ def main():
         data  = parse_level(level)
         color = LEVEL_COLOR[level]
         html  = build_html(level, data, color)
-        out   = OUT_DIR / f"KOERU_JLPT_{level}.html"
-        out.write_text(html, encoding="utf-8")
-        kb = out.stat().st_size // 1024
-        print(f"  ✅ {out.name}  ({kb} KB)  [{time.time()-t0:.1f}s]")
-    print("\nDone! Mở file HTML trong Chrome/Edge để xem animation.")
+        # Write to output/ (backup) và study/ (deploy)
+        out_bak  = OUT_DIR   / f"KOERU_JLPT_{level}.html"
+        out_web  = STUDY_DIR / f"{level.lower()}.html"
+        out_bak.write_text(html, encoding="utf-8")
+        out_web.write_text(html, encoding="utf-8")
+        kb = out_bak.stat().st_size // 1024
+        print(f"  ✅ study/{level.lower()}.html  ({kb} KB)  [{time.time()-t0:.1f}s]")
+    print(f"\nDone! Deploy tại: study/")
+    print("Mở file HTML trong Chrome/Edge để xem animation.")
 
 if __name__ == "__main__":
     main()
