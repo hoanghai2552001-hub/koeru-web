@@ -263,13 +263,6 @@ body {
   border: 1px solid var(--border);
 }
 
-/* Row 3: mnemonic */
-.mnemonic {
-  font-size: .8rem; color: var(--sub); font-style: italic;
-  line-height: 1.5;
-  border-left: 2px solid var(--border);
-  padding-left: 10px;
-}
 
 /* Row 4: words */
 .words { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px; }
@@ -380,7 +373,6 @@ def build_html(level, kanji_list, color):
         on_r     = entry.get("on", "")
         kun_r    = entry.get("kun", "")
         meaning  = entry.get("meaning", "")
-        mnemonic = re.sub(r'\s*\[\d+\]', '', entry.get("mn_vi", entry.get("mnemonic", ""))).strip()
         strokes  = entry.get("stroke", "?")
         radical  = entry.get("radical", "").split("|")[0]
         words    = entry.get("words", [])[:5]
@@ -423,7 +415,6 @@ def build_html(level, kanji_list, color):
       <span class="meaning-vi">{meaning}</span>
       {"<span class='radical-tag'>"+radical+"</span>" if radical else ""}
     </div>
-    {"<div class='mnemonic'>"+mnemonic+"</div>" if mnemonic else ""}
     <div class="words">{words_html}</div>
   </div>
 </div>""")

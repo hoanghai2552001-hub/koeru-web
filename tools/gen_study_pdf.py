@@ -264,14 +264,6 @@ class StudyPDF(FPDF):
         self.set_xy(90, y0 + 8)
         self.cell(42, 5, kun_txt)
 
-        # ── Gợi nhớ (col 5, w=60) ──
-        mn = re.sub(r'\s*\[\d+\]', '', entry.get("mn_vi") or entry.get("mnemonic") or "").strip()
-        if mn:
-            self.set_xy(132, y0 + 1)
-            self.set_font("JP", "", 7.5)
-            self.set_text_color(80, 80, 80)
-            self.multi_cell(64, 4.5, mn[:100], align="L")
-
         # ── Words (below, full width) ──
         words = entry.get("words", [])
         if words:

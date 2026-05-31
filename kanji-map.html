@@ -900,15 +900,6 @@ const KanjiPanel = ({ data, selectedId, onSelect, onClose }) => {
         </button>
       </div>
 
-      {!isVocab && (item.mn_vi || item.mnemonic) ? (
-        <div className="km-mnemonic">
-          <div className="km-section-title" style={{ marginBottom:6, color:'var(--hanko)' }}>
-            💡 Gợi nhớ
-          </div>
-          <div className="km-mnemonic-text"
-            dangerouslySetInnerHTML={{ __html: (item.mn_vi || item.mnemonic || '').replace(/\s*\[\d+\]/g, '').trim() }} />
-        </div>
-      ) : null}
 
       {isVocab && typeof item.pitch === 'number' ? (
         <PitchAccent reading={item.reading} pitch={item.pitch} />

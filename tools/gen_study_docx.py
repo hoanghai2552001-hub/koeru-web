@@ -382,7 +382,6 @@ def add_cover_page(doc: Document, level: str, kanji_list: list[dict]):
     run.bold = True; run.font.size = Pt(11)
     for line in [
         "• GIF hoạt họa → theo dõi thứ tự nét viết từng bước",
-        "• Cột 'Gợi nhớ' → câu chuyện kết nối hình ảnh với nghĩa",
         "• Cột 'Từ mẫu' → ứng dụng ngay vào từ vựng thực tế",
         "• In hai mặt, gấp đôi: nhìn Kanji → đoán nghĩa → lật kiểm tra",
     ]:
@@ -541,19 +540,6 @@ def build_kanji_table(doc: Document, kanji_list: list[dict], level: str):
         mv = mp.add_run(meaning)
         mv.bold = True; mv.font.size = Pt(9)
         mv.font.color.rgb = RGBColor(0x1E, 0x29, 0x3B)
-
-        # Mnemonic (goi nho)
-        mnemonic = re.sub(r'\s*\[\d+\]', '', entry.get("mnemonic", entry.get("mn_vi", ""))).strip()
-        if mnemonic:
-            mnp = mn_cell.add_paragraph()
-            mnp.paragraph_format.space_before = Pt(0)
-            mnp.paragraph_format.space_after  = Pt(4)
-            mnl = mnp.add_run("Goi nho: ")
-            mnl.bold = True; mnl.font.size = Pt(8)
-            mnl.font.color.rgb = RGBColor(0x94, 0xA3, 0xB8)
-            mnv = mnp.add_run(mnemonic[:120])
-            mnv.italic = True; mnv.font.size = Pt(8)
-            mnv.font.color.rgb = RGBColor(0x64, 0x74, 0x8B)
 
         # ── Col 4: Tu mau ────────────────────────────────────────────────────
         words_cell = row.cells[4]
