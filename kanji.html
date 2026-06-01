@@ -2,13 +2,15 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/brand.css">
 <link rel="stylesheet" href="css/kanji.css?v=20260527c">
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}</style>
 <title>KOERU Kanji Lab — Luyện Kanji N5→N1</title>
 <meta name="description" content="4 game luyện Kanji: Flashcard, Nối từ, Dungeon, Speed. Hán Việt, gợi nhớ tiếng Việt, stroke order. Miễn phí. by KOERU Japanese.">
 <meta property="og:type" content="website">
@@ -115,9 +117,12 @@
       <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="padding:8px 18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:.82rem;font-weight:700;cursor:pointer">Tiếp tục luyện Kanji →</button>
     </div>
     <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)" style="display:flex;flex-direction:column;gap:10px">
-      <input name="name" placeholder="Họ tên" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
-      <input name="contact" placeholder="Zalo / SĐT" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
-      <select name="current_level" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <label for="lead-name" class="sr-only">Họ và tên</label>
+      <input id="lead-name" name="name" placeholder="Họ tên" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <label for="lead-contact" class="sr-only">Zalo hoặc số điện thoại</label>
+      <input id="lead-contact" name="contact" placeholder="Zalo / SĐT" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <label for="lead-level" class="sr-only">Trình độ hiện tại</label>
+      <select id="lead-level" name="current_level" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
         <option value="">Trình độ hiện tại</option>
         <option value="zero">Chưa biết gì</option>
         <option value="kana">Biết Hiragana / Katakana</option>
@@ -125,7 +130,8 @@
         <option value="N4">Đang học N4</option>
         <option value="N3+">Đang học N3 trở lên</option>
       </select>
-      <select name="goal" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <label for="lead-goal" class="sr-only">Mục tiêu học tập</label>
+      <select id="lead-goal" name="goal" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
         <option value="">Mục tiêu của bạn</option>
         <option value="jlpt">Thi JLPT</option>
         <option value="dilan">Đi làm / Công ty Nhật</option>
@@ -133,7 +139,8 @@
         <option value="giaotiep">Giao tiếp</option>
         <option value="restart">Học lại từ đầu</option>
       </select>
-      <select name="available_time" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <label for="lead-time" class="sr-only">Thời gian học được mỗi ngày</label>
+      <select id="lead-time" name="available_time" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
         <option value="">Thời gian học được</option>
         <option value="evening">Buổi tối</option>
         <option value="weekend">Cuối tuần</option>
@@ -602,7 +609,7 @@ if(new URLSearchParams(location.search).get('admin')==='true'){
 </script>
 
 <!-- Scripts: thứ tự quan trọng — data trước, logic sau -->
-<script src="js/kanji-data.js?v=20260531"></script>
+<script src="js/kanji-data.js?v=20260601"></script>
 <script src="js/koeru-mastery.js?v=20260525"></script>
 <script src="js/kanji-state.js?v=20260523f"></script>
 <script src="js/kanji-flashcard.js?v=20260523f"></script>
