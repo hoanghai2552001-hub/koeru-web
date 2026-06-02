@@ -88,3 +88,35 @@ input/
 # ── Tools nội bộ (script sinh data, không cần deploy) ─────────
 tools/KOERU_Template.xlsx
 tools/export_translate.py
+
+# ── Backup files từ import_excel ──────────────────────────────
+*.xlsbak
+
+# ── Credentials (KHÔNG BAO GIỜ commit) ───────────────────────
+oauth_credentials.json
+tools/oauth_credentials.json
+
+# ── QA output files (tạm, sinh lại được) ─────────────────────
+qa_data_final.json
+qa_data_kanji.json
+qa_hanzi_lab.json
+qa_hanzi_map.json
+qa_hsk.json
+qa_kanji.json
+qa_study.json
+_quiz_data.json
+
+# ── Test images (tạm) ─────────────────────────────────────────
+test_*.png
+test_*.jpg
+
+# ── Output folder (docx/pdf/xlsx sinh ra) ─────────────────────
+output/
+
+# ── Patch scripts tạm ─────────────────────────────────────────
+tools/patch.py
+tools/patch_example.txt
+tools/kanji_data_*.xlsx
+
+# ── File lỗi từ CLI ───────────────────────────────────────────
+--out

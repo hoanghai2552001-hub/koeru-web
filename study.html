@@ -9,7 +9,7 @@
 <meta name="description" content="Học Kanji N5–N1 với stroke order, từ vựng và luyện tập trực tiếp. KOERU Japanese.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/study.css?v=20260527b">
+<link rel="stylesheet" href="css/study.css?v=20260602">
 <title>KOERU · Học Kanji N5–N1</title>
 </head>
 <body>
@@ -28,6 +28,13 @@
   <div id="study-left">
 
     <div id="study-toolbar">
+      <!-- View mode tabs -->
+      <div id="view-tabs">
+        <button class="view-tab active" data-view="kanji" onclick="switchView('kanji',this)">📖 Kanji</button>
+        <button class="view-tab" data-view="vocab" onclick="switchView('vocab',this)">📚 Từ vựng</button>
+        <button class="view-tab" data-view="grammar" onclick="switchView('grammar',this)">📝 Ngữ pháp</button>
+      </div>
+      <!-- Kanji level tabs (chỉ hiện khi view=kanji hoặc vocab) -->
       <div id="level-tabs">
         <button class="lvl-tab active" data-lvl="N5">N5 <small>(103)</small></button>
         <button class="lvl-tab" data-lvl="N4">N4 <small>(160)</small></button>
@@ -63,6 +70,22 @@
         <div class="empty-icon">🔍</div>
         <p>Không tìm thấy kanji nào.<br>Thử từ khoá khác.</p>
       </div>
+    </div>
+
+    <!-- VOCAB VIEW -->
+    <div id="vocab-view" style="display:none;padding:8px 0;overflow-y:auto">
+      <div id="vocab-grid-inner" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:0 2px"></div>
+      <div id="vocab-empty" style="display:none;text-align:center;padding:40px 16px;color:rgba(255,255,255,.3)">
+        <div style="font-size:2rem;margin-bottom:8px">🔍</div><p>Không tìm thấy từ nào.</p>
+      </div>
+    </div>
+
+    <!-- GRAMMAR VIEW -->
+    <div id="grammar-view" style="display:none;padding:8px 0;overflow-y:auto">
+      <div style="font-size:.72rem;color:rgba(255,255,255,.3);padding:0 2px 12px;line-height:1.6">
+        25 mẫu câu N5 quan trọng nhất · Mini quiz trong mỗi mẫu · Đánh dấu đã học
+      </div>
+      <div id="grammar-list-inner"></div>
     </div>
 
   </div><!-- /study-left -->
@@ -147,9 +170,229 @@
   window.ALL_KANJI = [];
   window._koeruDataLoaded = function(){};
 </script>
-<script src="js/kanji-data-n5.js?v=20260601" onload="window.KANJI_N5?.forEach(k=>ALL_KANJI.push(k))"></script>
-<script src="js/koeru-mastery.js?v=20260525"></script>
-<script src="js/kanji-study.js?v=20260527d"></script>
+<script src="js/kanji-data-n5.js?v=20260602" onload="window.KANJI_N5?.forEach(k=>ALL_KANJI.push(k));window._n5Ready=true;window._applyHash&&window._applyHash()"></script>
+<script src="js/koeru-mastery.js?v=20260602"></script>
+<script src="js/kanji-study.js?v=20260602"></script>
+<style>
+/* View tabs */
+#view-tabs{display:flex;gap:6px;padding:10px 12px 6px;border-bottom:1px solid rgba(255,255,255,.06)}
+.view-tab{padding:7px 14px;border-radius:8px;border:none;background:transparent;color:rgba(255,255,255,.35);font-size:.78rem;font-weight:700;cursor:pointer;transition:.15s;font-family:inherit}
+.view-tab:hover{color:rgba(255,255,255,.6);background:rgba(255,255,255,.05)}
+.view-tab.active{background:rgba(99,102,241,.15);color:#818cf8}
+/* Vocab card */
+.vc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 14px;cursor:pointer;transition:.15s}
+.vc-card:hover{border-color:rgba(99,102,241,.3);background:rgba(99,102,241,.06)}
+.vc-word{font-family:'Noto Serif JP','Noto Sans JP',serif;font-size:1.25rem;font-weight:700;color:#e2e8f0;margin-bottom:3px}
+.vc-read{font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:6px;font-family:'Noto Sans JP',sans-serif}
+.vc-meaning{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.4}
+.vc-lv{font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:99px;margin-top:6px;display:inline-block}
+.lv-n5{background:rgba(34,197,94,.12);color:#4ade80}
+.lv-n4{background:rgba(59,130,246,.12);color:#60a5fa}
+.lv-n3{background:rgba(168,85,247,.12);color:#c084fc}
+/* Grammar card */
+.g-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.g-card.g-expanded{border-color:rgba(99,102,241,.3)}
+.g-hdr{padding:14px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:10px}
+.g-hdr:hover{background:rgba(255,255,255,.02)}
+.g-num{font-size:.65rem;font-weight:800;color:rgba(255,255,255,.25);background:rgba(255,255,255,.07);border-radius:5px;padding:2px 7px;flex-shrink:0;margin-top:2px}
+.g-pat{font-family:'Noto Sans JP',sans-serif;font-size:.88rem;font-weight:700;color:#818cf8;margin-bottom:3px}
+.g-ttl{font-size:.78rem;font-weight:700;color:#e2e8f0;margin-bottom:2px}
+.g-sh{font-size:.72rem;color:rgba(255,255,255,.35)}
+.g-done-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;transition:.2s}
+.g-done-dot.done{background:#22c55e} .g-done-dot.undone{background:rgba(255,255,255,.12)}
+.g-arr{color:rgba(255,255,255,.25);font-size:.75rem;flex-shrink:0;margin-top:4px;transition:.2s}
+.g-card.g-expanded .g-arr{transform:rotate(180deg)}
+.g-body{display:none;padding:0 16px 16px;border-top:1px solid rgba(255,255,255,.05)}
+.g-card.g-expanded .g-body{display:block}
+.g-lbl{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.8px;margin:12px 0 6px}
+.g-exp{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.7;background:rgba(255,255,255,.03);padding:10px 12px;border-radius:8px;border-left:2px solid rgba(99,102,241,.4)}
+.g-ex{background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;margin-bottom:6px}
+.g-jp{font-family:'Noto Sans JP',sans-serif;font-size:.88rem;font-weight:700;color:#e2e8f0;margin-bottom:3px}
+.g-rd{font-size:.68rem;color:rgba(255,255,255,.3);font-family:'Noto Sans JP',sans-serif;margin-bottom:3px}
+.g-vi{font-size:.78rem;color:rgba(255,255,255,.5)}
+.g-hl{color:#818cf8}
+.g-quiz-opts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.g-qopt{padding:7px 12px;border-radius:7px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:rgba(255,255,255,.55);font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:.15s}
+.g-qopt:hover:not(:disabled){border-color:rgba(99,102,241,.4);color:#818cf8}
+.g-qopt.g-ok{background:rgba(34,197,94,.12);border-color:#22c55e;color:#4ade80}
+.g-qopt.g-bad{background:rgba(244,63,94,.08);border-color:#f43f5e;color:#f87171}
+.g-qfb{font-size:.75rem;padding:7px 10px;border-radius:7px;display:none;margin-top:6px;line-height:1.5}
+.g-qfb.ok{background:rgba(34,197,94,.08);color:#86efac} .g-qfb.bad{background:rgba(244,63,94,.08);color:#fca5a5}
+.g-mark-btn{margin-top:10px;padding:7px 14px;border-radius:7px;border:1px solid rgba(34,197,94,.3);background:rgba(34,197,94,.06);color:#4ade80;font-size:.75rem;font-weight:700;cursor:pointer;display:none}
+</style>
+<script>
+// ── HASH ROUTING ──────────────────────────────────────────
+window._applyHash = function() {
+  const h = location.hash.replace('#','');
+  if(h==='vocab'||h==='grammar') {
+    const btn = document.querySelector(`.view-tab[data-view="${h}"]`);
+    switchView(h, btn);
+  }
+};
+window.addEventListener('DOMContentLoaded', () => { if(window._n5Ready) window._applyHash(); });
+
+// ── VIEW SWITCHING ─────────────────────────────────────────
+let currentView = 'kanji';
+let vocabBuilt = false, grammarBuilt = false;
+const grammarDone = new Set(JSON.parse(localStorage.getItem('koeru_gram_n5')||'[]'));
+
+function switchView(view, btn) {
+  currentView = view;
+  document.querySelectorAll('.view-tab').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+
+  const kgw = document.getElementById('kanji-grid-wrap');
+  const vv  = document.getElementById('vocab-view');
+  const gv  = document.getElementById('grammar-view');
+  const lt  = document.getElementById('level-tabs');
+  const ss  = document.getElementById('study-search-wrap');
+  const dp  = document.getElementById('detail-panel');
+
+  kgw.style.display = view==='kanji' ? '' : 'none';
+  vv.style.display  = view==='vocab' ? '' : 'none';
+  gv.style.display  = view==='grammar' ? '' : 'none';
+  lt.style.display  = view==='grammar' ? 'none' : '';
+  ss.querySelector('#study-search').placeholder = view==='vocab'
+    ? '🔍  Tìm từ, đọc, nghĩa…' : '🔍  Tìm kanji, nghĩa, âm Hán Việt…';
+  if(view==='grammar') { dp.style.display='none'; ss.style.display='none'; }
+  else { dp.style.display=''; ss.style.display=''; }
+
+  if(view==='vocab' && !vocabBuilt) buildVocabView();
+  if(view==='grammar' && !grammarBuilt) buildGrammarView();
+}
+
+// ── VOCAB VIEW ─────────────────────────────────────────────
+function buildVocabView() {
+  const data = window.ALL_KANJI || [];
+  const seen = new Set();
+  let vocab = [];
+  data.forEach(e => {
+    (e.words||[]).forEach(w => {
+      const key = w.w+'|'+w.r;
+      if(!seen.has(key) && w.w && w.m) {
+        seen.add(key);
+        vocab.push({word:w.w, reading:w.r, meaning:w.m, level:e.level, k:e.k, hv:e.hanviet||''});
+      }
+    });
+  });
+  window._vocabAll = vocab;
+  renderVocabView(vocab.slice(0, 300));
+  vocabBuilt = true;
+
+  // Hook search
+  document.getElementById('study-search').addEventListener('input', function() {
+    if(currentView!=='vocab') return;
+    const q = this.value.trim().toLowerCase();
+    if(!q) { renderVocabView(window._vocabAll.slice(0,300)); return; }
+    const f = window._vocabAll.filter(v =>
+      v.word.includes(q)||v.reading.includes(q)||v.meaning.toLowerCase().includes(q)||(v.hv||'').toLowerCase().includes(q)
+    );
+    renderVocabView(f.slice(0,200));
+  });
+}
+
+function renderVocabView(list) {
+  const g = document.getElementById('vocab-grid-inner');
+  const e = document.getElementById('vocab-empty');
+  if(!list.length) { g.innerHTML=''; e.style.display='block'; return; }
+  e.style.display='none';
+  g.innerHTML = list.map(v =>
+    `<div class="vc-card" onclick="selectKanjiByChar('${v.k}')">
+      <div class="vc-word">${v.word}</div>
+      <div class="vc-read">${v.reading}</div>
+      <div class="vc-meaning">${v.meaning}</div>
+      <span class="vc-lv lv-${(v.level||'').toLowerCase()}">${v.level||''}</span>
+    </div>`
+  ).join('');
+}
+
+function selectKanjiByChar(k) {
+  // Switch back to kanji view and select
+  switchView('kanji', document.querySelector('.view-tab[data-view="kanji"]'));
+  const data = window.ALL_KANJI||[];
+  const entry = data.find(e=>e.k===k);
+  if(entry && typeof showKanjiDetail==='function') showKanjiDetail(entry);
+}
+
+// ── GRAMMAR VIEW ───────────────────────────────────────────
+const GRAM = [
+  {p:'N は N です',t:'Câu khẳng định',s:'A là B',ex:[{jp:'<span class="g-hl">私は</span>学生<span class="g-hl">です</span>',rd:'わたしは がくせい です',vi:'Tôi là học sinh.'}],explain:'は = chủ đề, です = "là". Cấu trúc câu cơ bản nhất.',quiz:{q:'Tôi là bác sĩ:',opts:['私は医者です','私が医者だ','私も医者'],ans:'私は医者です',exp:'は + です = câu khẳng định lịch sự.'}},
+  {p:'N は N ではありません',t:'Câu phủ định',s:'A không phải B',ex:[{jp:'私は学生<span class="g-hl">ではありません</span>',rd:'わたしは がくせい ではありません',vi:'Tôi không phải học sinh.'}],explain:'ではありません = phủ định lịch sự. Văn nói: じゃありません.',quiz:{q:'"Đây không phải sách": これは本＿',opts:['ではありません','です','ですか'],ans:'ではありません',exp:'ではありません = phủ định của です.'}},
+  {p:'N の N',t:'Trợ từ の — sở hữu',s:'A của B',ex:[{jp:'私<span class="g-hl">の</span>本',rd:'わたし の ほん',vi:'Sách của tôi'}],explain:'の nối 2 danh từ: sở hữu, thuộc về, mô tả.',quiz:{q:'"Điện thoại của tôi": 私＿電話',opts:['の','は','を','が'],ans:'の',exp:'の = "của".'}},
+  {p:'V ます / V ません',t:'Động từ thể ます',s:'Làm / Không làm (lịch sự)',ex:[{jp:'日本語を勉強し<span class="g-hl">ます</span>',rd:'にほんごを べんきょうします',vi:'Học tiếng Nhật.'}],explain:'ます = khẳng định lịch sự. ません = phủ định lịch sự.',quiz:{q:'"Không uống rượu": お酒を飲み＿',opts:['ません','ます','ました'],ans:'ません',exp:'ません = phủ định thể ます.'}},
+  {p:'N が あります / います',t:'Biểu thị sự tồn tại',s:'Vật = あります · Người/ĐV = います',ex:[{jp:'本<span class="g-hl">があります</span>',rd:'ほんがあります',vi:'Có sách.'},{jp:'猫<span class="g-hl">がいます</span>',rd:'ねこがいます',vi:'Có mèo.'}],explain:'あります = vật vô tri. います = người, động vật.',quiz:{q:'"Có chó trong công viên":',opts:['犬がいます','犬があります','犬がします'],ans:'犬がいます',exp:'Động vật → います.'}},
+  {p:'N に / N へ 行きます',t:'Trợ từ chỉ đích đến',s:'Đi đến N',ex:[{jp:'学校<span class="g-hl">に</span>行きます',rd:'がっこうに いきます',vi:'Đi đến trường.'}],explain:'に và へ đều chỉ đích đến. に dùng phổ biến hơn.',quiz:{q:'"Về nhà": 家＿帰ります',opts:['に','を','は','が'],ans:'に',exp:'に / へ = đích đến với động từ di chuyển.'}},
+  {p:'N を V',t:'Trợ từ を — tân ngữ',s:'Làm gì với N',ex:[{jp:'コーヒー<span class="g-hl">を</span>飲みます',rd:'コーヒーを のみます',vi:'Uống cà phê.'}],explain:'を đánh dấu đối tượng trực tiếp của hành động.',quiz:{q:'"Đọc sách": 本＿読みます',opts:['を','は','に','の'],ans:'を',exp:'を = tân ngữ của hành động.'}},
+  {p:'V たいです',t:'Muốn làm gì',s:'Diễn đạt mong muốn',ex:[{jp:'日本へ行き<span class="g-hl">たいです</span>',rd:'にほんへ いきたいです',vi:'Muốn đi Nhật.'}],explain:'Gốc ます + たいです = muốn làm.',quiz:{q:'"Muốn ăn sushi": 寿司を食べ＿',opts:['たいです','ます','ました'],ans:'たいです',exp:'たいです = muốn.'}},
+  {p:'～てください',t:'Yêu cầu lịch sự',s:'Xin hãy làm',ex:[{jp:'もう一度言っ<span class="g-hl">てください</span>',rd:'もういちど いってください',vi:'Xin hãy nói lại.'}],explain:'Thể て + ください = xin hãy làm.',quiz:{q:'"Xin ngồi xuống": 座っ＿',opts:['てください','ます','ました'],ans:'てください',exp:'てください = yêu cầu lịch sự.'}},
+  {p:'V ています',t:'Đang làm',s:'Hành động đang diễn ra',ex:[{jp:'今ご飯を食べ<span class="g-hl">ています</span>',rd:'いま ごはんを たべています',vi:'Đang ăn cơm.'}],explain:'Thể て + います = đang làm (hoặc trạng thái sau hành động).',quiz:{q:'"Đang ngủ": 寝＿',opts:['ています','ます','てください'],ans:'ています',exp:'ています = đang làm.'}},
+  {p:'N が 好きです',t:'Thích / Không thích',s:'Dùng が (không phải を)',ex:[{jp:'音楽<span class="g-hl">が好きです</span>',rd:'おんがくが すきです',vi:'Thích âm nhạc.'}],explain:'好き (suki) là な-adj. Đối tượng thích/ghét dùng が.',quiz:{q:'"Thích tiếng Nhật": 日本語＿好きです',opts:['が','を','は','に'],ans:'が',exp:'好き dùng が (không phải を).'}},
+  {p:'N から N まで',t:'Từ… đến…',s:'Khoảng thời gian / không gian',ex:[{jp:'9時<span class="g-hl">から</span>5時<span class="g-hl">まで</span>',rd:'くじから ごじまで',vi:'Từ 9 giờ đến 5 giờ.'}],explain:'から = từ (điểm xuất phát). まで = đến (điểm kết thúc).',quiz:{q:'"Từ đây đến ga": ここ＿駅___',opts:['から…まで','に…で','は…を'],ans:'から…まで',exp:'から…まで = từ…đến….'}},
+  {p:'V てもいいですか',t:'Xin phép',s:'Tôi có thể làm không?',ex:[{jp:'ここに座っ<span class="g-hl">てもいいですか</span>',rd:'ここに すわってもいいですか',vi:'Có thể ngồi đây không?'}],explain:'Thể て + もいいですか = hỏi xin phép.',quiz:{q:'"Có thể dùng điện thoại không?": 電話を使っ＿',opts:['てもいいですか','てください','ています'],ans:'てもいいですか',exp:'てもいいですか = hỏi xin phép.'}},
+  {p:'N が できます',t:'Có thể / Biết làm',s:'Khả năng, năng lực',ex:[{jp:'日本語<span class="g-hl">ができます</span>',rd:'にほんごが できます',vi:'Biết tiếng Nhật.'}],explain:'できます = có thể. Dùng が (không phải を).',quiz:{q:'"Biết bơi": 泳ぐこと＿できます',opts:['が','を','に','は'],ans:'が',exp:'できます dùng が.'}},
+  {p:'V てから',t:'Sau khi làm A, rồi B',s:'Thứ tự hành động',ex:[{jp:'手を洗っ<span class="g-hl">てから</span>食べます',rd:'てを あらってから たべます',vi:'Sau khi rửa tay rồi ăn.'}],explain:'Thể て + から = sau khi hoàn thành việc trước.',quiz:{q:'"Sau khi học xong chơi": 勉強し＿遊びます',opts:['てから','ながら','ために'],ans:'てから',exp:'てから = sau khi.'}},
+  {p:'V ながら',t:'Vừa… vừa…',s:'2 hành động đồng thời',ex:[{jp:'音楽を聞き<span class="g-hl">ながら</span>勉強します',rd:'おんがくを ききながら べんきょうします',vi:'Vừa nghe nhạc vừa học.'}],explain:'Gốc ます + ながら = làm đồng thời 2 việc.',quiz:{q:'"Vừa đi vừa ăn": 歩き＿食べます',opts:['ながら','てから','ために'],ans:'ながら',exp:'ながら = vừa… vừa….'}},
+];
+
+function buildGrammarView() {
+  const done = grammarDone;
+  document.getElementById('grammar-list-inner').innerHTML = GRAM.map((g, i) => `
+    <div class="g-card" id="gc-${i}">
+      <div class="g-hdr" onclick="toggleG(${i})">
+        <span class="g-num">${String(i+1).padStart(2,'0')}</span>
+        <div style="flex:1">
+          <div class="g-pat">${g.p}</div>
+          <div class="g-ttl">${g.t}</div>
+          <div class="g-sh">${g.s}</div>
+        </div>
+        <div class="g-done-dot ${done.has(i)?'done':'undone'}" id="gd-${i}"></div>
+        <span class="g-arr">▼</span>
+      </div>
+      <div class="g-body">
+        <div class="g-lbl">Giải thích</div>
+        <div class="g-exp">${g.explain}</div>
+        <div class="g-lbl">Ví dụ</div>
+        ${g.ex.map(e=>`<div class="g-ex"><div class="g-jp">${e.jp}</div><div class="g-rd">${e.rd}</div><div class="g-vi">${e.vi}</div></div>`).join('')}
+        <div class="g-lbl">Mini quiz: ${g.quiz.q}</div>
+        <div class="g-quiz-opts" id="gq-${i}">
+          ${g.quiz.opts.map(o=>`<button class="g-qopt" onclick="checkGram(${i},'${o.replace(/'/g,"\\'")}',this)">${o}</button>`).join('')}
+        </div>
+        <div class="g-qfb" id="gfb-${i}"></div>
+        <button class="g-mark-btn" id="gmb-${i}" onclick="markGram(${i})" ${done.has(i)?'style="display:none"':''}>✓ Đánh dấu đã học</button>
+      </div>
+    </div>`).join('');
+  grammarBuilt = true;
+}
+
+function toggleG(i) {
+  const c = document.getElementById('gc-'+i);
+  const was = c.classList.contains('g-expanded');
+  document.querySelectorAll('.g-card').forEach(x=>x.classList.remove('g-expanded'));
+  if(!was) c.classList.add('g-expanded');
+}
+
+function checkGram(i, chosen, btn) {
+  const g = GRAM[i];
+  const ok = chosen === g.quiz.ans;
+  document.querySelectorAll('#gq-'+i+' button').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===g.quiz.ans) b.classList.add('g-ok');
+    else if(b===btn && !ok) b.classList.add('g-bad');
+  });
+  const fb = document.getElementById('gfb-'+i);
+  fb.className = 'g-qfb '+(ok?'ok':'bad');
+  fb.textContent = (ok?'✓ Đúng! ':'✗ Chưa đúng. ')+g.quiz.exp;
+  fb.style.display = 'block';
+  if(ok) document.getElementById('gmb-'+i).style.display='inline-block';
+}
+
+function markGram(i) {
+  grammarDone.add(i);
+  localStorage.setItem('koeru_gram_n5', JSON.stringify([...grammarDone]));
+  document.getElementById('gd-'+i).className='g-done-dot done';
+  document.getElementById('gmb-'+i).style.display='none';
+}
+</script>
 <!-- ── DATA ATTRIBUTION ── -->
 <button id="cred-btn" onclick="var p=document.getElementById('cred-pop');p.style.display=p.style.display==='block'?'none':'block'" title="Nguồn dữ liệu & License" style="position:fixed;bottom:14px;right:14px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.38);font-size:.72rem;cursor:pointer;z-index:9990;padding:0;font-family:system-ui;line-height:26px;text-align:center">ⓘ</button>
 <div id="cred-pop" style="display:none;position:fixed;bottom:48px;right:14px;width:268px;background:#12141f;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;z-index:9989;box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:system-ui,sans-serif">

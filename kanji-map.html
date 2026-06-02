@@ -225,6 +225,33 @@ const KanjiGraph = ({
 
   useEffect(() => {
     if (!nodes.length) { setPositions({}); return; }
+
+    // Full-map view (no selection): dùng grid layout để đảm bảo tất cả node visible
+    if (!selectedId) {
+      const cols = Math.ceil(Math.sqrt(nodes.length * 1.6));
+      const cellW = 56, cellH = 56;
+      const totalW = cols * cellW;
+      const totalH = Math.ceil(nodes.length / cols) * cellH;
+      const pos = {};
+      // Sắp xếp theo jlpt level N5→N2 để cùng level cluster gần nhau
+      const sorted = [...nodes].sort((a, b) => {
+        const order = { N5: 0, N4: 1, N3: 2, N2: 3 };
+        return (order[a.jlpt] ?? 9) - (order[b.jlpt] ?? 9);
+      });
+      sorted.forEach((n, i) => {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        pos[n.id] = {
+          x: (col * cellW) - totalW / 2 + cellW / 2,
+          y: (row * cellH) - totalH / 2 + cellH / 2,
+        };
+      });
+      prevPosRef.current = pos;
+      setPositions(pos);
+      return;
+    }
+
+    // Subgraph view (kanji được chọn): force simulation như cũ
     const R = 120;
     const prev = prevPosRef.current;
     const nCopy = nodes.map((n, i) => {
@@ -1121,7 +1148,7 @@ const KanjiMapApp = () => {
   })();
 
   const [selectedId, setSelectedId] = useState(initialFromURL);
-  const [jlptFilter, setJlptFilter] = useState(['N5', 'N4', 'N3', 'N2']);
+  const jlptFilter = ALL_LEVELS; // luôn hiện tất cả cấp độ
   const [viewMode, setViewMode] = useState('2D');
   const [expanded, setExpanded] = useState(false);
   const [recent, setRecent] = useState(() => JSON.parse(localStorage.getItem('km_recent') || '[]'));
@@ -1255,10 +1282,6 @@ const KanjiMapApp = () => {
   const streak = 7;
   const xpToday = 120;
 
-  const toggleLevel = (lvl) => {
-    setJlptFilter(prev => prev.includes(lvl) ? prev.filter(x => x !== lvl) : [...prev, lvl]);
-  };
-
   const visibleCounts = useMemo(() => {
     const k = data.kanji.filter(x => jlptFilter.includes(x.jlpt)).length;
     const v = data.vocab.filter(x => jlptFilter.includes(x.jlpt)).length;
@@ -1339,19 +1362,6 @@ const KanjiMapApp = () => {
           </div>
         </div>
 
-        <div className="km-section km-section-jlpt">
-          <div className="km-label">Cấp độ JLPT</div>
-          <div className="km-chips">
-            {ALL_LEVELS.map(lvl => (
-              <button key={lvl}
-                className={`km-chip lvl-${lvl} ${jlptFilter.includes(lvl) ? 'is-on' : ''}`}
-                onClick={() => toggleLevel(lvl)}>
-                {lvl}
-              </button>
-            ))}
-          </div>
-          <div className="km-help">Viền node = cấp JLPT của chữ đó.</div>
-        </div>
 
         <div className="km-section">
           <div className="km-label">Chế độ xem</div>

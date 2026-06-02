@@ -13,20 +13,15 @@
   gtag('js',new Date());
   gtag('config','G-M0KW1B4F53');
 </script>
+<link rel="stylesheet" href="css/brand.css">
 <style>
 /* Disabled levels */
 .lvl-coming-soon { opacity: .38 !important; cursor: not-allowed !important; pointer-events: none !important; }
 .lvl-coming-soon::after { content: " 🔒"; font-size: .65em; opacity: .7; }
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#2d3561;--navy-d:#1e2445;--navy-l:#3d4880;
-  --navy-10:rgba(45,53,97,.10);--navy-06:rgba(45,53,97,.06);
-  --cream:#fdf8f4;--cream-d:#f5ede4;--cream-dd:#ede0d4;
-  --accent:#e8845a;--accent-l:#fdf0e8;
-  --yellow:#f5c842;--yellow-l:#fffbe6;
-  --ink:#2d3561;--ink2:#5a5f7a;--ink3:#9196ae;--ink4:#c8cad8;
-  --white:#ffffff;--border:#e8e4f0;
-  --r:14px;--rs:9px;--rl:22px;
+  /* file-specific: --ink/--white/--border chưa có trong brand.css */
+  --ink:#2d3561;--white:#ffffff;--border:#e8e4f0;
   --shadow:0 4px 24px rgba(45,53,97,.08);
 }
 body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -360,35 +355,6 @@ select:focus{border-color:var(--navy)}
 .course-tag.jp{background:#eef2ff;color:var(--navy)}
 .course-tag.cn{background:#fff4e8;color:#8b4a00}
 
-/* ── TESTIMONIALS ── */
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-.testi-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:28px 24px;position:relative}
-.testi-card::before{content:'❝';font-size:48px;color:var(--navy-10);position:absolute;top:14px;right:20px;line-height:1}
-.testi-text{font-size:14px;color:var(--ink2);line-height:1.75;margin-bottom:16px;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:10px}
-.testi-avatar{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0}
-.testi-name{font-size:13px;font-weight:700;color:var(--navy)}
-.testi-role{font-size:11px;color:var(--ink3)}
-
-/* ── ROADMAP ── */
-.roadmap{display:flex;flex-direction:column;gap:0;position:relative;max-width:600px;margin:0 auto}
-.roadmap::before{content:'';position:absolute;left:23px;top:24px;bottom:24px;width:3px;background:var(--border);border-radius:2px}
-.rm-step{display:flex;gap:18px;padding:18px 0;position:relative}
-.rm-dot{width:48px;height:48px;border-radius:50%;background:var(--white);border:3px solid var(--navy);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--navy);flex-shrink:0;z-index:1}
-.rm-dot.active{background:var(--navy);color:#fff}
-.rm-dot.accent{background:var(--accent);border-color:var(--accent);color:#fff}
-.rm-body h4{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:3px}
-.rm-body p{font-size:13px;color:var(--ink3);line-height:1.6}
-
-/* ── FAQ ── */
-.faq-list{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
-.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
-.faq-item.open{border-color:var(--navy-10)}
-.faq-q{padding:18px 22px;font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.faq-q::after{content:'+';font-size:20px;font-weight:300;color:var(--ink3);transition:transform .2s;flex-shrink:0}
-.faq-item.open .faq-q::after{content:'−'}
-.faq-a{padding:0 22px 18px;font-size:14px;color:var(--ink3);line-height:1.75;display:none}
-.faq-item.open .faq-a{display:block}
 
 /* ── CTA ── */
 .cta-band{background:var(--navy);text-align:center;padding:72px 1.5rem;color:#fff;position:relative;overflow:hidden}
@@ -412,6 +378,45 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 /* ── TOAST ── */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:var(--r);font-size:14px;font-weight:700;z-index:999;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none}
 .toast.show{opacity:1;transform:none}
+
+/* ── TOOL PANEL (iframe drawer) ── */
+#tool-panel{position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;background:var(--white);transform:translateY(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);will-change:transform;overflow:hidden}
+#tool-panel.open{transform:none}
+
+/* Bar trên cùng */
+#tool-panel-bar{display:flex;align-items:center;gap:8px;padding:0 14px;height:52px;background:var(--white);border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:1}
+#tool-panel-back{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;padding:6px 10px;border-radius:var(--rs);border:none;background:transparent;transition:background .15s;white-space:nowrap}
+#tool-panel-back:hover{background:var(--navy-06)}
+#tool-panel-title{font-size:13px;font-weight:700;color:var(--ink2);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+
+/* "Tiếp tục" chip — hiện khi có tool đã mở gần đây */
+#tool-panel-resume{display:none;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--navy);background:var(--navy-06);border:1px solid var(--navy-10);border-radius:20px;padding:3px 10px;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+#tool-panel-resume:hover{background:var(--navy);color:#fff}
+
+#tool-panel-newt{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:var(--accent);cursor:pointer;padding:5px 10px;border-radius:var(--rs);text-decoration:none;border:1.5px solid var(--border);transition:all .15s;flex-shrink:0;white-space:nowrap}
+#tool-panel-newt:hover{border-color:var(--accent);background:var(--accent-l)}
+
+/* Iframe — overflow:hidden ngăn double scrollbar */
+#tool-panel-iframe{flex:1;border:none;width:100%;background:var(--cream);display:block;overflow:hidden}
+
+/* Loading overlay với shimmer */
+#tool-panel-loading{position:absolute;inset:52px 0 0;display:flex;align-items:center;justify-content:center;background:var(--cream);flex-direction:column;gap:16px;transition:opacity .2s}
+#tool-panel-loading.hide{opacity:0;pointer-events:none}
+.tp-load-icon{font-size:28px;animation:tp-bounce .6s ease infinite alternate}
+@keyframes tp-bounce{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+.tp-load-bar{width:180px;height:4px;background:var(--border);border-radius:4px;overflow:hidden}
+.tp-load-bar-fill{height:100%;background:linear-gradient(90deg,var(--navy) 0%,var(--accent) 60%,var(--navy) 100%);background-size:200% 100%;animation:tp-shimmer 1.2s linear infinite;border-radius:4px}
+@keyframes tp-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.tp-load-label{font-size:13px;color:var(--ink3);font-weight:600}
+
+/* Backdrop mờ cho desktop */
+#tool-panel-backdrop{position:fixed;inset:0;background:rgba(45,53,97,.35);z-index:399;opacity:0;pointer-events:none;transition:opacity .32s}
+#tool-panel-backdrop.show{opacity:1;pointer-events:auto}
+
+@media(min-width:769px){
+  #tool-panel{left:auto;right:0;width:min(820px,100%);transform:translateX(100%);box-shadow:-8px 0 48px rgba(45,53,97,.14)}
+  #tool-panel.open{transform:none}
+}
 
 /* ── HAMBURGER ── */
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;flex-shrink:0}
@@ -452,7 +457,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 
   /* Grids — 1 cột trên mobile */
   .courses-grid{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr}
   .tools-grid{grid-template-columns:1fr 1fr;gap:8px}
   .blog-grid{grid-template-columns:1fr}
   .lesson-feed{grid-template-columns:1fr 1fr}
@@ -485,10 +489,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   .modal{padding:20px 18px}
   .form-row{grid-template-columns:1fr}
 
-  /* FAQ */
-  .faq-q{font-size:14px;padding:14px 16px}
-  .faq-a{padding:0 16px 14px;font-size:13px}
-
   /* Section padding */
   .sec{padding:30px 0}
   .wrap{padding:0 1rem}
@@ -500,6 +500,35 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   .lesson-feed{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
 }
+
+/* ── EMBEDDED TOOL PAGES ── */
+.page-tool{padding:0;margin:0}
+.page-tool-frame{
+  width:100%;
+  height:calc(100vh - 60px);
+  border:none;
+  display:block;
+  background:var(--cream);
+}
+/* Skeleton loading trước khi iframe ready */
+.page-tool-skeleton{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  background:var(--cream);
+  pointer-events:none;
+  transition:opacity .25s;
+}
+.page-tool-skeleton.done{opacity:0}
+.page-tool-wrap{position:relative;height:calc(100vh - 60px);overflow:hidden}
+
+/* Khi tool page active: ẩn footer, không scroll body */
+body.tool-active footer{display:none}
+body.tool-active{overflow:hidden}
 </style>
 </head>
 <body>
@@ -515,8 +544,9 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <a onclick="showPage('flash')" id="nav-flash">🃏 Flashcard</a>
       <a onclick="showPage('quiz')" id="nav-quiz">🧪 Kiểm tra</a>
       <a onclick="showPage('blog')" id="nav-blog">📰 Blog</a>
-      <a href="study.html" target="_blank">📖 Học Kanji</a>
-      <a href="kanji-map.html" target="_blank">🗺 Bản đồ Kanji</a>
+      <a onclick="showPage('study')" id="nav-study">📖 Học Kanji</a>
+      <a onclick="showPage('kanji')" id="nav-kanji">🖊 Luyện Kanji</a>
+      <a onclick="showPage('kana')" id="nav-kana">🎌 Kana</a>
       <a onclick="showPage('admin')" id="nav-admin" class="admin-link" style="display:none">⚙️ Admin</a>
     </div>
     <div class="nav-right">
@@ -537,15 +567,15 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
   <a onclick="navTo('quiz')">🧪 Kiểm tra</a>
   <a onclick="navTo('blog')">📰 Blog</a>
   <div class="mob-divider"></div>
-  <a onclick="window.open('study.html','_blank');closeMenu()">📖 Học Kanji</a>
-  <a onclick="window.open('kanji.html','_blank');closeMenu()">🖊 Luyện Kanji</a>
-  <a onclick="window.open('kanji-map.html','_blank');closeMenu()">🗺 Bản đồ Kanji</a>
-  <a onclick="window.open('kana.html','_blank');closeMenu()">🎌 Kana Speed</a>
-  <a onclick="window.open('study/index.html','_blank');closeMenu()">📖 Bảng Kanji Hoạt Họa</a>
+  <a onclick="navTo('study')">📖 Học Kanji</a>
+  <a onclick="navTo('kanji')">🖊 Luyện Kanji</a>
+  <a onclick="navTo('kana')">🎌 Kana Speed</a>
+  <a onclick="closeMenu();openTool('kanji-map.html')">🗺 Bản đồ Kanji</a>
+  <a onclick="closeMenu();openTool('study/index.html')">📖 Bảng Kanji Hoạt Họa</a>
   <div class="mob-divider"></div>
-  <a onclick="window.open('pinyin.html','_blank');closeMenu()">🀄 HSK Practice</a>
-  <a onclick="window.open('hanzi-lab.html','_blank');closeMenu()">🔬 Hanzi Lab</a>
-  <a onclick="window.open('hanzi-map.html','_blank');closeMenu()">🗺 Hanzi Map</a>
+  <a onclick="closeMenu();openTool('pinyin.html',{leadKey:'hsk_practice'})">🀄 HSK Practice</a>
+  <a onclick="closeMenu();openTool('hanzi-lab.html',{leadKey:'hanzi_lab'})">🔬 Hanzi Lab</a>
+  <a onclick="closeMenu();openTool('hanzi-map.html',{leadKey:'hanzi_map_cn'})">🗺 Hanzi Map</a>
   <div class="mob-divider"></div>
   <button class="btn btn-navy mob-cta" style="width:100%;justify-content:center;padding:14px" onclick="navTo('register')">Đăng ký học thử miễn phí →</button>
 </div>
@@ -595,7 +625,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
       <p class="land-sub" style="margin-bottom:32px">Chọn mục tiêu để KOERU gợi ý đúng tính năng phù hợp với bạn.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:860px;margin:0 auto">
 
-        <div class="start-card" onclick="window.open('kana.html','_blank')">
+        <div class="start-card" onclick="showPage('kana')">
           <div class="start-icon">🌱</div>
           <h3>Tôi mới bắt đầu</h3>
           <p>Chưa biết gì về tiếng Nhật/Trung. Học bảng chữ cái Hiragana/Katakana trước.</p>
@@ -616,20 +646,20 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
           <span class="start-cta">Nhận tư vấn lộ trình →</span>
         </div>
 
-        <div class="start-card" onclick="window.open('kanji.html','_blank')">
+        <div class="start-card" onclick="showPage('kanji')">
           <div class="start-icon">漢</div>
           <h3>Tôi muốn luyện Kanji</h3>
           <p>Học Kanji N5→N1 qua flashcard, game nối từ, Dungeon RPG và Speed quiz.</p>
           <span class="start-cta">Vào Kanji Lab →</span>
         </div>
-        <div class="start-card" onclick="window.open('study.html','_blank')">
+        <div class="start-card" onclick="showPage('study')">
           <div class="start-icon">📖</div>
           <h3>Ôn Kanji trước khi chơi</h3>
           <p>Tra từng Kanji: nét vẽ, âm On/Kun, từ vựng mẫu. Ôn xong luyện ngay.</p>
           <span class="start-cta">Học Kanji →</span>
         </div>
 
-        <div class="start-card" onclick="window.open('pinyin.html','_blank');localStorage.setItem('lead_source','hsk_practice')">
+        <div class="start-card" onclick="openTool('pinyin.html',{leadKey:'hsk_practice'})">
           <div class="start-icon">🀄</div>
           <h3>Tôi muốn học tiếng Trung từ đầu</h3>
           <p>Chưa biết gì về tiếng Trung. Luyện phát âm thanh điệu và từ vựng HSK1 cơ bản.</p>
@@ -679,7 +709,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
             <span>🎯 Người mới bắt đầu</span>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
-            <a href="pinyin.html" onclick="localStorage.setItem('lead_source','hsk_practice')" style="display:inline-block;font-size:.8rem;font-weight:700;padding:7px 14px;background:#ffecd6;color:#8b4a00;border-radius:999px;text-decoration:none">🀄 Thử HSK Practice</a>
+            <a onclick="openTool('pinyin.html',{leadKey:'hsk_practice'})" style="display:inline-block;font-size:.8rem;font-weight:700;padding:7px 14px;background:#ffecd6;color:#8b4a00;border-radius:999px;text-decoration:none;cursor:pointer">🀄 Thử HSK Practice</a>
             <button onclick="showPage('register')" style="font-size:.8rem;font-weight:700;padding:7px 14px;background:var(--navy);color:#fff;border:none;border-radius:999px;cursor:pointer">Nhận lộ trình HSK →</button>
           </div>
           <span class="course-tag cn">🇨🇳 Tiếng Trung</span>
@@ -710,84 +740,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
     </div>
   </div>
 
-  <!-- TESTIMONIALS -->
-  <div class="land-sec">
-    <div class="wrap land-center">
-      <div class="land-eyebrow">Học viên KOERU</div>
-      <div class="land-h2">Những tình huống thường gặp</div>
-      <p class="land-sub">Dù học tiếng Nhật hay tiếng Trung — KOERU có lộ trình cho từng tình huống.</p>
-      <div class="testi-grid">
-        <div class="testi-card">
-          <div class="testi-text">"Học N3 rồi nhưng vẫn đứng hình khi nói chuyện thật. Tôi cần luyện phản xạ và giao tiếp thực tế, không chỉ làm bài tập ngữ pháp."</div>
-          <div class="testi-author">
-            <div class="testi-avatar">💼</div>
-            <div><div class="testi-name">🇯🇵 Đi làm công ty Nhật</div><div class="testi-role">Cần giao tiếp tự tin, không đứng hình</div></div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-text">"Muốn học tiếng Trung để làm việc với đối tác Trung Quốc. Không biết bắt đầu từ đâu, phát âm thanh điệu nghe rất khó."</div>
-          <div class="testi-author">
-            <div class="testi-avatar">🇨🇳</div>
-            <div><div class="testi-name">🇨🇳 Làm việc với đối tác Trung</div><div class="testi-role">Cần HSK cơ bản, phát âm chuẩn</div></div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-text">"Từng học tiếng Nhật rồi bỏ giữa chừng. Muốn bắt đầu lại nhưng không biết nên học từ đâu và mất bao lâu để đạt N4."</div>
-          <div class="testi-author">
-            <div class="testi-avatar">🔄</div>
-            <div><div class="testi-name">🇯🇵 Học lại từ đầu</div><div class="testi-role">Cần lộ trình rõ, không áp lực</div></div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-text">"Bận đi làm ban ngày, chỉ có thời gian tối và cuối tuần. Cần khóa học linh hoạt, bài ngắn, có thể học theo tiến độ của mình."</div>
-          <div class="testi-author">
-            <div class="testi-avatar">🌙</div>
-            <div><div class="testi-name">Người đi làm bận rộn</div><div class="testi-role">Học tối / cuối tuần, 5–15 phút/ngày</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- JLPT / HSK ROADMAP -->
-  <div class="land-sec" style="background:var(--white)">
-    <div class="wrap land-center">
-      <div class="land-eyebrow">Lộ trình học</div>
-      <div class="land-h2">Từ con số 0 đến tự tin giao tiếp</div>
-      <p class="land-sub">Không cần kinh nghiệm. KOERU đưa bạn qua từng cấp độ rõ ràng.</p>
-      <div class="roadmap">
-        <div class="rm-step">
-          <div class="rm-dot active">N5</div>
-          <div class="rm-body">
-            <h4>🇯🇵 JLPT N5 · HSK 1</h4>
-            <p>Nền tảng: bảng chữ, 800 từ, ngữ pháp cơ bản. Hiểu được biển hiệu, menu, câu đơn giản.</p>
-          </div>
-        </div>
-        <div class="rm-step">
-          <div class="rm-dot active">N4</div>
-          <div class="rm-body">
-            <h4>🇯🇵 JLPT N4 · HSK 2</h4>
-            <p>Giao tiếp cơ bản: mua sắm, đặt hàng, tự giới thiệu bản thân. Bắt đầu nói được.</p>
-          </div>
-        </div>
-        <div class="rm-step">
-          <div class="rm-dot accent">N3</div>
-          <div class="rm-body">
-            <h4>🇯🇵 JLPT N3 · HSK 3</h4>
-            <p>Đọc hiểu nội dung đời sống & công việc, nghe quen nhiều tình huống, xử lý được email và giao tiếp công việc cơ bản. Đây là nền để "sống được" ở Nhật/Trung.</p>
-          </div>
-        </div>
-        <div class="rm-step">
-          <div class="rm-dot">💼</div>
-          <div class="rm-body">
-            <h4>Business · Career</h4>
-            <p>Kính ngữ, họp tiếng Nhật, phỏng vấn xin việc, email chuyên nghiệp.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- AI TOOLS -->
   <div class="land-sec">
     <div class="wrap land-center">
@@ -799,17 +751,20 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
         <div class="tools-grid">
           <div class="tool-card" onclick="showPage('quiz')"><span class="tool-icon">🧪</span><h3>Quiz AI</h3><p>AI chấm điểm & nhận xét cá nhân hóa từng câu sai</p></div>
           <div class="tool-card" onclick="showPage('flash')"><span class="tool-icon">🃏</span><h3>Flashcard</h3><p>Ôn từ vựng spaced repetition — nhớ lâu hơn</p></div>
-          <div class="tool-card" onclick="window.open('kanji.html','_blank')"><span class="tool-icon">🖊</span><h3>Luyện Kanji</h3><p>Flashcard · Match · Quiz — Kanji N5/N4/N3</p></div>
-          <div class="tool-card" onclick="window.open('kana.html','_blank')"><span class="tool-icon">🎌</span><h3>Kana Speed</h3><p>Đọc nhanh Hiragana / Katakana — animation nét vẽ</p></div>
-          <div class="tool-card" onclick="window.open('study/index.html','_blank')"><span class="tool-icon">📖</span><h3>Bảng Kanji</h3><p>Hoạt ảnh thứ tự nét · N5/N4/N3 · In được</p></div>
+          <div class="tool-card" onclick="showPage('kanji')"><span class="tool-icon">🎯</span><h3>Kanji Quiz</h3><p>Kiểm tra trình độ N5–N4 · 10 câu · Nhận lộ trình</p></div>
+          <div class="tool-card" onclick="showPage('study')"><span class="tool-icon">📚</span><h3>Từ vựng</h3><p>Tra cứu 5800+ từ N5–N3 kèm Kanji & Hán Việt</p></div>
+          <div class="tool-card" onclick="showPage('study')"><span class="tool-icon">📝</span><h3>Ngữ pháp N5</h3><p>25 mẫu câu thiết yếu · Giải thích tiếng Việt · Mini quiz</p></div>
+          <div class="tool-card" onclick="showPage('kanji')"><span class="tool-icon">🖊</span><h3>Luyện Kanji</h3><p>Flashcard · Match · Quiz — Kanji N5/N4/N3</p></div>
+          <div class="tool-card" onclick="showPage('kana')"><span class="tool-icon">🎌</span><h3>Kana Speed</h3><p>Đọc nhanh Hiragana / Katakana — animation nét vẽ</p></div>
+          <div class="tool-card" onclick="openTool('study/index.html')"><span class="tool-icon">📖</span><h3>Bảng Kanji</h3><p>Hoạt ảnh thứ tự nét · N5/N4/N3 · In được</p></div>
         </div>
       </div>
       <div class="tools-lang-group">
         <div class="tools-lang-label">🇨🇳 Tiếng Trung</div>
         <div class="tools-grid">
-          <div class="tool-card" onclick="window.open('pinyin.html','_blank');localStorage.setItem('lead_source','hsk_practice')"><span class="tool-icon">🀄</span><h3>HSK Practice</h3><p>Tone Trainer, Speed Quiz, Flashcard HSK 1–9 — tất cả trong một</p></div>
-          <div class="tool-card" onclick="window.open('hanzi-lab.html','_blank');localStorage.setItem('lead_source','hanzi_lab')"><span class="tool-icon">🔬</span><h3>Hanzi Lab</h3><p>Quiz nghĩa, Pinyin, Speed 45s — HSK 1·2·3</p></div>
-          <div class="tool-card" onclick="window.open('hanzi-map.html','_blank');localStorage.setItem('lead_source','hanzi_map_cn')"><span class="tool-icon">🗺</span><h3>Hanzi Map</h3><p>Khám phá chữ Hán theo bộ thủ — 20 bộ thủ HSK</p></div>
+          <div class="tool-card" onclick="openTool('pinyin.html',{leadKey:'hsk_practice'})"><span class="tool-icon">🀄</span><h3>HSK Practice</h3><p>Tone Trainer, Speed Quiz, Flashcard HSK 1–9 — tất cả trong một</p></div>
+          <div class="tool-card" onclick="openTool('hanzi-lab.html',{leadKey:'hanzi_lab'})"><span class="tool-icon">🔬</span><h3>Hanzi Lab</h3><p>Quiz nghĩa, Pinyin, Speed 45s — HSK 1·2·3</p></div>
+          <div class="tool-card" onclick="openTool('hanzi-map.html',{leadKey:'hanzi_map_cn'})"><span class="tool-icon">🗺</span><h3>Hanzi Map</h3><p>Khám phá chữ Hán theo bộ thủ — 20 bộ thủ HSK</p></div>
         </div>
       </div>
     </div>
@@ -844,41 +799,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
             <li>✅ Định hướng lộ trình sát với mục tiêu bạn</li>
             <li>✅ Động viên khi bạn mất động lực</li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FAQ -->
-  <div class="land-sec" style="background:var(--white)">
-    <div class="wrap land-center">
-      <div class="land-eyebrow">Câu hỏi thường gặp</div>
-      <div class="land-h2">FAQ</div>
-      <p class="land-sub" style="margin-bottom:28px">Những câu hỏi phổ biến nhất từ học viên mới.</p>
-      <div class="faq-list">
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-          <div class="faq-q">Tôi chưa biết gì, có học được không?</div>
-          <div class="faq-a">Hoàn toàn được. KOERU bắt đầu từ con số 0 — bảng chữ cái, phát âm, từ vựng cơ bản. Bạn không cần kinh nghiệm trước đó.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-          <div class="faq-q">Học online hay offline?</div>
-          <div class="faq-a">Online là chính — live class qua Zoom/Google Meet, nhóm nhỏ 4–6 người. Một số buổi đặc biệt có thể gặp mặt tại Bà Rịa – Vũng Tàu.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-          <div class="faq-q">AI hỗ trợ học tập là gì?</div>
-          <div class="faq-a">KOERU dùng AI để chấm quiz, nhận xét cá nhân, gợi ý bài học phù hợp trình độ. AI hỗ trợ — không thay thế giáo viên thật.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-          <div class="faq-q">Học phí bao nhiêu?</div>
-          <div class="faq-a">Các công cụ AI (Quiz, Flashcard) miễn phí. Khóa Speaking Program và JLPT/HSK Prep có học phí — liên hệ để được tư vấn phù hợp.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-          <div class="faq-q">Tôi bận đi làm, học ban đêm được không?</div>
-          <div class="faq-a">Được. KOERU có lịch linh hoạt — buổi tối và cuối tuần. Bài học online 5 phút có thể học bất cứ lúc nào.</div>
-        </div>
-        <div class="faq-item" onclick="this.classList.toggle('open')">
-          <div class="faq-q">KOERU có gì khác trung tâm ngoại ngữ khác?</div>
-          <div class="faq-a">KOERU không chỉ dạy ngữ pháp — KOERU giúp bạn nói được, tự tin giao tiếp, và thay đổi bản thân thông qua ngôn ngữ. Modern, tối giản, AI-assisted.</div>
         </div>
       </div>
     </div>
@@ -1192,6 +1112,66 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 </div>
 <div class="toast" id="toast"></div>
 
+<!-- ═══ EMBEDDED: HỌC KANJI (study.html) ═══ -->
+<div class="page page-tool" id="page-study">
+  <div class="page-tool-wrap">
+    <div class="page-tool-skeleton" id="skeleton-study">
+      <div class="spin" style="width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite"></div>
+      <span style="font-size:13px;color:var(--ink3);font-weight:600">Đang tải Học Kanji…</span>
+    </div>
+    <iframe class="page-tool-frame" id="frame-study" src="about:blank" title="Học Kanji"
+      onload="frameReady('study')"></iframe>
+  </div>
+</div>
+
+<!-- ═══ EMBEDDED: LUYỆN KANJI (kanji.html) ═══ -->
+<div class="page page-tool" id="page-kanji">
+  <div class="page-tool-wrap">
+    <div class="page-tool-skeleton" id="skeleton-kanji">
+      <div class="spin" style="width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite"></div>
+      <span style="font-size:13px;color:var(--ink3);font-weight:600">Đang tải Luyện Kanji…</span>
+    </div>
+    <iframe class="page-tool-frame" id="frame-kanji" src="about:blank" title="Luyện Kanji"
+      onload="frameReady('kanji')"></iframe>
+  </div>
+</div>
+
+<!-- ═══ EMBEDDED: KANA SPEED (kana.html) ═══ -->
+<div class="page page-tool" id="page-kana">
+  <div class="page-tool-wrap">
+    <div class="page-tool-skeleton" id="skeleton-kana">
+      <div class="spin" style="width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite"></div>
+      <span style="font-size:13px;color:var(--ink3);font-weight:600">Đang tải Kana Speed…</span>
+    </div>
+    <iframe class="page-tool-frame" id="frame-kana" src="about:blank" title="Kana Speed"
+      onload="frameReady('kana')"></iframe>
+  </div>
+</div>
+
+<!-- ═══ TOOL PANEL ═══ -->
+<div id="tool-panel-backdrop" onclick="closeTool()"></div>
+<div id="tool-panel" role="dialog" aria-modal="true" aria-label="Công cụ học tập">
+  <div id="tool-panel-bar">
+    <button id="tool-panel-back" onclick="closeTool()" title="Quay lại (Esc)">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Quay lại
+    </button>
+    <span id="tool-panel-title"></span>
+    <button id="tool-panel-resume" onclick="openLastTool()" title="Mở lại tool vừa dùng"></button>
+    <a id="tool-panel-newt" href="#" target="_blank" title="Mở toàn màn hình">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5 2H2a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1V8M8 1h4m0 0v4m0-4L5.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Toàn màn hình
+    </a>
+  </div>
+  <div id="tool-panel-loading">
+    <div class="tp-load-icon" id="tp-load-icon">⏳</div>
+    <div class="tp-load-bar"><div class="tp-load-bar-fill"></div></div>
+    <div class="tp-load-label" id="tp-load-label">Đang tải…</div>
+  </div>
+  <iframe id="tool-panel-iframe" src="about:blank" title="Công cụ học tập"
+    onload="onToolLoaded()"></iframe>
+</div>
+
 <footer>
   <div class="foot-inner">
     <div class="foot-grid">
@@ -1318,6 +1298,139 @@ const FLASH={jp:{n5:[{w:'食べる',r:'たべる (taberu)',m:'Ăn',ex:'毎日ご
 
 const QUIZZES={jp:{n5:[{q:'「ありがとう」の意味は？',opts:['Xin chào','Cảm ơn','Xin lỗi','Tạm biệt'],ans:1,exp:'「ありがとう」= Cảm ơn.'},{q:'「水」(みず) の意味は？',opts:['Lửa','Gió','Nước','Đất'],ans:2,exp:'「水」(mizu) = nước.'},{q:'「私は学生___。」正しいのは？',opts:['が','は','の','です'],ans:3,exp:'「です」= trợ từ cuối câu, tương đương "là".'},{q:'「今日」の読み方は？',opts:['こんにち','きょう','あした','きのう'],ans:1,exp:'「今日」đọc là「きょう」= hôm nay.'},{q:'食べ物はどれ？',opts:['本','車','りんご','椅子'],ans:2,exp:'「りんご」= táo.'}],n4:[{q:'「〜ながら」の正しい使い方は？',opts:['音楽を聴きながら勉強する','食べながら寝た後','学校ながら行く','ながら楽しい'],ans:0,exp:'「〜ながら」= vừa...vừa (đồng thời).'},{q:'「〜てしまう」の意味は？',opts:['Đang làm','Đã xong (hối hận)','Sắp làm','Không muốn'],ans:1,exp:'「〜てしまう」= hoàn thành, thường có sắc thái hối tiếc.'},{q:'「優しい___親切だ」接続は？',opts:['が','し、','で','から'],ans:1,exp:'「〜し、〜し」liệt kê nhiều đặc điểm.'},{q:'「10分くらい」の意味は？',opts:['Đúng 10 phút','Khoảng 10 phút','Hơn 10 phút','Ít hơn'],ans:1,exp:'「くらい」= khoảng.'},{q:'敬語で「食べる」は？',opts:['食べます','召し上がります','いただきます','食べられます'],ans:1,exp:'「召し上がる」là tôn kính ngữ của 食べる.'}],n3:[{q:'「〜にもかかわらず」の意味は？',opts:['Vì vậy','Mặc dù','Nếu như','Trước khi'],ans:1,exp:'「〜にもかかわらず」= mặc dù, bất chấp.'},{q:'「〜をきっかけに」の意味は？',opts:['Nhờ vào','Bất chấp','Nhân dịp','Trong khi'],ans:2,exp:'「〜をきっかけに」= nhân dịp, lấy...làm cơ hội.'},{q:'「いかに〜か」の用法は？',opts:['Hỏi số lượng','Nhấn mạnh mức độ','Điều kiện','Nguyên nhân'],ans:1,exp:'「いかに〜か」nhấn mạnh mức độ.'},{q:'「固然」の意味は？',opts:['Vì vậy','Tuy đúng là','Nếu như','Trước khi'],ans:1,exp:'「固然」= tuy đúng là — thừa nhận trước rồi phản bác.'},{q:'「召し上がる」の用法は？',opts:['Bản thân','Người bề trên','Bạn bè','Trẻ em'],ans:1,exp:'「召し上がる」dùng khi nói về hành động của người bề trên.'}]},cn:{n5:[{q:'"你好"的意思？',opts:['Cảm ơn','Xin chào','Xin lỗi','Tạm biệt'],ans:1,exp:'"你好" = Xin chào.'},{q:'"苹果"的意思？',opts:['Cam','Táo','Chuối','Nho'],ans:1,exp:'"苹果" = táo.'},{q:'"几点了？"的意思？',opts:['Bao nhiêu tiền?','Mấy giờ rồi?','Bao nhiêu tuổi?','Ở đâu?'],ans:1,exp:'"几点了" = Mấy giờ rồi?'},{q:'哪个是动词？',opts:['美丽','书','跑步','快'],ans:2,exp:'"跑步" = chạy bộ, động từ.'},{q:'"谢谢"的意思？',opts:['Xin lỗi','Tạm biệt','Cảm ơn','Xin chào'],ans:2,exp:'"谢谢" = Cảm ơn.'}],n4:[{q:'"虽然...但是..."的用法？',opts:['Nguyên nhân','Mặc dù...nhưng','Điều kiện','Mục đích'],ans:1,exp:'"虽然...但是..." = mặc dù...nhưng.'},{q:'"越来越..."的意思？',opts:['Ngày càng','Vừa...vừa','Không bao giờ','Thỉnh thoảng'],ans:0,exp:'"越来越" = ngày càng.'},{q:'"一边...一边..."的意思？',opts:['Sau khi','Vừa...vừa (cùng lúc)','Trước khi','Hoặc là'],ans:1,exp:'"一边...一边..." = vừa...vừa.'},{q:'"把"字句的作用？',opts:['Bị động','Tác động lên tân ngữ','So sánh','Thời gian'],ans:1,exp:'Câu "把" nhấn mạnh kết quả tác động.'},{q:'"被"字句的意思？',opts:['Chủ động','Bị động','So sánh','Điều kiện'],ans:1,exp:'"被" = bị động.'}],n3:[{q:'"尽管...还是..."的意思？',opts:['Vì','Mặc dù...vẫn','Nếu','Bởi vì'],ans:1,exp:'"尽管...还是..." = mặc dù...vẫn.'},{q:'"与其...不如..."的意思？',opts:['Không chỉ...mà còn','Thà...còn hơn','Vừa...vừa','Nếu...thì'],ans:1,exp:'"与其...不如..." = thà...còn hơn.'},{q:'"以...为..."的用法？',opts:['Lấy...làm','Vì','Mặc dù','Khi'],ans:0,exp:'"以...为..." = lấy...làm.'},{q:'"固然...但是..."的意思？',opts:['Mặc dù...nhưng','Vì...nên','Nếu...thì','Không chỉ...mà còn'],ans:0,exp:'"固然...但是..." = tuy đúng là...nhưng.'},{q:'"宁可...也不..."的意思？',opts:['Không chỉ','Thà...còn hơn','Vừa...vừa','Mặc dù'],ans:1,exp:'"宁可...也不..." = thà...còn hơn không.'}]}};
 
+/* ─── TOOL PANEL ─── */
+const TOOL_META = {
+  'study.html':        { label:'📖 Học Kanji',          icon:'📖' },
+  'study.html#vocab':  { label:'📚 Từ vựng',             icon:'📚' },
+  'study.html#grammar':{ label:'📝 Ngữ pháp N5',         icon:'📝' },
+  'kanji.html':        { label:'🖊 Luyện Kanji',         icon:'🖊' },
+  'kanji.html#quiz':   { label:'🎯 Kanji Quiz',          icon:'🎯' },
+  'kanji-map.html':    { label:'🗺 Bản đồ Kanji',        icon:'🗺' },
+  'kana.html':         { label:'🎌 Kana Speed',          icon:'🎌' },
+  'study/index.html':  { label:'📖 Bảng Kanji Hoạt Họa',icon:'📖' },
+  'pinyin.html':       { label:'🀄 HSK Practice',        icon:'🀄' },
+  'hanzi-lab.html':    { label:'🔬 Hanzi Lab',           icon:'🔬' },
+  'hanzi-map.html':    { label:'🗺 Hanzi Map',           icon:'🗺' },
+};
+
+// ── State ──
+let _toolOpen   = false;
+let _toolCurrent = null;   // url đang mở
+let _toolHistory = [];     // lịch sử [{ url, label }] — tối đa 5
+
+// Khôi phục lịch sử từ localStorage
+try { _toolHistory = JSON.parse(localStorage.getItem('koeru_tool_history') || '[]'); } catch(_){}
+
+// ── Helpers ──
+function _saveHistory(url, label) {
+  _toolHistory = _toolHistory.filter(x => x.url !== url);        // dedup
+  _toolHistory.unshift({ url, label });
+  if (_toolHistory.length > 5) _toolHistory.length = 5;
+  try { localStorage.setItem('koeru_tool_history', JSON.stringify(_toolHistory)); } catch(_){}
+}
+function _updateResumeChip() {
+  const btn = document.getElementById('tool-panel-resume');
+  if (!btn) return;
+  // Chip "tiếp tục" → tool gần nhất KHÁC tool đang mở
+  const last = _toolHistory.find(x => x.url !== _toolCurrent);
+  if (last) {
+    btn.style.display = 'inline-flex';
+    btn.textContent = '↩ ' + last.label.replace(/^\S+\s/, ''); // bỏ emoji
+    btn.dataset.url = last.url;
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
+// ── Core ──
+function openTool(url, opts) {
+  const meta  = TOOL_META[url] || {};
+  const label = (opts && opts.label) || meta.label || url;
+  const icon  = meta.icon || '📄';
+  if (opts && opts.leadKey) try { localStorage.setItem('lead_source', opts.leadKey); } catch(_){}
+
+  _toolCurrent = url;
+  _saveHistory(url, label);
+
+  const panel    = document.getElementById('tool-panel');
+  const backdrop = document.getElementById('tool-panel-backdrop');
+  const iframe   = document.getElementById('tool-panel-iframe');
+  const titleEl  = document.getElementById('tool-panel-title');
+  const newt     = document.getElementById('tool-panel-newt');
+  const loading  = document.getElementById('tool-panel-loading');
+  const loadIcon = document.getElementById('tp-load-icon');
+  const loadLbl  = document.getElementById('tp-load-label');
+
+  // Hiện loading
+  loading.classList.remove('hide');
+  if (loadIcon) loadIcon.textContent = icon;
+  if (loadLbl)  loadLbl.textContent  = 'Đang tải ' + label.replace(/^\S+\s/, '') + '…';
+
+  // Đặt iframe — nếu cùng url đang load thì reload
+  if (iframe.dataset.currentUrl === url) {
+    iframe.contentWindow && iframe.contentWindow.location.reload();
+  } else {
+    iframe.src = url;
+    iframe.dataset.currentUrl = url;
+  }
+
+  titleEl.textContent = label;
+  newt.href = url;
+
+  panel.classList.add('open');
+  backdrop.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  _toolOpen = true;
+  _updateResumeChip();
+}
+
+function onToolLoaded() {
+  const loading = document.getElementById('tool-panel-loading');
+  if (loading) loading.classList.add('hide');
+}
+
+function closeTool() {
+  const panel    = document.getElementById('tool-panel');
+  const backdrop = document.getElementById('tool-panel-backdrop');
+  const iframe   = document.getElementById('tool-panel-iframe');
+  panel.classList.remove('open');
+  backdrop.classList.remove('show');
+  document.body.style.overflow = '';
+  _toolOpen    = false;
+  _toolCurrent = null;
+  // Xóa src sau animation để tránh double-scroll khi re-open
+  setTimeout(() => {
+    iframe.src = 'about:blank';
+    iframe.dataset.currentUrl = '';
+  }, 360);
+}
+
+function openLastTool() {
+  const btn = document.getElementById('tool-panel-resume');
+  if (btn && btn.dataset.url) openTool(btn.dataset.url);
+}
+
+// Escape đóng panel
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && _toolOpen) closeTool(); });
+
+// Hiện chip resume trên home page nếu có lịch sử
+(function showHomeResume() {
+  if (!_toolHistory.length) return;
+  const last = _toolHistory[0];
+  document.addEventListener('DOMContentLoaded', () => {
+    const cta = document.querySelector('.hero-cta');
+    if (!cta) return;
+    const chip = document.createElement('button');
+    chip.className = 'btn btn-ghost btn-hero';
+    chip.style = 'padding:15px 20px;font-size:14px;gap:6px';
+    chip.innerHTML = '↩ Tiếp tục: ' + (last.label || '');
+    // Nếu là embedded tool thì dùng showPage, ngược lại openTool
+    const embKey = Object.keys(EMBEDDED_TOOLS).find(k => EMBEDDED_TOOLS[k] === last.url || last.url.startsWith(EMBEDDED_TOOLS[k]));
+    chip.onclick = embKey ? () => showPage(embKey) : () => openTool(last.url);
+    cta.appendChild(chip);
+  });
+})();
+
 /* ─── MOBILE MENU ─── */
 function toggleMenu(){const m=document.getElementById('mobile-menu'),h=document.getElementById('ham-btn');m.classList.toggle('open');h.classList.toggle('open');}
 function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-btn').classList.remove('open');}
@@ -1363,6 +1476,43 @@ async function handleLeadSubmit(e){
   }
 }
 
+/* ─── EMBEDDED TOOL FRAMES ─── */
+// Map tool-key → src file (lazy, chỉ load lần đầu)
+const EMBEDDED_TOOLS = {
+  study: 'study.html',
+  kanji: 'kanji.html',
+  kana:  'kana.html',
+};
+const _frameLoaded = {};  // đánh dấu đã lazy-load
+
+function frameReady(key) {
+  const sk = document.getElementById('skeleton-' + key);
+  if (sk) sk.classList.add('done');
+
+  // Ẩn nav/header của tool page để tránh double nav
+  try {
+    const fd = document.getElementById('frame-' + key).contentDocument;
+    if (!fd) return;
+    const st = fd.createElement('style');
+    st.id = 'koeru-embed-css';
+    // study.html: #study-header | kanji.html: #back-to-main, #study-link | kana.html: #back-to-main
+    st.textContent = [
+      '#study-header{display:none!important}',
+      '#back-to-main{display:none!important}',
+      '#study-link{display:none!important}',
+    ].join('');
+    fd.head.appendChild(st);
+  } catch(_) {}
+}
+
+function _lazyLoadFrame(key) {
+  if (_frameLoaded[key]) return;
+  _frameLoaded[key] = true;
+  const src = EMBEDDED_TOOLS[key];
+  const frame = document.getElementById('frame-' + key);
+  if (frame && src) frame.src = src;
+}
+
 /* ─── NAV ─── */
 function showPage(p){
   document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
@@ -1371,7 +1521,15 @@ function showPage(p){
   if (pageEl) pageEl.classList.add('active');
   const navEl = document.getElementById('nav-'+p);
   if (navEl) navEl.classList.add('active');
+  // Tool pages: không scroll lên top — giữ scroll trong iframe
   window.scrollTo(0,0);
+  // Tool pages: ẩn footer, khoá scroll body
+  if (EMBEDDED_TOOLS[p]) {
+    document.body.classList.add('tool-active');
+    _lazyLoadFrame(p);
+    return;
+  }
+  document.body.classList.remove('tool-active');
   if(p==='admin'){if(adminUnlocked)showAdminContent();else{document.getElementById('admin-lock').style.display='flex';document.getElementById('admin-content').style.display='none';}}
   else({home:()=>{renderHomeLesson();renderHomeBlog();},learn:()=>renderLearn(),blog:()=>renderBlog('all'),quiz:loadQuiz,flash:loadFlash}[p]||function(){})();
 }

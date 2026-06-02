@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KOERU Hanzi Lab — Luyện Chữ Hán HSK</title>
 <meta name="description" content="Luyện nhận diện chữ Hán tiếng Trung HSK 1·2·3 — Meaning Quiz, Pinyin Quiz, Speed Challenge. Miễn phí. by KOERU Chinese.">
 <meta property="og:type" content="website">
@@ -17,16 +17,16 @@
 <meta name="twitter:image" content="https://hoanghai2552001-hub.github.io/koeru-web/images/logo_preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/brand.css">
 <style>
 :root{
-  --bg:#0d0f1a;--surface:#161929;--surface2:#1e2235;
-  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);
-  --red:#e53935;--gold:#f5c842;
-  --tone1:#4fc3f7;--tone2:#66bb6a;--tone3:#ffa726;--tone4:#ef5350;
+  /* dark theme - file-specific */
+  --bg:#0d0f1a;
+  --border:rgba(255,255,255,.08);
   --hsk1:#4ade80;--hsk2:#60a5fa;--hsk3:#c084fc;
-  --text:#e2e8f0;--muted:#64748b;--soft:#94a3b8;
+  --text:#e2e8f0;--muted:#64748b;
   --shadow:0 8px 32px rgba(0,0,0,.5);
-  --r:14px;--rl:20px;
+  --rl:20px; /* intentional: nhỏ hơn brand 22px cho lab cards */
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Be Vietnam Pro",system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}

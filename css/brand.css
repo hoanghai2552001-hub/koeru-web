@@ -1,0 +1,58 @@
+/*
+ * brand.css — KOERU Design Tokens
+ * Tập trung toàn bộ biến màu sắc, spacing dùng chung
+ * Sửa ở đây = cập nhật toàn bộ website
+ */
+
+:root {
+  /* ── BRAND COLORS ── */
+  --navy:       #2d3561;
+  --navy-d:     #1e2445;
+  --navy-l:     #3d4880;
+  --navy-10:    rgba(45,53,97,.10);
+  --navy-06:    rgba(45,53,97,.06);
+
+  --cream:      #fdf8f4;
+  --cream-d:    #f5ede4;
+  --cream-dd:   #ede0d4;
+
+  --accent:     #e8845a;
+  --accent-l:   #fdf0e8;
+
+  --yellow:     #f5c842;
+  --yellow-l:   #fffbe6;
+  --gold:       #f5c842;
+  --accent2:    #f5c842;
+
+  /* ── TEXT ── */
+  --ink2:  #5a5f7a;
+  --ink3:  #9196ae;
+  --ink4:  #c8cad8;
+  --soft:  #94a3b8;
+
+  /* ── DARK SURFACE (dùng trong game) ── */
+  --surface:  #161929;
+  --surface2: #1e2235;
+  --border2:  rgba(255,255,255,.15);
+
+  /* ── FEEDBACK ── */
+  --correct:   #10b981;
+  --incorrect: #f43f5e;
+  --red:       #e53935;
+
+  /* ── TONE COLORS (pinyin) ── */
+  --tone1: #4fc3f7;
+  --tone2: #66bb6a;
+  --tone3: #ffa726;
+  --tone4: #ef5350;
+
+  /* ── SPACING & RADIUS ── */
+  --r:      14px;
+  --rs:     9px;
+  --rl:     22px;
+  --radius: 20px;
+
+  /* ── SAFE AREA (mobile notch) ── */
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+}

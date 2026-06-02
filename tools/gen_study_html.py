@@ -48,7 +48,7 @@ def _brace_parse_file(txt):
                 for key, pat in [
                     ("kanji",   r'kanji\s*:\s*"([^"]*)"'),
                     ("hanviet", r'hanviet\s*:\s*"([^"]*)"'),
-                    ("on",      r'"on"\s*:\s*"([^"]*)"'),
+                    ("on",      r'\bon\s*:\s*"([^"]*)"'),
                     ("kun",     r'kun\s*:\s*"([^"]*)"'),
                     ("meaning", r'meaning\s*:\s*"([^"]*)"'),
                     ("level",   r'level\s*:\s*"([^"]*)"'),

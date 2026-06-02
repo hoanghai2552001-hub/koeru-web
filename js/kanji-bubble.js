@@ -685,7 +685,6 @@ function startNextFloor() {
     dUsedIdx.clear();
     dCurrentCard = buildCard();
   }
-  console.log('[Dungeon] startNextFloor: pool=', dPool.length, 'card=', dCurrentCard ? dCurrentCard.kanji : 'NULL');
 
   document.getElementById('dng-overlay').classList.remove('visible');
   showFloorIntro(() => {

@@ -4,12 +4,9 @@
 ════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --correct: #10b981; --incorrect: #f43f5e;
+  /* dark theme - file-specific */
   --bg: #0d0d0d; --card-bg: #141414;
-  --accent: #e8845a; --accent2: #f5c842;
-  --navy: #2d3561; --navy-d: #1e2445;
-  --text: #f1f5f9; --muted: #6b7280; --radius: 20px;
-  --sat: env(safe-area-inset-top,0px); --sab: env(safe-area-inset-bottom,0px);
+  --text: #f1f5f9; --muted: #6b7280;
 }
 html { height:100%; height:-webkit-fill-available; }
 body {
