@@ -1148,7 +1148,14 @@ const KanjiMapApp = () => {
   })();
 
   const [selectedId, setSelectedId] = useState(initialFromURL);
-  const jlptFilter = ALL_LEVELS; // luôn hiện tất cả cấp độ
+  // Mặc định chỉ N5 — user có thể bật thêm
+  const [jlptFilter, setJlptFilter] = useState(() => {
+    try {
+      const saved = localStorage.getItem('km_jlpt_filter');
+      if (saved) return JSON.parse(saved);
+    } catch(_) {}
+    return ['N5'];
+  });
   const [viewMode, setViewMode] = useState('2D');
   const [expanded, setExpanded] = useState(false);
   const [recent, setRecent] = useState(() => JSON.parse(localStorage.getItem('km_recent') || '[]'));
@@ -1282,6 +1289,16 @@ const KanjiMapApp = () => {
   const streak = 7;
   const xpToday = 120;
 
+  const toggleLevel = (lvl) => {
+    setJlptFilter(prev => {
+      const next = prev.includes(lvl) ? prev.filter(x => x !== lvl) : [...prev, lvl];
+      const safe = next.length ? next : [lvl]; // không cho deselect hết
+      try { localStorage.setItem('km_jlpt_filter', JSON.stringify(safe)); } catch(_) {}
+      return safe;
+    });
+    setSelectedId(null); // reset selection khi đổi filter
+  };
+
   const visibleCounts = useMemo(() => {
     const k = data.kanji.filter(x => jlptFilter.includes(x.jlpt)).length;
     const v = data.vocab.filter(x => jlptFilter.includes(x.jlpt)).length;
@@ -1362,6 +1379,22 @@ const KanjiMapApp = () => {
           </div>
         </div>
 
+
+        <div className="km-section">
+          <div className="km-label">Cấp độ JLPT</div>
+          <div className="km-chips">
+            {ALL_LEVELS.map(lvl => (
+              <button key={lvl}
+                className={`km-chip lvl-${lvl} ${jlptFilter.includes(lvl) ? 'is-on' : ''}`}
+                onClick={() => toggleLevel(lvl)}>
+                {lvl}
+              </button>
+            ))}
+          </div>
+          <div className="km-help">
+            {visibleCounts.k} kanji · Chọn nhiều cấp độ cùng lúc
+          </div>
+        </div>
 
         <div className="km-section">
           <div className="km-label">Chế độ xem</div>
