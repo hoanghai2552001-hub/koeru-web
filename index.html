@@ -920,7 +920,7 @@ body.tool-active{overflow:hidden}
       <div style="font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;text-align:center;margin-bottom:18px">Ôn từ vựng mỗi ngày</div>
       <div class="fc-selects">
         <select id="fc-lang" onchange="loadFlash()"><option value="jp">🇯🇵 Tiếng Nhật</option><option value="cn">🇨🇳 Tiếng Trung</option></select>
-        <select id="fc-set" onchange="loadFlash()"><option value="n5">N5 · Sơ cấp</option><option value="n4">N4 · Trung cấp</option></select>
+        <select id="fc-set" onchange="loadFlash()"><option value="n5">N5 · Sơ cấp</option><option value="n4">N4 · Trung cấp</option><option value="n3">N3 · Nâng cao</option></select>
       </div>
       <div class="fc-card" id="fc-card" onclick="flipCard()">
         <div class="fc-front"><div class="fc-jp" id="fc-word"></div><div class="fc-read" id="fc-read"></div><div class="fc-hint">👆 Nhấn để xem nghĩa</div></div>
@@ -1294,7 +1294,104 @@ setTimeout(()=>{
 function nextId(a){return a.length?Math.max(...a.map(x=>x.id||0))+1:1;}
 
 /* ─── FLASH DATA ─── */
-const FLASH={jp:{n5:[{w:'食べる',r:'たべる (taberu)',m:'Ăn',ex:'毎日ご飯を食べる'},{w:'飲む',r:'のむ (nomu)',m:'Uống',ex:'水を飲む'},{w:'行く',r:'いく (iku)',m:'Đi',ex:'学校に行く'},{w:'見る',r:'みる (miru)',m:'Nhìn/Xem',ex:'テレビを見る'},{w:'話す',r:'はなす (hanasu)',m:'Nói chuyện',ex:'日本語を話す'},{w:'書く',r:'かく (kaku)',m:'Viết',ex:'手紙を書く'},{w:'読む',r:'よむ (yomu)',m:'Đọc',ex:'本を読む'}],n4:[{w:'決める',r:'きめる',m:'Quyết định',ex:'計画を決める'},{w:'続ける',r:'つづける',m:'Tiếp tục',ex:'勉強を続ける'},{w:'始める',r:'はじめる',m:'Bắt đầu',ex:'仕事を始める'},{w:'変える',r:'かえる',m:'Thay đổi',ex:'計画を変える'},{w:'集める',r:'あつめる',m:'Thu thập',ex:'情報を集める'}]},cn:{n5:[{w:'你好',r:'nǐ hǎo',m:'Xin chào',ex:'你好，我是老师'},{w:'谢谢',r:'xiè xie',m:'Cảm ơn',ex:'谢谢你的帮助'},{w:'苹果',r:'píng guǒ',m:'Táo',ex:'我喜欢吃苹果'},{w:'水',r:'shuǐ',m:'Nước',ex:'请给我一杯水'},{w:'学习',r:'xué xí',m:'Học tập',ex:'我每天学习中文'}],n4:[{w:'虽然',r:'suī rán',m:'Mặc dù',ex:'虽然累，但是很开心'},{w:'越来越',r:'yuè lái yuè',m:'Ngày càng',ex:'天气越来越热'},{w:'把',r:'bǎ',m:'Giới từ "把"',ex:'我把作业做完了'},{w:'被',r:'bèi',m:'Bị (bị động)',ex:'蛋糕被他吃了'}]}};
+const FLASH={jp:{
+n5:[
+  {w:'食べる',r:'たべる',m:'Ăn',ex:'毎日ご飯を食べます。'},
+  {w:'飲む',r:'のむ',m:'Uống',ex:'水を飲みます。'},
+  {w:'行く',r:'いく',m:'Đi',ex:'学校に行きます。'},
+  {w:'見る',r:'みる',m:'Nhìn / Xem',ex:'テレビを見ます。'},
+  {w:'話す',r:'はなす',m:'Nói chuyện',ex:'日本語を話します。'},
+  {w:'書く',r:'かく',m:'Viết',ex:'手紙を書きます。'},
+  {w:'読む',r:'よむ',m:'Đọc',ex:'本を読みます。'},
+  {w:'来る',r:'くる',m:'Đến / Tới',ex:'友達が来ます。'},
+  {w:'帰る',r:'かえる',m:'Về nhà',ex:'学校から帰ります。'},
+  {w:'聞く',r:'きく',m:'Nghe / Hỏi',ex:'音楽を聞きます。'},
+  {w:'起きる',r:'おきる',m:'Thức dậy',ex:'毎朝7時に起きます。'},
+  {w:'寝る',r:'ねる',m:'Ngủ',ex:'早く寝ます。'},
+  {w:'買う',r:'かう',m:'Mua',ex:'スーパーで買います。'},
+  {w:'使う',r:'つかう',m:'Sử dụng',ex:'箸を使います。'},
+  {w:'知る',r:'しる',m:'Biết',ex:'名前を知っています。'},
+  {w:'大きい',r:'おおきい',m:'To / Lớn',ex:'大きい犬がいます。'},
+  {w:'小さい',r:'ちいさい',m:'Nhỏ / Bé',ex:'小さい子どもです。'},
+  {w:'新しい',r:'あたらしい',m:'Mới',ex:'新しい本を買いました。'},
+  {w:'古い',r:'ふるい',m:'Cũ',ex:'古い建物があります。'},
+  {w:'面白い',r:'おもしろい',m:'Thú vị / Hay',ex:'面白い映画でした。'},
+  {w:'難しい',r:'むずかしい',m:'Khó',ex:'日本語は難しいです。'},
+  {w:'易しい',r:'やさしい',m:'Dễ',ex:'この問題は易しいです。'},
+  {w:'高い',r:'たかい',m:'Cao / Đắt',ex:'このビルは高いです。'},
+  {w:'安い',r:'やすい',m:'Rẻ',ex:'このお店は安いです。'},
+  {w:'多い',r:'おおい',m:'Nhiều',ex:'人が多いですね。'},
+  {w:'少ない',r:'すくない',m:'Ít',ex:'お金が少ないです。'},
+  {w:'好き',r:'すき',m:'Yêu thích',ex:'音楽が好きです。'},
+  {w:'嫌い',r:'きらい',m:'Ghét / Không thích',ex:'野菜が嫌いです。'},
+  {w:'上手',r:'じょうず',m:'Giỏi / Khéo léo',ex:'料理が上手です。'},
+  {w:'下手',r:'へた',m:'Vụng về / Kém',ex:'歌が下手です。'},
+],
+n4:[
+  {w:'決める',r:'きめる',m:'Quyết định',ex:'計画を決めます。'},
+  {w:'続ける',r:'つづける',m:'Tiếp tục',ex:'毎日勉強を続けます。'},
+  {w:'始める',r:'はじめる',m:'Bắt đầu',ex:'新しい仕事を始めます。'},
+  {w:'変える',r:'かえる',m:'Thay đổi',ex:'考え方を変えます。'},
+  {w:'集める',r:'あつめる',m:'Thu thập / Sưu tầm',ex:'情報を集めます。'},
+  {w:'送る',r:'おくる',m:'Gửi',ex:'メールを送ります。'},
+  {w:'受ける',r:'うける',m:'Nhận / Thi',ex:'試験を受けます。'},
+  {w:'調べる',r:'しらべる',m:'Tra cứu / Điều tra',ex:'辞書で調べます。'},
+  {w:'伝える',r:'つたえる',m:'Truyền đạt',ex:'気持ちを伝えます。'},
+  {w:'連絡する',r:'れんらくする',m:'Liên lạc',ex:'友達に連絡します。'},
+  {w:'確認する',r:'かくにんする',m:'Xác nhận',ex:'時間を確認します。'},
+  {w:'説明する',r:'せつめいする',m:'Giải thích',ex:'先生が説明します。'},
+  {w:'準備する',r:'じゅんびする',m:'Chuẩn bị',ex:'試験の準備をします。'},
+  {w:'便利',r:'べんり',m:'Tiện lợi',ex:'便利なアプリです。'},
+  {w:'大切',r:'たいせつ',m:'Quan trọng',ex:'時間は大切です。'},
+  {w:'必要',r:'ひつよう',m:'Cần thiết',ex:'休みが必要です。'},
+  {w:'親切',r:'しんせつ',m:'Tốt bụng',ex:'親切な人ですね。'},
+  {w:'急ぐ',r:'いそぐ',m:'Vội vàng',ex:'急いで行きます。'},
+  {w:'遅れる',r:'おくれる',m:'Bị trễ / Muộn',ex:'電車に遅れました。'},
+  {w:'終わる',r:'おわる',m:'Kết thúc',ex:'仕事が終わりました。'},
+  {w:'思い出す',r:'おもいだす',m:'Nhớ lại',ex:'昔のことを思い出した。'},
+  {w:'気をつける',r:'きをつける',m:'Chú ý / Cẩn thận',ex:'体に気をつけてください。'},
+  {w:'楽しみ',r:'たのしみ',m:'Niềm vui / Mong chờ',ex:'旅行が楽しみです。'},
+  {w:'失敗する',r:'しっぱいする',m:'Thất bại',ex:'試験に失敗しました。'},
+  {w:'成功する',r:'せいこうする',m:'Thành công',ex:'プロジェクトが成功しました。'},
+  {w:'諦める',r:'あきらめる',m:'Từ bỏ',ex:'夢を諦めません。'},
+  {w:'頑張る',r:'がんばる',m:'Cố gắng',ex:'もっと頑張ります。'},
+  {w:'安心する',r:'あんしんする',m:'An tâm',ex:'話を聞いて安心しました。'},
+  {w:'心配する',r:'しんぱいする',m:'Lo lắng',ex:'試験のことが心配です。'},
+  {w:'驚く',r:'おどろく',m:'Ngạc nhiên',ex:'知らせに驚きました。'},
+],
+n3:[
+  {w:'考える',r:'かんがえる',m:'Suy nghĩ / Xem xét',ex:'問題をよく考えます。'},
+  {w:'感じる',r:'かんじる',m:'Cảm thấy',ex:'幸せを感じます。'},
+  {w:'増える',r:'ふえる',m:'Tăng lên',ex:'人口が増えています。'},
+  {w:'減る',r:'へる',m:'Giảm đi',ex:'体重が少し減りました。'},
+  {w:'認める',r:'みとめる',m:'Công nhận / Thừa nhận',ex:'失敗を認めます。'},
+  {w:'断る',r:'ことわる',m:'Từ chối',ex:'依頼を断りました。'},
+  {w:'表す',r:'あらわす',m:'Biểu đạt / Thể hiện',ex:'気持ちを表します。'},
+  {w:'比べる',r:'くらべる',m:'So sánh',ex:'値段を比べます。'},
+  {w:'理解する',r:'りかいする',m:'Hiểu',ex:'内容を理解します。'},
+  {w:'解決する',r:'かいけつする',m:'Giải quyết',ex:'問題を解決します。'},
+  {w:'経験',r:'けいけん',m:'Kinh nghiệm',ex:'経験を積むことが大切です。'},
+  {w:'関係',r:'かんけい',m:'Quan hệ / Liên quan',ex:'人間関係は大事です。'},
+  {w:'影響',r:'えいきょう',m:'Ảnh hưởng',ex:'環境に大きな影響があります。'},
+  {w:'原因',r:'げんいん',m:'Nguyên nhân',ex:'問題の原因を探します。'},
+  {w:'結果',r:'けっか',m:'Kết quả',ex:'努力の結果が出ました。'},
+  {w:'目的',r:'もくてき',m:'Mục đích',ex:'旅行の目的は観光です。'},
+  {w:'方法',r:'ほうほう',m:'Phương pháp / Cách',ex:'解決の方法を考えます。'},
+  {w:'機会',r:'きかい',m:'Cơ hội',ex:'いい機会だと思います。'},
+  {w:'状況',r:'じょうきょう',m:'Tình huống / Tình hình',ex:'現在の状況を説明します。'},
+  {w:'可能性',r:'かのうせい',m:'Khả năng / Khả năng xảy ra',ex:'成功の可能性があります。'},
+  {w:'判断する',r:'はんだんする',m:'Phán đoán / Quyết định',ex:'状況を判断します。'},
+  {w:'確認する',r:'かくにんする',m:'Xác nhận',ex:'内容を確認してください。'},
+  {w:'主張する',r:'しゅちょうする',m:'Khẳng định / Lập luận',ex:'意見を主張します。'},
+  {w:'実現する',r:'じつげんする',m:'Thực hiện / Hiện thực hóa',ex:'夢を実現します。'},
+  {w:'担当する',r:'たんとうする',m:'Phụ trách',ex:'このプロジェクトを担当します。'},
+  {w:'注目する',r:'ちゅうもくする',m:'Chú ý / Quan tâm',ex:'新しい技術に注目します。'},
+  {w:'取り組む',r:'とりくむ',m:'Tham gia / Nỗ lực giải quyết',ex:'問題に取り組みます。'},
+  {w:'見直す',r:'みなおす',m:'Xem lại / Đánh giá lại',ex:'計画を見直します。'},
+  {w:'乗り越える',r:'のりこえる',m:'Vượt qua',ex:'困難を乗り越えます。'},
+  {w:'支える',r:'ささえる',m:'Hỗ trợ / Chống đỡ',ex:'家族を支えます。'},
+]},
+cn:{n5:[{w:'你好',r:'nǐ hǎo',m:'Xin chào',ex:'你好，我是老师。'},{w:'谢谢',r:'xiè xie',m:'Cảm ơn',ex:'谢谢你的帮助。'},{w:'苹果',r:'píng guǒ',m:'Táo',ex:'我喜欢吃苹果。'},{w:'水',r:'shuǐ',m:'Nước',ex:'请给我一杯水。'},{w:'学习',r:'xué xí',m:'Học tập',ex:'我每天学习中文。'},{w:'朋友',r:'péng you',m:'Bạn bè',ex:'他是我的朋友。'},{w:'工作',r:'gōng zuò',m:'Công việc',ex:'我的工作很忙。'},{w:'吃饭',r:'chī fàn',m:'Ăn cơm',ex:'我们一起吃饭吧。'}],n4:[{w:'虽然',r:'suī rán',m:'Mặc dù',ex:'虽然累，但是很开心。'},{w:'越来越',r:'yuè lái yuè',m:'Ngày càng',ex:'天气越来越热。'},{w:'把',r:'bǎ',m:'Giới từ "把"',ex:'我把作业做完了。'},{w:'被',r:'bèi',m:'Bị (bị động)',ex:'蛋糕被他吃了。'},{w:'既然',r:'jì rán',m:'Đã thế thì',ex:'既然决定了，就去做吧。'}],n3:[{w:'尽管',r:'jǐn guǎn',m:'Mặc dù',ex:'尽管很难，还是坚持下去。'},{w:'与其',r:'yǔ qí',m:'Thay vì',ex:'与其等待，不如行动。'},{w:'逐渐',r:'zhú jiàn',m:'Dần dần',ex:'天气逐渐变暖。'},{w:'显然',r:'xiǎn rán',m:'Rõ ràng',ex:'这显然是个错误。'},{w:'究竟',r:'jiū jìng',m:'Rốt cuộc',ex:'你究竟想要什么？'}]}};
 
 const QUIZZES={jp:{n5:[{q:'「ありがとう」の意味は？',opts:['Xin chào','Cảm ơn','Xin lỗi','Tạm biệt'],ans:1,exp:'「ありがとう」= Cảm ơn.'},{q:'「水」(みず) の意味は？',opts:['Lửa','Gió','Nước','Đất'],ans:2,exp:'「水」(mizu) = nước.'},{q:'「私は学生___。」正しいのは？',opts:['が','は','の','です'],ans:3,exp:'「です」= trợ từ cuối câu, tương đương "là".'},{q:'「今日」の読み方は？',opts:['こんにち','きょう','あした','きのう'],ans:1,exp:'「今日」đọc là「きょう」= hôm nay.'},{q:'食べ物はどれ？',opts:['本','車','りんご','椅子'],ans:2,exp:'「りんご」= táo.'}],n4:[{q:'「〜ながら」の正しい使い方は？',opts:['音楽を聴きながら勉強する','食べながら寝た後','学校ながら行く','ながら楽しい'],ans:0,exp:'「〜ながら」= vừa...vừa (đồng thời).'},{q:'「〜てしまう」の意味は？',opts:['Đang làm','Đã xong (hối hận)','Sắp làm','Không muốn'],ans:1,exp:'「〜てしまう」= hoàn thành, thường có sắc thái hối tiếc.'},{q:'「優しい___親切だ」接続は？',opts:['が','し、','で','から'],ans:1,exp:'「〜し、〜し」liệt kê nhiều đặc điểm.'},{q:'「10分くらい」の意味は？',opts:['Đúng 10 phút','Khoảng 10 phút','Hơn 10 phút','Ít hơn'],ans:1,exp:'「くらい」= khoảng.'},{q:'敬語で「食べる」は？',opts:['食べます','召し上がります','いただきます','食べられます'],ans:1,exp:'「召し上がる」là tôn kính ngữ của 食べる.'}],n3:[{q:'「〜にもかかわらず」の意味は？',opts:['Vì vậy','Mặc dù','Nếu như','Trước khi'],ans:1,exp:'「〜にもかかわらず」= mặc dù, bất chấp.'},{q:'「〜をきっかけに」の意味は？',opts:['Nhờ vào','Bất chấp','Nhân dịp','Trong khi'],ans:2,exp:'「〜をきっかけに」= nhân dịp, lấy...làm cơ hội.'},{q:'「いかに〜か」の用法は？',opts:['Hỏi số lượng','Nhấn mạnh mức độ','Điều kiện','Nguyên nhân'],ans:1,exp:'「いかに〜か」nhấn mạnh mức độ.'},{q:'「固然」の意味は？',opts:['Vì vậy','Tuy đúng là','Nếu như','Trước khi'],ans:1,exp:'「固然」= tuy đúng là — thừa nhận trước rồi phản bác.'},{q:'「召し上がる」の用法は？',opts:['Bản thân','Người bề trên','Bạn bè','Trẻ em'],ans:1,exp:'「召し上がる」dùng khi nói về hành động của người bề trên.'}]},cn:{n5:[{q:'"你好"的意思？',opts:['Cảm ơn','Xin chào','Xin lỗi','Tạm biệt'],ans:1,exp:'"你好" = Xin chào.'},{q:'"苹果"的意思？',opts:['Cam','Táo','Chuối','Nho'],ans:1,exp:'"苹果" = táo.'},{q:'"几点了？"的意思？',opts:['Bao nhiêu tiền?','Mấy giờ rồi?','Bao nhiêu tuổi?','Ở đâu?'],ans:1,exp:'"几点了" = Mấy giờ rồi?'},{q:'哪个是动词？',opts:['美丽','书','跑步','快'],ans:2,exp:'"跑步" = chạy bộ, động từ.'},{q:'"谢谢"的意思？',opts:['Xin lỗi','Tạm biệt','Cảm ơn','Xin chào'],ans:2,exp:'"谢谢" = Cảm ơn.'}],n4:[{q:'"虽然...但是..."的用法？',opts:['Nguyên nhân','Mặc dù...nhưng','Điều kiện','Mục đích'],ans:1,exp:'"虽然...但是..." = mặc dù...nhưng.'},{q:'"越来越..."的意思？',opts:['Ngày càng','Vừa...vừa','Không bao giờ','Thỉnh thoảng'],ans:0,exp:'"越来越" = ngày càng.'},{q:'"一边...一边..."的意思？',opts:['Sau khi','Vừa...vừa (cùng lúc)','Trước khi','Hoặc là'],ans:1,exp:'"一边...一边..." = vừa...vừa.'},{q:'"把"字句的作用？',opts:['Bị động','Tác động lên tân ngữ','So sánh','Thời gian'],ans:1,exp:'Câu "把" nhấn mạnh kết quả tác động.'},{q:'"被"字句的意思？',opts:['Chủ động','Bị động','So sánh','Điều kiện'],ans:1,exp:'"被" = bị động.'}],n3:[{q:'"尽管...还是..."的意思？',opts:['Vì','Mặc dù...vẫn','Nếu','Bởi vì'],ans:1,exp:'"尽管...还是..." = mặc dù...vẫn.'},{q:'"与其...不如..."的意思？',opts:['Không chỉ...mà còn','Thà...còn hơn','Vừa...vừa','Nếu...thì'],ans:1,exp:'"与其...不如..." = thà...còn hơn.'},{q:'"以...为..."的用法？',opts:['Lấy...làm','Vì','Mặc dù','Khi'],ans:0,exp:'"以...为..." = lấy...làm.'},{q:'"固然...但是..."的意思？',opts:['Mặc dù...nhưng','Vì...nên','Nếu...thì','Không chỉ...mà còn'],ans:0,exp:'"固然...但是..." = tuy đúng là...nhưng.'},{q:'"宁可...也不..."的意思？',opts:['Không chỉ','Thà...còn hơn','Vừa...vừa','Mặc dù'],ans:1,exp:'"宁可...也不..." = thà...còn hơn không.'}]}};
 
@@ -2357,18 +2454,27 @@ function renderBlog(f){const it=f==='all'?BLOGS:BLOGS.filter(b=>b.lang===f||b.ca
 function filterBlog(f,b){document.querySelectorAll('#blog-cats .cat-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderBlog(f);}
 
 /* ─── FLASH ─── */
-let fcCards=[],fcQueue=[],fcIdx=0,fcKnown=0,fcUnknown=0;
+const FC_DAILY=20;
+let fcCards=[],fcQueue=[],fcIdx=0,fcKnown=0,fcUnknown=0,fcLevel='n5';
 function loadFlash(){
   const l=document.getElementById('fc-lang').value,s=document.getElementById('fc-set').value;
-  fcCards=FLASH[l][s]||FLASH[l]['n5'];
+  fcLevel=s;
+  const pool=FLASH[l][s]||FLASH[l]['n5'];
+  // Chọn 20 thẻ mỗi ngày, xoay theo ngày (seed = số ngày kể từ epoch)
+  const daySeed=Math.floor(Date.now()/86400000);
+  const shuffled=[...pool].sort((_,__)=>{
+    // simple seeded shuffle dựa vào index + daySeed
+    return ((daySeed*2654435761+pool.indexOf(_))%pool.length) - ((daySeed*2654435761+pool.indexOf(__))%pool.length);
+  });
+  fcCards=shuffled.slice(0,Math.min(FC_DAILY,pool.length));
   fcQueue=fcCards.map((_,i)=>i);fcIdx=0;fcKnown=0;fcUnknown=0;renderFC();
 }
 function renderFC(){
   if(!fcQueue.length){
     document.getElementById('fc-word').textContent='🎉';
     document.getElementById('fc-read').textContent='';
-    document.getElementById('fc-meaning').textContent=`Xong! Nhớ: ${fcKnown} · Chưa nhớ: ${fcUnknown}`;
-    document.getElementById('fc-example').textContent='Nhấn "Học lại" để ôn thêm.';
+    document.getElementById('fc-meaning').textContent=`Xong rồi! Nhớ: ${fcKnown} · Chưa nhớ: ${fcUnknown}/${fcCards.length}`;
+    document.getElementById('fc-example').textContent='Quay lại sau để ôn thẻ mới — mỗi ngày 20 thẻ khác nhau.';
     document.getElementById('fc-card').classList.remove('flipped');
     document.getElementById('fc-counter').textContent=`${fcKnown}/${fcCards.length} đã nhớ`;
     document.getElementById('fc-prog-fill').style.width='100%';
@@ -2381,7 +2487,8 @@ function renderFC(){
   document.getElementById('fc-example').textContent=c.ex;
   document.getElementById('fc-card').classList.remove('flipped');
   const total=fcCards.length,remaining=fcQueue.length;
-  document.getElementById('fc-counter').textContent=`Còn ${remaining} từ · Đã nhớ ${fcKnown}/${total}`;
+  const lvlLabel={'n5':'N5','n4':'N4','n3':'N3'}[fcLevel]||'';
+  document.getElementById('fc-counter').textContent=`${lvlLabel} · Còn ${remaining} từ · Đã nhớ ${fcKnown}/${total}`;
   document.getElementById('fc-prog-fill').style.width=Math.round(fcKnown/total*100)+'%';
 }
 function flipCard(){document.getElementById('fc-card').classList.toggle('flipped');}
