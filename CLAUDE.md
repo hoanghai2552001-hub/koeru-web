@@ -28,6 +28,13 @@ css/kanji.css           Styles cho kanji.html
 kanji-map.css           Styles cho kanji-map.html
 
 tools/sync_kanji_excel.py   Script đồng bộ Excel → JS (chạy: python tools/sync_kanji_excel.py)
+tools/build.py              Master build (sync + bump cache + gen HTML + QA)
+tools/pre_commit_check.py   Git hook: block commit nếu Excel mới hơn JS
+tools/install_hooks.py      Cài git hook sau khi clone lần đầu
+tools/export_excel.py       Export JS → Excel (để sửa rồi sync lại)
+tools/qa_kanji.py           QA toàn bộ data → qa_report.html
+tools/gen_kanji_map_data.py Tái tạo kanji-map-data.js từ kanji-data.js
+tools/archive/              Scripts legacy — đã dùng xong, giữ để tham khảo
 input/excel/kanji_KOERU_full.xlsx   Nguồn dữ liệu chính (KHÔNG commit, KHÔNG sửa bằng script)
 ```
 
@@ -88,7 +95,35 @@ Khi sửa JS/CSS, bump version trong HTML:
 ## Lệnh hay dùng
 
 ```bash
-python tools/sync_kanji_excel.py      # Sync data từ Excel
-python -m http.server 7788            # Local preview
-git push origin dev                   # Deploy
+# Workflow hàng ngày
+python tools/sync_kanji_excel.py      # Sau khi sửa Excel → sync tất cả JS + auto QA
+python tools/build.py                 # Full build: sync + bump cache + gen study HTML + QA
+python tools/build.py --quick         # Nhanh: chỉ sync + bump cache (bỏ qua gen HTML)
+python tools/build.py --check         # Chỉ chạy QA, không sync
+
+# Xem QA report dạng HTML
+python tools/qa_kanji.py              # → mở qa_report.html trong browser
+
+# Setup (chạy 1 lần sau clone)
+python tools/install_hooks.py         # Cài pre-commit hook
+
+# Local preview & deploy
+python -m http.server 7788            # http://localhost:7788
+git push origin dev                   # Deploy lên GitHub Pages
 ```
+
+## Vocabulary QA — Rules
+
+Khi làm việc với từ vựng Nhật-Việt (dịch nghĩa, review data, thêm từ mới, báo cáo lỗi),
+bắt buộc đọc và áp dụng:
+
+- @.claude/rules/dictionary_standard.md — Tiêu chuẩn dịch thuật & chuẩn hóa
+- @.claude/rules/qa_validation.md       — Checklist phát hiện lỗi & format báo cáo
+- @.claude/brand-voice-guidelines.md    — Brand voice & phong cách triển khai tổng quan
+
+**Trigger**: Bất kỳ yêu cầu nào liên quan đến:
+- Dịch nghĩa từ Nhật → Việt
+- Kiểm tra chất lượng `words[].m`, `words[].r`
+- Review sau `sync_kanji_excel.py`
+- Báo cáo lỗi từ vựng
+- Thêm/sửa data trong Excel sheet Words
