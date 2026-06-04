@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/brand.css">
-<link rel="stylesheet" href="css/kanji.css?v=20260603">
+<link rel="stylesheet" href="css/kanji.css?v=20260604g">
 <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}</style>
 <title>KOERU Kanji Lab — Luyện Kanji N5→N1</title>
 <meta name="description" content="4 game luyện Kanji: Flashcard, Nối từ, Dungeon, Speed. Hán Việt, gợi nhớ tiếng Việt, stroke order. Miễn phí. by KOERU Japanese.">
@@ -50,7 +50,7 @@
     <button class="home-lvl-btn" data-lvl="N5">N5</button>
     <button class="home-lvl-btn" data-lvl="N4">N4</button>
     <button class="home-lvl-btn" data-lvl="N3">N3</button>
-    <button class="home-lvl-btn lvl-coming-soon" data-lvl="N2" disabled title="Sắp có">N2</button>
+    <button class="home-lvl-btn" data-lvl="N2">N2</button>
     <button class="home-lvl-btn lvl-coming-soon" data-lvl="N1" disabled title="Sắp có">N1</button>
   </div>
   <div class="game-cards">
@@ -86,14 +86,6 @@
       </div>
       <div class="game-badge">🔥 Gây nghiện</div>
     </div>
-    <div class="game-card game-card-5" id="go-quiz">
-      <div class="game-icon">🎯</div>
-      <div class="game-info">
-        <div class="game-name">Kanji Quiz</div>
-        <div class="game-desc">10 câu · 3 dạng đề · phân tích điểm mạnh/yếu · nhận lộ trình.</div>
-      </div>
-      <div class="game-badge">📊 Đánh giá</div>
-    </div>
   </div>
 
   <!-- Hướng dẫn chọn mode -->
@@ -104,7 +96,6 @@
       <div class="mg-row"><span class="mg-tag">Muốn nhớ nghĩa</span><span class="mg-arrow">→</span><span class="mg-hint">Chơi <b>Nối từ</b></span></div>
       <div class="mg-row"><span class="mg-tag">Luyện On/Kun</span><span class="mg-arrow">→</span><span class="mg-hint">Vào <b>Kanji Dungeon</b></span></div>
       <div class="mg-row"><span class="mg-tag">Kiểm tra phản xạ</span><span class="mg-arrow">→</span><span class="mg-hint">Chơi <b>Speed Kanji</b></span></div>
-      <div class="mg-row"><span class="mg-tag">Đánh giá trình độ</span><span class="mg-arrow">→</span><span class="mg-hint">Làm <b>Kanji Quiz</b> 10 câu</span></div>
     </div>
   </div>
 
@@ -363,7 +354,7 @@
     <button class="sp-lb" data-lvl="N5">N5</button>
     <button class="sp-lb" data-lvl="N4">N4</button>
     <button class="sp-lb" data-lvl="N3">N3</button>
-    <button class="sp-lb lvl-coming-soon" data-lvl="N2" disabled title="Sắp có">N2</button>
+    <button class="sp-lb" data-lvl="N2">N2</button>
     <button class="sp-lb lvl-coming-soon" data-lvl="N1" disabled title="Sắp có">N1</button>
   </div>
   <div id="sp-mode-row">
@@ -557,7 +548,7 @@
   </div>
 </div>
 
-<!-- ══════════════════════ QUIZ ══════════════════════ -->
+<!-- ══════════════════════ QUIZ (deprecated — card đã xóa, screen giữ lại để không break) ══════════════════════ -->
 <div id="quiz-screen" class="screen">
   <div id="header">
     <span class="hdr-back" id="quiz-back">←</span>
@@ -868,15 +859,15 @@ if(new URLSearchParams(location.search).get('admin')==='true'){
 </script>
 
 <!-- Scripts: thứ tự quan trọng — data trước, logic sau -->
-<script src="js/kanji-data.js?v=20260603"></script>
-<script src="js/koeru-mastery.js?v=20260602"></script>
-<script src="js/kanji-state.js?v=20260602"></script>
-<script src="js/kanji-flashcard.js?v=20260602"></script>
-<script src="js/kanji-match.js?v=20260602"></script>
-<script src="js/kanji-bubble.js?v=20260602"></script>
-<script src="js/kanji-speed.js?v=20260602"></script>
-<script src="js/kanji-panel.js?v=20260602"></script>
-<script src="js/kanji-stroke.js?v=20260602"></script>
+<script src="js/kanji-data.js?v=20260604g"></script>
+<script src="js/koeru-mastery.js?v=20260604g"></script>
+<script src="js/kanji-state.js?v=20260604g"></script>
+<script src="js/kanji-flashcard.js?v=20260604g"></script>
+<script src="js/kanji-match.js?v=20260604g"></script>
+<script src="js/kanji-bubble.js?v=20260604g"></script>
+<script src="js/kanji-speed.js?v=20260604g"></script>
+<script src="js/kanji-panel.js?v=20260604g"></script>
+<script src="js/kanji-stroke.js?v=20260604g"></script>
 <!-- ── DATA ATTRIBUTION ── -->
 <button id="cred-btn" onclick="var p=document.getElementById('cred-pop');p.style.display=p.style.display==='block'?'none':'block'" title="Nguồn dữ liệu & License" style="position:fixed;bottom:14px;right:14px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.38);font-size:.72rem;cursor:pointer;z-index:9990;padding:0;font-family:system-ui;line-height:26px;text-align:center">ⓘ</button>
 <div id="cred-pop" style="display:none;position:fixed;bottom:48px;right:14px;width:268px;background:#12141f;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;z-index:9989;box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:system-ui,sans-serif">

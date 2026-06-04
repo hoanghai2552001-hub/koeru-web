@@ -116,6 +116,8 @@ print(f"[sync] Đọc được {len(kanji_rows)} kanji từ Excel")
 
 # Đọc Words sheet
 words_by_kanji = {}  # kanji_char → [{w, r, m}]
+words_seen = set()   # (kanji, word) đã thêm — để dedup khi merge Vocabs
+
 if "Words" in xl.sheet_names:
     wdf = xl.parse("Words", dtype=str).fillna("")
     for _, row in wdf.iterrows():
@@ -125,9 +127,29 @@ if "Words" in xl.sheet_names:
         m = str(row.get("meaning", "")).strip()
         if k and w:
             words_by_kanji.setdefault(k, []).append({"w": w, "r": r, "m": m})
-    print(f"[sync] Đọc được {sum(len(v) for v in words_by_kanji.values())} từ vựng từ Words sheet")
+            words_seen.add((k, w))
+    print(f"[sync] Words sheet: {sum(len(v) for v in words_by_kanji.values())} từ vựng")
 else:
     print("[warn] Không tìm thấy sheet Words")
+
+# Đọc Vocabs sheet — bổ sung từ gắn với kanji cụ thể (không trùng Words)
+STANDALONE_TAGS = {"語彙", "仮名", "外来語", "語", ""}
+vocabs_added = 0
+if "Vocabs" in xl.sheet_names:
+    vdf = xl.parse("Vocabs", dtype=str).fillna("")
+    for _, row in vdf.iterrows():
+        k = str(row.get("kanji relate", "")).strip()
+        w = str(row.get("word", "")).strip()
+        r = str(row.get("reading", "")).strip()
+        m = str(row.get("meaning", "")).strip()
+        # Chỉ thêm nếu: có kanji cụ thể, có word, chưa có trong Words sheet
+        if k and k not in STANDALONE_TAGS and w and (k, w) not in words_seen:
+            words_by_kanji.setdefault(k, []).append({"w": w, "r": r, "m": m})
+            words_seen.add((k, w))
+            vocabs_added += 1
+    print(f"[sync] Vocabs sheet: bổ sung {vocabs_added} từ mới (đã dedup với Words)")
+else:
+    print("[info] Không có sheet Vocabs — bỏ qua")
 
 # ── 3. TẢI PRESERVED FIELDS TỪ JS HIỆN TẠI ─────────────────────────────────
 
@@ -287,7 +309,7 @@ all_entries = [build_kanji_entry(r) for r in kanji_rows]
 content = (
     f"window.KANJI_DATA = [\n"
     + ",\n".join(all_entries)
-    + "\n];\n"
+    + "\n];\nwindow.ALL_KANJI = window.KANJI_DATA;\n"
 )
 KANJI_DATA_JS.write_text(content, encoding="utf-8")
 print(f"[sync] ✓ {KANJI_DATA_JS.name} — {total} entries")
@@ -332,3 +354,23 @@ for level in ["N5","N4","N3","N2","N1"]:
 print(f"  - kanji-map-data.js")
 print(f"\n[sync] ⚠️  Nhớ bump cache version trong HTML files nếu cần:")
 print(f"  kanji-data.js?v={today}")
+
+# ── 6. AUTO QA ───────────────────────────────────────────────────────────────
+import subprocess as _sp
+_home = Path.home()
+_qa_script = _home / ".claude" / "skills" / "koeru-data-check" / "scripts" / "check_kanji_data.py"
+if _qa_script.exists():
+    print(f"\n[sync] 🔍 Chạy QA tự động...")
+    _r = _sp.run([sys.executable, str(_qa_script), str(ROOT)], capture_output=True, text=True)
+    # Chỉ hiện dòng tóm tắt (không spam full report)
+    _summary_lines = [l for l in _r.stdout.splitlines()
+                      if any(x in l for x in ["✅ SẠCH", "❌", "⚠️", "🎉", "TỔNG", "lỗi"])]
+    _critical = [l for l in _summary_lines if "❌" in l or "⚠️" in l]
+    _clean    = [l for l in _summary_lines if "✅" in l or "🎉" in l]
+    if _critical:
+        print(f"[qa]  ⚠️  Phát hiện vấn đề:")
+        for l in _critical[:10]:
+            print(f"[qa]    {l.strip()}")
+        print(f"[qa]  → Chạy đầy đủ: python \"{_qa_script}\"")
+    else:
+        print(f"[qa]  ✅ Tất cả files sạch — không có lỗi data")

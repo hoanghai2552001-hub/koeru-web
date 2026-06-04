@@ -93,8 +93,8 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
 
   <!-- data + helpers -->
-  <script src="kanji-map-data.js?v=20260603"></script>
-  <script src="kanji-map-vocab-ext.js?v=20260528"></script>
+  <script src="kanji-map-data.js?v=20260604g"></script>
+  <script src="kanji-map-vocab-ext.js?v=20260604g"></script>
   <script src="kanji-romaji.js"></script>
 
   <!-- Expose React hooks globally so all inline Babel scripts can access them without re-declaring -->
@@ -1120,7 +1120,7 @@ window.KanjiPanel = KanjiPanel;
 // kanji-map-app.jsx — main shell
 
 const RECENT_MAX = 12;
-const ALL_LEVELS = ['N5', 'N4', 'N3', 'N2'];
+const ALL_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
 const KanjiMapApp = () => {
   const data = window.KANJI_DATA;
@@ -1148,13 +1148,16 @@ const KanjiMapApp = () => {
   })();
 
   const [selectedId, setSelectedId] = useState(initialFromURL);
-  // Mặc định chỉ N5 — user có thể bật thêm
   const [jlptFilter, setJlptFilter] = useState(() => {
-    try {
-      const saved = localStorage.getItem('km_jlpt_filter');
-      if (saved) return JSON.parse(saved);
-    } catch(_) {}
-    return ['N5'];
+    let base;
+    try { base = JSON.parse(localStorage.getItem('km_jlpt_filter')); } catch(_) {}
+    if (!base) base = ['N5'];
+    // Auto-include level của kanji từ URL param
+    if (initialFromURL) {
+      const node = data.kanji.find(k => k.id === initialFromURL);
+      if (node?.jlpt && !base.includes(node.jlpt)) base = [...base, node.jlpt];
+    }
+    return base;
   });
   const [viewMode, setViewMode] = useState('2D');
   const [expanded, setExpanded] = useState(false);

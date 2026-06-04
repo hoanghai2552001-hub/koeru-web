@@ -32,7 +32,7 @@ function ensureLevelLoaded(level, cb) {
   if (_loadCallbacks[level]) { _loadCallbacks[level].push(cb); return; }
   _loadCallbacks[level] = [cb];
   const s = document.createElement('script');
-  s.src = `js/kanji-data-${level.toLowerCase()}.js?v=20260602`;
+  s.src = `js/kanji-data-${level.toLowerCase()}.js?v=20260604g`;
   s.onload = () => {
     // Merge window.KANJI_Nx vào ALL_KANJI
     const key = `KANJI_${level}`;
@@ -56,7 +56,7 @@ function getStatus(kanji) {
 }
 
 // ── Filtering ──────────────────────────────
-const ENABLED_LEVELS = new Set(['N5','N4','N3']);
+const ENABLED_LEVELS = new Set(['N5','N4','N3','N2']);
 function getFilteredKanji() {
   let list = ALL_KANJI.filter(k => ENABLED_LEVELS.has(k.level));
   if (currentLevel !== 'ALL') {
@@ -391,7 +391,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Nút "Vào Kanji Map"
   document.getElementById('detail-go-map')?.addEventListener('click', () => {
-    window.location.href = 'kanji-map.html';
+    const k = currentKanji?.kanji;
+    window.location.href = k ? `kanji-map.html?k=${encodeURIComponent(k)}` : 'kanji-map.html';
   });
 
   // Keyboard: Escape đóng panel, ←→ điều hướng kanji
