@@ -1126,4 +1126,426 @@ if(document.readyState==='loading'){
 }
 </style>
 
+<!-- ═══════════════════════════════════════════════════════
+     KOERU KANJI PRACTICE — Luyện viết Kanji
+     Kanji selector + KanjiVG stroke order + guide overlay
+     ═══════════════════════════════════════════════════════ -->
+<script src="js/kanji-data.js"></script>
+
+<style>
+/* ── Kanji Practice Panel ── */
+#kp-panel {
+  position: fixed; top: 56px; right: -380px;
+  width: 360px; height: calc(100vh - 56px);
+  background: #fff; border-left: 1px solid #e5e7eb;
+  box-shadow: -6px 0 24px rgba(0,0,0,.12);
+  display: flex; flex-direction: column;
+  z-index: 9100; transition: right .3s cubic-bezier(.4,0,.2,1);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  overflow: hidden;
+}
+#kp-panel.open { right: 0; }
+
+.kp-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 16px; border-bottom: 1px solid #e5e7eb;
+  font-weight: 700; font-size: 14px; color: #1f2937; flex-shrink: 0;
+}
+#kp-close {
+  background: none; border: none; cursor: pointer; font-size: 16px;
+  color: #9ca3af; padding: 4px 8px; border-radius: 6px; line-height: 1;
+}
+#kp-close:hover { background: #f3f4f6; color: #374151; }
+
+.kp-filters {
+  display: flex; gap: 5px; padding: 10px 14px;
+  border-bottom: 1px solid #f3f4f6; flex-shrink: 0;
+}
+.kp-lvl {
+  flex: 1; padding: 5px 0; background: #f3f4f6; border: 1.5px solid transparent;
+  border-radius: 7px; cursor: pointer; font-size: 11px; font-weight: 700;
+  color: #6b7280; transition: all .15s;
+}
+.kp-lvl:hover { background: #ede9fe; color: #4f46e5; }
+.kp-lvl.active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+
+.kp-search-wrap { padding: 8px 14px; flex-shrink: 0; }
+#kp-search {
+  width: 100%; padding: 7px 11px; border: 1.5px solid #e5e7eb;
+  border-radius: 8px; font-size: 13px; outline: none; box-sizing: border-box;
+  transition: border-color .15s;
+}
+#kp-search:focus { border-color: #a5b4fc; }
+
+.kp-grid {
+  flex: 1; overflow-y: auto; padding: 4px 14px 8px;
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px;
+  align-content: start; min-height: 0;
+}
+.kp-cell {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; border-radius: 7px; cursor: pointer;
+  background: #fafafa; border: 1.5px solid #e5e7eb;
+  transition: all .12s; font-family: 'Noto Serif JP', serif;
+}
+.kp-cell:hover { background: #ede9fe; border-color: #a78bfa; transform: scale(1.08); }
+.kp-cell.sel   { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+
+/* ── Detail pane (bottom) ── */
+#kp-detail {
+  border-top: 2px solid #e5e7eb; background: #f9fafb;
+  flex-shrink: 0; padding: 14px;
+}
+.kp-anim-box {
+  background: #fff; border: 1.5px solid #e5e7eb; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 150px; margin-bottom: 10px; position: relative; overflow: hidden;
+}
+.kp-anim-box svg { display: block; }
+.kp-anim-box .kp-loading { color: #9ca3af; font-size: 12px; }
+.kp-anim-fallback {
+  font-size: 110px; line-height: 1.1;
+  font-family: 'Noto Serif JP', serif; color: #1f2937;
+}
+.kp-anim-ctrl {
+  position: absolute; bottom: 6px; right: 8px;
+  display: flex; gap: 4px;
+}
+.kp-anim-ctrl button {
+  background: rgba(255,255,255,.85); border: 1px solid #e5e7eb;
+  border-radius: 5px; cursor: pointer; padding: 2px 7px;
+  font-size: 11px; font-weight: 600; color: #374151;
+}
+.kp-anim-ctrl button:hover { background: #fff; }
+
+.kp-info { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.kp-kanji-lg { font-size: 42px; font-family: 'Noto Serif JP', serif; line-height: 1; }
+.kp-reading-block { flex: 1; }
+.kp-reading-block .on  { font-size: 11px; color: #6b7280; }
+.kp-reading-block .kun { font-size: 11px; color: #6b7280; margin-top: 1px; }
+.kp-reading-block .mng { font-size: 13px; font-weight: 700; color: #1f2937; margin-top: 3px; }
+.kp-level-badge {
+  padding: 2px 9px; border-radius: 99px; font-size: 11px; font-weight: 800;
+  background: #ede9fe; color: #4f46e5; flex-shrink: 0;
+}
+
+.kp-btns { display: flex; gap: 7px; }
+.kp-btn {
+  flex: 1; padding: 8px 0; border-radius: 8px; border: 1.5px solid #e5e7eb;
+  cursor: pointer; font-size: 12px; font-weight: 700; background: #fff;
+  transition: all .12s; color: #374151;
+}
+.kp-btn:hover { background: #f3f4f6; }
+.kp-btn.primary { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.kp-btn.primary:hover { background: #4338ca; }
+
+/* Label on guide elements */
+.kwb-guide-label {
+  font-family: system-ui; font-size: 10px; fill: #a78bfa;
+  pointer-events: none; user-select: none;
+}
+
+@media (max-width: 1200px) {
+  #kwb-tb-kanji span.kwb-btn-label { display: none; }
+}
+</style>
+
+<script>
+/* ── KOERU Kanji Practice Feature ── */
+(function(){
+  'use strict';
+
+  var currentLevel = 'N5';
+  var currentKanji = null;
+  var animTimer    = null;
+  var PANEL        = null;
+
+  /* ── Data helpers ── */
+  function allKanji() {
+    return window.KANJI_DATA || [];
+  }
+  function filtered(level, q) {
+    q = (q||'').trim().toLowerCase();
+    return allKanji().filter(function(k){
+      if(k.level !== level) return false;
+      if(!q) return true;
+      return k.kanji.includes(q) ||
+             (k.meaning||'').toLowerCase().includes(q) ||
+             (k.hanviet||'').toLowerCase().includes(q);
+    });
+  }
+  function findK(kanji) {
+    return allKanji().find(function(k){ return k.kanji === kanji; });
+  }
+
+  /* ── Inject toolbar button ── */
+  function injectBtn() {
+    if(document.getElementById('kwb-tb-kanji')) return;
+    var pngBtn = Array.from(document.querySelectorAll('button')).find(function(b){
+      return b.textContent.trim() === '⬇ PNG';
+    });
+    if(!pngBtn){ setTimeout(injectBtn, 350); return; }
+
+    var tb  = pngBtn.parentElement;
+    var sep = document.createElement('div');
+    sep.className = 'kwb-tb-sep';
+
+    var btn = document.createElement('button');
+    btn.id        = 'kwb-tb-kanji';
+    btn.className = 'kwb-tb-btn';
+    btn.innerHTML = '漢 <span class="kwb-btn-label">Luyện viết</span>';
+    btn.title     = 'Luyện viết Kanji';
+    btn.addEventListener('click', openPanel);
+
+    var ref = pngBtn.nextSibling;
+    tb.insertBefore(sep, ref);
+    tb.insertBefore(btn, ref);
+  }
+
+  /* ── Build panel DOM ── */
+  function buildPanel() {
+    var d = document.createElement('div');
+    d.id = 'kp-panel';
+    d.innerHTML =
+      '<div class="kp-hdr">' +
+        '<span>✍️ Luyện viết Kanji</span>' +
+        '<button id="kp-close">✕</button>' +
+      '</div>' +
+      '<div class="kp-filters" id="kp-filters">' +
+        ['N5','N4','N3','N2','N1'].map(function(l){
+          return '<button class="kp-lvl'+(l==='N5'?' active':'')+'" data-l="'+l+'">'+l+'</button>';
+        }).join('') +
+      '</div>' +
+      '<div class="kp-search-wrap">' +
+        '<input id="kp-search" placeholder="🔍 Tìm kanji hoặc nghĩa..." />' +
+      '</div>' +
+      '<div class="kp-grid" id="kp-grid"></div>' +
+      '<div id="kp-detail" style="display:none">' +
+        '<div class="kp-anim-box" id="kp-anim-box">' +
+          '<div id="kp-anim-content"></div>' +
+          '<div class="kp-anim-ctrl">' +
+            '<button id="kp-replay">↺ Xem lại</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="kp-info" id="kp-info"></div>' +
+        '<div class="kp-btns">' +
+          '<button class="kp-btn primary" id="kp-guide">📌 Thêm làm nền mờ</button>' +
+          '<button class="kp-btn" id="kp-clear-guides">🗑 Xóa nền</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(d);
+
+    /* Events */
+    d.querySelector('#kp-close').addEventListener('click', closePanel);
+
+    d.querySelector('#kp-filters').addEventListener('click', function(e){
+      var btn = e.target.closest('.kp-lvl');
+      if(!btn) return;
+      d.querySelectorAll('.kp-lvl').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentLevel = btn.dataset.l;
+      renderGrid();
+    });
+
+    d.querySelector('#kp-search').addEventListener('input', renderGrid);
+
+    d.querySelector('#kp-replay').addEventListener('click', function(){
+      if(currentKanji) loadStroke(currentKanji);
+    });
+
+    d.querySelector('#kp-guide').addEventListener('click', function(){
+      if(currentKanji) addGuide(currentKanji);
+    });
+
+    d.querySelector('#kp-clear-guides').addEventListener('click', clearGuides);
+
+    return d;
+  }
+
+  /* ── Render kanji grid ── */
+  function renderGrid() {
+    var q    = document.getElementById('kp-search').value;
+    var list = filtered(currentLevel, q).slice(0, 140);
+    var grid = document.getElementById('kp-grid');
+    grid.innerHTML = list.map(function(k){
+      var sel = k.kanji === currentKanji ? ' sel' : '';
+      return '<button class="kp-cell'+sel+'" data-k="'+k.kanji+'" title="'+k.meaning+'">'+k.kanji+'</button>';
+    }).join('');
+    grid.querySelectorAll('.kp-cell').forEach(function(btn){
+      btn.addEventListener('click', function(){ selectKanji(this.dataset.k); });
+    });
+  }
+
+  /* ── Select a kanji ── */
+  function selectKanji(kanji) {
+    currentKanji = kanji;
+    /* highlight in grid */
+    document.querySelectorAll('.kp-cell').forEach(function(b){
+      b.classList.toggle('sel', b.dataset.k === kanji);
+    });
+    /* show detail */
+    var det = document.getElementById('kp-detail');
+    det.style.display = 'block';
+    /* info */
+    var k = findK(kanji);
+    document.getElementById('kp-info').innerHTML = k ?
+      '<div class="kp-kanji-lg">'+k.kanji+'</div>' +
+      '<div class="kp-reading-block">' +
+        '<div class="on">音: '+( k.on||'—')+'</div>' +
+        '<div class="kun">訓: '+(k.kun||'—')+'</div>' +
+        '<div class="mng">'+k.meaning+'</div>' +
+      '</div>' +
+      '<span class="kp-level-badge">'+k.level+'</span>'
+      : '<div class="kp-kanji-lg">'+kanji+'</div>';
+    /* stroke order */
+    loadStroke(kanji);
+  }
+
+  /* ── Fetch + animate KanjiVG stroke order ── */
+  function loadStroke(kanji) {
+    var box = document.getElementById('kp-anim-content');
+    box.innerHTML = '<div class="kp-loading">Đang tải nét vẽ…</div>';
+    if(animTimer){ clearTimeout(animTimer); animTimer = null; }
+
+    var cp  = kanji.codePointAt(0).toString(16).padStart(5,'0');
+    var url = 'https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/'+cp+'.svg';
+
+    fetch(url)
+      .then(function(r){
+        if(!r.ok) throw new Error('404');
+        return r.text();
+      })
+      .then(function(svgText){
+        box.innerHTML = svgText;
+        var svg = box.querySelector('svg');
+        if(!svg){ box.innerHTML = '<div class="kp-anim-fallback">'+kanji+'</div>'; return; }
+
+        svg.setAttribute('width','150');
+        svg.setAttribute('height','150');
+        svg.style.display = 'block';
+
+        /* Style all paths */
+        var paths = Array.from(svg.querySelectorAll('path'));
+        paths.forEach(function(p){
+          p.setAttribute('fill','none');
+          p.setAttribute('stroke','#1e1b4b');
+          p.setAttribute('stroke-width','3.5');
+          p.setAttribute('stroke-linecap','round');
+          p.setAttribute('stroke-linejoin','round');
+          var len = p.getTotalLength ? p.getTotalLength() : 120;
+          p.style.strokeDasharray  = len;
+          p.style.strokeDashoffset = len;
+          p.style.opacity = '0.12';
+          p.style.transition = 'none';
+        });
+
+        /* Animate each stroke sequentially */
+        var delay = 0;
+        var DUR   = 380, GAP = 130;
+        paths.forEach(function(p){
+          var len = p.getTotalLength ? p.getTotalLength() : 120;
+          /* Number label */
+          var idx = paths.indexOf(p) + 1;
+          try {
+            var pt = p.getPointAtLength(0);
+            var lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+            lbl.setAttribute('x', pt.x);
+            lbl.setAttribute('y', pt.y - 4);
+            lbl.setAttribute('class','kwb-guide-label');
+            lbl.setAttribute('font-size','8');
+            lbl.style.opacity = '0';
+            lbl.textContent = idx;
+            svg.appendChild(lbl);
+            setTimeout(function(){ lbl.style.opacity='1'; }, delay);
+          } catch(e){}
+
+          animTimer = setTimeout(function(){
+            p.style.opacity = '1';
+            p.style.transition = 'stroke-dashoffset '+DUR+'ms ease-in-out';
+            p.style.strokeDashoffset = '0';
+          }, delay);
+          delay += DUR + GAP;
+        });
+      })
+      .catch(function(){
+        box.innerHTML = '<div class="kp-anim-fallback">'+kanji+'</div>';
+      });
+  }
+
+  /* ── Add kanji as faint guide on canvas ── */
+  function addGuide(kanji) {
+    var svg = document.querySelector('svg');
+    if(!svg){ alert('Không tìm thấy canvas whiteboard.'); return; }
+
+    /* Find or create guide layer */
+    var layer = svg.querySelector('#kwb-guide-layer');
+    if(!layer){
+      layer = document.createElementNS('http://www.w3.org/2000/svg','g');
+      layer.id = 'kwb-guide-layer';
+      layer.setAttribute('style','pointer-events:none');
+      svg.insertBefore(layer, svg.firstChild);
+    }
+
+    /* Get canvas center from transform */
+    var center = getCanvasCenter(svg);
+    var size   = 220;
+
+    var txt = document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('x', center.x - size * 0.45);
+    txt.setAttribute('y', center.y + size * 0.4);
+    txt.setAttribute('font-size', size);
+    txt.setAttribute('font-family','Noto Serif JP, serif');
+    txt.setAttribute('fill','rgba(139,92,246,0.13)');
+    txt.setAttribute('stroke','rgba(139,92,246,0.08)');
+    txt.setAttribute('stroke-width','1');
+    txt.setAttribute('data-guide','1');
+    txt.textContent = kanji;
+    layer.appendChild(txt);
+
+    /* Toast */
+    var t = document.getElementById('kwb-toast');
+    if(t){ t.textContent = '✍️ Đã thêm '+kanji+' làm nền — hãy luyện viết lên trên!'; t.style.display='block'; setTimeout(function(){ t.style.display='none'; },2500); }
+  }
+
+  function clearGuides(){
+    var layer = document.querySelector('#kwb-guide-layer');
+    if(layer) layer.innerHTML = '';
+    var t = document.getElementById('kwb-toast');
+    if(t){ t.textContent = '🗑 Đã xóa nền mờ'; t.style.display='block'; setTimeout(function(){ t.style.display='none'; },1800); }
+  }
+
+  function getCanvasCenter(svg){
+    var g = svg.querySelector('g[transform]');
+    if(!g) return {x:0, y:0};
+    var m = (g.getAttribute('transform')||'').match(/translate\(\s*([^,]+),\s*([^)]+)\)\s*scale\(\s*([^)]+)\s*\)/);
+    if(!m) return {x:0, y:0};
+    var sc = parseFloat(m[3]);
+    return { x: (innerWidth/2 - parseFloat(m[1])) / sc,
+             y: (innerHeight/2 - parseFloat(m[2])) / sc };
+  }
+
+  /* ── Open / close panel ── */
+  function openPanel(){
+    if(!PANEL) PANEL = buildPanel();
+    PANEL.classList.add('open');
+    renderGrid();
+  }
+  function closePanel(){
+    if(PANEL) PANEL.classList.remove('open');
+  }
+
+  /* ── Close panel on Escape ── */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closePanel();
+  });
+
+  /* ── Start ── */
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', injectBtn);
+  } else {
+    injectBtn();
+  }
+})();
+</script>
+
 </body></html>
