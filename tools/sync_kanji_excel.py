@@ -205,8 +205,8 @@ if KANJI_MAP_JS.exists():
         vocab_m = re.search(r'vocab:\s*(\[.*?\])\s*\}', txt, re.DOTALL)
         if vocab_m:
             preserved_vocab_raw = vocab_m.group(1)
-            # Giữ nguyên raw text thay vì parse
-            preserved_vocab_text = vocab_m.group(0)
+            # Chỉ lấy "vocab: [...]" — KHÔNG lấy dấu } cuối (group(0) có thêm })
+            preserved_vocab_text = f"vocab: {vocab_m.group(1)}"
         else:
             preserved_vocab_text = "vocab: []"
         print(f"[sync] Loaded preserved map fields: {len(preserved_map)} entries")
