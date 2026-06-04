@@ -1127,6 +1127,279 @@ if(document.readyState==='loading'){
 </style>
 
 <!-- ═══════════════════════════════════════════════════════
+     KOERU IMAGE TRANSFORM — Xoay & làm mờ ảnh
+     Floating toolbar khi chọn ảnh: rotate + opacity/blur
+     ═══════════════════════════════════════════════════════ -->
+<style>
+#itp {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(15,18,30,.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  z-index: 9200;
+  min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  font-family: system-ui, sans-serif;
+  color: #e2e8f0;
+  font-size: 12px;
+  pointer-events: all;
+}
+.itp-row { display: flex; align-items: center; gap: 8px; }
+.itp-lbl { width: 46px; font-size: 11px; color: #94a3b8; font-weight: 600; flex-shrink: 0; }
+.itp-slider {
+  flex: 1; -webkit-appearance: none; height: 4px;
+  background: rgba(255,255,255,.15); border-radius: 99px; outline: none; cursor: pointer;
+}
+.itp-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px;
+  border-radius: 50%; background: #a78bfa; cursor: pointer;
+  box-shadow: 0 0 6px rgba(167,139,250,.6);
+}
+.itp-val { width: 34px; text-align: right; font-size: 11px; color: #a78bfa; font-weight: 700; flex-shrink: 0; }
+.itp-reset {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  color: #94a3b8; border-radius: 6px; cursor: pointer;
+  padding: 2px 7px; font-size: 11px; flex-shrink: 0;
+}
+.itp-reset:hover { background: rgba(255,255,255,.14); color: #e2e8f0; }
+.itp-title {
+  font-size: 11px; font-weight: 700; color: #64748b;
+  text-transform: uppercase; letter-spacing: .08em; margin-bottom: 2px;
+}
+</style>
+
+<div id="itp">
+  <div class="itp-title">✎ Chỉnh ảnh</div>
+  <div class="itp-row">
+    <span class="itp-lbl">↻ Xoay</span>
+    <input class="itp-slider" id="itp-r" type="range" min="-180" max="180" value="0" step="1">
+    <span class="itp-val" id="itp-rv">0°</span>
+    <button class="itp-reset" id="itp-rr">↺</button>
+  </div>
+  <div class="itp-row">
+    <span class="itp-lbl">◑ Mờ</span>
+    <input class="itp-slider" id="itp-o" type="range" min="0" max="100" value="100" step="5">
+    <span class="itp-val" id="itp-ov">100%</span>
+    <button class="itp-reset" id="itp-or">↺</button>
+  </div>
+  <div class="itp-row">
+    <span class="itp-lbl">≋ Blur</span>
+    <input class="itp-slider" id="itp-b" type="range" min="0" max="20" value="0" step="1">
+    <span class="itp-val" id="itp-bv">0</span>
+    <button class="itp-reset" id="itp-br">↺</button>
+  </div>
+</div>
+
+<script>
+/* ── KOERU Image Transform Feature ── */
+(function(){
+  'use strict';
+
+  var panel     = document.getElementById('itp');
+  var rSlider   = document.getElementById('itp-r');
+  var oSlider   = document.getElementById('itp-o');
+  var bSlider   = document.getElementById('itp-b');
+  var rVal      = document.getElementById('itp-rv');
+  var oVal      = document.getElementById('itp-ov');
+  var bVal      = document.getElementById('itp-bv');
+
+  // Store transforms keyed by a stable string derived from image src+pos
+  var store = {}; // key -> {rotate, opacity, blur}
+  var curKey = null;
+  var curG   = null;
+  var curImg = null;
+
+  /* ── Stable key for an image element ── */
+  function imgKey(img) {
+    // Use src hash + x + y as stable identifier
+    var src = (img.getAttribute('href') || img.getAttribute('xlink:href') || '').slice(-30);
+    return src + '|' + img.getAttribute('x') + '|' + img.getAttribute('y');
+  }
+
+  function getState(key) {
+    if(!store[key]) store[key] = {rotate: 0, opacity: 1, blur: 0};
+    return store[key];
+  }
+
+  /* ── Apply transforms to DOM ── */
+  function apply(g, img, st) {
+    if(!g || !img) return;
+
+    // 1. Rotate: set transform on the <g> wrapping the image
+    //    React doesn't set transform on individual image <g>s
+    var cx = parseFloat(img.getAttribute('x')||0) + parseFloat(img.getAttribute('width')||0)/2;
+    var cy = parseFloat(img.getAttribute('y')||0) + parseFloat(img.getAttribute('height')||0)/2;
+    if(st.rotate !== 0) {
+      g.setAttribute('transform', 'rotate('+st.rotate+','+cx.toFixed(1)+','+cy.toFixed(1)+')');
+    } else {
+      g.removeAttribute('transform');
+    }
+
+    // 2. Opacity: setAttribute on <image> (React doesn't control this attr)
+    img.setAttribute('opacity', st.opacity);
+
+    // 3. Blur: SVG feGaussianBlur filter injected into <defs>
+    //    Use filter ATTRIBUTE (not CSS style) to coexist with React's CSS filter
+    ensureFilter();
+    var fval = document.getElementById('kwb-blur-fe');
+    if(fval) fval.setAttribute('stdDeviation', st.blur);
+    if(st.blur > 0) {
+      img.setAttribute('filter', 'url(#kwb-blur-filter)');
+    } else {
+      img.removeAttribute('filter');
+    }
+  }
+
+  function ensureFilter() {
+    if(document.getElementById('kwb-blur-filter')) return;
+    var svg = document.querySelector('svg');
+    if(!svg) return;
+    var defs = svg.querySelector('defs') || svg.insertBefore(
+      document.createElementNS('http://www.w3.org/2000/svg','defs'),
+      svg.firstChild
+    );
+    defs.insertAdjacentHTML('beforeend',
+      '<filter id="kwb-blur-filter" x="-20%" y="-20%" width="140%" height="140%">' +
+      '<feGaussianBlur id="kwb-blur-fe" in="SourceGraphic" stdDeviation="0"/>' +
+      '</filter>'
+    );
+  }
+
+  /* ── Find currently selected image ── */
+  function findSelected() {
+    // Selected images have a sibling rect with stroke-dasharray inside same <g>
+    var rects = document.querySelectorAll('svg rect[stroke-dasharray]');
+    for(var i = 0; i < rects.length; i++) {
+      var g = rects[i].parentElement;
+      if(g && g.tagName.toLowerCase() === 'g') {
+        var img = g.querySelector('image');
+        if(img) return {g: g, img: img};
+      }
+    }
+    return null;
+  }
+
+  /* ── Position panel near image ── */
+  function positionPanel(img) {
+    var svg = document.querySelector('svg');
+    if(!svg) return;
+    var svgRect  = svg.getBoundingClientRect();
+    var mainG    = svg.querySelector('g[transform]');
+    var tr = mainG ? (mainG.getAttribute('transform')||'') : '';
+    var m  = tr.match(/translate\(\s*([^,]+),\s*([^)]+)\)\s*scale\(\s*([^)]+)\s*\)/);
+    if(!m) return;
+    var tx = parseFloat(m[1]), ty = parseFloat(m[2]), sc = parseFloat(m[3]);
+
+    var ix = parseFloat(img.getAttribute('x')||0);
+    var iy = parseFloat(img.getAttribute('y')||0);
+    var iw = parseFloat(img.getAttribute('width')||100);
+
+    // Screen position of image right edge
+    var sx = svgRect.left + tx + (ix + iw) * sc + 10;
+    var sy = svgRect.top  + ty + iy * sc;
+
+    // Clamp to viewport
+    var pw = 240, ph = 120;
+    if(sx + pw > window.innerWidth - 10) sx = sx - iw*sc - pw - 20;
+    if(sy + ph > window.innerHeight - 10) sy = window.innerHeight - ph - 10;
+    if(sy < 60) sy = 60;
+
+    panel.style.left = Math.round(sx) + 'px';
+    panel.style.top  = Math.round(sy) + 'px';
+  }
+
+  /* ── Update slider UI from state ── */
+  function syncUI(st) {
+    rSlider.value = st.rotate;
+    oSlider.value = Math.round(st.opacity * 100);
+    bSlider.value = st.blur;
+    rVal.textContent = st.rotate + '°';
+    oVal.textContent = Math.round(st.opacity * 100) + '%';
+    bVal.textContent = st.blur;
+  }
+
+  /* ── Slider events ── */
+  rSlider.addEventListener('input', function(){
+    if(!curKey) return;
+    var st = getState(curKey);
+    st.rotate = parseInt(this.value);
+    rVal.textContent = st.rotate + '°';
+    apply(curG, curImg, st);
+  });
+  oSlider.addEventListener('input', function(){
+    if(!curKey) return;
+    var st = getState(curKey);
+    st.opacity = parseInt(this.value) / 100;
+    oVal.textContent = parseInt(this.value) + '%';
+    apply(curG, curImg, st);
+  });
+  bSlider.addEventListener('input', function(){
+    if(!curKey) return;
+    var st = getState(curKey);
+    st.blur = parseInt(this.value);
+    bVal.textContent = st.blur;
+    apply(curG, curImg, st);
+  });
+  document.getElementById('itp-rr').addEventListener('click', function(){
+    if(!curKey) return;
+    getState(curKey).rotate = 0; rSlider.value = 0; rVal.textContent = '0°';
+    apply(curG, curImg, getState(curKey));
+  });
+  document.getElementById('itp-or').addEventListener('click', function(){
+    if(!curKey) return;
+    getState(curKey).opacity = 1; oSlider.value = 100; oVal.textContent = '100%';
+    apply(curG, curImg, getState(curKey));
+  });
+  document.getElementById('itp-br').addEventListener('click', function(){
+    if(!curKey) return;
+    getState(curKey).blur = 0; bSlider.value = 0; bVal.textContent = '0';
+    apply(curG, curImg, getState(curKey));
+  });
+
+  /* ── MutationObserver: detect selection changes ── */
+  var ticking = false;
+  var obs = new MutationObserver(function(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false;
+      var sel = findSelected();
+      if(sel) {
+        var key = imgKey(sel.img);
+        curKey = key; curG = sel.g; curImg = sel.img;
+        var st = getState(key);
+        apply(sel.g, sel.img, st);   // reapply after React re-render
+        syncUI(st);
+        positionPanel(sel.img);
+        panel.style.display = 'flex';
+      } else {
+        curKey = curG = curImg = null;
+        panel.style.display = 'none';
+      }
+    });
+  });
+
+  function startObs() {
+    var svg = document.querySelector('svg');
+    if(!svg){ setTimeout(startObs, 600); return; }
+    obs.observe(svg, {childList:true, subtree:true, attributes:true,
+                      attributeFilter:['stroke-dasharray','style','opacity','filter','transform']});
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', startObs);
+  } else {
+    startObs();
+  }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════
      KOERU KANJI PRACTICE — Luyện viết Kanji
      Kanji selector + KanjiVG stroke order + guide overlay
      ═══════════════════════════════════════════════════════ -->
