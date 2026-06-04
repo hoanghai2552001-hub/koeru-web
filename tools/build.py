@@ -2,7 +2,7 @@
 """
 KOERU — Master Build Script
 ============================
-Dùng: python tools/build.py          ← full build (sync + version + excel + study HTML + check)
+Dùng: python tools/build.py          ← full build (sync + version + study HTML + check)
       python tools/build.py --quick   ← chỉ sync data + bump version (nhanh, không gen study HTML)
       python tools/build.py --check   ← chỉ chạy data quality check
 
@@ -13,10 +13,12 @@ Tự động thực hiện:
   1. Sync N-level files → kanji-data.js
   2. Bump ?v= cache-buster trong HTML + JS
   3. Cập nhật study/index.html counts
-  4. Export Excel (input/excel/kanji_KOERU_full.xlsx)
-  5. Regenerate study HTML (study/n5.html, n4.html, n3.html)
-  6. Chạy data quality check
-  7. Dọn backup cũ
+  4. Regenerate study HTML (study/n5.html, n4.html, n3.html)
+  5. Chạy data quality check
+  6. Dọn backup cũ
+
+KHÔNG sửa Excel: input/excel/kanji_KOERU_full.xlsx là source of truth, chỉ người dùng sửa thủ công.
+Export JS → Excel nếu cần: python tools/export_excel.py
 """
 
 import re, sys, shutil, subprocess, time
@@ -225,23 +227,10 @@ def update_study_index():
         log("study/index.html đã đúng", "✅")
 
 
-# ── Step 4: Export Excel ──────────────────────────────────────────────────
-
-def export_excel():
-    """Gọi export_excel.py để sync Excel."""
-    section("Step 4 · Export Excel")
-    xlsx_path = PROJECT / "input" / "excel" / "kanji_KOERU_full.xlsx"
-    try:
-        sys.path.insert(0, str(PROJECT / "tools"))
-        # Import và gọi trực tiếp thay vì subprocess
-        from export_excel import main as export_main
-        old_argv = sys.argv
-        sys.argv = ["export_excel.py", str(xlsx_path)]
-        export_main()
-        sys.argv = old_argv
-    except Exception as e:
-        log(f"Export Excel lỗi: {e}", "⚠")
-        log(f"Chạy thủ công: python tools/export_excel.py \"{xlsx_path}\"", "⚠")
+# ── Step 4: (removed) Export Excel ───────────────────────────────────────
+# Đã xóa: build.py không còn ghi vào input/excel/kanji_KOERU_full.xlsx.
+# Excel là nguồn dữ liệu gốc (source of truth) — chỉ người dùng sửa thủ công.
+# Để export JS → Excel (cho mục đích tham khảo): python tools/export_excel.py
 
 
 # ── Step 5: Regenerate study HTML ─────────────────────────────────────────
@@ -336,16 +325,13 @@ def main():
     # Step 3: Update study/index.html counts
     update_study_index()
 
-    # Step 4: Export Excel
-    export_excel()
-
-    # Step 5: Regenerate study HTML
+    # Step 4: Regenerate study HTML
     regen_study_html()
 
-    # Step 6: Quality check
+    # Step 5: Quality check
     run_quality_check()
 
-    # Step 7: Clean
+    # Step 6: Clean
     clean_backups()
 
     elapsed = time.time() - t0
