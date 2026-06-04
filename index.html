@@ -30,12 +30,26 @@ body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:var(--
 nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;padding:0 1.5rem}
 .nav-inner{max-width:1080px;margin:auto;display:flex;align-items:center;height:60px;gap:1.2rem}
 .logo{font-size:20px;font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-.5px;display:flex;align-items:center;gap:8px;flex-shrink:0;cursor:pointer}
-.nav-links{display:flex;gap:2px;flex:1;flex-wrap:wrap}
-.nav-links a{text-decoration:none;color:var(--ink3);font-size:13px;font-weight:600;padding:5px 11px;border-radius:20px;transition:all .18s;cursor:pointer}
+.nav-links{display:flex;gap:2px;flex:1;align-items:center}
+.nav-links a{text-decoration:none;color:var(--ink3);font-size:13px;font-weight:600;padding:5px 11px;border-radius:20px;transition:all .18s;cursor:pointer;white-space:nowrap}
 .nav-links a:hover{background:var(--navy-06);color:var(--navy)}
-.nav-links a.active{background:var(--navy);color:#fff}
+.nav-links a.active{background:var(--navy-06);color:var(--navy);font-weight:800;box-shadow:inset 0 0 0 1.5px var(--navy-10)}
 .nav-links a.admin-link{color:#7a5f00;background:var(--yellow-l)}
 .nav-links a.admin-link.active{background:var(--yellow);color:var(--navy)}
+/* Dropdown */
+.nav-dropdown{position:relative}
+.nav-dd-btn{display:flex;align-items:center;gap:4px;text-decoration:none;color:var(--ink3);font-size:13px;font-weight:600;padding:5px 11px;border-radius:20px;transition:all .18s;cursor:pointer;white-space:nowrap;border:none;background:transparent;font-family:inherit}
+.nav-dd-btn:hover,.nav-dd-btn.open{background:var(--navy-06);color:var(--navy)}
+.nav-dd-btn .chevron{display:inline-block;transition:transform .18s;font-size:10px;opacity:.6}
+.nav-dd-btn.open .chevron{transform:rotate(180deg)}
+.nav-dd-menu{display:none;position:absolute;top:calc(100% + 10px);left:0;background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:6px;min-width:230px;box-shadow:0 8px 32px rgba(45,53,97,.12);z-index:300;animation:dd-in .15s ease}
+@keyframes dd-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.nav-dropdown.open .nav-dd-menu{display:block}
+.nav-dd-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;cursor:pointer;text-decoration:none;transition:all .15s;border:none;background:transparent;width:100%;text-align:left;font-family:inherit}
+.nav-dd-item:hover{background:var(--navy-06)}
+.nav-dd-item-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0}
+.nav-dd-item-text h4{font-size:13px;font-weight:700;color:var(--navy);margin:0 0 1px}
+.nav-dd-item-text p{font-size:11px;color:var(--ink3);margin:0;line-height:1.3}
 .nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .streak-pill{display:flex;align-items:center;gap:5px;background:var(--yellow-l);border:1px solid #f0d87a;border-radius:20px;padding:5px 12px;font-size:13px;font-weight:700;color:#7a5f00}
 .btn{padding:8px 18px;border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:5px;transition:all .18s;text-decoration:none}
@@ -186,12 +200,12 @@ nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1p
 .tools-lang-group{margin-bottom:24px}
 .tools-lang-label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
 .tools-lang-label::after{content:'';flex:1;height:1px;background:var(--border)}
-.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 14px;cursor:pointer;transition:all .2s;text-align:center}
-.tool-card:hover{border-color:var(--navy);box-shadow:var(--shadow)}
-.tool-icon{font-size:28px;margin-bottom:8px;display:block}
-.tool-card h3{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
-.tool-card p{font-size:11px;color:var(--ink3);line-height:1.5}
+.tools-grid{display:flex;flex-wrap:wrap;gap:8px}
+.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:7px 14px 7px 10px;cursor:pointer;transition:all .2s;text-align:left;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.tool-card:hover{border-color:var(--navy);box-shadow:var(--shadow);background:var(--navy-06)}
+.tool-icon{font-size:18px;display:block;flex-shrink:0}
+.tool-card h3{font-size:13px;font-weight:700;color:var(--navy);margin:0}
+.tool-card p{display:none}
 .tool-soon{display:inline-block;font-size:10px;font-weight:700;background:var(--accent-l);color:var(--accent);padding:2px 8px;border-radius:20px;margin-top:7px}
 
 /* ── BLOG ── */
@@ -430,6 +444,12 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 .mobile-menu a:active,.mobile-menu a.active{background:var(--navy);color:#fff}
 .mobile-menu .mob-divider{height:1px;background:var(--border);margin:8px 0}
 .mobile-menu .mob-cta{margin-top:8px}
+.mob-section-label{font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:.8px;text-transform:uppercase;padding:6px 16px 2px;opacity:.6}
+.mob-item{display:flex!important;align-items:center;gap:12px;padding:10px 14px!important}
+.mob-icon{font-size:22px;width:32px;text-align:center;flex-shrink:0}
+.mob-text{display:flex;flex-direction:column;gap:1px}
+.mob-text strong{font-size:15px;font-weight:700;color:var(--navy);display:block}
+.mob-text small{font-size:12px;color:var(--ink3);font-weight:400;display:block}
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:768px){
@@ -457,7 +477,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 
   /* Grids — 1 cột trên mobile */
   .courses-grid{grid-template-columns:1fr}
-  .tools-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .tools-grid{gap:6px}
   .blog-grid{grid-template-columns:1fr}
   .lesson-feed{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr;gap:20px}
@@ -496,7 +516,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 
 @media(max-width:400px){
   .hero h1{font-size:26px !important}
-  .tools-grid{grid-template-columns:1fr}
+  .tools-grid{gap:5px}
   .lesson-feed{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
 }
@@ -540,13 +560,41 @@ body.tool-active{overflow:hidden}
     </a>
     <div class="nav-links">
       <a onclick="showPage('home')" id="nav-home" class="active">🏠 Trang chủ</a>
-      <a onclick="showPage('learn')" id="nav-learn">📖 Bài học</a>
-      <a onclick="showPage('flash')" id="nav-flash">🃏 Flashcard</a>
+      <a onclick="showPage('learn')" id="nav-learn">📚 Bài học</a>
       <a onclick="showPage('quiz')" id="nav-quiz">🧪 Kiểm tra</a>
       <a onclick="showPage('blog')" id="nav-blog">📰 Blog</a>
-      <a onclick="showPage('study')" id="nav-study">📖 Học Kanji</a>
-      <a onclick="showPage('kanji')" id="nav-kanji">🖊 Luyện Kanji</a>
-      <a onclick="showPage('kana')" id="nav-kana">🎌 Kana</a>
+      <!-- Dropdown: Luyện tập -->
+      <div class="nav-dropdown" id="nav-dd-tools">
+        <button class="nav-dd-btn" id="nav-dd-btn-tools" onclick="toggleNavDropdown('tools')" aria-haspopup="true" aria-expanded="false">
+          🛠 Luyện tập <span class="chevron">▾</span>
+        </button>
+        <div class="nav-dd-menu" role="menu">
+          <button class="nav-dd-item" onclick="closeNavDropdown();showPage('flash')" id="nav-flash">
+            <span class="nav-dd-item-icon">🃏</span>
+            <div class="nav-dd-item-text"><h4>Flashcard</h4><p>Ôn từ vựng theo SRS</p></div>
+          </button>
+          <button class="nav-dd-item" onclick="closeNavDropdown();showPage('kanji')" id="nav-kanji">
+            <span class="nav-dd-item-icon">⚔️</span>
+            <div class="nav-dd-item-text"><h4>Kanji Lab</h4><p>4 game luyện Kanji N5→N1</p></div>
+          </button>
+          <button class="nav-dd-item" onclick="closeNavDropdown();showPage('study')" id="nav-study">
+            <span class="nav-dd-item-icon">🔍</span>
+            <div class="nav-dd-item-text"><h4>Tra cứu Kanji</h4><p>Stroke order · On/Kun · Nghĩa</p></div>
+          </button>
+          <button class="nav-dd-item" onclick="closeNavDropdown();showPage('kana')" id="nav-kana">
+            <span class="nav-dd-item-icon">🎌</span>
+            <div class="nav-dd-item-text"><h4>Kana Speed</h4><p>Luyện phản xạ Hiragana/Katakana</p></div>
+          </button>
+          <button class="nav-dd-item" onclick="closeNavDropdown();openTool('kanji-map.html')">
+            <span class="nav-dd-item-icon">🗺️</span>
+            <div class="nav-dd-item-text"><h4>Bản đồ Kanji</h4><p>Xem quan hệ giữa các chữ</p></div>
+          </button>
+          <button class="nav-dd-item" onclick="closeNavDropdown();openTool('odysseus-whiteboard.html')">
+            <span class="nav-dd-item-icon">✍️</span>
+            <div class="nav-dd-item-text"><h4>Whiteboard</h4><p>Bảng luyện viết Kanji tự do</p></div>
+          </button>
+        </div>
+      </div>
       <a onclick="showPage('admin')" id="nav-admin" class="admin-link" style="display:none">⚙️ Admin</a>
     </div>
     <div class="nav-right">
@@ -561,21 +609,62 @@ body.tool-active{overflow:hidden}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a onclick="navTo('home')">🏠 Trang chủ</a>
-  <a onclick="navTo('learn')">📖 Bài học</a>
-  <a onclick="navTo('flash')">🃏 Flashcard</a>
-  <a onclick="navTo('quiz')">🧪 Kiểm tra</a>
-  <a onclick="navTo('blog')">📰 Blog</a>
+  <a onclick="navTo('home')" class="mob-item">
+    <span class="mob-icon">🏠</span>
+    <span class="mob-text"><strong>Trang chủ</strong><small>Về trang chính</small></span>
+  </a>
+  <a onclick="navTo('learn')" class="mob-item">
+    <span class="mob-icon">📚</span>
+    <span class="mob-text"><strong>Bài học</strong><small>Lộ trình JLPT / HSK</small></span>
+  </a>
+  <a onclick="navTo('quiz')" class="mob-item">
+    <span class="mob-icon">🧪</span>
+    <span class="mob-text"><strong>Kiểm tra</strong><small>Đánh giá trình độ</small></span>
+  </a>
+  <a onclick="navTo('blog')" class="mob-item">
+    <span class="mob-icon">📰</span>
+    <span class="mob-text"><strong>Blog</strong><small>Mẹo học, kinh nghiệm thi</small></span>
+  </a>
   <div class="mob-divider"></div>
-  <a onclick="navTo('study')">📖 Học Kanji</a>
-  <a onclick="navTo('kanji')">🖊 Luyện Kanji</a>
-  <a onclick="navTo('kana')">🎌 Kana Speed</a>
-  <a onclick="closeMenu();openTool('kanji-map.html')">🗺 Bản đồ Kanji</a>
-  <a onclick="closeMenu();openTool('study/index.html')">📖 Bảng Kanji Hoạt Họa</a>
+  <div class="mob-section-label">🛠 Công cụ luyện tập</div>
+  <a onclick="navTo('flash')" class="mob-item">
+    <span class="mob-icon">🃏</span>
+    <span class="mob-text"><strong>Flashcard</strong><small>Ôn từ vựng theo SRS</small></span>
+  </a>
+  <a onclick="navTo('kanji')" class="mob-item">
+    <span class="mob-icon">⚔️</span>
+    <span class="mob-text"><strong>Kanji Lab</strong><small>4 game luyện Kanji N5→N1</small></span>
+  </a>
+  <a onclick="navTo('study')" class="mob-item">
+    <span class="mob-icon">🔍</span>
+    <span class="mob-text"><strong>Tra cứu Kanji</strong><small>Stroke order · On/Kun · Nghĩa</small></span>
+  </a>
+  <a onclick="navTo('kana')" class="mob-item">
+    <span class="mob-icon">🎌</span>
+    <span class="mob-text"><strong>Kana Speed</strong><small>Luyện phản xạ Hiragana/Katakana</small></span>
+  </a>
+  <a onclick="closeMenu();openTool('kanji-map.html')" class="mob-item">
+    <span class="mob-icon">🗺️</span>
+    <span class="mob-text"><strong>Bản đồ Kanji</strong><small>Xem quan hệ giữa các chữ</small></span>
+  </a>
+  <a onclick="closeMenu();openTool('odysseus-whiteboard.html')" class="mob-item">
+    <span class="mob-icon">✍️</span>
+    <span class="mob-text"><strong>Whiteboard</strong><small>Bảng luyện viết Kanji tự do</small></span>
+  </a>
   <div class="mob-divider"></div>
-  <a onclick="closeMenu();openTool('pinyin.html',{leadKey:'hsk_practice'})">🀄 HSK Practice</a>
-  <a onclick="closeMenu();openTool('hanzi-lab.html',{leadKey:'hanzi_lab'})">🔬 Hanzi Lab</a>
-  <a onclick="closeMenu();openTool('hanzi-map.html',{leadKey:'hanzi_map_cn'})">🗺 Hanzi Map</a>
+  <div class="mob-section-label">🀄 Tiếng Trung</div>
+  <a onclick="closeMenu();openTool('pinyin.html',{leadKey:'hsk_practice'})" class="mob-item">
+    <span class="mob-icon">🀄</span>
+    <span class="mob-text"><strong>HSK Practice</strong><small>Luyện Pinyin & từ vựng HSK</small></span>
+  </a>
+  <a onclick="closeMenu();openTool('hanzi-lab.html',{leadKey:'hanzi_lab'})" class="mob-item">
+    <span class="mob-icon">🔬</span>
+    <span class="mob-text"><strong>Hanzi Lab</strong><small>4 game luyện Hán tự</small></span>
+  </a>
+  <a onclick="closeMenu();openTool('hanzi-map.html',{leadKey:'hanzi_map_cn'})" class="mob-item">
+    <span class="mob-icon">🗺️</span>
+    <span class="mob-text"><strong>Hanzi Map</strong><small>Bản đồ quan hệ Hán tự</small></span>
+  </a>
   <div class="mob-divider"></div>
   <button class="btn btn-navy mob-cta" style="width:100%;justify-content:center;padding:14px" onclick="navTo('register')">Đăng ký học thử miễn phí →</button>
 </div>
@@ -753,7 +842,7 @@ body.tool-active{overflow:hidden}
           <div class="tool-card" onclick="showPage('flash')"><span class="tool-icon">🃏</span><h3>Flashcard</h3><p>Ôn từ vựng spaced repetition — nhớ lâu hơn</p></div>
           <div class="tool-card" onclick="showPage('kanji')"><span class="tool-icon">🎯</span><h3>Kanji Quiz</h3><p>Kiểm tra trình độ N5–N4 · 10 câu · Nhận lộ trình</p></div>
           <div class="tool-card" onclick="showPage('study')"><span class="tool-icon">📚</span><h3>Từ vựng</h3><p>Tra cứu 5800+ từ N5–N3 kèm Kanji & Hán Việt</p></div>
-          <div class="tool-card" onclick="showPage('study')"><span class="tool-icon">📝</span><h3>Ngữ pháp N5</h3><p>25 mẫu câu thiết yếu · Giải thích tiếng Việt · Mini quiz</p></div>
+          <div class="tool-card" onclick="showPage('learn')"><span class="tool-icon">📝</span><h3>Ngữ pháp N5</h3><p>25 mẫu câu thiết yếu · Giải thích tiếng Việt · Mini quiz</p></div>
           <div class="tool-card" onclick="showPage('kanji')"><span class="tool-icon">🖊</span><h3>Luyện Kanji</h3><p>Flashcard · Match · Quiz — Kanji N5/N4/N3</p></div>
           <div class="tool-card" onclick="showPage('kana')"><span class="tool-icon">🎌</span><h3>Kana Speed</h3><p>Đọc nhanh Hiragana / Katakana — animation nét vẽ</p></div>
           <div class="tool-card" onclick="openTool('study/index.html')"><span class="tool-icon">📖</span><h3>Bảng Kanji</h3><p>Hoạt ảnh thứ tự nét · N5/N4/N3 · In được</p></div>
@@ -1532,6 +1621,25 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && _toolOpen)
 function toggleMenu(){const m=document.getElementById('mobile-menu'),h=document.getElementById('ham-btn');m.classList.toggle('open');h.classList.toggle('open');}
 function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-btn').classList.remove('open');}
 function navTo(p){closeMenu();showPage(p);}
+
+/* ─── NAV DROPDOWN ─── */
+function toggleNavDropdown(id){
+  const dd=document.getElementById('nav-dd-'+id);
+  const btn=document.getElementById('nav-dd-btn-'+id);
+  const isOpen=dd.classList.contains('open');
+  closeNavDropdown();
+  if(!isOpen){dd.classList.add('open');btn.classList.add('open');btn.setAttribute('aria-expanded','true');}
+}
+function closeNavDropdown(){
+  document.querySelectorAll('.nav-dropdown.open').forEach(dd=>{
+    dd.classList.remove('open');
+    const btn=dd.querySelector('.nav-dd-btn');
+    if(btn){btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  });
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-dropdown')) closeNavDropdown();
+});
 
 /* ─── ADMIN AUTH ─── */
 const ADMIN_PW='koeru2026';
