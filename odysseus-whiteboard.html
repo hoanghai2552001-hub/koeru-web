@@ -2075,4 +2075,200 @@ svg[style*="position: fixed"] {
 })();
 </script>
 
+<!-- ═══ KOERU MOBILE / TABLET RESPONSIVE ═══ -->
+<style>
+/* ── Identify tagged elements ── */
+/* kwb-tool-sel = left vertical tool selector (React component) */
+/* kwb-props-bar = top horizontal properties bar (React component) */
+
+/* ── PHONE: ≤ 640px ── */
+@media (max-width: 640px) {
+  /* Move tool selector to bottom dock */
+  .kwb-tool-sel {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    flex-direction: row !important;
+    border-radius: 16px 16px 0 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    justify-content: center !important;
+    padding: 10px 8px !important;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+    gap: 2px !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+    scrollbar-width: none !important;
+  }
+  .kwb-tool-sel::-webkit-scrollbar { display: none !important; }
+
+  /* Touch-friendly tool buttons */
+  .kwb-tool-sel > button {
+    min-width: 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    flex-shrink: 0 !important;
+    font-size: 1.25rem !important;
+  }
+  /* Shape sub-buttons */
+  .kwb-tool-sel > div[style*="flex-direction: column"],
+  .kwb-tool-sel > span {
+    flex-direction: row !important;
+    display: flex !important;
+    flex-shrink: 0 !important;
+  }
+  .kwb-tool-sel > div[style*="flex-direction: column"] > button {
+    min-width: 40px !important;
+    width: 40px !important;
+    height: 44px !important;
+    flex-shrink: 0 !important;
+  }
+  /* Separators: horizontal → vertical */
+  .kwb-tool-sel > div[style*="height: 1px"],
+  .kwb-tool-sel > div[style*="height:1px"] {
+    width: 1px !important;
+    height: 28px !important;
+    margin: 0 4px !important;
+    align-self: center !important;
+  }
+  /* Key hint label — hide on mobile */
+  .kwb-tool-sel > div[style*="font-size: 0.55rem"],
+  .kwb-tool-sel > div[style*="font-size:0.55rem"] {
+    display: none !important;
+  }
+
+  /* Props bar: full-width scrollable */
+  .kwb-props-bar {
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    box-sizing: border-box !important;
+    padding: 6px 10px !important;
+  }
+  .kwb-props-bar::-webkit-scrollbar { display: none !important; }
+
+  /* Logo: compact icon only */
+  #kwb-logo {
+    top: auto !important;
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+    left: 8px !important;
+    padding: 5px 8px !important;
+    border-radius: 8px !important;
+  }
+  #kwb-logo span { display: none !important; }
+
+  /* Kanji practice panel: full screen */
+  #kp-panel {
+    width: 100vw !important;
+    right: -100vw !important;
+    top: 0 !important;
+    height: 100dvh !important;
+  }
+  #kp-panel.open { right: 0 !important; }
+
+  /* Image transform panel: reposition above bottom dock */
+  #itp {
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+    top: auto !important;
+  }
+
+  /* Modals: full screen friendly */
+  .kwb-mbox {
+    width: min(96vw, 500px) !important;
+    max-height: 85dvh !important;
+    padding: 18px 16px !important;
+  }
+
+  /* Range inputs: easier to touch */
+  .kwb-props-bar input[type="range"] {
+    width: 80px !important;
+    height: 28px !important;
+  }
+}
+
+/* ── TABLET: 641–1024px ── */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Touch-friendly tool buttons */
+  .kwb-tool-sel > button {
+    min-width: 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  /* Props bar: allow overflow scroll */
+  .kwb-props-bar {
+    max-width: calc(100vw - 90px) !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+  .kwb-props-bar::-webkit-scrollbar { display: none !important; }
+}
+</style>
+
+<script>
+/* ── KOERU Mobile Responsive: tag React components for CSS targeting ── */
+(function kwbMobileTag(){
+  'use strict';
+
+  function tagElements() {
+    var root = document.getElementById('root');
+    if (!root) return false;
+
+    var tagged = 0;
+
+    // Find all fixed divs inside the React tree
+    var divs = Array.from(root.querySelectorAll('div'));
+    var fixedDivs = divs.filter(function(el) {
+      return el.style && el.style.position === 'fixed';
+    });
+
+    // Tool selector: fixed, left=12px, top=50%
+    fixedDivs.forEach(function(el) {
+      if (el.style.left === '12px' && el.style.top === '50%') {
+        if (!el.classList.contains('kwb-tool-sel')) {
+          el.classList.add('kwb-tool-sel');
+          tagged++;
+        }
+      }
+    });
+
+    // Props bar: fixed, top=12px, left=50% (centered top bar)
+    fixedDivs.forEach(function(el) {
+      if (el.style.top === '12px' && el.style.left === '50%') {
+        if (!el.classList.contains('kwb-props-bar')) {
+          el.classList.add('kwb-props-bar');
+          tagged++;
+        }
+      }
+    });
+
+    return tagged >= 2;
+  }
+
+  function tryTag() {
+    if (tagElements()) {
+      // Watch for React re-renders (tool change, re-render) removing our classes
+      var root = document.getElementById('root');
+      if (root) {
+        new MutationObserver(function() { tagElements(); })
+          .observe(root, { subtree: true, childList: true, attributeFilter: ['class', 'style'] });
+      }
+    } else {
+      // Keep retrying indefinitely — user may still be on intro screen
+      setTimeout(tryTag, 300);
+    }
+  }
+
+  setTimeout(tryTag, 300);
+})();
+</script>
+
 </body></html>
