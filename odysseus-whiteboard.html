@@ -2023,4 +2023,56 @@ if(document.readyState==='loading'){
 })();
 </script>
 
+<!-- ═══════════════════════════════════════════════════════
+     KOERU PEN SMOOTHNESS FIX
+     touch-action:none prevents browser scroll/zoom from
+     interrupting pen strokes → eliminates jitter
+     ═══════════════════════════════════════════════════════ -->
+<style>
+/* Prevent browser from hijacking touch/pointer events for pan/zoom */
+svg[style*="position: fixed"] {
+  touch-action: none !important;
+}
+</style>
+<script>
+(function patchCanvasTouchAction(){
+  /* CSS !important covers most cases, but React sometimes re-applies
+     inline styles. Use MutationObserver to keep touch-action:none. */
+  function applyFix(){
+    var svg = document.querySelector('svg[style*="position: fixed"]');
+    if(svg && svg.style.touchAction !== 'none'){
+      svg.style.touchAction = 'none';
+      /* Also hint GPU compositing for smoother stroke rendering */
+      svg.style.willChange = 'transform';
+    }
+  }
+  /* Initial fix after React hydrates */
+  setTimeout(applyFix, 400);
+  setTimeout(applyFix, 1200);
+  /* Watch for React re-renders that might reset inline style */
+  var obs = new MutationObserver(function(mutations){
+    for(var i=0;i<mutations.length;i++){
+      var t = mutations[i].target;
+      if(t.tagName === 'svg' && t.style && t.style.touchAction !== 'none'){
+        t.style.touchAction = 'none';
+        t.style.willChange = 'transform';
+      }
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function(){
+    var svg = document.querySelector('svg[style*="position: fixed"]');
+    if(svg){
+      obs.observe(svg, { attributes:true, attributeFilter:['style'] });
+    } else {
+      /* If SVG not yet created, watch body for it */
+      var bodyObs = new MutationObserver(function(){
+        var s = document.querySelector('svg[style*="position: fixed"]');
+        if(s){ bodyObs.disconnect(); applyFix(); obs.observe(s,{attributes:true,attributeFilter:['style']}); }
+      });
+      bodyObs.observe(document.body, {childList:true, subtree:true});
+    }
+  });
+})();
+</script>
+
 </body></html>
