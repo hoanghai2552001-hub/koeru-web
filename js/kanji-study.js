@@ -346,6 +346,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('study-search').value = '';
       document.getElementById('study-search-clear').style.display = 'none';
       closeDetail();
+      // Nếu đang ở tab Từ vựng → re-render vocab theo level mới
+      if(typeof currentView !== 'undefined' && currentView === 'vocab') {
+        window.refreshVocabView?.();
+        return;
+      }
       // Hiện loading indicator nhẹ
       const count = document.getElementById('study-stats-count');
       count.textContent = 'Đang tải…';

@@ -255,6 +255,7 @@ function switchView(view, btn) {
   else { dp.style.display=''; ss.style.display=''; }
 
   if(view==='vocab' && !vocabBuilt) buildVocabView();
+  else if(view==='vocab') window.refreshVocabView?.();
   if(view==='grammar' && !grammarBuilt) buildGrammarView();
 }
 
@@ -268,23 +269,31 @@ function buildVocabView() {
       const key = w.w+'|'+w.r;
       if(!seen.has(key) && w.w && w.m) {
         seen.add(key);
-        vocab.push({word:w.w, reading:w.r, meaning:w.m, level:e.level, k:e.k, hv:e.hanviet||''});
+        vocab.push({word:w.w, reading:w.r, meaning:w.m, level:e.level, k:e.kanji, hv:e.hanviet||''});
       }
     });
   });
   window._vocabAll = vocab;
-  renderVocabView(vocab.slice(0, 300));
+
+  // Re-render với level hiện tại (dùng bởi cả switchView và level tab)
+  window.refreshVocabView = function(q) {
+    const lvl = typeof currentLevel !== 'undefined' ? currentLevel : 'N5';
+    let base = lvl === 'ALL' ? window._vocabAll : window._vocabAll.filter(v => v.level === lvl);
+    if(q) {
+      const lq = q.toLowerCase();
+      base = base.filter(v =>
+        v.word.includes(lq)||v.reading.includes(lq)||v.meaning.toLowerCase().includes(lq)||(v.hv||'').toLowerCase().includes(lq)
+      );
+    }
+    renderVocabView(base.slice(0, 300));
+  };
+  window.refreshVocabView();
   vocabBuilt = true;
 
   // Hook search
   document.getElementById('study-search').addEventListener('input', function() {
     if(currentView!=='vocab') return;
-    const q = this.value.trim().toLowerCase();
-    if(!q) { renderVocabView(window._vocabAll.slice(0,300)); return; }
-    const f = window._vocabAll.filter(v =>
-      v.word.includes(q)||v.reading.includes(q)||v.meaning.toLowerCase().includes(q)||(v.hv||'').toLowerCase().includes(q)
-    );
-    renderVocabView(f.slice(0,200));
+    window.refreshVocabView(this.value.trim());
   });
 }
 
@@ -307,8 +316,8 @@ function selectKanjiByChar(k) {
   // Switch back to kanji view and select
   switchView('kanji', document.querySelector('.view-tab[data-view="kanji"]'));
   const data = window.ALL_KANJI||[];
-  const entry = data.find(e=>e.k===k);
-  if(entry && typeof showKanjiDetail==='function') showKanjiDetail(entry);
+  const entry = data.find(e=>e.kanji===k);
+  if(entry && typeof openDetail==='function') openDetail(entry);
 }
 
 // ── GRAMMAR VIEW ───────────────────────────────────────────
