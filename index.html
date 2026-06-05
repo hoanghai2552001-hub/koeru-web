@@ -1591,23 +1591,6 @@ function openLastTool() {
 // Escape đóng panel
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && _toolOpen) closeTool(); });
 
-// Hiện chip resume trên home page nếu có lịch sử
-(function showHomeResume() {
-  if (!_toolHistory.length) return;
-  const last = _toolHistory[0];
-  document.addEventListener('DOMContentLoaded', () => {
-    const cta = document.querySelector('.hero-cta');
-    if (!cta) return;
-    const chip = document.createElement('button');
-    chip.className = 'btn btn-ghost btn-hero';
-    chip.style = 'padding:15px 20px;font-size:14px;gap:6px';
-    chip.innerHTML = '↩ Tiếp tục: ' + (last.label || '');
-    // Nếu là embedded tool thì dùng showPage, ngược lại openTool
-    const embKey = Object.keys(EMBEDDED_TOOLS).find(k => EMBEDDED_TOOLS[k] === last.url || last.url.startsWith(EMBEDDED_TOOLS[k]));
-    chip.onclick = embKey ? () => showPage(embKey) : () => openTool(last.url);
-    cta.appendChild(chip);
-  });
-})();
 
 /* ─── MOBILE MENU ─── */
 function toggleMenu(){const m=document.getElementById('mobile-menu'),h=document.getElementById('ham-btn');m.classList.toggle('open');h.classList.toggle('open');}
