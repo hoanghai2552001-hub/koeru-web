@@ -1502,6 +1502,28 @@ if(document.readyState==='loading'){
   background: #ede9fe; color: #4f46e5; flex-shrink: 0;
 }
 
+/* ── Vocab list ── */
+#kp-vocab { margin-bottom: 10px; }
+.kp-vocab-hdr {
+  font-size: 10px; font-weight: 800; color: #9ca3af; text-transform: uppercase;
+  letter-spacing: .06em; margin-bottom: 5px;
+}
+.kp-vocab-list {
+  display: flex; flex-direction: column; gap: 4px;
+  max-height: 130px; overflow-y: auto;
+}
+.kp-vocab-item {
+  display: flex; align-items: baseline; gap: 7px;
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 7px;
+  padding: 5px 9px; font-size: 12px; line-height: 1.4;
+}
+.kp-vocab-w  { font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 700; color: #1f2937; flex-shrink: 0; }
+.kp-vocab-r  { font-size: 11px; color: #6b7280; flex-shrink: 0; }
+.kp-vocab-m  { font-size: 11px; color: #4b5563; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kp-vocab-empty { font-size: 11px; color: #9ca3af; font-style: italic; }
+
+#kp-detail { overflow-y: auto; max-height: 55vh; }
+
 .kp-btns { display: flex; gap: 7px; }
 .kp-btn {
   flex: 1; padding: 8px 0; border-radius: 8px; border: 1.5px solid #e5e7eb;
@@ -1601,6 +1623,7 @@ if(document.readyState==='loading'){
           '</div>' +
         '</div>' +
         '<div class="kp-info" id="kp-info"></div>' +
+        '<div id="kp-vocab"></div>' +
         '<div class="kp-btns">' +
           '<button class="kp-btn primary" id="kp-guide">📌 Thêm làm nền mờ</button>' +
           '<button class="kp-btn" id="kp-clear-guides">🗑 Xóa nền</button>' +
@@ -1670,6 +1693,26 @@ if(document.readyState==='loading'){
       '</div>' +
       '<span class="kp-level-badge">'+k.level+'</span>'
       : '<div class="kp-kanji-lg">'+kanji+'</div>';
+
+    /* vocab list */
+    var vocabEl = document.getElementById('kp-vocab');
+    if(k && k.words && k.words.length) {
+      var words = k.words.slice(0, 8);
+      vocabEl.innerHTML =
+        '<div class="kp-vocab-hdr">📚 Từ vựng liên quan</div>' +
+        '<div class="kp-vocab-list">' +
+          words.map(function(w){
+            return '<div class="kp-vocab-item">' +
+              '<span class="kp-vocab-w">'+(w.w||'')+'</span>' +
+              '<span class="kp-vocab-r">'+(w.r||'')+'</span>' +
+              '<span class="kp-vocab-m">'+(w.m||'')+'</span>' +
+            '</div>';
+          }).join('') +
+        '</div>';
+    } else {
+      vocabEl.innerHTML = '<div class="kp-vocab-empty">Không có từ vựng.</div>';
+    }
+
     /* stroke order */
     loadStroke(kanji);
   }
