@@ -1796,166 +1796,195 @@ if(document.readyState==='loading'){
       });
   }
 
-  /* ── Add kanji as draggable faint guide on canvas ── */
+  /* ── Dual-layer guide system ──
+     Visual layer: bottom of SVG (behind drawings) — pointer-events: none
+     Hit layer:    top of SVG  (above React canvas) — receives all events     */
+  var _guideSeq = 0;
+
+  function _getOrCreateLayers(svg) {
+    /* Visual layer — first child (rendered behind everything) */
+    var vl = svg.querySelector('#kwb-guide-layer');
+    if(!vl){
+      vl = document.createElementNS('http://www.w3.org/2000/svg','g');
+      vl.id = 'kwb-guide-layer';
+      vl.setAttribute('pointer-events','none');
+      svg.insertBefore(vl, svg.firstChild);
+    }
+    /* Hit layer — last child (rendered above React canvas, receives events) */
+    var hl = svg.querySelector('#kwb-guide-hit-layer');
+    if(!hl){
+      hl = document.createElementNS('http://www.w3.org/2000/svg','g');
+      hl.id = 'kwb-guide-hit-layer';
+      svg.appendChild(hl);
+    }
+    return {vl:vl, hl:hl};
+  }
+
   function addGuide(kanji) {
     var svg = document.querySelector('svg');
     if(!svg){ alert('Không tìm thấy canvas whiteboard.'); return; }
 
-    /* Find or create guide layer (pointer-events on so guides are interactive) */
-    var layer = svg.querySelector('#kwb-guide-layer');
-    if(!layer){
-      layer = document.createElementNS('http://www.w3.org/2000/svg','g');
-      layer.id = 'kwb-guide-layer';
-      svg.insertBefore(layer, svg.firstChild);
-    }
-
+    var layers = _getOrCreateLayers(svg);
     var center = getCanvasCenter(svg);
     var size   = 200;
     var half   = size / 2 + 12;
+    var gid    = 'kwb-g-' + (++_guideSeq);
 
-    /* ── Wrapper group ── */
-    var g = document.createElementNS('http://www.w3.org/2000/svg','g');
-    g.setAttribute('class','kwb-guide-item');
-    g.setAttribute('data-guide','1');
-    g.setAttribute('data-size', size);
-    g.setAttribute('transform','translate('+center.x+','+center.y+')');
+    /* ── VISUAL group (bottom layer, no pointer events) ── */
+    var vg = document.createElementNS('http://www.w3.org/2000/svg','g');
+    vg.setAttribute('data-gid', gid);
+    vg.setAttribute('transform','translate('+center.x+','+center.y+')');
 
-    /* Transparent hit-rect for drag */
-    var hit = document.createElementNS('http://www.w3.org/2000/svg','rect');
-    hit.setAttribute('class','kwb-guide-hit');
-    hit.setAttribute('x',-half); hit.setAttribute('y',-half);
-    hit.setAttribute('width', size+24); hit.setAttribute('height', size+24);
-    hit.setAttribute('rx','8'); hit.setAttribute('fill','transparent');
-
-    /* Dashed border (visible on hover) */
-    var bdr = document.createElementNS('http://www.w3.org/2000/svg','rect');
-    bdr.setAttribute('class','kwb-guide-bdr');
-    bdr.setAttribute('x',-half); bdr.setAttribute('y',-half);
-    bdr.setAttribute('width', size+24); bdr.setAttribute('height', size+24);
-    bdr.setAttribute('rx','8'); bdr.setAttribute('fill','none');
-    bdr.setAttribute('stroke','rgba(99,102,241,.55)'); bdr.setAttribute('stroke-width','1.5');
-    bdr.setAttribute('stroke-dasharray','5 3'); bdr.setAttribute('pointer-events','none');
-
-    /* Kanji text */
     var txt = document.createElementNS('http://www.w3.org/2000/svg','text');
-    txt.setAttribute('class','kwb-guide-txt');
     txt.setAttribute('text-anchor','middle'); txt.setAttribute('dominant-baseline','central');
     txt.setAttribute('x','0'); txt.setAttribute('y','0');
     txt.setAttribute('font-size', size);
     txt.setAttribute('font-family','Noto Serif JP, serif');
     txt.setAttribute('fill','rgba(139,92,246,0.13)');
     txt.setAttribute('stroke','rgba(139,92,246,0.08)'); txt.setAttribute('stroke-width','1');
-    txt.setAttribute('pointer-events','none'); txt.setAttribute('user-select','none');
+    txt.setAttribute('class','kwb-guide-txt');
     txt.textContent = kanji;
+    vg.appendChild(txt);
+    layers.vl.appendChild(vg);
 
-    /* ── Control buttons (show on hover) ── */
+    /* ── HIT group (top layer, receives events) ── */
+    var hg = document.createElementNS('http://www.w3.org/2000/svg','g');
+    hg.setAttribute('class','kwb-guide-item');
+    hg.setAttribute('data-gid', gid);
+    hg.setAttribute('data-size', size);
+    hg.setAttribute('transform','translate('+center.x+','+center.y+')');
+
+    /* Transparent drag rect */
+    var hit = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    hit.setAttribute('class','kwb-guide-hit');
+    hit.setAttribute('x',-half); hit.setAttribute('y',-half);
+    hit.setAttribute('width',size+24); hit.setAttribute('height',size+24);
+    hit.setAttribute('rx','8'); hit.setAttribute('fill','rgba(0,0,0,0.001)'); // non-zero to capture events
+
+    /* Dashed border */
+    var bdr = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    bdr.setAttribute('class','kwb-guide-bdr');
+    bdr.setAttribute('x',-half); bdr.setAttribute('y',-half);
+    bdr.setAttribute('width',size+24); bdr.setAttribute('height',size+24);
+    bdr.setAttribute('rx','8'); bdr.setAttribute('fill','none');
+    bdr.setAttribute('stroke','rgba(99,102,241,.6)'); bdr.setAttribute('stroke-width','1.5');
+    bdr.setAttribute('stroke-dasharray','5 3'); bdr.setAttribute('pointer-events','none');
+
+    /* Control buttons */
     var ctrl = document.createElementNS('http://www.w3.org/2000/svg','g');
     ctrl.setAttribute('class','kwb-guide-ctrl');
 
     function mkBtn(cx, cy, label, fn) {
       var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
-      c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r','11');
-      c.setAttribute('fill','rgba(255,255,255,.92)');
-      c.setAttribute('stroke','rgba(99,102,241,.45)'); c.setAttribute('stroke-width','1.2');
+      c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r','12');
+      c.setAttribute('fill','white'); c.setAttribute('stroke','rgba(99,102,241,.5)'); c.setAttribute('stroke-width','1.5');
       var l = document.createElementNS('http://www.w3.org/2000/svg','text');
       l.setAttribute('x',cx); l.setAttribute('y',cy);
       l.setAttribute('text-anchor','middle'); l.setAttribute('dominant-baseline','central');
-      l.setAttribute('font-size','12'); l.setAttribute('font-weight','700');
+      l.setAttribute('font-size','13'); l.setAttribute('font-weight','800');
       l.setAttribute('fill','#4f46e5'); l.setAttribute('pointer-events','none');
       l.textContent = label;
+      c.addEventListener('mousedown', function(e){ e.stopPropagation(); e.preventDefault(); });
       c.addEventListener('click', function(e){ e.stopPropagation(); fn(); });
       ctrl.appendChild(c); ctrl.appendChild(l);
     }
 
-    // Buttons: × (delete), + (bigger), − (smaller) — top-right corner
-    mkBtn( half,        -half, '×', function(){ g.parentNode && g.parentNode.removeChild(g); });
-    mkBtn( half - 26,   -half, '+', function(){ _resizeGuide(g, Math.min((+g.dataset.size||200)+30, 400)); });
-    mkBtn( half - 52,   -half, '−', function(){ _resizeGuide(g, Math.max((+g.dataset.size||200)-30, 60)); });
+    mkBtn(half,      -half, '×', function(){
+      var v = layers.vl.querySelector('[data-gid="'+gid+'"]');
+      if(v) v.parentNode.removeChild(v);
+      if(hg.parentNode) hg.parentNode.removeChild(hg);
+    });
+    mkBtn(half-28,   -half, '+', function(){ _resizeGuide(hg, vg, Math.min((+hg.dataset.size||200)+30, 400)); });
+    mkBtn(half-56,   -half, '−', function(){ _resizeGuide(hg, vg, Math.max((+hg.dataset.size||200)-30, 60)); });
 
-    g.appendChild(hit);
-    g.appendChild(bdr);
-    g.appendChild(txt);
-    g.appendChild(ctrl);
-    layer.appendChild(g);
+    hg.appendChild(hit);
+    hg.appendChild(bdr);
+    hg.appendChild(ctrl);
+    layers.hl.appendChild(hg);
 
-    _attachDrag(g, hit, svg);
+    _attachDrag(hg, vg, hit, svg);
 
     var t = document.getElementById('kwb-toast');
     if(t){ t.textContent='✍️ Đã thêm '+kanji+' — kéo để di chuyển · +/− đổi cỡ · × xóa'; t.style.display='block'; setTimeout(function(){ t.style.display='none'; },3000); }
   }
 
-  function _resizeGuide(g, s) {
-    g.setAttribute('data-size', s);
+  function _resizeGuide(hg, vg, s) {
+    hg.setAttribute('data-size', s);
     var half = s / 2 + 12;
-    var txt  = g.querySelector('.kwb-guide-txt');
-    if(txt){ txt.setAttribute('font-size', s); }
-    g.querySelectorAll('.kwb-guide-hit, .kwb-guide-bdr').forEach(function(r){
+    var txt  = vg.querySelector('.kwb-guide-txt');
+    if(txt) txt.setAttribute('font-size', s);
+    hg.querySelectorAll('.kwb-guide-hit, .kwb-guide-bdr').forEach(function(r){
       r.setAttribute('x',-half); r.setAttribute('y',-half);
-      r.setAttribute('width', s+24); r.setAttribute('height', s+24);
+      r.setAttribute('width',s+24); r.setAttribute('height',s+24);
     });
-    // Reposition control buttons
-    var circles = g.querySelectorAll('.kwb-guide-ctrl circle');
-    var labels  = g.querySelectorAll('.kwb-guide-ctrl text');
-    var bx = [half, half-26, half-52];
+    var circles = hg.querySelectorAll('.kwb-guide-ctrl circle');
+    var labels  = hg.querySelectorAll('.kwb-guide-ctrl text');
+    var bx = [half, half-28, half-56];
     for(var i=0;i<3;i++){
       if(circles[i]){ circles[i].setAttribute('cx',bx[i]); circles[i].setAttribute('cy',-half); }
-      if(labels[i] ){ labels[i].setAttribute('x', bx[i]); labels[i].setAttribute('y', -half); }
+      if(labels[i] ){ labels[i].setAttribute('x', bx[i]);  labels[i].setAttribute('y', -half); }
     }
   }
 
-  function _attachDrag(g, hit, svg) {
+  function _attachDrag(hg, vg, hit, svg) {
     var active=false, sx=0, sy=0, stx=0, sty=0;
 
     function getTXY(el){
       var m=(el.getAttribute('transform')||'').match(/translate\(\s*([^,\s]+)[\s,]+([^)\s]+)/);
       return m?{x:+m[1],y:+m[2]}:{x:0,y:0};
     }
-    function svgScale(){
-      var vb=svg.viewBox&&svg.viewBox.baseVal, r=svg.getBoundingClientRect();
-      return { x: vb&&vb.width  ? vb.width /r.width  : 1,
-               y: vb&&vb.height ? vb.height/r.height : 1 };
+    function setPos(x, y){
+      var tf='translate('+x+','+y+')';
+      hg.setAttribute('transform',tf);
+      vg.setAttribute('transform',tf); // sync visual
     }
 
-    // Mouse
     hit.addEventListener('mousedown', function(e){
       if(e.button!==0) return;
       e.stopPropagation(); e.preventDefault();
       active=true; sx=e.clientX; sy=e.clientY;
-      var t=getTXY(g); stx=t.x; sty=t.y;
-      g.classList.add('dragging');
-      document.addEventListener('mousemove', onMove);
-      document.addEventListener('mouseup', onUp);
+      var t=getTXY(hg); stx=t.x; sty=t.y;
+      hg.classList.add('dragging');
+      document.addEventListener('mousemove', onMove, true); // capture to beat React
+      document.addEventListener('mouseup',   onUp,   true);
     });
     function onMove(e){
       if(!active) return;
-      var sc=svgScale();
-      g.setAttribute('transform','translate('+(stx+(e.clientX-sx)*sc.x)+','+(sty+(e.clientY-sy)*sc.y)+')');
+      e.stopPropagation();
+      setPos(stx+(e.clientX-sx), sty+(e.clientY-sy));
     }
-    function onUp(){
-      active=false; g.classList.remove('dragging');
-      document.removeEventListener('mousemove',onMove);
-      document.removeEventListener('mouseup',onUp);
+    function onUp(e){
+      if(!active) return;
+      active=false; hg.classList.remove('dragging');
+      document.removeEventListener('mousemove', onMove, true);
+      document.removeEventListener('mouseup',   onUp,   true);
     }
 
     // Touch
     hit.addEventListener('touchstart', function(e){
       e.stopPropagation();
       var tc=e.touches[0]; active=true; sx=tc.clientX; sy=tc.clientY;
-      var t=getTXY(g); stx=t.x; sty=t.y;
-      document.addEventListener('touchmove',onTMove,{passive:false});
-      document.addEventListener('touchend',onTEnd);
+      var t=getTXY(hg); stx=t.x; sty=t.y;
+      document.addEventListener('touchmove', onTMove, {passive:false,capture:true});
+      document.addEventListener('touchend',  onTEnd,  {capture:true});
     },{passive:true});
     function onTMove(e){
-      if(!active) return; e.preventDefault();
-      var tc=e.touches[0], sc=svgScale();
-      g.setAttribute('transform','translate('+(stx+(tc.clientX-sx)*sc.x)+','+(sty+(tc.clientY-sy)*sc.y)+')');
+      if(!active) return; e.stopPropagation(); e.preventDefault();
+      var tc=e.touches[0];
+      setPos(stx+(tc.clientX-sx), sty+(tc.clientY-sy));
     }
-    function onTEnd(){ active=false; document.removeEventListener('touchmove',onTMove); document.removeEventListener('touchend',onTEnd); }
+    function onTEnd(){
+      active=false;
+      document.removeEventListener('touchmove', onTMove, {capture:true});
+      document.removeEventListener('touchend',  onTEnd,  {capture:true});
+    }
   }
 
   function clearGuides(){
-    var layer = document.querySelector('#kwb-guide-layer');
-    if(layer) layer.innerHTML = '';
+    var vl = document.querySelector('#kwb-guide-layer');
+    var hl = document.querySelector('#kwb-guide-hit-layer');
+    if(vl) vl.innerHTML = '';
+    if(hl) hl.innerHTML = '';
     var t = document.getElementById('kwb-toast');
     if(t){ t.textContent = '🗑 Đã xóa nền mờ'; t.style.display='block'; setTimeout(function(){ t.style.display='none'; },1800); }
   }
