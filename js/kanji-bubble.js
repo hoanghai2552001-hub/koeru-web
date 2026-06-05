@@ -676,7 +676,7 @@ function startNextFloor() {
   }
   // Absolute fallback
   if (!dPool.length) {
-    try { const _en=new Set(['N5','N4','N3']); dPool = ALL_KANJI.filter(k => k && k.kanji && _en.has(k.level)); } catch(e2) { dPool = []; }
+    try { const _en=new Set(['N5','N4','N3','N2']); dPool = ALL_KANJI.filter(k => k && k.kanji && _en.has(k.level)); } catch(e2) { dPool = []; }
   }
 
   dUsedIdx   = new Set();

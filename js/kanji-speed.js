@@ -129,7 +129,7 @@ function floatScore(text, color, x, y) {
 // ══════════════════════════════════════════
 // GAME LOGIC
 // ══════════════════════════════════════════
-const _SP_ENABLED = new Set(['N5','N4','N3']);
+const _SP_ENABLED = new Set(['N5','N4','N3','N2']);
 function spGetDeck() {
   const base = ALL_KANJI.filter(k => _SP_ENABLED.has(k.level));
   return spLvl === 'ALL' ? base : base.filter(k => k.level === spLvl);

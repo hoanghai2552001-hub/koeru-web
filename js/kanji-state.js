@@ -140,7 +140,7 @@ function playTone(freq = 440, type = 'sine', vol = 0.1, dur = 0.15) {
 }
 let selectedLevel = "ALL";
 
-const ENABLED_LEVELS = new Set(['N5','N4','N3']);
+const ENABLED_LEVELS = new Set(['N5','N4','N3','N2']);
 function getFilteredDeck() {
   const base = ALL_KANJI.filter(k => ENABLED_LEVELS.has(k.level));
   return selectedLevel === "ALL" ? base : base.filter(k => k.level === selectedLevel);

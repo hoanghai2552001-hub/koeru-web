@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function buildCompoundDeck() {
   const seen = new Set();
   const result = [];
-  const _enabled = new Set(['N5','N4','N3']);
+  const _enabled = new Set(['N5','N4','N3','N2']);
   const base = (selectedLevel === 'ALL' ? ALL_KANJI : ALL_KANJI.filter(k => k.level === selectedLevel)).filter(k => _enabled.has(k.level));
   for (const k of base) {
     const words = filterWordsForLevel(k.words, selectedLevel);
@@ -130,7 +130,7 @@ function buildCompoundDeck() {
       result.push({ kanji: w.w, reading: w.r || '', meaning_vi: w.m || '', level: k.level });
     }
   }
-  const _en = new Set(['N5','N4','N3']);
+  const _en = new Set(['N5','N4','N3','N2']);
   return result.length >= 8 ? result : COMPOUND_WORDS.filter(w => _en.has(w.level));
 }
 
