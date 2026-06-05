@@ -2271,4 +2271,134 @@ svg[style*="position: fixed"] {
 })();
 </script>
 
+<script>
+/* ── KOERU Touch-to-Mouse: vẽ/pan/zoom bằng touch trên mobile & tablet ── */
+(function kwbTouchFix(){
+  'use strict';
+
+  var svgEl    = null;
+  var lastTouch = null;          // active single-finger touch
+  var pinchDist = 0;             // last known distance between 2 fingers
+  var panLast   = {x:0, y:0};   // last midpoint of 2-finger gesture
+
+  function getTouchDist(t1, t2) {
+    var dx = t1.clientX - t2.clientX, dy = t1.clientY - t2.clientY;
+    return Math.sqrt(dx*dx + dy*dy);
+  }
+  function getMid(t1, t2) {
+    return { clientX:(t1.clientX+t2.clientX)/2, clientY:(t1.clientY+t2.clientY)/2 };
+  }
+
+  /* Dispatch a synthetic mouse event on the SVG */
+  function fireMouse(type, x, y, btn) {
+    var isPan = (btn === 1);
+    svgEl.dispatchEvent(new MouseEvent(type, {
+      bubbles:true, cancelable:true, view:window,
+      clientX:x, clientY:y,
+      button: btn||0,
+      buttons: type==='mouseup' ? 0 : (isPan ? 4 : 1)
+    }));
+  }
+
+  /* Dispatch a wheel event on the SVG (zoom) */
+  function fireWheel(dy, cx, cy) {
+    svgEl.dispatchEvent(new WheelEvent('wheel', {
+      bubbles:true, cancelable:true,
+      deltaY:dy, deltaMode:0,
+      clientX:cx, clientY:cy
+    }));
+  }
+
+  function attach(s) {
+    if (s._kwbTouch) return;
+    s._kwbTouch = true;
+
+    /* ── 1 finger → draw ── */
+    s.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      if (e.touches.length === 1) {
+        lastTouch = e.touches[0];
+        fireMouse('mousedown', lastTouch.clientX, lastTouch.clientY, 0);
+      } else if (e.touches.length === 2) {
+        // End single-finger draw if active
+        if (lastTouch) {
+          fireMouse('mouseup', lastTouch.clientX, lastTouch.clientY, 0);
+          lastTouch = null;
+        }
+        var t1=e.touches[0], t2=e.touches[1];
+        pinchDist = getTouchDist(t1, t2);
+        var mid = getMid(t1, t2);
+        panLast = {x:mid.clientX, y:mid.clientY};
+        // Middle-mouse-down → activates pan in React handler
+        fireMouse('mousedown', mid.clientX, mid.clientY, 1);
+      }
+    }, {passive:false});
+
+    s.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+      if (e.touches.length === 1 && lastTouch) {
+        lastTouch = e.touches[0];
+        fireMouse('mousemove', lastTouch.clientX, lastTouch.clientY, 0);
+      } else if (e.touches.length === 2) {
+        var t1=e.touches[0], t2=e.touches[1];
+        var mid = getMid(t1, t2);
+        // Pan — middle-mouse-drag
+        fireMouse('mousemove', mid.clientX, mid.clientY, 1);
+        panLast = {x:mid.clientX, y:mid.clientY};
+        // Zoom — wheel event from pinch distance change
+        var d = getTouchDist(t1, t2);
+        if (pinchDist > 0 && Math.abs(d - pinchDist) > 1) {
+          fireWheel(d > pinchDist ? -12 : 12, mid.clientX, mid.clientY);
+          pinchDist = d;
+        }
+      }
+    }, {passive:false});
+
+    s.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      if (e.touches.length === 0) {
+        // All fingers lifted
+        if (lastTouch) {
+          fireMouse('mouseup', lastTouch.clientX, lastTouch.clientY, 0);
+          lastTouch = null;
+        }
+        fireMouse('mouseup', panLast.x, panLast.y, 1);
+        pinchDist = 0;
+      } else if (e.touches.length === 1) {
+        // 2→1 fingers: end pan, resume draw
+        fireMouse('mouseup', panLast.x, panLast.y, 1);
+        pinchDist = 0;
+        lastTouch = e.touches[0];
+        fireMouse('mousedown', lastTouch.clientX, lastTouch.clientY, 0);
+      }
+    }, {passive:false});
+
+    s.addEventListener('touchcancel', function() {
+      if (lastTouch) {
+        fireMouse('mouseup', lastTouch.clientX, lastTouch.clientY, 0);
+        lastTouch = null;
+      }
+      fireMouse('mouseup', panLast.x, panLast.y, 1);
+      pinchDist = 0;
+    }, {passive:false});
+
+    console.log('[KOERU] Touch-to-mouse patch attached ✓');
+  }
+
+  function findAndAttach() {
+    var s = document.querySelector('svg[style*="position: fixed"]');
+    if (s && s !== svgEl) { svgEl = s; attach(svgEl); }
+    if (!svgEl) setTimeout(findAndAttach, 300);
+  }
+
+  setTimeout(findAndAttach, 600);
+
+  // Re-attach if React remounts the SVG
+  new MutationObserver(function() {
+    var s = document.querySelector('svg[style*="position: fixed"]');
+    if (s && s !== svgEl) { svgEl = s; attach(svgEl); }
+  }).observe(document.body, {childList:true, subtree:true});
+})();
+</script>
+
 </body></html>
