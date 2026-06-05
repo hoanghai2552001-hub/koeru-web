@@ -585,10 +585,6 @@ body.tool-active{overflow:hidden}
             <span class="nav-dd-item-icon">🎌</span>
             <div class="nav-dd-item-text"><h4>Kana Speed</h4><p>Luyện phản xạ Hiragana/Katakana</p></div>
           </button>
-          <button class="nav-dd-item" onclick="closeNavDropdown();openTool('kanji-map.html')">
-            <span class="nav-dd-item-icon">🗺️</span>
-            <div class="nav-dd-item-text"><h4>Bản đồ Kanji</h4><p>Xem quan hệ giữa các chữ</p></div>
-          </button>
           <button class="nav-dd-item" onclick="closeNavDropdown();openTool('odysseus-whiteboard.html')">
             <span class="nav-dd-item-icon">✍️</span>
             <div class="nav-dd-item-text"><h4>Whiteboard</h4><p>Bảng luyện viết Kanji tự do</p></div>
@@ -642,10 +638,6 @@ body.tool-active{overflow:hidden}
   <a onclick="navTo('kana')" class="mob-item">
     <span class="mob-icon">🎌</span>
     <span class="mob-text"><strong>Kana Speed</strong><small>Luyện phản xạ Hiragana/Katakana</small></span>
-  </a>
-  <a onclick="closeMenu();openTool('kanji-map.html')" class="mob-item">
-    <span class="mob-icon">🗺️</span>
-    <span class="mob-text"><strong>Bản đồ Kanji</strong><small>Xem quan hệ giữa các chữ</small></span>
   </a>
   <a onclick="closeMenu();openTool('odysseus-whiteboard.html')" class="mob-item">
     <span class="mob-icon">✍️</span>
@@ -1491,7 +1483,6 @@ const TOOL_META = {
   'study.html#grammar':{ label:'📝 Ngữ pháp N5',         icon:'📝' },
   'kanji.html':        { label:'🖊 Luyện Kanji',         icon:'🖊' },
   'kanji.html#quiz':   { label:'🎯 Kanji Quiz',          icon:'🎯' },
-  'kanji-map.html':    { label:'🗺 Bản đồ Kanji',        icon:'🗺' },
   'kana.html':         { label:'🎌 Kana Speed',          icon:'🎌' },
   'study/index.html':  { label:'📖 Bảng Kanji Hoạt Họa',icon:'📖' },
   'pinyin.html':       { label:'🀄 HSK Practice',        icon:'🀄' },

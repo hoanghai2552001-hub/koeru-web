@@ -389,12 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'kanji.html';
   });
 
-  // Nút "Vào Kanji Map"
-  document.getElementById('detail-go-map')?.addEventListener('click', () => {
-    const k = currentKanji?.kanji;
-    window.location.href = k ? `kanji-map.html?k=${encodeURIComponent(k)}` : 'kanji-map.html';
-  });
-
   // Keyboard: Escape đóng panel, ←→ điều hướng kanji
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeDetail(); return; }
