@@ -403,9 +403,6 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 #tool-panel-back:hover{background:var(--navy-06)}
 #tool-panel-title{font-size:13px;font-weight:700;color:var(--ink2);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
 
-/* "Tiếp tục" chip — hiện khi có tool đã mở gần đây */
-#tool-panel-resume{display:none;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--navy);background:var(--navy-06);border:1px solid var(--navy-10);border-radius:20px;padding:3px 10px;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
-#tool-panel-resume:hover{background:var(--navy);color:#fff}
 
 #tool-panel-newt{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:var(--accent);cursor:pointer;padding:5px 10px;border-radius:var(--rs);text-decoration:none;border:1.5px solid var(--border);transition:all .15s;flex-shrink:0;white-space:nowrap}
 #tool-panel-newt:hover{border-color:var(--accent);background:var(--accent-l)}
@@ -1238,7 +1235,6 @@ body.tool-active{overflow:hidden}
       Quay lại
     </button>
     <span id="tool-panel-title"></span>
-    <button id="tool-panel-resume" onclick="openLastTool()" title="Mở lại tool vừa dùng"></button>
     <a id="tool-panel-newt" href="#" target="_blank" title="Mở toàn màn hình">
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5 2H2a1 1 0 00-1 1v8a1 1 0 001 1h8a1 1 0 001-1V8M8 1h4m0 0v4m0-4L5.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Toàn màn hình
@@ -1506,20 +1502,6 @@ function _saveHistory(url, label) {
   if (_toolHistory.length > 5) _toolHistory.length = 5;
   try { localStorage.setItem('koeru_tool_history', JSON.stringify(_toolHistory)); } catch(_){}
 }
-function _updateResumeChip() {
-  const btn = document.getElementById('tool-panel-resume');
-  if (!btn) return;
-  // Chip "tiếp tục" → tool gần nhất KHÁC tool đang mở
-  const last = _toolHistory.find(x => x.url !== _toolCurrent);
-  if (last) {
-    btn.style.display = 'inline-flex';
-    btn.textContent = '↩ ' + last.label.replace(/^\S+\s/, ''); // bỏ emoji
-    btn.dataset.url = last.url;
-  } else {
-    btn.style.display = 'none';
-  }
-}
-
 // ── Core ──
 function openTool(url, opts) {
   const meta  = TOOL_META[url] || {};
@@ -1559,7 +1541,6 @@ function openTool(url, opts) {
   backdrop.classList.add('show');
   document.body.style.overflow = 'hidden';
   _toolOpen = true;
-  _updateResumeChip();
 }
 
 function onToolLoaded() {
@@ -1583,10 +1564,6 @@ function closeTool() {
   }, 360);
 }
 
-function openLastTool() {
-  const btn = document.getElementById('tool-panel-resume');
-  if (btn && btn.dataset.url) openTool(btn.dataset.url);
-}
 
 // Escape đóng panel
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && _toolOpen) closeTool(); });
