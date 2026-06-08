@@ -32,7 +32,7 @@ function ensureLevelLoaded(level, cb) {
   if (_loadCallbacks[level]) { _loadCallbacks[level].push(cb); return; }
   _loadCallbacks[level] = [cb];
   const s = document.createElement('script');
-  s.src = `js/kanji-data-${level.toLowerCase()}.js?v=20260608c`;
+  s.src = `js/kanji-data-${level.toLowerCase()}.js?v=20260608d`;
   s.onload = () => {
     // Merge window.KANJI_Nx vào ALL_KANJI
     const key = `KANJI_${level}`;
