@@ -162,6 +162,21 @@ def extract_js_array(text):
     json_str = text[m.end():].rstrip('; \n\r\t')
     return json_str
 
+
+def decode_js_str(s: str) -> str:
+    """Decode JS string escape sequences về Python string thuần.
+    Dùng khi đọc preserved fields từ file JS để tránh double-escaping khi sync nhiều lần.
+    """
+    prev = None
+    while prev != s:
+        prev = s
+        s = s.replace("\\\\", "\x00BKSL\x00")
+        s = s.replace('\\"', '"')
+        s = s.replace("\\'", "'")
+        s = s.replace("\x00BKSL\x00", "\\")
+    return s
+
+
 # Load preserved fields từ kanji-data.js
 preserved = {}  # kanji_char → {freq_rank, grade}
 if KANJI_DATA_JS.exists():
@@ -198,8 +213,8 @@ if KANJI_MAP_JS.exists():
             preserved_map[k] = {
                 "freq_rank": int(freq_m.group(1)) if freq_m else None,
                 "grade": int(grade_m.group(1)) if grade_m else None,
-                "mnemonic": mnemo_m.group(1) if mnemo_m else "",
-                "mn_vi": mn_vi_m.group(1) if mn_vi_m else "",
+                "mnemonic": decode_js_str(mnemo_m.group(1)) if mnemo_m else "",
+                "mn_vi": decode_js_str(mn_vi_m.group(1)) if mn_vi_m else "",
             }
         # Trích vocab array (giữ nguyên toàn bộ)
         vocab_m = re.search(r'vocab:\s*(\[.*?\])\s*\}', txt, re.DOTALL)
@@ -217,7 +232,7 @@ if KANJI_MAP_JS.exists():
 # ── 4. BUILD MERGED DATA ─────────────────────────────────────────────────────
 
 def js_str(s):
-    """Escape string cho JS literal."""
+    """Escape Python string → JS double-quoted string literal (1 level only)."""
     s = str(s) if s is not None else ""
     s = s.replace('\\', '\\\\').replace('"', '\\"')
     return s
