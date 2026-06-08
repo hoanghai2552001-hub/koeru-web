@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>KOERU — Học Tiếng Nhật & Tiếng Trung tại Bà Rịa – Vũng Tàu</title>
 <meta name="description" content="Trung tâm học tiếng Nhật & tiếng Trung tại Bà Rịa – Vũng Tàu — kết hợp lớp học thật với công cụ luyện tập online miễn phí. Lộ trình JLPT/HSK rõ ràng, AI hỗ trợ, giáo viên theo sát."/>
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="KOERU"/>
+<meta property="og:url" content="https://hoanghai2552001-hub.github.io/koeru-web/"/>
+<meta property="og:title" content="KOERU — Học Tiếng Nhật & Tiếng Trung tại Bà Rịa – Vũng Tàu"/>
+<meta property="og:description" content="Trung tâm học tiếng Nhật & tiếng Trung — lớp học thật + công cụ luyện tập online miễn phí. JLPT/HSK, AI hỗ trợ."/>
+<meta property="og:image" content="https://hoanghai2552001-hub.github.io/koeru-web/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="KOERU — Học Tiếng Nhật & Tiếng Trung"/>
+<meta name="twitter:description" content="Luyện JLPT/HSK với game, flashcard, AI nhận xét. Miễn phí."/>
+<meta name="twitter:image" content="https://hoanghai2552001-hub.github.io/koeru-web/og-image.jpg"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0KW1B4F53"></script>
 <script>
@@ -546,6 +560,8 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 /* Khi tool page active: ẩn footer, không scroll body */
 body.tool-active footer{display:none}
 body.tool-active{overflow:hidden}
+/* Lock scroll khi mobile menu open */
+body.menu-open{overflow:hidden}
 </style>
 </head>
 <body>
@@ -553,7 +569,7 @@ body.tool-active{overflow:hidden}
 <nav>
   <div class="nav-inner">
     <a class="logo" onclick="showPage('home')">
-      <img src="koeru-logo.png" alt="KOERU" style="height:36px;width:auto"/>
+      <picture><source srcset="koeru-logo.webp" type="image/webp"/><img src="koeru-logo.png" alt="KOERU" width="36" height="36" style="height:36px;width:auto"/></picture>
     </a>
     <div class="nav-links">
       <a onclick="showPage('home')" id="nav-home" class="active">🏠 Trang chủ</a>
@@ -591,6 +607,7 @@ body.tool-active{overflow:hidden}
       <a onclick="showPage('admin')" id="nav-admin" class="admin-link" style="display:none">⚙️ Admin</a>
     </div>
     <div class="nav-right">
+      <div class="streak-pill" id="xp-pill" style="display:none;background:#eef2ff;border-color:#c8d0f0;color:var(--navy)">⚡ 0 XP</div>
       <div class="streak-pill" id="streak-pill">🔥 0 ngày</div>
       <button class="btn btn-navy" onclick="showPage('register')">Đăng ký</button>
       <button class="ham" id="ham-btn" onclick="toggleMenu()" aria-label="Menu">
@@ -655,6 +672,10 @@ body.tool-active{overflow:hidden}
     <span class="mob-text"><strong>Hanzi Map</strong><small>Bản đồ quan hệ Hán tự</small></span>
   </a>
   <div class="mob-divider"></div>
+  <a onclick="navTo('about')" class="mob-item">
+    <span class="mob-icon">ℹ️</span>
+    <span class="mob-text"><strong>Về KOERU</strong><small>Giới thiệu & liên hệ</small></span>
+  </a>
   <button class="btn btn-navy mob-cta" style="width:100%;justify-content:center;padding:14px" onclick="navTo('register')">Đăng ký học thử miễn phí →</button>
 </div>
 
@@ -665,7 +686,7 @@ body.tool-active{overflow:hidden}
   <div class="hero" style="padding:80px 1.5rem 88px">
     <div class="hero-inner">
       <div class="hero-mascot" style="margin-bottom:24px">
-        <img src="koeru-logo.png" alt="KOERU" style="height:100px;width:auto"/>
+        <picture><source srcset="koeru-logo.webp" type="image/webp"/><img src="koeru-logo.png" alt="KOERU" width="100" height="100" style="height:100px;width:auto"/></picture>
       </div>
       <h1 style="font-size:44px;letter-spacing:-2.2px">Tiếng Nhật · Tiếng Trung<br/>dễ nhớ hơn. <em>Dùng được hơn.</em></h1>
       <p style="font-size:16px;max-width:480px;line-height:1.8;margin-top:12px">KOERU giúp bạn luyện tiếng Nhật (kana, kanji, JLPT) và tiếng Trung (HSK) — với AI nhận xét cá nhân và lộ trình rõ ràng.</p>
@@ -901,26 +922,35 @@ body.tool-active{overflow:hidden}
     <div class="lead-box" style="max-width:680px">
       <div class="land-eyebrow" style="text-align:left">Tư vấn miễn phí</div>
       <div class="land-h2">Không chắc nên bắt đầu từ đâu?</div>
-      <p class="land-sub">Để lại thông tin — KOERU sẽ gợi ý lộ trình học phù hợp với mục tiêu của bạn trong vòng 24 giờ.</p>
-      <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin-top:8px;position:relative">
-        <div id="form-tuvan-skeleton" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:60px 24px;background:var(--cream)">
-          <div style="width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite"></div>
-          <p style="color:var(--ink3);font-size:14px;margin:0">Đang tải form tư vấn…</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform" target="_blank" style="font-size:13px;color:var(--navy);text-decoration:underline">Mở trực tiếp nếu form không hiện →</a>
+      <p class="land-sub" style="text-align:left;margin:0 0 28px">Để lại thông tin — KOERU sẽ gợi ý lộ trình học phù hợp với mục tiêu của bạn trong vòng 24 giờ.</p>
+      <form class="lead-form" id="form-tuvan" onsubmit="return submitLeadForm(event,'tuvan')">
+        <div class="lead-form-row">
+          <div><label>Họ tên</label><input name="name" placeholder="Nguyễn Văn A" required/></div>
+          <div><label>Số điện thoại / Zalo</label><input name="phone" placeholder="0797 836 395" required/></div>
         </div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform?embedded=true"
-          width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
-          style="display:none"
-          onload="this.style.display='block';document.getElementById('form-tuvan-skeleton').style.display='none'">
-        </iframe>
-      </div>
+        <div><label>Email (không bắt buộc)</label><input name="email" type="email" placeholder="email@example.com"/></div>
+        <div class="lead-form-row">
+          <div><label>Ngôn ngữ muốn học</label>
+            <select name="lang"><option value="jp">🇯🇵 Tiếng Nhật</option><option value="cn">🇨🇳 Tiếng Trung</option><option value="both">Cả hai</option></select>
+          </div>
+          <div><label>Trình độ hiện tại</label>
+            <select name="level"><option value="zero">Chưa biết gì</option><option value="beginner">Sơ cấp (N5/HSK1)</option><option value="elementary">Trung cấp (N4-N3/HSK2-3)</option><option value="upper">Nâng cao (N2+/HSK4+)</option></select>
+          </div>
+        </div>
+        <div><label>Mục tiêu</label>
+          <select name="goal"><option value="jlpt">Thi JLPT / HSK</option><option value="work">Đi làm / công ty Nhật-Trung</option><option value="study">Du học</option><option value="hobby">Sở thích / anime / drama</option><option value="other">Khác</option></select>
+        </div>
+        <div><label>Ghi chú thêm (không bắt buộc)</label><input name="note" placeholder="Thời gian rảnh, câu hỏi..."/></div>
+        <button type="submit" class="lead-submit" id="tuvan-submit">Nhận tư vấn lộ trình miễn phí →</button>
+        <div class="lead-success" id="tuvan-success">✅ Cảm ơn bạn! KOERU sẽ liên hệ tư vấn trong vòng 24 giờ.</div>
+      </form>
     </div>
   </div>
 
   <!-- CTA BAND -->
   <div class="cta-band">
     <div class="cta-inner">
-      <img src="koeru-logo.png" alt="KOERU" style="height:60px;width:auto;opacity:.3;margin-bottom:20px;filter:brightness(10)"/>
+      <picture><source srcset="koeru-logo.webp" type="image/webp"/><img src="koeru-logo.png" alt="KOERU" width="60" height="60" style="height:60px;width:auto;opacity:.3;margin-bottom:20px;filter:brightness(10)" loading="lazy"/></picture>
       <h2>Bắt đầu hành trình của bạn</h2>
       <p>Không cần kinh nghiệm. Không cần thẻ tín dụng. Chỉ cần bắt đầu.</p>
       <button class="btn" style="background:#fff;color:var(--navy);font-size:16px;padding:15px 32px;border-radius:var(--r);font-weight:800" onclick="showPage('register')">Đăng ký học thử miễn phí →</button>
@@ -1029,15 +1059,18 @@ body.tool-active{overflow:hidden}
             <select id="qv" onchange="loadQuiz()"><option value="n5">Sơ cấp</option><option value="n4">Trung cấp</option><option value="n3">Nâng cao</option></select>
           </div>
         </div>
-        <div class="api-row">
-          <label>🤖 AI</label>
-          <select id="ai-provider" onchange="updateKeyPlaceholder()" style="padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:13px;color:var(--ink);background:var(--white);cursor:pointer">
-            <option value="groq">Groq (Miễn phí)</option>
-            <option value="claude">Claude (Anthropic)</option>
-            <option value="gemini">Gemini (Google)</option>
-          </select>
-          <input type="password" id="akey" placeholder="sk-ant-..."/>
-          <button class="btn btn-navy btn-sm" onclick="saveKey()">Lưu</button>
+        <div class="api-row" style="cursor:pointer" onclick="this.querySelector('.api-detail').style.display=this.querySelector('.api-detail').style.display==='none'?'flex':'none'">
+          <label style="flex:1">🤖 AI nhận xét — <span style="font-weight:400;color:var(--ink3)">bấm để cấu hình</span></label>
+          <div class="api-detail" style="display:none;width:100%;gap:8px;flex-wrap:wrap;margin-top:6px" onclick="event.stopPropagation()">
+            <select id="ai-provider" onchange="updateKeyPlaceholder()" style="padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--rs);font-size:13px;color:var(--ink);background:var(--white);cursor:pointer">
+              <option value="groq">Groq (Miễn phí)</option>
+              <option value="claude">Claude (Anthropic)</option>
+              <option value="gemini">Gemini (Google)</option>
+            </select>
+            <input type="password" id="akey" placeholder="API Key (để trống = dùng nhận xét cơ bản)" style="flex:1;min-width:160px"/>
+            <button class="btn btn-navy btn-sm" onclick="saveKey()">Lưu</button>
+            <p style="font-size:11px;color:var(--ink3);width:100%;margin:4px 0 0">💡 Không có API key? Vẫn nhận được nhận xét cơ bản miễn phí.</p>
+          </div>
         </div>
         <div class="pbar-meta"><span id="pbar-txt">0 / 5 câu</span><span id="pbar-pct">0%</span></div>
         <div class="pbar"><div class="pbar-fill" id="pbar-fill" style="width:0%"></div></div>
@@ -1071,27 +1104,89 @@ body.tool-active{overflow:hidden}
   </div></div>
 </div>
 
+<!-- ═══ ABOUT ═══ -->
+<div class="page" id="page-about">
+  <div class="sec bg-white">
+    <div class="wrap" style="max-width:800px">
+      <div class="eyebrow">Về chúng tôi</div>
+      <h2 style="font-size:28px;font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:8px">KOERU — Vượt qua giới hạn ngôn ngữ</h2>
+      <p style="color:var(--ink3);font-size:15px;line-height:1.8;margin-bottom:32px">KOERU (越える — vượt qua) là trung tâm dạy tiếng Nhật & tiếng Trung tại Bà Rịa – Vũng Tàu, kết hợp <strong>lớp học thật với giáo viên</strong> và <strong>công cụ AI miễn phí</strong> giúp người Việt học ngoại ngữ hiệu quả hơn.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:36px">
+        <div style="background:var(--cream);border-radius:var(--r);padding:24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:8px">🎯</div>
+          <h3 style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:6px">Sứ mệnh</h3>
+          <p style="font-size:13px;color:var(--ink2);line-height:1.6">Giúp người Việt Nam học tiếng Nhật & Trung bài bản, thực dụng — không chỉ thuộc mà còn dùng được.</p>
+        </div>
+        <div style="background:var(--cream);border-radius:var(--r);padding:24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:8px">🧠</div>
+          <h3 style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:6px">Phương pháp</h3>
+          <p style="font-size:13px;color:var(--ink2);line-height:1.6">Microlearning 5 phút/ngày + Spaced Repetition + AI cá nhân hóa + Giáo viên thật theo sát.</p>
+        </div>
+        <div style="background:var(--cream);border-radius:var(--r);padding:24px;text-align:center">
+          <div style="font-size:36px;margin-bottom:8px">📍</div>
+          <h3 style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:6px">Địa điểm</h3>
+          <p style="font-size:13px;color:var(--ink2);line-height:1.6">Bà Rịa – Vũng Tàu. Học offline nhóm nhỏ hoặc 1-1. Công cụ online miễn phí cho mọi người.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--navy-06);border:1.5px solid var(--navy-10);border-radius:var(--rl);padding:28px 32px;margin-bottom:24px">
+        <h3 style="font-size:17px;font-weight:800;color:var(--navy);margin-bottom:16px">Công cụ miễn phí trên website</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+          <div style="font-size:13px;color:var(--ink2)">🃏 <strong>Flashcard</strong> — Ôn từ vựng SRS</div>
+          <div style="font-size:13px;color:var(--ink2)">⚔️ <strong>Kanji Lab</strong> — 5 game luyện Kanji</div>
+          <div style="font-size:13px;color:var(--ink2)">🧪 <strong>Quiz AI</strong> — Nhận xét cá nhân hóa</div>
+          <div style="font-size:13px;color:var(--ink2)">🔍 <strong>Tra cứu</strong> — 1581 Kanji, 5000+ từ</div>
+          <div style="font-size:13px;color:var(--ink2)">🎌 <strong>Kana Speed</strong> — Luyện phản xạ</div>
+          <div style="font-size:13px;color:var(--ink2)">🀄 <strong>HSK Practice</strong> — Pinyin & từ vựng</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;padding:24px 0;border-top:1px solid var(--border)">
+        <h3 style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:12px">Liên hệ</h3>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+          <a href="tel:0797836395" class="btn btn-ghost" style="font-size:14px">📞 0797 836 395</a>
+          <a href="https://zalo.me/0797836395" target="_blank" class="btn btn-ghost" style="font-size:14px">💬 Zalo</a>
+          <a href="https://www.facebook.com/profile.php?id=61589306553617" target="_blank" class="btn btn-ghost" style="font-size:14px">📘 Facebook</a>
+          <a href="https://www.instagram.com/koeru2505" target="_blank" class="btn btn-ghost" style="font-size:14px">📸 Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ REGISTER ═══ -->
 <div class="page" id="page-register">
   <div class="sec bg-white">
     <div class="wrap" style="max-width:720px">
       <div class="eyebrow">Đăng ký</div>
-      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px">
-        <h2 style="font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.5px">Bắt đầu hành trình của bạn</h2>
-      </div>
+      <h2 style="font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:6px">Bắt đầu hành trình của bạn</h2>
       <p style="color:var(--ink3);font-size:14px;margin-bottom:28px;line-height:1.7">Điền thông tin bên dưới — KOERU sẽ liên hệ tư vấn trong vòng 24 giờ.</p>
-      <div style="border-radius:var(--rl);overflow:hidden;border:1.5px solid var(--border);position:relative">
-        <div id="form-register-skeleton" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:60px 24px;background:var(--cream)">
-          <div style="width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite"></div>
-          <p style="color:var(--ink3);font-size:14px;margin:0">Đang tải form đăng ký…</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform" target="_blank" style="font-size:13px;color:var(--navy);text-decoration:underline">Mở trực tiếp nếu form không hiện →</a>
+      <form class="lead-form" id="form-register" onsubmit="return submitLeadForm(event,'register')">
+        <div class="lead-form-row">
+          <div><label>Họ tên *</label><input name="name" placeholder="Nguyễn Văn A" required/></div>
+          <div><label>Số điện thoại / Zalo *</label><input name="phone" placeholder="0797 836 395" required/></div>
         </div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/viewform?embedded=true"
-          width="100%" height="1359" frameborder="0" marginheight="0" marginwidth="0"
-          style="display:none"
-          onload="this.style.display='block';document.getElementById('form-register-skeleton').style.display='none'">
-        </iframe>
-      </div>
+        <div><label>Email</label><input name="email" type="email" placeholder="email@example.com"/></div>
+        <div class="lead-form-row">
+          <div><label>Ngôn ngữ muốn học *</label>
+            <select name="lang" required><option value="jp">🇯🇵 Tiếng Nhật</option><option value="cn">🇨🇳 Tiếng Trung</option><option value="both">Cả hai</option></select>
+          </div>
+          <div><label>Trình độ hiện tại</label>
+            <select name="level"><option value="zero">Chưa biết gì</option><option value="beginner">Sơ cấp (N5/HSK1)</option><option value="elementary">Trung cấp (N4-N3/HSK2-3)</option><option value="upper">Nâng cao (N2+/HSK4+)</option></select>
+          </div>
+        </div>
+        <div><label>Mục tiêu</label>
+          <select name="goal"><option value="jlpt">Thi JLPT / HSK</option><option value="work">Đi làm / công ty Nhật-Trung</option><option value="study">Du học</option><option value="hobby">Sở thích / anime / drama</option><option value="other">Khác</option></select>
+        </div>
+        <div><label>Bạn muốn học khi nào?</label>
+          <select name="schedule"><option value="weekday-morning">Sáng trong tuần</option><option value="weekday-evening">Tối trong tuần</option><option value="weekend">Cuối tuần</option><option value="flexible">Linh hoạt</option></select>
+        </div>
+        <div><label>Ghi chú thêm</label><input name="note" placeholder="Câu hỏi, yêu cầu đặc biệt..."/></div>
+        <button type="submit" class="lead-submit" id="register-submit">Đăng ký học thử miễn phí →</button>
+        <div class="lead-success" id="register-success">✅ Đăng ký thành công! KOERU sẽ liên hệ bạn trong vòng 24 giờ.</div>
+        <p style="font-size:12px;color:var(--ink4);text-align:center;margin-top:8px">Hoặc liên hệ trực tiếp: <a href="https://zalo.me/0797836395" target="_blank" style="color:var(--navy);font-weight:700">💬 Zalo</a> · <a href="tel:0797836395" style="color:var(--navy);font-weight:700">📞 0797 836 395</a></p>
+      </form>
     </div>
   </div>
 </div>
@@ -1254,12 +1349,12 @@ body.tool-active{overflow:hidden}
     <div class="foot-grid">
       <div class="foot-col">
         <div class="foot-logo">
-          <img src="koeru-logo.png" alt="KOERU" style="height:44px;width:auto;filter:brightness(1.8) contrast(1.1)"/>
+          <picture><source srcset="koeru-logo.webp" type="image/webp"/><img src="koeru-logo.png" alt="KOERU" width="44" height="44" style="height:44px;width:auto;filter:brightness(1.8) contrast(1.1)" loading="lazy"/></picture>
         </div>
         <p>Nền tảng microlearning ngoại ngữ. Nhật · Trung. Bà Rịa – Vũng Tàu.</p>
       </div>
       <div class="foot-col"><h4>Học tập</h4><a onclick="showPage('learn')">Bài học</a><a onclick="showPage('flash')">Flashcard</a><a onclick="showPage('quiz')">Kiểm tra</a><a onclick="showPage('blog')">Blog</a></div>
-      <div class="foot-col"><h4>Chương trình</h4><a>Tiếng Nhật JLPT</a><a>Tiếng Trung HSK</a></div>
+      <div class="foot-col"><h4>Chương trình</h4><a onclick="showPage('learn')">Tiếng Nhật JLPT</a><a onclick="showPage('learn')">Tiếng Trung HSK</a><a onclick="showPage('about')">Về chúng tôi</a></div>
       <div class="foot-col"><h4>Liên hệ</h4><a>📍 Bà Rịa – Vũng Tàu</a><a href="tel:0797836395">📞 0797 836 395</a><a href="https://zalo.me/0797836395" target="_blank">💬 Zalo KOERU</a><a href="https://www.facebook.com/profile.php?id=61589306553617" target="_blank">📘 Facebook</a><a href="https://www.instagram.com/koeru2505" target="_blank">📸 Instagram</a></div>
     </div>
     <div class="foot-bottom">© 2026 KOERU Language Center</div>
@@ -1330,17 +1425,41 @@ function load(k,d){
 }
 function save(k,v){try{localStorage.setItem('koeru_'+k,JSON.stringify(v));}catch{}}
 
-(function initStreak(){
-  try{
-    const s = JSON.parse(localStorage.getItem('koeru_streak')||'{}');
-    const today = new Date().toISOString().slice(0,10);
-    const yesterday = new Date(Date.now()-86400000).toISOString().slice(0,10);
-    let count = s.count || 0;
-    if(s.lastDate !== today && s.lastDate !== yesterday) count = 0;
-    const el = document.getElementById('streak-pill');
-    if(el) el.textContent = '🔥 ' + count + ' ngày';
-  }catch(_){}
-})();
+/* ─── STREAK & XP SYSTEM ─── */
+function getStreak(){
+  try{return JSON.parse(localStorage.getItem('koeru_streak')||'{}');}catch{return {};}
+}
+function getXP(){
+  try{return parseInt(localStorage.getItem('koeru_xp')||'0');}catch{return 0;}
+}
+function addXP(amount){
+  const xp=getXP()+amount;
+  localStorage.setItem('koeru_xp',String(xp));
+  updateStreakXPDisplay();
+  return xp;
+}
+function bumpStreak(){
+  const s=getStreak();
+  const today=new Date().toISOString().slice(0,10);
+  if(s.lastDate===today) return s.count||0; // already counted today
+  const yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
+  let count=(s.lastDate===yesterday)?(s.count||0)+1:1;
+  localStorage.setItem('koeru_streak',JSON.stringify({count,lastDate:today}));
+  updateStreakXPDisplay();
+  return count;
+}
+function updateStreakXPDisplay(){
+  const s=getStreak();
+  const today=new Date().toISOString().slice(0,10);
+  const yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
+  let count=s.count||0;
+  if(s.lastDate!==today&&s.lastDate!==yesterday) count=0;
+  const streakEl=document.getElementById('streak-pill');
+  if(streakEl) streakEl.textContent='🔥 '+count+' ngày';
+  const xpEl=document.getElementById('xp-pill');
+  if(xpEl){const xp=getXP();xpEl.textContent='⚡ '+xp+' XP';xpEl.style.display=xp>0?'':'none';}
+}
+updateStreakXPDisplay();
 
 let LESSONS=load('lessons',DEF_L),BLOGS=load('blogs',DEF_B),DOCS=load('docs',DEF_D);
 let apiKey=load('apikey','');
@@ -1570,8 +1689,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && _toolOpen)
 
 
 /* ─── MOBILE MENU ─── */
-function toggleMenu(){const m=document.getElementById('mobile-menu'),h=document.getElementById('ham-btn');m.classList.toggle('open');h.classList.toggle('open');}
-function closeMenu(){document.getElementById('mobile-menu').classList.remove('open');document.getElementById('ham-btn').classList.remove('open');}
+function toggleMenu(){const m=document.getElementById('mobile-menu'),h=document.getElementById('ham-btn');const isOpen=m.classList.toggle('open');h.classList.toggle('open');document.body.classList.toggle('menu-open',isOpen);}
+function closeMenu(){const m=document.getElementById('mobile-menu'),h=document.getElementById('ham-btn');m.classList.remove('open');h.classList.remove('open');document.body.classList.remove('menu-open');}
 function navTo(p){closeMenu();showPage(p);}
 
 /* ─── NAV DROPDOWN ─── */
@@ -2444,7 +2563,7 @@ function showLesson(id) {
         <h1>${l.title}</h1>
       </div>
     </div>
-    ${LESSON_CONTENT[id] || '<div class="lesson-block"><p>Nội dung đang cập nhật...</p></div>'}
+    ${LESSON_CONTENT[id] || '<div class="lesson-block" style="text-align:center;padding:40px 20px"><div style="font-size:48px;margin-bottom:12px">🚧</div><h2 style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:8px">Nội dung đang được biên soạn</h2><p style="color:var(--ink3)">Bài học này sẽ sớm có nội dung. Trong lúc chờ, bạn có thể:</p><div style="display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap"><button class="btn btn-navy btn-sm" onclick="showPage(\'kanji\')">⚔️ Luyện Kanji</button><button class="btn btn-ghost btn-sm" onclick="showPage(\'flash\')">🃏 Flashcard</button><button class="btn btn-ghost btn-sm" onclick="showPage(\'quiz\')">🧪 Quiz</button></div></div>'}
     <button class="lesson-done-btn${done?' done':''}" onclick="markLessonDone(${id})">
       ${done ? '✅ Đã hoàn thành' : '🎯 Đánh dấu hoàn thành & nhận ' + (l.xp||10) + ' XP'}
     </button>`;
@@ -2457,9 +2576,11 @@ function markLessonDone(id) {
   if (done[id]) return;
   done[id] = Date.now();
   localStorage.setItem('lesson_done', JSON.stringify(done));
+  const xp = l?.xp||10;
+  addXP(xp); bumpStreak();
   const btn = document.querySelector('.lesson-done-btn');
   if (btn) { btn.textContent = '✅ Đã hoàn thành!'; btn.classList.add('done'); }
-  toast('🎉 +' + (l?.xp||10) + ' XP! Hoàn thành bài học!');
+  toast('🎉 +' + xp + ' XP! Hoàn thành bài học!');
 }
 
 /* ─── RENDER ─── */
@@ -2556,6 +2677,8 @@ function markKnown(){
   const cur=fcQueue[fcIdx%fcQueue.length];
   fcQueue.splice(fcIdx%fcQueue.length,1);
   fcKnown++;
+  /* Bump XP & streak every 5 known cards */
+  if(fcKnown%5===0){addXP(5);bumpStreak();}
   if(fcIdx>=fcQueue.length&&fcQueue.length)fcIdx=0;
   renderFC();
 }
@@ -2585,6 +2708,8 @@ function pick(qi,oi){if(done[qi])return;uA[qi]=oi;done[qi]=true;document.querySe
 function updatePbar(){const n=done.filter(Boolean).length,p=Math.round(n/cQ.length*100);document.getElementById('pbar-fill').style.width=p+'%';document.getElementById('pbar-txt').textContent=`${n} / ${cQ.length} câu`;document.getElementById('pbar-pct').textContent=p+'%';}
 async function submitQuiz(){
   const cor=uA.filter((a,i)=>a===cQ[i].ans).length,tot=cQ.length,pct=Math.round(cor/tot*100),xp=cor*8+(pct===100?20:0);
+  /* Update XP & streak */
+  if(xp>0){addXP(xp);bumpStreak();}
   document.getElementById('score-big').textContent=`${cor}/${tot}`;document.getElementById('xp-earned').textContent=`⚡ +${xp} XP`;document.getElementById('score-msg').textContent=pct>=80?'🎉 Xuất sắc!':pct>=60?'👍 Khá tốt, ôn thêm nhé!':'📖 Cần ôn thêm — xem lại flashcard!';document.getElementById('score-wrap').classList.add('show');document.getElementById('sub-btn').style.display='none';
   const lbl=document.getElementById('ai-lbl'),wrap=document.getElementById('ai-wrap');lbl.innerHTML=`🤖 Nhận xét AI KOERU <span class="dots"><span></span><span></span><span></span></span>`;lbl.classList.add('show');
   const ln={jp:'Tiếng Nhật',cn:'Tiếng Trung'}[document.getElementById('ql').value];const lv={n5:'Sơ cấp',n4:'Trung cấp',n3:'Nâng cao'}[document.getElementById('qv').value];
@@ -2732,6 +2857,40 @@ async function syncSheet(type){
   }
 }
 function toast(msg){const e=document.getElementById('toast');e.textContent=msg;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2800);}
+
+/* ─── LEAD FORM SUBMIT ─── */
+function submitLeadForm(e,formId){
+  e.preventDefault();
+  const form=document.getElementById('form-'+formId);
+  const btn=document.getElementById(formId+'-submit');
+  const success=document.getElementById(formId+'-success');
+  const data=Object.fromEntries(new FormData(form));
+  data.source=formId;data.timestamp=new Date().toISOString();data.page=location.href;
+  btn.disabled=true;btn.textContent='Đang gửi...';
+  /* Submit to Google Form via hidden iframe (no CORS issue) */
+  const GFORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSe25xRclRl20ddlwMQTXGe3jPY6aiTqz4xbL2s0ZMc-tTsrVQ/formResponse';
+  const gData=new URLSearchParams();
+  /* Map form fields → Google Form entry IDs (update these after setting up Google Form) */
+  gData.append('entry.1','[KOERU-'+formId+'] '+JSON.stringify(data));
+  const iframe=document.createElement('iframe');
+  iframe.name='gform-submit';iframe.style.display='none';
+  document.body.appendChild(iframe);
+  const gform=document.createElement('form');
+  gform.method='POST';gform.action=GFORM_URL;gform.target='gform-submit';
+  gData.forEach((v,k)=>{const inp=document.createElement('input');inp.type='hidden';inp.name=k;inp.value=v;gform.appendChild(inp);});
+  document.body.appendChild(gform);gform.submit();
+  /* Also save locally as backup */
+  const leads=JSON.parse(localStorage.getItem('koeru_leads')||'[]');
+  leads.push(data);localStorage.setItem('koeru_leads',JSON.stringify(leads));
+  /* Show success */
+  setTimeout(()=>{
+    form.style.display='none';success.style.display='block';
+    btn.disabled=false;btn.textContent=formId==='register'?'Đăng ký học thử miễn phí →':'Nhận tư vấn lộ trình miễn phí →';
+    toast('✅ Đã gửi thành công!');
+    setTimeout(()=>{iframe.remove();gform.remove();},3000);
+  },800);
+  return false;
+}
 
 /* ─── INIT ─── */
 renderHomeLesson();renderHomeBlog();loadFlash();
