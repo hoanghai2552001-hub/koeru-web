@@ -68,14 +68,27 @@ except ImportError:
 # ── 2. ĐỌC EXCEL ────────────────────────────────────────────────────────────
 
 def parse_parts(parts_str):
-    """Parse '"女", "宀"' → ['女', '宀']"""
+    """Parse parts column — supports multiple formats:
+    - '女, 宀, 一'        (plain comma-separated, new standard)
+    - '"女", "宀", "一"' (quoted, legacy format)
+    - '["女","宀"]'      (JSON-like)
+    """
     if not isinstance(parts_str, str) or not parts_str.strip():
         return []
+    s = parts_str.strip()
+    # Try ast.literal_eval first (handles quoted/JSON-like formats)
     try:
-        return list(ast.literal_eval(f"[{parts_str}]"))
+        result = list(ast.literal_eval(f"[{s}]"))
+        if result:
+            return result
     except Exception:
-        # Fallback: regex
-        return re.findall(r'"([^"]+)"', parts_str)
+        pass
+    # Fallback: quoted regex '"女"'
+    quoted = re.findall(r'"([^"]+)"', s)
+    if quoted:
+        return quoted
+    # Fallback 2: plain comma-separated (new standard: 女, 宀, 一)
+    return [p.strip() for p in s.split(",") if p.strip()]
 
 def parse_radical_char(radical_str):
     """'⼧|うかんむり|roof, house|mái nhà' → '⼧'"""
