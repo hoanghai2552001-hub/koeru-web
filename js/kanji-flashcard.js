@@ -90,8 +90,7 @@ function renderCard() {
     // Không hiện On/Kun để khó hơn, có timer, sai = reset streak
     kanjiArea.classList.add('hard-glow');
     hardReadingEl.style.display = 'none';
-    readingOn.style.display = 'none';
-    readingKun.style.display = 'none';
+    readingOn.style.display = ''; readingKun.style.display = '';
     meaningArea.classList.remove('hidden');
     document.getElementById('btn-correct').style.visibility   = 'visible';
     document.getElementById('btn-incorrect').style.visibility = 'visible';
@@ -100,10 +99,15 @@ function renderCard() {
     currentIsCorrectMeaning = showCorrect;
     if (showCorrect) {
       shownMeaning.textContent = k.meaning;
+      readingOn.textContent  = `On: ${k.on || '—'}`;
+      readingKun.textContent = `Kun: ${k.kun || '—'}`;
     } else {
       const pool = deck.filter((_,i) => i !== idx);
       const fake = pool[Math.floor(Math.random() * pool.length)];
-      shownMeaning.textContent = (fake || k).meaning;
+      const fk = fake || k;
+      shownMeaning.textContent = fk.meaning;
+      readingOn.textContent  = `On: ${fk.on || '—'}`;
+      readingKun.textContent = `Kun: ${fk.kun || '—'}`;
       currentIsCorrectMeaning = false;
     }
     verdictHint.style.display = 'block';

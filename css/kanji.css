@@ -190,8 +190,8 @@ body::before {
 #meaning-area { padding:14px 16px 10px; display:flex; flex-direction:column; align-items:center; gap:5px; transition:opacity .3s; }
 #meaning-area.hidden { opacity:0; pointer-events:none; }
 #shown-meaning { font-size:clamp(.95rem,3.8vw,1.2rem); font-weight:700; text-align:center; color:var(--text); }
-#reading-on  { font-size:.78rem; color:#f5a87a; }
-#reading-kun { font-size:.78rem; color:#93c5fd; }
+#reading-on  { font-size:.88rem; color:#f5a87a; font-weight:600; }
+#reading-kun { font-size:.88rem; color:#93c5fd; font-weight:600; }
 #verdict-badge { display:none; padding:3px 13px; border-radius:50px; font-size:.74rem; font-weight:700; margin-top:2px; }
 #verdict-badge.cb { background:rgba(34,197,94,.2); color:var(--correct); border:1px solid var(--correct); display:inline-block; }
 #verdict-badge.wb { background:rgba(239,68,68,.2); color:var(--incorrect); border:1px solid var(--incorrect); display:inline-block; }
