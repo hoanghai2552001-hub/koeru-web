@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hoanghai2552001-hub.github.io/koeru-web/sitemap.xml

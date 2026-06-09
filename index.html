@@ -19,6 +19,9 @@
 <meta name="twitter:title" content="KOERU — Học Tiếng Nhật & Tiếng Trung"/>
 <meta name="twitter:description" content="Luyện JLPT/HSK với game, flashcard, AI nhận xét. Miễn phí."/>
 <meta name="twitter:image" content="https://hoanghai2552001-hub.github.io/koeru-web/og-image.jpg"/>
+<meta name="keywords" content="học tiếng Nhật, JLPT N5, JLPT N4, JLPT N3, từ vựng tiếng Nhật, kanji, hiragana, katakana, tiếng Trung, HSK, Vũng Tàu, Bà Rịa, luyện thi JLPT"/>
+<link rel="canonical" href="https://hoanghai2552001-hub.github.io/koeru-web/"/>
+<link rel="sitemap" type="application/xml" href="/koeru-web/sitemap.xml"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0KW1B4F53"></script>
 <script>
@@ -1133,6 +1136,7 @@ body.menu-open{overflow:hidden}
       <button class="cat-btn" onclick="filterBlog('kanji',this)">漢 Kanji</button>
       <button class="cat-btn" onclick="filterBlog('grammar',this)">📖 Ngữ pháp</button>
       <button class="cat-btn" onclick="filterBlog('tip',this)">💡 Mẹo & Lộ trình</button>
+      <button class="cat-btn" onclick="filterBlog('cn',this)">🇨🇳 Tiếng Trung</button>
     </div>
     <div class="blog-grid" id="blog-grid"></div>
   </div></div>
@@ -1459,6 +1463,9 @@ const DEF_B=[
   {id:14,lang:'jp',cat:'tip',bg:'#fff7ed',flag:'🇯🇵',tagBg:'#ffedd5',tagC:'#9a3412',tag:'So sánh',title:'JLPT vs J-TEST — Nên thi chứng chỉ nào?',excerpt:'So sánh 2 kỳ thi phổ biến nhất.',date:'09/06/2025'},
   {id:15,lang:'jp',cat:'tip',bg:'#f0fdf4',flag:'📍',tagBg:'#dcfce7',tagC:'#166534',tag:'BR-VT',title:'Học tiếng Nhật ở Bà Rịa – Vũng Tàu — KOERU',excerpt:'Trung tâm tiếng Nhật & Trung tại BR-VT.',date:'09/06/2025'},
   {id:16,lang:'jp',cat:'tip',bg:'#fef2f2',flag:'📅',tagBg:'#fee2e2',tagC:'#991b1b',tag:'Lịch thi',title:'Lịch thi JLPT 2025 tại Việt Nam',excerpt:'Ngày thi, địa điểm, cách đăng ký JLPT 2025.',date:'09/06/2025'},
+  {id:17,lang:'cn',cat:'vocab',bg:'#fef9c3',flag:'🇨🇳',tagBg:'#fef08a',tagC:'#713f12',tag:'HSK 1',title:'50 từ vựng HSK 1 quan trọng nhất — Kèm Hán-Việt',excerpt:'150 từ HSK 1 là nền tảng tiếng Trung. 50 từ cơ bản nhất kèm Hán-Việt giúp người Việt học siêu nhanh!',date:'09/06/2025'},
+  {id:18,lang:'cn',cat:'vocab',bg:'#fce7f3',flag:'🇨🇳',tagBg:'#fbcfe8',tagC:'#831843',tag:'HSK 2-3',title:'50 từ vựng HSK 2-3 hay gặp nhất — Luyện thi tiếng Trung',excerpt:'HSK 2-3 yêu cầu 300-600 từ. Danh sách 50 từ quan trọng nhất kèm so sánh HSK vs JLPT.',date:'09/06/2025'},
+  {id:19,lang:'cn',cat:'tip',bg:'#ecfdf5',flag:'🇨🇳',tagBg:'#d1fae5',tagC:'#065f46',tag:'BR-VT',title:'Học tiếng Trung ở Bà Rịa – Vũng Tàu — Lộ trình HSK',excerpt:'Tiếng Trung ngày càng quan trọng ở BR-VT. Khóa học HSK 1-4 tại KOERU, có app luyện tập miễn phí.',date:'09/06/2025'},
 ];
 const DEF_D=[
   {id:1,lang:'jp',title:'Giáo trình Minna no Nihongo N5',format:'PDF',size:'180 trang',link:''},
@@ -3896,6 +3903,215 @@ const BLOG_CONTENT = {
 </table>
 <div class="tip-box">💡 Bắt đầu ôn ngay hôm nay! Dùng Flashcard + Quiz trên KOERU mỗi ngày 20 phút.</div>
 </div>`,
+
+
+17: `<div class="blog-block">
+<h2>HSK 1 là gì?</h2>
+<p><strong>HSK 1</strong> (汉语水平考试 — Hán ngữ Thủy bình khảo thí) là cấp độ <strong>sơ cấp nhất</strong> trong hệ thống chứng chỉ tiếng Trung quốc tế. Cần nắm vững <strong>150 từ vựng</strong> cơ bản nhất.</p>
+<div class="tip-box">💡 <strong>Lợi thế Hán-Việt:</strong> Người Việt học tiếng Trung có lợi thế khổng lồ — hơn 60% từ tiếng Trung có gốc Hán-Việt. 帮助 = bang trợ = "bang trợ" trong tiếng Việt!</div>
+</div>
+<div class="blog-block">
+<h2>50 từ vựng HSK 1 quan trọng nhất</h2>
+<table>
+<tr><th>#</th><th>Từ</th><th>Hán-Việt</th><th>Pinyin</th><th>Nghĩa</th></tr>
+<tr><td>1</td><td><strong>我</strong></td><td class="hv">ngã</td><td class="reading">wǒ</td><td>tôi, mình</td></tr>
+<tr><td>2</td><td><strong>你</strong></td><td class="hv">nhĩ</td><td class="reading">nǐ</td><td>bạn, anh/chị</td></tr>
+<tr><td>3</td><td><strong>他</strong></td><td class="hv">tha</td><td class="reading">tā</td><td>anh ấy, ông ấy</td></tr>
+<tr><td>4</td><td><strong>她</strong></td><td class="hv">tha (nữ)</td><td class="reading">tā</td><td>cô ấy, chị ấy</td></tr>
+<tr><td>5</td><td><strong>我们</strong></td><td class="hv">ngã môn</td><td class="reading">wǒmen</td><td>chúng tôi</td></tr>
+<tr><td>6</td><td><strong>你们</strong></td><td class="hv">nhĩ môn</td><td class="reading">nǐmen</td><td>các bạn</td></tr>
+<tr><td>7</td><td><strong>他们</strong></td><td class="hv">tha môn</td><td class="reading">tāmen</td><td>họ (nam/chung)</td></tr>
+<tr><td>8</td><td><strong>你好</strong></td><td class="hv">nhĩ hảo</td><td class="reading">nǐ hǎo</td><td>xin chào</td></tr>
+<tr><td>9</td><td><strong>谢谢</strong></td><td class="hv">tạ tạ</td><td class="reading">xièxie</td><td>cảm ơn</td></tr>
+<tr><td>10</td><td><strong>对不起</strong></td><td class="hv">đối bất khởi</td><td class="reading">duìbuqǐ</td><td>xin lỗi</td></tr>
+<tr><td>11</td><td><strong>没关系</strong></td><td class="hv">một quan hệ</td><td class="reading">méiguānxi</td><td>không sao</td></tr>
+<tr><td>12</td><td><strong>再见</strong></td><td class="hv">tái kiến</td><td class="reading">zàijiàn</td><td>tạm biệt</td></tr>
+<tr><td>13</td><td><strong>请</strong></td><td class="hv">thỉnh</td><td class="reading">qǐng</td><td>xin, mời</td></tr>
+<tr><td>14</td><td><strong>不客气</strong></td><td class="hv">bất khách khí</td><td class="reading">bù kèqi</td><td>không có gì</td></tr>
+<tr><td>15</td><td><strong>一</strong></td><td class="hv">nhất</td><td class="reading">yī</td><td>một (1)</td></tr>
+<tr><td>16</td><td><strong>二</strong></td><td class="hv">nhị</td><td class="reading">èr</td><td>hai (2)</td></tr>
+<tr><td>17</td><td><strong>三</strong></td><td class="hv">tam</td><td class="reading">sān</td><td>ba (3)</td></tr>
+<tr><td>18</td><td><strong>四</strong></td><td class="hv">tứ</td><td class="reading">sì</td><td>bốn (4)</td></tr>
+<tr><td>19</td><td><strong>五</strong></td><td class="hv">ngũ</td><td class="reading">wǔ</td><td>năm (5)</td></tr>
+<tr><td>20</td><td><strong>六</strong></td><td class="hv">lục</td><td class="reading">liù</td><td>sáu (6)</td></tr>
+<tr><td>21</td><td><strong>七</strong></td><td class="hv">thất</td><td class="reading">qī</td><td>bảy (7)</td></tr>
+<tr><td>22</td><td><strong>八</strong></td><td class="hv">bát</td><td class="reading">bā</td><td>tám (8)</td></tr>
+<tr><td>23</td><td><strong>九</strong></td><td class="hv">cửu</td><td class="reading">jiǔ</td><td>chín (9)</td></tr>
+<tr><td>24</td><td><strong>十</strong></td><td class="hv">thập</td><td class="reading">shí</td><td>mười (10)</td></tr>
+<tr><td>25</td><td><strong>百</strong></td><td class="hv">bách</td><td class="reading">bǎi</td><td>trăm</td></tr>
+<tr><td>26</td><td><strong>零</strong></td><td class="hv">linh</td><td class="reading">líng</td><td>không (0)</td></tr>
+<tr><td>27</td><td><strong>两</strong></td><td class="hv">lưỡng</td><td class="reading">liǎng</td><td>hai (trước danh từ)</td></tr>
+<tr><td>28</td><td><strong>今天</strong></td><td class="hv">kim thiên</td><td class="reading">jīntiān</td><td>hôm nay</td></tr>
+<tr><td>29</td><td><strong>明天</strong></td><td class="hv">minh thiên</td><td class="reading">míngtiān</td><td>ngày mai</td></tr>
+<tr><td>30</td><td><strong>昨天</strong></td><td class="hv">tạc thiên</td><td class="reading">zuótiān</td><td>hôm qua</td></tr>
+<tr><td>31</td><td><strong>年</strong></td><td class="hv">niên</td><td class="reading">nián</td><td>năm (year)</td></tr>
+<tr><td>32</td><td><strong>月</strong></td><td class="hv">nguyệt</td><td class="reading">yuè</td><td>tháng, mặt trăng</td></tr>
+<tr><td>33</td><td><strong>日</strong></td><td class="hv">nhật</td><td class="reading">rì</td><td>ngày, mặt trời</td></tr>
+<tr><td>34</td><td><strong>上午</strong></td><td class="hv">thượng ngọ</td><td class="reading">shàngwǔ</td><td>buổi sáng (trước trưa)</td></tr>
+<tr><td>35</td><td><strong>下午</strong></td><td class="hv">hạ ngọ</td><td class="reading">xiàwǔ</td><td>buổi chiều</td></tr>
+<tr><td>36</td><td><strong>现在</strong></td><td class="hv">hiện tại</td><td class="reading">xiànzài</td><td>bây giờ, hiện tại</td></tr>
+<tr><td>37</td><td><strong>时候</strong></td><td class="hv">thời hầu</td><td class="reading">shíhou</td><td>lúc, khi</td></tr>
+<tr><td>38</td><td><strong>人</strong></td><td class="hv">nhân</td><td class="reading">rén</td><td>người</td></tr>
+<tr><td>39</td><td><strong>朋友</strong></td><td class="hv">bằng hữu</td><td class="reading">péngyǒu</td><td>bạn bè</td></tr>
+<tr><td>40</td><td><strong>老师</strong></td><td class="hv">lão sư</td><td class="reading">lǎoshī</td><td>giáo viên, thầy/cô</td></tr>
+<tr><td>41</td><td><strong>学生</strong></td><td class="hv">học sinh</td><td class="reading">xuésheng</td><td>học sinh</td></tr>
+<tr><td>42</td><td><strong>医生</strong></td><td class="hv">y sinh</td><td class="reading">yīshēng</td><td>bác sĩ</td></tr>
+<tr><td>43</td><td><strong>妈妈</strong></td><td class="hv">ma ma</td><td class="reading">māma</td><td>mẹ</td></tr>
+<tr><td>44</td><td><strong>爸爸</strong></td><td class="hv">ba ba</td><td class="reading">bàba</td><td>bố, ba</td></tr>
+<tr><td>45</td><td><strong>儿子</strong></td><td class="hv">nhi tử</td><td class="reading">érzi</td><td>con trai</td></tr>
+<tr><td>46</td><td><strong>女儿</strong></td><td class="hv">nữ nhi</td><td class="reading">nǚ'ér</td><td>con gái</td></tr>
+<tr><td>47</td><td><strong>吃</strong></td><td class="hv">ngật</td><td class="reading">chī</td><td>ăn</td></tr>
+<tr><td>48</td><td><strong>喝</strong></td><td class="hv">hát</td><td class="reading">hē</td><td>uống</td></tr>
+<tr><td>49</td><td><strong>看</strong></td><td class="hv">khán</td><td class="reading">kàn</td><td>xem, nhìn, đọc</td></tr>
+<tr><td>50</td><td><strong>听</strong></td><td class="hv">thính</td><td class="reading">tīng</td><td>nghe</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Cách học HSK 1 nhanh nhất</h2>
+<h3>1. Tận dụng Hán-Việt</h3>
+<p>Khi gặp từ mới, nhìn cột Hán-Việt. 我 = NGÃ, 你 = NHỊ, 他 = THA — bạn đã biết qua văn học Việt rồi!</p>
+<h3>2. Học Pinyin song song</h3>
+<p>Tiếng Trung Mandarin có 4 thanh điệu (+ thanh nhẹ). Phát âm đúng từ đầu quan trọng hơn nhiều.</p>
+<h3>3. Dùng Pinyin Speed của KOERU</h3>
+<p>Game luyện Pinyin phản xạ — giúp ghi nhớ cả âm lẫn nghĩa trong thời gian ngắn nhất.</p>
+<div class="tip-box">💡 <strong>Thời gian:</strong> HSK 1 có thể đạt trong <strong>1-2 tháng</strong> học 30 phút/ngày.</div>
+</div>
+<div class="blog-block">
+<h2>4 thanh điệu tiếng Trung — Bắt buộc phải thuộc</h2>
+<table>
+<tr><th>Thanh</th><th>Ký hiệu</th><th>Miêu tả</th><th>Ví dụ</th></tr>
+<tr><td><strong>Thanh 1</strong></td><td>ā</td><td>Bằng phẳng, kéo dài cao</td><td>māma (妈妈) = mẹ</td></tr>
+<tr><td><strong>Thanh 2</strong></td><td>á</td><td>Lên cao (như câu hỏi)</td><td>máfan (麻烦) = phiền phức</td></tr>
+<tr><td><strong>Thanh 3</strong></td><td>ǎ</td><td>Xuống rồi lên (chữ V)</td><td>wǒ (我) = tôi</td></tr>
+<tr><td><strong>Thanh 4</strong></td><td>à</td><td>Xuống mạnh, dứt khoát</td><td>shì (是) = là</td></tr>
+<tr><td><strong>Thanh nhẹ</strong></td><td>a</td><td>Ngắn, nhẹ, không dấu</td><td>ma (吗) = à? (câu hỏi)</td></tr>
+</table>
+<div class="warn-box">⚠️ <strong>Cẩn thận!</strong> māi (买 = mua) vs mài (卖 = bán) — sai thanh điệu = nghĩa ngược nhau!</div>
+</div>`,
+
+18: `<div class="blog-block">
+<h2>HSK 2 & 3 — Bước tiến vượt bậc</h2>
+<p><strong>HSK 2</strong> yêu cầu 300 từ, <strong>HSK 3</strong> yêu cầu 600 từ. Ở level này, bạn đã có thể giao tiếp cơ bản và đọc tin nhắn tiếng Trung.</p>
+<div class="tip-box">💡 <strong>Thực tế:</strong> HSK 3 = đủ dùng khi đi Trung Quốc, đọc menu, hỏi đường, mua đồ. Mục tiêu thực dụng nhất để học!</div>
+</div>
+<div class="blog-block">
+<h2>50 từ vựng HSK 2/3 quan trọng nhất</h2>
+<table>
+<tr><th>#</th><th>Từ</th><th>Hán-Việt</th><th>Pinyin</th><th>Nghĩa</th></tr>
+<tr><td>1</td><td><strong>帮助</strong></td><td class="hv">bang trợ</td><td class="reading">bāngzhù</td><td>giúp đỡ</td></tr>
+<tr><td>2</td><td><strong>打算</strong></td><td class="hv">đả toán</td><td class="reading">dǎsuàn</td><td>dự định, có kế hoạch</td></tr>
+<tr><td>3</td><td><strong>担心</strong></td><td class="hv">đảm tâm</td><td class="reading">dānxīn</td><td>lo lắng</td></tr>
+<tr><td>4</td><td><strong>告诉</strong></td><td class="hv">cáo tố</td><td class="reading">gàosu</td><td>nói cho biết, bảo</td></tr>
+<tr><td>5</td><td><strong>回答</strong></td><td class="hv">hồi đáp</td><td class="reading">huídá</td><td>trả lời</td></tr>
+<tr><td>6</td><td><strong>介绍</strong></td><td class="hv">giới thiệu</td><td class="reading">jièshào</td><td>giới thiệu</td></tr>
+<tr><td>7</td><td><strong>觉得</strong></td><td class="hv">giác đắc</td><td class="reading">juéde</td><td>cảm thấy, cho rằng</td></tr>
+<tr><td>8</td><td><strong>开始</strong></td><td class="hv">khai thủy</td><td class="reading">kāishǐ</td><td>bắt đầu</td></tr>
+<tr><td>9</td><td><strong>练习</strong></td><td class="hv">luyện tập</td><td class="reading">liànxí</td><td>luyện tập</td></tr>
+<tr><td>10</td><td><strong>旅游</strong></td><td class="hv">lữ du</td><td class="reading">lǚyóu</td><td>du lịch</td></tr>
+<tr><td>11</td><td><strong>明白</strong></td><td class="hv">minh bạch</td><td class="reading">míngbai</td><td>hiểu, rõ ràng</td></tr>
+<tr><td>12</td><td><strong>认识</strong></td><td class="hv">nhận thức</td><td class="reading">rènshi</td><td>quen biết, nhận ra</td></tr>
+<tr><td>13</td><td><strong>送</strong></td><td class="hv">tống</td><td class="reading">sòng</td><td>tặng, gửi, tiễn</td></tr>
+<tr><td>14</td><td><strong>希望</strong></td><td class="hv">hi vọng</td><td class="reading">xīwàng</td><td>hi vọng, mong muốn</td></tr>
+<tr><td>15</td><td><strong>游泳</strong></td><td class="hv">du vịnh</td><td class="reading">yóuyǒng</td><td>bơi lội</td></tr>
+<tr><td>16</td><td><strong>放</strong></td><td class="hv">phóng</td><td class="reading">fàng</td><td>đặt xuống, thả</td></tr>
+<tr><td>17</td><td><strong>借</strong></td><td class="hv">tá</td><td class="reading">jiè</td><td>mượn, cho mượn</td></tr>
+<tr><td>18</td><td><strong>复习</strong></td><td class="hv">phục tập</td><td class="reading">fùxí</td><td>ôn tập</td></tr>
+<tr><td>19</td><td><strong>比较</strong></td><td class="hv">tỉ giảo</td><td class="reading">bǐjiào</td><td>so sánh, khá là</td></tr>
+<tr><td>20</td><td><strong>出发</strong></td><td class="hv">xuất phát</td><td class="reading">chūfā</td><td>xuất phát, khởi hành</td></tr>
+<tr><td>21</td><td><strong>方便</strong></td><td class="hv">phương tiện</td><td class="reading">fāngbiàn</td><td>tiện lợi</td></tr>
+<tr><td>22</td><td><strong>容易</strong></td><td class="hv">dung dị</td><td class="reading">róngyì</td><td>dễ dàng</td></tr>
+<tr><td>23</td><td><strong>清楚</strong></td><td class="hv">thanh sở</td><td class="reading">qīngchǔ</td><td>rõ ràng</td></tr>
+<tr><td>24</td><td><strong>漂亮</strong></td><td class="hv">phiêu lượng</td><td class="reading">piàoliang</td><td>đẹp</td></tr>
+<tr><td>25</td><td><strong>便宜</strong></td><td class="hv">tiện nghi</td><td class="reading">piányí</td><td>rẻ (giá cả)</td></tr>
+<tr><td>26</td><td><strong>贵</strong></td><td class="hv">quý</td><td class="reading">guì</td><td>đắt (giá cả)</td></tr>
+<tr><td>27</td><td><strong>安静</strong></td><td class="hv">an tĩnh</td><td class="reading">ānjìng</td><td>yên tĩnh</td></tr>
+<tr><td>28</td><td><strong>健康</strong></td><td class="hv">kiện khang</td><td class="reading">jiànkāng</td><td>khỏe mạnh</td></tr>
+<tr><td>29</td><td><strong>超市</strong></td><td class="hv">siêu thị</td><td class="reading">chāoshì</td><td>siêu thị</td></tr>
+<tr><td>30</td><td><strong>地铁</strong></td><td class="hv">địa thiết</td><td class="reading">dìtiě</td><td>tàu điện ngầm</td></tr>
+<tr><td>31</td><td><strong>东西</strong></td><td class="hv">đông tây</td><td class="reading">dōngxi</td><td>đồ vật, thứ gì đó</td></tr>
+<tr><td>32</td><td><strong>公司</strong></td><td class="hv">công ty</td><td class="reading">gōngsī</td><td>công ty</td></tr>
+<tr><td>33</td><td><strong>护照</strong></td><td class="hv">hộ chiếu</td><td class="reading">hùzhào</td><td>hộ chiếu</td></tr>
+<tr><td>34</td><td><strong>机场</strong></td><td class="hv">cơ trường</td><td class="reading">jīchǎng</td><td>sân bay</td></tr>
+<tr><td>35</td><td><strong>鸡蛋</strong></td><td class="hv">kê đản</td><td class="reading">jīdàn</td><td>trứng gà</td></tr>
+<tr><td>36</td><td><strong>问题</strong></td><td class="hv">vấn đề</td><td class="reading">wèntí</td><td>câu hỏi, vấn đề</td></tr>
+<tr><td>37</td><td><strong>身体</strong></td><td class="hv">thân thể</td><td class="reading">shēntǐ</td><td>cơ thể, sức khỏe</td></tr>
+<tr><td>38</td><td><strong>生日</strong></td><td class="hv">sinh nhật</td><td class="reading">shēngrì</td><td>sinh nhật</td></tr>
+<tr><td>39</td><td><strong>时候</strong></td><td class="hv">thời hậu</td><td class="reading">shíhou</td><td>lúc, khi, thời điểm</td></tr>
+<tr><td>40</td><td><strong>世界</strong></td><td class="hv">thế giới</td><td class="reading">shìjiè</td><td>thế giới</td></tr>
+<tr><td>41</td><td><strong>手表</strong></td><td class="hv">thủ biểu</td><td class="reading">shǒubiǎo</td><td>đồng hồ đeo tay</td></tr>
+<tr><td>42</td><td><strong>城市</strong></td><td class="hv">thành thị</td><td class="reading">chéngshì</td><td>thành phố</td></tr>
+<tr><td>43</td><td><strong>地图</strong></td><td class="hv">địa đồ</td><td class="reading">dìtú</td><td>bản đồ</td></tr>
+<tr><td>44</td><td><strong>冰箱</strong></td><td class="hv">băng tương</td><td class="reading">bīngxiāng</td><td>tủ lạnh</td></tr>
+<tr><td>45</td><td><strong>报纸</strong></td><td class="hv">báo chỉ</td><td class="reading">bàozhǐ</td><td>báo giấy</td></tr>
+<tr><td>46</td><td><strong>才</strong></td><td class="hv">tài</td><td class="reading">cái</td><td>mới, vừa mới</td></tr>
+<tr><td>47</td><td><strong>当然</strong></td><td class="hv">đương nhiên</td><td class="reading">dāngrán</td><td>tất nhiên, dĩ nhiên</td></tr>
+<tr><td>48</td><td><strong>刚才</strong></td><td class="hv">cương tài</td><td class="reading">gāngcái</td><td>vừa mới (xong)</td></tr>
+<tr><td>49</td><td><strong>马上</strong></td><td class="hv">mã thượng</td><td class="reading">mǎshàng</td><td>ngay lập tức</td></tr>
+<tr><td>50</td><td><strong>已经</strong></td><td class="hv">dĩ kinh</td><td class="reading">yǐjīng</td><td>đã (rồi)</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Chiến lược học HSK 2-3</h2>
+<h3>1. Nhóm theo chủ đề</h3>
+<p>Nhóm "cảm xúc": 担心 (lo lắng), 高兴 (vui mừng), 难过 (buồn bã). Học theo cảm xúc giúp nhớ lâu hơn.</p>
+<h3>2. Luyện chữ viết</h3>
+<p>HSK 2-3 bắt đầu xuất hiện phần viết. Học 5 nét cơ bản của Hán tự: 横/竖/撇/捺/折.</p>
+<h3>3. Nghe podcast TiengTrung.vn</h3>
+<p>Nghe tiếng Trung 30 phút/ngày — ngay cả khi không hiểu 100%, tai sẽ quen âm thanh.</p>
+<div class="tip-box">💡 <strong>Mẹo:</strong> Với HSK 2-3, tập trung vào từ vựng nhiều hơn ngữ pháp. Tiếng Trung ít biến tố, ngữ pháp đơn giản hơn tiếng Nhật!</div>
+</div>
+<div class="blog-block">
+<h2>So sánh HSK vs JLPT</h2>
+<table>
+<tr><th>Tiêu chí</th><th>HSK (Tiếng Trung)</th><th>JLPT (Tiếng Nhật)</th></tr>
+<tr><td>Số cấp độ</td><td>6 cấp (HSK 1-6)</td><td>5 cấp (N5-N1)</td></tr>
+<tr><td>Khó nhất</td><td>HSK 6 (~5000 từ)</td><td>JLPT N1 (~10,000 từ)</td></tr>
+<tr><td>Chữ viết</td><td>Hán tự giản thể</td><td>Kanji phồn thể</td></tr>
+<tr><td>Lợi thế người Việt</td><td>⭐⭐⭐⭐⭐ Rất cao</td><td>⭐⭐⭐ Cao</td></tr>
+<tr><td>Phí thi</td><td>~400,000đ</td><td>~500,000đ</td></tr>
+<tr><td>Kỳ thi/năm</td><td>Nhiều kỳ</td><td>2 kỳ</td></tr>
+</table>
+</div>`,
+
+19: `<div class="blog-block">
+<h2>KOERU — Học tiếng Trung tại Bà Rịa – Vũng Tàu</h2>
+<p>Ngoài tiếng Nhật, KOERU còn dạy <strong>tiếng Trung Mandarin</strong> với lộ trình bám sát chuẩn HSK. Kết hợp lớp học trực tiếp với app luyện tập online miễn phí.</p>
+</div>
+<div class="blog-block">
+<h2>Tại sao nên học tiếng Trung bây giờ?</h2>
+<h3>1. Nhu cầu tuyển dụng tăng mạnh</h3>
+<p>KCN Phú Mỹ, Châu Đức ngày càng có nhiều công ty Trung Quốc và Đài Loan. Biết tiếng Trung = tăng lương 30-50%.</p>
+<h3>2. Người Việt học nhanh hơn người khác</h3>
+<p>Hơn 60% từ tiếng Việt có gốc Hán-Việt. "Học sinh" = 学生 (xuéshēng), "giáo viên" = 教师 (jiàoshī). Bạn đã biết trước rất nhiều rồi!</p>
+<h3>3. Chi phí học thấp</h3>
+<p>Học phí tiếng Trung tại KOERU thấp hơn trung tâm lớn 20-30%, nhưng được học kèm app luyện tập miễn phí.</p>
+</div>
+<div class="blog-block">
+<h2>Lộ trình học tiếng Trung tại KOERU</h2>
+<table>
+<tr><th>Giai đoạn</th><th>Mục tiêu</th><th>Thời gian</th><th>Kết quả</th></tr>
+<tr><td>Cơ bản 1</td><td>Pinyin + 150 từ HSK 1</td><td>2 tháng</td><td>Thi HSK 1</td></tr>
+<tr><td>Cơ bản 2</td><td>300 từ HSK 2</td><td>2 tháng</td><td>Thi HSK 2</td></tr>
+<tr><td>Sơ trung cấp</td><td>600 từ HSK 3</td><td>3 tháng</td><td>Thi HSK 3</td></tr>
+<tr><td>Trung cấp</td><td>1,200 từ HSK 4</td><td>4 tháng</td><td>Thi HSK 4</td></tr>
+</table>
+<div class="tip-box">💡 <strong>Từ HSK 3 trở lên</strong> = có thể làm phiên dịch cơ bản, giao tiếp với khách hàng Trung Quốc, mức lương tăng đáng kể!</div>
+</div>
+<div class="blog-block">
+<h2>Thông tin liên hệ</h2>
+<ul>
+<li>📍 Bà Rịa – Vũng Tàu</li>
+<li>📞 0797 836 395</li>
+<li>💬 Zalo: KOERU</li>
+</ul>
+<h3>Ưu đãi đặc biệt</h3>
+<p>Đăng ký khóa <strong>tiếng Trung cơ bản</strong> được:</p>
+<ul>
+<li>✅ Học thử miễn phí 1 buổi</li>
+<li>✅ Tặng tài khoản app luyện tập trọn đời</li>
+<li>✅ Giảm 10% nếu đăng ký cùng lúc tiếng Nhật + tiếng Trung</li>
+</ul>
+</div>`,
 };
 
 function showBlogDetail(id) {
@@ -3932,6 +4148,14 @@ function showBlogDetail(id) {
   const navBlog = document.getElementById('nav-blog');
   if (navBlog) navBlog.classList.add('active');
   window.scrollTo(0, 0);
+  // Dynamic SEO: update title + OG for sharing
+  document.title = b.title + ' — KOERU';
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (ogTitle) ogTitle.setAttribute('content', b.title + ' — KOERU');
+  if (ogDesc) ogDesc.setAttribute('content', b.excerpt || b.title);
+  if (metaDesc) metaDesc.setAttribute('content', b.excerpt || b.title);
 }
 
 function shareBlog(platform, id) {
