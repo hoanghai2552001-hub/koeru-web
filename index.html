@@ -1549,6 +1549,19 @@ setTimeout(()=>{
 },100);
 function nextId(a){return a.length?Math.max(...a.map(x=>x.id||0))+1:1;}
 
+// Hash routing — deep link to blog posts (#blog-N) and lessons (#lesson-N)
+(function(){
+  function handleHash(){
+    const h=location.hash;
+    const blogMatch=h.match(/^#blog-(\d+)$/);
+    if(blogMatch){showBlogDetail(parseInt(blogMatch[1]));return;}
+    const lessonMatch=h.match(/^#lesson-(\d+)$/);
+    if(lessonMatch&&typeof showLesson==='function'){showLesson(parseInt(lessonMatch[1]));return;}
+  }
+  if(location.hash)setTimeout(handleHash,200);
+  window.addEventListener('hashchange',handleHash);
+})();
+
 /* ─── FLASH DATA ─── */
 const FLASH={jp:{
 n5:[
@@ -1868,6 +1881,8 @@ function showPage(p){
   document.body.classList.remove('tool-active');
   if(p==='admin'){if(adminUnlocked)showAdminContent();else{document.getElementById('admin-lock').style.display='flex';document.getElementById('admin-content').style.display='none';}}
   else({home:()=>{renderHomeLesson();renderHomeBlog();},learn:()=>renderLearn(),blog:()=>renderBlog('all'),quiz:loadQuiz,flash:loadFlash}[p]||function(){})();
+  // Reset title khi rời blog detail
+  if(p!=='blog-detail') document.title='KOERU — Học Tiếng Nhật & Tiếng Trung tại Bà Rịa – Vũng Tàu';
 }
 
 /* ─── LESSON CONTENT ─── */
@@ -4148,6 +4163,8 @@ function showBlogDetail(id) {
   const navBlog = document.getElementById('nav-blog');
   if (navBlog) navBlog.classList.add('active');
   window.scrollTo(0, 0);
+  // Update hash for deep linking (without triggering hashchange)
+  history.replaceState(null, '', '#blog-' + id);
   // Dynamic SEO: update title + OG for sharing
   document.title = b.title + ' — KOERU';
   const ogTitle = document.querySelector('meta[property="og:title"]');
