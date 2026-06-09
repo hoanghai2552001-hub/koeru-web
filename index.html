@@ -703,10 +703,6 @@ body.menu-open{overflow:hidden}
     <span class="mob-icon">🔬</span>
     <span class="mob-text"><strong>Hanzi Lab</strong><small>4 game luyện Hán tự</small></span>
   </a>
-  <a onclick="closeMenu();openTool('hanzi-map.html',{leadKey:'hanzi_map_cn'})" class="mob-item">
-    <span class="mob-icon">🗺️</span>
-    <span class="mob-text"><strong>Hanzi Map</strong><small>Bản đồ quan hệ Hán tự</small></span>
-  </a>
   <div class="mob-divider"></div>
   <a onclick="navTo('about')" class="mob-item">
     <span class="mob-icon">ℹ️</span>
@@ -899,7 +895,6 @@ body.menu-open{overflow:hidden}
         <div class="tools-grid">
           <div class="tool-card" onclick="openTool('pinyin.html',{leadKey:'hsk_practice'})"><span class="tool-icon">🀄</span><h3>HSK Practice</h3><p>Tone Trainer, Speed Quiz, Flashcard HSK 1–9 — tất cả trong một</p></div>
           <div class="tool-card" onclick="openTool('hanzi-lab.html',{leadKey:'hanzi_lab'})"><span class="tool-icon">🔬</span><h3>Hanzi Lab</h3><p>Quiz nghĩa, Pinyin, Speed 45s — HSK 1·2·3</p></div>
-          <div class="tool-card" onclick="openTool('hanzi-map.html',{leadKey:'hanzi_map_cn'})"><span class="tool-icon">🗺</span><h3>Hanzi Map</h3><p>Khám phá chữ Hán theo bộ thủ — 20 bộ thủ HSK</p></div>
         </div>
       </div>
     </div>
@@ -1675,7 +1670,6 @@ const TOOL_META = {
   'study/index.html':  { label:'📖 Bảng Kanji Hoạt Họa',icon:'📖' },
   'pinyin.html':       { label:'🀄 HSK Practice',        icon:'🀄' },
   'hanzi-lab.html':    { label:'🔬 Hanzi Lab',           icon:'🔬' },
-  'hanzi-map.html':    { label:'🗺 Hanzi Map',           icon:'🗺' },
   'odysseus-whiteboard.html': { label:'✍️ Whiteboard', icon:'✍️' },
 };
 
