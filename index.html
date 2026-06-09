@@ -1132,7 +1132,7 @@ body.menu-open{overflow:hidden}
       <button class="cat-btn" onclick="filterBlog('vocab',this)">📝 Từ vựng</button>
       <button class="cat-btn" onclick="filterBlog('kanji',this)">漢 Kanji</button>
       <button class="cat-btn" onclick="filterBlog('grammar',this)">📖 Ngữ pháp</button>
-      <button class="cat-btn" onclick="filterBlog('tip',this)">💡 Mẹo thi</button>
+      <button class="cat-btn" onclick="filterBlog('tip',this)">💡 Mẹo & Lộ trình</button>
     </div>
     <div class="blog-grid" id="blog-grid"></div>
   </div></div>
@@ -1451,6 +1451,14 @@ const DEF_B=[
   {id:6,lang:'jp',cat:'grammar',bg:'#eef8ff',flag:'🇯🇵',tagBg:'#d0e8ff',tagC:'#1e40af',tag:'Ngữ pháp',title:'20 mẫu ngữ pháp N4 quan trọng — Hay ra trong đề thi JLPT',excerpt:'20 cấu trúc N4 hay xuất hiện trong đề thi JLPT, kèm ví dụ câu, cách dùng và bẫy thường gặp.',date:'20/05/2025'},
   {id:7,lang:'jp',cat:'tip',bg:'#fff8e8',flag:'🇯🇵',tagBg:'#ffecd6',tagC:'#8b4a00',tag:'Mẹo thi',title:'10 lưu ý quan trọng trước khi đi thi JLPT (N5/N4)',excerpt:'Những điều cần biết trước ngày thi JLPT: mang gì, cách phân bổ thời gian, sai lầm cần tránh và mẹo tâm lý.',date:'15/05/2025'},
   {id:8,lang:'jp',cat:'tip',bg:'#e8f5e9',flag:'🇯🇵',tagBg:'#c8e6c9',tagC:'#1b5e20',tag:'Mẹo thi',title:'Mẹo đọc hiểu & nghe hiểu JLPT N5/N4 — Tăng 20 điểm dễ dàng',excerpt:'Kỹ thuật làm bài đọc hiểu và nghe hiểu JLPT, cách loại đáp án sai và tận dụng thời gian hiệu quả nhất.',date:'10/05/2025'},
+  {id:9,lang:'jp',cat:'vocab',bg:'#fff0f5',flag:'🇯🇵',tagBg:'#fce7f3',tagC:'#9d174d',tag:'Từ vựng N3',title:'50 từ vựng N3 thường gặp nhất trong đề thi JLPT',excerpt:'Từ vựng N3 — cấp độ bước ngoặt. 50 từ quan trọng nhất kèm Hán-Việt.',date:'09/06/2025'},
+  {id:10,lang:'jp',cat:'kanji',bg:'#fef3c7',flag:'🇯🇵',tagBg:'#fde68a',tagC:'#92400e',tag:'Kanji N3',title:'145 Kanji N3 đầy đủ — Bảng tổng hợp kèm Hán-Việt',excerpt:'Toàn bộ Kanji N3 với On, Kun, Hán-Việt.',date:'09/06/2025'},
+  {id:11,lang:'jp',cat:'tip',bg:'#ecfdf5',flag:'🇯🇵',tagBg:'#d1fae5',tagC:'#065f46',tag:'Lộ trình',title:'Học JLPT N5 mất bao lâu? Lộ trình 12 tuần cho người mới',excerpt:'Lộ trình từng tuần để đạt N5 trong 3 tháng.',date:'09/06/2025'},
+  {id:12,lang:'jp',cat:'tip',bg:'#f0f9ff',flag:'🇯🇵',tagBg:'#e0f2fe',tagC:'#0c4a6e',tag:'Kana',title:'Bảng Hiragana đầy đủ — Học thuộc trong 7 ngày',excerpt:'46 ký tự Hiragana + Dakuten, lịch học 7 ngày.',date:'09/06/2025'},
+  {id:13,lang:'jp',cat:'tip',bg:'#faf5ff',flag:'🇯🇵',tagBg:'#f3e8ff',tagC:'#6b21a8',tag:'Kana',title:'Bảng Katakana đầy đủ — Cặp dễ nhầm & từ hay gặp',excerpt:'46 ký tự Katakana, cặp sinh đôi dễ nhầm.',date:'09/06/2025'},
+  {id:14,lang:'jp',cat:'tip',bg:'#fff7ed',flag:'🇯🇵',tagBg:'#ffedd5',tagC:'#9a3412',tag:'So sánh',title:'JLPT vs J-TEST — Nên thi chứng chỉ nào?',excerpt:'So sánh 2 kỳ thi phổ biến nhất.',date:'09/06/2025'},
+  {id:15,lang:'jp',cat:'tip',bg:'#f0fdf4',flag:'📍',tagBg:'#dcfce7',tagC:'#166534',tag:'BR-VT',title:'Học tiếng Nhật ở Bà Rịa – Vũng Tàu — KOERU',excerpt:'Trung tâm tiếng Nhật & Trung tại BR-VT.',date:'09/06/2025'},
+  {id:16,lang:'jp',cat:'tip',bg:'#fef2f2',flag:'📅',tagBg:'#fee2e2',tagC:'#991b1b',tag:'Lịch thi',title:'Lịch thi JLPT 2025 tại Việt Nam',excerpt:'Ngày thi, địa điểm, cách đăng ký JLPT 2025.',date:'09/06/2025'},
 ];
 const DEF_D=[
   {id:1,lang:'jp',title:'Giáo trình Minna no Nihongo N5',format:'PDF',size:'180 trang',link:''},
@@ -2745,17 +2753,17 @@ const BLOG_CONTENT = {
 <div class="blog-block">
 <h2>Cách học từ vựng hiệu quả cho N5</h2>
 <h3>1. Học theo nhóm Kanji</h3>
-<p>Ví dụ: Kanji 一 (NHẤT) → 一日 (NHẤT NHẬT = một ngày), 一月 (NHẤT NGUYỆT = tháng 1), 一時 (NHẤT THỜI = một giờ). Nhớ 1 Kanji = nhớ 3-4 từ!</p>
+<p>Ví dụ: Kanji 一 (NHẤT) → 一日 (NHẤT NHẬT = một ngày), 一月 (NHẤT NGUYỆT = tháng 1). Nhớ 1 Kanji = nhớ 3-4 từ!</p>
 <h3>2. Tận dụng Hán-Việt</h3>
 <p>Khi gặp từ mới, đọc cột Hán-Việt trước. Nếu bạn đã biết "AN TOÀN" trong tiếng Việt, 安全 (あんぜん) sẽ không còn xa lạ.</p>
 <h3>3. Dùng Flashcard lặp lại cách quãng</h3>
-<p>Sử dụng công cụ <strong>Flashcard</strong> của KOERU để ôn tập hàng ngày. Hệ thống tự động đưa những từ bạn hay quên lên đầu.</p>
+<p>Sử dụng công cụ <strong>Flashcard</strong> của KOERU để ôn tập hàng ngày.</p>
 <div class="tip-box">💡 <strong>Lịch ôn thi gợi ý:</strong> Mỗi ngày học 10 từ mới + ôn lại 20 từ cũ. Trong 5 ngày bạn sẽ hoàn thành bảng này!</div>
 </div>`,
 
 2: `<div class="blog-block">
 <h2>Từ vựng N4 — Bước tiến quan trọng</h2>
-<p>N4 yêu cầu khoảng <strong>1,500 từ vựng</strong> — gấp đôi N5. Nhiều từ N4 là từ ghép Hán-Việt quen thuộc, giúp người Việt học nhanh hơn đáng kể!</p>
+<p>N4 yêu cầu khoảng <strong>1,500 từ vựng</strong> — gấp đôi N5. Nhiều từ N4 là từ ghép Hán-Việt quen thuộc!</p>
 <div class="tip-box">💡 <strong>Ví dụ Hán-Việt N4:</strong> 努力 = NỖ LỰC, 協力 = HIỆP LỰC, 魅力 = MỊ LỰC. Học cả nhóm cùng gốc một lần!</div>
 </div>
 <div class="blog-block">
@@ -2817,11 +2825,11 @@ const BLOG_CONTENT = {
 <div class="blog-block">
 <h2>Chiến lược ôn từ vựng N4</h2>
 <h3>1. Nhóm theo âm Hán-Việt giống nhau</h3>
-<p>Các từ cùng gốc Hán rất dễ nhớ cùng nhau: 努力・協力・能力・実力・魅力 — tất cả đều chứa 力 (LỰC). Học theo nhóm như vậy giúp bộ nhớ kết nối tốt hơn.</p>
+<p>Các từ cùng gốc Hán rất dễ nhớ cùng nhau: 努力・協力・能力・実力・魅力 — tất cả đều chứa 力 (LỰC).</p>
 <h3>2. Học theo chủ đề</h3>
-<p>Phân nhóm từ theo chủ đề: công việc (工事, 工場), sức khỏe (元気, 病気), cảm xúc (心配, 安心)...</p>
+<p>Phân nhóm từ: công việc, sức khỏe, cảm xúc...</p>
 <h3>3. Luyện qua Quiz</h3>
-<p>Dùng <strong>Quiz</strong> của KOERU để kiểm tra — hệ thống sẽ cho bạn biết chính xác từ nào cần ôn thêm.</p>
+<p>Dùng <strong>Quiz</strong> của KOERU để kiểm tra.</p>
 </div>`,
 
 3: `<div class="blog-block">
@@ -3376,6 +3384,518 @@ const BLOG_CONTENT = {
 <div class="tip-box">💡 <strong>Dùng KOERU mỗi ngày:</strong> Flashcard buổi sáng (10 phút) + Quiz buổi tối (10 phút) + Kanji Lab cuối tuần (30 phút). Chỉ 30 phút/ngày nhưng hiệu quả gấp 3 lần học thụ động!</div>
 </div>`,
 
+
+
+9: `<div class="blog-block">
+<h2>Từ vựng N3 — Bước ngoặt quan trọng</h2>
+<p>N3 là <strong>cấp độ trung gian</strong> của JLPT — nơi tiếng Nhật bắt đầu thực sự "có ích". Bạn cần khoảng <strong>3,500 từ vựng</strong>.</p>
+<div class="tip-box">💡 <strong>Tin vui cho người Việt:</strong> Ở N3, lợi thế Hán-Việt MẠNH HƠN bao giờ hết. Ví dụ: 化学 = HÓA HỌc, 変化 = BIẾ́N HÓA, 文化 = VĂN HÓA — 3 từ, 1 Kanji!</div>
+</div>
+<div class="blog-block">
+<h2>50 từ vựng N3 thường gặp nhất</h2>
+<table>
+<tr><th>#</th><th>Từ vựng</th><th>Hán-Việt</th><th>Cách đọc</th><th>Nghĩa</th></tr>
+<tr><td>1</td><td><strong>文化</strong></td><td class="hv">VĂN HÓA</td><td class="reading">ぶんか</td><td>văn hóa</td></tr>
+<tr><td>2</td><td><strong>化学</strong></td><td class="hv">HÓA HỌC</td><td class="reading">かがく</td><td>hóa học</td></tr>
+<tr><td>3</td><td><strong>化粧</strong></td><td class="hv">HÓA</td><td class="reading">けしょう</td><td>trang điểm</td></tr>
+<tr><td>4</td><td><strong>変化</strong></td><td class="hv">BIẾN HÓA</td><td class="reading">へんか</td><td>sự thay đổi</td></tr>
+<tr><td>5</td><td><strong>酸化</strong></td><td class="hv">TOAN HÓA</td><td class="reading">さんか</td><td>sự oxy hóa</td></tr>
+<tr><td>6</td><td><strong>家内</strong></td><td class="hv">GIA NỘI</td><td class="reading">かない</td><td>vợ mình; nhà tôi; người trong nhà</td></tr>
+<tr><td>7</td><td><strong>内科</strong></td><td class="hv">NỘI KHOA</td><td class="reading">ないか</td><td>nội khoa</td></tr>
+<tr><td>8</td><td><strong>内容</strong></td><td class="hv">NỘI DUNG</td><td class="reading">ないよう</td><td>nội dung; chi tiết</td></tr>
+<tr><td>9</td><td><strong>違反</strong></td><td class="hv">VI PHẢN</td><td class="reading">いはん</td><td>vi phạm</td></tr>
+<tr><td>10</td><td><strong>反る</strong></td><td class="hv">PHẢN</td><td class="reading">そる</td><td>cong lên; ưỡn ra; vênh lên</td></tr>
+<tr><td>11</td><td><strong>反抗</strong></td><td class="hv">PHẢN KHÁNG</td><td class="reading">はんこう</td><td>chống đối; kháng cự</td></tr>
+<tr><td>12</td><td><strong>反省</strong></td><td class="hv">PHẢN TỈNH</td><td class="reading">はんせい</td><td>phản tỉnh; suy nghĩ lại; hối tiếc</td></tr>
+<tr><td>13</td><td><strong>反応</strong></td><td class="hv">PHẢN ỨNG</td><td class="reading">はんのう</td><td>phản ứng</td></tr>
+<tr><td>14</td><td><strong>反映</strong></td><td class="hv">PHẢN ÁNH</td><td class="reading">はんえい</td><td>phản ánh</td></tr>
+<tr><td>15</td><td><strong>反響</strong></td><td class="hv">PHẢN HƯỞNG</td><td class="reading">はんきょう</td><td>phản hồi; tiếng vang</td></tr>
+<tr><td>16</td><td><strong>反対</strong></td><td class="hv">PHẢN ĐỐI</td><td class="reading">はんたい</td><td>phản đối; ngược lại</td></tr>
+<tr><td>17</td><td><strong>平和</strong></td><td class="hv">BÌNH HÒA</td><td class="reading">へいわ</td><td>hòa bình</td></tr>
+<tr><td>18</td><td><strong>平等</strong></td><td class="hv">BÌNH ĐẲNG</td><td class="reading">びょうどう</td><td>bình đẳng</td></tr>
+<tr><td>19</td><td><strong>平均</strong></td><td class="hv">BÌNH QUÂN</td><td class="reading">へいきん</td><td>trung bình; bình quân</td></tr>
+<tr><td>20</td><td><strong>公平</strong></td><td class="hv">CÔNG BÌNH</td><td class="reading">こうへい</td><td>công bằng; vô tư</td></tr>
+<tr><td>21</td><td><strong>平ら</strong></td><td class="hv">BÌNH</td><td class="reading">たいら</td><td>bằng phẳng; phẳng</td></tr>
+<tr><td>22</td><td><strong>地平線</strong></td><td class="hv">ĐỊA BÌNH TUYẾN</td><td class="reading">ちへいせん</td><td>đường chân trời</td></tr>
+<tr><td>23</td><td><strong>不平</strong></td><td class="hv">BẤT BÌNH</td><td class="reading">ふへい</td><td>phàn nàn; bất mãn</td></tr>
+<tr><td>24</td><td><strong>平仮名</strong></td><td class="hv">BÌNH GIẢ DANH</td><td class="reading">ひらがな</td><td>chữ Hiragana</td></tr>
+<tr><td>25</td><td><strong>平気</strong></td><td class="hv">BÌNH KHÍ</td><td class="reading">へいき</td><td>bình tĩnh; không sao</td></tr>
+<tr><td>26</td><td><strong>氷点下</strong></td><td class="hv">BĂNG ĐIỂM HẠ</td><td class="reading">ひょうてんか</td><td>dưới 0 độ C; dưới điểm đóng băng</td></tr>
+<tr><td>27</td><td><strong>氷河</strong></td><td class="hv">BĂNG</td><td class="reading">ひょうが</td><td>sông băng</td></tr>
+<tr><td>28</td><td><strong>氷</strong></td><td class="hv">BĂNG</td><td class="reading">こおり</td><td>đá; băng</td></tr>
+<tr><td>29</td><td><strong>石材</strong></td><td class="hv">THẠCH TÀI</td><td class="reading">せきざい</td><td>đá xây dựng</td></tr>
+<tr><td>30</td><td><strong>石炭</strong></td><td class="hv">THẠCH THAN</td><td class="reading">せきたん</td><td>than đá</td></tr>
+<tr><td>31</td><td><strong>石油</strong></td><td class="hv">THẠCH DU</td><td class="reading">せきゆ</td><td>dầu mỏ; xăng dầu</td></tr>
+<tr><td>32</td><td><strong>宝石</strong></td><td class="hv">BẢO THẠCH</td><td class="reading">ほうせき</td><td>đá quý; châu báu</td></tr>
+<tr><td>33</td><td><strong>石</strong></td><td class="hv">THẠCH</td><td class="reading">いし</td><td>đá</td></tr>
+<tr><td>34</td><td><strong>他動詞</strong></td><td class="hv">THA ĐỘNG TỪ</td><td class="reading">たどうし</td><td>ngoại động từ</td></tr>
+<tr><td>35</td><td><strong>その他</strong></td><td class="hv">THA</td><td class="reading">そのた</td><td>ngoài ra; những thứ khác</td></tr>
+<tr><td>36</td><td><strong>他</strong></td><td class="hv">THA</td><td class="reading">た</td><td>khác; những thứ/người khác</td></tr>
+<tr><td>37</td><td><strong>他人</strong></td><td class="hv">THA NHÂN</td><td class="reading">たにん</td><td>người không liên quan; người ngoài</td></tr>
+<tr><td>38</td><td><strong>他社</strong></td><td class="hv">THA XÃ</td><td class="reading">たしゃ</td><td>công ty khác</td></tr>
+<tr><td>39</td><td><strong>他国</strong></td><td class="hv">THA QUỐC</td><td class="reading">たこく</td><td>đất nước khác; quốc gia khác</td></tr>
+<tr><td>40</td><td><strong>参加</strong></td><td class="hv">THAM GIA</td><td class="reading">さんか</td><td>sự tham gia</td></tr>
+<tr><td>41</td><td><strong>加減</strong></td><td class="hv">GIA GIẢM</td><td class="reading">かげん</td><td>điều chỉnh; mức độ; cộng trừ</td></tr>
+<tr><td>42</td><td><strong>加える</strong></td><td class="hv">GIA</td><td class="reading">くわえる</td><td>thêm; cộng</td></tr>
+<tr><td>43</td><td><strong>加わる</strong></td><td class="hv">GIA</td><td class="reading">くわわる</td><td>gia nhập</td></tr>
+<tr><td>44</td><td><strong>加味</strong></td><td class="hv">GIA VỊ</td><td class="reading">かみ</td><td>thêm vào; xét thêm yếu tố; nêm gia vị</td></tr>
+<tr><td>45</td><td><strong>増加</strong></td><td class="hv">TĂNG GIA</td><td class="reading">ぞうか</td><td>tăng; bổ sung</td></tr>
+<tr><td>46</td><td><strong>加速</strong></td><td class="hv">GIA TỐC</td><td class="reading">かそく</td><td>tăng tốc</td></tr>
+<tr><td>47</td><td><strong>失礼な</strong></td><td class="hv">THẤT LỄ</td><td class="reading">しつれいな</td><td>thất lễ</td></tr>
+<tr><td>48</td><td><strong>失敗する</strong></td><td class="hv">THẤT BẠI</td><td class="reading">しっぱいする</td><td>thất bại</td></tr>
+<tr><td>49</td><td><strong>失恋する</strong></td><td class="hv">THẤT LUYẾN</td><td class="reading">しつれんする</td><td>thất tình</td></tr>
+<tr><td>50</td><td><strong>失業</strong></td><td class="hv">THẤT NGHIỆP</td><td class="reading">しつぎょう</td><td>thất nghiệp</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Chiến lược chinh phục từ vựng N3</h2>
+<h3>1. Nhóm theo Kanji gốc</h3>
+<p>化 (HÓA) → 化学 (hóa học), 変化 (biến hóa), 文化 (văn hóa). Nhớ 1 Kanji = 4-5 từ!</p>
+<h3>2. Đọc NHK Easy News mỗi ngày</h3>
+<p>Ở N3, bạn đã đủ trình đọc tin tức đơn giản.</p>
+<h3>3. Phân biệt từ đồng âm</h3>
+<p>N3 có nhiều từ đọc giống nhau nhưng viết khác: 科学 (khoa học) vs 化学 (hóa học) — cả hai đều đọc là かがく!</p>
+<div class="warn-box">⚠️ <strong>Lưu ý:</strong> N3 là level "nhiều thí sinh trượt nhất" vì lượng từ vựng tăng gấp đôi N4. Cần ít nhất 4-6 tháng ôn nghiêm túc!</div>
+</div>`,
+
+10: `<div class="blog-block">
+<h2>Kanji N3 — Level quyết định</h2>
+<p>N3 yêu cầu khoảng <strong>650 Kanji</strong> (cộng dồn từ N5+N4). Dưới đây là toàn bộ Kanji riêng của N3 — tổng cộng <strong>145 chữ</strong>.</p>
+<div class="tip-box">💡 <strong>Hán-Việt ở N3 rất mạnh:</strong> 化 = HÓA, 経 = KINH, 政 = CHÍNH, 治 = TRỊ → 政治 = CHÍNH TRỊ. Biết Hán-Việt = đã biết 60% nghĩa!</div>
+</div>
+<div class="blog-block">
+<h2>Bảng 145 Kanji N3 đầy đủ</h2>
+<table>
+<tr><th>Kanji</th><th>Hán-Việt</th><th>Onyomi</th><th>Kunyomi</th><th>Nghĩa</th></tr>
+<tr><td class="kanji-big">化</td><td class="hv">HÓA</td><td>カ、ケ</td><td>けする、ばかす、ばける</td><td>hóa, biến đổi</td></tr>
+<tr><td class="kanji-big">内</td><td class="hv">NỘI</td><td>ナイ</td><td>うち</td><td>nhà, bên trong</td></tr>
+<tr><td class="kanji-big">反</td><td class="hv">PHẢN</td><td>ハン</td><td>かえる、かえす</td><td>phản đối, ngược lại</td></tr>
+<tr><td class="kanji-big">平</td><td class="hv">BÌNH</td><td>ヘイ</td><td>たいら、たいらげる、ひら</td><td>bằng phẳng; hòa bình</td></tr>
+<tr><td class="kanji-big">氷</td><td class="hv">BĂNG</td><td>ヒョウ</td><td>こおる、こおり、ひ</td><td>băng</td></tr>
+<tr><td class="kanji-big">石</td><td class="hv">THẠCH</td><td>セキ</td><td>いし</td><td>đá</td></tr>
+<tr><td class="kanji-big">他</td><td class="hv">THA</td><td>タ</td><td>ほか</td><td>khác, người khác</td></tr>
+<tr><td class="kanji-big">加</td><td class="hv">GIA</td><td>カ、ケ</td><td>くわえる、くわわる</td><td>thêm, gia tăng</td></tr>
+<tr><td class="kanji-big">失</td><td class="hv">THẤT</td><td>シツ</td><td>うせる、うしなう</td><td>mất; đánh mất; thất bại</td></tr>
+<tr><td class="kanji-big">血</td><td class="hv">HUYẾT</td><td>ケツ</td><td>ち</td><td>máu</td></tr>
+<tr><td class="kanji-big">共</td><td class="hv">CỘNG</td><td>キョウ</td><td>ども、とも、ともに</td><td>cùng nhau; chung; cộng đồng</td></tr>
+<tr><td class="kanji-big">曲</td><td class="hv">KHÚC</td><td>キョク</td><td>くま、まがる、まげる</td><td>khúc; bài hát; uốn cong; cong</td></tr>
+<tr><td class="kanji-big">竹</td><td class="hv">TRÚC</td><td>チク</td><td>たけ</td><td>tre, trúc</td></tr>
+<tr><td class="kanji-big">虫</td><td class="hv">TRÙNG</td><td>チュウ</td><td>むし</td><td>côn trùng</td></tr>
+<tr><td class="kanji-big">交</td><td class="hv">GIAO</td><td>コウ</td><td>かう、かわす</td><td>giao, trao đổi</td></tr>
+<tr><td class="kanji-big">成</td><td class="hv">THÀNH</td><td>セイ</td><td>なす、なす、なる</td><td>thành, trở thành</td></tr>
+<tr><td class="kanji-big">全</td><td class="hv">TOÀN</td><td>ゼン</td><td>すべて、まったく</td><td>toàn bộ, toàn</td></tr>
+<tr><td class="kanji-big">争</td><td class="hv">TRANH</td><td>ソウ</td><td>あらそう、いかでか</td><td>tranh giành, chiến</td></tr>
+<tr><td class="kanji-big">任</td><td class="hv">NHIỆM</td><td>ニン</td><td>まかす、まかせる</td><td>giao phó, trách nhiệm</td></tr>
+<tr><td class="kanji-big">利</td><td class="hv">LỢI</td><td>リ</td><td>きく</td><td>lợi ích, thuận tiện</td></tr>
+<tr><td class="kanji-big">防</td><td class="hv">PHÒNG</td><td>ボウ</td><td>ふせぐ</td><td>phòng, ngăn chặn</td></tr>
+<tr><td class="kanji-big">返</td><td class="hv">PHẢN</td><td>ヘン</td><td>かえす、かえる</td><td>trả lại, đáp</td></tr>
+<tr><td class="kanji-big">身</td><td class="hv">THÂN</td><td>シン</td><td>み</td><td>thân thể, bản thân</td></tr>
+<tr><td class="kanji-big">努</td><td class="hv">NỖ</td><td>ド</td><td>つとめる</td><td>nỗ lực</td></tr>
+<tr><td class="kanji-big">谷</td><td class="hv">CỐC</td><td>コク</td><td>きわまる、たに</td><td>thung lũng</td></tr>
+<tr><td class="kanji-big">完</td><td class="hv">HOÀN</td><td>カン</td><td>—</td><td>hoàn thành, hoàn hảo</td></tr>
+<tr><td class="kanji-big">角</td><td class="hv">GIÁC</td><td>カク</td><td>かど、つの</td><td>góc</td></tr>
+<tr><td class="kanji-big">形</td><td class="hv">HÌNH</td><td>ケイ</td><td>がた、かた、かたち</td><td>hình dạng, hình</td></tr>
+<tr><td class="kanji-big">決</td><td class="hv">QUYẾT</td><td>ケツ</td><td>ぎめ、きまる、きめる</td><td>xác định, quyết định</td></tr>
+<tr><td class="kanji-big">希</td><td class="hv">HI</td><td>キ</td><td>こいねがう、まれ</td><td>hy vọng, hiếm</td></tr>
+<tr><td class="kanji-big">幸</td><td class="hv">HẠNH</td><td>コウ</td><td>さいわい、さち、しあわせ</td><td>hạnh phúc, may mắn</td></tr>
+<tr><td class="kanji-big">季</td><td class="hv">QUÝ</td><td>キ</td><td>—</td><td>mùa</td></tr>
+<tr><td class="kanji-big">泣</td><td class="hv">KHẤP</td><td>キュウ</td><td>なく</td><td>khóc</td></tr>
+<tr><td class="kanji-big">易</td><td class="hv">DỊCH</td><td>イ、エキ</td><td>やさしい、やすい</td><td>dễ (イ); thay đổi/giao dịch (エキ)</td></tr>
+<tr><td class="kanji-big">育</td><td class="hv">DỤC</td><td>イク</td><td>そだち、そだつ、そだてる</td><td>nuôi, giáo dục</td></tr>
+<tr><td class="kanji-big">泳</td><td class="hv">VỊNH</td><td>エイ</td><td>およぐ</td><td>bơi</td></tr>
+<tr><td class="kanji-big">定</td><td class="hv">ĐỊNH</td><td>テイ</td><td>さだか、さだまる、さだめる</td><td>xác định, quyết định</td></tr>
+<tr><td class="kanji-big">底</td><td class="hv">ĐỂ</td><td>テイ</td><td>そこ</td><td>đáy</td></tr>
+<tr><td class="kanji-big">命</td><td class="hv">MỆNH</td><td>メイ</td><td>いのち</td><td>sinh mệnh, mạng</td></tr>
+<tr><td class="kanji-big">法</td><td class="hv">PHÁP</td><td>ホウ</td><td>のり</td><td>pháp luật, phương pháp</td></tr>
+<tr><td class="kanji-big">勇</td><td class="hv">DŨNG</td><td>ユウ</td><td>いさむ</td><td>dũng cảm</td></tr>
+<tr><td class="kanji-big">変</td><td class="hv">BIẾN</td><td>ヘン</td><td>かえる、かわり、かわる</td><td>thay đổi, biến</td></tr>
+<tr><td class="kanji-big">飛</td><td class="hv">PHI</td><td>ヒ</td><td>とばす、とばす、とぶ</td><td>bay</td></tr>
+<tr><td class="kanji-big">美</td><td class="hv">MĨ</td><td>ビ</td><td>うつくしい</td><td>đẹp</td></tr>
+<tr><td class="kanji-big">独</td><td class="hv">ĐỘC</td><td>ドク</td><td>ひとり</td><td>độc; một mình; độc lập</td></tr>
+<tr><td class="kanji-big">草</td><td class="hv">THẢO</td><td>ソウ</td><td>ぐさ、くさ</td><td>cỏ</td></tr>
+<tr><td class="kanji-big">信</td><td class="hv">TÍN</td><td>シン</td><td>—</td><td>tin, tin tưởng</td></tr>
+<tr><td class="kanji-big">星</td><td class="hv">TINH</td><td>セイ</td><td>ぼし、ほし</td><td>ngôi sao</td></tr>
+<tr><td class="kanji-big">単</td><td class="hv">ĐƠN</td><td>タン</td><td>ひとえ</td><td>đơn giản, đơn</td></tr>
+<tr><td class="kanji-big">炭</td><td class="hv">THAN</td><td>タン</td><td>すみ</td><td>than</td></tr>
+<tr><td class="kanji-big">活</td><td class="hv">HOẠT</td><td>カツ</td><td>いかす、いきる、いける</td><td>sống, hoạt động</td></tr>
+<tr><td class="kanji-big">感</td><td class="hv">CẢM</td><td>カン</td><td>—</td><td>cảm giác, cảm xúc</td></tr>
+<tr><td class="kanji-big">解</td><td class="hv">GIẢI</td><td>カイ</td><td>さとる、とかす、とく</td><td>giải quyết, hiểu</td></tr>
+<tr><td class="kanji-big">愛</td><td class="hv">ÁI</td><td>アイ</td><td>いとしい、おしむ、かなしい</td><td>yêu thương</td></tr>
+<tr><td class="kanji-big">禁</td><td class="hv">CẤM</td><td>キン</td><td>—</td><td>cấm</td></tr>
+<tr><td class="kanji-big">夢</td><td class="hv">MỘNG</td><td>ム</td><td>くらい、ゆめ、ゆめみる</td><td>giấc mơ</td></tr>
+<tr><td class="kanji-big">続</td><td class="hv">TỤC</td><td>ゾク</td><td>つぐない、つづく、つづける</td><td>tiếp tục</td></tr>
+<tr><td class="kanji-big">選</td><td class="hv">TUYỂN</td><td>セン</td><td>える、えらぶ、よる</td><td>chọn</td></tr>
+<tr><td class="kanji-big">導</td><td class="hv">ĐẠO</td><td>ドウ</td><td>みちびく</td><td>dẫn dắt, hướng dẫn</td></tr>
+<tr><td class="kanji-big">熱</td><td class="hv">NHIỆT</td><td>ネツ</td><td>あつい</td><td>nhiệt; nóng; sốt; nhiệt tình</td></tr>
+<tr><td class="kanji-big">量</td><td class="hv">LƯỢNG</td><td>リョウ</td><td>はかる</td><td>lượng, số lượng</td></tr>
+<tr><td class="kanji-big">機</td><td class="hv">CƠ</td><td>キ</td><td>はた</td><td>máy móc, cơ hội</td></tr>
+<tr><td class="kanji-big">橋</td><td class="hv">KIỀU</td><td>キョウ</td><td>はし</td><td>cầu</td></tr>
+<tr><td class="kanji-big">波</td><td class="hv">BA</td><td>ハ</td><td>なみ</td><td>sóng</td></tr>
+<tr><td class="kanji-big">念</td><td class="hv">NIỆM</td><td>ネン</td><td>—</td><td>ý niệm, nghĩ</td></tr>
+<tr><td class="kanji-big">勝</td><td class="hv">THẮNG</td><td>ショウ</td><td>がち、かつ</td><td>thắng, vượt</td></tr>
+<tr><td class="kanji-big">種</td><td class="hv">CHỦNG</td><td>シュ</td><td>ぐさ、たね</td><td>loại, giống</td></tr>
+<tr><td class="kanji-big">折</td><td class="hv">CHIẾT</td><td>セツ</td><td>おり、おり、おる</td><td>gập, gãy</td></tr>
+<tr><td class="kanji-big">雑</td><td class="hv">TẠP</td><td>ザツ</td><td>まじえる、まじる</td><td>tạp, hỗn hợp</td></tr>
+<tr><td class="kanji-big">察</td><td class="hv">SÁT</td><td>サツ</td><td>—</td><td>quan sát, điều tra</td></tr>
+<tr><td class="kanji-big">際</td><td class="hv">TẾ</td><td>サイ</td><td>ぎわ、きわ</td><td>dịp, khi</td></tr>
+<tr><td class="kanji-big">算</td><td class="hv">TOÁN</td><td>サン</td><td>そろ</td><td>tính toán</td></tr>
+<tr><td class="kanji-big">散</td><td class="hv">TÁN</td><td>サン</td><td>ちらす、ちらかす、ちらかる</td><td>phân tán, tan</td></tr>
+<tr><td class="kanji-big">残</td><td class="hv">TÀN</td><td>ザン</td><td>そこなう、のこす、のこり</td><td>còn lại</td></tr>
+<tr><td class="kanji-big">財</td><td class="hv">TÀI</td><td>ザイ</td><td>たから</td><td>tài sản</td></tr>
+<tr><td class="kanji-big">罪</td><td class="hv">TỘI</td><td>ザイ</td><td>つみ</td><td>tội lỗi</td></tr>
+<tr><td class="kanji-big">在</td><td class="hv">TẠI</td><td>ザイ</td><td>ある</td><td>tồn tại, ở</td></tr>
+<tr><td class="kanji-big">再</td><td class="hv">TÁI</td><td>サイ</td><td>ふたたび</td><td>lại, một lần nữa</td></tr>
+<tr><td class="kanji-big">刺</td><td class="hv">THÍCH</td><td>シ</td><td>ささる、さし、さす</td><td>đâm, thẻ</td></tr>
+<tr><td class="kanji-big">姿</td><td class="hv">TƯ</td><td>シ</td><td>すがた</td><td>dáng vẻ, tư thế</td></tr>
+<tr><td class="kanji-big">冷</td><td class="hv">LÃNH</td><td>レイ</td><td>さます、さめる、つめたい</td><td>lạnh</td></tr>
+<tr><td class="kanji-big">例</td><td class="hv">LỆ</td><td>レイ</td><td>たとえる</td><td>ví dụ</td></tr>
+<tr><td class="kanji-big">礼</td><td class="hv">LỄ</td><td>レイ</td><td>—</td><td>lễ phép, lễ nghi</td></tr>
+<tr><td class="kanji-big">令</td><td class="hv">LỆNH</td><td>レイ</td><td>—</td><td>lệnh, pháp lệnh</td></tr>
+<tr><td class="kanji-big">路</td><td class="hv">LỘ</td><td>ロ</td><td>じ、みち</td><td>đường, lộ</td></tr>
+<tr><td class="kanji-big">労</td><td class="hv">LAO</td><td>ロウ</td><td>いたずき、いたわる、つかれる</td><td>lao lực; mệt mỏi; lao động</td></tr>
+<tr><td class="kanji-big">連</td><td class="hv">LIÊN</td><td>レン</td><td>づれ、つれる、つらなる</td><td>liên kết, kết nối</td></tr>
+<tr><td class="kanji-big">練</td><td class="hv">LUYỆN</td><td>レン</td><td>ねり、ねる</td><td>luyện tập</td></tr>
+<tr><td class="kanji-big">老</td><td class="hv">LÃO</td><td>ロウ</td><td>おいる、ふける</td><td>già</td></tr>
+<tr><td class="kanji-big">議</td><td class="hv">NGHỊ</td><td>ギ</td><td>—</td><td>bàn bạc; thảo luận; nghị</td></tr>
+<tr><td class="kanji-big">民</td><td class="hv">DÂN</td><td>ミン</td><td>たみ</td><td>nhân dân; dân; quốc dân</td></tr>
+<tr><td class="kanji-big">部</td><td class="hv">BỘ</td><td>ブ</td><td>べ</td><td>bộ phận; phòng ban; khoa</td></tr>
+<tr><td class="kanji-big">合</td><td class="hv">HỢP</td><td>ゴウ、ガッ、カッ</td><td>あう、あわせる、あわす</td><td>phù hợp; khớp</td></tr>
+<tr><td class="kanji-big">回</td><td class="hv">HỒI</td><td>カイ、エ</td><td>まわる、まわす</td><td>lần; vòng; lần lượt</td></tr>
+<tr><td class="kanji-big">実</td><td class="hv">THỰC</td><td>ジツ、シツ</td><td>み、みの、まこと</td><td>thực tế; sự thật; quả thật</td></tr>
+<tr><td class="kanji-big">関</td><td class="hv">QUAN</td><td>カン</td><td>せき、ぜき、かか</td><td>liên quan; quan hệ; cửa ải</td></tr>
+<tr><td class="kanji-big">最</td><td class="hv">TỐI</td><td>サイ、シュ</td><td>もっとも</td><td>nhất; tối; cao nhất</td></tr>
+<tr><td class="kanji-big">首</td><td class="hv">THỦ</td><td>シュ</td><td>くび</td><td>cổ; đầu; người đứng đầu</td></tr>
+<tr><td class="kanji-big">期</td><td class="hv">KỲ</td><td>キ、ゴ</td><td>—</td><td>giai đoạn; thời gian</td></tr>
+<tr><td class="kanji-big">都</td><td class="hv">ĐÔ</td><td>ト、ツ</td><td>みやこ</td><td>thủ đô</td></tr>
+<tr><td class="kanji-big">進</td><td class="hv">TIẾN</td><td>シン</td><td>すす</td><td>tiến lên; tiến bộ; tiến</td></tr>
+<tr><td class="kanji-big">数</td><td class="hv">SỐ</td><td>スウ、ス、サク</td><td>かず、かぞえる</td><td>số lượng; đếm; con số</td></tr>
+<tr><td class="kanji-big">記</td><td class="hv">KÝ</td><td>キ</td><td>しる</td><td>ghi chép; ký; ghi lại</td></tr>
+<tr><td class="kanji-big">産</td><td class="hv">SẢN</td><td>サン</td><td>う、うぶ</td><td>sản phẩm; sinh ra; sản xuất</td></tr>
+<tr><td class="kanji-big">求</td><td class="hv">CẦU</td><td>キュウ、グ</td><td>もと</td><td>yêu cầu; cầu xin; muốn; mong</td></tr>
+<tr><td class="kanji-big">所</td><td class="hv">SỞ</td><td>ショ</td><td>ところ、どころ</td><td>nơi; chỗ; địa điểm</td></tr>
+<tr><td class="kanji-big">官</td><td class="hv">QUAN</td><td>カン</td><td>—</td><td>quan chức; viên chức; cơ quan</td></tr>
+<tr><td class="kanji-big">直</td><td class="hv">TRỰC</td><td>チョク、ジキ、ジカ</td><td>ただ、なお</td><td>thẳng; thật thà; trực tiếp</td></tr>
+<tr><td class="kanji-big">式</td><td class="hv">THỨC</td><td>シキ</td><td>—</td><td>phong cách; kiểu; nghi lễ; lễ</td></tr>
+<tr><td class="kanji-big">確</td><td class="hv">XÁC</td><td>カク、コウ</td><td>たし</td><td>chắc chắn; đảm bảo; xác nhận</td></tr>
+<tr><td class="kanji-big">位</td><td class="hv">VỊ</td><td>イ</td><td>くらい、ぐらい</td><td>vị trí; hạng; cấp bậc</td></tr>
+<tr><td class="kanji-big">格</td><td class="hv">CÁCH</td><td>カク、コウ、キャク</td><td>—</td><td>địa vị; tư cách; đẳng cấp</td></tr>
+<tr><td class="kanji-big">疑</td><td class="hv">NGHI</td><td>ギ</td><td>うたが</td><td>nghi ngờ</td></tr>
+<tr><td class="kanji-big">球</td><td class="hv">CẦU</td><td>キュウ</td><td>たま</td><td>quả bóng; hình cầu; địa cầu</td></tr>
+<tr><td class="kanji-big">割</td><td class="hv">CÁT</td><td>カツ</td><td>わ、わり</td><td>tỉ lệ; phần; chia cắt</td></tr>
+<tr><td class="kanji-big">消</td><td class="hv">TIÊU</td><td>ショウ</td><td>き、け</td><td>tắt; xóa; tiêu</td></tr>
+<tr><td class="kanji-big">規</td><td class="hv">QUY</td><td>キ</td><td>—</td><td>quy tắc; tiêu chuẩn; quy định</td></tr>
+<tr><td class="kanji-big">害</td><td class="hv">HẠI</td><td>ガイ</td><td>—</td><td>hại; gây hại; thương tích</td></tr>
+<tr><td class="kanji-big">声</td><td class="hv">THANH</td><td>セイ、ショウ</td><td>こえ、こわ</td><td>giọng; tiếng</td></tr>
+<tr><td class="kanji-big">葉</td><td class="hv">DIỆP</td><td>ヨウ</td><td>は</td><td>lá; cánh hoa; từ</td></tr>
+<tr><td class="kanji-big">働</td><td class="hv"></td><td>ドウ</td><td>はたら</td><td>làm việc; công việc</td></tr>
+<tr><td class="kanji-big">非</td><td class="hv">PHI</td><td>ヒ</td><td>あら</td><td>phi; không; sai</td></tr>
+<tr><td class="kanji-big">観</td><td class="hv">QUAN</td><td>カン</td><td>みる</td><td>nhìn; quan sát; cảnh</td></tr>
+<tr><td class="kanji-big">科</td><td class="hv">KHOA</td><td>カ</td><td>—</td><td>môn học; khoa; khoa học</td></tr>
+<tr><td class="kanji-big">太</td><td class="hv">THÁI</td><td>タイ、タ</td><td>ふと</td><td>béo; mập</td></tr>
+<tr><td class="kanji-big">客</td><td class="hv">KHÁCH</td><td>キャク、カク</td><td>—</td><td>khách; khách hàng; hành khách</td></tr>
+<tr><td class="kanji-big">号</td><td class="hv">HIỆU</td><td>ゴウ</td><td>さけ、よびな</td><td>biệt danh; hiệu; số</td></tr>
+<tr><td class="kanji-big">座</td><td class="hv">TỌA</td><td>ザ</td><td>すわ</td><td>ghế ngồi; chỗ ngồi; tòa</td></tr>
+<tr><td class="kanji-big">給</td><td class="hv">CẤP</td><td>キュウ</td><td>たま、たも</td><td>lương; cung cấp; phát</td></tr>
+<tr><td class="kanji-big">寄</td><td class="hv">KÝ</td><td>キ</td><td>よ</td><td>ghé lại; gần; gửi tới</td></tr>
+<tr><td class="kanji-big">込</td><td class="hv"></td><td>—</td><td>こ</td><td>chứa đựng; đông đúc; bao gồm</td></tr>
+<tr><td class="kanji-big">覚</td><td class="hv">GIÁC</td><td>カク</td><td>おぼ、さ</td><td>ghi nhớ; thuộc; học</td></tr>
+<tr><td class="kanji-big">許</td><td class="hv">HỨA</td><td>キョ</td><td>ゆる、もと</td><td>cho phép; chấp thuận</td></tr>
+<tr><td class="kanji-big">便</td><td class="hv">TIỆN</td><td>ベン、ビン</td><td>たよ</td><td>thuận tiện; tiện lợi; thư</td></tr>
+<tr><td class="kanji-big">勤</td><td class="hv">CẦN</td><td>キン、ゴン</td><td>つと、づ</td><td>siêng năng; đi làm; chăm chỉ</td></tr>
+<tr><td class="kanji-big">居</td><td class="hv">CƯ</td><td>キョ、コ</td><td>い、お</td><td>ở; cư trú; tồn tại</td></tr>
+<tr><td class="kanji-big">招</td><td class="hv">CHIÊU</td><td>ショウ</td><td>まね</td><td>vẫy; mời</td></tr>
+<tr><td class="kanji-big">願</td><td class="hv">NGUYỆN</td><td>ガン</td><td>ねが、ねがい</td><td>nguyện vọng; đơn; yêu cầu; cầu xin</td></tr>
+<tr><td class="kanji-big">絵</td><td class="hv">HỘI</td><td>カイ、エ</td><td>—</td><td>hình; tranh; hình vẽ</td></tr>
+<tr><td class="kanji-big">掛</td><td class="hv">QUÁ</td><td>カイ、ケイ</td><td>か</td><td>treo; mắc; khoác</td></tr>
+<tr><td class="kanji-big">吸</td><td class="hv">HẤP</td><td>キュウ</td><td>す</td><td>hút; hít; hút vào</td></tr>
+<tr><td class="kanji-big">洗</td><td class="hv">TẨY</td><td>セン</td><td>あら</td><td>rửa; giặt; tẩy</td></tr>
+<tr><td class="kanji-big">慣</td><td class="hv">QUÁN</td><td>カン</td><td>な</td><td>quen; thói quen; quen thuộc</td></tr>
+<tr><td class="kanji-big">皆</td><td class="hv">GIAI</td><td>カイ</td><td>みな、みんな</td><td>tất cả; vật; thứ</td></tr>
+<tr><td class="kanji-big">幾</td><td class="hv">CƠ</td><td>キ</td><td>いく</td><td>mấy; bao nhiêu; vài</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Cách học Kanji N3 hiệu quả</h2>
+<h3>1. Học theo nhóm nghĩa</h3>
+<p>Nhóm "chính trị": 政・治・法・権・制. Nhóm "khoa học": 化・科・験・究・術.</p>
+<h3>2. Dùng Kanji Map</h3>
+<p><strong>Kanji Map</strong> của KOERU hiển thị mối quan hệ giữa các Kanji.</p>
+<h3>3. Đọc manga/light novel</h3>
+<p>Ở N3, bạn có thể đọc manga có furigana. Đây là cách học Kanji tự nhiên nhất!</p>
+</div>`,
+
+11: `<div class="blog-block">
+<h2>Học JLPT N5 mất bao lâu?</h2>
+<p>Với người mới bắt đầu, học <strong>1-2 giờ mỗi ngày</strong>, bạn có thể đạt trình độ N5 trong <strong>2-3 tháng</strong>.</p>
+<div class="tip-box">💡 <strong>Điều kiện tiên quyết:</strong> Cần thuộc <strong>Hiragana</strong> và <strong>Katakana</strong> trước.</div>
+</div>
+<div class="blog-block">
+<h2>Lộ trình 12 tuần chinh phục N5</h2>
+<table>
+<tr><th>Tuần</th><th>Mục tiêu</th><th>Chi tiết</th><th>Công cụ KOERU</th></tr>
+<tr><td><strong>1-2</strong></td><td>Hiragana + Katakana</td><td>Thuộc 46 + 46 ký tự</td><td>🎮 Kana Speed</td></tr>
+<tr><td><strong>3-4</strong></td><td>30 Kanji đầu tiên</td><td>Số đếm, ngày tháng</td><td>⚔️ Kanji Lab</td></tr>
+<tr><td><strong>5-6</strong></td><td>Từ vựng 200 từ</td><td>Gia đình, trường học, đồ ăn</td><td>🃏 Flashcard</td></tr>
+<tr><td><strong>7-8</strong></td><td>Ngữ pháp cơ bản</td><td>は/が/を/に/で</td><td>📖 Bài học</td></tr>
+<tr><td><strong>9-10</strong></td><td>70 Kanji còn lại</td><td>Hoàn thành 103 Kanji N5</td><td>⚔️ Kanji Lab</td></tr>
+<tr><td><strong>11</strong></td><td>Tổng ôn + Nghe</td><td>2 đề thử, nghe 30 phút/ngày</td><td>🧪 Quiz</td></tr>
+<tr><td><strong>12</strong></td><td>Mô phỏng thi thật</td><td>Đề full tính giờ</td><td>🧪 Quiz</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Lịch học mỗi ngày (1.5 giờ)</h2>
+<table>
+<tr><th>Thời gian</th><th>Hoạt động</th><th>Mẹo</th></tr>
+<tr><td>15 phút</td><td>Ôn từ cũ (Flashcard)</td><td>Làm ngay khi thức dậy</td></tr>
+<tr><td>30 phút</td><td>Học từ mới + Kanji</td><td>10 từ/ngày, viết tay 5 lần</td></tr>
+<tr><td>30 phút</td><td>Ngữ pháp + Đọc</td><td>1 mẫu ngữ pháp + đọc ngắn</td></tr>
+<tr><td>15 phút</td><td>Nghe</td><td>Nghe thụ động cũng có ích</td></tr>
+</table>
+<div class="tip-box">💡 <strong>Bí quyết:</strong> Học đều đặn 1 giờ/ngày HIỆU QUẢ HƠN học dồn 7 giờ cuối tuần!</div>
+</div>
+<div class="blog-block">
+<h2>Sai lầm thường gặp khi tự học N5</h2>
+<ul>
+<li>❌ <strong>Học romaji trước</strong> — Phải học hiragana/katakana TRƯỚC</li>
+<li>❌ <strong>Chỉ học từ vựng, bỏ ngữ pháp</strong> — Biết 1000 từ mà không ghép câu = vô ích</li>
+<li>❌ <strong>Không luyện nghe</strong> — 30% điểm thi là nghe</li>
+<li>❌ <strong>Không viết tay Kanji</strong> — Viết tay giúp nhớ gấp 3 lần</li>
+<li>❌ <strong>Ôn kiểu nhìn qua</strong> — Phải tự quiz mình!</li>
+</ul>
+</div>`,
+
+12: `<div class="blog-block">
+<h2>Hiragana là gì?</h2>
+<p><strong>Hiragana (ひらがな)</strong> là bảng chữ cái cơ bản nhất của tiếng Nhật, gồm <strong>46 ký tự</strong>.</p>
+<div class="tip-box">💡 Hiragana có thể học trong <strong>1 tuần</strong> nếu luyện 30 phút/ngày!</div>
+</div>
+<div class="blog-block">
+<h2>Bảng Hiragana đầy đủ — 46 ký tự</h2>
+<table>
+<tr><th></th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+<tr><td><strong>∅</strong></td><td>あ a</td><td>い i</td><td>う u</td><td>え e</td><td>お o</td></tr>
+<tr><td><strong>k</strong></td><td>か ka</td><td>き ki</td><td>く ku</td><td>け ke</td><td>こ ko</td></tr>
+<tr><td><strong>s</strong></td><td>さ sa</td><td>し shi</td><td>す su</td><td>せ se</td><td>そ so</td></tr>
+<tr><td><strong>t</strong></td><td>た ta</td><td>ち chi</td><td>つ tsu</td><td>て te</td><td>と to</td></tr>
+<tr><td><strong>n</strong></td><td>な na</td><td>に ni</td><td>ぬ nu</td><td>ね ne</td><td>の no</td></tr>
+<tr><td><strong>h</strong></td><td>は ha</td><td>ひ hi</td><td>ふ fu</td><td>へ he</td><td>ほ ho</td></tr>
+<tr><td><strong>m</strong></td><td>ま ma</td><td>み mi</td><td>む mu</td><td>め me</td><td>も mo</td></tr>
+<tr><td><strong>y</strong></td><td>や ya</td><td></td><td>ゆ yu</td><td></td><td>よ yo</td></tr>
+<tr><td><strong>r</strong></td><td>ら ra</td><td>り ri</td><td>る ru</td><td>れ re</td><td>ろ ro</td></tr>
+<tr><td><strong>w</strong></td><td>わ wa</td><td></td><td></td><td></td><td>を wo</td></tr>
+<tr><td><strong>n</strong></td><td>ん n</td><td></td><td></td><td></td><td></td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Bảng Dakuten (゛) và Handakuten (゜)</h2>
+<table>
+<tr><th></th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+<tr><td><strong>g</strong></td><td>が ga</td><td>ぎ gi</td><td>ぐ gu</td><td>げ ge</td><td>ご go</td></tr>
+<tr><td><strong>z</strong></td><td>ざ za</td><td>じ ji</td><td>ず zu</td><td>ぜ ze</td><td>ぞ zo</td></tr>
+<tr><td><strong>d</strong></td><td>だ da</td><td>ぢ di</td><td>づ du</td><td>で de</td><td>ど do</td></tr>
+<tr><td><strong>b</strong></td><td>ば ba</td><td>び bi</td><td>ぶ bu</td><td>べ be</td><td>ぼ bo</td></tr>
+<tr><td><strong>p</strong></td><td>ぱ pa</td><td>ぴ pi</td><td>ぷ pu</td><td>ぺ pe</td><td>ぽ po</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Lịch học Hiragana 7 ngày</h2>
+<table>
+<tr><th>Ngày</th><th>Học</th><th>Ôn</th></tr>
+<tr><td>Ngày 1</td><td>あ行 (a i u e o)</td><td>—</td></tr>
+<tr><td>Ngày 2</td><td>か行 + さ行</td><td>あ行</td></tr>
+<tr><td>Ngày 3</td><td>た行 + な行</td><td>あ〜さ行</td></tr>
+<tr><td>Ngày 4</td><td>は行 + ま行</td><td>あ〜な行</td></tr>
+<tr><td>Ngày 5</td><td>や行 + ら行 + わ行 + ん</td><td>あ〜ま行</td></tr>
+<tr><td>Ngày 6</td><td>Dakuten (が〜ぽ行)</td><td>Toàn bộ 46 ký tự</td></tr>
+<tr><td>Ngày 7</td><td>Tổng ôn + Kiểm tra</td><td>Dùng Kana Speed</td></tr>
+</table>
+<div class="tip-box">💡 Dùng game <strong>Kana Speed</strong> của KOERU để kiểm tra phản xạ!</div>
+</div>`,
+
+13: `<div class="blog-block">
+<h2>Katakana là gì?</h2>
+<p><strong>Katakana (カタカナ)</strong> gồm <strong>46 ký tự</strong>, dùng để viết từ ngoại lai, tên nước ngoài, và âm thanh.</p>
+<div class="tip-box">💡 メニュー (menu), コーヒー (coffee), ベトナム (Việt Nam). Không biết katakana = không đọc được menu!</div>
+</div>
+<div class="blog-block">
+<h2>Bảng Katakana đầy đủ</h2>
+<table>
+<tr><th></th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+<tr><td><strong>∅</strong></td><td>ア a</td><td>イ i</td><td>ウ u</td><td>エ e</td><td>オ o</td></tr>
+<tr><td><strong>k</strong></td><td>カ ka</td><td>キ ki</td><td>ク ku</td><td>ケ ke</td><td>コ ko</td></tr>
+<tr><td><strong>s</strong></td><td>サ sa</td><td>シ shi</td><td>ス su</td><td>セ se</td><td>ソ so</td></tr>
+<tr><td><strong>t</strong></td><td>タ ta</td><td>チ chi</td><td>ツ tsu</td><td>テ te</td><td>ト to</td></tr>
+<tr><td><strong>n</strong></td><td>ナ na</td><td>ニ ni</td><td>ヌ nu</td><td>ネ ne</td><td>ノ no</td></tr>
+<tr><td><strong>h</strong></td><td>ハ ha</td><td>ヒ hi</td><td>フ fu</td><td>ヘ he</td><td>ホ ho</td></tr>
+<tr><td><strong>m</strong></td><td>マ ma</td><td>ミ mi</td><td>ム mu</td><td>メ me</td><td>モ mo</td></tr>
+<tr><td><strong>y</strong></td><td>ヤ ya</td><td></td><td>ユ yu</td><td></td><td>ヨ yo</td></tr>
+<tr><td><strong>r</strong></td><td>ラ ra</td><td>リ ri</td><td>ル ru</td><td>レ re</td><td>ロ ro</td></tr>
+<tr><td><strong>w</strong></td><td>ワ wa</td><td></td><td></td><td></td><td>ヲ wo</td></tr>
+<tr><td><strong>n</strong></td><td>ン n</td><td></td><td></td><td></td><td></td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Katakana dễ nhầm — Cặp "sinh đôi"</h2>
+<table>
+<tr><th>Cặp</th><th>Chữ 1</th><th>Chữ 2</th><th>Mẹo phân biệt</th></tr>
+<tr><td>1</td><td>ツ (tsu)</td><td>シ (shi)</td><td>ツ nét chấm dọc, シ nét chấm ngang</td></tr>
+<tr><td>2</td><td>ン (n)</td><td>ソ (so)</td><td>ン nét chấm ngang, ソ nét chấm dọc</td></tr>
+<tr><td>3</td><td>ア (a)</td><td>マ (ma)</td><td>ア có 2 nét, マ góc khác</td></tr>
+<tr><td>4</td><td>ク (ku)</td><td>タ (ta)</td><td>タ có thêm nét ngang</td></tr>
+<tr><td>5</td><td>ウ (u)</td><td>ワ (wa)</td><td>ウ có nét chấm phía trên</td></tr>
+</table>
+<div class="warn-box">⚠️ シ vs ツ và ン vs ソ là 2 cặp khiến 90% người mới nhầm!</div>
+</div>
+<div class="blog-block">
+<h2>Từ Katakana hay gặp nhất</h2>
+<table>
+<tr><th>Katakana</th><th>Phiên âm</th><th>Gốc</th><th>Nghĩa</th></tr>
+<tr><td>コンビニ</td><td>konbini</td><td>convenience store</td><td>Cửa hàng tiện lợi</td></tr>
+<tr><td>アルバイト</td><td>arubaito</td><td>arbeit (Đức)</td><td>Việc bán thời gian</td></tr>
+<tr><td>スマホ</td><td>sumaho</td><td>smart phone</td><td>Điện thoại thông minh</td></tr>
+<tr><td>パソコン</td><td>pasokon</td><td>personal computer</td><td>Máy tính</td></tr>
+<tr><td>レストラン</td><td>resutoran</td><td>restaurant</td><td>Nhà hàng</td></tr>
+<tr><td>テレビ</td><td>terebi</td><td>television</td><td>TV</td></tr>
+<tr><td>ビール</td><td>biiru</td><td>beer</td><td>Bia</td></tr>
+<tr><td>コーヒー</td><td>koohii</td><td>coffee</td><td>Cà phê</td></tr>
+<tr><td>ベトナム</td><td>betonamu</td><td>Vietnam</td><td>Việt Nam</td></tr>
+<tr><td>エアコン</td><td>eakon</td><td>air conditioner</td><td>Máy lạnh</td></tr>
+</table>
+</div>`,
+
+14: `<div class="blog-block">
+<h2>JLPT và J-TEST là gì?</h2>
+<p><strong>JLPT</strong> (Japanese Language Proficiency Test) và <strong>J-TEST</strong> (Test of Practical Japanese) là 2 chứng chỉ tiếng Nhật phổ biến nhất tại Việt Nam.</p>
+</div>
+<div class="blog-block">
+<h2>So sánh chi tiết</h2>
+<table>
+<tr><th>Tiêu chí</th><th>JLPT</th><th>J-TEST</th></tr>
+<tr><td><strong>Tổ chức</strong></td><td>Japan Foundation</td><td>J-TEST Association</td></tr>
+<tr><td><strong>Số kỳ thi/năm</strong></td><td>2 lần (T7 + T12)</td><td>6 lần</td></tr>
+<tr><td><strong>Cấp độ</strong></td><td>N5 → N1</td><td>F → A</td></tr>
+<tr><td><strong>Hình thức</strong></td><td>Trắc nghiệm 100%</td><td>Trắc nghiệm + Viết luận</td></tr>
+<tr><td><strong>Đánh giá</strong></td><td>Đậu/Trượt</td><td>Cho điểm + xếp hạng</td></tr>
+<tr><td><strong>Phí thi</strong></td><td>~500,000đ</td><td>~400,000đ</td></tr>
+<tr><td><strong>Công nhận</strong></td><td>Toàn cầu</td><td>Chủ yếu Nhật + châu Á</td></tr>
+<tr><td><strong>Kết quả</strong></td><td>2-3 tháng</td><td>3-4 tuần</td></tr>
+<tr><td><strong>Phù hợp</strong></td><td>Du học, visa, CV</td><td>Đi làm, đánh giá nhanh</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Nên chọn thi gì?</h2>
+<h3>Chọn JLPT nếu:</h3>
+<ul>
+<li>✅ Muốn <strong>du học Nhật</strong></li>
+<li>✅ Cần chứng chỉ cho <strong>visa kỹ năng đặc định</strong></li>
+<li>✅ Muốn chứng chỉ <strong>được công nhận rộng rãi</strong> nhất</li>
+</ul>
+<h3>Chọn J-TEST nếu:</h3>
+<ul>
+<li>✅ Cần chứng chỉ <strong>gấp</strong> — thi 6 lần/năm</li>
+<li>✅ Muốn <strong>biết chính xác trình độ</strong> (điểm số chi tiết)</li>
+<li>✅ Công ty Nhật bạn ứng tuyển <strong>chấp nhận J-TEST</strong></li>
+</ul>
+<div class="tip-box">💡 <strong>Gợi ý:</strong> Nếu mới bắt đầu, nhắm <strong>JLPT</strong> trước — phổ biến hơn và 100% trắc nghiệm.</div>
+</div>
+<div class="blog-block">
+<h2>Bảng quy đổi tương đương</h2>
+<table>
+<tr><th>JLPT</th><th>J-TEST</th><th>Trình độ</th></tr>
+<tr><td>N5</td><td>E-F</td><td>Sơ cấp</td></tr>
+<tr><td>N4</td><td>D</td><td>Sơ trung cấp</td></tr>
+<tr><td>N3</td><td>C</td><td>Trung cấp</td></tr>
+<tr><td>N2</td><td>B</td><td>Trung cao cấp</td></tr>
+<tr><td>N1</td><td>A</td><td>Cao cấp</td></tr>
+</table>
+</div>`,
+
+15: `<div class="blog-block">
+<h2>Học tiếng Nhật ở Bà Rịa – Vũng Tàu</h2>
+<p>BR-VT đang có nhu cầu học tiếng Nhật ngày càng cao. <strong>KOERU</strong> là trung tâm tiếng Nhật &amp; tiếng Trung tại địa phương, kết hợp lớp học trực tiếp với công cụ luyện tập online miễn phí.</p>
+</div>
+<div class="blog-block">
+<h2>Vì sao nên học tiếng Nhật ở BR-VT?</h2>
+<h3>1. Nhu cầu nhân lực Nhật ngữ tăng mạnh</h3>
+<p>KCN Phú Mỹ, Châu Đức có nhiều công ty Nhật. Biết tiếng Nhật = lương cao hơn 30-50%.</p>
+<h3>2. Chi phí rẻ hơn TP.HCM 20-30%</h3>
+<h3>3. Ít cạnh tranh, nhiều cơ hội</h3>
+</div>
+<div class="blog-block">
+<h2>KOERU — Phương pháp khác biệt</h2>
+<table>
+<tr><th>Đặc điểm</th><th>Trung tâm thường</th><th>KOERU</th></tr>
+<tr><td>Giáo trình</td><td>Sách giấy</td><td>Giáo trình + App online</td></tr>
+<tr><td>Ôn tập ở nhà</td><td>Tự ôn</td><td>Flashcard, Quiz, Kanji Lab miễn phí</td></tr>
+<tr><td>Kiểm tra</td><td>Thi cuối khóa</td><td>Quiz + nhận xét mỗi tuần</td></tr>
+<tr><td>Kanji</td><td>Chép tay</td><td>Kanji Map + Game hóa</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Thông tin liên hệ</h2>
+<ul>
+<li>📍 Bà Rịa – Vũng Tàu</li>
+<li>📞 0797 836 395</li>
+<li>💬 Zalo: KOERU</li>
+</ul>
+<h3>Các khóa học đang mở</h3>
+<table>
+<tr><th>Khóa</th><th>Level</th><th>Thời gian</th></tr>
+<tr><td>Tiếng Nhật cơ bản</td><td>N5</td><td>3 tháng</td></tr>
+<tr><td>Tiếng Nhật sơ trung cấp</td><td>N4</td><td>3 tháng</td></tr>
+<tr><td>Luyện thi JLPT</td><td>N5-N3</td><td>2 tháng</td></tr>
+<tr><td>Tiếng Trung cơ bản</td><td>HSK 1-2</td><td>3 tháng</td></tr>
+</table>
+<div class="tip-box">💡 Đăng ký qua website được <strong>học thử miễn phí 1 buổi</strong>!</div>
+</div>`,
+
+16: `<div class="blog-block">
+<h2>Lịch thi JLPT 2025 tại Việt Nam</h2>
+<p>JLPT được tổ chức <strong>2 lần mỗi năm</strong> tại Việt Nam.</p>
+<div class="warn-box">⚠️ Kiểm tra lại trên <strong>jlpt.jp</strong> để xác nhận ngày chính xác.</div>
+</div>
+<div class="blog-block">
+<h2>2 kỳ thi năm 2025</h2>
+<table>
+<tr><th></th><th>Kỳ 1 (tháng 7)</th><th>Kỳ 2 (tháng 12)</th></tr>
+<tr><td><strong>Ngày thi</strong></td><td>Chủ nhật đầu T7/2025</td><td>Chủ nhật đầu T12/2025</td></tr>
+<tr><td><strong>Đăng ký</strong></td><td>T3-4/2025</td><td>T8-9/2025</td></tr>
+<tr><td><strong>Kết quả</strong></td><td>T9-10/2025</td><td>T2-3/2026</td></tr>
+<tr><td><strong>Cấp độ</strong></td><td>N1-N5</td><td>N1-N5</td></tr>
+</table>
+</div>
+<div class="blog-block">
+<h2>Địa điểm thi</h2>
+<table>
+<tr><th>Thành phố</th><th>Cơ sở</th></tr>
+<tr><td>🏙️ Hà Nội</td><td>ĐH Ngoại ngữ - ĐHQG HN</td></tr>
+<tr><td>🏙️ TP.HCM</td><td>ĐH KHXH&amp;NV TP.HCM</td></tr>
+<tr><td>🏙️ Đà Nẵng</td><td>ĐH Ngoại ngữ - ĐH Đà Nẵng</td></tr>
+</table>
+<div class="tip-box">💡 Nếu ở BR-VT, điểm thi gần nhất là TP.HCM (~2 giờ). Nên đặt khách sạn từ đêm trước!</div>
+</div>
+<div class="blog-block">
+<h2>Cách đăng ký</h2>
+<ol>
+<li>Truy cập website đăng ký JLPT VN → Tạo tài khoản</li>
+<li>Điền thông tin, chọn cấp độ + địa điểm</li>
+<li>Thanh toán ~500,000 VNĐ</li>
+<li>Nhận phiếu dự thi 2-3 tuần trước thi</li>
+</ol>
+<div class="warn-box">⚠️ Slot thi RẤT NHANH hết, đặc biệt N3/N2 tại TP.HCM. Đăng ký NGAY khi mở!</div>
+</div>
+<div class="blog-block">
+<h2>Thời gian ôn phù hợp</h2>
+<table>
+<tr><th>Cấp độ</th><th>Ôn tối thiểu</th><th>Bắt đầu từ</th></tr>
+<tr><td>N5</td><td>2-3 tháng</td><td>T4 (kỳ 1) / T9 (kỳ 2)</td></tr>
+<tr><td>N4</td><td>3-4 tháng</td><td>T3 / T8</td></tr>
+<tr><td>N3</td><td>4-6 tháng</td><td>T1 / T6</td></tr>
+<tr><td>N2</td><td>6-12 tháng</td><td>Học liên tục</td></tr>
+<tr><td>N1</td><td>12+ tháng</td><td>Học liên tục</td></tr>
+</table>
+<div class="tip-box">💡 Bắt đầu ôn ngay hôm nay! Dùng Flashcard + Quiz trên KOERU mỗi ngày 20 phút.</div>
+</div>`,
 };
 
 function showBlogDetail(id) {
