@@ -144,10 +144,26 @@
   .wi-choice.neutral{background:var(--surface);border:1px solid var(--border);color:var(--muted)}
   .tag{font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:4px}
   .tag.c{background:var(--green);color:#000}.tag.w{background:var(--red);color:#fff}
+  .result-code{font-size:.82rem;color:var(--muted);margin-top:.4rem;letter-spacing:.03em}
+  .result-code b{color:var(--primary-light);font-family:ui-monospace,'Cascadia Code',monospace}
   .result-actions{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
-  .btn-retry,.btn-home{padding:.75rem 2rem;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:.95rem}
+  .btn-retry,.btn-home,.btn-pdf{padding:.75rem 2rem;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:.95rem}
   .btn-retry{background:var(--primary);color:#fff}.btn-home{background:var(--card);color:var(--text);border:1px solid var(--border)}
-  .btn-retry:hover{background:var(--primary-light)}.btn-home:hover{border-color:var(--primary)}
+  .btn-pdf{background:var(--card);color:var(--text);border:1px solid var(--border)}
+  .btn-retry:hover{background:var(--primary-light)}.btn-home:hover{border-color:var(--primary)}.btn-pdf:hover{border-color:var(--primary)}
+
+  /* IN PDF — chỉ in vùng kết quả, nền trắng chữ đen, ẩn nút & vùng lưu */
+  @media print {
+    body{background:#fff;color:#000}
+    .screen{display:none!important}
+    #result.screen{display:block!important;padding:0}
+    .result-actions,.save-row,.ai-pill{display:none!important}
+    .score-box,.sec-pill,.question-block,.wrong-item,.ai-report,.result-code b{
+      border-color:#bbb!important;background:#fff!important;color:#000!important}
+    .val.correct{color:#0a0!important}.val.wrong{color:#c00!important}.val.time{color:#000!important}
+    .result-code,.result-student{color:#333!important}
+    .wi-choice.correct{color:#0a0!important}.wi-choice.wrong-pick{color:#c00!important}
+  }
 
   /* HISTORY */
   #history{padding:2rem;align-items:center}
@@ -492,8 +508,12 @@ function buildAttempt(exam, answers, elapsed) {
   const avgSecs = elapsed / Math.max(Object.keys(answers).length, 1);
   const risk = getAiRisk(tabSwitches, mouseLeaves, fastAnswers);
 
+  const id = Date.now();
+  const resultCode = `KOERU-E${exam.id}-${totalCorrect}-${id.toString(36).slice(-5).toUpperCase()}`;
+
   return {
-    id: Date.now(),
+    id,
+    resultCode,
     student: document.getElementById('studentName').value.trim(),
     examId: exam.id,
     examTitle: exam.title,
@@ -594,6 +614,7 @@ function buildResult(attempt) {
     <div class="result-header">
       <div class="result-title">Kết quả — ${attempt.examTitle}</div>
       <div class="result-student">${attempt.student} · ${dateStr}</div>
+      <div class="result-code">Mã kết quả: <b>${attempt.resultCode}</b></div>
     </div>
     <div class="score-row">
       <div class="score-box"><div class="val correct">${attempt.correct}</div><div class="lbl">Câu đúng / 40</div></div>
@@ -606,6 +627,7 @@ function buildResult(attempt) {
     ${wrongHtml}
     <div class="result-actions">
       <button class="btn-home" onclick="goHome()">← Về trang chọn đề</button>
+      <button class="btn-pdf" onclick="window.print()">📄 Tải PDF</button>
       <button class="btn-retry" onclick="retryExam()">Làm lại đề này</button>
     </div>`;
 
@@ -626,6 +648,7 @@ function pushToSheets() {
   const a = window._lastAttempt;
   const payload = {
     attemptId: a.id,
+    resultCode: a.resultCode,
     date: new Date(a.date).toLocaleString('vi-VN'),
     student: a.student,
     examId: a.examId,

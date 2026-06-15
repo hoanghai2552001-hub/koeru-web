@@ -26,14 +26,14 @@ function doPost(e) {
     if (!sheet) {
       sheet = ss.insertSheet(SHEET_NAME);
       sheet.appendRow([
-        'Thời gian', 'Học sinh', 'Mã đề',
+        'Mã KQ', 'Thời gian', 'Học sinh', 'Mã đề',
         'Đúng', 'Sai', 'Thời gian làm',
         'Phần A (18)', 'Phần B1 (14)', 'Phần B2 (8)',
         'Rời tab', 'Rời chuột', 'Câu nhanh (<8s)',
         'TB giây/câu', 'AI Risk'
       ]);
       // Format header row
-      const header = sheet.getRange(1, 1, 1, 14);
+      const header = sheet.getRange(1, 1, 1, 15);
       header.setFontWeight('bold');
       header.setBackground('#1a1d27');
       header.setFontColor('#ffffff');
@@ -41,6 +41,7 @@ function doPost(e) {
     }
 
     sheet.appendRow([
+      data.resultCode,
       data.date,
       data.student,
       'Mã 0' + data.examId,
@@ -57,9 +58,9 @@ function doPost(e) {
       data.aiRisk === 'high' ? '🚨 Cao' : data.aiRisk === 'medium' ? '⚠️ TB' : '✅ Thấp'
     ]);
 
-    // Color-code AI risk column (col 14)
+    // Color-code AI risk column (col 15)
     const lastRow = sheet.getLastRow();
-    const riskCell = sheet.getRange(lastRow, 14);
+    const riskCell = sheet.getRange(lastRow, 15);
     if (data.aiRisk === 'high') riskCell.setBackground('#3a1010').setFontColor('#f25f5c');
     else if (data.aiRisk === 'medium') riskCell.setBackground('#3a2e10').setFontColor('#f5a623');
     else riskCell.setBackground('#1a3a25').setFontColor('#34c97b');
@@ -70,7 +71,7 @@ function doPost(e) {
       if (!detail) {
         detail = ss.insertSheet(DETAIL_SHEET_NAME);
         detail.appendRow([
-          'Mã lần thi', 'Thời gian', 'Học sinh', 'Mã đề',
+          'Mã KQ', 'Thời gian', 'Học sinh', 'Mã đề',
           'Câu', 'Phần', 'Đáp án chọn', 'Đáp án đúng', 'Kết quả'
         ]);
         const h = detail.getRange(1, 1, 1, 9);
@@ -81,7 +82,7 @@ function doPost(e) {
       }
       const rows = data.items.map(function (it) {
         return [
-          data.attemptId,
+          data.resultCode,
           data.date,
           data.student,
           'Mã 0' + data.examId,
@@ -110,6 +111,7 @@ function doPost(e) {
 function testDoPost() {
   const mockData = {
     attemptId: Date.now(),
+    resultCode: 'KOERU-E1-35-TEST1',
     date: new Date().toLocaleString('vi-VN'),
     student: 'Test Student',
     examId: 1,
