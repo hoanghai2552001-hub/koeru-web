@@ -161,7 +161,8 @@
     background:transparent;color:var(--red);cursor:pointer;font-size:.82rem;transition:border-color .2s}
   .btn-clear-hist:hover{border-color:var(--red)}
   .hist-empty{text-align:center;padding:3rem;color:var(--muted);font-size:.95rem}
-  .hist-table{width:100%;border-collapse:collapse;font-size:.85rem}
+  #historyBody{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .hist-table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:560px}
   .hist-table th{text-align:left;padding:.7rem .9rem;border-bottom:2px solid var(--border);
     color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
   .hist-table td{padding:.75rem .9rem;border-bottom:1px solid var(--border)}
@@ -176,6 +177,8 @@
     .exam-grid{grid-template-columns:repeat(3,1fr)}
     .score-row{gap:1rem}.score-box{padding:.9rem 1.2rem}
     .hist-table{font-size:.78rem}
+    .history-header{flex-wrap:wrap}
+    .history-title{flex-basis:100%;margin-bottom:.5rem}
   }
 </style>
 </head>
