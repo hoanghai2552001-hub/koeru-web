@@ -470,6 +470,7 @@ function submitExam() {
 function buildAttempt(exam, answers, elapsed) {
   const sectionCorrect = { A:0, B1:0, B2:0 };
   const wrongItems = [];
+  const allItems = [];
   let totalCorrect = 0;
   const fastAnswers = [];
 
@@ -478,6 +479,7 @@ function buildAttempt(exam, answers, elapsed) {
     const correct = userAns === q.answer;
     if (correct) { totalCorrect++; sectionCorrect[q.section]++; }
     else wrongItems.push({ q, userAns });
+    allItems.push({ no: q.no, section: q.section, userAns, correctAns: q.answer, correct });
 
     // Check answer speed
     const ts = answerTimestamps[q.no];
@@ -507,7 +509,8 @@ function buildAttempt(exam, answers, elapsed) {
     fastAnswers,
     avgSecs: +avgSecs.toFixed(1),
     aiRisk: risk,
-    wrongItems
+    wrongItems,
+    allItems
   };
 }
 
@@ -622,6 +625,7 @@ function pushToSheets() {
 
   const a = window._lastAttempt;
   const payload = {
+    attemptId: a.id,
     date: new Date(a.date).toLocaleString('vi-VN'),
     student: a.student,
     examId: a.examId,
@@ -633,7 +637,14 @@ function pushToSheets() {
     mouseLeaves: a.mouseLeaves,
     fastAnswers: a.fastAnswers.length,
     avgSecs: a.avgSecs,
-    aiRisk: a.aiRisk
+    aiRisk: a.aiRisk,
+    items: (a.allItems || []).map(it => ({
+      no: it.no,
+      sec: it.section,
+      pick: it.userAns < 0 ? '—' : (it.userAns + 1),
+      ans: it.correctAns + 1,
+      ok: it.correct ? 1 : 0
+    }))
   };
 
   fetch(SHEETS_WEBHOOK, {
@@ -656,9 +667,10 @@ function pushToSheets() {
 // ── LOCAL HISTORY ─────────────────────────────────────────────────────────
 function saveToHistory(attempt) {
   const hist = loadRawHistory();
-  // Strip wrongItems to save space
+  // Strip chi tiết câu để tiết kiệm localStorage (chỉ dùng khi push Sheets)
   const slim = { ...attempt };
   delete slim.wrongItems;
+  delete slim.allItems;
   hist.unshift(slim);
   if (hist.length > 100) hist.splice(100);
   localStorage.setItem(HISTORY_KEY, JSON.stringify(hist));

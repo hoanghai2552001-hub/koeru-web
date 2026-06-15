@@ -15,6 +15,7 @@
 
 const SPREADSHEET_ID = '1K8wr7NjFl1XyLL36xz7p8cq2BI8uYSrkQ3ryJm-CcMk';
 const SHEET_NAME = 'Kết quả thi N4';
+const DETAIL_SHEET_NAME = 'Chi tiết câu trả lời';
 
 function doPost(e) {
   try {
@@ -63,6 +64,37 @@ function doPost(e) {
     else if (data.aiRisk === 'medium') riskCell.setBackground('#3a2e10').setFontColor('#f5a623');
     else riskCell.setBackground('#1a3a25').setFontColor('#34c97b');
 
+    // Ghi chi tiết từng câu vào tab riêng (mỗi câu = 1 dòng)
+    if (data.items && data.items.length) {
+      let detail = ss.getSheetByName(DETAIL_SHEET_NAME);
+      if (!detail) {
+        detail = ss.insertSheet(DETAIL_SHEET_NAME);
+        detail.appendRow([
+          'Mã lần thi', 'Thời gian', 'Học sinh', 'Mã đề',
+          'Câu', 'Phần', 'Đáp án chọn', 'Đáp án đúng', 'Kết quả'
+        ]);
+        const h = detail.getRange(1, 1, 1, 9);
+        h.setFontWeight('bold');
+        h.setBackground('#1a1d27');
+        h.setFontColor('#ffffff');
+        detail.setFrozenRows(1);
+      }
+      const rows = data.items.map(function (it) {
+        return [
+          data.attemptId,
+          data.date,
+          data.student,
+          'Mã 0' + data.examId,
+          it.no,
+          it.sec,
+          it.pick,
+          it.ans,
+          it.ok ? '✅ Đúng' : '❌ Sai'
+        ];
+      });
+      detail.getRange(detail.getLastRow() + 1, 1, rows.length, 9).setValues(rows);
+    }
+
     return ContentService
       .createTextOutput(JSON.stringify({ status: 'ok', row: lastRow }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -77,6 +109,7 @@ function doPost(e) {
 // Test function — chạy thủ công trong Apps Script editor để kiểm tra
 function testDoPost() {
   const mockData = {
+    attemptId: Date.now(),
     date: new Date().toLocaleString('vi-VN'),
     student: 'Test Student',
     examId: 1,
@@ -85,7 +118,12 @@ function testDoPost() {
     secA: 16, secB1: 12, secB2: 7,
     tabSwitches: 1, mouseLeaves: 3,
     fastAnswers: 0, avgSecs: 90.5,
-    aiRisk: 'low'
+    aiRisk: 'low',
+    items: [
+      { no: 1, sec: 'A', pick: 2, ans: 2, ok: 1 },
+      { no: 2, sec: 'A', pick: 1, ans: 4, ok: 0 },
+      { no: 19, sec: 'B1', pick: '—', ans: 2, ok: 0 }
+    ]
   };
   const mock = { postData: { contents: JSON.stringify(mockData) } };
   const result = doPost(mock);
