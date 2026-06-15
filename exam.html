@@ -63,6 +63,10 @@
   .ai-pill.alert{border-color:var(--red);color:var(--red)}
   .progress-bar{height:3px;background:var(--border)}
   .progress-fill{height:100%;background:var(--primary);transition:width .3s}
+  .tab-warning{position:sticky;top:0;z-index:9;background:#3a1010;color:var(--red);
+    border-bottom:1px solid #5a2020;text-align:center;font-size:.82rem;font-weight:600;
+    padding:0 1rem;max-height:0;overflow:hidden;transition:max-height .25s,padding .25s}
+  .tab-warning.show{max-height:60px;padding:.6rem 1rem}
   .exam-body{flex:1;padding:1.5rem;max-width:780px;width:100%;margin:0 auto}
   .section-header{background:var(--card);border-left:4px solid var(--primary);
     padding:.7rem 1rem;border-radius:0 8px 8px 0;margin:1.5rem 0 1rem;
@@ -240,6 +244,7 @@
     </div>
   </div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div id="tabWarning" class="tab-warning"></div>
   <div class="exam-body" id="examBody"></div>
   <div class="exam-footer">
     <div class="answered-count">Đã trả lời: <span id="answeredCount">0</span> / 40</div>
@@ -270,6 +275,7 @@
 // Dán URL Google Apps Script Web App vào đây sau khi deploy
 const SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbyvfEHL25nfWbwCJoWmnhwi5doA67NIY-6OH3WR9AmfRH6KVXvQmvdc6n9COY1s3nc/exec';
 const HISTORY_KEY = 'koeru_exam_history_v1';
+const PROGRESS_KEY = 'koeru_exam_progress_v1';
 const FAST_ANSWER_THRESHOLD = 8; // giây — dưới ngưỡng này là "trả lời nhanh"
 
 // ── STATE ────────────────────────────────────────────────────────────────
@@ -340,6 +346,7 @@ function showScreen(id) {
 // ── EXAM START ────────────────────────────────────────────────────────────
 function startExam() {
   if (!selectedExam) return;
+  clearProgress();
   userAnswers = {};
   tabSwitches = 0;
   mouseLeaves = 0;
@@ -350,6 +357,7 @@ function startExam() {
   buildExamUI(selectedExam);
   showScreen('exam');
   startTimer(selectedExam.duration * 60);
+  saveProgress();
 }
 
 // ── AI TRACKING ───────────────────────────────────────────────────────────
@@ -358,6 +366,10 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     tabSwitches++;
     updateAiPill();
+    saveProgress();
+  } else {
+    // quay lại tab → nhắc răn đe
+    showTabWarning(tabSwitches);
   }
 });
 
@@ -370,6 +382,27 @@ document.addEventListener('mouseleave', () => {
   if (!examActive) return;
   mouseLeaves++;
 });
+
+// Cảnh báo khi lỡ reload/đóng tab giữa lúc đang thi
+window.addEventListener('beforeunload', (e) => {
+  if (!examActive) return;
+  e.preventDefault();
+  e.returnValue = '';
+});
+
+// Chặn copy / cắt / chuột phải / bôi đen khi đang thi
+['contextmenu','copy','cut','selectstart'].forEach(ev => {
+  document.addEventListener(ev, (e) => { if (examActive) e.preventDefault(); });
+});
+
+function showTabWarning(count) {
+  const el = document.getElementById('tabWarning');
+  if (!el) return;
+  el.textContent = `⚠️ Bạn đã rời tab ${count} lần — hành vi này được ghi lại`;
+  el.classList.add('show');
+  clearTimeout(showTabWarning._t);
+  showTabWarning._t = setTimeout(() => el.classList.remove('show'), 4000);
+}
 
 function updateAiPill() {
   const pill = document.getElementById('aiPill');
@@ -436,6 +469,7 @@ function selectAnswer(qNo, idx, choicesEl) {
     btn.classList.toggle('selected', i === idx);
   });
   updateProgress();
+  saveProgress();
 }
 
 function updateProgress() {
@@ -451,6 +485,7 @@ function startTimer(seconds) {
   timerInterval = setInterval(() => {
     secondsLeft--;
     renderTimer();
+    if (secondsLeft % 5 === 0) saveProgress();
     if (secondsLeft <= 0) { clearInterval(timerInterval); submitExam(); }
   }, 1000);
   renderTimer();
@@ -475,6 +510,7 @@ function confirmSubmit() {
 function submitExam() {
   clearInterval(timerInterval);
   examActive = false;
+  clearProgress();
   const elapsed = Math.floor((Date.now() - startTime) / 1000);
   const attempt = buildAttempt(selectedExam, userAnswers, elapsed);
   saveToHistory(attempt);
@@ -748,17 +784,65 @@ function renderHistory() {
   body.innerHTML = html;
 }
 
+// ── AUTOSAVE TIẾN ĐỘ ───────────────────────────────────────────────────────
+function saveProgress() {
+  if (!examActive || !selectedExam) return;
+  const p = {
+    examId: selectedExam.id,
+    student: document.getElementById('studentName').value.trim(),
+    userAnswers, answerTimestamps,
+    tabSwitches, mouseLeaves,
+    secondsLeft,
+    savedAt: Date.now()
+  };
+  try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch (e) {}
+}
+function clearProgress() { localStorage.removeItem(PROGRESS_KEY); }
+
+function checkResume() {
+  const raw = localStorage.getItem(PROGRESS_KEY);
+  if (!raw) return;
+  let p; try { p = JSON.parse(raw); } catch { clearProgress(); return; }
+  const exam = p && EXAM_DATA_N4.find(e => e.id === p.examId);
+  if (!exam || !p.secondsLeft || p.secondsLeft <= 0) { clearProgress(); return; }
+  const answered = Object.keys(p.userAnswers || {}).length;
+  const mins = Math.floor(p.secondsLeft / 60);
+  if (!confirm(`Có bài thi chưa nộp: ${exam.title} của "${p.student}"\n— Đã trả lời ${answered}/40 câu, còn ${mins} phút.\n\nKhôi phục bài đang làm?`)) {
+    clearProgress(); return;
+  }
+  resumeExam(p, exam);
+}
+
+function resumeExam(p, exam) {
+  document.getElementById('studentName').value = p.student || '';
+  selectedExam = exam;
+  userAnswers = p.userAnswers || {};
+  answerTimestamps = p.answerTimestamps || {};
+  tabSwitches = p.tabSwitches || 0;
+  mouseLeaves = p.mouseLeaves || 0;
+  startTime = Date.now() - (exam.duration * 60 - p.secondsLeft) * 1000;
+  examActive = true;
+  buildExamUI(exam);
+  // tô lại các câu đã chọn
+  Object.entries(userAnswers).forEach(([no, idx]) => {
+    const choicesEl = document.getElementById('choices' + no);
+    if (choicesEl) choicesEl.querySelectorAll('.choice-btn').forEach((btn, i) => btn.classList.toggle('selected', i === idx));
+  });
+  updateProgress();
+  updateAiPill();
+  showScreen('exam');
+  startTimer(p.secondsLeft);
+}
+
 // ── HELPERS ────────────────────────────────────────────────────────────────
-function goHome() { clearInterval(timerInterval); examActive = false; showScreen('home'); }
+function goHome() { clearInterval(timerInterval); examActive = false; clearProgress(); showScreen('home'); }
 function retryExam() { startExam(); }
 function escHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Record startTime when exam begins
-const _origStart = startExam;
-
 initHome();
+checkResume();
 </script>
 </body>
 </html>
