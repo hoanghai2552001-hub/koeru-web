@@ -223,7 +223,7 @@ nav{background:rgba(253,248,244,.92);backdrop-filter:blur(16px);border-bottom:1p
 .tools-lang-group{margin-bottom:24px}
 .tools-lang-label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
 .tools-lang-label::after{content:'';flex:1;height:1px;background:var(--border)}
-.tools-grid{display:flex;flex-wrap:wrap;gap:8px}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:7px 14px 7px 10px;cursor:pointer;transition:all .2s;text-align:left;display:flex;align-items:center;gap:7px;white-space:nowrap}
 .tool-card:hover{border-color:var(--navy);box-shadow:var(--shadow);background:var(--navy-06)}
 .tool-icon{font-size:18px;display:block;flex-shrink:0}
@@ -524,7 +524,7 @@ footer{background:#1a1e36;color:#4a5070;padding:40px 1.5rem 22px}
 
   /* Grids — 1 cột trên mobile */
   .courses-grid{grid-template-columns:1fr}
-  .tools-grid{gap:6px}
+  .tools-grid{grid-template-columns:repeat(2,1fr);gap:6px}
   .blog-grid{grid-template-columns:1fr}
   .lesson-feed{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr;gap:20px}
@@ -888,6 +888,7 @@ body.menu-open{overflow:hidden}
           <div class="tool-card" onclick="showPage('kanji')"><span class="tool-icon">🖊</span><h3>Luyện Kanji</h3><p>Flashcard · Match · Quiz — Kanji N5/N4/N3</p></div>
           <div class="tool-card" onclick="showPage('kana')"><span class="tool-icon">🎌</span><h3>Kana Speed</h3><p>Đọc nhanh Hiragana / Katakana — animation nét vẽ</p></div>
           <div class="tool-card" onclick="openTool('study/index.html')"><span class="tool-icon">📖</span><h3>Bảng Kanji</h3><p>Hoạt ảnh thứ tự nét · N5/N4/N3 · In được</p></div>
+          <div class="tool-card" onclick="openTool('exam.html')"><span class="tool-icon">📋</span><h3>Đề đầu vào N4</h3><p>5 mã đề · 40 câu · Đồng hồ 65 phút · Xem đáp án sai</p></div>
         </div>
       </div>
       <div class="tools-lang-group">
