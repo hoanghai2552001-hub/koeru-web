@@ -121,3 +121,8 @@ tools/kanji_data_*.xlsx
 # ── File lỗi từ CLI ───────────────────────────────────────────
 --out
 kanji-map-data.js
+
+
+# ── Logs (tự sinh) ──
+*.log
+tools/watch_log.txt
