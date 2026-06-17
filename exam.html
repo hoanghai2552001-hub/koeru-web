@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kiểm tra đầu vào N4 – KOERU</title>
+<title>Kiểm tra đầu vào N3 · N4 – KOERU</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png"/>
 <style>
@@ -22,7 +22,15 @@
   #home{align-items:center;justify-content:center;padding:2rem}
   .home-inner{max-width:560px;width:100%;text-align:center}
   .logo{font-size:2rem;font-weight:800;color:var(--primary-light);margin-bottom:.3rem;display:flex;align-items:center;justify-content:center;gap:.6rem}
-  .home-sub{color:var(--muted);margin-bottom:2rem;font-size:.95rem}
+  .home-sub{color:var(--muted);margin-bottom:1.2rem;font-size:.95rem}
+  .level-tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:1.5rem;flex-wrap:wrap}
+  .level-tab{background:var(--card);border:2px solid var(--border);border-radius:999px;
+    padding:.5rem 1.3rem;cursor:pointer;transition:border-color .2s,background .2s;
+    color:var(--text);font-weight:700;font-size:.9rem;display:flex;flex-direction:column;align-items:center;gap:.1rem}
+  .level-tab .lv-sub{font-size:.68rem;font-weight:500;color:var(--muted)}
+  .level-tab:hover{border-color:var(--primary)}
+  .level-tab.active{border-color:var(--primary);background:#2a2850}
+  .level-tab.active .lv-sub{color:var(--primary-light)}
   .name-row{display:flex;gap:.6rem;margin-bottom:1.5rem}
   .name-input{flex:1;background:var(--card);border:2px solid var(--border);border-radius:8px;
     padding:.75rem 1rem;color:var(--text);font-size:.95rem;outline:none;transition:border-color .2s}
@@ -211,7 +219,9 @@
       <picture><source srcset="koeru-logo.webp" type="image/webp"/><img src="koeru-logo.png" alt="KOERU" width="40" height="40" style="height:40px;width:auto"/></picture>
       KOERU
     </div>
-    <div class="home-sub">Kiểm tra đầu vào N4 — dành cho học sinh đã hoàn thành N5</div>
+    <div class="home-sub" id="homeSub"></div>
+
+    <div class="level-tabs" id="levelTabs"></div>
 
     <div class="name-row">
       <input class="name-input" id="studentName" type="text" placeholder="Nhập tên học sinh..." maxlength="50"
@@ -222,7 +232,7 @@
 
     <div class="info-box">
       <strong>Thông tin bài kiểm tra</strong><br>
-      • <strong>40 câu trắc nghiệm</strong> — 4 lựa chọn · Thời gian: <strong>65 phút</strong><br>
+      • <strong>40 câu trắc nghiệm</strong> — 4 lựa chọn · Thời gian: <strong><span id="infoDuration">65</span> phút</strong><br>
       • Phần A: Chữ Hán & Từ vựng (18 câu) · B1: Ngữ pháp (14 câu) · B2: Đọc hiểu (8 câu)<br>
       • Sau khi nộp: xem câu sai, số câu đúng, <strong>báo cáo AI</strong> và lưu kết quả
     </div>
@@ -270,6 +280,7 @@
 </div>
 
 <script src="js/exam-data-n4.js?v=c34b2f9d"></script>
+<script src="js/exam-data-n3.js?v=5995464b"></script>
 <script>
 // ── CONFIG ──────────────────────────────────────────────────────────────
 // Dán URL Google Apps Script Web App vào đây sau khi deploy
@@ -281,6 +292,15 @@ const FAST_ANSWER_THRESHOLD = 8; // giây — dưới ngưỡng này là "trả 
 // ── STATE ────────────────────────────────────────────────────────────────
 const THRESHOLDS = { A:11, B1:8, B2:5 };
 const SECTION_TOTAL = { A:18, B1:14, B2:8 };
+
+// Các cấp độ đề — thêm level mới chỉ cần khai báo ở đây + nạp file data tương ứng
+const EXAM_LEVELS = {
+  N4: { label: 'N4', sub: 'Kiểm tra đầu vào N4 — dành cho học sinh đã hoàn thành N5', data: window.EXAM_DATA_N4 || [] },
+  N3: { label: 'N3', sub: 'Kiểm tra đầu vào N3 — dành cho học sinh đã hoàn thành N4', data: window.EXAM_DATA_N3 || [] },
+};
+const LEVEL_ORDER = ['N4', 'N3'];
+let currentLevel = 'N4';
+function levelData() { return EXAM_LEVELS[currentLevel].data; }
 
 let selectedExam = null;
 let userAnswers = {};
@@ -297,8 +317,26 @@ let lastActionTime = null;
 
 // ── INIT ─────────────────────────────────────────────────────────────────
 function initHome() {
+  // Build level tabs
+  const tabs = document.getElementById('levelTabs');
+  tabs.innerHTML = '';
+  LEVEL_ORDER.forEach(lv => {
+    if (!EXAM_LEVELS[lv].data.length) return; // bỏ level chưa có data
+    const t = document.createElement('div');
+    t.className = 'level-tab' + (lv === currentLevel ? ' active' : '');
+    t.id = `ltab${lv}`;
+    t.innerHTML = `<span>Test ${lv}</span><span class="lv-sub">${lv === 'N4' ? 'nền tảng N5' : 'nền tảng N4'}</span>`;
+    t.onclick = () => selectLevel(lv);
+    tabs.appendChild(t);
+  });
+  renderExamGrid();
+  updateLevelUI();
+}
+
+function renderExamGrid() {
   const grid = document.getElementById('examGrid');
-  EXAM_DATA_N4.forEach(exam => {
+  grid.innerHTML = '';
+  levelData().forEach(exam => {
     const card = document.createElement('div');
     card.className = 'exam-card';
     card.id = `ecard${exam.id}`;
@@ -306,6 +344,22 @@ function initHome() {
     card.onclick = () => selectExam(exam.id, card);
     grid.appendChild(card);
   });
+}
+
+function updateLevelUI() {
+  document.getElementById('homeSub').textContent = EXAM_LEVELS[currentLevel].sub;
+  const dur = levelData()[0] ? levelData()[0].duration : 65;
+  document.getElementById('infoDuration').textContent = dur;
+}
+
+function selectLevel(lv) {
+  if (lv === currentLevel) return;
+  currentLevel = lv;
+  selectedExam = null;
+  document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', t.id === `ltab${lv}`));
+  renderExamGrid();
+  updateLevelUI();
+  updateStartBtn();
 }
 
 function onNameInput() { updateStartBtn(); }
@@ -317,7 +371,7 @@ function focusExamSelect() {
 function selectExam(id, el) {
   document.querySelectorAll('.exam-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
-  selectedExam = EXAM_DATA_N4.find(e => e.id === id);
+  selectedExam = levelData().find(e => e.id === id);
   updateStartBtn();
 }
 
@@ -422,7 +476,7 @@ function getAiRisk(tabs, leaves, fastList) {
 // ── BUILD EXAM UI ─────────────────────────────────────────────────────────
 function buildExamUI(exam) {
   const name = document.getElementById('studentName').value.trim();
-  document.getElementById('examLabel').textContent = `${name} · Đề N4 · ${exam.title}`;
+  document.getElementById('examLabel').textContent = `${name} · Đề ${currentLevel} · ${exam.title}`;
   const body = document.getElementById('examBody');
   body.innerHTML = '';
   let lastSection = null;
@@ -545,11 +599,12 @@ function buildAttempt(exam, answers, elapsed) {
   const risk = getAiRisk(tabSwitches, mouseLeaves, fastAnswers);
 
   const id = Date.now();
-  const resultCode = `KOERU-E${exam.id}-${totalCorrect}-${id.toString(36).slice(-5).toUpperCase()}`;
+  const resultCode = `KOERU-${currentLevel}-E${exam.id}-${totalCorrect}-${id.toString(36).slice(-5).toUpperCase()}`;
 
   return {
     id,
     resultCode,
+    level: currentLevel,
     student: document.getElementById('studentName').value.trim(),
     examId: exam.id,
     examTitle: exam.title,
@@ -648,7 +703,7 @@ function buildResult(attempt) {
   const scoreClass = attempt.correct >= 32 ? 'good' : attempt.correct >= 24 ? '' : '';
   document.getElementById('resultInner').innerHTML = `
     <div class="result-header">
-      <div class="result-title">Kết quả — ${attempt.examTitle}</div>
+      <div class="result-title">Kết quả — Đề ${attempt.level || ''} ${attempt.examTitle}</div>
       <div class="result-student">${attempt.student} · ${dateStr}</div>
       <div class="result-code">Mã kết quả: <b>${attempt.resultCode}</b></div>
     </div>
@@ -685,6 +740,7 @@ function pushToSheets() {
   const payload = {
     attemptId: a.id,
     resultCode: a.resultCode,
+    level: a.level || '',
     date: new Date(a.date).toLocaleString('vi-VN'),
     student: a.student,
     examId: a.examId,
@@ -770,7 +826,7 @@ function renderHistory() {
     html += `<tr>
       <td>${dateStr}</td>
       <td>${escHtml(a.student)}</td>
-      <td>Mã 0${a.examId}</td>
+      <td>${a.level ? a.level+' · ' : ''}Mã 0${a.examId}</td>
       <td><span class="hist-score ${sc}">${a.correct}/40</span></td>
       <td>${em}:${es}</td>
       <td style="color:${passA?'var(--green)':'var(--red)'}">${a.secA}/18</td>
@@ -788,6 +844,7 @@ function renderHistory() {
 function saveProgress() {
   if (!examActive || !selectedExam) return;
   const p = {
+    level: currentLevel,
     examId: selectedExam.id,
     student: document.getElementById('studentName').value.trim(),
     userAnswers, answerTimestamps,
@@ -803,8 +860,10 @@ function checkResume() {
   const raw = localStorage.getItem(PROGRESS_KEY);
   if (!raw) return;
   let p; try { p = JSON.parse(raw); } catch { clearProgress(); return; }
-  const exam = p && EXAM_DATA_N4.find(e => e.id === p.examId);
+  const lv = p && p.level && EXAM_LEVELS[p.level] ? p.level : 'N4';
+  const exam = p && EXAM_LEVELS[lv].data.find(e => e.id === p.examId);
   if (!exam || !p.secondsLeft || p.secondsLeft <= 0) { clearProgress(); return; }
+  currentLevel = lv;
   const answered = Object.keys(p.userAnswers || {}).length;
   const mins = Math.floor(p.secondsLeft / 60);
   if (!confirm(`Có bài thi chưa nộp: ${exam.title} của "${p.student}"\n— Đã trả lời ${answered}/40 câu, còn ${mins} phút.\n\nKhôi phục bài đang làm?`)) {
