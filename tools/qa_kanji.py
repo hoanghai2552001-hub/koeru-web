@@ -116,21 +116,24 @@ def check_kanji(obj, idx):
     if not k:                              err('Thiếu trường kanji')
     elif not KANJI_RE.match(k):            err(f'kanji "{k}" không phải ký tự Hán')
 
-    # hanviet — luôn là chữ HOA tiếng Việt, không cần check tiếng Anh
+    # hanviet — chữ HOA tiếng Việt. Kokuji dùng nhãn riêng ("(国字)") hoặc "—" → bỏ qua
+    KOKUJI_MARKS = ('—', '(国字)')
     hv = obj.get('hanviet','')
     if not hv:                             err('Thiếu hanviet')
-    elif not hv.isupper():                 note(f'hanviet "{hv}" chưa VIẾT HOA')
+    elif hv not in KOKUJI_MARKS and not hv.isupper():
+        note(f'hanviet "{hv}" chưa VIẾT HOA')
 
-    # on reading
+    # readings — nhiều kanji chỉ có on (万,百,電) hoặc chỉ có kun (峠 kokuji).
+    # On-only / kun-only là HỢP LỆ; chỉ cảnh báo khi cả hai đều trống.
     on = obj.get('on','')
-    if not on or on == '—':               note('On reading trống / —')
-    elif on and not KATAKANA.search(on) and on != '—':
-        err(f'On "{on}" không phải Katakana')
-
-    # kun reading
     kun = obj.get('kun','')
-    if not kun:                            note('Kun reading trống')
-    elif kun and kun != '—' and not HIRAGANA.search(kun) and not KATAKANA.search(kun):
+    on_empty = not on or on == '—'
+    kun_empty = not kun or kun == '—'
+    if on_empty and kun_empty:
+        note('Không có cách đọc nào (on & kun đều trống)')
+    if not on_empty and not KATAKANA.search(on):
+        err(f'On "{on}" không phải Katakana')
+    if not kun_empty and not HIRAGANA.search(kun) and not KATAKANA.search(kun):
         err(f'Kun "{kun}" không có Hiragana/Katakana')
 
     # meaning (VN)
