@@ -1118,11 +1118,11 @@ if(document.readyState==='loading'){
   display: contents;  /* transparent wrapper */
 }
 /* Compact injected buttons trên màn nhỏ */
+/* Hide removed features */
+#kwb-tb-img, #kwb-tb-tmpl, #kwb-tb-a4, #kwb-tb-wp { display: none !important; }
+#kwb-tb-img+.kwb-tb-sep, #kwb-tb-tmpl+.kwb-tb-sep, #kwb-tb-a4+.kwb-tb-sep, #kwb-tb-wp+.kwb-tb-sep { display: none !important; }
 @media (max-width: 1200px) {
-  #kwb-tb-img  span.kwb-btn-label,
-  #kwb-tb-tmpl span.kwb-btn-label,
-  #kwb-tb-a4   span.kwb-btn-label,
-  #kwb-tb-wp   span.kwb-btn-label { display: none; }
+  #kwb-tb-kanji span.kwb-btn-label { display: none; }
 }
 </style>
 
@@ -1533,6 +1533,42 @@ if(document.readyState==='loading'){
 .kp-btn:hover { background: #f3f4f6; }
 .kp-btn.primary { background: #4f46e5; color: #fff; border-color: #4f46e5; }
 .kp-btn.primary:hover { background: #4338ca; }
+
+/* KanjiVG stroke-order panel — compact horizontal strip */
+#kp-kvg-panel {
+  flex-shrink:0; display:none; flex-direction:row; gap:6px;
+  padding:6px 10px; overflow-x:auto; overflow-y:hidden;
+  background:#fafaf8; border-top:1px solid #e0d9d0;
+  height:116px; min-height:116px; max-height:116px; align-items:flex-start;
+  scrollbar-width:thin; box-sizing:border-box;
+}
+.dark-mode #kp-kvg-panel { background:#0f172a; border-color:#1e293b; }
+.kp-kvg-card {
+  flex:0 0 auto; width:84px; text-align:center; cursor:pointer;
+  border:1.5px solid #e0d9d0; border-radius:7px; padding:3px 3px 4px;
+  background:#fff; transition:border-color .12s,background .12s;
+  box-sizing:border-box; overflow:hidden;
+}
+.kp-kvg-card:hover { background:#f0ede8; border-color:#b5a090; }
+.dark-mode .kp-kvg-card { background:#1e293b; border-color:#334155; }
+.dark-mode .kp-kvg-card:hover { background:#273444; border-color:#475569; }
+.kp-kvg-card svg { width:62px!important; height:62px!important; display:block; margin:0 auto; }
+.kp-kvg-label { font-size:9px; color:#888; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; line-height:1.2; }
+.dark-mode .kp-kvg-label { color:#94a3b8; }
+.kp-kvg-count { font-size:8px; color:#bbb; }
+.dark-mode .kp-kvg-count { color:#64748b; }
+.kp-kvg-replay {
+  font-size:8px; padding:1px 5px; margin-top:2px;
+  border:1px solid #ddd; background:transparent; border-radius:3px;
+  cursor:pointer; color:#666; display:inline-block; font-family:inherit; line-height:1.5;
+}
+.dark-mode .kp-kvg-replay { border-color:#475569; color:#94a3b8; }
+.kp-kvg-replay:hover { background:#e3f2fd; color:#1565c0; border-color:#1565c0; }
+.kp-kvg-loading { font-size:26px; line-height:62px; width:62px; color:#ccc; font-family:'Noto Serif JP',serif; display:block; }
+.dark-mode .kp-kvg-loading { color:#334155; }
+.kp-kvg-err { font-size:20px; color:#ccc; line-height:62px; width:62px; display:block; }
+#kp-net-btn.active { border-color:#1565c0!important; background:#e3f2fd!important; color:#1565c0!important; }
+.dark-mode #kp-net-btn.active { border-color:#3b82f6!important; background:#1e3a5f!important; color:#93c5fd!important; }
 
 /* Label on guide elements */
 .kwb-guide-label {
@@ -2398,6 +2434,800 @@ svg[style*="position: fixed"] {
     var s = document.querySelector('svg[style*="position: fixed"]');
     if (s && s !== svgEl) { svgEl = s; attach(svgEl); }
   }).observe(document.body, {childList:true, subtree:true});
+})();
+</script>
+
+<!-- ═══ KOERU STROKE ENHANCEMENT + KANJI PRACTICE + CANVAS BG ═══ -->
+<style>
+/* ── Canvas Background Layer ── */
+#kwb-bg-layer {
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:1;
+}
+#kwb-bg-menu {
+  position:fixed;bottom:60px;left:50%;transform:translateX(-50%);
+  z-index:9300;display:none;
+  background:rgba(15,18,30,.94);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);border-radius:12px;
+  padding:10px 14px;box-shadow:0 8px 28px rgba(0,0,0,.5);
+  font-family:system-ui,sans-serif;
+}
+#kwb-bg-menu.open { display:flex;gap:6px;flex-wrap:wrap;max-width:360px;justify-content:center; }
+.kwb-bg-opt {
+  width:48px;height:48px;border-radius:8px;border:2px solid transparent;
+  cursor:pointer;transition:all .15s;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.kwb-bg-opt:hover { border-color:rgba(255,255,255,.3); }
+.kwb-bg-opt.sel { border-color:#f5c842;box-shadow:0 0 0 2px rgba(245,200,66,.3); }
+.kwb-bg-opt svg { width:100%;height:100%; }
+.kwb-bg-label { font-size:9px;color:#94a3b8;text-align:center;width:100%;margin-top:2px; }
+
+/* ── Kanji Practice Mode ── */
+#kwb-kanji-overlay {
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:9999;display:none;background:#f5f0e8;
+  overflow:auto;-webkit-overflow-scrolling:touch;
+}
+#kwb-kanji-overlay.active { display:flex;flex-direction:column; }
+#kwb-kanji-overlay.dark-mode { background:#1a1a2e; }
+
+.kp-header {
+  display:flex;align-items:center;gap:6px;padding:8px 12px;
+  background:#fff;border-bottom:1px solid #ddd;flex-shrink:0;
+  flex-wrap:wrap;min-height:44px;
+}
+.dark-mode .kp-header { background:#111827;border-color:#2d3561; }
+.kp-header select,.kp-header button {
+  font-family:'Segoe UI',system-ui,sans-serif;font-size:12px;
+  padding:4px 8px;border-radius:6px;border:1px solid #ccc;
+  background:#fff;color:#333;cursor:pointer;line-height:1.3;
+}
+.dark-mode .kp-header select,.dark-mode .kp-header button { background:#1e293b;color:#e2e8f0;border-color:#475569; }
+.kp-header button:hover { background:#f0f0f0; }
+.dark-mode .kp-header button:hover { background:#334155; }
+.kp-header .kp-title { font-weight:700;font-size:14px;color:#333;margin-right:auto; }
+.dark-mode .kp-header .kp-title { color:#e2e8f0; }
+
+.kp-canvas-wrap { flex:1;overflow:auto;position:relative; }
+.kp-canvas-wrap #kp-stack { display:block; }
+
+.kp-ink-bar {
+  display:flex;align-items:center;gap:6px;padding:6px 12px;
+  background:#fafafa;border-top:1px solid #e0e0e0;flex-shrink:0;flex-wrap:wrap;
+}
+.dark-mode .kp-ink-bar { background:#0f172a;border-color:#1e293b; }
+.kp-ink-bar label { font-size:11px;color:#666; }
+.dark-mode .kp-ink-bar label { color:#94a3b8; }
+.kp-ink-bar input[type=range] { width:70px; }
+.kp-ink-bar .kp-color {
+  width:22px;height:22px;border-radius:50%;border:2px solid #ccc;
+  cursor:pointer;transition:transform .15s;flex-shrink:0;
+}
+.kp-ink-bar .kp-color:hover { transform:scale(1.15); }
+.kp-ink-bar .kp-color.sel { border-color:#f5c842;box-shadow:0 0 0 2px rgba(245,200,66,.4); }
+.kp-pen-btn {
+  background:transparent;border:1px solid #ccc;border-radius:5px;
+  padding:3px 8px;font-size:11px;cursor:pointer;color:#555;transition:all .15s;
+}
+.kp-pen-btn:hover { border-color:#888;color:#222; }
+.kp-pen-btn.active { border-color:#1565c0;background:#e3f2fd;color:#1565c0;font-weight:600; }
+.dark-mode .kp-pen-btn { border-color:#334155;color:#94a3b8; }
+.dark-mode .kp-pen-btn:hover { border-color:#64748b;color:#e2e8f0; }
+.dark-mode .kp-pen-btn.active { border-color:#3b82f6;background:#1e3a5f;color:#93c5fd; }
+.kp-sep { width:1px;height:20px;background:#ddd;margin:0 2px; }
+.dark-mode .kp-sep { background:#334155; }
+
+@media(max-width:600px){
+  .kp-header { padding:5px 8px;gap:3px; }
+  .kp-header select,.kp-header button { font-size:10px;padding:3px 5px; }
+  .kp-header .kp-title { font-size:12px; }
+  .kp-ink-bar { padding:4px 8px;gap:4px; }
+}
+</style>
+
+<!-- Canvas Background Menu -->
+<div id="kwb-bg-menu"></div>
+
+<!-- Kanji Practice Overlay -->
+<div id="kwb-kanji-overlay">
+  <div class="kp-header">
+    <span class="kp-title">Tập viết Kanji</span>
+    <select id="kp-level">
+      <option value="N5">N5</option>
+      <option value="N4">N4</option>
+      <option value="N3">N3</option>
+      <option value="N2">N2</option>
+      <option value="N1">N1</option>
+    </select>
+    <select id="kp-page" style="min-width:80px"></select>
+    <button id="kp-clear" title="Xóa hết nét">Xóa</button>
+    <button id="kp-undo" title="Hoàn tác">↩</button>
+    <button id="kp-grid-toggle" title="Ẩn/hiện đường dẫn hướng">Lưới</button>
+    <button id="kp-theme" title="Chuyển sáng/tối">Tối</button>
+    <button id="kp-net-btn" title="Hướng dẫn nét viết KanjiVG — xem hoạt họa từng nét">✍ Nét</button>
+    <button id="kp-close" title="Quay lại whiteboard">✕</button>
+  </div>
+  <div class="kp-canvas-wrap" id="kp-canvas-wrap">
+    <div id="kp-stack" style="position:relative;margin:0 auto;">
+      <canvas id="kp-bg-canvas"  style="position:absolute;top:0;left:0;pointer-events:none;"></canvas>
+      <canvas id="kp-ink-canvas" style="position:absolute;top:0;left:0;pointer-events:none;"></canvas>
+      <canvas id="kp-pre-canvas" style="position:relative;display:block;touch-action:none;"></canvas>
+    </div>
+  </div>
+  <div id="kp-kvg-panel"></div>
+  <div class="kp-ink-bar">
+    <label>Bút:</label>
+    <button class="kp-pen-btn active" data-pen="brush" title="Bút lông — nét có độ rộng biến thiên theo tốc độ">🖌 Lông</button>
+    <button class="kp-pen-btn" data-pen="fountain" title="Bút máy — nét mảnh/dày theo hướng ngang/dọc">✒ Máy</button>
+    <button class="kp-pen-btn" data-pen="ballpoint" title="Bút bi — nét đều, trơn tru">🖊 Bi</button>
+    <button class="kp-pen-btn" data-pen="pencil" title="Bút chì — nét có hạt, mờ nhẹ">✏ Chì</button>
+    <span class="kp-sep"></span>
+    <label>Cỡ:</label>
+    <input type="range" id="kp-stroke-w" min="1" max="8" value="3" step="0.5">
+    <label>Đậm:</label>
+    <input type="range" id="kp-opacity" min="0.2" max="1" value="1" step="0.05">
+    <label>Màu:</label>
+    <div class="kp-color sel" data-c="#1a1a1a" style="background:#1a1a1a" title="Mực đen"></div>
+    <div class="kp-color" data-c="#c62828" style="background:#c62828" title="Đỏ"></div>
+    <div class="kp-color" data-c="#1565c0" style="background:#1565c0" title="Xanh"></div>
+    <span class="kp-sep"></span>
+    <button id="kp-zoom-reset" class="kp-pen-btn" title="Reset zoom về 100% (Ctrl+0) · Ctrl+scroll để zoom">🔍 100%</button>
+    <label style="margin-left:auto;font-size:10px;color:#999" id="kp-hint"></label>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════
+   1. CANVAS BACKGROUND LAYERS (Microsoft Whiteboard style)
+═══════════════════════════════════════ */
+(function(){
+'use strict';
+var BG_TYPES=[
+  {id:'none',label:'Trống',svg:'<svg viewBox="0 0 48 48"><rect width="48" height="48" fill="#0d1117"/><text x="24" y="28" text-anchor="middle" fill="#2a3a40" font-size="16">∅</text></svg>'},
+  {id:'dots',label:'Chấm',svg:'<svg viewBox="0 0 48 48"><rect width="48" height="48" fill="#0d1117"/><circle cx="12" cy="12" r="1" fill="#2d3561"/><circle cx="24" cy="12" r="1" fill="#2d3561"/><circle cx="36" cy="12" r="1" fill="#2d3561"/><circle cx="12" cy="24" r="1" fill="#2d3561"/><circle cx="24" cy="24" r="1" fill="#2d3561"/><circle cx="36" cy="24" r="1" fill="#2d3561"/><circle cx="12" cy="36" r="1" fill="#2d3561"/><circle cx="24" cy="36" r="1" fill="#2d3561"/><circle cx="36" cy="36" r="1" fill="#2d3561"/></svg>'},
+  {id:'grid',label:'Ô vuông',svg:'<svg viewBox="0 0 48 48"><rect width="48" height="48" fill="#0d1117"/><path d="M12 0v48M24 0v48M36 0v48M0 12h48M0 24h48M0 36h48" stroke="#1e2a35" stroke-width=".5" fill="none"/></svg>'},
+  {id:'lines',label:'Dòng kẻ',svg:'<svg viewBox="0 0 48 48"><rect width="48" height="48" fill="#0d1117"/><line x1="0" y1="12" x2="48" y2="12" stroke="#1e2a35" stroke-width=".7"/><line x1="0" y1="24" x2="48" y2="24" stroke="#1e2a35" stroke-width=".7"/><line x1="0" y1="36" x2="48" y2="36" stroke="#1e2a35" stroke-width=".7"/></svg>'},
+  {id:'isometric',label:'Đồ thị',svg:'<svg viewBox="0 0 48 48"><rect width="48" height="48" fill="#0d1117"/><path d="M0 12h48M0 24h48M0 36h48M12 0v48M24 0v48M36 0v48" stroke="#1a2530" stroke-width=".3"/><path d="M0 24h48" stroke="#2d3561" stroke-width=".7"/><path d="M24 0v48" stroke="#2d3561" stroke-width=".7"/></svg>'}
+];
+var currentBg='none';
+
+function renderBgMenu(){
+  var menu=document.getElementById('kwb-bg-menu');
+  menu.innerHTML='';
+  BG_TYPES.forEach(function(bg){
+    var d=document.createElement('div');
+    d.className='kwb-bg-opt'+(currentBg===bg.id?' sel':'');
+    d.innerHTML=bg.svg;
+    d.title=bg.label;
+    d.addEventListener('click',function(){
+      currentBg=bg.id;
+      applyBg(bg.id);
+      menu.querySelectorAll('.kwb-bg-opt').forEach(function(o){o.classList.remove('sel');});
+      d.classList.add('sel');
+      menu.classList.remove('open');
+    });
+    menu.appendChild(d);
+  });
+}
+
+function applyBg(type){
+  var svg=document.querySelector('svg[style*="position: fixed"]');
+  if(!svg) return;
+  var old=svg.querySelector('#kwb-bg-pattern-g');
+  if(old) old.remove();
+  if(type==='none') return;
+
+  var defs=svg.querySelector('defs');
+  if(!defs){defs=document.createElementNS('http://www.w3.org/2000/svg','defs');svg.insertBefore(defs,svg.firstChild);}
+  var oldP=defs.querySelector('#kwb-bg-pat');
+  if(oldP) oldP.remove();
+
+  var pat=document.createElementNS('http://www.w3.org/2000/svg','pattern');
+  pat.id='kwb-bg-pat';
+  pat.setAttribute('patternUnits','userSpaceOnUse');
+
+  if(type==='dots'){
+    pat.setAttribute('width','24');pat.setAttribute('height','24');
+    var c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx','12');c.setAttribute('cy','12');c.setAttribute('r','1.2');c.setAttribute('fill','rgba(156,222,242,.08)');
+    pat.appendChild(c);
+  } else if(type==='grid'){
+    pat.setAttribute('width','32');pat.setAttribute('height','32');
+    var p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d','M32 0L0 0 0 32');p.setAttribute('fill','none');
+    p.setAttribute('stroke','rgba(156,222,242,.06)');p.setAttribute('stroke-width','0.5');
+    pat.appendChild(p);
+  } else if(type==='lines'){
+    pat.setAttribute('width','100');pat.setAttribute('height','28');
+    var l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1','0');l.setAttribute('y1','27.5');l.setAttribute('x2','100');l.setAttribute('y2','27.5');
+    l.setAttribute('stroke','rgba(156,222,242,.07)');l.setAttribute('stroke-width','0.5');
+    pat.appendChild(l);
+  } else if(type==='isometric'){
+    pat.setAttribute('width','40');pat.setAttribute('height','40');
+    var p1=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p1.setAttribute('d','M40 0L0 0 0 40');p1.setAttribute('fill','none');
+    p1.setAttribute('stroke','rgba(156,222,242,.04)');p1.setAttribute('stroke-width','0.4');
+    var p2=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p2.setAttribute('d','M20 0v40M0 20h40');p2.setAttribute('fill','none');
+    p2.setAttribute('stroke','rgba(156,222,242,.08)');p2.setAttribute('stroke-width','0.5');
+    pat.appendChild(p1);pat.appendChild(p2);
+  }
+  defs.appendChild(pat);
+
+  var g=svg.querySelector('g[transform]');
+  if(!g) return;
+  var rect=document.createElementNS('http://www.w3.org/2000/svg','g');
+  rect.id='kwb-bg-pattern-g';
+  var r=document.createElementNS('http://www.w3.org/2000/svg','rect');
+  r.setAttribute('x','-50000');r.setAttribute('y','-50000');
+  r.setAttribute('width','100000');r.setAttribute('height','100000');
+  r.setAttribute('fill','url(#kwb-bg-pat)');
+  r.setAttribute('pointer-events','none');
+  rect.appendChild(r);
+  g.insertBefore(rect,g.firstChild);
+}
+
+function injectBgBtn(){
+  if(document.getElementById('kwb-tb-bg')) return;
+  var pngBtn=Array.from(document.querySelectorAll('button')).find(function(b){return b.textContent.trim()==='⬇ PNG';});
+  if(!pngBtn){setTimeout(injectBgBtn,500);return;}
+  var toolbar=pngBtn.parentElement;
+  var sep=document.createElement('div');sep.className='kwb-tb-sep';
+  var btn=document.createElement('button');
+  btn.id='kwb-tb-bg';btn.className='kwb-tb-btn';
+  btn.innerHTML='▦ <span class="kwb-btn-label">Nền</span>';
+  btn.title='Chọn nền canvas (chấm, lưới, dòng kẻ...)';
+  btn.style.cssText='background:transparent;border:1px solid #355a66;border-radius:5px;color:var(--fg,#9cdef2);padding:3px 9px;cursor:pointer;font-family:ui-monospace,monospace;font-size:.75rem;transition:all .15s;white-space:nowrap;flex-shrink:0;';
+  btn.addEventListener('mouseenter',function(){btn.style.borderColor='#f5c842';btn.style.color='#f5c842';});
+  btn.addEventListener('mouseleave',function(){if(!document.getElementById('kwb-bg-menu').classList.contains('open')){btn.style.borderColor='';btn.style.color='';}});
+  btn.addEventListener('click',function(){
+    var m=document.getElementById('kwb-bg-menu');
+    m.classList.toggle('open');
+  });
+  var ref=pngBtn.nextSibling;
+  toolbar.insertBefore(sep,ref);
+  toolbar.insertBefore(btn,ref);
+  console.log('[KOERU] Background layer button injected ✓');
+}
+renderBgMenu();
+document.addEventListener('mousedown',function(e){
+  var m=document.getElementById('kwb-bg-menu');
+  if(m.classList.contains('open')&&!m.contains(e.target)&&e.target.id!=='kwb-tb-bg'){
+    m.classList.remove('open');
+  }
+});
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(injectBgBtn,700);});
+else setTimeout(injectBgBtn,700);
+})();
+
+/* ═══════════════════════════════════════
+   2. STROKE ENHANCEMENT + PRESSURE SIMULATION
+═══════════════════════════════════════ */
+(function(){
+'use strict';
+
+function smoothPath(points, tension) {
+  if (!points || points.length < 3) return null;
+  tension = tension || 0.3;
+  var d = 'M' + points[0].x + ',' + points[0].y;
+  for (var i = 0; i < points.length - 1; i++) {
+    var p0 = points[Math.max(0, i - 1)];
+    var p1 = points[i];
+    var p2 = points[i + 1];
+    var p3 = points[Math.min(points.length - 1, i + 2)];
+    var cp1x = p1.x + (p2.x - p0.x) * tension;
+    var cp1y = p1.y + (p2.y - p0.y) * tension;
+    var cp2x = p2.x - (p3.x - p1.x) * tension;
+    var cp2y = p2.y - (p3.y - p1.y) * tension;
+    d += ' C' + cp1x + ',' + cp1y + ' ' + cp2x + ',' + cp2y + ' ' + p2.x + ',' + p2.y;
+  }
+  return d;
+}
+
+function enhanceStrokes() {
+  var svg = document.querySelector('svg[style*="position: fixed"]');
+  if (!svg) return;
+  var paths = svg.querySelectorAll('polyline, path[points]');
+  paths.forEach(function(el) {
+    var pts = el.getAttribute('points');
+    if (!pts) return;
+    var arr = pts.trim().split(/[\s,]+/);
+    if (arr.length < 6) return;
+    var points = [];
+    for (var i = 0; i < arr.length - 1; i += 2) {
+      points.push({ x: parseFloat(arr[i]), y: parseFloat(arr[i+1]) });
+    }
+    var d = smoothPath(points, 0.25);
+    if (!d) return;
+    var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d);
+    p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', el.getAttribute('stroke') || '#000');
+    p.setAttribute('stroke-width', el.getAttribute('stroke-width') || '2');
+    p.setAttribute('stroke-linecap', 'round');
+    p.setAttribute('stroke-linejoin', 'round');
+    el.parentNode.replaceChild(p, el);
+  });
+}
+
+var _enhObs = new MutationObserver(function(muts) {
+  muts.forEach(function(m) {
+    m.addedNodes.forEach(function(n) {
+      if (n.tagName === 'polyline' || (n.tagName === 'path' && n.getAttribute('points'))) {
+        setTimeout(function(){ enhanceStrokes(); }, 50);
+      }
+    });
+  });
+});
+
+function watchSvg() {
+  var svg = document.querySelector('svg[style*="position: fixed"]');
+  if (!svg) { setTimeout(watchSvg, 500); return; }
+  var g = svg.querySelector('g');
+  if (g) _enhObs.observe(g, { childList: true, subtree: true });
+}
+setTimeout(watchSvg, 1000);
+console.log('[KOERU] Stroke enhancement loaded ✓');
+})();
+
+/* ═══════════════════════════════════════
+   3. KANJI PRACTICE MODE  (multi-canvas + perfect-freehand)
+═══════════════════════════════════════ */
+(function(){
+'use strict';
+
+/* ── Load perfect-freehand async (UMD → window.PerfectFreehand) ── */
+var PF = null;
+(function(){
+  var s = document.createElement('script');
+  s.src = 'https://unpkg.com/perfect-freehand@1/dist/perfect-freehand.umd.js';
+  s.onload = function(){
+    var mod = window.PerfectFreehand;
+    PF = (mod && typeof mod.getStroke === 'function') ? mod
+       : (typeof mod === 'function') ? { getStroke: mod }
+       : null;
+    console.log('[KOERU] perfect-freehand ' + (PF ? 'loaded ✓' : 'export unknown, using fallback'));
+  };
+  s.onerror = function(){ console.warn('[KOERU] perfect-freehand CDN failed, using fallback renderer'); };
+  document.head.appendChild(s);
+})();
+
+var CELL = 64, COLS = 10, GUIDE_COLS = 1, ROW_GAP = 4, PAD = 20, ROWS_PER_PAGE = 10;
+var kanjiList = [], pageIdx = 0, strokes = [], curStroke = null;
+var inkColor = '#1a1a1a', inkWidth = 3, inkOpacity = 1;
+var showDiag = true, darkMode = false;
+var currentScale = 1;
+var fitScale = 1, userZoom = 1, canvasLogW = 0, canvasLogH = 0;
+var penType = 'brush';
+var KANJI_FONT = '"UD Digi Kyokasho NK-R","UD Digi Kyokasho N-R","Yu Kyokasho","Hiragino Mincho ProN","MS Mincho",serif';
+
+var overlay   = document.getElementById('kwb-kanji-overlay');
+var wrap      = document.getElementById('kp-canvas-wrap');
+var stack     = document.getElementById('kp-stack');
+var bgCanvas  = document.getElementById('kp-bg-canvas');
+var inkCanvas = document.getElementById('kp-ink-canvas');
+var preCanvas = document.getElementById('kp-pre-canvas');
+var bgCtx     = bgCanvas.getContext('2d');
+var inkCtx    = inkCanvas.getContext('2d');
+var preCtx    = preCanvas.getContext('2d');
+var levelSel  = document.getElementById('kp-level');
+var pageSel   = document.getElementById('kp-page');
+var hintEl    = document.getElementById('kp-hint');
+
+/* ── Canvas sizing: apply to all 3 layers ── */
+function setupCanvases(cw, ch, scale) {
+  var dpr = window.devicePixelRatio || 1;
+  var pw = Math.floor(cw * scale), ph = Math.floor(ch * scale);
+  [[bgCanvas,bgCtx],[inkCanvas,inkCtx],[preCanvas,preCtx]].forEach(function(pair) {
+    pair[0].width  = Math.round(cw * scale * dpr);
+    pair[0].height = Math.round(ch * scale * dpr);
+    pair[0].style.width  = pw + 'px';
+    pair[0].style.height = ph + 'px';
+    pair[1].setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
+  });
+  stack.style.width = pw + 'px'; stack.style.height = ph + 'px';
+}
+function clearLayer(ctx2d, c) {
+  ctx2d.save(); ctx2d.setTransform(1,0,0,1,0,0);
+  ctx2d.clearRect(0,0,c.width,c.height); ctx2d.restore();
+}
+
+function loadLevel(level) {
+  var map    = {N5:'js/kanji-data-n5.js',N4:'js/kanji-data-n4.js',N3:'js/kanji-data-n3.js',N2:'js/kanji-data-n2.js',N1:'js/kanji-data-n1.js'};
+  var varMap = {N5:'KANJI_N5',N4:'KANJI_N4',N3:'KANJI_N3',N2:'KANJI_N2',N1:'KANJI_N1'};
+  if (window[varMap[level]]) { kanjiList = window[varMap[level]]; onDataReady(); return; }
+  var s = document.createElement('script'); s.src = map[level];
+  s.onload = function(){ kanjiList = window[varMap[level]] || []; onDataReady(); };
+  document.head.appendChild(s);
+}
+
+function onDataReady() { pageIdx = 0; buildPageSelect(); resetAndDraw(); }
+
+function buildPageSelect() {
+  pageSel.innerHTML = '';
+  var total = Math.ceil(kanjiList.length / ROWS_PER_PAGE);
+  for (var i = 0; i < total; i++) {
+    var chars = kanjiList.slice(i*ROWS_PER_PAGE,(i+1)*ROWS_PER_PAGE).map(function(k){return k.kanji;}).join('');
+    var opt = document.createElement('option'); opt.value = i;
+    opt.textContent = (i+1) + '. ' + chars; pageSel.appendChild(opt);
+  }
+}
+
+function resetAndDraw() {
+  strokes = []; curStroke = null;
+  var pageK = kanjiList.slice(pageIdx * ROWS_PER_PAGE, (pageIdx + 1) * ROWS_PER_PAGE);
+  var totalCols = GUIDE_COLS + COLS;
+  canvasLogW = PAD * 2 + totalCols * CELL + 90;
+  canvasLogH = PAD * 2 + pageK.length * (CELL + ROW_GAP);
+  var maxW = wrap.clientWidth || window.innerWidth || document.documentElement.clientWidth || 800;
+  fitScale = canvasLogW > maxW - 8 ? (maxW - 8) / canvasLogW : 1;
+  currentScale = fitScale * userZoom;
+  setupCanvases(canvasLogW, canvasLogH, currentScale);
+  drawBg(pageK);
+  clearLayer(inkCtx, inkCanvas);
+  clearLayer(preCtx, preCanvas);
+  hintEl.textContent = pageK.length + ' chữ · ' + (pageIdx+1) + '/' + Math.ceil(kanjiList.length / ROWS_PER_PAGE);
+  updateZoomBtn();
+  _buildKvgPanel(pageK);
+}
+
+var zoomBtn = document.getElementById('kp-zoom-reset');
+function updateZoomBtn() {
+  if (zoomBtn) zoomBtn.textContent = Math.round(userZoom * 100) + '%';
+}
+function applyZoom(delta) {
+  userZoom = Math.max(0.5, Math.min(4, userZoom * (1 + delta)));
+  currentScale = fitScale * userZoom;
+  updateZoomBtn();
+  if (!canvasLogW) return;
+  setupCanvases(canvasLogW, canvasLogH, currentScale);
+  var pageK = kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE);
+  drawBg(pageK); drawInk(); clearLayer(preCtx,preCanvas);
+}
+
+/* ── Background layer (drawn once per page/theme change) ── */
+function drawBg(pageK) {
+  var bg=darkMode?'#1a1a2e':'#f5f0e8', lineC=darkMode?'rgba(100,120,180,.2)':'rgba(180,160,140,.35)';
+  var diagC=darkMode?'rgba(80,100,160,.1)':'rgba(200,180,160,.2)', ghostC=darkMode?'rgba(200,200,255,.06)':'rgba(0,0,0,.045)';
+  var guideBC=darkMode?'rgba(150,160,220,.25)':'rgba(150,130,110,.3)', textC=darkMode?'rgba(200,210,255,.45)':'rgba(50,40,30,.45)';
+  var labelC=darkMode?'rgba(150,170,220,.35)':'rgba(120,100,80,.3)', totalCols=GUIDE_COLS+COLS;
+  var dpr=window.devicePixelRatio||1, logW=bgCanvas.width/(currentScale*dpr), logH=bgCanvas.height/(currentScale*dpr);
+  clearLayer(bgCtx,bgCanvas); bgCtx.fillStyle=bg; bgCtx.fillRect(0,0,logW,logH);
+  for (var row=0; row<pageK.length; row++) {
+    var y=PAD+row*(CELL+ROW_GAP), kData=pageK[row];
+    for (var col=0; col<totalCols; col++) {
+      var x=PAD+col*CELL, isGuide=col<GUIDE_COLS;
+      if (isGuide) { bgCtx.fillStyle=darkMode?'rgba(45,53,97,.15)':'rgba(255,240,220,.5)'; bgCtx.fillRect(x,y,CELL,CELL); }
+      bgCtx.strokeStyle=isGuide?guideBC:lineC; bgCtx.lineWidth=isGuide?1:.5; bgCtx.strokeRect(x+.5,y+.5,CELL-1,CELL-1);
+      if (showDiag) {
+        bgCtx.save(); bgCtx.strokeStyle=diagC; bgCtx.lineWidth=.4; bgCtx.setLineDash([3,3]);
+        bgCtx.beginPath(); bgCtx.moveTo(x,y+CELL/2); bgCtx.lineTo(x+CELL,y+CELL/2); bgCtx.stroke();
+        bgCtx.beginPath(); bgCtx.moveTo(x+CELL/2,y); bgCtx.lineTo(x+CELL/2,y+CELL); bgCtx.stroke();
+        if (isGuide) { bgCtx.beginPath(); bgCtx.moveTo(x,y); bgCtx.lineTo(x+CELL,y+CELL); bgCtx.stroke(); bgCtx.beginPath(); bgCtx.moveTo(x+CELL,y); bgCtx.lineTo(x,y+CELL); bgCtx.stroke(); }
+        bgCtx.setLineDash([]); bgCtx.restore();
+      }
+      bgCtx.save();
+      if (isGuide) { bgCtx.font=Math.floor(CELL*.7)+'px '+KANJI_FONT; bgCtx.fillStyle=textC; }
+      else { bgCtx.font=Math.floor(CELL*.6)+'px '+KANJI_FONT; bgCtx.fillStyle=ghostC; }
+      bgCtx.textAlign='center'; bgCtx.textBaseline='middle'; bgCtx.fillText(kData.kanji,x+CELL/2,y+CELL/2+2); bgCtx.restore();
+    }
+    bgCtx.save(); var lx=PAD+totalCols*CELL+6; bgCtx.textAlign='left';
+    bgCtx.font='bold 10px "Segoe UI",system-ui,sans-serif'; bgCtx.fillStyle=darkMode?'rgba(200,170,120,.4)':'rgba(160,120,60,.35)';
+    bgCtx.fillText(kData.hanviet||'',lx,y+14); bgCtx.font='9px "Segoe UI",system-ui,sans-serif'; bgCtx.fillStyle=labelC;
+    bgCtx.fillText(kData.on||'',lx,y+28); bgCtx.fillText(kData.kun||'',lx,y+40);
+    bgCtx.fillStyle=darkMode?'rgba(180,190,240,.3)':'rgba(100,80,60,.28)'; bgCtx.fillText(kData.meaning||'',lx,y+54); bgCtx.restore();
+  }
+}
+
+/* ── Ink / Preview / Full redraw ── */
+function drawInk() {
+  clearLayer(inkCtx,inkCanvas);
+  strokes.forEach(function(s){ drawStroke(inkCtx,s.points,s.color,s.opacity,s.pen,s.width,true); });
+}
+function drawPreview() {
+  clearLayer(preCtx,preCanvas);
+  if (curStroke && curStroke.length>1) drawStroke(preCtx,curStroke,inkColor,inkOpacity,penType,inkWidth);
+}
+function redraw() {
+  drawBg(kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE));
+  drawInk(); clearLayer(preCtx,preCanvas);
+}
+
+/* ── Stroke engine: perfect-freehand + polygon fallback ── */
+function getPFOptions(type, size, last) {
+  var base = { simulatePressure:true, last:!!last };
+  switch(type) {
+    case 'fountain':  return Object.assign(base, {size:size*1.4, thinning:.85, smoothing:.45, streamline:.3,  start:{taper:size,cap:false},    end:{taper:size,cap:true}});
+    case 'ballpoint': return Object.assign(base, {size:size*.9,  thinning:.08, smoothing:.75, streamline:.55});
+    case 'pencil':    return Object.assign(base, {size:size*.8,  thinning:.3,  smoothing:.25, streamline:.12});
+    default:          return Object.assign(base, {size:size*1.8, thinning:.65, smoothing:.5,  streamline:.4,  start:{taper:size*1.5,cap:false}, end:{taper:size*1.5,cap:true}});
+  }
+}
+function drawStroke(ctx2d, pts, color, opacity, type, baseW, last) {
+  if (pts.length<2) return;
+  if (PF) {
+    var stroke=PF.getStroke(pts, getPFOptions(type,baseW,last));
+    if (!stroke.length) return;
+    ctx2d.save(); ctx2d.globalAlpha=opacity; ctx2d.fillStyle=color; ctx2d.beginPath();
+    ctx2d.moveTo(stroke[0][0],stroke[0][1]);
+    for (var i=1;i<stroke.length-1;i++) ctx2d.quadraticCurveTo(stroke[i][0],stroke[i][1],(stroke[i][0]+stroke[i+1][0])/2,(stroke[i][1]+stroke[i+1][1])/2);
+    ctx2d.closePath(); ctx2d.fill();
+    if (type==='pencil') { ctx2d.globalAlpha=opacity*.14; for(var i=0;i<pts.length;i+=2) ctx2d.fillRect(pts[i][0]+(Math.random()-.5)*baseW*1.5-.5,pts[i][1]+(Math.random()-.5)*baseW*1.5-.5,1.2,1.2); }
+    ctx2d.restore(); return;
+  }
+  // Fallback renderer — Catmull-Rom smoothing, then type-differentiated rendering
+  var sm=[],STEPS=4;
+  for (var i=0;i<pts.length-1;i++) {
+    var p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+    for (var s=0;s<STEPS;s++) { var t=s/STEPS,t2=t*t,t3=t2*t;
+      sm.push([.5*((2*p1[0])+(-p0[0]+p2[0])*t+(2*p0[0]-5*p1[0]+4*p2[0]-p3[0])*t2+(-p0[0]+3*p1[0]-3*p2[0]+p3[0])*t3),
+               .5*((2*p1[1])+(-p0[1]+p2[1])*t+(2*p0[1]-5*p1[1]+4*p2[1]-p3[1])*t2+(-p0[1]+3*p1[1]-3*p2[1]+p3[1])*t3)]); }
+  }
+  sm.push([pts[pts.length-1][0],pts[pts.length-1][1]]);
+  var n=sm.length;
+  if (type==='pencil') {
+    // Bút chì: 2 line mảnh lệch + hạt grain
+    ctx2d.save(); ctx2d.lineCap='round'; ctx2d.lineJoin='round'; ctx2d.strokeStyle=color;
+    ctx2d.globalAlpha=opacity*.65; ctx2d.lineWidth=Math.max(.5,baseW*.55);
+    ctx2d.beginPath(); ctx2d.moveTo(sm[0][0],sm[0][1]);
+    for (var i=1;i<n;i++) ctx2d.lineTo(sm[i][0],sm[i][1]); ctx2d.stroke();
+    ctx2d.globalAlpha=opacity*.18; ctx2d.lineWidth=Math.max(.3,baseW*.3);
+    ctx2d.beginPath(); ctx2d.moveTo(sm[0][0]+.8,sm[0][1]+.3);
+    for (var i=1;i<n;i++) ctx2d.lineTo(sm[i][0]+.8,sm[i][1]+.3); ctx2d.stroke();
+    ctx2d.globalAlpha=opacity*.1; ctx2d.fillStyle=color;
+    for (var i=0;i<n;i+=2) ctx2d.fillRect(sm[i][0]+(Math.random()-.5)*baseW*1.4-.5,sm[i][1]+(Math.random()-.5)*baseW*1.4-.5,1.2,1.2);
+    ctx2d.restore(); return;
+  }
+  if (type==='ballpoint') {
+    // Bút bi: nét đều, trơn, không taper
+    ctx2d.save(); ctx2d.lineCap='round'; ctx2d.lineJoin='round'; ctx2d.strokeStyle=color;
+    ctx2d.globalAlpha=opacity; ctx2d.lineWidth=Math.max(.8,baseW*.85);
+    ctx2d.beginPath(); ctx2d.moveTo(sm[0][0],sm[0][1]);
+    for (var i=1;i<n-1;i++) ctx2d.quadraticCurveTo(sm[i][0],sm[i][1],(sm[i][0]+sm[i+1][0])/2,(sm[i][1]+sm[i+1][1])/2);
+    ctx2d.lineTo(sm[n-1][0],sm[n-1][1]); ctx2d.stroke(); ctx2d.restore(); return;
+  }
+  // brush & fountain: polygon có độ rộng biến thiên
+  var L=[],R=[];
+  for (var i=0;i<n-1;i++) {
+    var dx=sm[i+1][0]-sm[i][0],dy=sm[i+1][1]-sm[i][1],len=Math.sqrt(dx*dx+dy*dy)||1,nx=-dy/len,ny=dx/len;
+    var seg=n>1?i/(n-1):.5,vel=i>0?Math.sqrt(Math.pow(sm[i][0]-sm[i-1][0],2)+Math.pow(sm[i][1]-sm[i-1][1],2)):0;
+    var w;
+    if (type==='fountain') {
+      // Bút máy: dày khi vuông góc (dy lớn), mảnh khi ngang (dy nhỏ)
+      var nib=.15+Math.abs(dy/len)*1.7, tap=Math.pow(Math.sin(seg*Math.PI),.5);
+      w=Math.max(.3,baseW*nib*tap);
+    } else {
+      // Bút lông: velocity + taper
+      var velF=Math.max(.35,1-Math.min(vel,15)/30), tap=Math.pow(Math.sin(seg*Math.PI),.4);
+      w=Math.max(.5,baseW*velF*tap);
+    }
+    L.push([sm[i][0]+nx*w,sm[i][1]+ny*w]); R.push([sm[i][0]-nx*w,sm[i][1]-ny*w]);
+  }
+  var dxE=sm[n-1][0]-sm[n-2][0],dyE=sm[n-1][1]-sm[n-2][1],lenE=Math.sqrt(dxE*dxE+dyE*dyE)||1,nxE=-dyE/lenE,nyE=dxE/lenE;
+  L.push([sm[n-1][0]+nxE*.5,sm[n-1][1]+nyE*.5]); R.push([sm[n-1][0]-nxE*.5,sm[n-1][1]-nyE*.5]);
+  ctx2d.save(); ctx2d.globalAlpha=opacity; ctx2d.fillStyle=color; ctx2d.beginPath(); ctx2d.moveTo(L[0][0],L[0][1]);
+  for (var i=1;i<L.length;i++) ctx2d.lineTo(L[i][0],L[i][1]);
+  for (var i=R.length-1;i>=0;i--) ctx2d.lineTo(R[i][0],R[i][1]);
+  ctx2d.closePath(); ctx2d.fill(); ctx2d.restore();
+}
+
+/* ── Pointer events (all on preCanvas — top layer) ── */
+function getPos(e) {
+  var r=preCanvas.getBoundingClientRect(), inv=1/(currentScale||1);
+  var cx=e.clientX!==undefined?e.clientX:e.touches[0].clientX;
+  var cy=e.clientY!==undefined?e.clientY:e.touches[0].clientY;
+  return [(cx-r.left)*inv,(cy-r.top)*inv,e.pressure>0?e.pressure:.5];
+}
+function startStroke(e) {
+  if (!e.isPrimary) return; // ignore secondary touch (pinch gesture)
+  e.preventDefault(); curStroke=[getPos(e)];
+}
+function moveStroke(e) {
+  if (!curStroke || !e.isPrimary) return;
+  e.preventDefault(); curStroke.push(getPos(e)); drawPreview();
+}
+function endStroke(e) {
+  if (!curStroke) return;
+  if (!e.isPrimary) { curStroke=null; clearLayer(preCtx,preCanvas); return; } // cancel if pinch started
+  e.preventDefault();
+  if (curStroke.length>1) { strokes.push({points:curStroke,color:inkColor,width:inkWidth,opacity:inkOpacity,pen:penType}); drawStroke(inkCtx,curStroke,inkColor,inkOpacity,penType,inkWidth,true); }
+  curStroke=null; clearLayer(preCtx,preCanvas);
+}
+preCanvas.addEventListener('pointerdown',startStroke);
+preCanvas.addEventListener('pointermove',moveStroke);
+preCanvas.addEventListener('pointerup',  endStroke);
+preCanvas.addEventListener('pointerleave',endStroke);
+preCanvas.style.touchAction='none';
+
+/* ── Zoom: Ctrl+scroll (desktop) + pinch (mobile) ── */
+wrap.addEventListener('wheel', function(e) {
+  if (!e.ctrlKey && !e.metaKey) return;
+  e.preventDefault();
+  applyZoom(e.deltaY < 0 ? 0.12 : -0.12);
+}, { passive: false });
+var _pinchDist = 0;
+preCanvas.addEventListener('touchstart', function(e) {
+  if (e.touches.length === 2) {
+    _pinchDist = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+  }
+}, { passive: true });
+preCanvas.addEventListener('touchmove', function(e) {
+  if (e.touches.length !== 2 || !_pinchDist) return;
+  e.preventDefault();
+  var d = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
+  applyZoom((d - _pinchDist) / _pinchDist * 0.6);
+  _pinchDist = d;
+}, { passive: false });
+preCanvas.addEventListener('touchend', function(e) { if (e.touches.length < 2) _pinchDist = 0; }, { passive: true });
+
+/* ── UI events ── */
+levelSel.addEventListener('change', function(){ loadLevel(this.value); });
+pageSel.addEventListener('change',  function(){ pageIdx=parseInt(this.value)||0; resetAndDraw(); });
+document.getElementById('kp-clear').addEventListener('click', function(){ strokes=[]; clearLayer(inkCtx,inkCanvas); clearLayer(preCtx,preCanvas); });
+document.getElementById('kp-undo').addEventListener('click',  function(){ strokes.pop(); drawInk(); clearLayer(preCtx,preCanvas); });
+document.getElementById('kp-grid-toggle').addEventListener('click', function(){
+  showDiag=!showDiag; this.style.opacity=showDiag?'1':'0.4';
+  drawBg(kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE));
+});
+document.getElementById('kp-theme').addEventListener('click', function(){
+  darkMode=!darkMode; overlay.classList.toggle('dark-mode',darkMode); this.textContent=darkMode?'Sáng':'Tối';
+  if (darkMode&&inkColor==='#1a1a1a') inkColor='#e0e0e0';
+  else if (!darkMode&&inkColor==='#e0e0e0') { inkColor='#1a1a1a'; document.querySelector('.kp-color[data-c="#1a1a1a"]').classList.add('sel'); }
+  redraw();
+});
+document.getElementById('kp-close').addEventListener('click', function(){ overlay.classList.remove('active'); });
+document.getElementById('kp-stroke-w').addEventListener('input', function(){ inkWidth=parseFloat(this.value); });
+document.getElementById('kp-opacity').addEventListener('input',  function(){ inkOpacity=parseFloat(this.value); });
+document.querySelectorAll('.kp-pen-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.kp-pen-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active'); penType=btn.dataset.pen;
+    window.KOERU_INK = window.KOERU_INK||{}; window.KOERU_INK.penType=penType;
+    try{ localStorage.setItem('koeru_pen_type',penType); }catch(e){}
+    // Cập nhật indicator trên toolbar nếu có
+    var ind=document.getElementById('kwb-pen-indicator');
+    if(ind) ind.textContent={'brush':'🖌','fountain':'✒','ballpoint':'🖊','pencil':'✏'}[penType]||'🖌';
+  });
+});
+// Khôi phục pen type đã lưu
+(function(){
+  try{ var saved=localStorage.getItem('koeru_pen_type'); if(saved){ penType=saved; window.KOERU_INK=window.KOERU_INK||{}; window.KOERU_INK.penType=saved; document.querySelectorAll('.kp-pen-btn').forEach(function(b){b.classList.toggle('active',b.dataset.pen===saved);}); } }catch(e){}
+})();
+document.querySelectorAll('.kp-color').forEach(function(btn){
+  btn.addEventListener('click',function(){ document.querySelectorAll('.kp-color').forEach(function(c){c.classList.remove('sel');}); btn.classList.add('sel'); inkColor=btn.dataset.c; });
+});
+if (zoomBtn) zoomBtn.addEventListener('click', function(){ userZoom=1; applyZoom(0); updateZoomBtn(); });
+document.addEventListener('keydown', function(e){
+  if (!overlay.classList.contains('active')) return;
+  if (e.ctrlKey&&e.key==='z') { e.preventDefault(); strokes.pop(); drawInk(); clearLayer(preCtx,preCanvas); }
+  if ((e.ctrlKey||e.metaKey)&&(e.key==='0'||e.key==='NumPad0')) { e.preventDefault(); userZoom=1; applyZoom(0); updateZoomBtn(); }
+  if ((e.ctrlKey||e.metaKey)&&(e.key==='='||e.key==='+')) { e.preventDefault(); applyZoom(0.15); }
+  if ((e.ctrlKey||e.metaKey)&&e.key==='-') { e.preventDefault(); applyZoom(-0.15); }
+  if (e.key==='Escape') overlay.classList.remove('active');
+});
+
+function injectKpBtn() {
+  if (document.getElementById('kwb-tb-kp')) return;
+  var kanjiBtn=document.getElementById('kwb-tb-kanji');
+  if (!kanjiBtn) { setTimeout(injectKpBtn,500); return; }
+  var toolbar=kanjiBtn.parentElement;
+  var sep=document.createElement('div'); sep.className='kwb-tb-sep';
+  var kpBtn=document.createElement('button');
+  kpBtn.id='kwb-tb-kp'; kpBtn.className='kwb-tb-btn';
+  kpBtn.innerHTML='✍ <span class="kwb-btn-label">Tập viết</span> <span id="kwb-pen-indicator" style="opacity:.7;font-size:.85em">🖌</span>';
+  kpBtn.title='Tập viết Kanji trên ô ly';
+  kpBtn.style.cssText='background:transparent;border:1px solid #355a66;border-radius:5px;color:var(--fg,#9cdef2);padding:3px 9px;cursor:pointer;font-family:ui-monospace,monospace;font-size:.75rem;transition:all .15s;white-space:nowrap;flex-shrink:0;';
+  kpBtn.addEventListener('mouseenter',function(){ kpBtn.style.borderColor='#f5c842'; kpBtn.style.color='#f5c842'; });
+  kpBtn.addEventListener('mouseleave',function(){ kpBtn.style.borderColor=''; kpBtn.style.color=''; });
+  kpBtn.addEventListener('click',function(){
+    overlay.classList.add('active');
+    requestAnimationFrame(function(){
+      if (!kanjiList.length) loadLevel(levelSel.value); else resetAndDraw();
+    });
+  });
+  var ref=kanjiBtn.nextSibling; toolbar.insertBefore(sep,ref); toolbar.insertBefore(kpBtn,ref);
+  // Đồng bộ indicator với pen type đã lưu
+  try{ var _sp=localStorage.getItem('koeru_pen_type'); if(_sp){ var _ind=document.getElementById('kwb-pen-indicator'); if(_ind) _ind.textContent={'brush':'🖌','fountain':'✒','ballpoint':'🖊','pencil':'✏'}[_sp]||'🖌'; } }catch(e){}
+  console.log('[KOERU] Kanji Practice button injected ✓');
+}
+/* ══ KanjiVG stroke-order panel ══ */
+var _kvgCache={}, _kvgCbs={}, _kvgShow=false;
+var kvgPanel=document.getElementById('kp-kvg-panel'), kvgNetBtn=document.getElementById('kp-net-btn');
+
+function _kvgHex(ch){ return ch.codePointAt(0).toString(16).padStart(5,'0'); }
+
+function _loadKvg(kanji,cb){
+  var h=_kvgHex(kanji);
+  if(h in _kvgCache){ if(_kvgCache[h]!==null) cb(_kvgCache[h]); else (_kvgCbs[h]=_kvgCbs[h]||[]).push(cb); return; }
+  _kvgCache[h]=null; _kvgCbs[h]=[cb];
+  fetch('https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg@master/kanji/'+h+'.svg')
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function(t){
+      var doc=new DOMParser().parseFromString(t,'image/svg+xml');
+      _kvgCache[h]=doc.querySelector('parsererror')?'err':doc.querySelector('svg');
+      (_kvgCbs[h]||[]).forEach(function(c){ c(_kvgCache[h]); }); delete _kvgCbs[h];
+    }).catch(function(){ _kvgCache[h]='err'; (_kvgCbs[h]||[]).forEach(function(c){ c(null); }); delete _kvgCbs[h]; });
+}
+
+function _kvgStrokePaths(svgEl){
+  return Array.from(svgEl.querySelectorAll('path[id]'))
+    .filter(function(p){ return /\-s\d+$/.test(p.id); })
+    .sort(function(a,b){ return +a.id.split('-s').pop()-+b.id.split('-s').pop(); });
+}
+
+function _animKvg(svgEl){
+  var paths=_kvgStrokePaths(svgEl);
+  paths.forEach(function(p){
+    try{ var l=p.getTotalLength(); p.style.strokeDasharray=l+'px'; p.style.strokeDashoffset=l+'px'; }catch(e){}
+    p.style.transition='none'; p.style.opacity='1';
+  });
+  var i=0;(function tick(){
+    if(i>=paths.length) return;
+    var p=paths[i++];
+    requestAnimationFrame(function(){ p.style.transition='stroke-dashoffset .42s ease'; p.style.strokeDashoffset='0'; });
+    setTimeout(tick,660);
+  })();
+}
+
+function _buildKvgCard(kData){
+  var card=document.createElement('div'); card.className='kp-kvg-card';
+  card.title=(kData.hanviet||kData.kanji)+' — '+(kData.meaning||'');
+  var kanji=kData.kanji;
+  card.innerHTML='<span class="kp-kvg-loading">'+kanji+'</span>';
+
+  function show(svgEl){
+    if(!svgEl||svgEl==='err'){
+      card.innerHTML='<span class="kp-kvg-err">'+kanji+'</span>'
+        +'<div class="kp-kvg-label">'+(kData.hanviet||kanji)+'</div>'
+        +'<div class="kp-kvg-count">—</div>'; return;
+    }
+    var clone=svgEl.cloneNode(true);
+    clone.setAttribute('viewBox','0 0 109 109');
+    clone.setAttribute('width','62'); clone.setAttribute('height','62');
+    clone.style.cssText='width:62px;height:62px;display:block;margin:0 auto;flex-shrink:0;';
+    clone.querySelectorAll('path').forEach(function(p){
+      p.style.fill='none';
+      p.style.stroke=darkMode?'#e2e8f0':'#1a1a1a';
+      p.style.strokeWidth='3.5';
+      p.style.strokeLinecap='round'; p.style.strokeLinejoin='round';
+    });
+    clone.querySelectorAll('text').forEach(function(el){ el.style.display='none'; });
+    var cnt=_kvgStrokePaths(clone).length;
+    var lbl=document.createElement('div'); lbl.className='kp-kvg-label'; lbl.textContent=kData.hanviet||kanji;
+    var cntEl=document.createElement('div'); cntEl.className='kp-kvg-count'; cntEl.textContent=cnt+' nét';
+    var rpl=document.createElement('button'); rpl.className='kp-kvg-replay'; rpl.textContent='▶ Phát lại';
+    card.innerHTML=''; card.appendChild(clone); card.appendChild(lbl); card.appendChild(cntEl); card.appendChild(rpl);
+    function play(){ _animKvg(clone); }
+    rpl.addEventListener('click',function(e){ e.stopPropagation(); play(); });
+    card.addEventListener('click',play);
+    play();
+  }
+
+  var h=_kvgHex(kanji);
+  if(h in _kvgCache) show(_kvgCache[h]);
+  else _loadKvg(kanji,show);
+  return card;
+}
+
+function _buildKvgPanel(pageK){
+  if(!kvgPanel||!_kvgShow) return;
+  kvgPanel.innerHTML='';
+  pageK.forEach(function(k){ kvgPanel.appendChild(_buildKvgCard(k)); });
+}
+
+if(kvgNetBtn) kvgNetBtn.addEventListener('click',function(){
+  _kvgShow=!_kvgShow;
+  kvgPanel.style.display=_kvgShow?'flex':'none';
+  kvgNetBtn.classList.toggle('active',_kvgShow);
+  if(_kvgShow) _buildKvgPanel(kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE));
+});
+
+window.addEventListener('resize', function(){ if (overlay.classList.contains('active')&&kanjiList.length) resetAndDraw(); });
+if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(injectKpBtn,600); });
+else setTimeout(injectKpBtn,600);
+console.log('[KOERU] Kanji Practice mode loaded ✓');
 })();
 </script>
 
