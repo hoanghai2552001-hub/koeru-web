@@ -2572,6 +2572,9 @@ svg[style*="position: fixed"] {
     <div class="kp-color" data-c="#c62828" style="background:#c62828" title="Đỏ"></div>
     <div class="kp-color" data-c="#1565c0" style="background:#1565c0" title="Xanh"></div>
     <span class="kp-sep"></span>
+    <label>Mẫu:</label>
+    <input type="range" id="kp-ghost-level" min="0" max="10" value="3" step="1" title="Độ đậm chữ mẫu (0 = ẩn, 10 = rõ nhất)">
+    <span class="kp-sep"></span>
     <button id="kp-zoom-reset" class="kp-pen-btn" title="Reset zoom về 100% (Ctrl+0) · Ctrl+scroll để zoom">🔍 100%</button>
     <label style="margin-left:auto;font-size:10px;color:#999" id="kp-hint"></label>
   </div>
@@ -2797,7 +2800,7 @@ var PF = null;
 var CELL = 64, COLS = 10, GUIDE_COLS = 1, ROW_GAP = 4, PAD = 20, ROWS_PER_PAGE = 10;
 var kanjiList = [], pageIdx = 0, strokes = [], curStroke = null;
 var inkColor = '#1a1a1a', inkWidth = 3, inkOpacity = 1;
-var showDiag = true, darkMode = false;
+var showDiag = true, darkMode = false, ghostOpacity = 0.3;
 var currentScale = 1;
 var fitScale = 1, userZoom = 1, canvasLogW = 0, canvasLogH = 0;
 var penType = 'brush';
@@ -2891,7 +2894,7 @@ function applyZoom(delta) {
 /* ── Background layer (drawn once per page/theme change) ── */
 function drawBg(pageK) {
   var bg=darkMode?'#1a1a2e':'#f5f0e8', lineC=darkMode?'rgba(100,120,180,.2)':'rgba(180,160,140,.35)';
-  var diagC=darkMode?'rgba(80,100,160,.1)':'rgba(200,180,160,.2)', ghostC=darkMode?'rgba(200,200,255,.06)':'rgba(0,0,0,.045)';
+  var diagC=darkMode?'rgba(80,100,160,.1)':'rgba(200,180,160,.2)', ghostC=darkMode?'rgba(200,200,255,'+(ghostOpacity*.2)+')':'rgba(0,0,0,'+(ghostOpacity*.15)+')';
   var guideBC=darkMode?'rgba(150,160,220,.25)':'rgba(150,130,110,.3)', textC=darkMode?'rgba(200,210,255,.45)':'rgba(50,40,30,.45)';
   var labelC=darkMode?'rgba(150,170,220,.35)':'rgba(120,100,80,.3)', totalCols=GUIDE_COLS+COLS;
   var dpr=window.devicePixelRatio||1, logW=bgCanvas.width/(currentScale*dpr), logH=bgCanvas.height/(currentScale*dpr);
@@ -3081,6 +3084,10 @@ document.getElementById('kp-theme').addEventListener('click', function(){
 document.getElementById('kp-close').addEventListener('click', function(){ overlay.classList.remove('active'); });
 document.getElementById('kp-stroke-w').addEventListener('input', function(){ inkWidth=parseFloat(this.value); });
 document.getElementById('kp-opacity').addEventListener('input',  function(){ inkOpacity=parseFloat(this.value); });
+document.getElementById('kp-ghost-level').addEventListener('input', function(){
+  ghostOpacity=parseFloat(this.value)/10;
+  if(kanjiList.length) drawBg(kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE));
+});
 document.querySelectorAll('.kp-pen-btn').forEach(function(btn){
   btn.addEventListener('click',function(){
     document.querySelectorAll('.kp-pen-btn').forEach(function(b){b.classList.remove('active');});
