@@ -2804,6 +2804,7 @@ var showDiag = true, darkMode = false, ghostOpacity = 0.3;
 var currentScale = 1;
 var fitScale = 1, userZoom = 1, canvasLogW = 0, canvasLogH = 0;
 var penType = 'brush';
+var panX = 0, panY = 0, _panning = false, _panStart = null, _spaceDown = false;
 var KANJI_FONT = '"UD Digi Kyokasho NK-R","UD Digi Kyokasho N-R","Yu Kyokasho","Hiragino Mincho ProN","MS Mincho",serif';
 
 var overlay   = document.getElementById('kwb-kanji-overlay');
@@ -2860,6 +2861,7 @@ function buildPageSelect() {
 
 function resetAndDraw() {
   strokes = []; curStroke = null;
+  panX = 0; panY = 0; applyPan();
   var pageK = kanjiList.slice(pageIdx * ROWS_PER_PAGE, (pageIdx + 1) * ROWS_PER_PAGE);
   var totalCols = GUIDE_COLS + COLS;
   canvasLogW = PAD * 2 + totalCols * CELL + 90;
@@ -2871,10 +2873,32 @@ function resetAndDraw() {
   setupCanvases(canvasLogW, canvasLogH, currentScale);
   drawBg(pageK);
   clearLayer(inkCtx, inkCanvas);
+  _loadStrokesFromStorage();
   clearLayer(preCtx, preCanvas);
   hintEl.textContent = pageK.length + ' chữ · ' + (pageIdx+1) + '/' + Math.ceil(kanjiList.length / ROWS_PER_PAGE);
   updateZoomBtn();
   _buildKvgPanel(pageK);
+}
+
+/* ── Pan: translate stack via CSS transform ── */
+function applyPan() {
+  stack.style.transform = panX || panY ? 'translate('+Math.round(panX)+'px,'+Math.round(panY)+'px)' : '';
+}
+function resetPan() { panX=0; panY=0; applyPan(); }
+
+/* ── Auto-save strokes to localStorage ── */
+function _strokeKey() { return 'koeru_strokes_'+(levelSel.value||'N5')+'_'+pageIdx; }
+function saveStrokes() {
+  try {
+    if (strokes.length) localStorage.setItem(_strokeKey(), JSON.stringify(strokes));
+    else localStorage.removeItem(_strokeKey());
+  } catch(e) {}
+}
+function _loadStrokesFromStorage() {
+  try {
+    var raw = localStorage.getItem(_strokeKey());
+    if (raw) { strokes = JSON.parse(raw); drawInk(); }
+  } catch(e) { strokes = []; }
 }
 
 var zoomBtn = document.getElementById('kp-zoom-reset');
@@ -3025,24 +3049,43 @@ function getPos(e) {
   return [(cx-r.left)*inv,(cy-r.top)*inv,e.pressure>0?e.pressure:.5];
 }
 function startStroke(e) {
-  if (!e.isPrimary) return; // ignore secondary touch (pinch gesture)
-  e.preventDefault(); curStroke=[getPos(e)];
+  if (!e.isPrimary) return;
+  e.preventDefault();
+  if (e.button === 1 || _spaceDown) { // middle-click or Space+drag → pan
+    _panning = true; _panStart = {x: e.clientX - panX, y: e.clientY - panY};
+    preCanvas.style.cursor = 'grabbing'; return;
+  }
+  curStroke = [getPos(e)];
 }
 function moveStroke(e) {
-  if (!curStroke || !e.isPrimary) return;
-  e.preventDefault(); curStroke.push(getPos(e)); drawPreview();
+  if (!e.isPrimary) return;
+  e.preventDefault();
+  if (_panning && _panStart) {
+    panX = e.clientX - _panStart.x; panY = e.clientY - _panStart.y; applyPan(); return;
+  }
+  if (!curStroke) return;
+  curStroke.push(getPos(e)); drawPreview();
 }
 function endStroke(e) {
+  if (_panning) {
+    _panning = false; _panStart = null;
+    preCanvas.style.cursor = _spaceDown ? 'grab' : '';  return;
+  }
   if (!curStroke) return;
-  if (!e.isPrimary) { curStroke=null; clearLayer(preCtx,preCanvas); return; } // cancel if pinch started
+  if (!e.isPrimary) { curStroke=null; clearLayer(preCtx,preCanvas); return; }
   e.preventDefault();
-  if (curStroke.length>1) { strokes.push({points:curStroke,color:inkColor,width:inkWidth,opacity:inkOpacity,pen:penType}); drawStroke(inkCtx,curStroke,inkColor,inkOpacity,penType,inkWidth,true); }
+  if (curStroke.length>1) {
+    strokes.push({points:curStroke,color:inkColor,width:inkWidth,opacity:inkOpacity,pen:penType});
+    drawStroke(inkCtx,curStroke,inkColor,inkOpacity,penType,inkWidth,true);
+    saveStrokes();
+  }
   curStroke=null; clearLayer(preCtx,preCanvas);
 }
 preCanvas.addEventListener('pointerdown',startStroke);
 preCanvas.addEventListener('pointermove',moveStroke);
 preCanvas.addEventListener('pointerup',  endStroke);
 preCanvas.addEventListener('pointerleave',endStroke);
+preCanvas.addEventListener('auxclick', function(e){ e.preventDefault(); }); // suppress middle-click scroll
 preCanvas.style.touchAction='none';
 
 /* ── Zoom: Ctrl+scroll (desktop) + pinch (mobile) ── */
@@ -3069,8 +3112,8 @@ preCanvas.addEventListener('touchend', function(e) { if (e.touches.length < 2) _
 /* ── UI events ── */
 levelSel.addEventListener('change', function(){ loadLevel(this.value); });
 pageSel.addEventListener('change',  function(){ pageIdx=parseInt(this.value)||0; resetAndDraw(); });
-document.getElementById('kp-clear').addEventListener('click', function(){ strokes=[]; clearLayer(inkCtx,inkCanvas); clearLayer(preCtx,preCanvas); });
-document.getElementById('kp-undo').addEventListener('click',  function(){ strokes.pop(); drawInk(); clearLayer(preCtx,preCanvas); });
+document.getElementById('kp-clear').addEventListener('click', function(){ strokes=[]; saveStrokes(); clearLayer(inkCtx,inkCanvas); clearLayer(preCtx,preCanvas); });
+document.getElementById('kp-undo').addEventListener('click',  function(){ strokes.pop(); saveStrokes(); drawInk(); clearLayer(preCtx,preCanvas); });
 document.getElementById('kp-grid-toggle').addEventListener('click', function(){
   showDiag=!showDiag; this.style.opacity=showDiag?'1':'0.4';
   drawBg(kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE));
@@ -3109,11 +3152,17 @@ document.querySelectorAll('.kp-color').forEach(function(btn){
 if (zoomBtn) zoomBtn.addEventListener('click', function(){ userZoom=1; applyZoom(0); updateZoomBtn(); });
 document.addEventListener('keydown', function(e){
   if (!overlay.classList.contains('active')) return;
-  if (e.ctrlKey&&e.key==='z') { e.preventDefault(); strokes.pop(); drawInk(); clearLayer(preCtx,preCanvas); }
+  if (e.key===' ' && !e.ctrlKey && !e.metaKey && !_spaceDown) {
+    e.preventDefault(); _spaceDown=true; preCanvas.style.cursor='grab'; return;
+  }
+  if (e.ctrlKey&&e.key==='z') { e.preventDefault(); strokes.pop(); saveStrokes(); drawInk(); clearLayer(preCtx,preCanvas); }
   if ((e.ctrlKey||e.metaKey)&&(e.key==='0'||e.key==='NumPad0')) { e.preventDefault(); userZoom=1; applyZoom(0); updateZoomBtn(); }
   if ((e.ctrlKey||e.metaKey)&&(e.key==='='||e.key==='+')) { e.preventDefault(); applyZoom(0.15); }
   if ((e.ctrlKey||e.metaKey)&&e.key==='-') { e.preventDefault(); applyZoom(-0.15); }
   if (e.key==='Escape') overlay.classList.remove('active');
+});
+document.addEventListener('keyup', function(e){
+  if (e.key===' ') { _spaceDown=false; _panning=false; _panStart=null; preCanvas.style.cursor=''; }
 });
 
 function injectKpBtn() {
