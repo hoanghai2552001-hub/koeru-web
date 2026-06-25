@@ -2467,65 +2467,120 @@ svg[style*="position: fixed"] {
 .kwb-bg-label { font-size:9px;color:#94a3b8;text-align:center;width:100%;margin-top:2px; }
 
 /* ── Kanji Practice Mode ── */
+/* ── KOERU Brand tokens ── */
+:root {
+  --kp-navy:   #1E3A5F;
+  --kp-orange: #D97757;
+  --kp-bg:     #EFF4FB;
+  --kp-paper:  #f5f0e8;
+}
+
 #kwb-kanji-overlay {
   position:fixed;top:0;left:0;width:100%;height:100%;
-  z-index:9999;display:none;background:#f5f0e8;
+  z-index:9999;display:none;background:var(--kp-paper);
   overflow:auto;-webkit-overflow-scrolling:touch;
+  font-family:'Segoe UI',system-ui,sans-serif;
 }
 #kwb-kanji-overlay.active { display:flex;flex-direction:column; }
-#kwb-kanji-overlay.dark-mode { background:#1a1a2e; }
+#kwb-kanji-overlay.dark-mode { background:#12192b; }
 
+/* ── HEADER ── */
 .kp-header {
-  display:flex;align-items:center;gap:6px;padding:8px 12px;
-  background:#fff;border-bottom:1px solid #ddd;flex-shrink:0;
-  flex-wrap:wrap;min-height:44px;
+  display:flex;align-items:center;gap:6px;padding:0 12px;
+  background:var(--kp-navy);
+  border-bottom:2px solid var(--kp-orange);
+  flex-shrink:0;flex-wrap:wrap;min-height:48px;
 }
-.dark-mode .kp-header { background:#111827;border-color:#2d3561; }
-.kp-header select,.kp-header button {
-  font-family:'Segoe UI',system-ui,sans-serif;font-size:12px;
-  padding:4px 8px;border-radius:6px;border:1px solid #ccc;
-  background:#fff;color:#333;cursor:pointer;line-height:1.3;
-}
-.dark-mode .kp-header select,.dark-mode .kp-header button { background:#1e293b;color:#e2e8f0;border-color:#475569; }
-.kp-header button:hover { background:#f0f0f0; }
-.dark-mode .kp-header button:hover { background:#334155; }
-.kp-header .kp-title { font-weight:700;font-size:14px;color:#333;margin-right:auto; }
-.dark-mode .kp-header .kp-title { color:#e2e8f0; }
+.dark-mode .kp-header { background:#0d1e35;border-color:var(--kp-orange); }
 
-.kp-canvas-wrap { flex:1;overflow:auto;position:relative; }
+/* Logo badge */
+.kp-logo-badge {
+  display:flex;align-items:center;gap:6px;margin-right:4px;text-decoration:none;flex-shrink:0;
+}
+.kp-logo-badge img { height:22px;width:auto;display:block;filter:brightness(0) invert(1); }
+.kp-logo-badge .kp-logo-text {
+  font-family:ui-monospace,monospace;font-size:11px;font-weight:700;
+  color:var(--kp-orange);letter-spacing:.08em;line-height:1;
+}
+.kp-logo-sep { width:1px;height:24px;background:rgba(255,255,255,.18);margin:0 4px; }
+
+.kp-header .kp-title {
+  font-weight:700;font-size:13px;color:rgba(255,255,255,.9);
+  margin-right:auto;letter-spacing:.02em;
+}
+
+/* Header controls */
+.kp-header select,.kp-header button {
+  font-family:'Segoe UI',system-ui,sans-serif;font-size:11.5px;
+  padding:5px 9px;border-radius:6px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.1);color:rgba(255,255,255,.88);
+  cursor:pointer;line-height:1.3;transition:all .15s;
+}
+.kp-header select { background:rgba(30,58,95,.8);color:#e8f0fa; }
+.kp-header button:hover { background:rgba(255,255,255,.22);color:#fff; }
+.kp-header button#kp-export {
+  background:rgba(217,119,87,.18);border-color:rgba(217,119,87,.5);color:#f0a882;
+}
+.kp-header button#kp-export:hover { background:rgba(217,119,87,.3);color:#fff; }
+.kp-header button#kp-close {
+  background:rgba(255,255,255,.07);color:rgba(255,255,255,.5);font-size:14px;padding:3px 7px;
+}
+.kp-header button#kp-close:hover { background:rgba(220,50,50,.3);color:#fff; }
+
+/* ── CANVAS AREA ── */
+.kp-canvas-wrap { flex:1;overflow:auto;position:relative;background:var(--kp-paper); }
+.dark-mode .kp-canvas-wrap { background:#12192b; }
 .kp-canvas-wrap #kp-stack { display:block; }
 
+/* ── FOOTER / INK BAR ── */
 .kp-ink-bar {
-  display:flex;align-items:center;gap:6px;padding:6px 12px;
-  background:#fafafa;border-top:1px solid #e0e0e0;flex-shrink:0;flex-wrap:wrap;
+  display:flex;align-items:center;gap:6px;padding:7px 12px;
+  background:var(--kp-bg);border-top:1.5px solid #c8d8ec;flex-shrink:0;flex-wrap:wrap;
 }
-.dark-mode .kp-ink-bar { background:#0f172a;border-color:#1e293b; }
-.kp-ink-bar label { font-size:11px;color:#666; }
-.dark-mode .kp-ink-bar label { color:#94a3b8; }
-.kp-ink-bar input[type=range] { width:70px; }
+.dark-mode .kp-ink-bar { background:#0d1a2e;border-color:#1e3a5f; }
+.kp-ink-bar label { font-size:11px;color:var(--kp-navy);font-weight:600;letter-spacing:.02em; }
+.dark-mode .kp-ink-bar label { color:#7ea8cc; }
+.kp-ink-bar input[type=range] { width:70px;accent-color:var(--kp-navy); }
+.dark-mode .kp-ink-bar input[type=range] { accent-color:var(--kp-orange); }
+
 .kp-ink-bar .kp-color {
   width:22px;height:22px;border-radius:50%;border:2px solid #ccc;
   cursor:pointer;transition:transform .15s;flex-shrink:0;
 }
 .kp-ink-bar .kp-color:hover { transform:scale(1.15); }
-.kp-ink-bar .kp-color.sel { border-color:#f5c842;box-shadow:0 0 0 2px rgba(245,200,66,.4); }
+.kp-ink-bar .kp-color.sel { border-color:var(--kp-orange);box-shadow:0 0 0 2px rgba(217,119,87,.4); }
+
+/* Pen / zoom buttons (footer) */
 .kp-pen-btn {
-  background:transparent;border:1px solid #ccc;border-radius:5px;
-  padding:3px 8px;font-size:11px;cursor:pointer;color:#555;transition:all .15s;
+  background:transparent;border:1px solid #b8cce0;border-radius:5px;
+  padding:4px 9px;font-size:11px;cursor:pointer;color:var(--kp-navy);transition:all .15s;
 }
-.kp-pen-btn:hover { border-color:#888;color:#222; }
-.kp-pen-btn.active { border-color:#1565c0;background:#e3f2fd;color:#1565c0;font-weight:600; }
-.dark-mode .kp-pen-btn { border-color:#334155;color:#94a3b8; }
-.dark-mode .kp-pen-btn:hover { border-color:#64748b;color:#e2e8f0; }
-.dark-mode .kp-pen-btn.active { border-color:#3b82f6;background:#1e3a5f;color:#93c5fd; }
-.kp-sep { width:1px;height:20px;background:#ddd;margin:0 2px; }
-.dark-mode .kp-sep { background:#334155; }
+.kp-pen-btn:hover { border-color:var(--kp-navy);background:rgba(30,58,95,.07); }
+.kp-pen-btn.active {
+  border-color:var(--kp-orange);background:rgba(217,119,87,.1);
+  color:var(--kp-orange);font-weight:700;
+}
+.dark-mode .kp-pen-btn { border-color:#2a4a6a;color:#7ea8cc; }
+.dark-mode .kp-pen-btn:hover { border-color:#4a7aaa;color:#b8d4ee; }
+.dark-mode .kp-pen-btn.active { border-color:var(--kp-orange);background:rgba(217,119,87,.15);color:var(--kp-orange); }
+
+/* Hint text (footer right) */
+#kp-hint { font-size:10px;color:#7a94ab;letter-spacing:.03em; }
+.dark-mode #kp-hint { color:#4a6a8a; }
+
+.kp-sep { width:1px;height:20px;background:#c8d8ec;margin:0 2px; }
+.dark-mode .kp-sep { background:#1e3a5f; }
+
+/* KVG panel */
+#kp-kvg-panel { background:var(--kp-bg);border-top:1px solid #c8d8ec; }
+.dark-mode #kp-kvg-panel { background:#0d1a2e;border-color:#1e3a5f; }
 
 @media(max-width:600px){
-  .kp-header { padding:5px 8px;gap:3px; }
-  .kp-header select,.kp-header button { font-size:10px;padding:3px 5px; }
-  .kp-header .kp-title { font-size:12px; }
-  .kp-ink-bar { padding:4px 8px;gap:4px; }
+  .kp-header { padding:0 8px;gap:4px;min-height:42px; }
+  .kp-header select,.kp-header button { font-size:10px;padding:4px 6px; }
+  .kp-header .kp-title { font-size:11px; }
+  .kp-ink-bar { padding:5px 8px;gap:4px; }
 }
 </style>
 
@@ -2535,7 +2590,12 @@ svg[style*="position: fixed"] {
 <!-- Kanji Practice Overlay -->
 <div id="kwb-kanji-overlay">
   <div class="kp-header">
-    <span class="kp-title">Tập viết Kanji</span>
+    <a class="kp-logo-badge" href="index.html" title="KOERU — Trang chủ">
+      <img src="koeru-logo.png" alt="K" onerror="this.style.display='none'"/>
+      <span class="kp-logo-text">KOERU</span>
+    </a>
+    <div class="kp-logo-sep"></div>
+    <span class="kp-title">✍ Tập viết Kanji</span>
     <select id="kp-level">
       <option value="N5">N5</option>
       <option value="N4">N4</option>
