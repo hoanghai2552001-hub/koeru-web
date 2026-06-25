@@ -2549,6 +2549,7 @@ svg[style*="position: fixed"] {
     <button id="kp-grid-toggle" title="Ẩn/hiện đường dẫn hướng">Lưới</button>
     <button id="kp-theme" title="Chuyển sáng/tối">Tối</button>
     <button id="kp-net-btn" title="Hướng dẫn nét viết KanjiVG — xem hoạt họa từng nét">✍ Nét</button>
+    <button id="kp-export" title="Xuất PNG trang luyện viết hiện tại">⬇ PNG</button>
     <button id="kp-close" title="Quay lại whiteboard">✕</button>
   </div>
   <div class="kp-canvas-wrap" id="kp-canvas-wrap">
@@ -2808,6 +2809,7 @@ var currentScale = 1;
 var fitScale = 1, userZoom = 1, canvasLogW = 0, canvasLogH = 0;
 var penType = 'brush';
 var panX = 0, panY = 0, _panning = false, _panStart = null, _spaceDown = false;
+var doneRows = new Set();
 var KANJI_FONT = '"UD Digi Kyokasho NK-R","UD Digi Kyokasho N-R","Yu Kyokasho","Hiragino Mincho ProN","MS Mincho","Noto Serif JP",serif';
 
 var overlay   = document.getElementById('kwb-kanji-overlay');
@@ -2876,6 +2878,7 @@ function resetAndDraw() {
   setupCanvases(canvasLogW, canvasLogH, currentScale);
   drawBg(pageK);
   clearLayer(inkCtx, inkCanvas);
+  loadDone();
   _loadStrokesFromStorage();
   clearLayer(preCtx, preCanvas);
   hintEl.textContent = pageK.length + ' chữ · ' + (pageIdx+1) + '/' + Math.ceil(kanjiList.length / ROWS_PER_PAGE);
@@ -2902,6 +2905,19 @@ function _loadStrokesFromStorage() {
     var raw = localStorage.getItem(_strokeKey());
     if (raw) { strokes = JSON.parse(raw); drawInk(); }
   } catch(e) { strokes = []; }
+}
+function _doneKey() { return 'koeru_done_'+(levelSel.value||'N5')+'_'+pageIdx; }
+function saveDone() {
+  try {
+    if (doneRows.size) localStorage.setItem(_doneKey(), JSON.stringify(Array.from(doneRows)));
+    else localStorage.removeItem(_doneKey());
+  } catch(e) {}
+}
+function loadDone() {
+  try {
+    var raw = localStorage.getItem(_doneKey());
+    doneRows = raw ? new Set(JSON.parse(raw)) : new Set();
+  } catch(e) { doneRows = new Set(); }
 }
 
 var zoomBtn = document.getElementById('kp-zoom-reset');
@@ -2949,6 +2965,14 @@ function drawBg(pageK) {
     bgCtx.fillText(kData.hanviet||'',lx,y+14); bgCtx.font='9px "Segoe UI",system-ui,sans-serif'; bgCtx.fillStyle=labelC;
     bgCtx.fillText(kData.on||'',lx,y+28); bgCtx.fillText(kData.kun||'',lx,y+40);
     bgCtx.fillStyle=darkMode?'rgba(180,190,240,.3)':'rgba(100,80,60,.28)'; bgCtx.fillText(kData.meaning||'',lx,y+54); bgCtx.restore();
+    if (doneRows.has(row)) {
+      bgCtx.save();
+      bgCtx.fillStyle=darkMode?'rgba(30,160,80,.18)':'rgba(40,180,90,.13)';
+      bgCtx.fillRect(PAD,y,totalCols*CELL,CELL);
+      bgCtx.font='bold '+Math.floor(CELL*.45)+'px system-ui'; bgCtx.fillStyle=darkMode?'rgba(60,220,110,.55)':'rgba(30,150,70,.5)';
+      bgCtx.textAlign='right'; bgCtx.textBaseline='middle';
+      bgCtx.fillText('✓', PAD+totalCols*CELL-6, y+CELL/2); bgCtx.restore();
+    }
   }
 }
 
@@ -3089,6 +3113,20 @@ preCanvas.addEventListener('pointermove',moveStroke);
 preCanvas.addEventListener('pointerup',  endStroke);
 preCanvas.addEventListener('pointerleave',endStroke);
 preCanvas.addEventListener('auxclick', function(e){ e.preventDefault(); }); // suppress middle-click scroll
+preCanvas.addEventListener('click', function(e){
+  if (_panning || !kanjiList.length) return;
+  var pos = getPos(e), lx = pos[0], ly = pos[1];
+  if (lx < PAD || lx > PAD + CELL) return; // only guide column
+  var pageK = kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE);
+  for (var r=0; r<pageK.length; r++) {
+    var ry = PAD + r*(CELL+ROW_GAP);
+    if (ly >= ry && ly <= ry+CELL) {
+      if (doneRows.has(r)) doneRows.delete(r); else doneRows.add(r);
+      saveDone();
+      drawBg(pageK); return;
+    }
+  }
+});
 preCanvas.style.touchAction='none';
 
 /* ── Zoom: Ctrl+scroll (desktop) + pinch (mobile) ── */
@@ -3128,6 +3166,24 @@ document.getElementById('kp-theme').addEventListener('click', function(){
   redraw();
 });
 document.getElementById('kp-close').addEventListener('click', function(){ overlay.classList.remove('active'); });
+document.getElementById('kp-export').addEventListener('click', function(){
+  var dpr = window.devicePixelRatio || 1;
+  var tmp = document.createElement('canvas');
+  tmp.width = bgCanvas.width; tmp.height = bgCanvas.height;
+  var ctx = tmp.getContext('2d');
+  ctx.drawImage(bgCanvas, 0, 0);
+  ctx.drawImage(inkCanvas, 0, 0);
+  tmp.toBlob(function(blob){
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    var level = levelSel.value, page = pageIdx+1;
+    var pageK = kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE);
+    var chars = pageK.map(function(k){return k.kanji;}).join('');
+    a.download = 'KOERU_'+level+'_trang'+page+'_'+chars+'.png';
+    a.href = url; a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 3000);
+  }, 'image/png');
+});
 document.getElementById('kp-stroke-w').addEventListener('input', function(){ inkWidth=parseFloat(this.value); });
 document.getElementById('kp-opacity').addEventListener('input',  function(){ inkOpacity=parseFloat(this.value); });
 document.getElementById('kp-ghost-level').addEventListener('input', function(){
@@ -3296,7 +3352,8 @@ if(kvgNetBtn) kvgNetBtn.addEventListener('click',function(){
   requestAnimationFrame(rescaleCanvas);
 });
 
-window.addEventListener('resize', function(){ if (overlay.classList.contains('active')&&kanjiList.length) resetAndDraw(); });
+window.addEventListener('resize', function(){ if (overlay.classList.contains('active')&&kanjiList.length) rescaleCanvas(); });
+window.addEventListener('orientationchange', function(){ if (overlay.classList.contains('active')&&kanjiList.length) setTimeout(rescaleCanvas, 350); });
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(injectKpBtn,600); });
 else setTimeout(injectKpBtn,600);
 console.log('[KOERU] Kanji Practice mode loaded ✓');
