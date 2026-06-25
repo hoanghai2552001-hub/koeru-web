@@ -3416,6 +3416,13 @@ window.addEventListener('resize', function(){ if (overlay.classList.contains('ac
 window.addEventListener('orientationchange', function(){ if (overlay.classList.contains('active')&&kanjiList.length) setTimeout(rescaleCanvas, 350); });
 if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(injectKpBtn,600); });
 else setTimeout(injectKpBtn,600);
+// Auto-open kanji practice nếu URL có ?mode=kanji
+if (/[?&]mode=kanji/.test(location.search)) {
+  overlay.classList.add('active');
+  setTimeout(function(){
+    var lv=levelSel.value||'N5'; loadLevel(lv);
+  }, 400);
+}
 console.log('[KOERU] Kanji Practice mode loaded ✓');
 })();
 </script>
