@@ -2863,6 +2863,7 @@ function resetAndDraw() {
   canvasLogH = PAD * 2 + pageK.length * (CELL + ROW_GAP);
   var maxW = wrap.clientWidth || window.innerWidth || document.documentElement.clientWidth || 800;
   fitScale = canvasLogW > maxW - 8 ? (maxW - 8) / canvasLogW : 1;
+  var maxH = wrap.clientHeight; if (maxH > 60 && canvasLogH > maxH - 4) { var fitH=(maxH-4)/canvasLogH; if(fitH<fitScale) fitScale=fitH; }
   currentScale = fitScale * userZoom;
   setupCanvases(canvasLogW, canvasLogH, currentScale);
   drawBg(pageK);
@@ -3217,11 +3218,23 @@ function _buildKvgPanel(pageK){
   pageK.forEach(function(k){ kvgPanel.appendChild(_buildKvgCard(k)); });
 }
 
+function rescaleCanvas() {
+  if (!canvasLogW) return;
+  var maxW=wrap.clientWidth||window.innerWidth||document.documentElement.clientWidth||800;
+  fitScale=canvasLogW>maxW-8?(maxW-8)/canvasLogW:1;
+  var maxH=wrap.clientHeight; if(maxH>60&&canvasLogH>maxH-4){var fitH=(maxH-4)/canvasLogH;if(fitH<fitScale)fitScale=fitH;}
+  currentScale=fitScale*userZoom;
+  setupCanvases(canvasLogW,canvasLogH,currentScale);
+  drawBg(kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE));
+  drawInk(); clearLayer(preCtx,preCanvas); updateZoomBtn();
+}
+
 if(kvgNetBtn) kvgNetBtn.addEventListener('click',function(){
   _kvgShow=!_kvgShow;
   kvgPanel.style.display=_kvgShow?'flex':'none';
   kvgNetBtn.classList.toggle('active',_kvgShow);
   if(_kvgShow) _buildKvgPanel(kanjiList.slice(pageIdx*ROWS_PER_PAGE,(pageIdx+1)*ROWS_PER_PAGE));
+  requestAnimationFrame(rescaleCanvas);
 });
 
 window.addEventListener('resize', function(){ if (overlay.classList.contains('active')&&kanjiList.length) resetAndDraw(); });
