@@ -501,5 +501,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('go-speed')?.addEventListener('click', () => {
     showScreen('s-sph'); spLoadProgress(); spUpdateHome();
+    if (typeof gtag !== 'undefined') gtag('event', 'game_start', { game_name: 'Speed', level: typeof selectedLevel !== 'undefined' ? selectedLevel : 'unknown' });
   });
 });

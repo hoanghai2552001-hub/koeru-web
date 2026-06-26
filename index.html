@@ -1709,6 +1709,7 @@ function openTool(url, opts) {
 
   _toolCurrent = url;
   _saveHistory(url, label);
+  if (typeof gtag !== 'undefined') gtag('event', 'tool_open', { tool_name: label, tool_url: url });
 
   const panel    = document.getElementById('tool-panel');
   const backdrop = document.getElementById('tool-panel-backdrop');
