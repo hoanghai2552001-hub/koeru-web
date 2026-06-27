@@ -702,19 +702,19 @@ async function handleKanjiLead(e){
 
   function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 
-  function makeQ(entry,pool){
+  function makeQ(entry,pool,index){
     const types=['A','B','C'];
-    const t=types[qIdx%3];
+    const t=types[index%3];
     if(t==='A'){
-      const ws=shuffle(pool.filter(e=>e.k!==entry.k)).slice(0,3).map(e=>e.m);
-      return{type:'A',badge:'Nghĩa là gì?',label:'Kanji → Nghĩa',entry,opts:shuffle([entry.m,...ws]),ans:entry.m};
+      const ws=shuffle(pool.filter(e=>e.kanji!==entry.kanji)).slice(0,3).map(e=>e.meaning);
+      return{type:'A',badge:'Nghĩa là gì?',label:'Kanji → Nghĩa',entry,opts:shuffle([entry.meaning,...ws]),ans:entry.meaning};
     }
     if(t==='B'){
-      const ws=shuffle(pool.filter(e=>e.k!==entry.k)).slice(0,3).map(e=>e.k);
-      return{type:'B',badge:'Chọn kanji đúng',label:'Nghĩa → Kanji',entry,question:entry.m,opts:shuffle([entry.k,...ws]),ans:entry.k};
+      const ws=shuffle(pool.filter(e=>e.kanji!==entry.kanji)).slice(0,3).map(e=>e.kanji);
+      return{type:'B',badge:'Chọn kanji đúng',label:'Nghĩa → Kanji',entry,question:entry.meaning,opts:shuffle([entry.kanji,...ws]),ans:entry.kanji};
     }
     const w=entry.words[Math.floor(Math.random()*Math.min(entry.words.length,3))];
-    const ws2=shuffle(pool.flatMap(e=>e.words||[])).slice(0,3).map(x=>x.m);
+    const ws2=shuffle(pool.filter(e=>e.kanji!==entry.kanji).flatMap(e=>e.words||[]).filter(x=>x.m!==w.m)).slice(0,3).map(x=>x.m);
     return{type:'C',badge:'Từ vựng → Nghĩa',label:'Từ vựng',entry,word:w,opts:shuffle([w.m,...ws2]),ans:w.m};
   }
 
@@ -722,7 +722,7 @@ async function handleKanjiLead(e){
     qPool=buildPool(qLv);
     if(qPool.length<10)return;
     const sample=shuffle(qPool).slice(0,10);
-    qList=sample.map((e,i)=>makeQ(e,qPool));
+    qList=sample.map((e,i)=>makeQ(e,qPool,i));
     qIdx=0;qScore=0;qAnswers=[];
     document.getElementById('quiz-home').style.display='none';
     document.getElementById('quiz-result').style.display='none';
@@ -750,8 +750,8 @@ async function handleKanjiLead(e){
       document.getElementById('quiz-hv').textContent='';
     } else if(!isC){
       document.getElementById('quiz-kanji').style.fontSize='4.5rem';
-      document.getElementById('quiz-kanji').textContent=q.entry.k;
-      document.getElementById('quiz-hv').textContent=q.entry.hv||'';
+      document.getElementById('quiz-kanji').textContent=q.entry.kanji;
+      document.getElementById('quiz-hv').textContent=q.entry.hanviet||'';
     } else {
       document.getElementById('quiz-word').textContent=q.word.w;
       document.getElementById('quiz-word-r').textContent=q.word.r;
@@ -779,13 +779,13 @@ async function handleKanjiLead(e){
     const fb=document.getElementById('quiz-feedback');
     fb.style.borderColor=ok?'#22c55e':'#f43f5e';
     fb.style.background=ok?'rgba(34,197,94,.08)':'rgba(244,63,94,.06)';
-    document.getElementById('quiz-fb-title').textContent=ok?'✓ Chính xác!':'✗ Chưa đúng — '+q.entry.m;
+    document.getElementById('quiz-fb-title').textContent=ok?'✓ Chính xác!':'✗ Chưa đúng — '+q.entry.meaning;
     document.getElementById('quiz-fb-words').innerHTML=(q.entry.words||[]).slice(0,2).map(w=>
       `<span style="color:#f5c842;font-family:'Noto Sans JP',sans-serif">${w.w}</span> <span style="font-size:.72rem;color:rgba(255,255,255,.4)">${w.r}</span> <span style="font-size:.78rem;color:rgba(255,255,255,.6)">— ${w.m}</span>`
     ).join('<br>');
     fb.style.display='block';
     document.getElementById('quiz-next-btn').style.display='block';
-    qAnswers.push({k:q.entry.k,m:q.entry.m,ok,chosen,ans:q.ans});
+    qAnswers.push({k:q.entry.kanji,m:q.entry.meaning,ok,chosen,ans:q.ans});
   }
 
   function nextQ(){
