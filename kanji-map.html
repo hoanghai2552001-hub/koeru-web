@@ -1351,7 +1351,7 @@ const KanjiMapApp = () => {
               value={search}
               onChange={e => { setSearch(e.target.value); setShowSearchResults(true); }}
               onFocus={() => setShowSearchResults(true)}
-              onBlur={() => setTimeout(() => setShowSearchResults(false), 150)}
+              onBlur={() => setTimeout(() => setShowSearchResults(false), 300)}
               placeholder="kanji · từ · hán việt · nghĩa…"
             />
             {search && (

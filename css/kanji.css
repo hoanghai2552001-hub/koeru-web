@@ -2196,6 +2196,11 @@ canvas#sp-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4
   #draw-meaning { font-size: 1.8rem; }
 }
 
+@media (max-height: 500px) and (orientation: landscape) {
+  #card-wrap { height: min(280px, 80vh); }
+  #kanji     { font-size: clamp(3rem, 10vw, 5rem); }
+}
+
 /* animCJK SVG stroke animation override — đảm bảo màu sắc hiện đúng trên dark bg */
 #stroke-svg-wrap svg path {
   stroke: #c4b5fd;
