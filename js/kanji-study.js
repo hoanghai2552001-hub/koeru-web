@@ -20,8 +20,7 @@ const _loadCallbacks = {};
 
 function ensureLevelLoaded(level, cb) {
   if (level === 'ALL') {
-    // ALL chỉ load N5/N4/N3 (N2/N1 chưa sẵn sàng)
-    const all = ['N5','N4','N3'];
+    const all = ['N5','N4','N3','N2'];
     let pending = all.filter(lv => !_loadedLevels.has(lv));
     if (!pending.length) { cb(); return; }
     let done = 0;

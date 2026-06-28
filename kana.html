@@ -37,7 +37,7 @@
 <!-- ═══ HOME ═══ -->
 <div class="screen active" id="home-screen">
   <a href="index.html" id="back-to-main" title="Về trang chủ KOERU">← KOERU</a>
-  <button id="audio-toggle" onclick="toggleAudio()" title="Bật/tắt âm thanh">🔊</button>
+  <button id="audio-toggle" title="Bật/tắt âm thanh">🔊</button>
   <div class="home-logo">🎌</div>
   <div class="home-title">Kana Speed</div>
   <div class="home-sub">Luyện đọc nhanh Hiragana & Katakana</div>
@@ -59,20 +59,20 @@
 
   <div class="section-label">Bảng chữ cái</div>
   <div class="script-tabs">
-    <button class="script-btn active-h active" id="btn-hira" onclick="selectScript('hiragana',this)">
+    <button class="script-btn active-h active" id="btn-hira">
       <span>あ</span>Hiragana
     </button>
-    <button class="script-btn" id="btn-kata" onclick="selectScript('katakana',this)">
+    <button class="script-btn" id="btn-kata">
       <span>ア</span>Katakana
     </button>
-    <button class="script-btn" id="btn-mix" onclick="selectScript('mixed',this)">
+    <button class="script-btn" id="btn-mix">
       <span>あア</span>Mixed
     </button>
   </div>
 
   <div class="section-label">Trình độ</div>
   <div class="level-cards">
-    <div class="level-card level-card-1 selected" id="lvl1" onclick="selectLevel(1)">
+    <div class="level-card level-card-1 selected" id="lvl1">
       <span class="lc-icon">🌱</span>
       <div class="lc-info">
         <div class="lc-name">Trình độ 1 — Cơ bản</div>
@@ -80,7 +80,7 @@
       </div>
       <span class="lc-count" id="count1">46</span>
     </div>
-    <div class="level-card level-card-2" id="lvl2" onclick="selectLevel(2)">
+    <div class="level-card level-card-2" id="lvl2">
       <span class="lc-icon">🔥</span>
       <div class="lc-info">
         <div class="lc-name">Trình độ 2 — Nâng cao</div>
@@ -88,7 +88,7 @@
       </div>
       <span class="lc-count" id="count2">104</span>
     </div>
-    <div class="level-card level-card-3" id="lvl3" onclick="selectLevel(3)">
+    <div class="level-card level-card-3" id="lvl3">
       <span class="lc-icon">⚡</span>
       <div class="lc-info">
         <div class="lc-name">Trình độ 3 — Từ vựng</div>
@@ -98,15 +98,15 @@
     </div>
   </div>
 
-  <button class="start-btn" onclick="startGame()">Bắt đầu →</button>
-  <button class="write-mode-btn" onclick="openWriteMode()">✍️ Tập viết Hiragana & Katakana</button>
-  <button class="write-mode-btn" onclick="openLeaderboard()" style="margin-top:8px;border-color:rgba(245,200,66,.4);color:var(--accent2);background:rgba(245,200,66,.07)">🏆 Bảng xếp hạng</button>
+  <button class="start-btn" id="start-btn">Bắt đầu →</button>
+  <button class="write-mode-btn" id="write-mode-btn">✍️ Tập viết Hiragana & Katakana</button>
+  <button class="write-mode-btn" id="lb-home-btn" style="margin-top:8px;border-color:rgba(245,200,66,.4);color:var(--accent2);background:rgba(245,200,66,.07)">🏆 Bảng xếp hạng</button>
 </div>
 
 <!-- ═══ GAME ═══ -->
 <div class="screen" id="game-screen">
   <div id="g-header">
-    <button class="g-back" onclick="goHome()">← Về</button>
+    <button class="g-back" id="game-back-btn">← Về</button>
     <span id="g-title">Hiragana · Trình độ 1</span>
     <div id="g-score">
       <span id="g-q-count" style="font-size:.75rem;color:var(--muted)">Câu 1</span>
@@ -126,10 +126,10 @@
 
   <div id="answer-panel">
     <div id="answer-grid">
-      <button class="ans-btn" id="ans0" onclick="answer(0)"></button>
-      <button class="ans-btn" id="ans1" onclick="answer(1)"></button>
-      <button class="ans-btn" id="ans2" onclick="answer(2)"></button>
-      <button class="ans-btn" id="ans3" onclick="answer(3)"></button>
+      <button class="ans-btn" id="ans0"></button>
+      <button class="ans-btn" id="ans1"></button>
+      <button class="ans-btn" id="ans2"></button>
+      <button class="ans-btn" id="ans3"></button>
     </div>
   </div>
 
@@ -139,16 +139,16 @@
 <!-- ═══ WRITE ═══ -->
 <div class="screen" id="write-screen">
   <div id="write-header">
-    <button class="g-back" onclick="goHome()">← Về</button>
+    <button class="g-back" id="write-back-btn">← Về</button>
     <h1>✍️ Tập viết</h1>
     <div></div>
   </div>
   <div id="write-tabs">
-    <button class="wtab active" id="wtab-hira" onclick="switchWriteScript('hiragana')">あ Hiragana</button>
-    <button class="wtab" id="wtab-kata" onclick="switchWriteScript('katakana')">ア Katakana</button>
+    <button class="wtab active" id="wtab-hira">あ Hiragana</button>
+    <button class="wtab" id="wtab-kata">ア Katakana</button>
     <div style="flex:1"></div>
-    <button class="wtab active" id="wtab-grid" onclick="switchWriteTab('grid')">Bảng chữ</button>
-    <button class="wtab" id="wtab-view" onclick="switchWriteTab('view')">Animation</button>
+    <button class="wtab active" id="wtab-grid">Bảng chữ</button>
+    <button class="wtab" id="wtab-view">Animation</button>
   </div>
   <div id="write-grid-wrap"></div>
   <div id="write-viewer" style="display:none">
@@ -167,9 +167,9 @@
       <span id="write-romaji"></span>
     </div>
     <div id="write-nav">
-      <button class="wnav-btn" id="prev-btn" onclick="writeNav(-1)">← Trước</button>
-      <button id="replay-btn" onclick="replayGif()">↺ Xem lại</button>
-      <button class="wnav-btn" id="next-btn" onclick="writeNav(1)">Sau →</button>
+      <button class="wnav-btn" id="prev-btn">← Trước</button>
+      <button id="replay-btn">↺ Xem lại</button>
+      <button class="wnav-btn" id="next-btn">Sau →</button>
     </div>
     <div id="write-pos"></div>
   </div>
@@ -194,35 +194,35 @@
     <div class="save-score-label">🏆 Lưu điểm lên bảng xếp hạng</div>
     <div class="save-score-row">
       <input id="nickname-input" type="text" maxlength="20" placeholder="Nhập tên của bạn…">
-      <button id="save-btn" onclick="saveScore()">Lưu</button>
+      <button id="save-btn">Lưu</button>
     </div>
     <div id="save-status"></div>
   </div>
   <div class="result-btns">
-    <button class="result-btn result-btn-primary" onclick="restartGame()">Chơi lại</button>
-    <button class="result-btn result-btn-ghost"   onclick="goHome()">Đổi chế độ</button>
+    <button class="result-btn result-btn-primary" id="restart-btn">Chơi lại</button>
+    <button class="result-btn result-btn-ghost" id="result-home-btn">Đổi chế độ</button>
   </div>
 
   <!-- CTA nhận lộ trình N5 -->
   <div class="kana-result-cta">
     <div class="kana-cta-text">Bạn đã luyện xong bảng chữ. Muốn học tiếp N5?</div>
-    <a class="kana-cta-btn" href="index.html#section-tuvan" onclick="localStorage.setItem('lead_source','kana_speed')">Nhận lộ trình N5 miễn phí →</a>
+    <a class="kana-cta-btn" id="cta-n5-link" href="index.html#section-tuvan">Nhận lộ trình N5 miễn phí →</a>
     <div class="kana-cta-sub">KOERU gợi ý lộ trình phù hợp trong 24 giờ · Không spam</div>
   </div>
 </div>
 
 <!-- ═══ LEADERBOARD MODAL ═══ -->
-<div id="lb-overlay" onclick="closeLbOnOverlay(event)">
+<div id="lb-overlay">
   <div id="lb-modal">
     <div id="lb-modal-header">
       <h2>🏆 Bảng xếp hạng</h2>
-      <button id="lb-close" onclick="closeLeaderboard()">✕</button>
+      <button id="lb-close">✕</button>
     </div>
     <div id="lb-tabs">
-      <button class="lb-tab active" onclick="switchLbTab('all',this)">Tất cả</button>
-      <button class="lb-tab" onclick="switchLbTab(1,this)">Trình độ 1</button>
-      <button class="lb-tab" onclick="switchLbTab(2,this)">Trình độ 2</button>
-      <button class="lb-tab" onclick="switchLbTab(3,this)">Từ vựng</button>
+      <button class="lb-tab active" id="lb-tab-all">Tất cả</button>
+      <button class="lb-tab" id="lb-tab-1">Trình độ 1</button>
+      <button class="lb-tab" id="lb-tab-2">Trình độ 2</button>
+      <button class="lb-tab" id="lb-tab-3">Từ vựng</button>
     </div>
     <div id="lb-list"><div id="lb-loading">Đang tải…</div></div>
   </div>

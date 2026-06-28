@@ -116,22 +116,22 @@
 </div>
 
 <!-- ══ LEAD MODAL ══ -->
-<div id="kanji-lead-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:20px">
-  <div style="background:#1a1a2e;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:28px 24px;width:100%;max-width:400px;position:relative">
-    <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(255,255,255,.4);font-size:20px;cursor:pointer">✕</button>
-    <div style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:6px">Nhận lộ trình học Kanji</div>
-    <div style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:18px">KOERU sẽ gợi ý lộ trình phù hợp với mục tiêu của bạn trong 24 giờ.</div>
-    <div id="kanji-lead-success" style="display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);border-radius:8px;padding:14px;color:#86efac;font-size:.85rem;text-align:center;margin-bottom:12px">
-      <div style="margin-bottom:10px">✅ Đã nhận! KOERU sẽ liên hệ bạn trong 24 giờ.</div>
-      <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="padding:8px 18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:.82rem;font-weight:700;cursor:pointer">Tiếp tục luyện Kanji →</button>
+<div id="kanji-lead-modal">
+  <div class="lead-box">
+    <button class="lead-close" onclick="document.getElementById('kanji-lead-modal').style.display='none'">✕</button>
+    <div class="lead-title">Nhận lộ trình học Kanji</div>
+    <div class="lead-sub">KOERU sẽ gợi ý lộ trình phù hợp với mục tiêu của bạn trong 24 giờ.</div>
+    <div id="kanji-lead-success">
+      <div class="lead-success-msg">✅ Đã nhận! KOERU sẽ liên hệ bạn trong 24 giờ.</div>
+      <button class="lead-success-btn" onclick="document.getElementById('kanji-lead-modal').style.display='none'">Tiếp tục luyện Kanji →</button>
     </div>
-    <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)" style="display:flex;flex-direction:column;gap:10px">
+    <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)">
       <label for="lead-name" class="sr-only">Họ và tên</label>
-      <input id="lead-name" name="name" placeholder="Họ tên" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <input id="lead-name" name="name" placeholder="Họ tên" required class="lead-input"/>
       <label for="lead-contact" class="sr-only">Zalo hoặc số điện thoại</label>
-      <input id="lead-contact" name="contact" placeholder="Zalo / SĐT" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <input id="lead-contact" name="contact" placeholder="Zalo / SĐT" required class="lead-input"/>
       <label for="lead-level" class="sr-only">Trình độ hiện tại</label>
-      <select id="lead-level" name="current_level" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <select id="lead-level" name="current_level" required class="lead-input">
         <option value="">Trình độ hiện tại</option>
         <option value="zero">Chưa biết gì</option>
         <option value="kana">Biết Hiragana / Katakana</option>
@@ -140,7 +140,7 @@
         <option value="N3+">Đang học N3 trở lên</option>
       </select>
       <label for="lead-goal" class="sr-only">Mục tiêu học tập</label>
-      <select id="lead-goal" name="goal" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <select id="lead-goal" name="goal" required class="lead-input">
         <option value="">Mục tiêu của bạn</option>
         <option value="jlpt">Thi JLPT</option>
         <option value="dilan">Đi làm / Công ty Nhật</option>
@@ -149,7 +149,7 @@
         <option value="restart">Học lại từ đầu</option>
       </select>
       <label for="lead-time" class="sr-only">Thời gian học được mỗi ngày</label>
-      <select id="lead-time" name="available_time" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <select id="lead-time" name="available_time" required class="lead-input">
         <option value="">Thời gian học được</option>
         <option value="evening">Buổi tối</option>
         <option value="weekend">Cuối tuần</option>
@@ -157,8 +157,8 @@
       </select>
       <input type="hidden" name="source" value="kanji_lab">
       <input type="hidden" name="cta_location" id="cta-location" value="unknown">
-      <button type="submit" id="kanji-lead-submit" style="padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer">Nhận lộ trình →</button>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.3);text-align:center">KOERU chỉ dùng thông tin này để gửi lộ trình học, không spam.</div>
+      <button type="submit" id="kanji-lead-submit">Nhận lộ trình →</button>
+      <div class="lead-disclaimer">KOERU chỉ dùng thông tin này để gửi lộ trình học, không spam.</div>
     </form>
   </div>
 </div>

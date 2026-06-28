@@ -38,8 +38,10 @@ async function saveScore() {
   } else {
     localStorage.setItem('kana_nickname', nick);
     scoreSaved = true;
-    document.getElementById('save-status').innerHTML =
-      '✅ Đã lưu! <span style="color:var(--accent2);cursor:pointer;text-decoration:underline" onclick="openLeaderboard()">Xem bảng xếp hạng →</span>';
+    const statusEl = document.getElementById('save-status');
+    statusEl.innerHTML =
+      '✅ Đã lưu! <span style="color:var(--accent2);cursor:pointer;text-decoration:underline">Xem bảng xếp hạng →</span>';
+    statusEl.querySelector('span').addEventListener('click', openLeaderboard);
   }
 }
 
@@ -95,3 +97,15 @@ async function fetchLeaderboard() {
     </div>`
   ).join('');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('lb-home-btn').addEventListener('click', openLeaderboard);
+  document.getElementById('lb-close').addEventListener('click', closeLeaderboard);
+  document.getElementById('lb-overlay').addEventListener('click', closeLbOnOverlay);
+  document.getElementById('save-btn').addEventListener('click', saveScore);
+
+  document.getElementById('lb-tab-all').addEventListener('click', function() { switchLbTab('all', this); });
+  document.getElementById('lb-tab-1').addEventListener('click', function() { switchLbTab(1, this); });
+  document.getElementById('lb-tab-2').addEventListener('click', function() { switchLbTab(2, this); });
+  document.getElementById('lb-tab-3').addEventListener('click', function() { switchLbTab(3, this); });
+});
