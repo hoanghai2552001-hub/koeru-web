@@ -80,11 +80,12 @@ async function fetchLeaderboard() {
 
   const medals   = ['🥇','🥈','🥉'];
   const topClass = ['top1','top2','top3'];
+  const esc = s => s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : '';
 
   list.innerHTML = data.map((row, i) => `
     <div class="lb-row ${topClass[i] || ''}">
       <div class="lb-rank">${medals[i] || '#'+(i+1)}</div>
-      <div class="lb-name">${row.nickname}<br>
+      <div class="lb-name">${esc(row.nickname)}<br>
         <span class="lb-meta">${row.level === 3 ? '⚡Từ vựng' : 'Trình độ '+row.level} · ${new Date(row.created_at).toLocaleDateString('vi-VN')}</span>
       </div>
       <div class="lb-score">
