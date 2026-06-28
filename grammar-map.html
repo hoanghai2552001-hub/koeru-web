@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KOERU · Bản đồ Ngữ pháp</title>
+<meta name="description" content="Bản đồ ngữ pháp tiếng Nhật N5–N3 — xem quan hệ giữa các mẫu câu, luyện tập & ghi nhớ.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KOERU">
+<meta property="og:url" content="https://hoanghai2552001-hub.github.io/koeru-web/grammar-map.html">
+<meta property="og:title" content="KOERU · Bản đồ Ngữ pháp">
+<meta property="og:description" content="Bản đồ ngữ pháp tiếng Nhật N5–N3 — xem quan hệ giữa các mẫu câu, luyện tập & ghi nhớ.">
+<meta property="og:image" content="https://hoanghai2552001-hub.github.io/koeru-web/images/logo_preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KOERU · Bản đồ Ngữ pháp">
+<meta name="twitter:description" content="Bản đồ ngữ pháp tiếng Nhật N5–N3 — xem quan hệ giữa các mẫu câu.">
+<meta name="twitter:image" content="https://hoanghai2552001-hub.github.io/koeru-web/images/logo_preview.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{overflow:hidden;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
+input::placeholder{color:#1e2d3d;font-size:11.5px}
+@keyframes slideUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes gmSpin{to{transform:rotate(360deg)}}
+#gm-loading{min-height:100vh;background:#090c13;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+#gm-loading .sp{width:36px;height:36px;border:3px solid rgba(255,255,255,.08);border-top-color:#6366f1;border-radius:50%;animation:gmSpin .7s linear infinite}
+</style>
+</head>
+<body>
+<div id="gm-loading"><div class="sp"></div><p style="color:#3d5066;font-size:.8rem">Đang tải Bản đồ Ngữ pháp…</p></div>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<script type="text/babel">
+const {useState,useEffect,useRef,useCallback,useMemo} = React;
+
+// ═══════════════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════════════
+const G = [
+  // ── 条件 CONDITION ──
+  {id:'n5-to',lv:'N5',cat:'condition',x:550,y:60,p:'～と',r:'～と',ro:'to',sv:'Hễ… thì (tự nhiên)',mv:['Điều kiện tự nhiên, tất yếu — kết quả xảy ra tự động','Không dùng khi câu sau là ý chí/mệnh lệnh của người nói'],cn:['Thể từ điển / ない形 + と'],u:['Sự thật tự nhiên, quy luật','Hướng dẫn chỉ đường'],nu:['Không dùng với ください, ましょう, たい ở câu sau'],ex:[{ja:'右に曲がると、駅があります。',rd:'みぎにまがると、えきがあります。',vi:'Rẽ phải thì có ga tàu.'}],rl:[{t:'contrast',id:'n5-tara',n:'～たら dùng được với câu ý chí, ～と thì không'}],tg:['điều kiện','tự nhiên'],qs:'verified'},
+  {id:'n5-tara',lv:'N5',cat:'condition',x:680,y:60,p:'～たら',r:'～たら',ro:'tara',sv:'Nếu / Khi (điều kiện)',mv:['Điều kiện giả định hoặc thời gian tuần tự','Dùng cho sự kiện một lần, thực tế lẫn giả định'],cn:['Thể た + ら'],u:['Điều kiện hoặc thời gian','Cả thực tế lẫn giả định'],ex:[{ja:'雨が降ったら、家にいます。',rd:'あめがふったら、いえにいます。',vi:'Nếu trời mưa, tôi sẽ ở nhà.'}],rl:[{t:'similar',id:'n4-ba',n:'～ば văn phong hơn'},{t:'contrast',id:'n5-to',n:'～と không dùng với câu ý chí'},{t:'confused_with',id:'n4-nara',n:'～たら: điều kiện tự chọn; ～なら: phản ứng với info'}],tg:['điều kiện','giả định'],qs:'verified'},
+  {id:'n5-te-mo',lv:'N5',cat:'condition',x:810,y:60,p:'～ても',r:'～ても',ro:'te mo',sv:'Dù… vẫn (nhượng bộ)',mv:['Nhượng bộ — dù điều kiện bất lợi cũng không ảnh hưởng đến kết quả'],cn:['Thể て + も (động từ)','い形 → くても','な形/N → でも'],u:['Nhấn mạnh kết quả không thay đổi dù có điều kiện đó'],ex:[{ja:'雨が降っても、行きます。',rd:'あめがふっても、いきます。',vi:'Dù trời mưa tôi vẫn đi.'}],rl:[{t:'contrast',id:'n5-tara',n:'～たら: nếu xảy ra thì; ～ても: dù xảy ra vẫn'}],tg:['nhượng bộ','dù vẫn'],qs:'verified'},
+  {id:'n4-nara',lv:'N4',cat:'condition',x:615,y:130,p:'～なら',r:'～なら',ro:'nara',sv:'Nếu như (phản ứng)',mv:['Điều kiện dựa trên thông tin vừa nghe từ người khác','Thường đưa ra lời khuyên dựa trên thông tin đó'],cn:['Thể thông thường + なら','Danh từ + なら'],u:['Sau khi nghe thông tin, đưa ra ý kiến'],ex:[{ja:'日本へ行くなら、富士山を見てください。',rd:'にほんへいくなら、ふじさんをみてください。',vi:'Nếu đi Nhật thì nhớ xem núi Phú Sĩ nhé.'}],rl:[{t:'confused_with',id:'n5-tara',n:'～なら: phản ứng với info người khác; ～たら: điều kiện tự chọn'}],tg:['điều kiện','lời khuyên'],qs:'verified'},
+  {id:'n4-ba',lv:'N4',cat:'condition',x:745,y:130,p:'～ば',r:'～ば',ro:'ba',sv:'Nếu (chính thức)',mv:['Điều kiện giả định mang sắc thái văn phong — lịch sự hơn たら'],cn:['Thể ～ば của động từ / adj'],u:['Văn phong, văn viết','Điều kiện đủ'],ex:[{ja:'勉強すれば、合格できます。',rd:'べんきょうすれば、ごうかくできます。',vi:'Nếu học thì có thể đậu.'}],rl:[{t:'similar',id:'n5-tara',n:'～たら thông dụng hơn trong văn nói'}],tg:['điều kiện','văn phong'],qs:'verified'},
+  {id:'n4-ba-hodo',lv:'N4',cat:'condition',x:875,y:130,p:'～ば～ほど',r:'～ば～ほど',ro:'ba hodo',sv:'Càng… càng…',mv:['Quan hệ tỷ lệ thuận: một yếu tố tăng thì yếu tố kia cũng tăng'],cn:['Động từ/adj thể ば + ほど + cùng từ đó (thể thông thường)'],u:['Nhấn mạnh sự gia tăng tỷ lệ'],ex:[{ja:'練習すればするほど、上手になります。',rd:'れんしゅうすればするほど、じょうずになります。',vi:'Càng luyện tập càng giỏi.'}],rl:[{t:'derived_from',id:'n4-ba',n:'～ば là cơ sở của cấu trúc này'}],tg:['điều kiện','càng càng'],qs:'verified'},
+  {id:'n3-saeba',lv:'N3',cat:'condition',x:940,y:200,p:'～さえ～ば',r:'さえ～ば',ro:'sae ba',sv:'Chỉ cần… thì…',mv:['Nêu điều kiện tối thiểu đủ để kết quả xảy ra — nhấn mạnh chỉ cần đúng một điều kiện đó là đủ'],cn:['N + さえ + ば-form','Vます-stem + さえすれば'],nu:['Không dùng cho điều kiện thông thường không nhấn mạnh'],ex:[{ja:'お金さえあれば、旅行できます。',rd:'おかねさえあれば、りょこうできます。',vi:'Chỉ cần có tiền là có thể đi du lịch.'}],rl:[{t:'derived_from',id:'n4-ba',n:'～ば là cơ sở; さえ～ば nhấn mạnh điều kiện tối thiểu'}],tg:['điều kiện','tối thiểu'],qs:'verified'},
+  {id:'n4-noni',lv:'N4',cat:'condition',x:550,y:200,p:'～のに',r:'～のに',ro:'noni',sv:'Vậy mà… (trái ngược)',mv:['Kết quả trái ngược với kỳ vọng — hàm ý bất mãn hoặc ngạc nhiên'],cn:['V/Adj 普通形 + のに','なAdj + なのに','N + なのに'],u:['Khi kết quả ngoài dự đoán, thường tiêu cực'],nu:['Không dùng ～のに ở cuối câu yêu cầu/mệnh lệnh'],ex:[{ja:'薬を飲んだのに、熱が下がらない。',rd:'くすりをのんだのに、ねつがさがらない。',vi:'Uống thuốc rồi vậy mà sốt vẫn không hạ.'}],rl:[{t:'contrast',id:'n5-te-mo',n:'～ても: dù vẫn (trung lập); ～のに: vậy mà (bất mãn)'}],tg:['nhượng bộ','trái ngược'],qs:'verified'},
+  {id:'n3-toshitara',lv:'N3',cat:'condition',x:810,y:200,p:'～としたら／とすれば',r:'～としたら',ro:'toshitara',sv:'Giả sử nếu…',mv:['Đặt giả thuyết — "nếu giả sử là...", "nếu cho rằng..."'],cn:['V/Adj 普通形 + としたら / とすれば'],u:['Đặt giả thuyết để suy luận'],ex:[{ja:'宝くじに当たったとしたら、何をしますか。',rd:'たからくじにあたったとしたら、なにをしますか。',vi:'Giả sử trúng xổ số thì bạn sẽ làm gì?'}],rl:[{t:'similar',id:'n5-tara',n:'たら: điều kiện thực tế; としたら: giả thuyết'}],tg:['giả thuyết','giả định'],qs:'verified'},
+  {id:'n4-baai',lv:'N4',cat:'condition',x:680,y:200,p:'～場合は',r:'～場合は',ro:'baai wa',sv:'Trong trường hợp…',mv:['Đặt điều kiện theo tình huống cụ thể — trang trọng hơn たら/ば'],cn:['V普通形 + 場合は','N + の場合は'],u:['Hướng dẫn, quy tắc, thông báo'],ex:[{ja:'雨の場合は、試合は中止です。',rd:'あめのばあいは、しあいはちゅうしです。',vi:'Trong trường hợp trời mưa, trận đấu sẽ bị hủy.'}],rl:[{t:'similar',id:'n5-tara',n:'たら: thông dụng; 場合: trang trọng, quy tắc'}],tg:['điều kiện','tình huống'],qs:'verified'},
+  {id:'n3-kuseni',lv:'N3',cat:'condition',x:940,y:60,p:'～くせに',r:'～くせに',ro:'kuse ni',sv:'Mặc dù… mà… (trách)',mv:['Nhượng bộ mang sắc thái trách móc, chê bai — mạnh hơn のに'],cn:['V/Adj 普通形 + くせに','N + のくせに'],nu:['Không dùng với người trên — thô lỗ'],ex:[{ja:'知っているくせに、教えてくれない。',rd:'しっているくせに、おしえてくれない。',vi:'Biết rõ mà lại không chịu nói cho.'}],rl:[{t:'similar',id:'n4-noni',n:'のに: thất vọng nhẹ; くせに: trách móc nặng'}],tg:['nhượng bộ','trách móc'],qs:'verified'},
+  // ── 時間 TIME ──
+  {id:'n3-saichuu-ni',lv:'N3',cat:'time',x:340,y:200,p:'～最中に',r:'～最中に',ro:'saichuu ni',sv:'Đúng lúc đang…',mv:['Ngay giữa lúc đang làm gì thì có sự việc bất ngờ xảy ra'],cn:['Vている + 最中に','N + の最中に'],u:['Nhấn mạnh sự gián đoạn bất ngờ'],ex:[{ja:'授業の最中に地震が起きた。',rd:'じゅぎょうのさいちゅうにじしんがおきた。',vi:'Đúng giữa lúc đang học thì xảy ra động đất.'}],rl:[{t:'similar',id:'n3-aida-ni',n:'間に: trong khoảng thời gian; 最中に: đúng lúc đang (bất ngờ)'}],tg:['thời gian','bất ngờ'],qs:'verified'},
+  {id:'n5-te-kara',lv:'N5',cat:'time',x:80,y:130,p:'～てから',r:'～てから',ro:'te kara',sv:'Sau khi… rồi mới…',mv:['Trình tự hành động: hành động 1 hoàn thành rồi mới đến hành động 2'],cn:['Động từ thể て + から'],u:['Nhấn mạnh thứ tự hành động bắt buộc'],ex:[{ja:'手を洗ってから、ご飯を食べます。',rd:'てをあらってから、ごはんをたべます。',vi:'Rửa tay xong rồi mới ăn cơm.'}],rl:[{t:'contrast',id:'n5-mae-ni',n:'～まえに: trước khi; ～てから: sau khi'}],tg:['thời gian','trình tự'],qs:'verified'},
+  {id:'n5-mae-ni',lv:'N5',cat:'time',x:340,y:60,p:'～まえに',r:'～まえに',ro:'mae ni',sv:'Trước khi…',mv:['Hành động 2 xảy ra trước hành động 1 — "trước khi làm A, làm B"'],cn:['Vる + まえに (thể từ điển)','N + のまえに'],u:['Trình tự thời gian: B xảy ra trước A'],ex:[{ja:'寝る前に、歯を磨きます。',rd:'ねるまえに、はをみがきます。',vi:'Trước khi ngủ, tôi đánh răng.'}],rl:[{t:'contrast',id:'n5-te-kara',n:'～まえに: trước khi; ～てから: sau khi'}],tg:['thời gian','trình tự'],qs:'verified'},
+  {id:'n5-toki',lv:'N5',cat:'time',x:210,y:60,p:'～とき',r:'～とき',ro:'toki',sv:'Khi / Lúc…',mv:['Chỉ thời điểm xảy ra hành động — thể của động từ trước とき thay đổi nghĩa (る = tương lai, た = đã qua)'],cn:['V普通形 + とき','Adj/N + のとき'],u:['Xác định thời điểm của hành động chính'],ex:[{ja:'日本に来たとき、富士山を見たいです。',rd:'にほんにきたとき、ふじさんをみたいです。',vi:'Khi đến Nhật, tôi muốn xem núi Phú Sĩ.'}],rl:[{t:'similar',id:'n3-uchi-ni',n:'～うちに: trong khi còn (trước khi thay đổi)'}],tg:['thời gian','thời điểm'],qs:'verified'},
+  {id:'n3-uchi-ni',lv:'N3',cat:'time',x:340,y:130,p:'～うちに',r:'～うちに',ro:'uchi ni',sv:'Trong khi còn…',mv:['Thực hiện hành động trong khoảng thời gian còn đang ở trạng thái nào đó — trước khi trạng thái thay đổi'],cn:['V辞書形/ている + うちに','Vない + うちに','Adj/N + うちに'],u:['Nhấn mạnh tận dụng thời điểm hiện tại'],ex:[{ja:'若いうちに、いろいろな経験をしてください。',rd:'わかいうちに、いろいろなけいけんをしてください。',vi:'Trong khi còn trẻ, hãy trải nghiệm nhiều thứ.'}],rl:[{t:'similar',id:'n5-toki',n:'～とき: thời điểm cụ thể; ～うちに: trong khi (trước khi thay đổi)'},{t:'confused_with',id:'n3-aida-ni',n:'うちに: tận dụng trước khi thay đổi; 間に: một sự kiện trong khoảng'}],tg:['thời gian','trong khi'],qs:'verified'},
+  {id:'n3-aida-ni',lv:'N3',cat:'time',x:80,y:200,p:'～間に',r:'～間に',ro:'aida ni',sv:'Trong khoảng thời gian đó',mv:['Hành động/sự việc xảy ra trong khoảng thời gian A đang diễn ra'],cn:['V辞書形・Vている + あいだに','N + のあいだに'],nu:['Phân biệt với ～間 (không có に): toàn bộ thời gian'],ex:[{ja:'外出している間に、電話がありました。',rd:'がいしゅつしているあいだに、でんわがありました。',vi:'Trong khi tôi ra ngoài, có điện thoại gọi đến.'}],rl:[{t:'similar',id:'n3-uchi-ni',n:'～うちに: tận dụng khoảng thời gian; ～間に: một điểm trong khoảng đó'}],tg:['thời gian','khoảng thời gian'],qs:'verified'},
+  {id:'n3-tabi-ni',lv:'N3',cat:'time',x:210,y:200,p:'～たびに',r:'～たびに',ro:'tabi ni',sv:'Mỗi khi…',mv:['Mỗi lần sự kiện A xảy ra, sự kiện B cũng xảy ra — quan hệ lặp lại đều đặn'],cn:['V辞書形 + たびに','N + のたびに'],u:['Nhấn mạnh tính lặp lại nhất quán'],ex:[{ja:'この歌を聞くたびに、故郷を思い出します。',rd:'このうたをきくたびに、こきょうをおもいだします。',vi:'Mỗi khi nghe bài hát này, tôi lại nhớ quê hương.'}],rl:[{t:'similar',id:'n5-toki',n:'～とき: một lần cụ thể; ～たびに: mỗi lần (lặp lại)'}],tg:['thời gian','mỗi khi'],qs:'verified'},
+  {id:'n5-te-iru',lv:'N5',cat:'time',x:80,y:60,p:'～ている',r:'～ている',ro:'te iru',sv:'Đang làm / Trạng thái',mv:['Hành động đang tiếp diễn hoặc trạng thái kết quả đang tồn tại','Một số動詞 diễn tả trạng thái kết quả: 結婚している = đã kết hôn (không phải "đang kết hôn")'],cn:['Động từ thể て + いる / います'],u:['Hành động đang diễn ra: 食べている','Trạng thái kết quả: 知っている, 住んでいる'],ex:[{ja:'今、本を読んでいます。',rd:'いま、ほんをよんでいます。',vi:'Tôi đang đọc sách.'}],rl:[{t:'contrast',id:'n5-te-kara',n:'～てから: sau khi; ～ている: đang trong quá trình'}],tg:['tiếp diễn','trạng thái'],qs:'verified'},
+  {id:'n4-ato-de',lv:'N4',cat:'time',x:210,y:130,p:'～た後で',r:'～た後で',ro:'ato de',sv:'Sau khi… (thong thả)',mv:['Sau khi hành động 1 xong, thực hiện hành động 2 — không nhấn mạnh thứ tự bắt buộc như てから'],cn:['Vた + 後で','N + の後で'],u:['Trình tự thời gian tự nhiên, không bắt buộc'],ex:[{ja:'授業の後で、図書館へ行きます。',rd:'じゅぎょうのあとで、としょかんへいきます。',vi:'Sau giờ học, tôi đi thư viện.'}],rl:[{t:'similar',id:'n5-te-kara',n:'～てから: trình tự bắt buộc; ～た後で: trình tự tự nhiên'}],tg:['thời gian','sau khi'],qs:'verified'},
+  {id:'n3-tokoro-da',lv:'N3',cat:'time',x:80,y:270,p:'～ところだ',r:'～ところだ',ro:'tokoro da',sv:'Sắp / Đang / Vừa mới…',mv:['Vる+ところだ: sắp làm','Vている+ところだ: đang làm','Vた+ところだ: vừa mới làm xong'],cn:['V辞書形 + ところだ (sắp)','Vている + ところだ (đang)','Vた + ところだ (vừa xong)'],u:['Nhấn mạnh thời điểm chính xác của hành động'],ex:[{ja:'今から出かけるところです。',rd:'いまからでかけるところです。',vi:'Tôi sắp ra ngoài bây giờ.'}],rl:[{t:'similar',id:'n3-ta-bakari',n:'たばかり: vừa mới (cảm giác gần); ところだ: vừa mới (thời điểm chính xác)'}],tg:['thời gian','thời điểm'],qs:'verified'},
+  {id:'n3-ta-bakari',lv:'N3',cat:'time',x:210,y:270,p:'～たばかり',r:'～たばかり',ro:'ta bakari',sv:'Vừa mới… (cảm giác)',mv:['Hành động vừa mới xảy ra — cảm giác chủ quan, có thể thực tế đã lâu nhưng người nói vẫn thấy "mới"'],cn:['Vた + ばかり'],nu:['Không dùng cho sự kiện xa trong quá khứ mà người nói cũng thấy xa'],ex:[{ja:'日本に来たばかりで、まだ何もわかりません。',rd:'にほんにきたばかりで、まだなにもわかりません。',vi:'Tôi vừa mới đến Nhật nên chưa biết gì cả.'}],rl:[{t:'similar',id:'n3-tokoro-da',n:'ところだ: vừa mới (thời điểm); たばかり: vừa mới (cảm giác chủ quan)'}],tg:['thời gian','vừa mới'],qs:'verified'},
+  {id:'n3-te-irai',lv:'N3',cat:'time',x:340,y:270,p:'～て以来',r:'～て以来',ro:'te irai',sv:'Kể từ khi…',mv:['Kể từ khi sự kiện A xảy ra, trạng thái B vẫn tiếp tục đến hiện tại'],cn:['Vて + 以来','N + 以来'],nu:['Chỉ dùng cho sự kiện đã xảy ra, không dùng cho tương lai'],ex:[{ja:'日本に来て以来、毎日日本語を使っています。',rd:'にほんにきていらい、まいにちにほんごをつかっています。',vi:'Kể từ khi đến Nhật, tôi dùng tiếng Nhật mỗi ngày.'}],rl:[{t:'similar',id:'n5-te-kara',n:'～てから: sau khi (một lần); ～て以来: kể từ đó (liên tục)'}],tg:['thời gian','kể từ'],qs:'verified'},
+  // ── 原因 REASON ──
+  {id:'n5-kara',lv:'N5',cat:'reason',x:1100,y:60,p:'～から',r:'～から',ro:'kara',sv:'Vì… nên… (chủ quan)',mv:['Nguyên nhân mang tính chủ quan của người nói — giải thích lý do cá nhân'],cn:['Thể thông thường + から','Danh từ/Na-adj + だから'],u:['Khi muốn giải thích lý do cá nhân'],ex:[{ja:'眠いから、早く寝ます。',rd:'ねむいから、はやくねます。',vi:'Vì buồn ngủ nên ngủ sớm.'}],rl:[{t:'same_function',id:'n4-node',n:'～ので khách quan và lịch sự hơn ～から'}],tg:['nguyên nhân','lý do'],qs:'verified'},
+  {id:'n4-node',lv:'N4',cat:'reason',x:1230,y:60,p:'～ので',r:'～ので',ro:'node',sv:'Vì… (khách quan)',mv:['Nguyên nhân mang tính khách quan, lịch sự hơn ～から'],cn:['Thể thông thường + ので','Danh từ/Na-adj + なので'],u:['Văn nói lịch sự và văn viết'],ex:[{ja:'体調が悪いので、早退します。',rd:'たいちょうがわるいので、そうたいします。',vi:'Vì sức khỏe không tốt nên về sớm.'}],rl:[{t:'same_function',id:'n5-kara',n:'～から chủ quan hơn ～ので'},{t:'confused_with',id:'n3-tame',n:'ので: giải thích mềm; ため: trang trọng, văn viết'}],tg:['nguyên nhân','lịch sự'],qs:'verified'},
+  {id:'n4-shi',lv:'N4',cat:'reason',x:1100,y:130,p:'～し～し',r:'～し',ro:'shi',sv:'Vừa… lại vừa… (liệt kê)',mv:['Liệt kê nhiều lý do hoặc đặc điểm cùng lúc — không cần nêu hết tất cả'],cn:['Thể thông thường + し (lặp nhiều lần)'],u:['Liệt kê ít nhất 2 lý do hoặc tính chất'],ex:[{ja:'安いし、おいしいし、この店によく来ます。',rd:'やすいし、おいしいし、このみせによくきます。',vi:'Vừa rẻ vừa ngon nên hay đến tiệm này.'}],rl:[{t:'same_function',id:'n5-kara',n:'～し: liệt kê nhiều lý do; ～から: chỉ một lý do'}],tg:['nguyên nhân','liệt kê'],qs:'verified'},
+  {id:'n3-tame',lv:'N3',cat:'reason',x:1230,y:130,p:'～ため（に）',r:'～ため（に）',ro:'tame ni',sv:'Vì/Do… (văn phong)',mv:['Nguyên nhân hoặc mục đích trong văn viết — văn phong hơn ～ので'],cn:['Thể thường + ために (nguyên nhân)','Thể từ điển + ために (mục đích)'],u:['Văn viết, báo chí, lịch sự cao'],ex:[{ja:'病気のために、学校を休みました。',rd:'びょうきのために、がっこうをやすみました。',vi:'Vì bệnh nên nghỉ học.'}],rl:[{t:'same_function',id:'n5-kara',n:'～ため văn phong hơn ～から'},{t:'confused_with',id:'n4-node',n:'ため: nguyên nhân trang trọng; ので: nhẹ nhàng hơn'}],tg:['nguyên nhân','văn phong'],qs:'verified'},
+  {id:'n3-okage-de',lv:'N3',cat:'reason',x:1100,y:200,p:'～おかげで',r:'～おかげで',ro:'okage de',sv:'Nhờ… (kết quả tốt)',mv:['Nêu nguyên nhân mang lại kết quả tốt — hàm ơn hoặc ghi nhận'],cn:['V普通形 + おかげで','N + のおかげで'],nu:['Không dùng khi kết quả xấu — dùng ～せいで thay'],ex:[{ja:'先生のおかげで、試験に合格できました。',rd:'せんせいのおかげで、しけんにごうかくできました。',vi:'Nhờ thầy giáo mà tôi đậu kỳ thi.'}],rl:[{t:'contrast',id:'n3-sei-de',n:'おかげで: kết quả tốt; せいで: kết quả xấu'}],tg:['nguyên nhân','nhờ'],qs:'verified'},
+  {id:'n3-sei-de',lv:'N3',cat:'reason',x:1230,y:200,p:'～せいで',r:'～せいで',ro:'sei de',sv:'Tại/Do… (kết quả xấu)',mv:['Nêu nguyên nhân mang lại kết quả xấu — đổ lỗi hoặc quy trách nhiệm'],cn:['V普通形 + せいで','N + のせいで'],nu:['Không dùng khi kết quả tốt — dùng ～おかげで thay'],ex:[{ja:'電車が遅れたせいで、遅刻しました。',rd:'でんしゃがおくれたせいで、ちこくしました。',vi:'Tại tàu điện trễ nên tôi đến muộn.'}],rl:[{t:'contrast',id:'n3-okage-de',n:'おかげで: kết quả tốt; せいで: kết quả xấu'}],tg:['nguyên nhân','đổ lỗi'],qs:'verified'},
+  {id:'n3-monodakara',lv:'N3',cat:'reason',x:1100,y:270,p:'～ものだから',r:'～ものだから',ro:'mono dakara',sv:'Vì… nên… (biện minh)',mv:['Giải thích/biện minh lý do — thường dùng khi xin lỗi hoặc bào chữa'],cn:['V/Adj 普通形 + ものだから','Văn nói: ～もんだから / ～もので'],u:['Xin lỗi kèm lý do','Biện minh cho hành động'],ex:[{ja:'道が混んでいたものですから、遅れてしまいました。',rd:'みちがこんでいたものですから、おくれてしまいました。',vi:'Vì đường đông nên tôi đến trễ mất.'}],rl:[{t:'similar',id:'n4-node',n:'ので: nguyên nhân trung tính; ものだから: biện minh'}],tg:['nguyên nhân','biện minh'],qs:'verified'},
+  {id:'n3-koto-kara',lv:'N3',cat:'reason',x:1230,y:270,p:'～ことから',r:'～ことから',ro:'koto kara',sv:'Từ việc… / Căn cứ vào…',mv:['Nêu căn cứ, bằng chứng dẫn đến kết luận — thường dùng trong văn viết'],cn:['V/Adj 普通形 + ことから'],u:['Giải thích nguồn gốc tên gọi','Nêu căn cứ suy luận'],ex:[{ja:'形が富士山に似ていることから、この名前がつけられた。',rd:'かたちがふじさんににていることから、このなまえがつけられた。',vi:'Vì hình dạng giống núi Phú Sĩ nên được đặt tên như vậy.'}],rl:[{t:'similar',id:'n3-tame',n:'ため: nguyên nhân trực tiếp; ことから: căn cứ/bằng chứng'}],tg:['căn cứ','nguồn gốc'],qs:'verified'},
+  // ── 義務 OBLIGATION ──
+  {id:'n4-nasai',lv:'N4',cat:'obligation',x:340,y:750,p:'～なさい',r:'～なさい',ro:'nasai',sv:'Hãy làm! (mệnh lệnh nhẹ)',mv:['Mệnh lệnh nhẹ nhàng — dùng từ trên xuống dưới (cha mẹ, thầy cô)'],cn:['Vます-stem + なさい'],nu:['Không dùng với người ngang hàng hoặc người trên'],ex:[{ja:'早く寝なさい。',rd:'はやくねなさい。',vi:'Đi ngủ sớm đi!'}],rl:[{t:'similar',id:'n5-te-kudasai',n:'てください: lịch sự; なさい: mệnh lệnh nhẹ'}],tg:['mệnh lệnh','trên xuống'],qs:'verified'},
+  {id:'n3-shika-nai',lv:'N3',cat:'obligation',x:470,y:890,p:'～しかない',r:'～しかない',ro:'shika nai',sv:'Chỉ còn cách… (bắt buộc)',mv:['Không còn lựa chọn nào khác — buộc phải làm điều này'],cn:['V辞書形 + しかない'],u:['Bị dồn vào thế phải làm'],ex:[{ja:'バスがないから、歩くしかない。',rd:'バスがないから、あるくしかない。',vi:'Không có xe buýt nên chỉ còn cách đi bộ.'}],rl:[{t:'similar',id:'n3-beki-da',n:'べきだ: nên làm (đạo lý); しかない: buộc phải (không còn cách khác)'}],tg:['bắt buộc','không lựa chọn'],qs:'verified'},
+  {id:'n5-nakereba',lv:'N5',cat:'obligation',x:340,y:680,p:'～なければなりません',r:'～なければ\nなりません',ro:'nakereba narimasen',sv:'Phải làm… (bắt buộc)',mv:['Nghĩa vụ, bắt buộc — cần phải thực hiện hành động này'],cn:['Vない形 (bỏ い) + ければなりません','Nói thân mật: ～なきゃ / ～なければ'],u:['Quy định, quy tắc bắt buộc','Tự nhắc nhở bản thân'],ex:[{ja:'明日までにレポートを出さなければなりません。',rd:'あしたまでにレポートをださなければなりません。',vi:'Phải nộp báo cáo trước ngày mai.'}],rl:[{t:'contrast',id:'n5-te-mo-ii',n:'なければならない: phải; てもいい: được phép'}],tg:['nghĩa vụ','bắt buộc'],qs:'verified'},
+  {id:'n5-te-mo-ii',lv:'N5',cat:'obligation',x:210,y:680,p:'～てもいいですか',r:'～てもいいですか',ro:'te mo ii desu ka',sv:'Được phép làm không?',mv:['Xin phép thực hiện hành động — hỏi xem có được phép không'],cn:['Động từ thể て + もいいですか (hỏi)','Động từ thể て + もいいです (cho phép)'],u:['Hỏi xin phép lịch sự','Cho phép người khác'],ex:[{ja:'ここに座ってもいいですか。',rd:'ここにすわってもいいですか。',vi:'Tôi có thể ngồi đây không?'}],rl:[{t:'contrast',id:'n4-te-ha-ikenai',n:'てもいい: cho phép; てはいけない: cấm đoán'}],tg:['cho phép','xin phép'],qs:'verified'},
+  {id:'n5-te-kudasai',lv:'N5',cat:'obligation',x:80,y:680,p:'～てください',r:'～てください',ro:'te kudasai',sv:'Hãy / Vui lòng làm',mv:['Yêu cầu hoặc nhờ người nghe thực hiện hành động — lịch sự'],cn:['Động từ thể て + ください'],u:['Yêu cầu lịch sự','Chỉ dẫn, hướng dẫn'],ex:[{ja:'ここに名前を書いてください。',rd:'ここになまえをかいてください。',vi:'Vui lòng viết tên vào đây.'}],rl:[{t:'similar',id:'n5-te-moraeru',n:'てもらう: nhờ (người khác làm cho mình)'}],tg:['yêu cầu','て形'],qs:'verified'},
+  {id:'n4-te-ha-ikenai',lv:'N4',cat:'obligation',x:210,y:750,p:'～てはいけません',r:'～てはいけません',ro:'te wa ikemasen',sv:'Không được phép làm',mv:['Cấm đoán — không được phép thực hiện hành động'],cn:['Động từ thể て + はいけません'],u:['Quy tắc, luật lệ','Lời cảnh báo, cấm đoán'],ex:[{ja:'ここに駐車してはいけません。',rd:'ここにちゅうしゃしてはいけません。',vi:'Không được đậu xe ở đây.'}],rl:[{t:'contrast',id:'n5-te-mo-ii',n:'てもいい: cho phép; てはいけない: cấm đoán'}],tg:['cấm đoán','quy tắc'],qs:'verified'},
+  {id:'n4-hou-ga-ii',lv:'N4',cat:'obligation',x:80,y:820,p:'～ほうがいいです',r:'～ほうがいいです',ro:'hou ga ii',sv:'Nên / Không nên (lời khuyên)',mv:['Lời khuyên — nên hoặc không nên làm gì đó','Phủ định: ～ないほうがいいです'],cn:['Vた + ほうがいいです (nên làm)','Vない + ほうがいいです (không nên)'],u:['Đưa ra lời khuyên nhẹ nhàng'],ex:[{ja:'もっと野菜を食べたほうがいいです。',rd:'もっとやさいをたべたほうがいいです。',vi:'Bạn nên ăn nhiều rau hơn.'}],rl:[{t:'contrast',id:'n5-nakereba',n:'なければならない: bắt buộc; ほうがいい: lời khuyên'}],tg:['lời khuyên','nên'],qs:'verified'},
+  {id:'n4-te-mimasu',lv:'N4',cat:'obligation',x:210,y:820,p:'～てみます',r:'～てみます',ro:'te mimasu',sv:'Thử làm xem sao',mv:['Thử thực hiện hành động để xem kết quả — "làm thử"'],cn:['Động từ thể て + みます'],u:['Thử nghiệm, khám phá','Ngụ ý không biết chắc kết quả'],ex:[{ja:'日本料理を作ってみます。',rd:'にほんりょうりをつくってみます。',vi:'Tôi thử nấu món Nhật xem sao.'}],rl:[{t:'similar',id:'n5-te-kudasai',n:'てください: yêu cầu người khác; てみる: tự mình thử'}],tg:['thử làm','khám phá'],qs:'verified'},
+  {id:'n5-mashou',lv:'N5',cat:'obligation',x:80,y:750,p:'～ましょう',r:'～ましょう',ro:'mashou',sv:'Cùng… nhé / Nào ta…',mv:['Đề nghị hoặc rủ rê cùng làm — "chúng ta cùng..."','Cũng dùng để tự nguyện giúp: 持ちましょうか'],cn:['Vます-stem + ましょう','Vます-stem + ましょうか (đề nghị giúp)'],u:['Rủ rê cùng làm','Đề nghị giúp đỡ'],ex:[{ja:'一緒にお昼ご飯を食べましょう。',rd:'いっしょにおひるごはんをたべましょう。',vi:'Cùng ăn trưa nhé.'}],rl:[{t:'similar',id:'n5-te-kudasai',n:'てください: yêu cầu; ましょう: rủ rê/đề nghị'}],tg:['đề nghị','rủ rê'],qs:'verified'},
+  {id:'n3-beki-da',lv:'N3',cat:'obligation',x:340,y:820,p:'～べきだ',r:'～べきだ',ro:'beki da',sv:'Nên / Phải (đạo lý)',mv:['Nghĩa vụ đạo đức hoặc lẽ thường — nên làm vì đó là điều đúng đắn','Mạnh hơn ～ほうがいい, nhẹ hơn ～なければならない'],cn:['V辞書形 + べきだ','する → するべきだ / すべきだ'],nu:['Không dùng cho việc cá nhân tùy ý — chỉ dùng cho điều mang tính đạo lý'],ex:[{ja:'約束は守るべきです。',rd:'やくそくはまもるべきです。',vi:'Lời hứa thì phải giữ.'}],rl:[{t:'contrast',id:'n4-hou-ga-ii',n:'ほうがいい: lời khuyên nhẹ; べきだ: nghĩa vụ đạo đức'},{t:'contrast',id:'n5-nakereba',n:'なければならない: bắt buộc quy tắc; べきだ: đạo lý'}],tg:['nghĩa vụ','đạo đức'],qs:'verified'},
+  // ── 目的 PURPOSE/DESIRE/ABILITY ──
+  {id:'n5-taitodesu',lv:'N5',cat:'purpose',x:550,y:680,p:'～たいです',r:'～たいです',ro:'tai desu',sv:'Muốn làm…',mv:['Biểu thị mong muốn của bản thân'],cn:['Vます-stem + たいです (lịch sự)','Vます-stem + たい (thông thường)'],nu:['Không dùng thẳng với chủ ngữ ngôi 3 — cần ～たがっています'],ex:[{ja:'日本に行きたいです。',rd:'にほんにいきたいです。',vi:'Tôi muốn đi Nhật Bản.'}],rl:[{t:'similar',id:'n5-ni-iku',n:'たいです: muốn làm; に行く: đi để làm'}],tg:['mong muốn','nguyện vọng'],qs:'verified'},
+  {id:'n5-ni-iku',lv:'N5',cat:'purpose',x:680,y:680,p:'Vますに行く',r:'Vますに行く',ro:'ni iku',sv:'Đi để làm…',mv:['Mục đích của việc di chuyển — đi, đến, về để làm gì'],cn:['Vます-stem + に行く / 来る / 帰る'],u:['Chỉ mục đích khi di chuyển'],ex:[{ja:'食べに行きます。',rd:'たべにいきます。',vi:'Tôi đi ăn.'}],rl:[{t:'similar',id:'n4-tame-ni',n:'～ために tổng quát hơn, không giới hạn di chuyển'}],tg:['mục đích','di chuyển'],qs:'verified'},
+  {id:'n5-ta-koto',lv:'N5',cat:'purpose',x:810,y:680,p:'～たことがあります',r:'たことがあります',ro:'ta koto ga arimasu',sv:'Từng làm… (kinh nghiệm)',mv:['Biểu thị kinh nghiệm đã từng trải qua ít nhất một lần trong quá khứ'],cn:['Thể た + ことがあります'],nu:['Không dùng cho sự kiện rất gần đây (tuần trước, hôm qua)'],ex:[{ja:'富士山に登ったことがあります。',rd:'ふじさんにのぼったことがあります。',vi:'Tôi đã từng leo núi Phú Sĩ.'}],rl:[{t:'similar',id:'n5-koto-dekiru',n:'ことができる: hiện tại có khả năng; たことがある: quá khứ đã từng'}],tg:['kinh nghiệm','quá khứ'],qs:'verified'},
+  {id:'n5-koto-dekiru',lv:'N5',cat:'purpose',x:550,y:750,p:'～ことができます',r:'ことができます',ro:'koto ga dekimasu',sv:'Có thể làm được…',mv:['Biểu thị khả năng thực hiện hành động — lịch sự và văn phong hơn dạng khả năng trực tiếp'],cn:['V辞書形 + ことができます','N + ができます'],u:['Nhấn mạnh khả năng thực sự, văn viết'],ex:[{ja:'日本語を話すことができます。',rd:'にほんごをはなすことができます。',vi:'Tôi có thể nói tiếng Nhật.'}],rl:[{t:'similar',id:'n5-ta-koto',n:'たことがある: quá khứ đã từng; ことができる: hiện tại có khả năng'}],tg:['khả năng','có thể'],qs:'verified'},
+  {id:'n4-tame-ni',lv:'N4',cat:'purpose',x:810,y:750,p:'Vる＋ために',r:'～ために',ro:'tame ni (purpose)',sv:'Để (mục đích ý chí)',mv:['Mục đích có ý chí, chủ động — để đạt được điều gì đó'],cn:['V辞書形 + ために','N + のために'],nu:['Không dùng với động từ trạng thái như ある, いる, わかる'],ex:[{ja:'日本語を勉強するために、日本へ行きます。',rd:'にほんごをべんきょうするために、にほんへいきます。',vi:'Để học tiếng Nhật, tôi đến Nhật.'}],rl:[{t:'confused_with',id:'n4-you-ni',n:'ために: sau động từ ý chí; ように: sau khả năng/trạng thái'}],tg:['mục đích','ý chí'],qs:'verified'},
+  {id:'n4-you-ni',lv:'N4',cat:'purpose',x:550,y:820,p:'Vる・Vない＋ように',r:'～ように',ro:'you ni (purpose)',sv:'Để (đạt khả năng/trạng thái)',mv:['Mục đích hướng tới khả năng hoặc trạng thái — không dùng với động từ ý chí trực tiếp'],cn:['V辞書形 / Vない + ように'],nu:['Không dùng khi mục đích là hành động ý chí trực tiếp — dùng ために thay'],ex:[{ja:'字が読めるように、毎日練習しています。',rd:'じがよめるように、まいにちれんしゅうしています。',vi:'Luyện tập mỗi ngày để có thể đọc chữ.'}],rl:[{t:'confused_with',id:'n4-tame-ni',n:'ために: ý chí; ように: khả năng/trạng thái'}],tg:['mục đích','khả năng'],qs:'verified'},
+  {id:'n4-tsumori',lv:'N4',cat:'purpose',x:680,y:820,p:'～つもりです',r:'～つもりです',ro:'tsumori desu',sv:'Dự định / Có ý định làm',mv:['Dự định hoặc ý định cá nhân — "tôi định sẽ làm..."'],cn:['V辞書形 + つもりです','Vない + つもりです (định không làm)'],nu:['Khác với ～予定です (kế hoạch đã được sắp xếp cụ thể)'],ex:[{ja:'来年、日本に留学するつもりです。',rd:'らいねん、にほんにりゅうがくするつもりです。',vi:'Tôi dự định năm tới đi du học Nhật.'}],rl:[{t:'similar',id:'n4-tame-ni',n:'ために: mục đích; つもり: dự định cá nhân'}],tg:['dự định','ý định'],qs:'verified'},
+  {id:'n4-te-okimasu',lv:'N4',cat:'purpose',x:810,y:820,p:'～ておきます',r:'～ておきます',ro:'te okimasu',sv:'Làm trước để chuẩn bị',mv:['Thực hiện hành động trước để phục vụ cho mục đích sau — "làm sẵn", "chuẩn bị trước"'],cn:['Động từ thể て + おきます'],u:['Chuẩn bị cho tình huống tương lai'],ex:[{ja:'パーティーの前に料理を作っておきます。',rd:'パーティーのまえにりょうりをつくっておきます。',vi:'Tôi nấu ăn trước để chuẩn bị cho bữa tiệc.'}],rl:[{t:'similar',id:'n4-tsumori',n:'つもり: dự định sẽ làm; ておく: làm sẵn trước'}],tg:['chuẩn bị','làm trước'],qs:'verified'},
+  {id:'n5-hoshii',lv:'N5',cat:'purpose',x:680,y:750,p:'～がほしい',r:'～がほしい',ro:'ga hoshii',sv:'Muốn có… (vật)',mv:['Biểu thị mong muốn sở hữu vật — khác ～たい (muốn làm hành động)'],cn:['N + がほしいです'],nu:['Không dùng thẳng với chủ ngữ ngôi 3 — cần ～ほしがっている'],ex:[{ja:'新しいパソコンがほしいです。',rd:'あたらしいパソコンがほしいです。',vi:'Tôi muốn có máy tính mới.'}],rl:[{t:'contrast',id:'n5-taitodesu',n:'たい: muốn LÀM; ほしい: muốn CÓ'}],tg:['mong muốn','vật'],qs:'verified'},
+  {id:'n3-koto-ni-suru',lv:'N3',cat:'purpose',x:940,y:820,p:'～ことにする',r:'ことにする',ro:'koto ni suru',sv:'Quyết định (chủ động)',mv:['Quyết định cá nhân, chủ động — "tôi quyết định sẽ..."','～ことにしている: thói quen do bản thân đặt ra'],cn:['V辞書形 / Vない + ことにする'],u:['Quyết định cá nhân','Thói quen tự đặt ra (ことにしている)'],ex:[{ja:'来月から毎朝走ることにしました。',rd:'らいげつからまいあさはしることにしました。',vi:'Tôi đã quyết định từ tháng sau sẽ chạy bộ mỗi sáng.'}],rl:[{t:'contrast',id:'n3-koto-ni-naru',n:'ことにする: tự quyết; ことになる: được quyết định'}],tg:['quyết định','chủ động'],qs:'verified'},
+  {id:'n3-koto-ni-naru',lv:'N3',cat:'change',x:680,y:510,p:'～ことになる',r:'ことになる',ro:'koto ni naru',sv:'Được quyết định / Thành ra là…',mv:['Quyết định từ bên ngoài hoặc kết quả tất yếu — không phải do bản thân'],cn:['V辞書形 / Vない + ことになる'],u:['Thông báo quyết định từ cơ quan, công ty','Kết quả tất yếu'],ex:[{ja:'来月、大阪に転勤することになりました。',rd:'らいげつ、おおさかにてんきんすることになりました。',vi:'Tháng tới tôi được chuyển công tác đến Osaka.'}],rl:[{t:'contrast',id:'n3-koto-ni-suru',n:'ことにする: tự quyết; ことになる: được quyết định'}],tg:['quyết định','bị động'],qs:'verified'},
+  // ── 変化 CHANGE ──
+  {id:'n5-ni-naru',lv:'N5',cat:'change',x:550,y:370,p:'～になります',r:'～になります',ro:'ni narimasu',sv:'Trở nên / Trở thành…',mv:['Biến đổi tự nhiên về tính chất hoặc trạng thái','い形: ～くなります; な形/N: ～になります'],cn:['いAdj → くなります','なAdj/N + になります'],u:['Thay đổi tự nhiên theo thời gian'],ex:[{ja:'だんだん暖かくなりました。',rd:'だんだんあたたかくなりました。',vi:'Dần dần trở nên ấm áp hơn.'}],rl:[{t:'similar',id:'n4-you-ni-naru',n:'ようになる: thay đổi về khả năng; になる: thay đổi về tính chất'}],tg:['thay đổi','trở nên'],qs:'verified'},
+  {id:'n4-you-ni-naru',lv:'N4',cat:'change',x:680,y:370,p:'～ようになる',r:'～ようになる',ro:'you ni naru',sv:'Trở nên có thể (tự nhiên)',mv:['Thay đổi dần dần về khả năng hoặc thói quen — không chủ động'],cn:['V辞書形 / Vない + ようになる'],u:['Thay đổi tự nhiên, không cố ý'],ex:[{ja:'日本語が話せるようになりました。',rd:'にほんごがはなせるようになりました。',vi:'Tôi đã có thể nói tiếng Nhật rồi.'}],rl:[{t:'confused_with',id:'n4-you-ni-suru',n:'ようになる: tự nhiên; ようにする: chủ động cố gắng'}],tg:['thay đổi','khả năng','tự nhiên'],qs:'verified'},
+  {id:'n4-you-ni-suru',lv:'N4',cat:'change',x:810,y:370,p:'Vる・Vない＋ようにする',r:'～ようにする',ro:'you ni suru',sv:'Cố gắng tạo thói quen',mv:['Chủ động nỗ lực để hành động thành thói quen được duy trì'],cn:['V辞書形 / Vない + ようにする'],nu:['Phân biệt với ようになる: thay đổi tự nhiên, không chủ động'],ex:[{ja:'毎日、日本語を読むようにしています。',rd:'まいにち、にほんごをよむようにしています。',vi:'Tôi cố gắng đọc tiếng Nhật mỗi ngày.'}],rl:[{t:'confused_with',id:'n4-you-ni-naru',n:'ようになる: tự nhiên; ようにする: chủ động cố gắng'}],tg:['thay đổi','thói quen'],qs:'verified'},
+  {id:'n4-te-shimau',lv:'N4',cat:'change',x:810,y:440,p:'～てしまう',r:'～てしまう',ro:'te shimau',sv:'Lỡ làm… / Hoàn thành hẳn',mv:['Hoàn thành toàn vẹn (không thể đảo ngược)','Hối tiếc vì hành động ngoài ý muốn đã xảy ra'],cn:['Thể て + しまう','Văn nói: ～ちゃう / ～じゃう'],u:['Hoàn thành triệt để','Hối tiếc, sự cố ngoài ý muốn'],ex:[{ja:'宿題を忘れてしまいました。',rd:'しゅくだいをわすれてしまいました。',vi:'Tôi đã lỡ quên bài tập mất rồi.'}],rl:[{t:'similar',id:'n4-you-ni-naru',n:'Cả hai đều chỉ kết quả đã hoàn thành'}],tg:['hoàn thành','hối tiếc'],qs:'verified'},
+  {id:'n3-ni-tsure',lv:'N3',cat:'change',x:810,y:510,p:'～につれて',r:'～につれて',ro:'ni tsurete',sv:'Cùng với… thì…',mv:['Khi A biến đổi thì B cũng biến đổi theo cùng hướng — thay đổi song song'],cn:['V辞書形 + につれて','N + につれて'],nu:['Không dùng khi B là hành động chủ động'],ex:[{ja:'年をとるにつれて、体力が落ちてきます。',rd:'としをとるにつれて、たいりょくがおちてきます。',vi:'Cùng với việc tuổi tác tăng lên, thể lực cũng giảm đi.'}],rl:[{t:'similar',id:'n4-you-ni-naru',n:'ようになる: đạt được; につれて: thay đổi song song'}],tg:['thay đổi','song song'],qs:'verified'},
+  {id:'n4-yasui-nikui',lv:'N4',cat:'change',x:550,y:440,p:'～やすい／にくい',r:'～やすい／にくい',ro:'yasui / nikui',sv:'Dễ / Khó làm…',mv:['やすい: tính chất dễ xảy ra — "hay bị...", "dễ..."','にくい: tính chất khó xảy ra — "khó...", "không dễ..."'],cn:['Vます-stem + やすい / にくい'],u:['Mô tả tính chất cố hữu của vật/việc'],ex:[{ja:'この靴は歩きやすいです。',rd:'このくつはあるきやすいです。',vi:'Đôi giày này dễ đi.'},{ja:'この漢字は覚えにくいです。',rd:'このかんじはおぼえにくいです。',vi:'Chữ kanji này khó nhớ.'}],rl:[{t:'similar',id:'n4-te-shimau',n:'てしまう: đã xảy ra; やすい: có xu hướng dễ xảy ra'}],tg:['tính chất','dễ khó'],qs:'verified'},
+  {id:'n3-gachi',lv:'N3',cat:'change',x:680,y:440,p:'～がち',r:'～がち',ro:'gachi',sv:'Hay bị… / Có xu hướng… (tiêu cực)',mv:['Xu hướng tiêu cực, không mong muốn — "hay bị...", "thường..."'],cn:['Vます-stem + がち','N + がち'],nu:['Hầu như luôn mang sắc thái tiêu cực'],ex:[{ja:'最近、風邪をひきがちです。',rd:'さいきん、かぜをひきがちです。',vi:'Gần đây tôi hay bị cảm.'}],rl:[{t:'similar',id:'n4-yasui-nikui',n:'やすい: dễ (trung tính); がち: hay bị (tiêu cực)'}],tg:['xu hướng','tiêu cực'],qs:'verified'},
+  {id:'n4-te-kuru',lv:'N4',cat:'change',x:550,y:510,p:'～てくる／ていく',r:'～てくる',ro:'te kuru / te iku',sv:'Bắt đầu… / Dần dần…',mv:['てくる: thay đổi hướng về hiện tại — "bắt đầu...", "dần dần..."','ていく: thay đổi hướng ra xa — "sẽ tiếp tục...", "dần..."'],cn:['Vて + くる / いく'],u:['Mô tả quá trình thay đổi dần dần'],ex:[{ja:'空が暗くなってきました。',rd:'そらがくらくなってきました。',vi:'Trời bắt đầu tối dần.'}],rl:[{t:'similar',id:'n3-ni-tsure',n:'につれて: song song; てくる: dần dần về phía mình'}],tg:['thay đổi','dần dần'],qs:'verified'},
+  // ── 表現 EXPRESSION ──
+  {id:'n5-to-omou',lv:'N5',cat:'expression',x:1100,y:370,p:'～と思います',r:'～と思います',ro:'to omoimasu',sv:'Tôi nghĩ rằng…',mv:['Biểu thị ý kiến, phỏng đoán của bản thân — "tôi nghĩ..."'],cn:['V/Adj 普通形 + と思います'],u:['Nêu ý kiến cá nhân','Suy đoán dựa trên suy nghĩ của mình'],ex:[{ja:'明日、雨が降ると思います。',rd:'あした、あめがふると思います。',vi:'Tôi nghĩ ngày mai trời sẽ mưa.'}],rl:[{t:'similar',id:'n4-kamoshirenai',n:'かもしれない: có thể (bất định); と思う: tôi nghĩ (quan điểm)'}],tg:['ý kiến','suy nghĩ'],qs:'verified'},
+  {id:'n4-ndesu',lv:'N4',cat:'expression',x:1230,y:370,p:'～んです／のです',r:'～んです',ro:'n desu',sv:'Nhấn mạnh / Giải thích lý do',mv:['Ba sắc thái: (1) mào đầu nhờ/xin ý kiến, (2) nhấn mạnh nguyên nhân, (3) làm mềm câu hỏi'],cn:['V/Adj 普通形 + んです / のです'],u:['Giải thích ngữ cảnh','Hỏi thăm tình huống người khác nhẹ nhàng'],ex:[{ja:'どうしたんですか。→ 体の具合がよくないんです。',rd:'どうしたんですか。→ からだのぐあいがよくないんです。',vi:'Có chuyện gì vậy? → Tại tôi không được khỏe.'}],rl:[{t:'similar',id:'n5-kara',n:'から: giải thích thẳng; んです: nhấn mạnh, mào đầu'}],tg:['giải thích','nhấn mạnh'],qs:'verified'},
+  {id:'n4-deshoo',lv:'N4',cat:'expression',x:1360,y:370,p:'～でしょう',r:'～でしょう',ro:'deshou',sv:'Chắc là… / Có lẽ…',mv:['Phán đoán hoặc dự đoán dựa trên nhận định — "chắc là..."'],cn:['V/Adj 普通形 + でしょう','Nói thân mật: ～だろう'],u:['Dự đoán thời tiết, sự kiện tương lai'],ex:[{ja:'明日は晴れるでしょう。',rd:'あしたははれるでしょう。',vi:'Ngày mai trời chắc sẽ nắng.'}],rl:[{t:'similar',id:'n4-kamoshirenai',n:'でしょう: tự tin hơn; かもしれない: bất định hơn'}],tg:['phán đoán','dự đoán'],qs:'verified'},
+  {id:'n4-kamoshirenai',lv:'N4',cat:'expression',x:1100,y:440,p:'～かもしれません',r:'～かもしれません',ro:'kamoshiremasen',sv:'Có thể là… (không chắc)',mv:['Suy đoán có khả năng xảy ra nhưng không chắc chắn — khoảng 50% khả năng'],cn:['V/Adj 普通形 + かもしれません','Nói thân mật: ～かも'],u:['Khi không chắc chắn về kết quả'],ex:[{ja:'彼は来ないかもしれません。',rd:'かれはこないかもしれません。',vi:'Anh ấy có thể sẽ không đến.'}],rl:[{t:'similar',id:'n4-deshoo',n:'でしょう: tự tin hơn (~80%); かもしれない: bất định (~50%)'}],tg:['phán đoán','không chắc'],qs:'verified'},
+  {id:'n4-sugimasu',lv:'N4',cat:'expression',x:1230,y:440,p:'～すぎます',r:'～すぎます',ro:'sugimasu',sv:'Quá mức / Thái quá',mv:['Diễn đạt rằng mức độ vượt quá giới hạn bình thường'],cn:['Vます-stem + すぎます','いAdj (bỏ い) + すぎます','なAdj (bỏ な) + すぎます'],u:['Phàn nàn hoặc nhận xét điều gì đó quá mức'],ex:[{ja:'昨日は食べすぎてしまいました。',rd:'きのうはたべすぎてしまいました。',vi:'Hôm qua tôi đã ăn quá nhiều.'}],rl:[{t:'similar',id:'n4-hou-ga-ii',n:'すぎる: quá mức; ほうがいい: nên điều chỉnh'}],tg:['quá mức','thái quá'],qs:'verified'},
+  {id:'n3-hazu-da',lv:'N3',cat:'expression',x:1360,y:440,p:'～はずです',r:'～はずです',ro:'hazu desu',sv:'Chắc chắn là… (có căn cứ)',mv:['Phán đoán chắc chắn dựa trên logic, quy tắc hoặc thông tin đã biết'],cn:['V/Adj 普通形 + はずです','N + のはずです'],nu:['Không dùng cho điều bản thân trực tiếp làm hoặc cảm nhận'],ex:[{ja:'彼は今日来るはずです。',rd:'かれはきょうくるはずです。',vi:'Anh ấy hôm nay chắc chắn sẽ đến (vì đã hẹn).'}],rl:[{t:'similar',id:'n4-deshoo',n:'でしょう: phán đoán cảm tính; はずだ: phán đoán có căn cứ'},{t:'confused_with',id:'n3-ni-chigai-nai',n:'はずだ: kỳ vọng có căn cứ; に違いない: gần khẳng định'}],tg:['phán đoán','chắc chắn'],qs:'verified'},
+  {id:'n3-wake-da',lv:'N3',cat:'expression',x:1100,y:510,p:'～わけです',r:'～わけです',ro:'wake desu',sv:'Thảo nào / Đương nhiên là…',mv:['Kết luận hoặc lý giải dựa trên thông tin/logic đã có — "à, thế ra là..."'],cn:['V/Adj 普通形 + わけです'],u:['Nhận ra điều gì đó là hiển nhiên hoặc tất yếu'],ex:[{ja:'彼は日本に10年住んでいたんですか。それなら日本語が上手なわけです。',rd:'かれはにほんに10ねんすんでいたんですか。それならにほんごがじょうずなわけです。',vi:'Anh ấy sống ở Nhật 10 năm à? Thảo nào tiếng Nhật giỏi thế.'}],rl:[{t:'similar',id:'n3-hazu-da',n:'はずだ: chắc chắn (kỳ vọng); わけだ: kết luận (thảo nào)'},{t:'confused_with',id:'n3-ni-chigai-nai',n:'わけだ: kết luận logic; に違いない: tin chắc mạnh'}],tg:['kết luận','thảo nào'],qs:'verified'},
+  {id:'n3-rashii',lv:'N3',cat:'expression',x:1230,y:510,p:'～らしい',r:'～らしい',ro:'rashii',sv:'Nghe nói / Có vẻ / Đúng chất',mv:['Ba sắc thái: (1) nghe nói (thông tin từ nguồn khác), (2) có vẻ như, (3) đúng chất của'],cn:['V/Adj 普通形 + らしい','N + らしい'],u:['Truyền đạt thông tin gián tiếp','Nhận xét tính chất điển hình'],ex:[{ja:'明日は雨らしいです。',rd:'あしたはあめらしいです。',vi:'Nghe nói ngày mai trời mưa.'}],rl:[{t:'similar',id:'n4-deshoo',n:'でしょう: phán đoán; らしい: thông tin gián tiếp/đặc tính'}],tg:['phán đoán','nghe nói'],qs:'verified'},
+  {id:'n4-sou-youtai',lv:'N4',cat:'expression',x:1100,y:580,p:'～そうです（様態）',r:'～そうです',ro:'sou desu (youtai)',sv:'Trông có vẻ… (bằng mắt)',mv:['Phán đoán dựa trên quan sát trực tiếp — trông có vẻ sắp xảy ra hoặc đang ở trạng thái đó'],cn:['Vます-stem + そうです','いAdj (bỏ い) + そうです','なAdj + そうです'],nu:['いい → よさそう, ない → なさそう (bất quy tắc)'],ex:[{ja:'このケーキはおいしそうです。',rd:'このケーキはおいしそうです。',vi:'Cái bánh này trông có vẻ ngon.'}],rl:[{t:'confused_with',id:'n4-sou-denbun',n:'そうです(様態): bằng mắt; そうです(伝聞): nghe nói'},{t:'similar',id:'n4-kamoshirenai',n:'かもしれない: suy đoán; そう: quan sát'}],tg:['phán đoán','quan sát'],qs:'verified'},
+  {id:'n4-sou-denbun',lv:'N4',cat:'expression',x:1230,y:580,p:'～そうです（伝聞）',r:'～そうです',ro:'sou desu (denbun)',sv:'Nghe nói là… (truyền đạt)',mv:['Truyền đạt thông tin từ nguồn khác — tin tức, người khác nói, v.v.'],cn:['V/Adj 普通形 + そうです','N + だそうです'],u:['Truyền đạt tin tức, lời người khác'],ex:[{ja:'天気予報によると、明日は雪が降るそうです。',rd:'てんきよほうによると、あしたはゆきがふるそうです。',vi:'Theo dự báo thời tiết, nghe nói ngày mai sẽ có tuyết.'}],rl:[{t:'confused_with',id:'n4-sou-youtai',n:'そうです(伝聞): nghe nói; そうです(様態): bằng mắt'},{t:'similar',id:'n3-rashii',n:'らしい: cũng truyền đạt gián tiếp'}],tg:['truyền đạt','nghe nói'],qs:'verified'},
+  {id:'n4-you-da',lv:'N4',cat:'expression',x:1360,y:510,p:'～ようだ／みたいだ',r:'～ようだ',ro:'you da',sv:'Dường như / Hình như…',mv:['Phán đoán dựa trên nhiều dấu hiệu tổng hợp — không chỉ bằng mắt','みたいだ thông dụng hơn trong văn nói'],cn:['V/Adj 普通形 + ようだ','N + のようだ','Văn nói: ～みたいだ'],u:['Suy đoán dựa trên tổng hợp dấu hiệu'],ex:[{ja:'彼は疲れているようです。',rd:'かれはつかれているようです。',vi:'Anh ấy dường như đang mệt.'}],rl:[{t:'similar',id:'n3-rashii',n:'らしい: nghe nói/đặc tính; ようだ: suy đoán tổng hợp'},{t:'similar',id:'n4-sou-youtai',n:'そう: bằng mắt; ようだ: tổng hợp nhiều dấu hiệu'}],tg:['phán đoán','dường như'],qs:'verified'},
+  {id:'n4-ka-dou-ka',lv:'N4',cat:'expression',x:1100,y:650,p:'～かどうか',r:'～かどうか',ro:'ka dou ka',sv:'Có… hay không (gián tiếp)',mv:['Nghi vấn gián tiếp — nhúng câu hỏi yes/no vào câu chính'],cn:['V/Adj 普通形 + かどうか'],u:['Khi không biết chắc và muốn diễn đạt sự không chắc chắn'],ex:[{ja:'明日、雨が降るかどうかわかりません。',rd:'あした、あめがふるかどうかわかりません。',vi:'Tôi không biết ngày mai có mưa hay không.'}],rl:[{t:'similar',id:'n4-kamoshirenai',n:'かもしれない: có thể; かどうか: có... hay không'}],tg:['nghi vấn','gián tiếp'],qs:'verified'},
+  {id:'n3-ni-chigai-nai',lv:'N3',cat:'expression',x:1230,y:650,p:'～に違いない',r:'～に違いない',ro:'ni chigai nai',sv:'Chắc chắn là… (tin chắc)',mv:['Phán đoán rất tự tin dựa trên bằng chứng mạnh — gần như khẳng định'],cn:['V/Adj 普通形 + に違いない','N + に違いない'],u:['Khẳng định mạnh dựa trên suy luận'],ex:[{ja:'こんなに人気なら、おいしいに違いない。',rd:'こんなににんきなら、おいしいにちがいない。',vi:'Nổi tiếng thế này thì chắc chắn là ngon.'}],rl:[{t:'similar',id:'n3-hazu-da',n:'はずだ: chắc chắn (có căn cứ logic); に違いない: chắc chắn (tin chắc mạnh hơn)'}],tg:['phán đoán','chắc chắn'],qs:'verified'},
+  {id:'n3-wake-dewa-nai',lv:'N3',cat:'expression',x:1360,y:580,p:'～わけではない',r:'わけではない',ro:'wake dewa nai',sv:'Không hẳn là… (phủ định bộ phận)',mv:['Phủ định một phần — không hoàn toàn như vậy, chỉ đúng trong một số trường hợp'],cn:['V/Adj 普通形 + わけではない'],u:['Khi muốn nói "không phải hoàn toàn"'],ex:[{ja:'日本語が嫌いなわけではありません。ただ、難しいんです。',rd:'にほんごがきらいなわけではありません。ただ、むずかしいんです。',vi:'Không hẳn là ghét tiếng Nhật. Chỉ là nó khó thôi.'}],rl:[{t:'derived_from',id:'n3-wake-da',n:'わけだ: thảo nào; わけではない: không hẳn là'}],tg:['phủ định','bộ phận'],qs:'verified'},
+  {id:'n3-hazu-ga-nai',lv:'N3',cat:'expression',x:1360,y:650,p:'～はずがない',r:'～はずがない',ro:'hazu ga nai',sv:'Không thể nào… (phủ nhận mạnh)',mv:['Phủ nhận mạnh khả năng xảy ra dựa trên logic — "không đời nào..."'],cn:['V/Adj 普通形 + はずがない'],u:['Phản bác mạnh mẽ dựa trên lý lẽ'],ex:[{ja:'彼がそんなことを言うはずがない。',rd:'かれがそんなことをいうはずがない。',vi:'Anh ấy không đời nào nói điều đó.'}],rl:[{t:'contrast',id:'n3-hazu-da',n:'はずだ: chắc chắn là; はずがない: không đời nào'}],tg:['phủ nhận','chắc chắn'],qs:'verified'},
+  {id:'n3-to-iu-koto-da',lv:'N3',cat:'expression',x:1100,y:720,p:'～ということだ',r:'ということだ',ro:'to iu koto da',sv:'Nghĩa là… / Nghe nói…',mv:['(1) Giải thích ý nghĩa — "nghĩa là...", "có nghĩa rằng..."','(2) Truyền đạt gián tiếp — "nghe nói..."'],cn:['V/Adj 普通形 + ということだ'],u:['Giải thích, diễn giải lại','Truyền đạt thông tin gián tiếp'],ex:[{ja:'会議は中止だということです。',rd:'かいぎはちゅうしだということです。',vi:'Nghe nói cuộc họp bị hủy.'}],rl:[{t:'similar',id:'n4-sou-denbun',n:'そうだ伝聞: nghe nói (ngắn gọn); ということだ: truyền đạt (trang trọng hơn)'}],tg:['giải thích','truyền đạt'],qs:'verified'},
+  {id:'n3-ni-yoruto',lv:'N3',cat:'expression',x:1230,y:720,p:'～によると',r:'～によると',ro:'ni yoru to',sv:'Theo… (nguồn thông tin)',mv:['Dẫn nguồn thông tin — "theo tin tức...", "theo lời..."'],cn:['N + によると / によれば'],u:['Dẫn nguồn trước khi nêu nội dung'],ex:[{ja:'天気予報によると、明日は雨だそうです。',rd:'てんきよほうによると、あしたはあめだそうです。',vi:'Theo dự báo thời tiết, nghe nói ngày mai trời mưa.'}],rl:[{t:'similar',id:'n4-sou-denbun',n:'そうだ伝聞: nghe nói; によると: dẫn nguồn cụ thể'}],tg:['nguồn','dẫn chứng'],qs:'verified'},
+  // ── 動作 ACTION ──
+  {id:'n5-te-moraeru',lv:'N5',cat:'action',x:80,y:370,p:'～てもらいます',r:'～てもらいます',ro:'te moraimasu',sv:'Nhờ / Được ai làm cho',mv:['Nhận lợi ích từ người khác làm hành động — nhìn từ phía người nhận'],cn:['Động từ thể て + もらいます / もらいました'],u:['Người nói nhận được lợi ích từ hành động của người khác'],ex:[{ja:'友達に宿題を手伝ってもらいました。',rd:'ともだちにしゅくだいをてつだってもらいました。',vi:'Tôi được bạn giúp làm bài tập.'}],rl:[{t:'similar',id:'n5-te-kurete',n:'てくれる: người khác chủ động; てもらう: nhờ/được nhận'}],tg:['cho nhận','nhận lợi ích'],qs:'verified'},
+  {id:'n5-te-kurete',lv:'N5',cat:'action',x:210,y:370,p:'～てくれます',r:'～てくれます',ro:'te kuremasu',sv:'Người khác làm cho mình',mv:['Người khác chủ động thực hiện hành động có lợi cho người nói — không cần nhờ'],cn:['Động từ thể て + くれます / くれました'],u:['Người khác tự nguyện làm điều gì đó tốt cho người nói'],ex:[{ja:'先生が丁寧に説明してくれました。',rd:'せんせいがていねいにせつめいしてくれました。',vi:'Thầy giáo đã tận tình giải thích cho tôi.'}],rl:[{t:'similar',id:'n5-te-moraeru',n:'てもらう: nhờ/được nhận; てくれる: người khác chủ động'}],tg:['cho nhận','người khác cho'],qs:'verified'},
+  {id:'n5-tari',lv:'N5',cat:'action',x:340,y:370,p:'～たり～たりします',r:'～たり～たり',ro:'tari tari',sv:'Khi thì… khi thì… (liệt kê)',mv:['Liệt kê một số hành động tiêu biểu — không cần liệt kê hết'],cn:['V1た + り, V2た + りします'],u:['Liệt kê vài hành động đại diện','Diễn tả hành động lặp lại xen kẽ'],ex:[{ja:'週末は映画を見たり、買い物したりします。',rd:'しゅうまつはえいがをみたり、かいものしたりします。',vi:'Cuối tuần tôi xem phim, đi mua sắm v.v.'}],rl:[{t:'similar',id:'n4-shi',n:'～し: liệt kê lý do/tính chất; ～たり: liệt kê hành động'}],tg:['liệt kê','hành động'],qs:'verified'},
+  {id:'n4-nagara',lv:'N4',cat:'action',x:80,y:440,p:'Vます＋ながら',r:'～ながら',ro:'nagara',sv:'Vừa… vừa… (đồng thời)',mv:['Hai hành động diễn ra đồng thời do cùng một chủ thể thực hiện'],cn:['Vます-stem + ながら'],nu:['Không dùng khi hai hành động có chủ thể khác nhau'],ex:[{ja:'音楽を聞きながら勉強します。',rd:'おんがくをききながらべんきょうします。',vi:'Tôi vừa nghe nhạc vừa học bài.'}],rl:[{t:'confused_with',id:'n3-tsutsu',n:'～つつ văn phong hơn, ít dùng trong hội thoại'}],tg:['đồng thời','vừa vừa'],qs:'verified'},
+  {id:'n3-tsutsu',lv:'N3',cat:'action',x:210,y:440,p:'Vます＋つつ',r:'～つつ',ro:'tsutsu',sv:'Vừa… vừa… (văn phong)',mv:['Hai hành động đồng thời — dùng trong văn viết lịch sự','Cũng mang nghĩa nhượng bộ: "dù... vẫn..."'],cn:['Vます-stem + つつ'],nu:['Không dùng trong hội thoại thường ngày'],ex:[{ja:'悩みつつも、決断しました。',rd:'なやみつつも、けつだんしました。',vi:'Dù còn băn khoăn, tôi vẫn quyết định.'}],rl:[{t:'same_function',id:'n4-nagara',n:'～ながら thông dụng hơn trong nói'}],tg:['đồng thời','văn phong'],qs:'verified'},
+  {id:'n3-dake-de-naku',lv:'N3',cat:'action',x:340,y:440,p:'～だけでなく～も',r:'～だけでなく～も',ro:'dake de naku mo',sv:'Không chỉ… mà còn…',mv:['Không chỉ giới hạn ở A mà còn mở rộng đến B — nhấn mạnh thêm B ngoài A'],cn:['A + だけでなく + B + も + V'],u:['Liệt kê thêm B ngoài A đã biết'],ex:[{ja:'彼女は歌うだけでなく、踊ることもできます。',rd:'かのじょはうたうだけでなく、おどることもできます。',vi:'Cô ấy không chỉ hát mà còn biết nhảy nữa.'}],rl:[{t:'similar',id:'n5-tari',n:'たり: liệt kê hành động; だけでなく: mở rộng phạm vi'}],tg:['liệt kê','không chỉ mà còn'],qs:'verified'},
+  {id:'n3-ni-tsuite',lv:'N3',cat:'action',x:80,y:510,p:'～について',r:'～について',ro:'ni tsuite',sv:'Về / Liên quan đến…',mv:['Chỉ chủ đề, đối tượng được đề cập — "về việc...", "liên quan đến..."'],cn:['N + について / についての + N'],u:['Chỉ chủ đề thảo luận, nghiên cứu, giải thích'],ex:[{ja:'日本の文化について調べています。',rd:'にほんのぶんかについてしらべています。',vi:'Tôi đang tìm hiểu về văn hóa Nhật Bản.'}],rl:[{t:'similar',id:'n3-ni-taishite',n:'について: chủ đề; に対して: đối tượng/đối lập'},{t:'confused_with',id:'n3-ni-totte',n:'について: chủ đề; にとって: quan điểm cá nhân'}],tg:['chủ đề','liên quan'],qs:'verified'},
+  {id:'n3-ni-totte',lv:'N3',cat:'action',x:210,y:510,p:'～にとって',r:'～にとって',ro:'ni totte',sv:'Đối với… (quan điểm)',mv:['Nhìn từ quan điểm, lập trường của ai — "đối với A thì..."'],cn:['N + にとって（は）'],u:['Đánh giá theo quan điểm cá nhân/nhóm'],ex:[{ja:'この仕事は私にとってとても大切です。',rd:'このしごとはわたしにとってとてもたいせつです。',vi:'Công việc này đối với tôi rất quan trọng.'}],rl:[{t:'similar',id:'n3-ni-taishite',n:'にとって: quan điểm; に対して: đối tượng'}],tg:['quan điểm','đánh giá'],qs:'verified'},
+  {id:'n3-ni-taishite',lv:'N3',cat:'action',x:340,y:510,p:'～に対して',r:'～に対して',ro:'ni taishite',sv:'Đối với / Trái lại…',mv:['Chỉ đối tượng hướng đến hoặc sự đối lập giữa hai vế'],cn:['N + に対して','A + のに対して + B (đối lập)'],u:['Hướng đến đối tượng','So sánh đối lập'],ex:[{ja:'先生は学生に対して厳しいです。',rd:'せんせいはがくせいにたいしてきびしいです。',vi:'Thầy giáo nghiêm khắc đối với học sinh.'}],rl:[{t:'similar',id:'n3-ni-tsuite',n:'について: chủ đề; に対して: đối tượng/đối lập'}],tg:['đối tượng','đối lập'],qs:'verified'},
+  {id:'n3-toshite',lv:'N3',cat:'action',x:80,y:580,p:'～として',r:'～として',ro:'toshite',sv:'Với tư cách là…',mv:['Chỉ vai trò, tư cách, danh nghĩa của chủ thể'],cn:['N + として'],u:['Giới thiệu vai trò, thân phận'],ex:[{ja:'彼は留学生として日本に来ました。',rd:'かれはりゅうがくせいとしてにほんにきました。',vi:'Anh ấy đến Nhật với tư cách du học sinh.'}],rl:[{t:'similar',id:'n3-ni-totte',n:'にとって: quan điểm; として: vai trò'}],tg:['vai trò','tư cách'],qs:'verified'},
+  {id:'n3-kiru',lv:'N3',cat:'action',x:210,y:580,p:'～きる／きれない',r:'～きる',ro:'kiru',sv:'Làm hết / Không thể làm hết',mv:['Hoàn thành triệt để hành động — hoặc không thể hoàn thành hết'],cn:['Vます-stem + きる / きれる / きれない'],u:['Nhấn mạnh hoàn thành triệt để','Nhấn mạnh không thể hoàn thành'],ex:[{ja:'この本は一日で読みきれない。',rd:'このほんはいちにちでよみきれない。',vi:'Cuốn sách này không thể đọc hết trong một ngày.'}],rl:[{t:'similar',id:'n4-te-shimau',n:'てしまう: hoàn thành + hối tiếc; きる: hoàn thành triệt để'}],tg:['hoàn thành','triệt để'],qs:'verified'},
+];
+
+const CATS = [
+  {id:'condition', lb:'条件',sl:'Điều kiện',    x:750,y:265,c:'#3b82f6'},
+  {id:'time',      lb:'時間',sl:'Thời gian',    x:602,y:327,c:'#14b8a6'},
+  {id:'reason',    lb:'原因',sl:'Nguyên nhân',  x:965,y:475,c:'#f59e0b'},
+  {id:'expression',lb:'表現',sl:'Biểu đạt',     x:898,y:623,c:'#6366f1'},
+  {id:'purpose',   lb:'目的',sl:'Mục đích',     x:750,y:685,c:'#ec4899'},
+  {id:'obligation',lb:'義務',sl:'Nghĩa vụ',     x:602,y:623,c:'#ef4444'},
+  {id:'action',    lb:'動作',sl:'Hành động',    x:535,y:475,c:'#8b5cf6'},
+  {id:'change',    lb:'変化',sl:'Biến đổi',     x:898,y:327,c:'#f97316'},
+];
+const ROOT = {x:750,y:475};
+
+// ═══════════════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════════════
+const lc = l=>({N5:'#4ade80',N4:'#818cf8',N3:'#fb923c'})[l]||'#94a3b8';
+const lb = l=>({N5:'rgba(74,222,128,.1)',N4:'rgba(129,140,248,.1)',N3:'rgba(251,146,60,.1)'})[l]||'rgba(255,255,255,.05)';
+const lbd = l=>({N5:'rgba(74,222,128,.3)',N4:'rgba(129,140,248,.3)',N3:'rgba(251,146,60,.3)'})[l]||'rgba(255,255,255,.12)';
+const cc = id=>({condition:'#3b82f6',time:'#14b8a6',reason:'#f59e0b',expression:'#6366f1',purpose:'#ec4899',obligation:'#ef4444',action:'#8b5cf6',change:'#f97316'})[id]||'#6366f1';
+const rtl = t=>({similar:'↔ Gần nghĩa',contrast:'⟺ Đối lập',confused_with:'⚠ Dễ nhầm',prerequisite:'← Cần biết',derived_from:'⤴ Phát triển từ',same_function:'≡ Cùng chức năng'})[t]||t;
+const rtc = t=>({similar:'#22d3ee',contrast:'#f87171',confused_with:'#fbbf24',prerequisite:'#94a3b8',derived_from:'#a78bfa',same_function:'#4ade80'})[t]||'#94a3b8';
+const sb = s=>s==='verified'?{lbl:'✓ Verified',c:'#4ade80',bg:'rgba(74,222,128,.1)'}:{lbl:'● Reviewed',c:'#818cf8',bg:'rgba(129,140,248,.1)'};
+const ls=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d;}catch(e){return d;}};
+const ss=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}};
+
+// Theme & Texture
+const THEMES={
+  dark:{bg:'#090c13',bg2:'#0b0f18',bg3:'#0c1019',bg4:'#0e1520',text:'#e2e8f0',textMid:'#64748b',textDim:'#3d5066',textFaint:'#1e2d3d',textVDim:'#1a2535',textActive:'#4a5f78',border:'rgba(255,255,255,.06)',border2:'rgba(255,255,255,.08)',border3:'rgba(255,255,255,.1)',btnBg:'rgba(255,255,255,.04)',btnBg2:'rgba(255,255,255,.05)',btnBg3:'rgba(255,255,255,.1)',nodeStroke:'rgba(255,255,255,.15)',nodeFill:'#111827',svgBg:'#090c13',catLabelBg:'rgba(0,0,0,.35)',shadowA:'rgba(0,0,0,.4)'},
+  light:{bg:'#f0f2f5',bg2:'#ffffff',bg3:'#f5f7fa',bg4:'#ffffff',text:'#1a202c',textMid:'#4a5568',textDim:'#718096',textFaint:'#a0aec0',textVDim:'#cbd5e0',textActive:'#4a5568',border:'rgba(0,0,0,.1)',border2:'rgba(0,0,0,.12)',border3:'rgba(0,0,0,.15)',btnBg:'rgba(0,0,0,.05)',btnBg2:'rgba(0,0,0,.06)',btnBg3:'rgba(0,0,0,.12)',nodeStroke:'rgba(0,0,0,.2)',nodeFill:'#ffffff',svgBg:'#f0f2f5',catLabelBg:'rgba(255,255,255,.7)',shadowA:'rgba(0,0,0,.12)'}
+};
+const TEXTURES={
+  none:()=>null,
+  dots:(t)=>React.createElement('pattern',{id:'tx-dots',width:20,height:20,patternUnits:'userSpaceOnUse'},React.createElement('circle',{cx:2,cy:2,r:.8,fill:t==='dark'?'rgba(255,255,255,.04)':'rgba(0,0,0,.06)'})),
+  grid:(t)=>React.createElement('pattern',{id:'tx-grid',width:40,height:40,patternUnits:'userSpaceOnUse'},React.createElement('path',{d:'M40 0L0 0 0 40',fill:'none',stroke:t==='dark'?'rgba(255,255,255,.04)':'rgba(0,0,0,.06)',strokeWidth:.5})),
+  paper:(t)=>React.createElement('filter',{id:'tx-paper'},React.createElement('feTurbulence',{type:'fractalNoise',baseFrequency:.45,numOctaves:4,stitchTiles:'stitch'}),React.createElement('feColorMatrix',{type:'saturate',values:'0'}),React.createElement('feBlend',{in:'SourceGraphic',mode:t==='dark'?'soft-light':'multiply'}))
+};
+const TX_LABELS={none:'Không',dots:'Chấm',grid:'Lưới',paper:'Giấy'};
+
+// ═══════════════════════════════════════════════════════════════════
+// COMPONENTS
+// ═══════════════════════════════════════════════════════════════════
+
+function DetailPanel({selectedId,onSelect,favorites,learned,onToggleFav,onToggleLearned,onNav,levelFilter,T:_T,theme:_th}){
+  const T=_T||THEMES.dark;
+  const [reveal,setReveal]=useState(null);
+  useEffect(()=>setReveal(null),[selectedId]);
+
+  if(!selectedId){
+    return <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'28px 16px',textAlign:'center',gap:10}}>
+      <div style={{fontSize:44,opacity:.1,fontFamily:"'Noto Sans JP',sans-serif"}}>語</div>
+      <div style={{fontSize:13,color:T.textDim,fontWeight:500}}>Chọn một mẫu ngữ pháp</div>
+      <div style={{fontSize:11.5,color:T.textFaint,marginTop:2}}>Click node · ← → điều hướng · Esc bỏ chọn</div>
+      <div style={{marginTop:16,display:'flex',flexDirection:'column',gap:5,width:'100%',maxWidth:180}}>
+        {G.filter(g=>g.qs==='verified').slice(0,4).map(g=>
+          <button key={g.id} onClick={()=>onSelect(g.id)}
+            style={{padding:'7px 12px',borderRadius:8,background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.07)',color:'#4a5f78',fontSize:11.5,cursor:'pointer',fontFamily:"'Noto Sans JP','Plus Jakarta Sans',sans-serif",display:'flex',alignItems:'center',gap:8}}>
+            <span style={{color:lc(g.lv),fontSize:10,fontWeight:700,background:lb(g.lv),padding:'2px 6px',borderRadius:4,flexShrink:0}}>{g.lv}</span>
+            <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{g.r}</span>
+          </button>
+        )}
+      </div>
+    </div>;
+  }
+
+  const item=G.find(g=>g.id===selectedId);
+  if(!item) return null;
+  const isFav=favorites.includes(selectedId),isLrn=learned.includes(selectedId);
+  const _lc=lc(item.lv),_lb=lb(item.lv),_lbd=lbd(item.lv);
+  const _sb=sb(item.qs);const cat=CATS.find(c=>c.id===item.cat);const _cc=cc(item.cat);
+  const prv=reveal===selectedId;
+  const vg=G.filter(g=>levelFilter.includes(g.lv));
+
+  return <div style={{padding:'16px 16px 28px',display:'flex',flexDirection:'column',gap:12}}>
+    {/* Header */}
+    <div style={{display:'flex',alignItems:'flex-start',gap:10}}>
+      <div style={{width:50,height:50,flexShrink:0,borderRadius:11,background:_lb,border:`1.5px solid ${_lbd}`,display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,fontWeight:700,color:T.text,fontFamily:"'Noto Sans JP',sans-serif",textAlign:'center',lineHeight:1.2,padding:5}}>{item.r.slice(0,12)}</div>
+      <div style={{flex:1,minWidth:0}}>
+        <div style={{fontSize:14,fontWeight:700,color:T.text,fontFamily:"'Noto Sans JP',sans-serif",marginBottom:3,lineHeight:1.3}}>{item.p}</div>
+        <div style={{fontSize:12,color:T.textMid,marginBottom:7}}>{item.sv}</div>
+        <div style={{display:'flex',flexWrap:'wrap',gap:5}}>
+          <span style={{padding:'2px 7px',borderRadius:10,fontSize:10.5,fontWeight:700,color:_lc,background:_lb,border:`1px solid ${_lbd}`}}>{item.lv}</span>
+          {cat&&<span style={{padding:'2px 7px',borderRadius:10,fontSize:10,color:_cc,background:`${_cc}18`,border:`1px solid ${_cc}30`}}>{cat.sl}</span>}
+          <span style={{padding:'2px 7px',borderRadius:10,fontSize:9.5,color:_sb.c,background:_sb.bg}}>{_sb.lbl}</span>
+        </div>
+      </div>
+      <div style={{display:'flex',flexDirection:'column',gap:5,flexShrink:0}}>
+        <button onClick={()=>onToggleFav(selectedId)} style={{background:isFav?'rgba(251,146,60,.15)':'rgba(255,255,255,.05)',border:`1px solid ${isFav?'rgba(251,146,60,.4)':'rgba(255,255,255,.1)'}`,color:isFav?'#fb923c':'#3d5066',borderRadius:7,width:29,height:29,cursor:'pointer',fontSize:14,display:'flex',alignItems:'center',justifyContent:'center'}}>{isFav?'♥':'♡'}</button>
+        <button onClick={()=>onSelect(null)} style={{background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.07)',color:'#3d5066',borderRadius:7,width:29,height:29,cursor:'pointer',fontSize:12,display:'flex',alignItems:'center',justifyContent:'center'}}>{'✕'}</button>
+      </div>
+    </div>
+    {/* Romaji */}
+    <div style={{display:'flex',alignItems:'center',gap:10,background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.06)',borderRadius:8,padding:'6px 11px'}}>
+      <span style={{fontSize:9,color:'#1e2d3d',textTransform:'uppercase',letterSpacing:'.6px',fontWeight:600,flexShrink:0}}>Romaji</span>
+      <span style={{fontSize:13.5,color:'#64748b',fontStyle:'italic'}}>{item.ro}</span>
+    </div>
+    {/* Structure */}
+    {item.cn&&item.cn.length>0&&<div style={{background:`${_lc}0c`,border:`1px solid ${_lc}1e`,borderRadius:8,padding:'9px 12px'}}>
+      <div style={{fontSize:9,color:_lc,textTransform:'uppercase',letterSpacing:'.65px',fontWeight:600,marginBottom:6}}>Cấu trúc</div>
+      {item.cn.map((c,i)=><div key={i} style={{fontSize:12,color:'#dde4f0',fontFamily:"'Noto Sans JP','Plus Jakarta Sans',sans-serif",lineHeight:1.65,paddingBottom:i<item.cn.length-1?4:0,borderBottom:i<item.cn.length-1?'1px solid rgba(255,255,255,.05)':'none',marginBottom:i<item.cn.length-1?4:0}}>{c}</div>)}
+    </div>}
+    {/* Meaning */}
+    <div>
+      <div style={{fontSize:9,color:'#1e2d3d',textTransform:'uppercase',letterSpacing:'.65px',marginBottom:5}}>Ý nghĩa</div>
+      {item.mv.map((m,i)=><div key={i} style={{fontSize:12,color:'#64748b',lineHeight:1.65,padding:'3px 0 3px 10px',borderLeft:'2px solid rgba(255,255,255,.07)'}}>{m}</div>)}
+    </div>
+    {/* Usage */}
+    {item.u&&item.u.length>0&&<div>
+      <div style={{fontSize:9,color:'#1e2d3d',textTransform:'uppercase',letterSpacing:'.65px',marginBottom:5}}>Cách dùng</div>
+      {item.u.map((u,i)=><div key={i} style={{fontSize:11.5,color:'#3d5066',lineHeight:1.55}}>{'• '+u}</div>)}
+    </div>}
+    {/* Non-usage */}
+    {item.nu&&item.nu.length>0&&<div style={{background:'rgba(248,113,113,.06)',border:'1px solid rgba(248,113,113,.17)',borderRadius:8,padding:'9px 12px'}}>
+      <div style={{fontSize:9,color:'#f87171',textTransform:'uppercase',letterSpacing:'.65px',fontWeight:600,marginBottom:5}}>{'⚠'} Không dùng khi</div>
+      {item.nu.map((u,i)=><div key={i} style={{fontSize:11.5,color:'rgba(248,113,113,.8)',lineHeight:1.55}}>{u}</div>)}
+    </div>}
+    {/* Examples */}
+    {item.ex&&item.ex.length>0&&<div>
+      <div style={{fontSize:9,color:'#1e2d3d',textTransform:'uppercase',letterSpacing:'.65px',marginBottom:7}}>Ví dụ & Luyện tập</div>
+      {item.ex.map((ex,i)=><div key={i} style={{background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.05)',borderRadius:8,padding:'10px 12px',display:'flex',flexDirection:'column',gap:4}}>
+        <div style={{fontSize:13,color:'#e2e8f0',fontFamily:"'Noto Sans JP',sans-serif",lineHeight:1.8}}>{ex.ja}</div>
+        <div style={{fontSize:10.5,color:'#2d3d52',fontStyle:'italic'}}>{ex.rd}</div>
+        {prv?<div style={{fontSize:12,color:'#64748b',borderTop:'1px solid rgba(255,255,255,.05)',paddingTop:5,marginTop:2}}>{'→ '+ex.vi}</div>
+          :<button onClick={()=>setReveal(selectedId)} style={{fontSize:11,color:'#4a5f78',background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.07)',borderRadius:6,padding:'4px 9px',cursor:'pointer',fontFamily:'inherit',marginTop:2,alignSelf:'flex-start'}}>{'→ Xem nghĩa'}</button>}
+      </div>)}
+    </div>}
+    {/* Relations */}
+    {item.rl&&item.rl.length>0&&<div>
+      <div style={{fontSize:9,color:'#1e2d3d',textTransform:'uppercase',letterSpacing:'.65px',marginBottom:7}}>Quan hệ</div>
+      <div style={{display:'flex',flexDirection:'column',gap:5}}>
+        {item.rl.map((rel,i)=>{
+          const tg=vg.find(g=>g.id===rel.id);const rc=rtc(rel.t);
+          return <div key={i} style={{display:'flex',alignItems:'flex-start',gap:8,padding:'7px 10px',borderRadius:8,background:'rgba(255,255,255,.02)',border:'1px solid rgba(255,255,255,.05)',cursor:tg?'pointer':'default'}} onClick={tg?()=>onSelect(rel.id):undefined}>
+            <span style={{fontSize:9.5,color:rc,background:`${rc}18`,padding:'2px 6px',borderRadius:4,whiteSpace:'nowrap',flexShrink:0,marginTop:1}}>{rtl(rel.t)}</span>
+            <div>
+              {tg?<div style={{fontSize:11.5,fontWeight:600,color:'#dde4f0',fontFamily:"'Noto Sans JP',sans-serif"}}>{tg.p+' ('+tg.lv+')'}</div>
+                 :<div style={{fontSize:11,color:'#1e2d3d'}}>{rel.id}</div>}
+              <div style={{fontSize:10.5,color:'#2d3d52',marginTop:2}}>{rel.n}</div>
+            </div>
+          </div>;
+        })}
+      </div>
+    </div>}
+    {/* Tags */}
+    {item.tg&&item.tg.length>0&&<div style={{display:'flex',flexWrap:'wrap',gap:5}}>
+      {item.tg.map(tag=><span key={tag} style={{padding:'3px 8px',borderRadius:20,fontSize:10.5,background:'rgba(255,255,255,.04)',color:'#3d5066',border:'1px solid rgba(255,255,255,.07)'}}>{'#'+tag}</span>)}
+    </div>}
+    {/* Actions */}
+    <div style={{display:'flex',gap:7,paddingTop:12,borderTop:'1px solid rgba(255,255,255,.06)'}}>
+      <button onClick={()=>onToggleLearned(selectedId)} style={{flex:1,padding:'8px 6px',borderRadius:9,cursor:'pointer',fontSize:12,fontWeight:600,fontFamily:'inherit',background:isLrn?'rgba(74,222,128,.15)':'rgba(99,102,241,.15)',border:`1px solid ${isLrn?'rgba(74,222,128,.32)':'rgba(99,102,241,.32)'}`,color:isLrn?'#4ade80':'#818cf8'}}>{isLrn?'✓ Đã học':'+ Đánh dấu học'}</button>
+      <button onClick={()=>onNav(-1)} style={{padding:'8px 10px',borderRadius:9,cursor:'pointer',fontSize:12,background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.08)',color:'#3d5066',fontFamily:'inherit'}}>{'←'}</button>
+      <button onClick={()=>onNav(1)} style={{padding:'8px 10px',borderRadius:9,cursor:'pointer',fontSize:12,background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.08)',color:'#3d5066',fontFamily:'inherit'}}>{'→'}</button>
+    </div>
+  </div>;
+}
+
+function GrammarMap(){
+  const [selectedId,setSelectedId]=useState(null);
+  const [levelFilter,setLevelFilter]=useState(['N5','N4','N3']);
+  const [favorites,setFavorites]=useState(()=>ls('koeru.gm.fav',[]));
+  const [learned,setLearned]=useState(()=>ls('koeru.gm.learned',[]));
+  const [recent,setRecent]=useState(()=>ls('koeru.gm.recent',[]));
+  const [search,setSearch]=useState('');
+  const [pan,setPan]=useState({x:0,y:0});
+  const [zoom,setZoom]=useState(1);
+  const [hoveredId,setHoveredId]=useState(null);
+  const [copiedLink,setCopiedLink]=useState(false);
+  const [isMobile,setIsMobile]=useState(window.innerWidth<820);
+  const [isFullscreen,setIsFullscreen]=useState(false);
+  const [nodeScale,setNodeScale]=useState(()=>{try{return parseFloat(localStorage.getItem('koeru.gm.nodeScale'))||1}catch(e){return 1}});
+  const [theme,setTheme]=useState(()=>ls('koeru.gm.theme','dark'));
+  const [texture,setTexture]=useState(()=>ls('koeru.gm.texture','none'));
+  const [showThemeMenu,setShowThemeMenu]=useState(false);
+  const T=THEMES[theme]||THEMES.dark;
+  const toggleTheme=useCallback(()=>{const nt=theme==='dark'?'light':'dark';setTheme(nt);ss('koeru.gm.theme',nt);},[theme]);
+  const cycleTexture=useCallback(()=>{const txs=['none','dots','grid','paper'];const i=txs.indexOf(texture);const nt=txs[(i+1)%txs.length];setTexture(nt);ss('koeru.gm.texture',nt);},[texture]);
+  const [customPos,setCustomPos]=useState(()=>ls('koeru.gm.customPos',{}));
+  const [draggingNode,setDraggingNode]=useState(null);
+  const panRef=useRef({isPanning:false,start:null,dragMoved:false});
+  const dragRef=useRef(null);
+  const cvRef=useRef(null);
+
+  const getNodePos=useCallback((g)=>customPos[g.id]?{x:customPos[g.id].x,y:customPos[g.id].y}:{x:g.x,y:g.y},[customPos]);
+  const resetPositions=useCallback(()=>{setCustomPos({});try{localStorage.removeItem('koeru.gm.customPos')}catch(e){}},[]);
+
+  const toggleFullscreen=useCallback(()=>{
+    if(!document.fullscreenElement){document.documentElement.requestFullscreen().then(()=>setIsFullscreen(true)).catch(()=>{})}
+    else{document.exitFullscreen().then(()=>setIsFullscreen(false)).catch(()=>{})}
+  },[]);
+  useEffect(()=>{const h=()=>setIsFullscreen(!!document.fullscreenElement);document.addEventListener('fullscreenchange',h);return()=>document.removeEventListener('fullscreenchange',h)},[]);
+  const cycleNodeScale=useCallback(()=>{const scales=[0.85,1,1.2];const i=scales.indexOf(nodeScale);const next=scales[(i+1)%scales.length];setNodeScale(next);try{localStorage.setItem('koeru.gm.nodeScale',String(next))}catch(e){}},[nodeScale]);
+
+  const vg=useMemo(()=>G.filter(g=>levelFilter.includes(g.lv)),[levelFilter]);
+
+  const selectNode=useCallback((id)=>{
+    setSelectedId(prev=>{
+      const ns=prev===id?null:id;
+      if(ns){const rec=[ns,...recent.filter(r=>r!==ns)].slice(0,8);setRecent(rec);ss('koeru.gm.recent',rec);}
+      return ns;
+    });
+  },[recent]);
+
+  const nav=useCallback((dir)=>{
+    setSelectedId(prev=>{
+      if(!prev){if(vg.length)return vg[0].id;return null;}
+      const i=vg.findIndex(g=>g.id===prev);
+      const ni=i+dir;
+      if(ni>=0&&ni<vg.length){
+        const nid=vg[ni].id;
+        const rec=[nid,...recent.filter(r=>r!==nid)].slice(0,8);setRecent(rec);ss('koeru.gm.recent',rec);
+        return nid;
+      }
+      return prev;
+    });
+  },[vg,recent]);
+
+  const toggleFav=useCallback(id=>{
+    setFavorites(f=>{const nf=f.includes(id)?f.filter(x=>x!==id):[...f,id];ss('koeru.gm.fav',nf);return nf;});
+  },[]);
+  const toggleLearned=useCallback(id=>{
+    setLearned(l=>{const nl=l.includes(id)?l.filter(x=>x!==id):[...l,id];ss('koeru.gm.learned',nl);return nl;});
+  },[]);
+
+  const fitView=useCallback(()=>{
+    const el=cvRef.current;if(!el)return;
+    const {width:W,height:H}=el.getBoundingClientRect();
+    const s=Math.min((W||800)/870,(H||600)/800)*0.88;
+    setPan({x:(W||800)/2-750*s,y:(H||600)/2-475*s});setZoom(s);
+  },[]);
+
+  useEffect(()=>{
+    const kh=ev=>{
+      if(ev.key==='Escape')setSelectedId(null);
+      if(ev.key==='ArrowRight'||ev.key==='ArrowDown')nav(1);
+      if(ev.key==='ArrowLeft'||ev.key==='ArrowUp')nav(-1);
+    };
+    const rh=()=>setIsMobile(window.innerWidth<820);
+    window.addEventListener('keydown',kh);window.addEventListener('resize',rh);
+    const wmm=ev=>{if(dragRef.current)onMM(ev);};
+    const wmu=ev=>{if(dragRef.current)onMU(ev);};
+    window.addEventListener('mousemove',wmm);window.addEventListener('mouseup',wmu);
+    setTimeout(fitView,150);
+    const sk=document.getElementById('gm-loading');if(sk)sk.style.display='none';
+    return ()=>{window.removeEventListener('keydown',kh);window.removeEventListener('resize',rh);window.removeEventListener('mousemove',wmm);window.removeEventListener('mouseup',wmu);};
+  },[nav,fitView]);
+
+  const toggleLevel=l=>{const f=levelFilter;if(f.includes(l)&&f.length===1)return;setLevelFilter(f.includes(l)?f.filter(x=>x!==l):[...f,l]);};
+
+  // Search
+  const searchResults=useMemo(()=>{
+    const q=search.trim().toLowerCase();if(!q)return [];
+    return G.filter(g=>levelFilter.includes(g.lv)&&(
+      g.p.toLowerCase().includes(q)||g.ro.toLowerCase().includes(q)||
+      g.sv.toLowerCase().includes(q)||g.r.toLowerCase().includes(q)||
+      (g.tg||[]).some(t=>t.toLowerCase().includes(q))
+    ));
+  },[search,levelFilter]);
+
+  // Canvas handlers
+  const onWheel=useCallback(ev=>{
+    ev.preventDefault();
+    const rect=ev.currentTarget.getBoundingClientRect();
+    const mx=ev.clientX-rect.left,my=ev.clientY-rect.top;
+    setZoom(z=>{setPan(p=>{const factor=ev.deltaY>0?0.88:1.14;const nz=Math.max(.25,Math.min(3,z*factor));return {x:mx-(mx-p.x)*(nz/z),y:my-(my-p.y)*(nz/z)};});return Math.max(.25,Math.min(3,z*(ev.deltaY>0?0.88:1.14)));});
+  },[]);
+
+  const onMD=useCallback(ev=>{if(ev.button!==0)return;panRef.current={isPanning:true,start:{mx:ev.clientX,my:ev.clientY,px:pan.x,py:pan.y},dragMoved:false};},[pan]);
+  const onMM=useCallback(ev=>{
+    if(dragRef.current){
+      const d=dragRef.current;const dx=(ev.clientX-d.startMx)/zoom,dy=(ev.clientY-d.startMy)/zoom;
+      if(Math.abs(dx)>2||Math.abs(dy)>2){d.moved=true;setCustomPos(p=>({...p,[d.id]:{x:d.origX+dx,y:d.origY+dy}}));}
+      return;
+    }
+    const p=panRef.current;if(!p.isPanning)return;const {mx,my,px,py}=p.start;const dx=ev.clientX-mx,dy=ev.clientY-my;if(Math.abs(dx)>3||Math.abs(dy)>3){p.dragMoved=true;setPan({x:px+dx,y:py+dy});}
+  },[zoom]);
+  const onMU=useCallback(()=>{
+    if(dragRef.current){
+      if(dragRef.current.moved){const cp={...customPos};cp[dragRef.current.id]={x:Math.round(customPos[dragRef.current.id]?.x||dragRef.current.origX),y:Math.round(customPos[dragRef.current.id]?.y||dragRef.current.origY)};ss('koeru.gm.customPos',cp);}
+      panRef.current.dragMoved=!!dragRef.current.moved;
+      dragRef.current=null;setDraggingNode(null);setTimeout(()=>{panRef.current.dragMoved=false;},50);return;
+    }
+    panRef.current.isPanning=false;setTimeout(()=>{panRef.current.dragMoved=false;},50);
+  },[customPos]);
+
+  const onTS=useCallback(ev=>{
+    if(ev.touches.length===1)panRef.current={isPanning:true,start:{mx:ev.touches[0].clientX,my:ev.touches[0].clientY,px:pan.x,py:pan.y},dragMoved:false,pinchDist:null,pinchZoom:zoom};
+    else if(ev.touches.length===2){const d=Math.hypot(ev.touches[0].clientX-ev.touches[1].clientX,ev.touches[0].clientY-ev.touches[1].clientY);panRef.current.pinchDist=d;panRef.current.pinchZoom=zoom;}
+  },[pan,zoom]);
+  const onTM=useCallback(ev=>{
+    ev.preventDefault();const p=panRef.current;
+    if(ev.touches.length===1&&p.isPanning){const {mx,my,px,py}=p.start;const dx=ev.touches[0].clientX-mx,dy=ev.touches[0].clientY-my;if(Math.abs(dx)>3||Math.abs(dy)>3){p.dragMoved=true;setPan({x:px+dx,y:py+dy});}}
+    else if(ev.touches.length===2&&p.pinchDist){const d=Math.hypot(ev.touches[0].clientX-ev.touches[1].clientX,ev.touches[0].clientY-ev.touches[1].clientY);setZoom(Math.max(.25,Math.min(3,p.pinchZoom*(d/p.pinchDist))));}
+  },[]);
+  const onTE=useCallback(()=>{panRef.current.isPanning=false;panRef.current.pinchDist=null;setTimeout(()=>{panRef.current.dragMoved=false;},50);},[]);
+
+  // SVG rendering
+  const vCatIds=new Set(vg.map(g=>g.cat));
+  const vC=CATS.filter(c=>vCatIds.has(c.id));
+
+  const n5=levelFilter.includes('N5'),n4=levelFilter.includes('N4'),n3=levelFilter.includes('N3'),allOn=n5&&n4&&n3;
+  const bBase={padding:'4px 10px',borderRadius:7,fontSize:12,fontWeight:700,cursor:'pointer',fontFamily:'inherit',flexShrink:0};
+
+  return <div style={{display:'flex',flexDirection:'column',height:'100vh',background:T.bg,color:T.text,fontFamily:"'Plus Jakarta Sans',system-ui,sans-serif",overflow:'hidden',position:'relative'}}>
+    {/* HEADER */}
+    <header style={{height:44,flex:'none',background:T.bg2,borderBottom:`1px solid ${T.border}`,display:'flex',alignItems:'center',padding:'0 14px',gap:10,zIndex:20}}>
+      <a href="./index.html" style={{display:'flex',alignItems:'center',gap:8,flex:'none',textDecoration:'none',color:'inherit'}}>
+        <img src="./koeru-logo.png" alt="KOERU" style={{height:28,width:'auto'}} onError={e=>{e.target.style.display='none'}}/>
+        <span style={{color:'rgba(255,255,255,.1)'}}>|</span>
+        <span style={{fontSize:12.5,fontWeight:500,color:T.textDim}}>Bản đồ Ngữ pháp</span>
+      </a>
+      <div style={{flex:1,maxWidth:300,position:'relative',marginLeft:6}}>
+        <div style={{position:'absolute',left:9,top:'50%',transform:'translateY(-50%)',color:T.textFaint,fontSize:13,pointerEvents:'none'}}>{'⌕'}</div>
+        <input type="text" value={search} onChange={e=>setSearch(e.target.value)} placeholder="~ながら · nagara · vừa vừa…"
+          style={{width:'100%',background:T.btnBg2,border:`1px solid ${T.border2}`,borderRadius:8,padding:'5px 26px 5px 27px',color:T.text,fontSize:12,outline:'none',fontFamily:'inherit'}}/>
+        {search.length>0&&<button onClick={()=>setSearch('')} style={{position:'absolute',right:8,top:'50%',transform:'translateY(-50%)',background:'none',border:'none',color:'#334155',cursor:'pointer',fontSize:15,padding:0,lineHeight:1}}>{'×'}</button>}
+      </div>
+      <div style={{display:'flex',gap:5,marginLeft:'auto',alignItems:'center'}}>
+        {Object.keys(customPos).length>0&&<button onClick={resetPositions} title="Reset vị trí về mặc định" style={{background:'rgba(239,68,68,.12)',border:'1px solid rgba(239,68,68,.25)',color:'#ef4444',fontSize:11,padding:'4px 8px',borderRadius:6,cursor:'pointer',fontFamily:'inherit'}}>↺ Reset</button>}
+        <button onClick={toggleTheme} title={theme==='dark'?'Chuyển sang sáng':'Chuyển sang tối'} style={{background:T.btnBg,border:`1px solid ${T.border2}`,color:T.textDim,fontSize:11,padding:'4px 8px',borderRadius:6,cursor:'pointer',fontFamily:'inherit'}}>{theme==='dark'?'☀':'🌙'}</button>
+        <button onClick={cycleTexture} title={`Nền: ${TX_LABELS[texture]}`} style={{background:T.btnBg,border:`1px solid ${T.border2}`,color:T.textDim,fontSize:11,padding:'4px 8px',borderRadius:6,cursor:'pointer',fontFamily:'inherit'}}>{'▦ '+TX_LABELS[texture]}</button>
+        <button onClick={cycleNodeScale} title={`Cỡ chữ: ${nodeScale===0.85?'Nhỏ':nodeScale===1?'Vừa':'Lớn'}`} style={{background:T.btnBg,border:`1px solid ${T.border2}`,color:T.textDim,fontSize:11,padding:'4px 8px',borderRadius:6,cursor:'pointer',fontFamily:'inherit'}}>{nodeScale===0.85?'Aa⁻':nodeScale===1?'Aa':'Aa⁺'}</button>
+        <button onClick={toggleFullscreen} title={isFullscreen?'Thoát toàn màn hình':'Toàn màn hình'} style={{background:T.btnBg,border:`1px solid ${T.border2}`,color:T.textDim,fontSize:11,padding:'4px 8px',borderRadius:6,cursor:'pointer',fontFamily:'inherit'}}>{isFullscreen?'⊖':'⊕'} Full</button>
+        <button onClick={()=>{try{navigator.clipboard.writeText(location.href);}catch(e){}setCopiedLink(true);setTimeout(()=>setCopiedLink(false),1500);}} style={{background:T.btnBg,border:`1px solid ${T.border2}`,color:T.textDim,fontSize:11,padding:'4px 8px',borderRadius:6,cursor:'pointer',fontFamily:'inherit'}}>{copiedLink?'✓ Copied':'🔗 Chia sẻ'}</button>
+        {!isMobile&&<a href="./index.html" style={{display:'inline-flex',alignItems:'center',border:`1px solid ${T.border2}`,color:T.textDim,fontSize:11,padding:'4px 8px',borderRadius:6,textDecoration:'none'}}>{'← Trang chủ'}</a>}
+      </div>
+    </header>
+
+    {/* LEVEL BAR */}
+    <div style={{height:40,flex:'none',background:T.bg3,borderBottom:`1px solid ${T.border}`,display:'flex',alignItems:'center',padding:'0 14px',gap:6,zIndex:20,overflowX:'auto'}}>
+      <button onClick={()=>setLevelFilter(['N5','N4','N3'])} style={{...bBase,background:allOn?T.btnBg3:T.btnBg,border:`1px solid ${allOn?T.border3:T.border2}`,color:allOn?T.text:T.textDim}}>Tất cả</button>
+      <button onClick={()=>toggleLevel('N5')} style={{...bBase,background:n5?'rgba(74,222,128,.15)':T.btnBg,border:`1px solid ${n5?'rgba(74,222,128,.38)':T.border2}`,color:n5?'#4ade80':T.textVDim}}>N5 <span style={{opacity:.65,fontWeight:400}}>{G.filter(g=>g.lv==='N5').length}</span></button>
+      <button onClick={()=>toggleLevel('N4')} style={{...bBase,background:n4?'rgba(129,140,248,.15)':T.btnBg,border:`1px solid ${n4?'rgba(129,140,248,.38)':T.border2}`,color:n4?'#818cf8':T.textVDim}}>N4 <span style={{opacity:.65,fontWeight:400}}>{G.filter(g=>g.lv==='N4').length}</span></button>
+      <button onClick={()=>toggleLevel('N3')} style={{...bBase,background:n3?'rgba(251,146,60,.15)':T.btnBg,border:`1px solid ${n3?'rgba(251,146,60,.38)':T.border2}`,color:n3?'#fb923c':T.textVDim}}>N3 <span style={{opacity:.65,fontWeight:400}}>{G.filter(g=>g.lv==='N3').length}</span></button>
+      <div style={{width:1,height:16,background:T.border2,margin:'0 2px',flex:'none'}}></div>
+      <span style={{fontSize:10.5,color:T.textVDim,flex:'none'}}>{vg.length} / {G.length} mẫu</span>
+      <div style={{flex:1}}></div>
+      <button onClick={fitView} style={{padding:'3px 8px',borderRadius:5,background:T.btnBg,border:`1px solid ${T.border}`,color:T.textVDim,fontSize:10.5,cursor:'pointer',fontFamily:'inherit',flex:'none'}}>{'⊕ Fit'}</button>
+      <button onClick={()=>setZoom(z=>Math.min(3,z*1.2))} style={{padding:'3px 8px',borderRadius:5,background:T.btnBg,border:`1px solid ${T.border}`,color:T.textVDim,fontSize:10.5,cursor:'pointer',fontFamily:'inherit',flex:'none'}}>{'＋'}</button>
+      <button onClick={()=>setZoom(z=>Math.max(.25,z*.83))} style={{padding:'3px 8px',borderRadius:5,background:T.btnBg,border:`1px solid ${T.border}`,color:T.textVDim,fontSize:10.5,cursor:'pointer',fontFamily:'inherit',flex:'none'}}>{'－'}</button>
+    </div>
+
+    {/* SEARCH DROPDOWN */}
+    {search.trim().length>0&&searchResults.length>0&&<div style={{position:'absolute',top:84,left:54,width:310,background:T.bg4,border:`1px solid ${T.border3}`,borderRadius:10,overflow:'hidden',zIndex:50,boxShadow:`0 8px 24px ${T.shadowA}`,animation:'slideUp .15s ease',maxHeight:240,overflowY:'auto'}}>
+      {searchResults.map(r=><div key={r.id} onClick={()=>{selectNode(r.id);setSearch('');}} style={{padding:'9px 12px',borderBottom:`1px solid ${T.border}`,cursor:'pointer',display:'flex',alignItems:'center',gap:10}}>
+        <div style={{fontSize:13,color:T.text,fontFamily:"'Noto Sans JP',sans-serif",flex:1,minWidth:0,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{r.r}</div>
+        <div style={{flex:'none',display:'flex',flexDirection:'column',alignItems:'flex-end',gap:2}}>
+          <div style={{fontSize:10,color:T.textDim,maxWidth:90,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{r.sv}</div>
+          <div style={{fontSize:9.5,fontWeight:700,color:lc(r.lv)}}>{r.lv}</div>
+        </div>
+      </div>)}
+    </div>}
+    {search.trim().length>0&&searchResults.length===0&&<div style={{position:'absolute',top:84,left:54,width:310,background:T.bg4,border:`1px solid ${T.border2}`,borderRadius:10,padding:'11px 13px',zIndex:50,fontSize:12,color:T.textFaint}}>Không tìm thấy "{search}"</div>}
+
+    {/* BODY */}
+    <div style={{display:'flex',flex:1,overflow:'hidden',minHeight:0}}>
+      {/* LEFT SIDEBAR */}
+      {!isMobile&&<aside style={{width:228,flex:'none',background:T.bg3,borderRight:`1px solid ${T.border}`,overflowY:'auto',display:'flex',flexDirection:'column'}}>
+        <div style={{padding:'12px 12px 10px',borderBottom:`1px solid ${T.border}`}}>
+          <div style={{fontSize:9,fontWeight:600,color:T.textVDim,textTransform:'uppercase',letterSpacing:'.7px',marginBottom:8}}>Nhóm chức năng</div>
+          <div style={{display:'flex',flexDirection:'column',gap:2}}>
+            {CATS.map(cat=><div key={cat.id} style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'5px 7px',borderRadius:6,cursor:'pointer'}}>
+              <div style={{display:'flex',alignItems:'center',gap:7}}>
+                <div style={{width:8,height:8,borderRadius:'50%',background:cat.c,flexShrink:0}}></div>
+                <span style={{fontSize:11.5,color:T.textActive,fontFamily:"'Noto Sans JP',sans-serif"}}>{cat.lb}</span>
+                <span style={{fontSize:10,color:T.textFaint}}>{cat.sl}</span>
+              </div>
+              <span style={{fontSize:10,color:T.textVDim,background:T.btnBg,borderRadius:8,padding:'1px 5px'}}>{G.filter(g=>g.cat===cat.id&&levelFilter.includes(g.lv)).length}</span>
+            </div>)}
+          </div>
+        </div>
+        <div style={{padding:'12px 12px',flex:1}}>
+          <div style={{display:'flex',gap:6,marginBottom:12}}>
+            <div style={{flex:1,background:'rgba(74,222,128,.07)',border:'1px solid rgba(74,222,128,.15)',borderRadius:8,padding:8,textAlign:'center'}}>
+              <div style={{fontSize:18,fontWeight:700,color:'#4ade80'}}>{learned.length}</div>
+              <div style={{fontSize:9,color:T.textVDim,marginTop:2}}>Đã học</div>
+            </div>
+            <div style={{flex:1,background:'rgba(251,146,60,.07)',border:'1px solid rgba(251,146,60,.15)',borderRadius:8,padding:8,textAlign:'center'}}>
+              <div style={{fontSize:18,fontWeight:700,color:'#fb923c'}}>{favorites.length}</div>
+              <div style={{fontSize:9,color:T.textVDim,marginTop:2}}>Yêu thích</div>
+            </div>
+          </div>
+          <div style={{fontSize:9,fontWeight:600,color:T.textVDim,textTransform:'uppercase',letterSpacing:'.7px',marginBottom:6}}>Gần đây</div>
+          <div style={{display:'flex',flexWrap:'wrap',gap:4}}>
+            {recent.map(id=>{const g=G.find(x=>x.id===id);if(!g)return null;return <button key={id} onClick={()=>selectNode(id)} style={{padding:'4px 9px',borderRadius:20,border:`1px solid ${lbd(g.lv)}`,background:lb(g.lv),color:lc(g.lv),fontSize:11.5,cursor:'pointer',fontFamily:"'Noto Sans JP',sans-serif",fontWeight:600}}>{g.r}</button>;})}
+            {recent.length===0&&<div style={{fontSize:10.5,color:T.textFaint,lineHeight:1.6}}>Click node để bắt đầu</div>}
+          </div>
+          <div style={{marginTop:14,fontSize:9.5,color:T.textFaint,lineHeight:1.7}}>{'← →'} chuyển · Esc bỏ chọn<br/>Scroll {'→'} zoom · Drag {'→'} pan</div>
+        </div>
+      </aside>}
+
+      {/* CANVAS */}
+      <div ref={cvRef} style={{flex:1,minWidth:0,position:'relative',overflow:'hidden',background:theme==='dark'?'radial-gradient(ellipse at 50% 38%,#0d1825 0%,#080b11 100%)':'radial-gradient(ellipse at 50% 38%,#e8ecf2 0%,#dde1e8 100%)'}}>
+        <svg style={{position:'absolute',inset:0,width:'100%',height:'100%',cursor:panRef.current.isPanning?'grabbing':'grab',touchAction:'none'}}
+          onMouseDown={onMD} onMouseMove={onMM} onMouseUp={onMU} onMouseLeave={onMU}
+          onWheel={onWheel} onTouchStart={onTS} onTouchMove={onTM} onTouchEnd={onTE}>
+          <defs>
+            {texture==='dots'&&TEXTURES.dots(theme)}
+            {texture==='grid'&&TEXTURES.grid(theme)}
+            {texture==='paper'&&TEXTURES.paper(theme)}
+          </defs>
+          {texture==='dots'&&<rect width="100%" height="100%" fill="url(#tx-dots)"/>}
+          {texture==='grid'&&<rect width="100%" height="100%" fill="url(#tx-grid)"/>}
+          {texture==='paper'&&<rect width="100%" height="100%" filter="url(#tx-paper)" opacity=".15"/>}
+          <g transform={`translate(${pan.x},${pan.y}) scale(${zoom})`}>
+            {/* Root→Cat edges */}
+            {vC.map(cat=><line key={'rc-'+cat.id} x1={ROOT.x} y1={ROOT.y} x2={cat.x} y2={cat.y} stroke={theme==='dark'?'rgba(255,255,255,.07)':'rgba(0,0,0,.08)'} strokeWidth="1.5"/>)}
+            {/* Cat→Node edges */}
+            {vg.map(g=>{const cat=CATS.find(c=>c.id===g.cat);if(!cat)return null;const ec={N5:'rgba(74,222,128,.16)',N4:'rgba(129,140,248,.16)',N3:'rgba(251,146,60,.16)'}[g.lv]||T.border;return <line key={'te-'+g.id} x1={cat.x} y1={cat.y} x2={g.x} y2={g.y} stroke={ec} strokeWidth="1"/>;})}
+            {/* Relation edges */}
+            {selectedId&&(()=>{const si=G.find(g=>g.id===selectedId);if(!si)return null;return (si.rl||[]).map((rel,i)=>{const tg=vg.find(g=>g.id===rel.id);if(!tg)return null;return <line key={'rl-'+i} x1={si.x} y1={si.y} x2={tg.x} y2={tg.y} stroke={rtc(rel.t)} strokeWidth="1.5" strokeDasharray="5,3.5" opacity=".65"/>;});})()}
+            {/* Category nodes */}
+            {vC.map(cat=>{const W=104,H=48,R=9;const cnt=G.filter(g=>g.cat===cat.id&&levelFilter.includes(g.lv)).length;const hi=selectedId&&G.find(g=>g.id===selectedId&&g.cat===cat.id);
+              return <g key={'cat-'+cat.id} transform={`translate(${cat.x},${cat.y})`}>
+                <rect x={-W/2} y={-H/2} width={W} height={H} rx={R} fill={T.catLabelBg} stroke={hi?'#00C2FF':cat.c} strokeWidth={hi?2:1.5} strokeOpacity={hi?1:.5}/>
+                <rect x={-W/2+8} y={-H/2} width={W-16} height={2.5} rx={1.2} fill={cat.c} opacity=".7"/>
+                <text x="0" y="-5" textAnchor="middle" fontSize="14" fontWeight="700" fill={T.text} fontFamily="'Noto Sans JP',sans-serif">{cat.lb}</text>
+                <text x="0" y="11" textAnchor="middle" fontSize="7.5" fill={T.textMid} fontFamily="'Plus Jakarta Sans',sans-serif">{cat.sl}</text>
+                {cnt>0&&<g transform={`translate(${W/2-10},${-H/2+2})`}><circle cx="0" cy="0" r="9" fill={cat.c} opacity=".9"/><text x="0" y="0" textAnchor="middle" dominantBaseline="middle" fontSize="8" fontWeight="700" fill="#fff">{cnt}</text></g>}
+              </g>;})}
+            {/* Grammar nodes */}
+            {vg.map(g=>{const sel=selectedId===g.id,hov=hoveredId===g.id;const W=114,H=44,R=8;const _lc=lc(g.lv),_lb=lb(g.lv),_lbd=lbd(g.lv);const ns=nodeScale;const pos=getNodePos(g);const rd=g.r.length>9?g.r.slice(0,8)+'…':g.r;const sv2=g.sv.length>13?g.sv.slice(0,12)+'…':g.sv;
+              const nFill=sel?'rgba(26,42,128,.9)':(theme==='light'?T.nodeFill:_lb);
+              return <g key={g.id} transform={`translate(${pos.x},${pos.y}) scale(${ns})`} style={{cursor:draggingNode===g.id?'grabbing':'grab'}} onClick={()=>{if(!panRef.current.dragMoved)selectNode(g.id);}} onMouseDown={ev=>{ev.stopPropagation();dragRef.current={id:g.id,startMx:ev.clientX,startMy:ev.clientY,origX:pos.x,origY:pos.y,moved:false};setDraggingNode(g.id);}} onMouseEnter={()=>setHoveredId(g.id)} onMouseLeave={()=>setHoveredId(null)}>
+                {sel&&<rect x={-W/2-4} y={-H/2-4} width={W+8} height={H+8} rx={R+4} fill="none" stroke="#00C2FF" strokeWidth="1.5" opacity=".6"/>}
+                <rect x={-W/2} y={-H/2} width={W} height={H} rx={R} fill={nFill} stroke={sel?'#00C2FF':(hov?_lc:_lbd)} strokeWidth={(sel||hov)?1.5:1}/>
+                <rect x={-W/2} y={-H/2+R} width={3.5} height={H-2*R} rx={1.5} fill={_lc} opacity=".9"/>
+                <text x={-W/2+11} y="-4" textAnchor="start" fontSize="12" fontWeight="600" fill={sel?'#fff':T.text} fontFamily="'Noto Sans JP','Plus Jakarta Sans',sans-serif">{rd}</text>
+                <text x={-W/2+11} y="12" textAnchor="start" fontSize="9" fill={sel?'rgba(255,255,255,.65)':T.textMid} fontFamily="'Plus Jakarta Sans',sans-serif">{sv2}</text>
+                <g transform={`translate(${W/2-16},${-H/2+8})`}><rect x="-12" y="-6" width="24" height="12" rx="6" fill={_lb} stroke={_lbd} strokeWidth=".8"/><text x="0" y="0" textAnchor="middle" dominantBaseline="middle" fontSize="7" fontWeight="700" fill={_lc}>{g.lv}</text></g>
+              </g>;})}
+            {/* Root node */}
+            <g transform={`translate(${ROOT.x},${ROOT.y})`}>
+              <circle cx="0" cy="0" r="48" fill="rgba(99,102,241,.1)" stroke="rgba(99,102,241,.22)" strokeWidth="1.5"/>
+              <circle cx="0" cy="0" r="38" fill={theme==='dark'?'#1A2A80':'#3B4FCC'} stroke={T.nodeStroke} strokeWidth="1"/>
+              <text x="0" y="-5" textAnchor="middle" fontSize="20" fontWeight="700" fill="#fff" fontFamily="'Noto Sans JP',sans-serif">文法</text>
+              <text x="0" y="13" textAnchor="middle" fontSize="8" fill="rgba(255,255,255,.6)" fontFamily="'Plus Jakarta Sans',sans-serif">Ngữ pháp N5–N3</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      {/* RIGHT DETAIL (desktop) */}
+      {!isMobile&&<aside style={{width:334,flex:'none',background:T.bg3,borderLeft:`1px solid ${T.border}`,overflowY:'auto'}}>
+        <DetailPanel selectedId={selectedId} onSelect={selectNode} favorites={favorites} learned={learned} onToggleFav={toggleFav} onToggleLearned={toggleLearned} onNav={nav} levelFilter={levelFilter} T={T} theme={theme}/>
+      </aside>}
+    </div>
+
+    {/* MOBILE BOTTOM SHEET */}
+    {isMobile&&selectedId&&<div style={{position:'absolute',bottom:0,left:0,right:0,height:'58vh',background:T.bg3,borderTop:`1px solid ${T.border3}`,borderRadius:'14px 14px 0 0',zIndex:30,display:'flex',flexDirection:'column',overflow:'hidden',boxShadow:`0 -8px 32px ${T.shadowA}`}}>
+      <div style={{width:34,height:4,background:T.border3,borderRadius:2,margin:'8px auto 0',flex:'none'}}></div>
+      <div style={{flex:1,overflowY:'auto'}}>
+        <DetailPanel selectedId={selectedId} onSelect={selectNode} favorites={favorites} learned={learned} onToggleFav={toggleFav} onToggleLearned={toggleLearned} onNav={nav} levelFilter={levelFilter} T={T} theme={theme}/>
+      </div>
+    </div>}
+  </div>;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<GrammarMap/>);
+</script>
+</body>
+</html>
