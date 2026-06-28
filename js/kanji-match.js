@@ -86,7 +86,7 @@ const ROUND_CONFIG = [
 ];
 const MAX_LIVES = 3;
 
-let mRound = 0, mStreak = 0, mLives = MAX_LIVES, mTotalPairs = 0;
+let mRound = 0, mStreak = 0, mMaxStreak = 0, mLives = MAX_LIVES, mTotalPairs = 0;
 let mRoundQueue = [], mPairsLeft = 0;
 let mSelectedLeft = null, mSelectedRight = null;
 let mTimerHandle = null, mTimerStart = 0, mTimeLimit = 30000;
@@ -162,7 +162,7 @@ function updateMatchHUD() {
 }
 
 function startMatchGame() {
-  mRound = 0; mStreak = 0; mLives = MAX_LIVES; mTotalPairs = 0;
+  mRound = 0; mStreak = 0; mMaxStreak = 0; mLives = MAX_LIVES; mTotalPairs = 0;
   matchResult.classList.remove('visible');
   matchCombo.textContent = '';
   updateMatchHUD();
@@ -243,7 +243,7 @@ function checkMatchPair() {
   mSelectedLeft = null; mSelectedRight = null;
 
   if (L.dataset.id === R.dataset.id) {
-    mStreak++; mTotalPairs++; mPairsLeft--;
+    mStreak++; mMaxStreak = Math.max(mMaxStreak, mStreak); mTotalPairs++; mPairsLeft--;
     L.classList.remove('selected'); R.classList.remove('selected');
     L.classList.add('matched'); R.classList.add('matched');
     playTone(660, 'sine', 0.12);
@@ -292,7 +292,7 @@ function checkMatchPair() {
 }
 
 function matchTimerOut() {
-  mLives--; updateMatchHUD(); playTone(180, 'sawtooth', 0.2);
+  mLives--; mStreak = 0; updateMatchHUD(); playTone(180, 'sawtooth', 0.2);
   document.querySelectorAll('.match-item').forEach(el => {
     el.classList.add('wrong');
     setTimeout(() => el.classList.remove('wrong'), 400);
@@ -315,7 +315,7 @@ function showMatchResult(win) {
   document.getElementById('match-result-score').textContent = `${mTotalPairs} cặp`;
   document.getElementById('match-result-detail').innerHTML =
     `Nối đúng <strong style="color:#22c55e">${mTotalPairs}</strong> cặp · Vòng ${mRound + 1}<br>
-     <small style="opacity:.6">Streak cao nhất: ${mStreak} · Chế độ: ${mCompoundMode?'Từ ghép':'Từ đơn'}</small>`;
+     <small style="opacity:.6">Streak cao nhất: ${mMaxStreak} · Chế độ: ${mCompoundMode?'Từ ghép':'Từ đơn'}</small>`;
   matchResult.classList.add('visible');
 }
 

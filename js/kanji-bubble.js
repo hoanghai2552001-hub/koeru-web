@@ -473,8 +473,7 @@ function dngOnAnswer(btn, chosen) {
       if (reveal) reveal.classList.remove('visible');
       if (dHeroHP <= 0) showGameOver();
       else {
-        // Re-render same enemy for retry
-        renderEnemy(dCurrentCard);
+        renderEnemy(dCurrentCard, false);
       }
     }, 1600);
   }
@@ -499,7 +498,7 @@ function dngOnTimeout() {
     const reveal = document.getElementById('dng-answer-reveal');
     if (reveal) reveal.classList.remove('visible');
     if (dHeroHP <= 0) showGameOver();
-    else renderEnemy(dCurrentCard);
+    else renderEnemy(dCurrentCard, false);
   }, 1600);
 }
 

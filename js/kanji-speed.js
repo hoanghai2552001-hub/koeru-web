@@ -427,7 +427,7 @@ function endGame() {
 
   pBest   = Math.max(pBest, spSc);
   pTotal += spOk;
-  pStreak = spMaxStr;
+  pStreak = Math.max(pStreak, spMaxStr);
   pXP    += spXpG;
   while (pXP >= SP_XP_LVL) { pXP -= SP_XP_LVL; pLevel++; }
   spSaveProgress();
