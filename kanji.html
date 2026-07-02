@@ -6,11 +6,18 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0d0d0d">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0KW1B4F53"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-M0KW1B4F53');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/brand.css">
-<link rel="stylesheet" href="css/kanji.css?v=20260604h">
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}</style>
+<link rel="stylesheet" href="css/kanji.css?v=d408c2d0">
 <title>KOERU Kanji Lab — Luyện Kanji N5→N1</title>
 <meta name="description" content="4 game luyện Kanji: Flashcard, Nối từ, Dungeon, Speed. Hán Việt, gợi nhớ tiếng Việt, stroke order. Miễn phí. by KOERU Japanese.">
 <meta property="og:type" content="website">
@@ -23,6 +30,8 @@
 <meta name="twitter:title" content="KOERU Kanji Lab — Luyện Kanji N5→N1">
 <meta name="twitter:description" content="4 game luyện Kanji: Flashcard, Nối từ, Dungeon, Speed. Hán Việt, gợi nhớ tiếng Việt, stroke order. Miễn phí.">
 <meta name="twitter:image" content="https://hoanghai2552001-hub.github.io/koeru-web/images/logo_preview.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png"/>
 </head>
 <body>
 
@@ -41,7 +50,7 @@
     <div id="home-progress-bar-bg">
       <div id="home-progress-bar-fill"></div>
     </div>
-    <div id="home-progress-text">0 / 1765 kanji đã gặp</div>
+    <div id="home-progress-text">0 / 1581 kanji đã gặp</div>
     <div id="home-due-count" style="display:none;font-size:.78rem;color:#f59e0b;margin-top:4px;font-weight:600"></div>
   </div>
 
@@ -107,22 +116,22 @@
 </div>
 
 <!-- ══ LEAD MODAL ══ -->
-<div id="kanji-lead-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;padding:20px">
-  <div style="background:#1a1a2e;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:28px 24px;width:100%;max-width:400px;position:relative">
-    <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(255,255,255,.4);font-size:20px;cursor:pointer">✕</button>
-    <div style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:6px">Nhận lộ trình học Kanji</div>
-    <div style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:18px">KOERU sẽ gợi ý lộ trình phù hợp với mục tiêu của bạn trong 24 giờ.</div>
-    <div id="kanji-lead-success" style="display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);border-radius:8px;padding:14px;color:#86efac;font-size:.85rem;text-align:center;margin-bottom:12px">
-      <div style="margin-bottom:10px">✅ Đã nhận! KOERU sẽ liên hệ bạn trong 24 giờ.</div>
-      <button onclick="document.getElementById('kanji-lead-modal').style.display='none'" style="padding:8px 18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:.82rem;font-weight:700;cursor:pointer">Tiếp tục luyện Kanji →</button>
+<div id="kanji-lead-modal">
+  <div class="lead-box">
+    <button class="lead-close" onclick="document.getElementById('kanji-lead-modal').style.display='none'">✕</button>
+    <div class="lead-title">Nhận lộ trình học Kanji</div>
+    <div class="lead-sub">KOERU sẽ gợi ý lộ trình phù hợp với mục tiêu của bạn trong 24 giờ.</div>
+    <div id="kanji-lead-success">
+      <div class="lead-success-msg">✅ Đã nhận! KOERU sẽ liên hệ bạn trong 24 giờ.</div>
+      <button class="lead-success-btn" onclick="document.getElementById('kanji-lead-modal').style.display='none'">Tiếp tục luyện Kanji →</button>
     </div>
-    <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)" style="display:flex;flex-direction:column;gap:10px">
+    <form id="kanji-lead-form" action="https://formspree.io/f/xkoeqdep" method="POST" onsubmit="handleKanjiLead(event)">
       <label for="lead-name" class="sr-only">Họ và tên</label>
-      <input id="lead-name" name="name" placeholder="Họ tên" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <input id="lead-name" name="name" placeholder="Họ tên" required class="lead-input"/>
       <label for="lead-contact" class="sr-only">Zalo hoặc số điện thoại</label>
-      <input id="lead-contact" name="contact" placeholder="Zalo / SĐT" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none"/>
+      <input id="lead-contact" name="contact" placeholder="Zalo / SĐT" required class="lead-input"/>
       <label for="lead-level" class="sr-only">Trình độ hiện tại</label>
-      <select id="lead-level" name="current_level" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <select id="lead-level" name="current_level" required class="lead-input">
         <option value="">Trình độ hiện tại</option>
         <option value="zero">Chưa biết gì</option>
         <option value="kana">Biết Hiragana / Katakana</option>
@@ -131,7 +140,7 @@
         <option value="N3+">Đang học N3 trở lên</option>
       </select>
       <label for="lead-goal" class="sr-only">Mục tiêu học tập</label>
-      <select id="lead-goal" name="goal" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <select id="lead-goal" name="goal" required class="lead-input">
         <option value="">Mục tiêu của bạn</option>
         <option value="jlpt">Thi JLPT</option>
         <option value="dilan">Đi làm / Công ty Nhật</option>
@@ -140,7 +149,7 @@
         <option value="restart">Học lại từ đầu</option>
       </select>
       <label for="lead-time" class="sr-only">Thời gian học được mỗi ngày</label>
-      <select id="lead-time" name="available_time" required style="padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:.85rem;outline:none">
+      <select id="lead-time" name="available_time" required class="lead-input">
         <option value="">Thời gian học được</option>
         <option value="evening">Buổi tối</option>
         <option value="weekend">Cuối tuần</option>
@@ -148,8 +157,8 @@
       </select>
       <input type="hidden" name="source" value="kanji_lab">
       <input type="hidden" name="cta_location" id="cta-location" value="unknown">
-      <button type="submit" id="kanji-lead-submit" style="padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer">Nhận lộ trình →</button>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.3);text-align:center">KOERU chỉ dùng thông tin này để gửi lộ trình học, không spam.</div>
+      <button type="submit" id="kanji-lead-submit">Nhận lộ trình →</button>
+      <div class="lead-disclaimer">KOERU chỉ dùng thông tin này để gửi lộ trình học, không spam.</div>
     </form>
   </div>
 </div>
@@ -212,7 +221,7 @@
     <div class="btn-wrap"><button class="btn" id="btn-incorrect">✗ Sai</button></div>
     <button class="btn" id="btn-shuffle">⇄</button>
   </div>
-  <div id="feedback"></div>
+  <div id="feedback" aria-live="polite" role="status"></div>
   <div id="modal-overlay">
     <div id="modal">
       <div id="modal-emoji">💥</div>
@@ -515,14 +524,14 @@
   <div id="onboarding-modal">
     <div class="ob-logo">漢</div>
     <h2 class="ob-title">Chào mừng đến với<br><span>KOERU Kanji Lab</span></h2>
-    <p class="ob-sub">Luyện 1765 chữ Hán từ N5 đến N1<br>theo phong cách tiếng Việt</p>
+    <p class="ob-sub">Luyện 1581 chữ Hán từ N5 đến N1<br>theo phong cách tiếng Việt</p>
 
     <div class="ob-steps">
       <div class="ob-step">
         <span class="ob-step-num">1</span>
         <div class="ob-step-body">
           <strong>Chọn cấp độ N5</strong>
-          <span>— 103 kanji cơ bản nhất, học xong dùng được ngay</span>
+          <span>— 80 kanji cơ bản nhất, học xong dùng được ngay</span>
         </div>
       </div>
       <div class="ob-step">
@@ -681,167 +690,6 @@ async function handleKanjiLead(e){
     } else {btn.textContent='Thử lại';btn.disabled=false;}
   }catch(_){btn.textContent='Thử lại';btn.disabled=false;}
 }
-// ── QUIZ MODULE ─────────────────────────────────────────
-(function(){
-  let qPool=[], qList=[], qIdx=0, qScore=0, qLv='N5', qAnswers=[];
-
-  function buildPool(lv){
-    const data=window.KANJI_DATA||window.ALL_KANJI||[];
-    return data.filter(k=>(lv==='ALL'?['N5','N4'].includes(k.level):k.level===lv)&&k.words&&k.words.length>=2);
-  }
-
-  function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
-
-  function makeQ(entry,pool){
-    const types=['A','B','C'];
-    const t=types[qIdx%3];
-    if(t==='A'){
-      const ws=shuffle(pool.filter(e=>e.k!==entry.k)).slice(0,3).map(e=>e.m);
-      return{type:'A',badge:'Nghĩa là gì?',label:'Kanji → Nghĩa',entry,opts:shuffle([entry.m,...ws]),ans:entry.m};
-    }
-    if(t==='B'){
-      const ws=shuffle(pool.filter(e=>e.k!==entry.k)).slice(0,3).map(e=>e.k);
-      return{type:'B',badge:'Chọn kanji đúng',label:'Nghĩa → Kanji',entry,question:entry.m,opts:shuffle([entry.k,...ws]),ans:entry.k};
-    }
-    const w=entry.words[Math.floor(Math.random()*Math.min(entry.words.length,3))];
-    const ws2=shuffle(pool.flatMap(e=>e.words||[])).slice(0,3).map(x=>x.m);
-    return{type:'C',badge:'Từ vựng → Nghĩa',label:'Từ vựng',entry,word:w,opts:shuffle([w.m,...ws2]),ans:w.m};
-  }
-
-  function startQuiz(){
-    qPool=buildPool(qLv);
-    if(qPool.length<10)return;
-    const sample=shuffle(qPool).slice(0,10);
-    qList=sample.map((e,i)=>makeQ(e,qPool));
-    qIdx=0;qScore=0;qAnswers=[];
-    document.getElementById('quiz-home').style.display='none';
-    document.getElementById('quiz-result').style.display='none';
-    document.getElementById('quiz-play').style.display='block';
-    renderQ();
-  }
-
-  function renderQ(){
-    const q=qList[qIdx];
-    const pct=(qIdx/qList.length)*100;
-    document.getElementById('quiz-prog-bar').style.width=pct+'%';
-    document.getElementById('quiz-prog-text').textContent=`Câu ${qIdx+1}/10`;
-    document.getElementById('quiz-q-label').textContent=`Câu ${qIdx+1} — ${q.label}`;
-    document.getElementById('quiz-badge').textContent=q.badge;
-    document.getElementById('quiz-feedback').style.display='none';
-    document.getElementById('quiz-next-btn').style.display='none';
-
-    const isB=q.type==='B', isC=q.type==='C';
-    document.getElementById('quiz-word-wrap').style.display=isC?'block':'none';
-    document.getElementById('quiz-kanji').style.display=isC?'none':'block';
-    document.getElementById('quiz-hv').style.display=isC?'none':'block';
-    if(isB){
-      document.getElementById('quiz-kanji').style.fontSize='1.2rem';
-      document.getElementById('quiz-kanji').textContent=q.question;
-      document.getElementById('quiz-hv').textContent='';
-    } else if(!isC){
-      document.getElementById('quiz-kanji').style.fontSize='4.5rem';
-      document.getElementById('quiz-kanji').textContent=q.entry.k;
-      document.getElementById('quiz-hv').textContent=q.entry.hv||'';
-    } else {
-      document.getElementById('quiz-word').textContent=q.word.w;
-      document.getElementById('quiz-word-r').textContent=q.word.r;
-    }
-
-    const grid=document.getElementById('quiz-opts');
-    grid.innerHTML='';
-    q.opts.forEach(opt=>{
-      const btn=document.createElement('button');
-      if(isB){btn.style.fontFamily="'Noto Sans JP',sans-serif";btn.style.fontSize='1.5rem';}
-      btn.textContent=opt;
-      btn.onclick=()=>checkQ(opt,q);
-      grid.appendChild(btn);
-    });
-  }
-
-  function checkQ(chosen,q){
-    const ok=chosen===q.ans;
-    if(ok)qScore++;
-    document.querySelectorAll('#quiz-opts button').forEach(btn=>{
-      btn.disabled=true;
-      if(btn.textContent===q.ans)btn.classList.add('q-correct');
-      else if(btn.textContent===chosen&&!ok)btn.classList.add('q-wrong');
-    });
-    const fb=document.getElementById('quiz-feedback');
-    fb.style.borderColor=ok?'#22c55e':'#f43f5e';
-    fb.style.background=ok?'rgba(34,197,94,.08)':'rgba(244,63,94,.06)';
-    document.getElementById('quiz-fb-title').textContent=ok?'✓ Chính xác!':'✗ Chưa đúng — '+q.entry.m;
-    document.getElementById('quiz-fb-words').innerHTML=(q.entry.words||[]).slice(0,2).map(w=>
-      `<span style="color:#f5c842;font-family:'Noto Sans JP',sans-serif">${w.w}</span> <span style="font-size:.72rem;color:rgba(255,255,255,.4)">${w.r}</span> <span style="font-size:.78rem;color:rgba(255,255,255,.6)">— ${w.m}</span>`
-    ).join('<br>');
-    fb.style.display='block';
-    document.getElementById('quiz-next-btn').style.display='block';
-    qAnswers.push({k:q.entry.k,m:q.entry.m,ok,chosen,ans:q.ans});
-  }
-
-  function nextQ(){
-    qIdx++;
-    if(qIdx>=qList.length)showResult();
-    else renderQ();
-  }
-
-  function showResult(){
-    document.getElementById('quiz-prog-bar').style.width='100%';
-    document.getElementById('quiz-play').style.display='none';
-    document.getElementById('quiz-result').style.display='block';
-    const pct=Math.round(qScore/qList.length*100);
-    document.getElementById('quiz-score-num').textContent=`${qScore}/10`;
-    const missed=qAnswers.filter(a=>!a.ok);
-    const [emoji,title,sub]=pct>=80?['🏆','Xuất sắc!',`${pct}% — trình độ rất tốt!`]:
-                              pct>=50?['💪','Khá tốt!',`${pct}% — còn cải thiện được!`]:
-                                      ['🌱','Cần luyện thêm!',`${pct}% — ôn lại và thử lại nhé!`];
-    document.getElementById('quiz-res-emoji').textContent=emoji;
-    document.getElementById('quiz-res-title').textContent=title;
-    document.getElementById('quiz-res-sub').textContent=sub;
-    if(missed.length){
-      document.getElementById('quiz-missed-wrap').style.display='block';
-      document.getElementById('quiz-missed-list').innerHTML=missed.map(a=>
-        `<span style="background:rgba(244,63,94,.1);border:1px solid rgba(244,63,94,.2);border-radius:6px;padding:4px 10px;font-size:.8rem;display:flex;align-items:center;gap:5px"><span style="font-family:'Noto Sans JP',sans-serif;font-size:1rem;color:#f87171">${a.k}</span><span style="color:rgba(255,255,255,.4);font-size:.7rem">${a.m}</span></span>`
-      ).join('');
-    }
-    // Store result for lead modal context
-    window._quizScore={pct,score:qScore,level:qLv,missed:missed.map(a=>a.k)};
-  }
-
-  document.addEventListener('DOMContentLoaded',()=>{
-    const goQuiz=document.getElementById('go-quiz');
-    if(goQuiz) goQuiz.addEventListener('click',()=>{
-      showScreen('quiz-screen');
-      document.getElementById('quiz-home').style.display='block';
-      document.getElementById('quiz-play').style.display='none';
-      document.getElementById('quiz-result').style.display='none';
-    });
-
-    const quizBack=document.getElementById('quiz-back');
-    if(quizBack) quizBack.addEventListener('click',()=>{showScreen('home-screen');updateHomeProgress();});
-
-    document.querySelectorAll('.quiz-lvl-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        document.querySelectorAll('.quiz-lvl-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        qLv=btn.dataset.lv;
-      });
-    });
-
-    const startBtn=document.getElementById('quiz-start-btn');
-    if(startBtn) startBtn.addEventListener('click',startQuiz);
-
-    const nextBtn=document.getElementById('quiz-next-btn');
-    if(nextBtn) nextBtn.addEventListener('click',nextQ);
-
-    const againBtn=document.getElementById('quiz-again-btn');
-    if(againBtn) againBtn.addEventListener('click',()=>{
-      document.getElementById('quiz-result').style.display='none';
-      document.getElementById('quiz-missed-wrap').style.display='none';
-      document.getElementById('quiz-home').style.display='block';
-    });
-  });
-})();
-
 // Hash routing
 window.addEventListener('load', () => {
   if(location.hash==='#quiz') {
@@ -859,15 +707,16 @@ if(new URLSearchParams(location.search).get('admin')==='true'){
 </script>
 
 <!-- Scripts: thứ tự quan trọng — data trước, logic sau -->
-<script src="js/kanji-data.js?v=20260604h"></script>
-<script src="js/koeru-mastery.js?v=20260604h"></script>
-<script src="js/kanji-state.js?v=20260604h"></script>
-<script src="js/kanji-flashcard.js?v=20260604h"></script>
-<script src="js/kanji-match.js?v=20260604h"></script>
-<script src="js/kanji-bubble.js?v=20260604h"></script>
-<script src="js/kanji-speed.js?v=20260604h"></script>
-<script src="js/kanji-panel.js?v=20260604h"></script>
-<script src="js/kanji-stroke.js?v=20260604h"></script>
+<script src="js/kanji-data.js?v=20260626"></script>
+<script src="js/koeru-mastery.js?v=4122d33f"></script>
+<script src="js/kanji-state.js?v=7213b173"></script>
+<script src="js/kanji-flashcard.js?v=20260702"></script>
+<script src="js/kanji-match.js?v=20260628"></script>
+<script src="js/kanji-bubble.js?v=20260628"></script>
+<script src="js/kanji-speed.js?v=20260702"></script>
+<script src="js/kanji-quiz.js?v=20260628"></script>
+<script src="js/kanji-panel.js?v=20260702"></script>
+<script src="js/kanji-stroke.js?v=20260626"></script>
 <!-- ── DATA ATTRIBUTION ── -->
 <button id="cred-btn" onclick="var p=document.getElementById('cred-pop');p.style.display=p.style.display==='block'?'none':'block'" title="Nguồn dữ liệu & License" style="position:fixed;bottom:14px;right:14px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.38);font-size:.72rem;cursor:pointer;z-index:9990;padding:0;font-family:system-ui;line-height:26px;text-align:center">ⓘ</button>
 <div id="cred-pop" style="display:none;position:fixed;bottom:48px;right:14px;width:268px;background:#12141f;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;z-index:9989;box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:system-ui,sans-serif">

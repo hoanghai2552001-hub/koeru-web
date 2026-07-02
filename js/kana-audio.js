@@ -11,7 +11,7 @@ function toggleAudio() {
   const btn = document.getElementById('audio-toggle');
   btn.textContent = audioEnabled ? '🔊' : '🔇';
   btn.classList.toggle('muted', !audioEnabled);
-  if (!audioEnabled) speechSynthesis.cancel();
+  if (!audioEnabled) window.speechSynthesis?.cancel();
 }
 
 function playKanaAudio(kana) {
@@ -73,3 +73,7 @@ function playCharsSequence(chars, idx) {
     a.play().catch(onNext);
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('audio-toggle').addEventListener('click', toggleAudio);
+});

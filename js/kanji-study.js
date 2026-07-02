@@ -20,8 +20,7 @@ const _loadCallbacks = {};
 
 function ensureLevelLoaded(level, cb) {
   if (level === 'ALL') {
-    // ALL chỉ load N5/N4/N3 (N2/N1 chưa sẵn sàng)
-    const all = ['N5','N4','N3'];
+    const all = ['N5','N4','N3','N2'];
     let pending = all.filter(lv => !_loadedLevels.has(lv));
     if (!pending.length) { cb(); return; }
     let done = 0;
@@ -32,7 +31,7 @@ function ensureLevelLoaded(level, cb) {
   if (_loadCallbacks[level]) { _loadCallbacks[level].push(cb); return; }
   _loadCallbacks[level] = [cb];
   const s = document.createElement('script');
-  s.src = `js/kanji-data-${level.toLowerCase()}.js?v=20260604h`;
+  s.src = `js/kanji-data-${level.toLowerCase()}.js?v=20260626`;
   s.onload = () => {
     // Merge window.KANJI_Nx vào ALL_KANJI
     const key = `KANJI_${level}`;
@@ -413,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Nếu kanji.html đã set level gần nhất → áp dụng
   const savedLevel = localStorage.getItem('koeru_study_launch_level');
-  if (savedLevel && ['N5','N4','N3','N2','N1'].includes(savedLevel)) {
+  if (savedLevel && ['N5','N4','N3','N2'].includes(savedLevel)) {
     const tab = document.querySelector(`.lvl-tab[data-lvl="${savedLevel}"]`);
     if (tab) tab.click();
   }

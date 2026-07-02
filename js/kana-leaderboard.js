@@ -3,7 +3,7 @@
 ════════════════════════════════ */
 
 // Keys được quản lý trong js/kana-config.js
-const supa = KANA_CONFIG.leaderboardEnabled
+const supa = (window.supabase && KANA_CONFIG.leaderboardEnabled)
   ? supabase.createClient(KANA_CONFIG.supabaseUrl, KANA_CONFIG.supabaseKey)
   : null;
 
@@ -38,8 +38,10 @@ async function saveScore() {
   } else {
     localStorage.setItem('kana_nickname', nick);
     scoreSaved = true;
-    document.getElementById('save-status').innerHTML =
-      '✅ Đã lưu! <span style="color:var(--accent2);cursor:pointer;text-decoration:underline" onclick="openLeaderboard()">Xem bảng xếp hạng →</span>';
+    const statusEl = document.getElementById('save-status');
+    statusEl.innerHTML =
+      '✅ Đã lưu! <span style="color:var(--accent2);cursor:pointer;text-decoration:underline">Xem bảng xếp hạng →</span>';
+    statusEl.querySelector('span').addEventListener('click', openLeaderboard);
   }
 }
 
@@ -80,11 +82,12 @@ async function fetchLeaderboard() {
 
   const medals   = ['🥇','🥈','🥉'];
   const topClass = ['top1','top2','top3'];
+  const esc = s => s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : '';
 
   list.innerHTML = data.map((row, i) => `
     <div class="lb-row ${topClass[i] || ''}">
       <div class="lb-rank">${medals[i] || '#'+(i+1)}</div>
-      <div class="lb-name">${row.nickname}<br>
+      <div class="lb-name">${esc(row.nickname)}<br>
         <span class="lb-meta">${row.level === 3 ? '⚡Từ vựng' : 'Trình độ '+row.level} · ${new Date(row.created_at).toLocaleDateString('vi-VN')}</span>
       </div>
       <div class="lb-score">
@@ -94,3 +97,18 @@ async function fetchLeaderboard() {
     </div>`
   ).join('');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('lb-home-btn').addEventListener('click', openLeaderboard);
+  document.getElementById('lb-close').addEventListener('click', closeLeaderboard);
+  document.getElementById('lb-overlay').addEventListener('click', closeLbOnOverlay);
+  document.getElementById('save-btn').addEventListener('click', saveScore);
+  document.getElementById('nickname-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') saveScore();
+  });
+
+  document.getElementById('lb-tab-all').addEventListener('click', function() { switchLbTab('all', this); });
+  document.getElementById('lb-tab-1').addEventListener('click', function() { switchLbTab(1, this); });
+  document.getElementById('lb-tab-2').addEventListener('click', function() { switchLbTab(2, this); });
+  document.getElementById('lb-tab-3').addEventListener('click', function() { switchLbTab(3, this); });
+});

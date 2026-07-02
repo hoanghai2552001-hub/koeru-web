@@ -27,7 +27,7 @@ function updateHomeProgress() {
   const dueEl   = document.getElementById('home-due-count');
   if (!fill || !text) return;
 
-  const total   = typeof ALL_KANJI !== 'undefined' ? ALL_KANJI.length : 1765;
+  const total   = typeof ALL_KANJI !== 'undefined' ? ALL_KANJI.length : 1581;
   const ms      = window.koeruMastery;
   const seen    = ms ? ms.countSeen() : 0;
   const stats   = ms ? ms.getStats()  : { due: 0, learned: 0 };
@@ -177,15 +177,18 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.home-lvl-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       selectedLevel = btn.dataset.lvl;
+      if (typeof gtag !== 'undefined') gtag('event', 'level_select', { level: selectedLevel, source: 'kanji_lab' });
     });
   });
 
   document.getElementById('go-flash').addEventListener('click', () => {
     showScreen('flash-screen');
+    if (typeof gtag !== 'undefined') gtag('event', 'game_start', { game_name: 'Flashcard', level: selectedLevel });
     buildDeck();
   });
   document.getElementById('go-match').addEventListener('click', () => {
     showScreen('match-screen');
+    if (typeof gtag !== 'undefined') gtag('event', 'game_start', { game_name: 'Match', level: selectedLevel });
     startMatchGame();
   });
   document.getElementById('flash-back').addEventListener('click', () => {
@@ -206,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Bubble game event listeners
   document.getElementById('go-bubble').addEventListener('click', () => {
     showScreen('bubble-screen');
+    if (typeof gtag !== 'undefined') gtag('event', 'game_start', { game_name: 'Bubble', level: selectedLevel });
     startBubbleGame();
   });
   document.getElementById('bubble-back').addEventListener('click', () => {

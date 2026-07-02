@@ -278,8 +278,13 @@ function pickUnused() {
 function renderOptions() {
   const grid = document.getElementById('sp-opts');
   grid.innerHTML = '';
-  const wrong = shuffle(spDeck.filter(k => k.kanji !== spCard.kanji)).slice(0, 3).map(k => spGetAns(k));
-  const opts  = shuffle([spGetAns(spCard), ...wrong]);
+  const correct = spGetAns(spCard);
+  let cands = spDeck.filter(k => k.kanji !== spCard.kanji);
+  if (spAnswerMode === 'jp') {
+    cands = cands.filter(k => (k.kun && k.kun !== '—') || (k.on && k.on !== '—'));
+  }
+  const wrong = [...new Set(shuffle(cands).map(k => spGetAns(k)).filter(a => a && a !== correct))].slice(0, 3);
+  const opts  = shuffle([correct, ...wrong]);
   // JP mode: gợi ý nghĩa VN nhỏ
   const hint = document.getElementById('sp-jp-hint');
   if (hint) hint.textContent = spAnswerMode === 'jp' ? spCard.meaning : '';
@@ -427,7 +432,7 @@ function endGame() {
 
   pBest   = Math.max(pBest, spSc);
   pTotal += spOk;
-  pStreak = spMaxStr;
+  pStreak = Math.max(pStreak, spMaxStr);
   pXP    += spXpG;
   while (pXP >= SP_XP_LVL) { pXP -= SP_XP_LVL; pLevel++; }
   spSaveProgress();
@@ -501,5 +506,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('go-speed')?.addEventListener('click', () => {
     showScreen('s-sph'); spLoadProgress(); spUpdateHome();
+    if (typeof gtag !== 'undefined') gtag('event', 'game_start', { game_name: 'Speed', level: typeof selectedLevel !== 'undefined' ? selectedLevel : 'unknown' });
   });
 });

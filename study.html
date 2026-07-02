@@ -6,11 +6,21 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0a0a1c">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0KW1B4F53"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-M0KW1B4F53');
+</script>
 <meta name="description" content="Học Kanji N5–N1 với stroke order, từ vựng và luyện tập trực tiếp. KOERU Japanese.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/study.css?v=20260604h">
+<link rel="stylesheet" href="css/study.css?v=42720a4e">
 <title>KOERU · Học Kanji N5–N1</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png"/>
 </head>
 <body>
 
@@ -36,10 +46,10 @@
       </div>
       <!-- Kanji level tabs (chỉ hiện khi view=kanji hoặc vocab) -->
       <div id="level-tabs">
-        <button class="lvl-tab active" data-lvl="N5">N5 <small>(103)</small></button>
-        <button class="lvl-tab" data-lvl="N4">N4 <small>(160)</small></button>
-        <button class="lvl-tab" data-lvl="N3">N3 <small>(377)</small></button>
-        <button class="lvl-tab" data-lvl="N2">N2 <small>(313)</small></button>
+        <button class="lvl-tab active" data-lvl="N5">N5 <small>(80)</small></button>
+        <button class="lvl-tab" data-lvl="N4">N4 <small>(163)</small></button>
+        <button class="lvl-tab" data-lvl="N3">N3 <small>(367)</small></button>
+        <button class="lvl-tab" data-lvl="N2">N2 <small>(343)</small></button>
         <button class="lvl-tab lvl-coming-soon" data-lvl="N1" disabled title="Sắp có">N1 <small>(628)</small></button>
         <button class="lvl-tab" data-lvl="ALL">Tất cả</button>
       </div>
@@ -167,9 +177,9 @@
   window.ALL_KANJI = [];
   window._koeruDataLoaded = function(){};
 </script>
-<script src="js/kanji-data-n5.js?v=20260604h" onload="window.KANJI_N5?.forEach(k=>ALL_KANJI.push(k));window._n5Ready=true;window._applyHash&&window._applyHash()"></script>
-<script src="js/koeru-mastery.js?v=20260604h"></script>
-<script src="js/kanji-study.js?v=20260604h"></script>
+<script src="js/kanji-data-n5.js?v=20260626" onload="window.KANJI_N5?.forEach(k=>ALL_KANJI.push(k));window._n5Ready=true;window._applyHash&&window._applyHash()"></script>
+<script src="js/koeru-mastery.js?v=4122d33f"></script>
+<script src="js/kanji-study.js?v=20260702"></script>
 <style>
 /* View tabs */
 #view-tabs{display:flex;gap:6px;padding:10px 12px 6px;border-bottom:1px solid rgba(255,255,255,.06)}

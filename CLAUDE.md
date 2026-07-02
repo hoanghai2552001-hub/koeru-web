@@ -16,10 +16,10 @@ kanji-map.html          Bản đồ Kanji (React + D3, force graph)
 kana.html               Kana Speed game
 
 js/kanji-data.js        window.KANJI_DATA — 1581 kanji flat array (N5-N1)
-js/kanji-data-n5.js     window.KANJI_N5 — 103 kanji N5
-js/kanji-data-n4.js     window.KANJI_N4 — 160 kanji N4
-js/kanji-data-n3.js     window.KANJI_N3 — 377 kanji N3
-js/kanji-data-n2.js     window.KANJI_N2 — 313 kanji N2
+js/kanji-data-n5.js     window.KANJI_N5 — 80 kanji N5
+js/kanji-data-n4.js     window.KANJI_N4 — 163 kanji N4
+js/kanji-data-n3.js     window.KANJI_N3 — 367 kanji N3
+js/kanji-data-n2.js     window.KANJI_N2 — 343 kanji N2
 js/kanji-data-n1.js     window.KANJI_N1 — 628 kanji N1
 kanji-map-data.js       window.KANJI_DATA {kanji,vocab} — dùng bởi kanji-map.html
 kanji-map-vocab-ext.js  vocab mở rộng cho kanji-map
@@ -110,6 +110,9 @@ python tools/install_hooks.py         # Cài pre-commit hook
 # Local preview & deploy
 python -m http.server 7788            # http://localhost:7788
 git push origin dev                   # Deploy lên GitHub Pages
+
+# Automation (Karpathy Loop Architecture)
+python tools/watch_excel.py           # Watchdog: auto-sync khi Excel thay đổi (chạy ngầm)
 ```
 
 ## Vocabulary QA — Rules

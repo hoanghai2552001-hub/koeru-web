@@ -60,20 +60,18 @@ function renderCard() {
     hardReadingEl.style.display = 'none';
     readingOn.style.display = ''; readingKun.style.display = '';
     timerWrap.style.display = 'none';
-    const showCorrect = Math.random() > .45;
+    const pool = deck.filter((x,i) => i !== idx && x.meaning !== k.meaning);
+    const showCorrect = pool.length === 0 ? true : Math.random() > .45;
     currentIsCorrectMeaning = showCorrect;
     if (showCorrect) {
       shownMeaning.textContent = k.meaning;
       readingOn.textContent  = `On: ${k.on || '—'}`;
       readingKun.textContent = `Kun: ${k.kun || '—'}`;
     } else {
-      const pool = deck.filter((_,i) => i !== idx);
       const fake = pool[Math.floor(Math.random() * pool.length)];
-      const fk = fake || k;
-      shownMeaning.textContent = fk.meaning;
-      readingOn.textContent  = `On: ${fk.on || '—'}`;
-      readingKun.textContent = `Kun: ${fk.kun || '—'}`;
-      currentIsCorrectMeaning = false;
+      shownMeaning.textContent = fake.meaning;
+      readingOn.textContent  = `On: ${k.on || '—'}`;
+      readingKun.textContent = `Kun: ${k.kun || '—'}`;
     }
     const wordsHtml = filterWordsForLevel(k.words, selectedLevel).slice(0,3).map(w =>
       `<span class="back-word"><span class="bw-kanji">${w.w}</span><span class="bw-read">${w.r||''}</span><span class="bw-mean">${w.m||''}</span></span>`
@@ -86,25 +84,24 @@ function renderCard() {
       <div class="back-correct-meaning">${k.meaning}</div>
       ${wordsHtml ? `<div class="back-words">${wordsHtml}</div>` : ''}`;
   } else {
-    // HARD: giống Easy — hiện nghĩa ngẫu nhiên đúng/sai
-    // Không hiện On/Kun để khó hơn, có timer, sai = reset streak
     kanjiArea.classList.add('hard-glow');
     hardReadingEl.style.display = 'none';
-    readingOn.style.display = 'none';
-    readingKun.style.display = 'none';
+    readingOn.style.display = ''; readingKun.style.display = '';
     meaningArea.classList.remove('hidden');
     document.getElementById('btn-correct').style.visibility   = 'visible';
     document.getElementById('btn-incorrect').style.visibility = 'visible';
-    // Nghĩa ngẫu nhiên đúng/sai + kèm hiragana/katakana
-    const showCorrect = Math.random() > .45;
+    const poolH = deck.filter((x,i) => i !== idx && x.meaning !== k.meaning);
+    const showCorrect = poolH.length === 0 ? true : Math.random() > .45;
     currentIsCorrectMeaning = showCorrect;
     if (showCorrect) {
       shownMeaning.textContent = k.meaning;
+      readingOn.textContent  = `On: ${k.on || '—'}`;
+      readingKun.textContent = `Kun: ${k.kun || '—'}`;
     } else {
-      const pool = deck.filter((_,i) => i !== idx);
-      const fake = pool[Math.floor(Math.random() * pool.length)];
-      shownMeaning.textContent = (fake || k).meaning;
-      currentIsCorrectMeaning = false;
+      const fake = poolH[Math.floor(Math.random() * poolH.length)];
+      shownMeaning.textContent = fake.meaning;
+      readingOn.textContent  = `On: ${k.on || '—'}`;
+      readingKun.textContent = `Kun: ${k.kun || '—'}`;
     }
     verdictHint.style.display = 'block';
     verdictHint.textContent   = 'Nghĩa đúng hay sai? ⏱';
@@ -319,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dx = e.changedTouches[0].clientX - touchX;
     const dy = e.changedTouches[0].clientY - touchY;
     const dt = Date.now() - touchT;
-    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) answer(dx > 0);
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) answer(dx < 0);
     else if (Math.abs(dx) < 10 && Math.abs(dy) < 10 && dt < 300) flipCard();
   }, { passive: true });
 });
