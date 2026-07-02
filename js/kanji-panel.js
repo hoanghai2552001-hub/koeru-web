@@ -180,7 +180,7 @@ function fpRenderDiary() {
 function fpExportCSV() {
   const headers = ['kanji','hanviet','on','kun','meaning','meaning_jp','level'];
   const rows = ALL_KANJI.map(k =>
-    headers.map(h => (k[h]||'').replace(/"/g,'\"')).map(v => `"${v}"`).join(',')
+    headers.map(h => (k[h]||'').replace(/"/g,'""')).map(v => `"${v}"`).join(',')
   );
   const csv = [headers.join(','), ...rows].join('\n');
   const blob = new Blob(['﻿' + csv], {type:'text/csv;charset=utf-8'});

@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Nếu kanji.html đã set level gần nhất → áp dụng
   const savedLevel = localStorage.getItem('koeru_study_launch_level');
-  if (savedLevel && ['N5','N4','N3','N2','N1'].includes(savedLevel)) {
+  if (savedLevel && ['N5','N4','N3','N2'].includes(savedLevel)) {
     const tab = document.querySelector(`.lvl-tab[data-lvl="${savedLevel}"]`);
     if (tab) tab.click();
   }

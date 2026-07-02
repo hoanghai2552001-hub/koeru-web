@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap">
 
-<link rel="stylesheet" href="kanji-map.css">
+<link rel="stylesheet" href="kanji-map.css?v=20260702">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png"/>
 </head>
@@ -87,8 +87,8 @@
   </div>
 
   <!-- React 18 -->
-  <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <!-- d3 (force + utilities) — full bundle, ~270KB, exposes window.d3 -->
@@ -97,7 +97,7 @@
   <!-- data + helpers -->
   <script src="kanji-map-data.js?v=9a33a02a"></script>
   <script src="kanji-map-vocab-ext.js?v=95fc200b"></script>
-  <script src="kanji-romaji.js"></script>
+  <script src="kanji-romaji.js?v=20260702"></script>
 
   <!-- Expose React hooks globally so all inline Babel scripts can access them without re-declaring -->
   <script>
@@ -1157,7 +1157,7 @@ const KanjiMapApp = () => {
     // Auto-include level của kanji từ URL param
     if (initialFromURL) {
       const node = data.kanji.find(k => k.id === initialFromURL);
-      if (node?.jlpt && !base.includes(node.jlpt)) base = [...base, node.jlpt];
+      if (node?.jlpt && ALL_LEVELS.includes(node.jlpt) && !base.includes(node.jlpt)) base = [...base, node.jlpt];
     }
     return base;
   });
@@ -1291,7 +1291,7 @@ const KanjiMapApp = () => {
     return () => window.removeEventListener('km-learned-updated', h);
   }, []);
 
-  const [streak, xpToday] = useMemo(() => {
+  const [todayCount, learnedCount] = useMemo(() => {
     try {
       const raw = localStorage.getItem('koeru_mastery_v2');
       if (!raw) return [0, 0];
@@ -1299,8 +1299,8 @@ const KanjiMapApp = () => {
       const entries = Object.values(m);
       const learned = entries.filter(e => e.reps > 0).length;
       const today = new Date().toISOString().slice(0, 10);
-      const todayCount = entries.filter(e => e.lastDate === today).length;
-      return [todayCount, learned];
+      const cnt = entries.filter(e => e.seen && new Date(e.seen).toISOString().slice(0, 10) === today).length;
+      return [cnt, learned];
     } catch(_) { return [0, 0]; }
   }, []);
 
@@ -1489,8 +1489,8 @@ const KanjiMapApp = () => {
           })}
         </div>
         <div className="km-streak">
-          <div className="km-streak-num">{xpToday} đã học</div>
-          <div className="km-streak-meta">📝 {streak} hôm nay</div>
+          <div className="km-streak-num">{learnedCount} đã học</div>
+          <div className="km-streak-meta">📝 {todayCount} hôm nay</div>
         </div>
       </div>
     </div>

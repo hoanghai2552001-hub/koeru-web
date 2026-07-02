@@ -3,7 +3,7 @@
 ════════════════════════════════ */
 
 // Keys được quản lý trong js/kana-config.js
-const supa = KANA_CONFIG.leaderboardEnabled
+const supa = (window.supabase && KANA_CONFIG.leaderboardEnabled)
   ? supabase.createClient(KANA_CONFIG.supabaseUrl, KANA_CONFIG.supabaseKey)
   : null;
 
@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('lb-close').addEventListener('click', closeLeaderboard);
   document.getElementById('lb-overlay').addEventListener('click', closeLbOnOverlay);
   document.getElementById('save-btn').addEventListener('click', saveScore);
+  document.getElementById('nickname-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') saveScore();
+  });
 
   document.getElementById('lb-tab-all').addEventListener('click', function() { switchLbTab('all', this); });
   document.getElementById('lb-tab-1').addEventListener('click', function() { switchLbTab(1, this); });

@@ -60,7 +60,7 @@ function renderCard() {
     hardReadingEl.style.display = 'none';
     readingOn.style.display = ''; readingKun.style.display = '';
     timerWrap.style.display = 'none';
-    const pool = deck.filter((_,i) => i !== idx);
+    const pool = deck.filter((x,i) => i !== idx && x.meaning !== k.meaning);
     const showCorrect = pool.length === 0 ? true : Math.random() > .45;
     currentIsCorrectMeaning = showCorrect;
     if (showCorrect) {
@@ -90,7 +90,7 @@ function renderCard() {
     meaningArea.classList.remove('hidden');
     document.getElementById('btn-correct').style.visibility   = 'visible';
     document.getElementById('btn-incorrect').style.visibility = 'visible';
-    const poolH = deck.filter((_,i) => i !== idx);
+    const poolH = deck.filter((x,i) => i !== idx && x.meaning !== k.meaning);
     const showCorrect = poolH.length === 0 ? true : Math.random() > .45;
     currentIsCorrectMeaning = showCorrect;
     if (showCorrect) {
