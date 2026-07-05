@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KOERU — Test Đầu Vào N3 (Nền tảng N4)</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0d14; --card:#121820; --card2:#1a2230;
+  --text:#f4f0ea; --muted:#8a8070;
+  --accent:#e8845a; --gold:#f5c842;
+  --ok:#5ac88a; --bad:#e85a6a;
+  --line:rgba(244,240,234,.09);
+}
+html{height:100%}
+body{
+  font-family:'Noto Sans JP','Noto Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);min-height:100vh;
+  -webkit-tap-highlight-color:transparent;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 50% at 15% 60%,rgba(232,132,90,.12) 0%,transparent 70%),
+             radial-gradient(ellipse 50% 40% at 85% 25%,rgba(245,200,66,.1) 0%,transparent 70%);}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25}
+.badge{display:inline-block;background:rgba(232,132,90,.15);color:var(--accent);
+  border:1px solid rgba(232,132,90,.35);border-radius:999px;padding:3px 12px;
+  font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:12px}
+.sub{color:var(--muted);margin-top:8px;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:18px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.meta span{background:var(--card2);border-radius:10px;padding:6px 12px;font-size:.82rem;color:var(--muted)}
+.meta b{color:var(--text)}
+.sets{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:14px}
+.set-btn{background:var(--card2);border:1.5px solid var(--line);border-radius:14px;
+  padding:16px 10px;color:var(--text);font-size:1rem;font-weight:700;cursor:pointer;
+  transition:border-color .15s,transform .1s;font-family:inherit}
+.set-btn small{display:block;font-weight:400;color:var(--muted);font-size:.72rem;margin-top:4px}
+.set-btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+/* test screen */
+.topbar{position:sticky;top:0;z-index:5;background:rgba(10,13,20,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);padding:10px 0;display:flex;align-items:center;gap:12px}
+.timer{font-variant-numeric:tabular-nums;font-weight:700;font-size:1.05rem;color:var(--gold)}
+.timer.low{color:var(--bad)}
+.progress{flex:1;height:6px;background:var(--card2);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));width:0%;transition:width .2s}
+.qcount{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.prompt{white-space:pre-wrap;line-height:1.9;font-size:1.05rem;margin-bottom:16px}
+.prompt .jp-quote{color:var(--gold)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--card2);
+  border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;
+  font-size:1rem;line-height:1.6;transition:border-color .12s;font-family:inherit;color:var(--text);text-align:left;width:100%}
+.opt:hover{border-color:rgba(232,132,90,.5)}
+.opt.sel{border-color:var(--accent);background:rgba(232,132,90,.12)}
+.opt .abc{flex:none;width:26px;height:26px;border-radius:50%;background:var(--card);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--muted)}
+.opt.sel .abc{background:var(--accent);color:#0a0d14}
+.nav{display:flex;gap:10px;margin-top:20px}
+.btn{flex:1;border:none;border-radius:12px;padding:14px;font-size:1rem;font-weight:700;
+  cursor:pointer;font-family:inherit;transition:opacity .12s}
+.btn:disabled{opacity:.35;cursor:default}
+.btn-ghost{background:var(--card2);color:var(--text);border:1px solid var(--line)}
+.btn-main{background:linear-gradient(135deg,var(--accent),#d4703f);color:#fff}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#d4a832);color:#0a0d14}
+.grid-nav{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:18px}
+.grid-nav button{aspect-ratio:1;border-radius:8px;border:1px solid var(--line);background:var(--card2);
+  color:var(--muted);font-size:.75rem;font-weight:600;cursor:pointer;font-family:inherit}
+.grid-nav button.done{background:rgba(232,132,90,.25);color:var(--text);border-color:rgba(232,132,90,.4)}
+.grid-nav button.cur{outline:2px solid var(--gold)}
+/* result */
+.score-hero{text-align:center;padding:26px 0 8px}
+.score-hero .big{font-size:3.2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.score-hero .pct{color:var(--muted);margin-top:4px}
+.skillbar{margin-top:10px}
+.skillbar .row{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:4px}
+.skillbar .bar{height:7px;background:var(--card2);border-radius:99px;overflow:hidden}
+.skillbar .bar i{display:block;height:100%;background:var(--accent)}
+.review-q{border-left:3px solid var(--bad);padding-left:14px;margin-top:18px}
+.review-q.correct{border-left-color:var(--ok)}
+.review-q .rp{white-space:pre-wrap;line-height:1.8;font-size:.95rem}
+.review-q .ans{margin-top:8px;font-size:.9rem;line-height:1.7}
+.tag-ok{color:var(--ok);font-weight:700}
+.tag-bad{color:var(--bad);font-weight:700}
+.expl{color:var(--muted);font-size:.86rem;margin-top:4px;line-height:1.6}
+.hidden{display:none}
+@media(max-width:480px){
+  .wrap{padding:14px 12px 50px}
+  .card{padding:16px 14px}
+  .grid-nav{grid-template-columns:repeat(8,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- LANDING -->
+  <div id="landing">
+    <span class="badge">KOERU 入学テスト</span>
+    <h1 id="examTitle">Test Đầu Vào N3</h1>
+    <p class="sub" id="examAudience"></p>
+    <div class="card">
+      <div class="meta">
+        <span>⏱ Thời gian: <b id="examDuration"></b></span>
+        <span>📝 <b>40 câu</b> / đề</span>
+        <span>🎧 Nghe: <b>thi riêng</b></span>
+      </div>
+      <p class="sub" style="font-size:.86rem;margin-top:14px">
+        Đề gồm: Kanji – Từ vựng – Ngữ pháp – Đọc hiểu. Chọn 1 mã đề để bắt đầu.
+        Hết giờ hệ thống tự nộp bài.
+      </p>
+      <div class="sets" id="setList"></div>
+    </div>
+  </div>
+
+  <!-- TEST -->
+  <div id="test" class="hidden">
+    <div class="topbar">
+      <span class="timer" id="timer">70:00</span>
+      <div class="progress"><i id="progFill"></i></div>
+      <span class="qcount" id="qcount"></span>
+    </div>
+    <div class="card">
+      <div class="prompt" id="prompt"></div>
+      <div class="opts" id="opts"></div>
+      <div class="nav">
+        <button class="btn btn-ghost" id="btnPrev">← Trước</button>
+        <button class="btn btn-main" id="btnNext">Tiếp →</button>
+      </div>
+      <div class="grid-nav" id="gridNav"></div>
+      <div class="nav">
+        <button class="btn btn-gold" id="btnSubmit">Nộp bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result" class="hidden">
+    <span class="badge">Kết quả</span>
+    <h1 id="resultTitle"></h1>
+    <div class="card">
+      <div class="score-hero">
+        <div class="big" id="scoreBig"></div>
+        <div class="pct" id="scorePct"></div>
+      </div>
+      <div id="skillBreakdown"></div>
+    </div>
+    <div class="card">
+      <h2 style="font-size:1.05rem;margin-bottom:4px">Xem lại bài làm</h2>
+      <p class="sub" style="font-size:.82rem">Câu sai hiển thị trước, kèm giải thích.</p>
+      <div id="reviewList"></div>
+      <div class="nav">
+        <button class="btn btn-ghost" onclick="location.reload()">← Chọn đề khác</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="test-dau-vao-data.js?v=20260705"></script>
+<script>
+(function(){
+'use strict';
+var EXAM = window.EXAM_N3;
+var qs = function(id){ return document.getElementById(id); };
+
+// Nhóm skill → nhãn tiếng Việt cho breakdown
+var SKILL_GROUPS = [
+  ['Kanji & Chính tả', ['kanji_reading','orthography']],
+  ['Từ vựng',          ['context_vocab','paraphrase','usage','collocation','expression']],
+  ['Ngữ pháp',         ['particle','causative','hearsay','cause','instruction','try','obligation','result_state','aspect','connector','advice','change','sentence_order']],
+  ['Đọc hiểu',         ['reading_notice','reading_info','reading_mid','reading_search']]
+];
+function groupOf(skill){
+  for(var i=0;i<SKILL_GROUPS.length;i++)
+    if(SKILL_GROUPS[i][1].indexOf(skill)>=0) return SKILL_GROUPS[i][0];
+  return 'Ngữ pháp';
+}
+
+// ---------- Landing ----------
+qs('examTitle').textContent = EXAM.title;
+qs('examAudience').textContent = 'Dành cho: ' + EXAM.audience;
+qs('examDuration').textContent = EXAM.duration_minutes + ' phút';
+EXAM.sets.forEach(function(_, i){
+  var b = document.createElement('button');
+  b.className = 'set-btn';
+  b.innerHTML = 'Mã đề 0' + (i+1) + '<small>40 câu · ' + EXAM.duration_minutes + ' phút</small>';
+  b.onclick = function(){ startTest(i); };
+  qs('setList').appendChild(b);
+});
+
+// ---------- Test state ----------
+var setIdx = 0, questions = [], answers = [], cur = 0;
+var remain = 0, timerId = null;
+
+function startTest(i){
+  setIdx = i;
+  questions = EXAM.sets[i];
+  answers = new Array(questions.length).fill(0); // 0 = chưa chọn, 1-4 = đáp án
+  cur = 0;
+  remain = EXAM.duration_minutes * 60;
+  qs('landing').classList.add('hidden');
+  qs('test').classList.remove('hidden');
+  buildGridNav();
+  renderQ();
+  tick();
+  timerId = setInterval(tick, 1000);
+  window.scrollTo(0,0);
+}
+
+function tick(){
+  var m = Math.floor(remain/60), s = remain%60;
+  var t = qs('timer');
+  t.textContent = m + ':' + (s<10?'0':'') + s;
+  t.classList.toggle('low', remain <= 300);
+  if(remain <= 0){ submit(true); return; }
+  remain--;
+}
+
+function buildGridNav(){
+  var g = qs('gridNav'); g.innerHTML = '';
+  questions.forEach(function(_, i){
+    var b = document.createElement('button');
+    b.textContent = i+1;
+    b.onclick = function(){ cur = i; renderQ(); };
+    g.appendChild(b);
+  });
+}
+
+function renderQ(){
+  var q = questions[cur];
+  qs('qcount').textContent = (cur+1) + '/' + questions.length;
+  qs('prompt').textContent = q.prompt;
+  var box = qs('opts'); box.innerHTML = '';
+  q.options.forEach(function(opt, oi){
+    var b = document.createElement('button');
+    b.className = 'opt' + (answers[cur] === oi+1 ? ' sel' : '');
+    b.innerHTML = '<span class="abc">' + 'ABCD'[oi] + '</span><span></span>';
+    b.lastChild.textContent = opt;
+    b.onclick = function(){
+      answers[cur] = oi+1;
+      renderQ();
+    };
+    box.appendChild(b);
+  });
+  qs('btnPrev').disabled = cur === 0;
+  qs('btnNext').disabled = cur === questions.length - 1;
+  var done = answers.filter(Boolean).length;
+  qs('progFill').style.width = (done/questions.length*100) + '%';
+  var cells = qs('gridNav').children;
+  for(var i=0;i<cells.length;i++){
+    cells[i].className = (answers[i] ? 'done' : '') + (i===cur ? ' cur' : '');
+  }
+  window.scrollTo(0,0);
+}
+
+qs('btnPrev').onclick = function(){ if(cur>0){ cur--; renderQ(); } };
+qs('btnNext').onclick = function(){ if(cur<questions.length-1){ cur++; renderQ(); } };
+qs('btnSubmit').onclick = function(){
+  var left = answers.filter(function(a){ return !a; }).length;
+  if(left > 0 && !confirm('Còn ' + left + ' câu chưa trả lời. Nộp bài luôn?')) return;
+  submit(false);
+};
+
+// ---------- Result ----------
+function submit(auto){
+  clearInterval(timerId);
+  qs('test').classList.add('hidden');
+  qs('result').classList.remove('hidden');
+
+  var correct = 0;
+  var bySkill = {}; // group -> [đúng, tổng]
+  questions.forEach(function(q, i){
+    var g = groupOf(q.skill);
+    if(!bySkill[g]) bySkill[g] = [0,0];
+    bySkill[g][1]++;
+    if(answers[i] === q.answer){ correct++; bySkill[g][0]++; }
+  });
+
+  qs('resultTitle').textContent = 'Mã đề 0' + (setIdx+1) + (auto ? ' (hết giờ — tự nộp)' : '');
+  qs('scoreBig').textContent = correct + '/' + questions.length;
+  qs('scorePct').textContent = Math.round(correct/questions.length*100) + '% câu đúng';
+
+  var sb = qs('skillBreakdown'); sb.innerHTML = '';
+  SKILL_GROUPS.forEach(function(gr){
+    var name = gr[0], v = bySkill[name];
+    if(!v) return;
+    var d = document.createElement('div');
+    d.className = 'skillbar';
+    d.innerHTML = '<div class="row"><span>' + name + '</span><span>' + v[0] + '/' + v[1] + '</span></div>' +
+                  '<div class="bar"><i style="width:' + (v[0]/v[1]*100) + '%"></i></div>';
+    sb.appendChild(d);
+  });
+
+  // Review: sai trước, đúng sau
+  var order = questions.map(function(_, i){ return i; });
+  order.sort(function(a,b){
+    var wa = answers[a] === questions[a].answer ? 1 : 0;
+    var wb = answers[b] === questions[b].answer ? 1 : 0;
+    return wa - wb || a - b;
+  });
+  var rl = qs('reviewList'); rl.innerHTML = '';
+  order.forEach(function(i){
+    var q = questions[i];
+    var isOk = answers[i] === q.answer;
+    var d = document.createElement('div');
+    d.className = 'review-q' + (isOk ? ' correct' : '');
+    var picked = answers[i] ? q.options[answers[i]-1] : '(bỏ trống)';
+    var html = '<div class="rp"><b>Câu ' + (i+1) + '.</b> </div>' +
+      '<div class="ans">' +
+        (isOk ? '<span class="tag-ok">✓ Đúng:</span> '
+              : '<span class="tag-bad">✗ Bạn chọn:</span> <span class="picked"></span><br><span class="tag-ok">Đáp án:</span> ') +
+        '<span class="correct-text"></span></div>' +
+      '<div class="expl"></div>';
+    d.innerHTML = html;
+    d.querySelector('.rp').append(q.prompt);
+    if(!isOk) d.querySelector('.picked').textContent = picked;
+    d.querySelector('.correct-text').textContent = q.correct_text;
+    d.querySelector('.expl').textContent = q.explanation || '';
+    rl.appendChild(d);
+  });
+  window.scrollTo(0,0);
+}
+})();
+</script>
+</body>
+</html>
