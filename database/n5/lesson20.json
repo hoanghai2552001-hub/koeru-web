@@ -1,0 +1,31 @@
+{
+  "lesson": 20,
+  "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.124-125 (PDF trang 143-144)",
+  "status": "REVIEW_REQUIRED",
+  "vocab": [
+    {"w": "いりますⅠ [ビザが～]", "k": "要ります", "m": "cần [thị thực/visa]"},
+    {"w": "しらべますⅡ", "k": "調べます", "m": "tìm hiểu, kiểm tra, điều tra"},
+    {"w": "しゅうりしますⅢ", "k": "修理します", "m": "sửa chữa, tu sửa"},
+    {"w": "ぼく", "k": "僕", "m": "tôi, tớ (cách xưng thân mật của わたし được dùng bởi nam giới)"},
+    {"w": "きみ", "k": "君", "m": "cậu, bạn (cách nói thân mật của あなた được dùng cho người ngang hàng hoặc ít tuổi hơn)"},
+    {"w": "～くん", "k": "～君", "m": "anh ~, cậu ~ (cách nói thân mật của ～さん được dùng cho người ngang hàng hoặc ít tuổi hơn; thường được dùng sau tên bé trai)"},
+    {"w": "うん", "k": "", "m": "ừ (cách nói thân mật của はい)"},
+    {"w": "ううん", "k": "", "m": "không (cách nói thân mật của いいえ)"},
+    {"w": "ことば", "k": "", "m": "từ, tiếng"},
+    {"w": "きもの", "k": "着物", "m": "kimono (trang phục truyền thống của Nhật Bản)"},
+    {"w": "ビザ", "k": "", "m": "thị thực, visa"},
+    {"w": "はじめ", "k": "初め", "m": "ban đầu, đầu tiên"},
+    {"w": "おわり", "k": "終わり", "m": "kết thúc, hết phim"},
+    {"w": "こっち", "k": "", "m": "phía này, chỗ này (cách nói thân mật của こちら)"},
+    {"w": "そっち", "k": "", "m": "phía đó, chỗ đó (cách nói thân mật của そちら)"},
+    {"w": "あっち", "k": "", "m": "phía kia, chỗ kia (cách nói thân mật của あちら)"},
+    {"w": "どっち", "k": "", "m": "cái nào (giữa hai cái), phía nào, đâu (cách nói thân mật của どちら)"},
+    {"w": "みんなで", "k": "", "m": "mọi người cùng"},
+    {"w": "～けど", "k": "", "m": "~, nhưng (cách nói thân mật của が)"},
+    {"w": "おなかが いっぱいです", "k": "", "m": "(Tôi) no rồi"}
+  ],
+  "expressions": [
+    {"w": "よかったら", "m": "nếu anh/chị thích thì"},
+    {"w": "いろいろ", "m": "nhiều thứ"}
+  ]
+}

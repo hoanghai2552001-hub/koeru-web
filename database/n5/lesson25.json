@@ -1,0 +1,25 @@
+{
+  "lesson": 25,
+  "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.154-155 (PDF trang 173-174)",
+  "status": "REVIEW_REQUIRED",
+  "vocab": [
+    {"w": "かんがえますⅡ", "k": "考えます", "m": "nghĩ, suy nghĩ"},
+    {"w": "つきますⅠ", "k": "着きます", "m": "đến"},
+    {"w": "とりますⅠ [としを～]", "k": "取ります [年を～]", "m": "có, thêm [tuổi]"},
+    {"w": "たりますⅡ", "k": "足ります", "m": "đủ"},
+    {"w": "いなか", "k": "田舎", "m": "quê, nông thôn"},
+    {"w": "チャンス", "k": "", "m": "cơ hội"},
+    {"w": "おく", "k": "億", "m": "một trăm triệu"},
+    {"w": "もし [～たら]", "k": "", "m": "nếu"},
+    {"w": "いみ", "k": "意味", "m": "nghĩa, ý nghĩa"}
+  ],
+  "expressions": [
+    {"w": "もしもし", "m": "A-lô"},
+    {"w": "転勤[てんきん]", "m": "việc chuyển địa điểm làm việc (～します: chuyển địa điểm làm việc)"},
+    {"w": "こと", "m": "việc, chuyện (～の こと: việc, chuyện về ~)"},
+    {"w": "暇[ひま]", "m": "thời gian rảnh"},
+    {"w": "[いろいろ] お世話[せわ]に なりました。", "m": "Cám ơn anh/chị đã giúp đỡ tôi (nhiều)."},
+    {"w": "頑張[がんば]りますⅠ", "m": "cố, cố gắng"},
+    {"w": "どうぞ お元気[げんき]で。", "m": "Chúc anh/chị mạnh khỏe. Anh/Chị hãy bảo trọng. (câu nói trước khi chia tay với ai đó mà có lẽ lâu nữa mới gặp lại)"}
+  ]
+}

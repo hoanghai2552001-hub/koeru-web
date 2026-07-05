@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KOERU — Minna no Nihongo N5 (25 bài)</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0d14; --card:#121820; --card2:#1a2230;
+  --text:#f4f0ea; --muted:#8a8070;
+  --accent:#e8845a; --gold:#f5c842;
+  --ok:#5ac88a; --bad:#e85a6a;
+  --line:rgba(244,240,234,.09);
+}
+body{
+  font-family:'Noto Sans JP','Noto Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);min-height:100vh;
+  -webkit-tap-highlight-color:transparent;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 50% at 15% 60%,rgba(232,132,90,.12) 0%,transparent 70%),
+             radial-gradient(ellipse 50% 40% at 85% 25%,rgba(245,200,66,.1) 0%,transparent 70%);}
+.wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:clamp(1.4rem,4.5vw,2rem)}
+.badge{display:inline-block;background:rgba(232,132,90,.15);color:var(--accent);
+  border:1px solid rgba(232,132,90,.35);border-radius:999px;padding:3px 12px;
+  font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:12px}
+.sub{color:var(--muted);margin-top:8px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:20px}
+.lesson-card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:14px;cursor:pointer;font-family:inherit;color:var(--text);text-align:left;
+  transition:border-color .15s,transform .1s;position:relative}
+.lesson-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.lesson-card b{font-size:1.05rem}
+.lesson-card .st{display:block;font-size:.7rem;margin-top:6px;color:var(--muted)}
+.lesson-card .best{position:absolute;top:10px;right:10px;font-size:.68rem;font-weight:700;
+  color:var(--ok);background:rgba(90,200,138,.12);border-radius:8px;padding:2px 7px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px}
+.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tab{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px 14px;
+  color:var(--muted);font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit}
+.tab.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.back{background:none;border:none;color:var(--muted);font-size:.9rem;cursor:pointer;
+  font-family:inherit;padding:4px 0;margin-bottom:4px}
+.back:hover{color:var(--accent)}
+.search{width:100%;margin-top:12px;background:var(--card2);border:1px solid var(--line);
+  border-radius:10px;padding:11px 14px;color:var(--text);font-size:.95rem;font-family:inherit}
+.search::placeholder{color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+td.jp{font-size:1.02rem;white-space:nowrap}
+td.kj{color:var(--gold);white-space:nowrap}
+td.vn{color:var(--muted);font-size:.9rem}
+ruby rt{font-size:.55em;color:var(--gold);opacity:.9}
+.warn{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);border-radius:10px;
+  padding:10px 14px;font-size:.82rem;color:var(--gold);margin-top:12px;line-height:1.5}
+/* grammar self-check */
+.gr-item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);
+  font-size:1rem;line-height:1.6;cursor:pointer}
+.gr-item .chk{flex:none;width:22px;height:22px;border-radius:6px;border:2px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#0a0d14;font-weight:900}
+.gr-item.done .chk{background:var(--ok);border-color:var(--ok)}
+.gr-item.done{color:var(--muted)}
+.gr-progress{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+.gr-progress b{color:var(--ok)}
+/* quiz */
+.qprompt{font-size:1.3rem;line-height:1.7;margin-bottom:6px}
+.qsub{color:var(--muted);font-size:.82rem;margin-bottom:16px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card2);
+  border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;
+  font-size:1rem;line-height:1.5;font-family:inherit;color:var(--text);text-align:left;width:100%}
+.opt:hover{border-color:rgba(232,132,90,.5)}
+.opt.right{border-color:var(--ok);background:rgba(90,200,138,.12)}
+.opt.wrong{border-color:var(--bad);background:rgba(232,90,106,.12)}
+.btn{border:none;border-radius:12px;padding:13px 20px;font-size:1rem;font-weight:700;
+  cursor:pointer;font-family:inherit;margin-top:16px}
+.btn-main{background:linear-gradient(135deg,var(--accent),#d4703f);color:#fff;width:100%}
+.btn-ghost{background:var(--card2);color:var(--text);border:1px solid var(--line)}
+.score-line{font-size:1.6rem;font-weight:800;margin:10px 0;
+  background:linear-gradient(135deg,var(--accent),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+/* kanji drawing */
+.kanji-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:8px;margin-top:10px}
+.kanji-grid button{aspect-ratio:1;font-size:1.5rem;background:var(--card2);color:var(--text);
+  border:1.5px solid var(--line);border-radius:10px;cursor:pointer;font-family:inherit}
+.kanji-grid button.sel{border-color:var(--accent);background:rgba(232,132,90,.15)}
+.draw-area{display:flex;flex-direction:column;align-items:center;margin-top:16px}
+.draw-box{position:relative;width:min(300px,80vw);aspect-ratio:1;border:2px dashed rgba(245,200,66,.35);
+  border-radius:14px;background:var(--card2);overflow:hidden;touch-action:none}
+.draw-box .tmpl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:min(220px,58vw);color:rgba(244,240,234,.10);user-select:none;pointer-events:none;
+  font-family:'Noto Sans JP',serif}
+.draw-box canvas{position:absolute;inset:0;width:100%;height:100%}
+.draw-box .guide-h,.draw-box .guide-v{position:absolute;background:rgba(244,240,234,.06);pointer-events:none}
+.draw-box .guide-h{left:0;right:0;top:50%;height:1px}
+.draw-box .guide-v{top:0;bottom:0;left:50%;width:1px}
+.draw-btns{display:flex;gap:10px;margin-top:12px;width:min(300px,80vw)}
+.draw-btns .btn{flex:1;margin-top:0;padding:10px}
+.draw-info{margin-top:10px;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.6}
+.draw-info .rd{color:var(--gold)}
+.hidden{display:none}
+@media(max-width:480px){
+  .wrap{padding:14px 12px 50px}
+  .card{padding:16px 13px}
+  td.jp{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="home">
+    <span class="badge">MINNA NO NIHONGO — N5</span>
+    <h1>25 bài · Từ vựng &amp; Mẫu câu</h1>
+    <p class="sub">Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo I.
+      Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
+    <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
+    <div class="card hidden" id="searchResult"></div>
+    <div class="grid" id="lessonGrid"></div>
+  </div>
+
+  <div id="detail" class="hidden">
+    <button class="back" id="btnBack">← Danh sách bài</button>
+    <span class="badge" id="dBadge"></span>
+    <h1 id="dTitle"></h1>
+    <div class="tabs">
+      <button class="tab on" data-tab="vocab">Từ vựng</button>
+      <button class="tab" data-tab="grammar">Mẫu câu</button>
+      <button class="tab" data-tab="write">Luyện viết</button>
+      <button class="tab" data-tab="quiz">Kiểm tra</button>
+    </div>
+    <div class="card" id="tabContent"></div>
+  </div>
+
+</div>
+
+<script src="minna-n5-data.js?v=20260705c"></script>
+<script>
+(function(){
+'use strict';
+var DATA = window.MINNA_N5;
+var qs = function(id){ return document.getElementById(id); };
+var curLesson = null, curTab = 'vocab';
+
+function store(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function load(k, d){ try{ var v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
+
+function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+// "漢字[かな]" → <ruby>; "[どうぞ]" (không đứng sau kanji) giữ nguyên
+function rubyfy(s){
+  return esc(s).replace(/([一-鿿々]+)\[([ぁ-ゖー]+)\]/g,'<ruby>$1<rt>$2</rt></ruby>');
+}
+function stripRuby(s){ return s.replace(/\[[ぁ-ゖー]+\]/g,''); }
+
+// ---------- Home ----------
+function renderHome(){
+  var g = qs('lessonGrid'); g.innerHTML = '';
+  DATA.forEach(function(l){
+    var best = load('mn5_quiz_'+l.lesson, null);
+    var grDone = load('mn5_gr_'+l.lesson, []).length;
+    var b = document.createElement('button');
+    b.className = 'lesson-card';
+    b.innerHTML = '<b>Bài ' + l.lesson + '</b>' +
+      (best ? '<span class="best">✓ ' + best + '</span>' : '') +
+      '<span class="st">' + l.vocab.length + ' từ · ' + l.grammar.length + ' mẫu câu</span>' +
+      '<span class="st">Mẫu câu đã nắm: ' + grDone + '/' + l.grammar.length + '</span>';
+    b.onclick = function(){ openLesson(l); };
+    g.appendChild(b);
+  });
+}
+renderHome();
+
+// Tra nhanh toàn bộ 25 bài
+qs('searchBox').addEventListener('input', function(){
+  var q = this.value.trim().toLowerCase();
+  var box = qs('searchResult');
+  if(q.length < 2){ box.classList.add('hidden'); return; }
+  var hits = [];
+  DATA.forEach(function(l){
+    l.vocab.forEach(function(v){
+      if((v.w+v.k+v.m).toLowerCase().indexOf(q) >= 0) hits.push([l.lesson, v]);
+    });
+  });
+  hits = hits.slice(0, 20);
+  if(!hits.length){ box.innerHTML = '<p class="sub">Không tìm thấy.</p>'; }
+  else {
+    var h = '<table>';
+    hits.forEach(function(x){
+      h += '<tr><td class="kj" style="color:var(--accent)">B' + x[0] + '</td><td class="jp">' + esc(x[1].w) + '</td><td class="kj">' + esc(x[1].k||'') + '</td><td class="vn">' + esc(x[1].m) + '</td></tr>';
+    });
+    box.innerHTML = h + '</table>';
+  }
+  box.classList.remove('hidden');
+});
+
+qs('btnBack').onclick = function(){
+  qs('detail').classList.add('hidden');
+  qs('home').classList.remove('hidden');
+  renderHome(); // cập nhật tiến độ
+  window.scrollTo(0,0);
+};
+
+var tabs = document.querySelectorAll('.tab');
+tabs.forEach(function(t){
+  t.onclick = function(){
+    tabs.forEach(function(x){ x.classList.remove('on'); });
+    t.classList.add('on');
+    curTab = t.dataset.tab;
+    renderTab();
+  };
+});
+
+function openLesson(l){
+  curLesson = l;
+  curTab = 'vocab';
+  tabs.forEach(function(x){ x.classList.toggle('on', x.dataset.tab === 'vocab'); });
+  qs('dBadge').textContent = 'BÀI ' + l.lesson;
+  qs('dTitle').textContent = 'Minna no Nihongo — Bài ' + l.lesson;
+  qs('home').classList.add('hidden');
+  qs('detail').classList.remove('hidden');
+  renderTab();
+  window.scrollTo(0,0);
+}
+
+// ---------- Tabs ----------
+function renderTab(){
+  var l = curLesson;
+  if(curTab === 'vocab') renderVocab(l);
+  else if(curTab === 'grammar') renderGrammar(l);
+  else if(curTab === 'write') renderWrite(l);
+  else renderQuizStart(l);
+}
+
+function renderVocab(l){
+  var box = qs('tabContent');
+  var h = '<table>';
+  l.vocab.forEach(function(v){
+    h += '<tr><td class="jp">' + esc(v.w) + '</td><td class="kj">' + esc(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td></tr>';
+  });
+  h += '</table>';
+  if(l.expressions.length){
+    h += '<h3 style="margin-top:20px;font-size:.95rem;color:var(--accent)">Mẫu giao tiếp (練習C・会話)</h3><table>';
+    l.expressions.forEach(function(v){
+      h += '<tr><td class="jp" style="white-space:normal">' + rubyfy(v.w) + '</td><td class="vn">' + esc(v.m) + '</td></tr>';
+    });
+    h += '</table>';
+  }
+  if(l.status === 'REVIEW_REQUIRED'){
+    h += '<div class="warn">⚠ Dữ liệu OCR từ sách, chưa được giáo viên duyệt lần cuối (REVIEW_REQUIRED).</div>';
+  }
+  box.innerHTML = h;
+}
+
+// --- Mẫu câu: tự đánh giá đã nắm/chưa, lưu localStorage ---
+function renderGrammar(l){
+  var box = qs('tabContent');
+  if(!l.grammar.length){ box.innerHTML = '<p class="sub">Chưa có dữ liệu mẫu câu.</p>'; return; }
+  var done = load('mn5_gr_'+l.lesson, []);
+  var h = '<div class="gr-progress">Tự đánh giá: bấm vào mẫu câu đã nắm vững — <b>' + done.length + '/' + l.grammar.length + '</b></div>';
+  l.grammar.forEach(function(g, i){
+    var d = done.indexOf(i) >= 0;
+    h += '<div class="gr-item' + (d?' done':'') + '" data-i="' + i + '"><span class="chk">' + (d?'✓':'') + '</span><span>' + esc(g) + '</span></div>';
+  });
+  box.innerHTML = h;
+  box.querySelectorAll('.gr-item').forEach(function(el){
+    el.onclick = function(){
+      var i = +el.dataset.i;
+      var done = load('mn5_gr_'+l.lesson, []);
+      var p = done.indexOf(i);
+      if(p >= 0) done.splice(p,1); else done.push(i);
+      store('mn5_gr_'+l.lesson, done);
+      renderGrammar(l);
+    };
+  });
+}
+
+// --- Luyện viết kanji: canvas tô theo chữ mờ ---
+var drawState = null;
+
+function lessonKanji(l){
+  var seen = {}, out = [];
+  l.vocab.concat(l.expressions).forEach(function(v){
+    var src = (v.k || '') + stripRuby(v.w || '');
+    for(var ch of src){
+      if(/[一-鿿々]/.test(ch) && !seen[ch]){ seen[ch] = 1; out.push(ch); }
+    }
+  });
+  return out;
+}
+
+function renderWrite(l){
+  var box = qs('tabContent');
+  var ks = lessonKanji(l);
+  if(!ks.length){ box.innerHTML = '<p class="sub">Bài này không có kanji để luyện viết.</p>'; return; }
+  var h = '<p class="sub" style="margin-top:0">Chọn một chữ Hán rồi tô theo chữ mờ trong khung. Dùng ngón tay (điện thoại) hoặc chuột.</p>' +
+          '<div class="kanji-grid" id="kGrid">';
+  ks.forEach(function(k,i){ h += '<button data-k="' + k + '"' + (i===0?' class="sel"':'') + '>' + k + '</button>'; });
+  h += '</div><div class="draw-area">' +
+       '<div class="draw-box" id="drawBox"><div class="guide-h"></div><div class="guide-v"></div>' +
+       '<div class="tmpl" id="tmpl"></div><canvas id="cv"></canvas></div>' +
+       '<div class="draw-btns">' +
+       '<button class="btn btn-ghost" id="btnClear">Xóa</button>' +
+       '<button class="btn btn-ghost" id="btnGhost">Ẩn chữ mờ</button>' +
+       '</div><div class="draw-info" id="drawInfo"></div></div>';
+  box.innerHTML = h;
+
+  var cv = qs('cv'), box2 = qs('drawBox');
+  var ctx = cv.getContext('2d');
+  function resize(){
+    var r = box2.getBoundingClientRect();
+    cv.width = r.width * devicePixelRatio; cv.height = r.height * devicePixelRatio;
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.strokeStyle = '#f5c842';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function selectK(k){
+    qs('tmpl').textContent = k;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    var info = findWord(l, k);
+    qs('drawInfo').innerHTML = info ? '<span class="rd">' + esc(info.w) + '</span> — ' + esc(info.m) : '';
+  }
+  function findWord(l, k){
+    var all = l.vocab.concat(l.expressions);
+    for(var i=0;i<all.length;i++){
+      if(((all[i].k||'') + (all[i].w||'')).indexOf(k) >= 0) return all[i];
+    }
+    return null;
+  }
+
+  qs('kGrid').querySelectorAll('button').forEach(function(b){
+    b.onclick = function(){
+      qs('kGrid').querySelectorAll('button').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      selectK(b.dataset.k);
+    };
+  });
+  selectK(ks[0]);
+
+  var drawing = false, last = null;
+  function pos(e){
+    var r = cv.getBoundingClientRect();
+    var p = e.touches ? e.touches[0] : e;
+    return [p.clientX - r.left, p.clientY - r.top];
+  }
+  function start(e){ drawing = true; last = pos(e); e.preventDefault(); }
+  function move(e){
+    if(!drawing) return;
+    var p = pos(e);
+    ctx.beginPath(); ctx.moveTo(last[0], last[1]); ctx.lineTo(p[0], p[1]); ctx.stroke();
+    last = p; e.preventDefault();
+  }
+  function end(){ drawing = false; }
+  cv.addEventListener('mousedown', start); cv.addEventListener('mousemove', move);
+  window.addEventListener('mouseup', end);
+  cv.addEventListener('touchstart', start, {passive:false});
+  cv.addEventListener('touchmove', move, {passive:false});
+  cv.addEventListener('touchend', end);
+
+  qs('btnClear').onclick = function(){ ctx.clearRect(0,0,cv.width,cv.height); };
+  qs('btnGhost').onclick = function(){
+    var t = qs('tmpl');
+    var hid = t.style.visibility === 'hidden';
+    t.style.visibility = hid ? '' : 'hidden';
+    this.textContent = hid ? 'Ẩn chữ mờ' : 'Hiện chữ mờ';
+  };
+}
+
+// --- Quiz (chỉ dùng dữ liệu đóng băng) ---
+var quiz = null;
+
+function shuffle(a){
+  for(var i=a.length-1;i>0;i--){
+    var j=Math.floor(Math.random()*(i+1)), t=a[i]; a[i]=a[j]; a[j]=t;
+  }
+  return a;
+}
+
+function renderQuizStart(l){
+  if(l.vocab.length < 4){
+    qs('tabContent').innerHTML = '<p class="sub">Chưa đủ dữ liệu từ vựng để tạo bài kiểm tra.</p>';
+    return;
+  }
+  startQuiz(l);
+}
+
+function startQuiz(l){
+  var pool = l.vocab.slice();
+  var n = Math.min(10, pool.length);
+  var picked = shuffle(pool.slice()).slice(0, n);
+  var qsArr = picked.map(function(v){
+    var jp2vn = Math.random() < 0.5;
+    var others = shuffle(pool.filter(function(o){ return o.w !== v.w; })).slice(0,3);
+    var options, correct;
+    if(jp2vn){
+      correct = v.m;
+      options = shuffle([v.m].concat(others.map(function(o){ return o.m; })));
+    } else {
+      var lbl = function(o){ return o.k ? o.w + '（' + o.k + '）' : o.w; };
+      correct = lbl(v);
+      options = shuffle([correct].concat(others.map(lbl)));
+    }
+    return {
+      prompt: jp2vn ? (v.k ? v.k + '（' + v.w + '）' : v.w) : v.m,
+      sub: jp2vn ? 'Chọn nghĩa tiếng Việt đúng' : 'Chọn từ tiếng Nhật đúng',
+      options: options, correct: correct
+    };
+  });
+  quiz = { qs: qsArr, i: 0, score: 0, locked: false };
+  renderQuiz();
+}
+
+function renderQuiz(){
+  var box = qs('tabContent');
+  if(quiz.i >= quiz.qs.length){
+    var key = 'mn5_quiz_' + curLesson.lesson;
+    var scoreStr = quiz.score + '/' + quiz.qs.length;
+    var best = load(key, null);
+    var bestScore = best ? +best.split('/')[0] : -1;
+    if(quiz.score > bestScore) store(key, scoreStr);
+    box.innerHTML =
+      '<p class="qsub">Hoàn thành — Bài ' + curLesson.lesson + '</p>' +
+      '<div class="score-line">' + scoreStr + ' câu đúng</div>' +
+      (best ? '<p class="sub" style="margin-top:0">Điểm cao nhất trước đó: ' + best + '</p>' : '') +
+      '<button class="btn btn-main" id="btnRetry">Làm lại (câu hỏi trộn mới)</button>';
+    qs('btnRetry').onclick = function(){ startQuiz(curLesson); };
+    return;
+  }
+  var q = quiz.qs[quiz.i];
+  var h = '<p class="qsub">Câu ' + (quiz.i+1) + '/' + quiz.qs.length + ' · ' + q.sub + '</p>' +
+          '<div class="qprompt">' + esc(q.prompt) + '</div><div class="opts">';
+  q.options.forEach(function(o,i){
+    h += '<button class="opt" data-i="' + i + '">' + esc(o) + '</button>';
+  });
+  h += '</div>';
+  box.innerHTML = h;
+  quiz.locked = false;
+  box.querySelectorAll('.opt').forEach(function(b){
+    b.onclick = function(){
+      if(quiz.locked) return;
+      quiz.locked = true;
+      var chosen = q.options[+b.dataset.i];
+      var right = chosen === q.correct;
+      if(right) quiz.score++;
+      box.querySelectorAll('.opt').forEach(function(x, xi){
+        if(q.options[xi] === q.correct) x.classList.add('right');
+        else if(x === b) x.classList.add('wrong');
+      });
+      setTimeout(function(){ quiz.i++; renderQuiz(); }, right ? 650 : 1400);
+    };
+  });
+}
+})();
+</script>
+</body>
+</html>

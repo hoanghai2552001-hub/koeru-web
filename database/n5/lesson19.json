@@ -1,0 +1,33 @@
+{
+  "lesson": 19,
+  "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.118-119 (PDF trang 137-138)",
+  "status": "REVIEW_REQUIRED",
+  "vocab": [
+    {"w": "のぼりますⅠ", "k": "登ります、上ります", "m": "leo (núi), lên"},
+    {"w": "とまりますⅠ [ホテルに～]", "k": "泊まります", "m": "trọ [ở khách sạn]"},
+    {"w": "そうじしますⅢ", "k": "掃除します", "m": "dọn vệ sinh (căn phòng)"},
+    {"w": "せんたくしますⅢ", "k": "洗濯します", "m": "giặt (áo quần)"},
+    {"w": "なりますⅠ", "k": "", "m": "trở thành, trở nên"},
+    {"w": "ねむい", "k": "眠い", "m": "buồn ngủ"},
+    {"w": "つよい", "k": "強い", "m": "mạnh"},
+    {"w": "よわい", "k": "弱い", "m": "yếu"},
+    {"w": "れんしゅう", "k": "練習", "m": "sự luyện tập (～[を] します: luyện tập)"},
+    {"w": "ゴルフ", "k": "", "m": "gôn (～を します: chơi gôn)"},
+    {"w": "すもう", "k": "相撲", "m": "môn vật Sumo (～を します: đấu vật Sumo)"},
+    {"w": "おちゃ", "k": "お茶", "m": "trà đạo"},
+    {"w": "ひ", "k": "日", "m": "ngày"},
+    {"w": "ちょうし", "k": "調子", "m": "tình trạng, trạng thái"},
+    {"w": "いちど", "k": "一度", "m": "một lần"},
+    {"w": "いちども", "k": "一度も", "m": "chưa lần nào, chưa bao giờ (dùng với thể phủ định)"},
+    {"w": "だんだん", "k": "", "m": "dần dần"},
+    {"w": "もうすぐ", "k": "", "m": "sắp, sắp sửa"},
+    {"w": "おかげさまで", "k": "", "m": "Cám ơn anh/chị, nhờ anh/chị mà ~. (dùng để bày tỏ sự cám ơn khi nhận được sự giúp đỡ của ai đó)"},
+    {"w": "でも", "k": "", "m": "nhưng"}
+  ],
+  "expressions": [
+    {"w": "乾杯[かんぱい]", "m": "Cạn chén!/Nâng cốc!"},
+    {"w": "ダイエット", "m": "việc ăn kiêng, chế độ giảm cân (～を します: ăn kiêng)"},
+    {"w": "無理[むり][な]", "m": "không thể, quá sức"},
+    {"w": "体[からだ]に いい", "m": "tốt cho sức khỏe"}
+  ]
+}
