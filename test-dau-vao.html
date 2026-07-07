@@ -49,6 +49,10 @@ h1{font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25}
   transition:border-color .15s,transform .1s;font-family:inherit}
 .set-btn small{display:block;font-weight:400;color:var(--muted);font-size:.72rem;margin-top:4px}
 .set-btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+.level-toggle{display:flex;gap:8px;margin-bottom:14px}
+.level-toggle button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:10px 22px;color:var(--muted);font-weight:800;font-size:.95rem;cursor:pointer;font-family:inherit;min-height:44px}
+.level-toggle button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
 /* test screen */
 .topbar{position:sticky;top:0;z-index:5;background:rgba(10,13,20,.92);backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);padding:10px 0;display:flex;align-items:center;gap:12px}
@@ -119,6 +123,10 @@ h1{font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25}
 
   <!-- LANDING -->
   <div id="landing">
+    <div class="level-toggle" id="levelToggle">
+      <button data-level="n3" class="on">Đầu vào N3</button>
+      <button data-level="n4">Đầu vào N4</button>
+    </div>
     <span class="badge">KOERU 入学テスト</span>
     <h1 id="examTitle">Test Đầu Vào N3</h1>
     <p class="sub" id="examAudience"></p>
@@ -132,6 +140,7 @@ h1{font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25}
         Đề gồm: Kanji – Từ vựng – Ngữ pháp – Đọc hiểu. Chọn 1 mã đề để bắt đầu.
         Hết giờ hệ thống tự nộp bài.
       </p>
+      <div class="hint-box hidden" id="reviewWarn">⚠ Đề đang OCR từ tài liệu gốc, chờ giáo viên duyệt lần cuối (REVIEW_REQUIRED).</div>
       <div class="sets" id="setList"></div>
     </div>
   </div>
@@ -181,18 +190,21 @@ h1{font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25}
 </div>
 
 <script src="test-dau-vao-data.js?v=20260705"></script>
+<script src="test-dau-vao-n4-data.js?v=20260708"></script>
 <script>
 (function(){
 'use strict';
-var EXAM = window.EXAM_N3;
+var EXAMS = { n3: window.EXAM_N3, n4: window.EXAM_N4 };
+var curLevel = 'n3';
+var EXAM = EXAMS[curLevel];
 var qs = function(id){ return document.getElementById(id); };
 
-// Nhóm skill → nhãn tiếng Việt cho breakdown
+// Nhóm skill → nhãn tiếng Việt cho breakdown (gộp cả skill key của N3 và N4)
 var SKILL_GROUPS = [
   ['Kanji & Chính tả', ['kanji_reading','orthography']],
   ['Từ vựng',          ['context_vocab','paraphrase','usage','collocation','expression']],
-  ['Ngữ pháp',         ['particle','causative','hearsay','cause','instruction','try','obligation','result_state','aspect','connector','advice','change','sentence_order']],
-  ['Đọc hiểu',         ['reading_notice','reading_info','reading_mid','reading_search']]
+  ['Ngữ pháp',         ['particle','causative','hearsay','cause','instruction','try','obligation','result_state','aspect','connector','advice','change','sentence_order','grammar_pattern','verb_form','comparison','conversation']],
+  ['Đọc hiểu',         ['reading_notice','reading_info','reading_mid','reading_search','reading_information','reading_short']]
 ];
 function groupOf(skill){
   for(var i=0;i<SKILL_GROUPS.length;i++)
@@ -201,16 +213,29 @@ function groupOf(skill){
 }
 
 // ---------- Landing ----------
-qs('examTitle').textContent = EXAM.title;
-qs('examAudience').textContent = 'Dành cho: ' + EXAM.audience;
-qs('examDuration').textContent = EXAM.duration_minutes + ' phút';
-EXAM.sets.forEach(function(_, i){
-  var b = document.createElement('button');
-  b.className = 'set-btn';
-  b.innerHTML = 'Mã đề 0' + (i+1) + '<small>40 câu · ' + EXAM.duration_minutes + ' phút</small>';
-  b.onclick = function(){ startTest(i); };
-  qs('setList').appendChild(b);
+function renderLanding(level){
+  curLevel = level;
+  EXAM = EXAMS[level];
+  document.querySelectorAll('#levelToggle button').forEach(function(b){
+    b.classList.toggle('on', b.dataset.level === level);
+  });
+  qs('examTitle').textContent = EXAM.title;
+  qs('examAudience').textContent = 'Dành cho: ' + EXAM.audience;
+  qs('examDuration').textContent = EXAM.duration_minutes + ' phút';
+  qs('reviewWarn').classList.toggle('hidden', EXAM.status !== 'REVIEW_REQUIRED');
+  qs('setList').innerHTML = '';
+  EXAM.sets.forEach(function(_, i){
+    var b = document.createElement('button');
+    b.className = 'set-btn';
+    b.innerHTML = 'Mã đề 0' + (i+1) + '<small>40 câu · ' + EXAM.duration_minutes + ' phút</small>';
+    b.onclick = function(){ startTest(i); };
+    qs('setList').appendChild(b);
+  });
+}
+document.querySelectorAll('#levelToggle button').forEach(function(b){
+  b.onclick = function(){ renderLanding(b.dataset.level); };
 });
+renderLanding('n3');
 
 // ---------- Test state ----------
 var setIdx = 0, questions = [], answers = [], cur = 0;
@@ -300,7 +325,7 @@ function submit(auto){
     if(answers[i] === q.answer){ correct++; bySkill[g][0]++; }
   });
 
-  qs('resultTitle').textContent = 'Mã đề 0' + (setIdx+1) + (auto ? ' (hết giờ — tự nộp)' : '');
+  qs('resultTitle').textContent = curLevel.toUpperCase() + ' — Mã đề 0' + (setIdx+1) + (auto ? ' (hết giờ — tự nộp)' : '');
   qs('scoreBig').textContent = correct + '/' + questions.length;
   qs('scorePct').textContent = Math.round(correct/questions.length*100) + '% câu đúng';
 

@@ -1,0 +1,2820 @@
+{
+  "title": "KOERU – Đầu vào N4, nền tảng N5",
+  "audience": "Đã hoàn thành N5, chuẩn bị học N4",
+  "version": "v1-docx-extract-review-required",
+  "duration_minutes": 65,
+  "listening_separate": true,
+  "status": "REVIEW_REQUIRED",
+  "sets": [
+    [
+      {
+        "number": 1,
+        "prompt": "毎朝、駅まであるきます。「毎朝」の読み方はどれですか。",
+        "options": [
+          "まいあさ",
+          "まいばん",
+          "めいあさ",
+          "まいちょう"
+        ],
+        "answer": 1,
+        "correct_text": "まいあさ",
+        "explanation": "毎朝 đọc là まいあさ, nghĩa là mỗi sáng.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 2,
+        "prompt": "来月、かぞくと電車で出かけます。「電車」の読み方はどれですか。",
+        "options": [
+          "でんしや",
+          "てんしゃ",
+          "でんじゃ",
+          "でんしゃ"
+        ],
+        "answer": 4,
+        "correct_text": "でんしゃ",
+        "explanation": "電車 đọc là でんしゃ.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 3,
+        "prompt": "この店は午後九時までです。「午後」の読み方はどれですか。",
+        "options": [
+          "ごぜん",
+          "こうご",
+          "ごうご",
+          "ごご"
+        ],
+        "answer": 4,
+        "correct_text": "ごご",
+        "explanation": "午後 đọc là ごご, nghĩa là buổi chiều/sau trưa.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 4,
+        "prompt": "入口はあちらです。「入口」の読み方はどれですか。",
+        "options": [
+          "はいりぐち",
+          "いりぐち",
+          "でぐち",
+          "いりくち"
+        ],
+        "answer": 2,
+        "correct_text": "いりぐち",
+        "explanation": "入口 đọc là いりぐち.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 5,
+        "prompt": "きょうは てんきが いいです。「てんき」はどう書きますか。",
+        "options": [
+          "電気",
+          "天汽",
+          "天記",
+          "天気"
+        ],
+        "answer": 4,
+        "correct_text": "天気",
+        "explanation": "てんき viết là 天気. Các lựa chọn còn lại không phải cách viết đúng của てんき.",
+        "skill": "orthography"
+      },
+      {
+        "number": 6,
+        "prompt": "この みちは くるまが おおいです。「みち」はどう書きますか。",
+        "options": [
+          "通",
+          "近",
+          "道",
+          "遠"
+        ],
+        "answer": 3,
+        "correct_text": "道",
+        "explanation": "みち viết là 道.",
+        "skill": "orthography"
+      },
+      {
+        "number": 7,
+        "prompt": "まいしゅう どようびに はたらきます。「どようび」はどう書きますか。",
+        "options": [
+          "日曜日",
+          "土曜日",
+          "火曜日",
+          "木曜日"
+        ],
+        "answer": 2,
+        "correct_text": "土曜日",
+        "explanation": "どようび là 土曜日.",
+        "skill": "orthography"
+      },
+      {
+        "number": 8,
+        "prompt": "雨がふりそうですから、（　）をもって行きます。",
+        "options": [
+          "かさ",
+          "ぼうし",
+          "かぎ",
+          "さいふ"
+        ],
+        "answer": 1,
+        "correct_text": "かさ",
+        "explanation": "Trời sắp mưa nên mang ô.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 9,
+        "prompt": "としょかんでは大きいこえで（　）はいけません。",
+        "options": [
+          "かりて",
+          "ねて",
+          "よんで",
+          "はなして"
+        ],
+        "answer": 4,
+        "correct_text": "はなして",
+        "explanation": "Trong thư viện không được nói lớn.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 10,
+        "prompt": "このはこはとても（　）です。一人ではもてません。",
+        "options": [
+          "かるい",
+          "おもい",
+          "ひくい",
+          "ほそい"
+        ],
+        "answer": 2,
+        "correct_text": "おもい",
+        "explanation": "Không thể tự mang vì hộp rất nặng.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 11,
+        "prompt": "くすりを飲みましたが、まだあたまが（　）です。",
+        "options": [
+          "あつい",
+          "よわい",
+          "いたい",
+          "こまい"
+        ],
+        "answer": 3,
+        "correct_text": "いたい",
+        "explanation": "Đau đầu dùng あたまがいたい.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 12,
+        "prompt": "駅の前でともだちを三十分（　）。",
+        "options": [
+          "たちました",
+          "とまりました",
+          "まちました",
+          "もちました"
+        ],
+        "answer": 3,
+        "correct_text": "まちました",
+        "explanation": "まつ là chờ.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 13,
+        "prompt": "「すぐ来てください。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "来ないでください",
+          "早く来てください",
+          "ゆっくり来てください",
+          "あとで来てください"
+        ],
+        "answer": 2,
+        "correct_text": "早く来てください",
+        "explanation": "すぐ gần nghĩa với 早く trong ngữ cảnh này.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 14,
+        "prompt": "「この店は休みです。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "この店は安いです",
+          "この店は新しいです",
+          "この店はひろいです",
+          "この店はあいていません"
+        ],
+        "answer": 4,
+        "correct_text": "この店はあいていません",
+        "explanation": "休み = không mở cửa/đóng cửa.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 15,
+        "prompt": "「かかる」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "雨がかかります",
+          "くすりをかかります",
+          "かばんをいすにかかります",
+          "駅まで十分かかります"
+        ],
+        "answer": 4,
+        "correct_text": "駅まで十分かかります",
+        "explanation": "かかる dùng cho thời gian/chi phí cần thiết.",
+        "skill": "usage"
+      },
+      {
+        "number": 16,
+        "prompt": "「なくす」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "おんがくをなくしました",
+          "朝ごはんをなくしました",
+          "かぎをなくしました",
+          "電車をなくしました"
+        ],
+        "answer": 3,
+        "correct_text": "かぎをなくしました",
+        "explanation": "なくす là làm mất đồ vật.",
+        "skill": "usage"
+      },
+      {
+        "number": 17,
+        "prompt": "A：コーヒーはもういっぱいいかがですか。B：いいえ、もう（　）です。",
+        "options": [
+          "けっこう",
+          "たいへん",
+          "じょうず",
+          "げんき"
+        ],
+        "answer": 1,
+        "correct_text": "けっこう",
+        "explanation": "もうけっこうです là thôi, đủ rồi.",
+        "skill": "expression"
+      },
+      {
+        "number": 18,
+        "prompt": "電車が来るまで、ここで少し（　）ましょう。",
+        "options": [
+          "休み",
+          "かえし",
+          "つかい",
+          "あらい"
+        ],
+        "answer": 1,
+        "correct_text": "休み",
+        "explanation": "休みましょう = hãy nghỉ/chờ một chút.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 19,
+        "prompt": "わたしは毎日七時（　）家を出ます。",
+        "options": [
+          "へ",
+          "に",
+          "を",
+          "で"
+        ],
+        "answer": 2,
+        "correct_text": "に",
+        "explanation": "Thời điểm cụ thể dùng に.",
+        "skill": "particle"
+      },
+      {
+        "number": 20,
+        "prompt": "きのう、スーパー（　）ぎゅうにゅうを買いました。",
+        "options": [
+          "へ",
+          "に",
+          "を",
+          "で"
+        ],
+        "answer": 4,
+        "correct_text": "で",
+        "explanation": "Nơi diễn ra hành động dùng で.",
+        "skill": "particle"
+      },
+      {
+        "number": 21,
+        "prompt": "妹はピアノをひく（　）ができます。",
+        "options": [
+          "ところ",
+          "もの",
+          "こと",
+          "ほう"
+        ],
+        "answer": 3,
+        "correct_text": "こと",
+        "explanation": "Vることができる = có thể làm.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 22,
+        "prompt": "このかんじの読み方を（　）ください。",
+        "options": [
+          "教える",
+          "教えた",
+          "教え",
+          "教えて"
+        ],
+        "answer": 4,
+        "correct_text": "教えて",
+        "explanation": "Vてください.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 23,
+        "prompt": "あした早いですから、今ばんは早く（　）ほうがいいです。",
+        "options": [
+          "ねた",
+          "ねる",
+          "ねない",
+          "ねて"
+        ],
+        "answer": 1,
+        "correct_text": "ねた",
+        "explanation": "Vたほうがいい = nên làm.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 24,
+        "prompt": "日曜日はそうじをしたり、かいものに（　）します。",
+        "options": [
+          "行き",
+          "行く",
+          "行ったり",
+          "行って"
+        ],
+        "answer": 3,
+        "correct_text": "行ったり",
+        "explanation": "Vたり、Vたりする.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 25,
+        "prompt": "ここに車を（　）ないでください。",
+        "options": [
+          "とめて",
+          "とめ",
+          "やめる",
+          "とまる"
+        ],
+        "answer": 2,
+        "correct_text": "とめ",
+        "explanation": "Vないでください: とめないで.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 26,
+        "prompt": "日本へ行く（　）、日本語をべんきょうしています。",
+        "options": [
+          "ながら",
+          "まで",
+          "ために",
+          "あとで"
+        ],
+        "answer": 3,
+        "correct_text": "ために",
+        "explanation": "Mục đích: Vるために.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 27,
+        "prompt": "わたしはふじさんを見た（　）があります。",
+        "options": [
+          "こと",
+          "もの",
+          "とき",
+          "ところ"
+        ],
+        "answer": 1,
+        "correct_text": "こと",
+        "explanation": "Vたことがある = từng.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 28,
+        "prompt": "このかばんはあのかばん（　）かるいです。",
+        "options": [
+          "より",
+          "ほど",
+          "しか",
+          "でも"
+        ],
+        "answer": 1,
+        "correct_text": "より",
+        "explanation": "AはBより...",
+        "skill": "comparison"
+      },
+      {
+        "number": 29,
+        "prompt": "A：まどをあけてもいいですか。B：はい、（　）。",
+        "options": [
+          "ありません",
+          "いいですよ",
+          "だめでした",
+          "ひらけません"
+        ],
+        "answer": 2,
+        "correct_text": "いいですよ",
+        "explanation": "Cho phép: いいですよ.",
+        "skill": "conversation"
+      },
+      {
+        "number": 30,
+        "prompt": "雨がふっています。（　）、出かけません。",
+        "options": [
+          "それから",
+          "だから",
+          "でも",
+          "そして"
+        ],
+        "answer": 2,
+        "correct_text": "だから",
+        "explanation": "Nêu nguyên nhân-kết quả: だから.",
+        "skill": "connector"
+      },
+      {
+        "number": 31,
+        "prompt": "ただしい文をつくってください。わたしは ＿＿ ＿＿ ★ ＿＿ です。",
+        "options": [
+          "日本語を",
+          "います",
+          "としょかんで",
+          "べんきょうして"
+        ],
+        "answer": 4,
+        "correct_text": "べんきょうして",
+        "explanation": "としょかんで 日本語を べんきょうして います; vị trí ★ là べんきょうして.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 32,
+        "prompt": "ただしい文をつくってください。駅まで ＿＿ ★ ＿＿ ＿＿ かかります。",
+        "options": [
+          "あるいて",
+          "ぐらい",
+          "で",
+          "二十分"
+        ],
+        "answer": 4,
+        "correct_text": "二十分",
+        "explanation": "駅まであるいて二十分ぐらいかかります; ★ là 二十分.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 33,
+        "prompt": "【メモ】\n\n山田さんへ\n\n先生がびょうきなので、きょうの日本語のじゅぎょうは休みです。\nあしたのじゅぎょうは、いつもどおり午前10時からです。\nしゅくだいは金曜日に出してください。\n\n佐藤\n\nきょうの日本語のじゅぎょうはどうなりましたか。",
+        "options": [
+          "金曜日になりました",
+          "休みになりました",
+          "あしたになりました",
+          "午前10時からになりました"
+        ],
+        "answer": 2,
+        "correct_text": "休みになりました",
+        "explanation": "Hôm nay nghỉ vì giáo viên bị ốm.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 34,
+        "prompt": "おなじメモを読んでください。\nしゅくだいはいつ出しますか。",
+        "options": [
+          "土曜日",
+          "きょう",
+          "金曜日",
+          "あした"
+        ],
+        "answer": 3,
+        "correct_text": "金曜日",
+        "explanation": "Trong thông báo ghi 金曜日に出してください.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 35,
+        "prompt": "【パンや「こむぎ」】\n\nえいぎょうじかん：7:00～18:00\n休み：水曜日\n午後5時から、パンはぜんぶ20％安くなります。\nのみものは安くなりません。\n\nパンを安く買いたい人は、いつ行くといいですか。",
+        "options": [
+          "水曜日の午後",
+          "午後6時半",
+          "午後5時から6時まで",
+          "午前7時前"
+        ],
+        "answer": 3,
+        "correct_text": "午後5時から6時まで",
+        "explanation": "Giảm giá từ 17:00 đến trước giờ đóng cửa 18:00.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 36,
+        "prompt": "おなじあんないを読んでください。\n午後5時から安くならないものはどれですか。",
+        "options": [
+          "カレーパン",
+          "のみもの",
+          "食パン",
+          "あんパン"
+        ],
+        "answer": 2,
+        "correct_text": "のみもの",
+        "explanation": "Đồ uống không giảm giá.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 37,
+        "prompt": "わたしは先月、じてんしゃを買いました。\n駅まであるくと二十五分かかりますが、じてんしゃなら十分です。\n朝は少し長くねられるので、べんりです。\nでも、雨の日はバスで駅へ行きます。\nバスは人が多くて、ときどき遅れます。\n\nどうしてじてんしゃがべんりですか。",
+        "options": [
+          "駅まで早く行けるから",
+          "雨の日もぬれないから",
+          "駅が近くなったから",
+          "バスよりゆっくり行けるから"
+        ],
+        "answer": 1,
+        "correct_text": "駅まで早く行けるから",
+        "explanation": "Đi xe đạp chỉ mất 10 phút thay vì 25 phút.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 38,
+        "prompt": "おなじ文を読んでください。\n雨の日はどうしますか。",
+        "options": [
+          "バスで駅へ行きます",
+          "家で休みます",
+          "あるいて駅へ行きます",
+          "じてんしゃで駅へ行きます"
+        ],
+        "answer": 1,
+        "correct_text": "バスで駅へ行きます",
+        "explanation": "雨の日はバスで駅へ行く.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 39,
+        "prompt": "【しみんセンターの日本語クラス】\n\nしょきゅうA：火曜日 18:30～20:00\nしょきゅうB：土曜日 10:00～11:30\n会話クラス：日曜日 14:00～15:30\nりょうきん：1かい500円\nもうしこみ：じゅぎょうの前の日までにメールしてください。\n\nへいじつのよるにべんきょうしたい人は、どのクラスがいいですか。",
+        "options": [
+          "会話クラス",
+          "しょきゅうB",
+          "しょきゅうA",
+          "どのクラスもだめ"
+        ],
+        "answer": 3,
+        "correct_text": "しょきゅうA",
+        "explanation": "Thứ Ba buổi tối là しょきゅうA.",
+        "skill": "reading_search"
+      },
+      {
+        "number": 40,
+        "prompt": "おなじあんないを読んでください。\n日曜日の会話クラスに出たい人は、いつまでにメールしますか。",
+        "options": [
+          "土曜日まで",
+          "月曜日まで",
+          "日曜日の朝まで",
+          "金曜日まで"
+        ],
+        "answer": 1,
+        "correct_text": "土曜日まで",
+        "explanation": "Phải đăng ký trước ngày học một ngày.",
+        "skill": "reading_search"
+      }
+    ],
+    [
+      {
+        "number": 1,
+        "prompt": "父はまいばん新聞を読みます。「新聞」の読み方はどれですか。",
+        "options": [
+          "しんぶん",
+          "しんもん",
+          "じんぶん",
+          "しんぷん"
+        ],
+        "answer": 1,
+        "correct_text": "しんぶん",
+        "explanation": "新聞 đọc là しんぶん.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 2,
+        "prompt": "友だちの名前をノートに書きました。「名前」の読み方はどれですか。",
+        "options": [
+          "めいまえ",
+          "なまい",
+          "なめえ",
+          "なまえ"
+        ],
+        "answer": 4,
+        "correct_text": "なまえ",
+        "explanation": "名前 đọc là なまえ.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 3,
+        "prompt": "教室のまどをあけてください。「教室」の読み方はどれですか。",
+        "options": [
+          "きょしつ",
+          "こうしつ",
+          "おしえしつ",
+          "きょうしつ"
+        ],
+        "answer": 4,
+        "correct_text": "きょうしつ",
+        "explanation": "教室 đọc là きょうしつ.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 4,
+        "prompt": "来週は何をしますか。「来週」の読み方はどれですか。",
+        "options": [
+          "こんしゅう",
+          "らいしゅう",
+          "らいしゅ",
+          "らいしょう"
+        ],
+        "answer": 2,
+        "correct_text": "らいしゅう",
+        "explanation": "来週 đọc là らいしゅう.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 5,
+        "prompt": "あしたは やまへ いきます。「やま」はどう書きますか。",
+        "options": [
+          "山",
+          "川",
+          "田",
+          "天"
+        ],
+        "answer": 1,
+        "correct_text": "山",
+        "explanation": "やま viết là 山.",
+        "skill": "orthography"
+      },
+      {
+        "number": 6,
+        "prompt": "えきの ひだりに ぎんこうが あります。「ひだり」はどう書きますか。",
+        "options": [
+          "北",
+          "左",
+          "西",
+          "右"
+        ],
+        "answer": 2,
+        "correct_text": "左",
+        "explanation": "ひだり viết là 左.",
+        "skill": "orthography"
+      },
+      {
+        "number": 7,
+        "prompt": "まいにち みずを のみます。「みず」はどう書きますか。",
+        "options": [
+          "木",
+          "火",
+          "金",
+          "水"
+        ],
+        "answer": 4,
+        "correct_text": "水",
+        "explanation": "みず viết là 水.",
+        "skill": "orthography"
+      },
+      {
+        "number": 8,
+        "prompt": "このりょうりは少し（　）です。水を飲みたいです。",
+        "options": [
+          "ぬるい",
+          "あまい",
+          "からい",
+          "やわらかい"
+        ],
+        "answer": 3,
+        "correct_text": "からい",
+        "explanation": "Món cay nên muốn uống nước.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 9,
+        "prompt": "へやが暗いので、電気を（　）ください。",
+        "options": [
+          "つけて",
+          "しめて",
+          "あけて",
+          "けして"
+        ],
+        "answer": 1,
+        "correct_text": "つけて",
+        "explanation": "つける = bật điện.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 10,
+        "prompt": "このくつは小さくて、足が（　）です。",
+        "options": [
+          "さむい",
+          "ねむい",
+          "うすい",
+          "いたい"
+        ],
+        "answer": 4,
+        "correct_text": "いたい",
+        "explanation": "Giày nhỏ làm đau chân.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 11,
+        "prompt": "しゅくだいがおわったら、先生に（　）ください。",
+        "options": [
+          "かえして",
+          "出して",
+          "かりて",
+          "教えて"
+        ],
+        "answer": 2,
+        "correct_text": "出して",
+        "explanation": "しゅくだいを出す = nộp bài tập.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 12,
+        "prompt": "さいふを家に（　）しまいました。",
+        "options": [
+          "わすれて",
+          "おぼえて",
+          "おいて",
+          "けして"
+        ],
+        "answer": 1,
+        "correct_text": "わすれて",
+        "explanation": "わすれてしまう = lỡ quên.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 13,
+        "prompt": "「この道はあぶないです。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "しゃしんをとってください",
+          "ここで休んでください",
+          "気をつけてあるいてください",
+          "はやくはしってください"
+        ],
+        "answer": 3,
+        "correct_text": "気をつけてあるいてください",
+        "explanation": "Đường nguy hiểm nên cần cẩn thận.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 14,
+        "prompt": "「もうすぐじゅぎょうがはじまります。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "じゅぎょうは来週です",
+          "じゅぎょうはありません",
+          "じゅぎょうはおわりました",
+          "じゅぎょうは少しあとではじまります"
+        ],
+        "answer": 4,
+        "correct_text": "じゅぎょうは少しあとではじまります",
+        "explanation": "もうすぐ = sắp, một lát nữa.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 15,
+        "prompt": "「なおす」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "朝ごはんをなおします",
+          "雨をなおします",
+          "電車をなおします",
+          "こわれたとけいをなおします"
+        ],
+        "answer": 4,
+        "correct_text": "こわれたとけいをなおします",
+        "explanation": "なおす = sửa chữa.",
+        "skill": "usage"
+      },
+      {
+        "number": 16,
+        "prompt": "「ひろう」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "しゅくだいをひろいました",
+          "おんがくをひろいました",
+          "道でさいふをひろいました",
+          "電話をひろいました"
+        ],
+        "answer": 3,
+        "correct_text": "道でさいふをひろいました",
+        "explanation": "ひろう = nhặt.",
+        "skill": "usage"
+      },
+      {
+        "number": 17,
+        "prompt": "A：てつだいましょうか。B：はい、（　）。",
+        "options": [
+          "どういたしまして",
+          "おねがいします",
+          "いただきます",
+          "おめでとう"
+        ],
+        "answer": 2,
+        "correct_text": "おねがいします",
+        "explanation": "Nhận lời giúp đỡ: おねがいします.",
+        "skill": "expression"
+      },
+      {
+        "number": 18,
+        "prompt": "かいぎは三時に（　）よていです。",
+        "options": [
+          "しめる",
+          "おわる",
+          "おえる",
+          "きえる"
+        ],
+        "answer": 2,
+        "correct_text": "おわる",
+        "explanation": "Hội nghị dự kiến kết thúc lúc 3 giờ.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 19,
+        "prompt": "日曜日（　）ともだちとえいがを見ました。",
+        "options": [
+          "を",
+          "で",
+          "に",
+          "が"
+        ],
+        "answer": 3,
+        "correct_text": "に",
+        "explanation": "Ngày cụ thể dùng に.",
+        "skill": "particle"
+      },
+      {
+        "number": 20,
+        "prompt": "つくえの上（　）じしょがあります。",
+        "options": [
+          "で",
+          "へ",
+          "を",
+          "に"
+        ],
+        "answer": 4,
+        "correct_text": "に",
+        "explanation": "Vị trí tồn tại dùng に.",
+        "skill": "particle"
+      },
+      {
+        "number": 21,
+        "prompt": "わたしは日本語でてがみを（　）ことができます。",
+        "options": [
+          "書き",
+          "書く",
+          "書いた",
+          "書いて"
+        ],
+        "answer": 2,
+        "correct_text": "書く",
+        "explanation": "Vることができる.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 22,
+        "prompt": "あついですから、まどを（　）ください。",
+        "options": [
+          "あける",
+          "あけて",
+          "あけない",
+          "あけた"
+        ],
+        "answer": 2,
+        "correct_text": "あけて",
+        "explanation": "まどを開ける（あける）のて形は「あけて」。Vてください dùng để yêu cầu lịch sự.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 23,
+        "prompt": "かぜですから、今日は早く（　）ほうがいいです。",
+        "options": [
+          "帰った",
+          "帰って",
+          "帰らない",
+          "帰る"
+        ],
+        "answer": 1,
+        "correct_text": "帰った",
+        "explanation": "Vたほうがいい.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 24,
+        "prompt": "休みの日は本を読んだり、おんがくを（　）します。",
+        "options": [
+          "聞き",
+          "聞く",
+          "聞いたり",
+          "聞いて"
+        ],
+        "answer": 3,
+        "correct_text": "聞いたり",
+        "explanation": "Vたり、Vたりする.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 25,
+        "prompt": "このへやでたばこを（　）ないでください。",
+        "options": [
+          "すって",
+          "すう",
+          "すわ",
+          "すい"
+        ],
+        "answer": 3,
+        "correct_text": "すわ",
+        "explanation": "すう→すわないでください.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 26,
+        "prompt": "かいものをする（　）、駅前の店へ行きました。",
+        "options": [
+          "ために",
+          "ながら",
+          "あとで",
+          "までに"
+        ],
+        "answer": 1,
+        "correct_text": "ために",
+        "explanation": "Mục đích dùng ために.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 27,
+        "prompt": "北海道へ行った（　）がありますか。",
+        "options": [
+          "もの",
+          "ところ",
+          "こと",
+          "ほう"
+        ],
+        "answer": 3,
+        "correct_text": "こと",
+        "explanation": "Vたことがある.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 28,
+        "prompt": "しんかんせんはバス（　）はやいです。",
+        "options": [
+          "しか",
+          "ほど",
+          "より",
+          "でも"
+        ],
+        "answer": 3,
+        "correct_text": "より",
+        "explanation": "AはBより...",
+        "skill": "comparison"
+      },
+      {
+        "number": 29,
+        "prompt": "A：ここにすわってもいいですか。B：はい、（　）。",
+        "options": [
+          "いけませんでした",
+          "どうぞ",
+          "ありません",
+          "すわりません"
+        ],
+        "answer": 2,
+        "correct_text": "どうぞ",
+        "explanation": "Mời/cho phép: どうぞ.",
+        "skill": "conversation"
+      },
+      {
+        "number": 30,
+        "prompt": "この店は安いです。（　）、人が多いです。",
+        "options": [
+          "それから",
+          "でも",
+          "だから",
+          "そして"
+        ],
+        "answer": 4,
+        "correct_text": "そして",
+        "explanation": "Hai đặc điểm cùng chiều: そして.",
+        "skill": "connector"
+      },
+      {
+        "number": 31,
+        "prompt": "ただしい文をつくってください。父は ＿＿ ★ ＿＿ ＿＿。",
+        "options": [
+          "います",
+          "会社で",
+          "毎日",
+          "はたらいて"
+        ],
+        "answer": 2,
+        "correct_text": "会社で",
+        "explanation": "父は毎日会社ではたらいています。Dấu ★ nằm ở 会社で.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 32,
+        "prompt": "ただしい文をつくってください。わたしは ＿＿ ＿＿ ★ ＿＿。",
+        "options": [
+          "見せて",
+          "もらいました",
+          "ともだちに",
+          "しゃしんを"
+        ],
+        "answer": 1,
+        "correct_text": "見せて",
+        "explanation": "ともだちにしゃしんを見せてもらいました; ★ là 見せて.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 33,
+        "prompt": "【学校からのおしらせ】\n\n明日の遠足は雨のため、ちゅうしです。\n授業はいつもどおりあります。\nおべんとうをもって来てください。\n\n明日、学生はどうしますか。",
+        "options": [
+          "学校へ行きます",
+          "べんとうを買いません",
+          "家で休みます",
+          "遠足へ行きます"
+        ],
+        "answer": 1,
+        "correct_text": "学校へ行きます",
+        "explanation": "Dã ngoại hủy nhưng trường vẫn học bình thường.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 34,
+        "prompt": "おなじおしらせを読んでください。\n何をもって行きますか。",
+        "options": [
+          "うんどうぐつだけ",
+          "りょこうかばん",
+          "おべんとう",
+          "かさだけ"
+        ],
+        "answer": 3,
+        "correct_text": "おべんとう",
+        "explanation": "Thông báo yêu cầu mang cơm hộp.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 35,
+        "prompt": "【としょかん】\n\n月～金：9:00～20:00\n土・日：10:00～17:00\n本は一人5さつまで、2週間かりられます。\n\n日曜日の午後6時に、としょかんへ行けますか。",
+        "options": [
+          "行けません",
+          "本だけかえせます",
+          "行けます",
+          "電話だけできます"
+        ],
+        "answer": 1,
+        "correct_text": "行けません",
+        "explanation": "Chủ nhật đóng lúc 17:00.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 36,
+        "prompt": "おなじあんないを読んでください。\n一人で何さつまでかりられますか。",
+        "options": [
+          "5さつ",
+          "2さつ",
+          "14さつ",
+          "10さつ"
+        ],
+        "answer": 1,
+        "correct_text": "5さつ",
+        "explanation": "Một người tối đa 5 cuốn.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 37,
+        "prompt": "ミラーさんは毎朝七時に家を出ます。\n会社まで電車で四十分かかります。\n駅から会社までは、あるいて五分です。\nさいきん、電車がよく遅れるので、前より十分早く家を出るようになりました。\n\nさいきん、ミラーさんは何時に家を出ますか。",
+        "options": [
+          "七時",
+          "六時四十分",
+          "七時十分",
+          "六時五十分"
+        ],
+        "answer": 4,
+        "correct_text": "六時五十分",
+        "explanation": "Sớm hơn 10 phút so với 7 giờ = 6:50.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 38,
+        "prompt": "おなじ文を読んでください。\nなぜ早く家を出ますか。",
+        "options": [
+          "会社が遠くなったから",
+          "電車がよく遅れるから",
+          "朝ごはんを食べるから",
+          "あるくのが遅いから"
+        ],
+        "answer": 2,
+        "correct_text": "電車がよく遅れるから",
+        "explanation": "Do tàu thường trễ.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 39,
+        "prompt": "【スポーツ教室】\n\nすいえい：月曜日 19:00\nヨガ：水曜日 18:00\nテニス：土曜日 9:00\nさんかひ：1かい800円\nよやくは電話で前日までにしてください。\n\nへいじつの午後7時にさんかできる教室はどれですか。",
+        "options": [
+          "テニス",
+          "ありません",
+          "ヨガ",
+          "すいえい"
+        ],
+        "answer": 4,
+        "correct_text": "すいえい",
+        "explanation": "Thứ Hai 19:00 là lớp bơi.",
+        "skill": "reading_search"
+      },
+      {
+        "number": 40,
+        "prompt": "おなじあんないを読んでください。\n土曜日のテニスにさんかする人は、いつまでによやくしますか。",
+        "options": [
+          "土曜日の朝",
+          "木曜日まで",
+          "金曜日まで",
+          "日曜日まで"
+        ],
+        "answer": 3,
+        "correct_text": "金曜日まで",
+        "explanation": "Phải đặt trước một ngày.",
+        "skill": "reading_search"
+      }
+    ],
+    [
+      {
+        "number": 1,
+        "prompt": "母は日本語が上手です。「日本語」の読み方はどれですか。",
+        "options": [
+          "にほんご",
+          "にっぽんご",
+          "にほんこ",
+          "にほんぎょ"
+        ],
+        "answer": 1,
+        "correct_text": "にほんご",
+        "explanation": "日本語 đọc là にほんご.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 2,
+        "prompt": "学校は駅の近くです。「学校」の読み方はどれですか。",
+        "options": [
+          "かっこう",
+          "がっこ",
+          "がっこう",
+          "がくこう"
+        ],
+        "answer": 3,
+        "correct_text": "がっこう",
+        "explanation": "学校 đọc là がっこう.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 3,
+        "prompt": "今年のなつはとてもあついです。「今年」の読み方はどれですか。",
+        "options": [
+          "ことし",
+          "きょうねん",
+          "こんねん",
+          "このとし"
+        ],
+        "answer": 1,
+        "correct_text": "ことし",
+        "explanation": "今年 thường đọc là ことし ở N5.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 4,
+        "prompt": "兄は会社ではたらいています。「会社」の読み方はどれですか。",
+        "options": [
+          "かいしゃ",
+          "がいしゃ",
+          "かいじゃ",
+          "かいさ"
+        ],
+        "answer": 1,
+        "correct_text": "かいしゃ",
+        "explanation": "会社 đọc là かいしゃ.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 5,
+        "prompt": "にほんの ふゆは さむいです。「ふゆ」はどう書きますか。",
+        "options": [
+          "秋",
+          "夏",
+          "冬",
+          "春"
+        ],
+        "answer": 3,
+        "correct_text": "冬",
+        "explanation": "ふゆ viết là 冬.",
+        "skill": "orthography"
+      },
+      {
+        "number": 6,
+        "prompt": "きょうは はやく いきます。「いきます」はどう書きますか。",
+        "options": [
+          "来ます",
+          "行きます",
+          "入ります",
+          "帰ります"
+        ],
+        "answer": 2,
+        "correct_text": "行きます",
+        "explanation": "いきます viết là 行きます.",
+        "skill": "orthography"
+      },
+      {
+        "number": 7,
+        "prompt": "この へやは おおきいです。「おおきい」はどう書きますか。",
+        "options": [
+          "小さい",
+          "高い",
+          "長い",
+          "大きい"
+        ],
+        "answer": 4,
+        "correct_text": "大きい",
+        "explanation": "おおきい viết là 大きい.",
+        "skill": "orthography"
+      },
+      {
+        "number": 8,
+        "prompt": "朝、時間がなかったので、パンだけ（　）。",
+        "options": [
+          "のりました",
+          "食べました",
+          "ちゃくました",
+          "飲みました"
+        ],
+        "answer": 2,
+        "correct_text": "食べました",
+        "explanation": "パンを食べる.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 9,
+        "prompt": "駅で電車を（　）から、会社へ行きます。",
+        "options": [
+          "きって",
+          "けして",
+          "かりて",
+          "おりて"
+        ],
+        "answer": 4,
+        "correct_text": "おりて",
+        "explanation": "電車をおりる = xuống tàu.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 10,
+        "prompt": "このもんだいはむずかしいです。先生に（　）ましょう。",
+        "options": [
+          "聞き",
+          "まち",
+          "話し",
+          "見せ"
+        ],
+        "answer": 1,
+        "correct_text": "聞き",
+        "explanation": "Không hiểu bài thì hỏi giáo viên: 聞きましょう.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 11,
+        "prompt": "さむいですから、まどを（　）ください。",
+        "options": [
+          "はじめて",
+          "しめて",
+          "とめて",
+          "ひらけて"
+        ],
+        "answer": 2,
+        "correct_text": "しめて",
+        "explanation": "Trời lạnh nên đóng cửa sổ.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 12,
+        "prompt": "来週、国へ（　）つもりです。",
+        "options": [
+          "かえす",
+          "もどす",
+          "帰る",
+          "おくる"
+        ],
+        "answer": 3,
+        "correct_text": "帰る",
+        "explanation": "国へ帰る = về nước.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 13,
+        "prompt": "「ゆっくり話してください。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "もっとおそく話してください",
+          "大きいこえで話してください",
+          "もういちど書いてください",
+          "話さないでください"
+        ],
+        "answer": 1,
+        "correct_text": "もっとおそく話してください",
+        "explanation": "ゆっくり話す = nói chậm; gần nghĩa nhất là もっとおそく話してください.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 14,
+        "prompt": "「今日はひまです。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "今日はつかれています",
+          "今日は出かけます",
+          "今日は時間があります",
+          "今日はしごとが多いです"
+        ],
+        "answer": 3,
+        "correct_text": "今日は時間があります",
+        "explanation": "ひま = có thời gian rảnh.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 15,
+        "prompt": "「かよう」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "本をかよっています",
+          "雨にかよっています",
+          "毎日学校にかよっています",
+          "学校をかよっています"
+        ],
+        "answer": 3,
+        "correct_text": "毎日学校にかよっています",
+        "explanation": "学校にかよう = đi học/đi lại đến trường thường xuyên. Trợ từ đúng là に.",
+        "skill": "usage"
+      },
+      {
+        "number": 16,
+        "prompt": "「足りる」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "駅が足ります",
+          "おんがくが足ります",
+          "雨が足ります",
+          "お金が足りません"
+        ],
+        "answer": 4,
+        "correct_text": "お金が足りません",
+        "explanation": "足りる = đủ.",
+        "skill": "usage"
+      },
+      {
+        "number": 17,
+        "prompt": "A：先に帰ります。B：（　）。",
+        "options": [
+          "いただきます",
+          "いってらっしゃいませ",
+          "おつかれさまでした",
+          "おだいじに"
+        ],
+        "answer": 3,
+        "correct_text": "おつかれさまでした",
+        "explanation": "Nói với đồng nghiệp ra về: おつかれさまでした.",
+        "skill": "expression"
+      },
+      {
+        "number": 18,
+        "prompt": "このバスはしやくしょの前を（　）か。",
+        "options": [
+          "とおります",
+          "あつまります",
+          "上ります",
+          "わたります"
+        ],
+        "answer": 1,
+        "correct_text": "とおります",
+        "explanation": "バスが場所の前を通る（とおる）= xe buýt đi qua phía trước địa điểm đó.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 19,
+        "prompt": "駅（　）バスにのります。",
+        "options": [
+          "を",
+          "で",
+          "に",
+          "へ"
+        ],
+        "answer": 2,
+        "correct_text": "で",
+        "explanation": "Địa điểm thực hiện hành động lên xe dùng で.",
+        "skill": "particle"
+      },
+      {
+        "number": 20,
+        "prompt": "弟は毎朝六時（　）おきます。",
+        "options": [
+          "に",
+          "へ",
+          "を",
+          "で"
+        ],
+        "answer": 1,
+        "correct_text": "に",
+        "explanation": "Giờ cụ thể dùng に.",
+        "skill": "particle"
+      },
+      {
+        "number": 21,
+        "prompt": "わたしはおよぐ（　）ができません。",
+        "options": [
+          "ところ",
+          "もの",
+          "とき",
+          "こと"
+        ],
+        "answer": 4,
+        "correct_text": "こと",
+        "explanation": "Vることができる.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 22,
+        "prompt": "ここに名前を（　）ください。",
+        "options": [
+          "書く",
+          "書き",
+          "書いた",
+          "書いて"
+        ],
+        "answer": 4,
+        "correct_text": "書いて",
+        "explanation": "Vてください.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 23,
+        "prompt": "毎日うんどうした（　）がいいですよ。",
+        "options": [
+          "ほう",
+          "ところ",
+          "もの",
+          "こと"
+        ],
+        "answer": 1,
+        "correct_text": "ほう",
+        "explanation": "Vたほうがいい.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 24,
+        "prompt": "りょこうではしゃしんをとったり、おいしいりょうりを（　）しました。",
+        "options": [
+          "食べる",
+          "食べて",
+          "食べ",
+          "食べたり"
+        ],
+        "answer": 4,
+        "correct_text": "食べたり",
+        "explanation": "Vたり、Vたりする.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 25,
+        "prompt": "その川で（　）ないでください。",
+        "options": [
+          "およぎ",
+          "およぐ",
+          "およが",
+          "およいで"
+        ],
+        "answer": 3,
+        "correct_text": "およが",
+        "explanation": "およぐ→およがないで.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 26,
+        "prompt": "日本語をべんきょうする（　）、日本へ来ました。",
+        "options": [
+          "まで",
+          "あとで",
+          "ながら",
+          "ために"
+        ],
+        "answer": 4,
+        "correct_text": "ために",
+        "explanation": "Mục đích.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 27,
+        "prompt": "このりょうりを食べた（　）があります。",
+        "options": [
+          "こと",
+          "ほう",
+          "ところ",
+          "もの"
+        ],
+        "answer": 1,
+        "correct_text": "こと",
+        "explanation": "Vたことがある.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 28,
+        "prompt": "今日はきのう（　）さむくありません。",
+        "options": [
+          "しか",
+          "でも",
+          "ほど",
+          "より"
+        ],
+        "answer": 3,
+        "correct_text": "ほど",
+        "explanation": "Phủ định so sánh: Bほど～ない.",
+        "skill": "comparison"
+      },
+      {
+        "number": 29,
+        "prompt": "A：しゃしんをとってもいいですか。B：すみません、（　）。",
+        "options": [
+          "ありません",
+          "ここではだめです",
+          "とりました",
+          "いいですよ"
+        ],
+        "answer": 2,
+        "correct_text": "ここではだめです",
+        "explanation": "Từ chối phép: ここではだめです.",
+        "skill": "conversation"
+      },
+      {
+        "number": 30,
+        "prompt": "電車が遅れました。（　）、学校にちこくしました。",
+        "options": [
+          "それで",
+          "でも",
+          "それから",
+          "そして"
+        ],
+        "answer": 1,
+        "correct_text": "それで",
+        "explanation": "Kết quả do nguyên nhân trước: それで.",
+        "skill": "connector"
+      },
+      {
+        "number": 31,
+        "prompt": "ただしい文をつくってください。先生は ＿＿ ＿＿ ★ ＿＿。",
+        "options": [
+          "ぶんぽうを",
+          "わかりやすく",
+          "せつめいして",
+          "くれました"
+        ],
+        "answer": 3,
+        "correct_text": "せつめいして",
+        "explanation": "先生はぶんぽうをわかりやすくせつめいしてくれました; ★ là せつめいして.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 32,
+        "prompt": "ただしい文をつくってください。休みの日に ＿＿ ★ ＿＿ ＿＿。",
+        "options": [
+          "見に",
+          "えいがを",
+          "ともだちと",
+          "行きます"
+        ],
+        "answer": 2,
+        "correct_text": "えいがを",
+        "explanation": "休みの日にともだちとえいがを見に行きます; ★ là えいがを.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 33,
+        "prompt": "【田中さんへのメモ】\n\n午後3時に、さとうさんから電話がありました。\nかいぎは明日の午前10時から11時にかわりました。\nしりょうを5ぶコピーしてください。\n\nかいぎはいつですか。",
+        "options": [
+          "明日の午後11時",
+          "今日の午前10時",
+          "明日の午前10時",
+          "今日の午後3時"
+        ],
+        "answer": 3,
+        "correct_text": "明日の午前10時",
+        "explanation": "Cuộc họp đổi sang 10 giờ sáng mai.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 34,
+        "prompt": "おなじメモを読んでください。\n田中さんは何をしますか。",
+        "options": [
+          "かいぎをちゅうしします",
+          "しりょうを5ぶコピーします",
+          "さとうさんに5かい電話します",
+          "しりょうを11ぶコピーします"
+        ],
+        "answer": 2,
+        "correct_text": "しりょうを5ぶコピーします",
+        "explanation": "Yêu cầu photocopy 5 bộ tài liệu.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 35,
+        "prompt": "【レストラン青空】\n\nランチ：11:30～14:00　900円\nディナー：17:30～21:00　1,500円\n休み：火曜日\nランチには、のみものがつきます。\n\n月曜日の午後1時に食事をすると、いくらですか。",
+        "options": [
+          "2,400円",
+          "休みです",
+          "1,500円",
+          "900円"
+        ],
+        "answer": 4,
+        "correct_text": "900円",
+        "explanation": "13:00 thuộc giờ lunch, giá 900 yên.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 36,
+        "prompt": "おなじあんないを読んでください。\nランチに何がつきますか。",
+        "options": [
+          "サラダだけ",
+          "のみもの",
+          "何もつきません",
+          "デザート"
+        ],
+        "answer": 2,
+        "correct_text": "のみもの",
+        "explanation": "Thông báo ghi ランチにはのみものがつきます.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 37,
+        "prompt": "わたしのまちには、小さいこうえんがあります。\nはるはさくらがきれいで、しゅうまつにはかぞくがたくさん来ます。\nこうえんの中に店はありませんが、駅の近くでのみものやおべんとうを買えます。\nごみは自分でもちかえらなければなりません。\n\nはるのしゅうまつ、こうえんはどうですか。",
+        "options": [
+          "さくらがありません",
+          "だれも来ません",
+          "店がたくさんひらきます",
+          "かぞくがたくさん来ます"
+        ],
+        "answer": 4,
+        "correct_text": "かぞくがたくさん来ます",
+        "explanation": "Cuối tuần mùa xuân có nhiều gia đình đến.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 38,
+        "prompt": "おなじ文を読んでください。\nごみはどうしますか。",
+        "options": [
+          "そのままにします",
+          "じぶんでもちかえります",
+          "こうえんの店におきます",
+          "駅ですてます"
+        ],
+        "answer": 2,
+        "correct_text": "じぶんでもちかえります",
+        "explanation": "Phải tự mang rác về.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 39,
+        "prompt": "【バスじこく】駅前→大学\n\n8:10、8:40、9:20、10:00\nしょようじかん：25分\n\n9時に駅についた人が、さいしょにのれるバスは何時ですか。",
+        "options": [
+          "10:00",
+          "8:10",
+          "8:40",
+          "9:20"
+        ],
+        "answer": 4,
+        "correct_text": "9:20",
+        "explanation": "Sau 9 giờ, chuyến sớm nhất là 9:20.",
+        "skill": "reading_search"
+      },
+      {
+        "number": 40,
+        "prompt": "おなじじこくひょうを読んでください。\n9時20分のバスは、何時ごろ大学につきますか。",
+        "options": [
+          "10時25分",
+          "9時45分",
+          "9時20分",
+          "9時35分"
+        ],
+        "answer": 2,
+        "correct_text": "9時45分",
+        "explanation": "9:20 + 25 phút = 9:45.",
+        "skill": "reading_search"
+      }
+    ],
+    [
+      {
+        "number": 1,
+        "prompt": "弟は毎日学校へ行きます。「学校」の読み方はどれですか。",
+        "options": [
+          "がくこう",
+          "かっこう",
+          "がっこう",
+          "がっこ"
+        ],
+        "answer": 3,
+        "correct_text": "がっこう",
+        "explanation": "学校 đọc là がっこう.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 2,
+        "prompt": "店の前に人がならんでいます。「前」の読み方はどれですか。",
+        "options": [
+          "そと",
+          "あと",
+          "まえ",
+          "うえ"
+        ],
+        "answer": 3,
+        "correct_text": "まえ",
+        "explanation": "前 đọc là まえ.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 3,
+        "prompt": "駅から会社まで電車で四十分です。「四十分」の読み方はどれですか。",
+        "options": [
+          "よんじゅっぷん",
+          "しじゅうふん",
+          "よじゅっぷん",
+          "よんじゅうぶん"
+        ],
+        "answer": 1,
+        "correct_text": "よんじゅっぷん",
+        "explanation": "四十分 đọc là よんじゅっぷん.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 4,
+        "prompt": "先生に名前を聞かれました。「先生」の読み方はどれですか。",
+        "options": [
+          "せいせん",
+          "せんぜい",
+          "せんせい",
+          "せんせ"
+        ],
+        "answer": 3,
+        "correct_text": "せんせい",
+        "explanation": "先生 đọc là せんせい.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 5,
+        "prompt": "きのう ほんを よみました。「ほん」はどう書きますか。",
+        "options": [
+          "本",
+          "木",
+          "休",
+          "体"
+        ],
+        "answer": 1,
+        "correct_text": "本",
+        "explanation": "ほん viết là 本.",
+        "skill": "orthography"
+      },
+      {
+        "number": 6,
+        "prompt": "まどの そとに きが あります。「そと」はどう書きますか。",
+        "options": [
+          "内",
+          "中",
+          "外",
+          "北"
+        ],
+        "answer": 3,
+        "correct_text": "外",
+        "explanation": "そと viết là 外.",
+        "skill": "orthography"
+      },
+      {
+        "number": 7,
+        "prompt": "ひるやすみに かわへ いきます。「かわ」はどう書きますか。",
+        "options": [
+          "川",
+          "山",
+          "田",
+          "空"
+        ],
+        "answer": 1,
+        "correct_text": "川",
+        "explanation": "かわ viết là 川.",
+        "skill": "orthography"
+      },
+      {
+        "number": 8,
+        "prompt": "このへやはあついです。エアコンを（　）ください。",
+        "options": [
+          "とめて",
+          "しめて",
+          "けして",
+          "つけて"
+        ],
+        "answer": 4,
+        "correct_text": "つけて",
+        "explanation": "Bật điều hòa: つける.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 9,
+        "prompt": "りょこうの前にホテルを（　）しました。",
+        "options": [
+          "じゅんび",
+          "せつめい",
+          "よやく",
+          "やくそく"
+        ],
+        "answer": 3,
+        "correct_text": "よやく",
+        "explanation": "Đặt khách sạn: よやくする.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 10,
+        "prompt": "かいぎの時間がかわりました。みんなに（　）ください。",
+        "options": [
+          "こたえて",
+          "しらべて",
+          "しらせて",
+          "ならって"
+        ],
+        "answer": 3,
+        "correct_text": "しらせて",
+        "explanation": "しらせる = thông báo.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 11,
+        "prompt": "駅までの道がわからないので、ちずを（　）。",
+        "options": [
+          "見ます",
+          "書きます",
+          "読みます",
+          "聞きます"
+        ],
+        "answer": 1,
+        "correct_text": "見ます",
+        "explanation": "Xem bản đồ: ちずを見る.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 12,
+        "prompt": "雨でふくが（　）しまいました。",
+        "options": [
+          "やぶれて",
+          "われて",
+          "こわれて",
+          "ぬれて"
+        ],
+        "answer": 4,
+        "correct_text": "ぬれて",
+        "explanation": "Quần áo bị ướt: ぬれる.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 13,
+        "prompt": "「せきが空いています。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "せきがぜんぶありません",
+          "だれもすわっていないせきがあります",
+          "店がしまっています",
+          "人がたっています"
+        ],
+        "answer": 2,
+        "correct_text": "だれもすわっていないせきがあります",
+        "explanation": "空いている = đang trống.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 14,
+        "prompt": "「しょうしょうおまちください。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "すぐ帰ってください",
+          "ここにすわらないでください",
+          "ゆっくりあるいてください",
+          "少しまってください"
+        ],
+        "answer": 4,
+        "correct_text": "少しまってください",
+        "explanation": "しょうしょう = một chút.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 15,
+        "prompt": "「きめる」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "電車をきめます",
+          "天気をきめます",
+          "くすりをきめます",
+          "りょこうの日をきめます"
+        ],
+        "answer": 4,
+        "correct_text": "りょこうの日をきめます",
+        "explanation": "きめる = quyết định.",
+        "skill": "usage"
+      },
+      {
+        "number": 16,
+        "prompt": "「まにあう」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "電車にまにあいました",
+          "りょうりにまにあいました",
+          "本にまにあいました",
+          "天気にまにあいました"
+        ],
+        "answer": 1,
+        "correct_text": "電車にまにあいました",
+        "explanation": "電車にまにあう = kịp tàu.",
+        "skill": "usage"
+      },
+      {
+        "number": 17,
+        "prompt": "A：お先にどうぞ。B：（　）。",
+        "options": [
+          "ごちそうさま",
+          "ありがとうございます",
+          "おかえりなさい",
+          "ただいま"
+        ],
+        "answer": 2,
+        "correct_text": "ありがとうございます",
+        "explanation": "Đáp lại lời mời đi trước: ありがとうございます.",
+        "skill": "expression"
+      },
+      {
+        "number": 18,
+        "prompt": "電車が遅れたので、やくそくの時間に（　）ませんでした。",
+        "options": [
+          "足り",
+          "とうり",
+          "きまり",
+          "まにあい"
+        ],
+        "answer": 4,
+        "correct_text": "まにあい",
+        "explanation": "まにあいませんでした = không kịp.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 19,
+        "prompt": "としょかん（　）本をかりました。",
+        "options": [
+          "に",
+          "で",
+          "へ",
+          "を"
+        ],
+        "answer": 2,
+        "correct_text": "で",
+        "explanation": "Nơi hành động dùng で.",
+        "skill": "particle"
+      },
+      {
+        "number": 20,
+        "prompt": "わたしは兄（　）二人ですんでいます。",
+        "options": [
+          "と",
+          "に",
+          "を",
+          "が"
+        ],
+        "answer": 1,
+        "correct_text": "と",
+        "explanation": "Cùng với ai dùng と.",
+        "skill": "particle"
+      },
+      {
+        "number": 21,
+        "prompt": "田中さんは中国語を話す（　）ができます。",
+        "options": [
+          "ところ",
+          "こと",
+          "もの",
+          "ほう"
+        ],
+        "answer": 2,
+        "correct_text": "こと",
+        "explanation": "Vることができる.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 22,
+        "prompt": "ドアを（　）ください。",
+        "options": [
+          "しめる",
+          "しめて",
+          "しめた",
+          "しめない"
+        ],
+        "answer": 2,
+        "correct_text": "しめて",
+        "explanation": "Vてください.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 23,
+        "prompt": "ねつがありますから、びょういんへ（　）ほうがいいです。",
+        "options": [
+          "行かない",
+          "行って",
+          "行く",
+          "行った"
+        ],
+        "answer": 4,
+        "correct_text": "行った",
+        "explanation": "Vたほうがいい.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 24,
+        "prompt": "なつやすみは海へ行ったり、山に（　）します。",
+        "options": [
+          "のぼる",
+          "のぼったり",
+          "のぼって",
+          "のぼり"
+        ],
+        "answer": 2,
+        "correct_text": "のぼったり",
+        "explanation": "Vたり、Vたりする.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 25,
+        "prompt": "ここでしゃしんを（　）ないでください。",
+        "options": [
+          "とり",
+          "とって",
+          "とら",
+          "とる"
+        ],
+        "answer": 3,
+        "correct_text": "とら",
+        "explanation": "とる→とらないで.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 26,
+        "prompt": "しけんにごうかくする（　）、毎日べんきょうしています。",
+        "options": [
+          "ながら",
+          "あとで",
+          "ために",
+          "まで"
+        ],
+        "answer": 3,
+        "correct_text": "ために",
+        "explanation": "Mục đích.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 27,
+        "prompt": "外国人と話した（　）がありますか。",
+        "options": [
+          "ほう",
+          "ところ",
+          "もの",
+          "こと"
+        ],
+        "answer": 4,
+        "correct_text": "こと",
+        "explanation": "Kinh nghiệm.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 28,
+        "prompt": "このまちはとうきょう（　）しずかです。",
+        "options": [
+          "より",
+          "でも",
+          "ほど",
+          "しか"
+        ],
+        "answer": 1,
+        "correct_text": "より",
+        "explanation": "AはBより...",
+        "skill": "comparison"
+      },
+      {
+        "number": 29,
+        "prompt": "A：このペンをかりてもいいですか。B：はい、（　）。",
+        "options": [
+          "かりません",
+          "だめでした",
+          "ありません",
+          "どうぞ"
+        ],
+        "answer": 4,
+        "correct_text": "どうぞ",
+        "explanation": "Cho phép: どうぞ.",
+        "skill": "conversation"
+      },
+      {
+        "number": 30,
+        "prompt": "雨がやみました。（　）、さんぽに行きましょう。",
+        "options": [
+          "でも",
+          "それから",
+          "そして",
+          "では"
+        ],
+        "answer": 4,
+        "correct_text": "では",
+        "explanation": "では = vậy thì.",
+        "skill": "connector"
+      },
+      {
+        "number": 31,
+        "prompt": "ただしい文をつくってください。駅の前で ＿＿ ★ ＿＿ ＿＿。",
+        "options": [
+          "いました",
+          "三十分",
+          "まって",
+          "ともだちを"
+        ],
+        "answer": 2,
+        "correct_text": "三十分",
+        "explanation": "駅の前でともだちを三十分まっていました; ★ là 三十分.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 32,
+        "prompt": "ただしい文をつくってください。わたしは ＿＿ ＿＿ ★ ＿＿。",
+        "options": [
+          "教えて",
+          "りょうりを",
+          "母に",
+          "もらいました"
+        ],
+        "answer": 1,
+        "correct_text": "教えて",
+        "explanation": "母にりょうりを教えてもらいました; ★ là 教えて.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 33,
+        "prompt": "【会社のメモ】\n\nきむらさんへ\n\nおきゃくさまは午後2時に来ます。\nかいぎしつAをつかいます。\nおちゃを4人分よういしてください。\n\n山本\n\nおきゃくさまは、どこへ来ますか。",
+        "options": [
+          "駅",
+          "かいぎしつA",
+          "かいぎしつB",
+          "しょくどう"
+        ],
+        "answer": 2,
+        "correct_text": "かいぎしつA",
+        "explanation": "Thông báo chỉ rõ かいぎしつA.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 34,
+        "prompt": "おなじメモを読んでください。\n何人分のおちゃをよういしますか。",
+        "options": [
+          "4人分",
+          "2人分",
+          "1人分",
+          "5人分"
+        ],
+        "answer": 1,
+        "correct_text": "4人分",
+        "explanation": "Chuẩn bị trà cho 4 người.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 35,
+        "prompt": "【クリーニング店】\n\nうけつけ：9:00～19:00\n休み：木曜日\n午前11時までに出すと、つぎの日の午後5時にできます。\n\n金曜日の午前10時にふくを出すと、いつできますか。",
+        "options": [
+          "土曜日の午後5時",
+          "日曜日の午前10時",
+          "木曜日の午後5時",
+          "金曜日の午後5時"
+        ],
+        "answer": 1,
+        "correct_text": "土曜日の午後5時",
+        "explanation": "Nộp trước 11 giờ thì 17 giờ hôm sau.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 36,
+        "prompt": "おなじあんないを読んでください。\n店が休みの日はいつですか。",
+        "options": [
+          "金曜日",
+          "日曜日",
+          "土曜日",
+          "木曜日"
+        ],
+        "answer": 4,
+        "correct_text": "木曜日",
+        "explanation": "木曜日休み.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 37,
+        "prompt": "リーさんは、りょうりをならいはじめて三か月です。\nさいしょは、やさいをきるのもたいへんでしたが、今はカレーやスープを一人でつくれます。\n来月、ともだちを家によんで、りょうりをつくるつもりです。\n\n今、リーさんは何ができますか。",
+        "options": [
+          "何もつくれません",
+          "カレーやスープを一人でつくれます",
+          "りょうりを教えられます",
+          "やさいをきれません"
+        ],
+        "answer": 2,
+        "correct_text": "カレーやスープを一人でつくれます",
+        "explanation": "Hiện có thể tự nấu curry và soup.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 38,
+        "prompt": "おなじ文を読んでください。\n来月、何をするつもりですか。",
+        "options": [
+          "レストランではたらきます",
+          "りょうりきょうしつをやめます",
+          "ともだちにりょうりをつくります",
+          "一人でりょこうします"
+        ],
+        "answer": 3,
+        "correct_text": "ともだちにりょうりをつくります",
+        "explanation": "Mời bạn về nhà và nấu ăn.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 39,
+        "prompt": "【えいがかん】\n\nAえいが：10:00 / 14:00\nBえいが：12:30 / 18:00\n学生りょうきん：1,200円\n水曜日は、ぜんいん1,000円です。\n\n水曜日に学生がえいがを見ると、いくらですか。",
+        "options": [
+          "1,200円",
+          "むりょう",
+          "1,000円",
+          "2,200円"
+        ],
+        "answer": 3,
+        "correct_text": "1,000円",
+        "explanation": "Thứ Tư mọi người đều 1,000 yên.",
+        "skill": "reading_search"
+      },
+      {
+        "number": 40,
+        "prompt": "おなじあんないを読んでください。\n午後5時にえいがかんへ来た人が見られるえいがはどれですか。",
+        "options": [
+          "Aえいがの14時",
+          "Bえいがの18時",
+          "Bえいがの12時30分",
+          "Aえいがの10時"
+        ],
+        "answer": 2,
+        "correct_text": "Bえいがの18時",
+        "explanation": "Sau 17 giờ chỉ còn suất B lúc 18 giờ.",
+        "skill": "reading_search"
+      }
+    ],
+    [
+      {
+        "number": 1,
+        "prompt": "姉は会社ではたらいています。「会社」の読み方はどれですか。",
+        "options": [
+          "かいじゃ",
+          "かいさ",
+          "がいしゃ",
+          "かいしゃ"
+        ],
+        "answer": 4,
+        "correct_text": "かいしゃ",
+        "explanation": "会社 đọc là かいしゃ.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 2,
+        "prompt": "毎週日曜日に本を読みます。「日曜日」の読み方はどれですか。",
+        "options": [
+          "にちようひ",
+          "ひようび",
+          "にちょび",
+          "にちようび"
+        ],
+        "answer": 4,
+        "correct_text": "にちようび",
+        "explanation": "日曜日 đọc là にちようび.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 3,
+        "prompt": "この人は日本から来ました。「日本」の読み方はどれですか。",
+        "options": [
+          "にほん",
+          "にほんご",
+          "にちほん",
+          "にっぽん"
+        ],
+        "answer": 1,
+        "correct_text": "にほん",
+        "explanation": "日本 đọc là にほん.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 4,
+        "prompt": "来年、日本へりゅうがくしたいです。「来年」の読み方はどれですか。",
+        "options": [
+          "らいねん",
+          "こんねん",
+          "らいとし",
+          "くるとし"
+        ],
+        "answer": 1,
+        "correct_text": "らいねん",
+        "explanation": "来年 đọc là らいねん.",
+        "skill": "kanji_reading"
+      },
+      {
+        "number": 5,
+        "prompt": "この ほんは きょねん かいました。「ほん」はどう書きますか。",
+        "options": [
+          "木",
+          "休",
+          "体",
+          "本"
+        ],
+        "answer": 4,
+        "correct_text": "本",
+        "explanation": "ほん viết là 本.",
+        "skill": "orthography"
+      },
+      {
+        "number": 6,
+        "prompt": "まいあさ みずを のみます。「みず」はどう書きますか。",
+        "options": [
+          "木",
+          "火",
+          "水",
+          "金"
+        ],
+        "answer": 3,
+        "correct_text": "水",
+        "explanation": "みず viết là 水.",
+        "skill": "orthography"
+      },
+      {
+        "number": 7,
+        "prompt": "つくえの うえに ほんが あります。「うえ」はどう書きますか。",
+        "options": [
+          "下",
+          "前",
+          "上",
+          "中"
+        ],
+        "answer": 3,
+        "correct_text": "上",
+        "explanation": "うえ viết là 上.",
+        "skill": "orthography"
+      },
+      {
+        "number": 8,
+        "prompt": "このコピーきは今（　）います。つかえません。",
+        "options": [
+          "よごれて",
+          "ぬれて",
+          "やせて",
+          "こわれて"
+        ],
+        "answer": 4,
+        "correct_text": "こわれて",
+        "explanation": "Máy hỏng: こわれている.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 9,
+        "prompt": "電車の中にかばんを（　）しまいました。",
+        "options": [
+          "わすれて",
+          "おとして",
+          "かして",
+          "かえして"
+        ],
+        "answer": 1,
+        "correct_text": "わすれて",
+        "explanation": "Quên túi trên tàu: わすれる.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 10,
+        "prompt": "明日のかいぎにつかうしりょうを（　）ください。",
+        "options": [
+          "うんてんして",
+          "ひろって",
+          "コピーして",
+          "あらって"
+        ],
+        "answer": 3,
+        "correct_text": "コピーして",
+        "explanation": "Tài liệu dùng cho họp cần photocopy.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 11,
+        "prompt": "今日はいそがしいので、ひるごはんを食べる（　）がありません。",
+        "options": [
+          "こえ",
+          "いみ",
+          "ばしょ",
+          "時間"
+        ],
+        "answer": 4,
+        "correct_text": "時間",
+        "explanation": "Không có thời gian ăn trưa.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 12,
+        "prompt": "びょうきのともだちのおみまいに花を（　）。",
+        "options": [
+          "けして行きます",
+          "のって行きます",
+          "ならって行きます",
+          "もって行きます"
+        ],
+        "answer": 4,
+        "correct_text": "もって行きます",
+        "explanation": "Mang hoa đi thăm bệnh.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 13,
+        "prompt": "「このもんだいはかんたんです。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "このもんだいはむずかしくありません",
+          "このもんだいは新しいです",
+          "このもんだいは多いです",
+          "このもんだいは長いです"
+        ],
+        "answer": 1,
+        "correct_text": "このもんだいはむずかしくありません",
+        "explanation": "かんたん = không khó.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 14,
+        "prompt": "「駅はすぐそこです。」とおなじいみに近いものはどれですか。",
+        "options": [
+          "駅はとても近いです",
+          "駅はとても遠いです",
+          "駅は新しいです",
+          "駅はしまっています"
+        ],
+        "answer": 1,
+        "correct_text": "駅はとても近いです",
+        "explanation": "すぐそこ = ngay gần đây.",
+        "skill": "paraphrase"
+      },
+      {
+        "number": 15,
+        "prompt": "「むかえる」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "本をむかえます",
+          "くすりをむかえます",
+          "雨をむかえます",
+          "くうこうへともだちをむかえに行きます"
+        ],
+        "answer": 4,
+        "correct_text": "くうこうへともだちをむかえに行きます",
+        "explanation": "むかえる = đón.",
+        "skill": "usage"
+      },
+      {
+        "number": 16,
+        "prompt": "「しらべる」のつかいかたがただしいものはどれですか。",
+        "options": [
+          "電車の時間をしらべます",
+          "電車の時間をわすれます",
+          "電車の時間をあらいます",
+          "電車の時間をかります"
+        ],
+        "answer": 1,
+        "correct_text": "電車の時間をしらべます",
+        "explanation": "しらべる = tra cứu.",
+        "skill": "usage"
+      },
+      {
+        "number": 17,
+        "prompt": "A：かぜをひきました。B：（　）。",
+        "options": [
+          "おまたせしました",
+          "おだいじに",
+          "いってきます",
+          "しつれいします"
+        ],
+        "answer": 2,
+        "correct_text": "おだいじに",
+        "explanation": "Nói với người ốm: おだいじに.",
+        "skill": "expression"
+      },
+      {
+        "number": 18,
+        "prompt": "駅についたら、電話で（　）ください。",
+        "options": [
+          "きめて",
+          "まにあって",
+          "しらせて",
+          "ならんで"
+        ],
+        "answer": 3,
+        "correct_text": "しらせて",
+        "explanation": "しらせてください = hãy báo cho tôi.",
+        "skill": "context_vocab"
+      },
+      {
+        "number": 19,
+        "prompt": "教室（　）学生が二十人います。",
+        "options": [
+          "を",
+          "で",
+          "へ",
+          "に"
+        ],
+        "answer": 4,
+        "correct_text": "に",
+        "explanation": "Nơi tồn tại dùng に.",
+        "skill": "particle"
+      },
+      {
+        "number": 20,
+        "prompt": "母はほうちょう（　）やさいをきります。",
+        "options": [
+          "へ",
+          "に",
+          "で",
+          "を"
+        ],
+        "answer": 3,
+        "correct_text": "で",
+        "explanation": "Công cụ dùng で.",
+        "skill": "particle"
+      },
+      {
+        "number": 21,
+        "prompt": "わたしはかんじを読む（　）ができます。",
+        "options": [
+          "ほう",
+          "こと",
+          "ところ",
+          "もの"
+        ],
+        "answer": 2,
+        "correct_text": "こと",
+        "explanation": "Vることができる.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 22,
+        "prompt": "もういちどゆっくり（　）ください。",
+        "options": [
+          "いって",
+          "いい",
+          "いう",
+          "いった"
+        ],
+        "answer": 1,
+        "correct_text": "いって",
+        "explanation": "Vてください.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 23,
+        "prompt": "よるはあまり遅くまで（　）ほうがいいです。",
+        "options": [
+          "おきて",
+          "おきない",
+          "おきた",
+          "おきる"
+        ],
+        "answer": 2,
+        "correct_text": "おきない",
+        "explanation": "Không nên thức quá khuya: Vないほうがいい.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 24,
+        "prompt": "しゅうまつはそうじをしたり、せんたくを（　）します。",
+        "options": [
+          "し",
+          "したり",
+          "して",
+          "する"
+        ],
+        "answer": 2,
+        "correct_text": "したり",
+        "explanation": "Vたり、Vたりする.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 25,
+        "prompt": "このくすりを一日にさんかいいじょう（　）ないでください。",
+        "options": [
+          "飲んで",
+          "飲む",
+          "飲ま",
+          "飲み"
+        ],
+        "answer": 3,
+        "correct_text": "飲ま",
+        "explanation": "飲む→飲まないで.",
+        "skill": "verb_form"
+      },
+      {
+        "number": 26,
+        "prompt": "新しいパソコンを買う（　）、お金をためています。",
+        "options": [
+          "まで",
+          "ながら",
+          "ために",
+          "あとで"
+        ],
+        "answer": 3,
+        "correct_text": "ために",
+        "explanation": "Mục đích.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 27,
+        "prompt": "日本のおんせんに入った（　）があります。",
+        "options": [
+          "もの",
+          "こと",
+          "ほう",
+          "ところ"
+        ],
+        "answer": 2,
+        "correct_text": "こと",
+        "explanation": "Kinh nghiệm.",
+        "skill": "grammar_pattern"
+      },
+      {
+        "number": 28,
+        "prompt": "今日は先週（　）あたたかいです。",
+        "options": [
+          "より",
+          "ほど",
+          "でも",
+          "しか"
+        ],
+        "answer": 1,
+        "correct_text": "より",
+        "explanation": "AはBより...",
+        "skill": "comparison"
+      },
+      {
+        "number": 29,
+        "prompt": "A：ここで食べてもいいですか。B：いいえ、（　）。",
+        "options": [
+          "どうぞ",
+          "食べました",
+          "食べないでください",
+          "ありません"
+        ],
+        "answer": 3,
+        "correct_text": "食べないでください",
+        "explanation": "Từ chối nhẹ bằng Vないでください.",
+        "skill": "conversation"
+      },
+      {
+        "number": 30,
+        "prompt": "道がこんでいます。（　）、バスが遅れています。",
+        "options": [
+          "でも",
+          "そのため",
+          "そして",
+          "それから"
+        ],
+        "answer": 2,
+        "correct_text": "そのため",
+        "explanation": "そのため = vì vậy.",
+        "skill": "connector"
+      },
+      {
+        "number": 31,
+        "prompt": "ただしい文をつくってください。わたしは ＿＿ ★ ＿＿ ＿＿。",
+        "options": [
+          "います",
+          "駅まで",
+          "あるいて",
+          "毎朝"
+        ],
+        "answer": 2,
+        "correct_text": "駅まで",
+        "explanation": "わたしは毎朝駅まであるいています; ★ là 駅まで.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 32,
+        "prompt": "ただしい文をつくってください。弟は ＿＿ ＿＿ ★ ＿＿。",
+        "options": [
+          "べんきょうします",
+          "へやで",
+          "聞きながら",
+          "おんがくを"
+        ],
+        "answer": 3,
+        "correct_text": "聞きながら",
+        "explanation": "弟はへやでおんがくを聞きながらべんきょうします; ★ là 聞きながら.",
+        "skill": "sentence_order"
+      },
+      {
+        "number": 33,
+        "prompt": "【先生からのメール】\n\n明日のテストは教室204で行います。\n9時までに来てください。\nえんぴつとけしごむをもって来てください。\n\nテストはどこでありますか。",
+        "options": [
+          "たいいくかん",
+          "としょかん",
+          "教室204",
+          "教室204の前"
+        ],
+        "answer": 3,
+        "correct_text": "教室204",
+        "explanation": "Email ghi 教室204.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 34,
+        "prompt": "おなじメールを読んでください。\n何時までに来ますか。",
+        "options": [
+          "9時まで",
+          "8時まで",
+          "9時半まで",
+          "10時まで"
+        ],
+        "answer": 1,
+        "correct_text": "9時まで",
+        "explanation": "9 giờ là hạn có mặt.",
+        "skill": "reading_notice"
+      },
+      {
+        "number": 35,
+        "prompt": "【スーパーさくら】\n\nえいぎょうじかん：9:00～21:00\n毎週月曜日：ぎゅうにゅう10％ひき\n毎週金曜日：やさい20％ひき\n\nやさいを安く買いたい人は、何曜日に行きますか。",
+        "options": [
+          "金曜日",
+          "日曜日",
+          "火曜日",
+          "月曜日"
+        ],
+        "answer": 1,
+        "correct_text": "金曜日",
+        "explanation": "Rau giảm 20% vào thứ Sáu.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 36,
+        "prompt": "おなじあんないを読んでください。\n月曜日に安くなるものは何ですか。",
+        "options": [
+          "パン",
+          "ぎゅうにゅう",
+          "さかな",
+          "やさい"
+        ],
+        "answer": 2,
+        "correct_text": "ぎゅうにゅう",
+        "explanation": "Thứ Hai sữa giảm 10%.",
+        "skill": "reading_information"
+      },
+      {
+        "number": 37,
+        "prompt": "わたしは毎週土曜日に、そぼの家へ行きます。\nそぼの家は駅から少し遠いので、駅からバスにのります。\nそぼとひるごはんを食べたあと、にわのそうじをてつだいます。\n帰るとき、そぼはいつもやさいをくれます。\n\n駅からそぼの家まで、どうやって行きますか。",
+        "options": [
+          "電車で行きます",
+          "バスで行きます",
+          "じてんしゃで行きます",
+          "あるいて行きます"
+        ],
+        "answer": 2,
+        "correct_text": "バスで行きます",
+        "explanation": "Từ ga đi xe buýt.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 38,
+        "prompt": "おなじ文を読んでください。\n帰るとき、そぼは何をくれますか。",
+        "options": [
+          "花",
+          "お金",
+          "本",
+          "やさい"
+        ],
+        "answer": 4,
+        "correct_text": "やさい",
+        "explanation": "Bà cho rau.",
+        "skill": "reading_short"
+      },
+      {
+        "number": 39,
+        "prompt": "【しやくしょ そうだんまどぐち】\n\n月・水・金：9:00～16:00\n火・木：9:00～19:00\n土・日：休み\n\nしごとのあと、午後6時に行きたい人は、何曜日がいいですか。",
+        "options": [
+          "日曜日",
+          "火曜日か木曜日",
+          "月曜日か金曜日",
+          "土曜日"
+        ],
+        "answer": 2,
+        "correct_text": "火曜日か木曜日",
+        "explanation": "Chỉ thứ Ba và thứ Năm mở đến 19:00.",
+        "skill": "reading_search"
+      },
+      {
+        "number": 40,
+        "prompt": "おなじあんないを読んでください。\n日曜日にそうだんできますか。",
+        "options": [
+          "できます",
+          "午前だけできます",
+          "午後だけできます",
+          "できません"
+        ],
+        "answer": 4,
+        "correct_text": "できません",
+        "explanation": "Thứ Bảy và Chủ nhật nghỉ.",
+        "skill": "reading_search"
+      }
+    ]
+  ]
+}
