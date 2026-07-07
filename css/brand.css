@@ -56,3 +56,13 @@
   --sat: env(safe-area-inset-top, 0px);
   --sab: env(safe-area-inset-bottom, 0px);
 }
+
+/* ── FOCUS STATE (mới, dùng chung toàn site — accessibility) ──
+   Chỉ bổ sung, không đổi token nào ở trên hay id/class nào khác. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+[role="button"]:focus-visible, .btn:focus-visible,
+.nav-links a:focus-visible, .nav-dd-item:focus-visible {
+  outline: 2.5px solid var(--yellow, #f5c842);
+  outline-offset: 2px;
+  border-radius: 6px;
+}

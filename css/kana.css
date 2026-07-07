@@ -9,6 +9,7 @@
   --text: #f1f5f9; --muted: #6b7280;
 }
 html { height:100%; height:-webkit-fill-available; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2.5px solid var(--accent2, #f5c842); outline-offset: 2px; }
 body {
   font-family: 'Noto Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
   background:var(--bg); color:var(--text);

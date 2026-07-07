@@ -12,6 +12,17 @@
   --accent:#e8845a; --gold:#f5c842;
   --ok:#5ac88a; --bad:#e85a6a;
   --line:rgba(244,240,234,.09);
+  /* mới — bổ sung, không thay tên/giá trị token cũ */
+  --accent2:#d4703f; --gold2:#d4a832;
+  --card3:rgba(244,240,234,.06);
+  --line-strong:rgba(244,240,234,.18);
+  --focus:#f5c842;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+  --radius-sm:10px; --radius-md:14px; --radius-lg:20px;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px; --sp-8:32px;
+}
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible{
+  outline:2.5px solid var(--focus); outline-offset:2px;
 }
 body{
   font-family:'Noto Sans JP','Noto Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
@@ -100,6 +111,35 @@ ruby rt{font-size:.55em;color:var(--gold);opacity:.9}
 .draw-btns .btn{flex:1;margin-top:0;padding:10px}
 .draw-info{margin-top:10px;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.6}
 .draw-info .rd{color:var(--gold)}
+/* tiến độ tổng quan (mới) */
+.progress-summary .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.progress-summary .pct{font-size:1.3rem;font-weight:800;color:var(--gold)}
+.progress-summary .bar{height:8px;background:var(--card2);border-radius:99px;overflow:hidden}
+.progress-summary .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold))}
+.progress-summary .stats{display:flex;gap:14px;margin-top:10px;font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+.hint-box{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);border-radius:var(--radius-md);
+  padding:10px 14px;margin-top:12px;font-size:.8rem;color:var(--gold);line-height:1.5}
+/* bảng từ vựng: nhóm cụm + sticky header (mới) */
+table thead tr{position:sticky;top:0;background:var(--card2);z-index:1}
+table thead th{text-align:left;padding:8px 10px;font-size:.7rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line)}
+tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.04em}
+/* chuyển đổi Bảng / Flashcard-list (mới) */
+.mode-toggle{display:flex;gap:8px;margin-bottom:14px}
+.mode-toggle button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:8px 14px;color:var(--muted);font-weight:700;font-size:.8rem;cursor:pointer;font-family:inherit;min-height:44px}
+.mode-toggle button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.vocab-flash-grid{display:flex;flex-wrap:wrap;gap:10px}
+.flash-card{width:140px;height:88px;background:var(--card2);border:1.5px solid var(--line);
+  border-radius:var(--radius-md);cursor:pointer;font-family:inherit;color:var(--text);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;
+  position:relative;transition:border-color .15s,transform .1s}
+.flash-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.flash-card .front{font-size:1.15rem}
+.flash-card .back{display:none;color:var(--muted);font-size:.85rem}
+.flash-card.flipped .front{display:none}
+.flash-card.flipped .back{display:block}
+.flash-card .tap{position:absolute;bottom:6px;right:8px;font-size:.6rem;color:var(--muted)}
 .hidden{display:none}
 @media(max-width:480px){
   .wrap{padding:14px 12px 50px}
@@ -116,6 +156,7 @@ ruby rt{font-size:.55em;color:var(--gold);opacity:.9}
     <h1>25 bài · Từ vựng &amp; Mẫu câu</h1>
     <p class="sub">Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo I.
       Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
+    <div class="card" id="progressSummary"></div>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
     <div class="card hidden" id="searchResult"></div>
     <div class="grid" id="lessonGrid"></div>
@@ -169,8 +210,34 @@ function renderHome(){
     b.onclick = function(){ openLesson(l); };
     g.appendChild(b);
   });
+  renderProgressSummary();
 }
 renderHome();
+
+// Thanh tiến độ tổng quan 25 bài — tính từ mn5_quiz_<n> đã lưu (mới)
+function renderProgressSummary(){
+  var box = qs('progressSummary');
+  var total = DATA.length, done = 0, weakLessons = [];
+  DATA.forEach(function(l){
+    var best = load('mn5_quiz_'+l.lesson, null);
+    if(best){
+      done++;
+      var parts = best.split('/');
+      if(+parts[0] / +parts[1] < 0.7) weakLessons.push(l.lesson);
+    }
+  });
+  var pct = Math.round(done/total*100);
+  var h = '<div class="progress-summary">' +
+    '<div class="row"><span class="sub" style="margin:0">Tiến độ tổng quan</span><span class="pct">' + pct + '%</span></div>' +
+    '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+    '<div class="stats"><span><b style="color:var(--ok)">' + done + '</b> đã học</span>' +
+    '<span><b style="color:var(--gold)">' + weakLessons.length + '</b> nên ôn lại</span>' +
+    '<span><b>' + (total - done) + '</b> chưa học</span></div></div>';
+  if(weakLessons.length){
+    h += '<div class="hint-box">◐ Bài ' + weakLessons.join(', ') + ' điểm quiz dưới 70% — nên ôn lại</div>';
+  }
+  box.innerHTML = h;
+}
 
 // Tra nhanh toàn bộ 25 bài
 qs('searchBox').addEventListener('input', function(){
@@ -215,6 +282,7 @@ tabs.forEach(function(t){
 function openLesson(l){
   curLesson = l;
   curTab = 'vocab';
+  curVocabMode = 'table';
   tabs.forEach(function(x){ x.classList.toggle('on', x.dataset.tab === 'vocab'); });
   qs('dBadge').textContent = 'BÀI ' + l.lesson;
   qs('dTitle').textContent = 'Minna no Nihongo — Bài ' + l.lesson;
@@ -233,13 +301,15 @@ function renderTab(){
   else renderQuizStart(l);
 }
 
+var curVocabMode = 'table';
+
 function renderVocab(l){
   var box = qs('tabContent');
-  var h = '<table>';
-  l.vocab.forEach(function(v){
-    h += '<tr><td class="jp">' + esc(v.w) + '</td><td class="kj">' + esc(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td></tr>';
-  });
-  h += '</table>';
+  var h = '<div class="mode-toggle">' +
+    '<button data-mode="table" class="' + (curVocabMode==='table'?'on':'') + '">Bảng</button>' +
+    '<button data-mode="flash" class="' + (curVocabMode==='flash'?'on':'') + '">Flashcard</button>' +
+    '</div>';
+  h += curVocabMode === 'flash' ? renderFlashGrid(l) : renderVocabTable(l);
   if(l.expressions.length){
     h += '<h3 style="margin-top:20px;font-size:.95rem;color:var(--accent)">Mẫu giao tiếp (練習C・会話)</h3><table>';
     l.expressions.forEach(function(v){
@@ -251,6 +321,37 @@ function renderVocab(l){
     h += '<div class="warn">⚠ Dữ liệu OCR từ sách, chưa được giáo viên duyệt lần cuối (REVIEW_REQUIRED).</div>';
   }
   box.innerHTML = h;
+  box.querySelectorAll('.mode-toggle button').forEach(function(b){
+    b.onclick = function(){ curVocabMode = b.dataset.mode; renderVocab(l); };
+  });
+  if(curVocabMode === 'flash'){
+    box.querySelectorAll('.flash-card').forEach(function(el){
+      el.onclick = function(){ el.classList.toggle('flipped'); };
+    });
+  }
+}
+
+// Bảng: nhóm mỗi 8 từ kèm heading phụ + thead sticky (mới)
+function renderVocabTable(l){
+  var h = '<table><thead><tr><th>Từ</th><th>Kanji</th><th>Nghĩa</th></tr></thead><tbody>';
+  l.vocab.forEach(function(v, i){
+    if(i % 8 === 0){
+      h += '<tr class="vgroup"><td colspan="3">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
+    }
+    h += '<tr><td class="jp">' + esc(v.w) + '</td><td class="kj">' + esc(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td></tr>';
+  });
+  return h + '</tbody></table>';
+}
+
+// Flashcard-list: bấm để lật xem nghĩa (mới)
+function renderFlashGrid(l){
+  var h = '<div class="vocab-flash-grid">';
+  l.vocab.forEach(function(v){
+    var front = v.k ? '<ruby>' + esc(v.k) + '<rt>' + esc(v.w) + '</rt></ruby>' : esc(v.w);
+    h += '<div class="flash-card"><span class="front">' + front + '</span>' +
+      '<span class="back">' + esc(v.m) + '</span><span class="tap">chạm</span></div>';
+  });
+  return h + '</div>';
 }
 
 // --- Mẫu câu: tự đánh giá đã nắm/chưa, lưu localStorage ---

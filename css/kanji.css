@@ -3,9 +3,10 @@
 :root {
   /* dark theme - file-specific */
   --bg: #0a0d14; --card-bg: #121820;
-  --text: #f4f0ea; --muted: #7a7060;
+  --text: #f4f0ea; --muted: #8a8070;
 }
 html { height:100%; height:-webkit-fill-available; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2.5px solid var(--accent2, #f5c842); outline-offset: 2px; }
 body {
   font-family: 'Noto Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
   background:var(--bg); color:var(--text);
