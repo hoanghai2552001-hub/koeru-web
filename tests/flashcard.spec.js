@@ -6,6 +6,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('Flashcard Game', () => {
 
   test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('kanji_visited', '1'));
     await page.goto('/kanji.html');
     // Vào Flashcard từ Home
     await page.click('#go-flash');

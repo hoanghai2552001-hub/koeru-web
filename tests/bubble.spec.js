@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Bubble E2E', () => {
   test('plays one bubble round: tap bubble, select correct reading', async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('kanji_visited', '1'));
     await page.goto('/kanji.html');
 
     // Open Bubble game

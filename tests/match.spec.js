@@ -6,6 +6,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('Match Game (Nối từ)', () => {
 
   test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('kanji_visited', '1'));
     await page.goto('/kanji.html');
     await page.click('#go-match');
     await expect(page.locator('#match-screen')).toHaveClass(/active/);
