@@ -97,6 +97,10 @@ h1{font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25}
   padding:12px 14px;margin:16px 0;font-size:.85rem;color:var(--gold);line-height:1.6;text-align:left}
 .hint-box b{color:var(--gold)}
 .hint-box .sub2{color:var(--muted);display:block;margin-top:2px}
+.qa-badge{background:rgba(90,200,138,.1);border:1px solid rgba(90,200,138,.3);border-radius:12px;
+  padding:12px 14px;margin:16px 0;font-size:.85rem;color:var(--ok);line-height:1.6;text-align:left}
+.qa-badge b{color:var(--ok)}
+.qa-badge .sub2{color:var(--muted);display:block;margin-top:2px}
 .review-q{border-left:3px solid var(--bad);padding-left:14px;margin-top:18px}
 .review-q.correct{border-left-color:var(--ok)}
 .review-q .rp{white-space:pre-wrap;line-height:1.8;font-size:.95rem}
@@ -141,6 +145,7 @@ h1{font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25}
         Hết giờ hệ thống tự nộp bài.
       </p>
       <div class="hint-box hidden" id="reviewWarn">⚠ Đề đang OCR từ tài liệu gốc, chờ giáo viên duyệt lần cuối (REVIEW_REQUIRED).</div>
+      <div class="qa-badge hidden" id="qaBadge"></div>
       <div class="sets" id="setList"></div>
     </div>
   </div>
@@ -223,6 +228,15 @@ function renderLanding(level){
   qs('examAudience').textContent = 'Dành cho: ' + EXAM.audience;
   qs('examDuration').textContent = EXAM.duration_minutes + ' phút';
   qs('reviewWarn').classList.toggle('hidden', EXAM.status !== 'REVIEW_REQUIRED');
+  var qaBadge = qs('qaBadge');
+  if(EXAM.status === 'APPROVED'){
+    var meta = EXAM.qa_meta || {};
+    qaBadge.innerHTML = '✓ <b>Đã qua QA</b> — đề đã được kiểm duyệt đầy đủ' +
+      (meta.questions_total ? '<span class="sub2">' + meta.questions_total + ' câu hỏi · ' + meta.options_total + ' phương án, không lỗi cấu trúc.</span>' : '');
+    qaBadge.classList.remove('hidden');
+  } else {
+    qaBadge.classList.add('hidden');
+  }
   qs('setList').innerHTML = '';
   EXAM.sets.forEach(function(_, i){
     var b = document.createElement('button');
