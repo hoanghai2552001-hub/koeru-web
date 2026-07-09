@@ -264,7 +264,19 @@ def run_quality_check():
         # Fallback: tìm trong project
         checker = PROJECT / ".claude" / "skills" / "koeru-data-check" / "scripts" / "check_kanji_data.py"
     if not checker.exists():
-        log("Quality check script không tìm thấy, bỏ qua", "⚠")
+        # Fallback cuối: dùng QA script có sẵn trong repo
+        qa = PROJECT / "tools" / "qa_kanji.py"
+        if not qa.exists():
+            log("Quality check script không tìm thấy, bỏ qua", "⚠")
+            return
+        section("Step 6 · Data Quality Check (tools/qa_kanji.py)")
+        result = subprocess.run(
+            [sys.executable, str(qa)],
+            capture_output=True, text=True
+        )
+        for line in result.stdout.split('\n'):
+            if any(x in line for x in ['Tổng', 'lỗi', 'cảnh báo', 'Sạch', '═══']):
+                print(line)
         return
     section("Step 6 · Data Quality Check")
     result = subprocess.run(
