@@ -5,7 +5,7 @@ Giữ nguyên phần vocab từ kanji-map-data.js cũ.
 """
 import re, json, os
 
-BASE = r'C:\Users\hoang\Desktop\BUILD WEB KOERU'
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 SRC  = os.path.join(BASE, 'js', 'kanji-data.js')
 OLD  = os.path.join(BASE, 'kanji-map-data.js')
 OUT  = os.path.join(BASE, 'kanji-map-data.js')

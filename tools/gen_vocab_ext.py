@@ -1,5 +1,6 @@
 # gen_vocab_ext.py — generate kanji-map-vocab-ext.js
 # Comprehensive vocab for N5/N4/N3 kanji in kanji-map
+import os
 
 vocab_data = [
 # === 下 ===
@@ -458,6 +459,6 @@ output += '''// Merge into KANJI_DATA.vocab when data is available
 })();
 '''
 
-with open(r'C:\Users\hoang\Desktop\BUILD WEB KOERU\kanji-map-vocab-ext.js', 'w', encoding='utf-8') as f:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'kanji-map-vocab-ext.js'), 'w', encoding='utf-8') as f:
     f.write(output)
 print('Written kanji-map-vocab-ext.js')

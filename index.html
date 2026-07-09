@@ -1345,7 +1345,7 @@ body.menu-open{overflow:hidden}
       <span style="font-size:13px;color:var(--ink3);font-weight:600">Đang tải Học Kanji…</span>
     </div>
     <iframe class="page-tool-frame" id="frame-study" src="about:blank" title="Học Kanji"
-      onload="frameReady('study')"></iframe>
+      onload="window.frameReady&&frameReady('study')"></iframe>
   </div>
 </div>
 
@@ -1357,7 +1357,7 @@ body.menu-open{overflow:hidden}
       <span style="font-size:13px;color:var(--ink3);font-weight:600">Đang tải Luyện Kanji…</span>
     </div>
     <iframe class="page-tool-frame" id="frame-kanji" src="about:blank" title="Luyện Kanji"
-      onload="frameReady('kanji')"></iframe>
+      onload="window.frameReady&&frameReady('kanji')"></iframe>
   </div>
 </div>
 
@@ -1369,7 +1369,7 @@ body.menu-open{overflow:hidden}
       <span style="font-size:13px;color:var(--ink3);font-weight:600">Đang tải Kana Speed…</span>
     </div>
     <iframe class="page-tool-frame" id="frame-kana" src="about:blank" title="Kana Speed"
-      onload="frameReady('kana')"></iframe>
+      onload="window.frameReady&&frameReady('kana')"></iframe>
   </div>
 </div>
 
@@ -1393,7 +1393,7 @@ body.menu-open{overflow:hidden}
     <div class="tp-load-label" id="tp-load-label">Đang tải…</div>
   </div>
   <iframe id="tool-panel-iframe" src="about:blank" title="Công cụ học tập"
-    onload="onToolLoaded()"></iframe>
+    onload="window.onToolLoaded&&onToolLoaded()"></iframe>
 </div>
 
 <footer>
