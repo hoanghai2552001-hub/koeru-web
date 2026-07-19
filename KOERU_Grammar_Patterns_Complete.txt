@@ -1,0 +1,255 @@
+KOERU GRAMMAR PATTERNS — Complete Extract from All 5 DOCX Files
+Format: LEVEL | Pattern | Vietnamese Meaning
+============================================================================================================
+
+【N5】 Total: 90 patterns
+============================================================================================================
+N5 | ます形 | Thể lịch sự
+N5 | ない形 | Thể phủ định thông thường
+N5 | て形 | Thể て
+N5 | た形 | Thể た
+N5 | 普通形 | Thể thông thường
+N5 | ます | Gốc ます
+N5 | A は B です | Câu khẳng định danh từ
+N5 | A は B ではありません | Câu phủ định danh từ
+N5 | A は B ですか | Câu hỏi Yes/No
+N5 | これ / それ / あれ | Chỉ từ (vật)
+N5 | この / その / あの + N | Chỉ từ + danh từ
+N5 | ここ / そこ / あそこ | Đại từ chỉ địa điểm
+N5 | N は どこ ですか | Hỏi vị trí
+N5 | N は いくら ですか | Hỏi giá tiền
+N5 | いま なんじ ですか | Hỏi giờ
+N5 | なんようび | Cách nói thứ trong tuần
+N5 | Động từ thể ます | 4 dạng chia
+N5 | N に V ます | Làm gì lúc mấy giờ
+N5 | ～から ～まで | Từ ... đến ...
+N5 | (Địa điểm) へ/に いきます | Đi đâu
+N5 | どこ(へ)も いきません | Không đi đâu cả
+N5 | (Phương tiện) で V | Di chuyển bằng phương tiện
+N5 | N と V ます | Làm cùng ai
+N5 | N を V ます | Tân ngữ
+N5 | なにも + phủ định | Không làm gì cả
+N5 | (Địa điểm) で V ます | Làm gì ở đâu
+N5 | V ませんか / V ましょう | Rủ rê
+N5 | (Công cụ/Ngôn ngữ) で V | Làm bằng công cụ
+N5 | ～は ～ごで なんですか | Trong tiếng... là gì?
+N5 | N に/から もらいます | Nhận từ ai
+N5 | N が くれます | Ai đó cho/tặng tôi
+N5 | もう V ました | Đã làm rồi
+N5 | そして / が | Nối câu
+N5 | どう / どんな / どれ | Hỏi tính chất / lựa chọn
+N5 | から | Vì... nên...
+N5 | (Địa điểm) に N が います/あります | Có ai/cái gì ở đâu
+N5 | や～や～など | Liệt kê tiêu biểu
+N5 | どのくらい | Bao lâu
+N5 | (Thời gian) に ～かい | Tần suất
+N5 | だけ | Chỉ
+N5 | N1 より N2 のほうが | So sánh hơn
+N5 | N1 と N2 と どちらが | So sánh lựa chọn
+N5 | N の中で いちばん | So sánh nhất
+N5 | N が ほしいです | Muốn có
+N5 | V たいです | Muốn làm
+N5 | (Địa điểm) へ V に いきます | Đi để làm gì
+N5 | Thể て (て形) | Cách chia
+N5 | Vて ください | Hãy làm V
+N5 | Vて います | Đang làm V
+N5 | V ましょうか | Đề nghị giúp
+N5 | Vて もいいです | Xin phép
+N5 | Vては いけません | Cấm
+N5 | Vて、Vて、V | Liệt kê hành động theo thứ tự
+N5 | Vて から | Sau khi V
+N5 | N1 は N2 が adj | Miêu tả đặc điểm
+N5 | どうやって | Làm như thế nào
+N5 | Thể ない | Phủ định ngắn
+N5 | Vないで ください | Xin đừng
+N5 | Vなければ なりません | Phải làm V
+N5 | Vなくても いいです | Không cần làm V
+N5 | N までに V | Trước thời hạn
+N5 | V ことができます | Có thể
+N5 | しゅみ は ～ です | Sở thích
+N5 | V まえに | Trước khi V
+N5 | なかなか + phủ định | Mãi mà không
+N5 | ぜひ | Nhất định / Rất muốn
+N5 | ～と おもいます | Tôi nghĩ là...
+N5 | ～と いいます | Nói rằng
+N5 | ～でしょう | Xác nhận / ～ nhỉ?
+N5 | (Địa điểm) で N が あります | Sự kiện diễn ra
+N5 | ～とき | Khi...
+N5 | V (辞書形) と | Hễ V thì...
+N5 | N を V di chuyển | Đi qua
+N5 | Vて くれます/もらいます/あげます | Cho/nhận hành động
+N5 | ～たら | Nếu / Sau khi
+N5 | ～ても/～でも | Cho dù / Mặc dù
+N5 | ～く/に なります | Biến đổi trạng thái
+N5 | Vた ことが あります | Đã từng
+N5 | Vたり Vたり します | Liệt kê hành động tiêu biểu
+N5 | けど | Nhưng (thể thường)
+
+【N4】 Total: 115 patterns
+============================================================================================================
+N4 | てもらえませんか | Nhờ vả lịch sự
+N4 | 疑問詞 + たらいいですか | Nên làm gì thì tốt?
+N4 | んです / のです | Ba sắc thái
+N4 | 〜ができます | Thể khả năng
+N4 | N1は〜が、N2は〜ない | Đối lập khả năng
+N4 | 〜ながら | Hai hành động đồng thời
+N4 | 〜し〜し | Liệt kê tính chất / lý do
+N4 | 〜ことにしています | Thói quen có chủ ý
+N4 | 〜ておきます | Làm trước để chuẩn bị
+N4 | そのままにしておく | Để nguyên như vậy
+N4 | まだ〜ています / ていません | Vẫn còn / Vẫn chưa
+N4 | 〜つもりです | Dự định
+N4 | 〜ようと思っています | Dự định đã ấp ủ
+N4 | 〜予定です | Kế hoạch đã định sẵn
+N4 | 〜ほうがいいです | Nên / Không nên
+N4 | 〜でしょう | Phán đoán / Dự đoán
+N4 | 〜かもしれません | Có khả năng là
+N4 | 〜てはいけません | Cấm đoán
+N4 | 〜なさい | Mệnh lệnh nhẹ nhàng
+N4 | 〜という意味です | Có nghĩa là
+N4 | 〜と言っていました | Truyền đạt lời nói
+N4 | 〜と伝えてもらえませんか | Nhờ truyền đạt lại
+N4 | 〜通りに | Theo như / Đúng như
+N4 | 〜た後で | Sau khi
+N4 | 〜てから | Sau khi rồi mới
+N4 | 〜てV2 / 〜ないで | Có/không kèm hành động phụ
+N4 | 〜ば | Thể điều kiện
+N4 | どうすればいいですか | Nên làm thế nào?
+N4 | 〜ば〜ほど | Càng... càng...
+N4 | 〜ばよかったです | Giá mà... thì tốt
+N4 | 〜ように | Để mà / Để có thể
+N4 | 〜ようになります | Trở nên có thể
+N4 | 〜ようにします | Cố gắng tạo thói quen
+N4 | 〜ようにしてください | Hãy cố gắng làm
+N4 | 受身形 Dạng 1 | Bị/được ai làm gì
+N4 | 受身形 Dạng 2 | Sự kiện tổ chức (vô nhân xưng)
+N4 | 〜によって | Được phát minh bởi
+N4 | 〜のは〜 / のが〜 | Danh từ hóa (chủ ngữ)
+N4 | 〜のを忘れます | Quên làm gì đó
+N4 | 〜のを知っていますか | Cậu có biết... không?
+N4 | 〜のは〜です | Nơi mà / Người mà
+N4 | 〜て/〜で + 感情・状態 | Nguyên nhân → cảm xúc
+N4 | 〜ので | Nguyên nhân khách quan
+N4 | 〜途中で | Giữa đường / Đang trên đường
+N4 | 〜かどうか | Có... hay không
+N4 | 〜てみます | Thử làm
+N4 | あげます / さしあげます / やります | Tặng (3 cấp lịch sự)
+N4 | もらいます / いただきます | Nhận (2 cấp lịch sự)
+N4 | くれます / くださいます | Người khác cho mình
+N4 | 〜てあげます / てやります / てさしあげます | Làm giúp người khác
+N4 | 〜てもらいます / ていただきます | Nhờ / Được làm cho
+N4 | 〜てくれます / てくださいます | Người khác chủ động làm cho mình
+N4 | 〜に + V mục đích | Mua/tặng làm quà
+N4 | 〜ために | Để (mục đích chủ động)
+N4 | 〜のに (mục đích) | Dùng để
+N4 | くらい / も | Lượng từ nhấn mạnh
+N4 | そうです | Trông có vẻ (phán đoán bằng mắt)
+N4 | 〜てきます / ていきます | Đi rồi về / Bắt đầu xuất hiện
+N4 | 〜すぎます | Quá mức
+N4 | 〜やすい / にくい | Dễ / Khó làm
+N4 | 〜く / に + V | Tính từ bổ nghĩa cho động từ
+N4 | 〜にします | Quyết định chọn
+N4 | 〜場合は | Trong trường hợp
+N4 | 〜のに (kết quả ngoài dự đoán) | Vậy mà
+N4 | ところ | Ba sắc thái (sắp/đang/vừa mới)
+N4 | 〜たばかりです | Vừa mới (cảm giác chủ quan)
+N4 | はずです | Chắc chắn là (có căn cứ khách quan)
+N4 | ようです | Hình như (dựa vào giác quan)
+N4 | みたいです | Hình như (văn nói)
+N4 | 〜がします | Có mùi / có tiếng
+N4 | 使役形 Dạng 1 | Sai khiến (tha động từ)
+N4 | 使役形 Dạng 2 | Sai khiến (tự động từ)
+N4 | 〜させてください | Xin phép được làm
+N4 | 〜させていただきます | Thông báo lịch sự
+
+【N3】 Total: 72 patterns
+============================================================================================================
+N3 | ～うちに | Trong khi/còn đang…
+N3 | ～間／～間に | Suốt khoảng thời gian / trong khoảng thời gian đó
+N3 | ～最中に | Đúng lúc đang…
+N3 | ～たびに | Mỗi khi…
+N3 | ～て以来 | Kể từ khi…
+N3 | ～ところだ | Sắp/đang/vừa mới…
+N3 | ～たところ | Sau khi thử/làm… thì phát hiện kết quả
+N3 | ～たばかり | Vừa mới…
+N3 | ～につれて | Cùng với/khi… thì…
+N3 | ～にしたがって | Theo/cùng với…
+N3 | ～ようになる | Trở nên có thể/bắt đầu có thói quen…
+N3 | ～ことになる | Được quyết định/thành ra là…
+N3 | ～ために | Để/vì…
+N3 | ～ように | Để sao cho…
+N3 | ～ようにする | Cố gắng tạo thói quen…
+N3 | ～ておく | Làm trước/để nguyên trạng thái
+N3 | ～ことにする | Quyết định…
+N3 | ～ことだ | Nên…/điều quan trọng là…
+N3 | ～ば～ほど | Càng… càng…
+N3 | ～なら | Nếu là/nếu nói về…
+N3 | ～さえ～ば | Chỉ cần… thì…
+N3 | ～としたら／とすれば | Giả sử nếu…
+N3 | ～ないことには | Nếu không… thì không thể…
+N3 | ～ものなら | Nếu có thể… (điều khó thực hiện)
+N3 | ～ため（に） | Do/vì…
+N3 | ～によって | Do/bởi/bằng/tùy theo…
+N3 | ～おかげで | Nhờ…
+N3 | ～せいで | Tại/do… (kết quả xấu)
+N3 | ～ものだから | Vì… nên… (giải thích/biện minh)
+N3 | ～ことから | Từ việc/căn cứ vào…
+N3 | ～わけだ | Thảo nào/đương nhiên là…
+N3 | ～わけではない | Không hẳn là/không có nghĩa là…
+N3 | ～わけがない | Không đời nào/không thể nào…
+N3 | ～はずだ | Chắc là/đáng lẽ…
+N3 | ～はずがない | Không thể/không có lý nào…
+N3 | ～ということだ | Nghe nói/nghĩa là…
+N3 | ～そうだ（様態） | Trông có vẻ/sắp…
+N3 | ～そうだ（伝聞） | Nghe nói…
+N3 | ～ようだ | Dường như/giống như…
+N3 | ～みたいだ | Có vẻ/giống như…
+N3 | ～らしい | Nghe nói/có vẻ/đúng chất…
+N3 | ～に違いない | Chắc chắn là…
+N3 | ～しかない | Chỉ còn cách…
+N3 | ～だけでなく～も | Không chỉ… mà còn…
+N3 | ～ばかりか | Không những… mà thậm chí…
+N3 | ～さえ | Ngay cả…
+N3 | ～こそ | Chính… mới…
+N3 | ～ほど | Đến mức/càng…
+N3 | ～のに | Mặc dù… nhưng…
+N3 | ～ても | Dù/cho dù…
+N3 | ～ながら | Vừa… vừa…/mặc dù…
+N3 | ～くせに | Mặc dù… mà…
+N3 | ～一方で | Mặt khác/trong khi…
+N3 | ～反面 | Mặt trái/mặt khác…
+N3 | ～について | Về/liên quan đến…
+N3 | ～に関して | Liên quan đến…
+N3 | ～に対して | Đối với/trái lại…
+N3 | ～によると／によれば | Theo…
+N3 | ～にとって | Đối với… (theo quan điểm/giá trị)
+N3 | ～として | Với tư cách là…
+N3 | ～がち | Thường hay/có xu hướng…
+N3 | ～気味 | Hơi/có dấu hiệu…
+N3 | ～っぽい | Có vẻ/dễ hay/mang tính…
+N3 | ～やすい／にくい | Dễ/khó làm…
+N3 | ～づらい | Khó làm… (do cảm giác/tâm lý)
+N3 | ～きる／きれない | Làm hết/không thể làm hết
+N3 | ～べきだ | Nên/phải…
+N3 | ～てはいけない | Không được…
+N3 | ～なくてはいけない | Phải…
+N3 | ～てもかまわない | Có thể/không sao nếu…
+N3 | ～ことはない | Không cần phải…
+N3 | ～ないことはない | Không phải là không…/cũng có thể…
+
+============================================================================================================
+SUMMARY
+============================================================================================================
+N5: 90 patterns
+N4: 115 patterns
+N3: 72 patterns
+TOTAL: 277 grammar patterns extracted
+
+Files processed:
+1. C:\Users\hoang\Downloads\KOERU_Tong_hop_cac_the_N5_public.docx
+2. C:\Users\hoang\Downloads\KOERU_Tong_hop_ngu_phap_N5_trong_bai_kiem_tra_Minna_1-25.docx
+3. C:\Users\hoang\Desktop\PROJECT\jlpt-lesson-generator\output\docs\grammar\Tong_hop_Ngu_phap_N5.docx
+4. C:\Users\hoang\Desktop\PROJECT\jlpt-lesson-generator\output\docs\grammar\Tong_hop_Ngu_phap_N4.docx
+5. C:\Users\hoang\Desktop\PROJECT\jlpt-lesson-generator\output\docs\grammar\KOERU_N3_Grammar_Master_Merged_108_PPT_Source.docx
+
+Extraction completed: 2026-06-20

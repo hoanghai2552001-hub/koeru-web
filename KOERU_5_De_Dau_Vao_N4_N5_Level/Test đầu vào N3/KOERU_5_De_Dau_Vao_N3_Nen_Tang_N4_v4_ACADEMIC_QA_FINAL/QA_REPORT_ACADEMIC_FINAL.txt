@@ -1,0 +1,51 @@
+QA REPORT – ĐẦU VÀO N3, NỀN TẢNG N4 – ACADEMIC QA FINAL
+
+Đối tượng: học sinh đã hoàn thành N4, chưa bắt đầu N3.
+
+1. Phạm vi QA
+- 5 mã đề × 40 câu = 200 câu.
+- 20 câu đọc Kanji, 15 câu chọn cách viết, 55 câu từ vựng, 70 câu ngữ pháp, 40 câu đọc hiểu.
+- 10 câu sắp xếp có dấu ★ được kiểm tra bằng thứ tự câu hoàn chỉnh.
+
+2. Các lỗi đã sửa
+- Giảm các mục Kanji/từ vựng có nguy cơ vượt phạm vi N4: 法律・営業・豊か・技術・人口・宅配便・健康診断・原因・責任・規則・面接・制度・意見 được thay bằng mục N4 phổ biến hơn.
+- Sửa câu Mã 01 câu 9: không còn dùng 電車が遅刻する; chuyển sang 会社に遅刻する.
+- Sửa các câu truyền đạt ～そうです để không còn phương án ～らしい／～ようです đồng thời có thể đúng.
+- Sửa lựa chọn V辞書形 trong câu ～たほうがいい để tránh hai cách diễn đạt đều chấp nhận được.
+- Sửa 5 câu sắp xếp có lỗi lặp と trước 思います／言っています／考えています.
+- Sửa Mã 04 câu 29: hội thoại hỏi–đáp thống nhất chủ thể và thời điểm.
+- Sửa Mã 05 câu 32: câu sắp xếp mới tự nhiên, đáp án ★ được kiểm chứng.
+- Chuẩn hóa toàn bộ 40 câu đọc hiểu: tách khối thông tin, câu hỏi, thời gian, giá tiền và điều kiện.
+- Tạo một SOURCE_OF_TRUTH JSON để đề học sinh và đáp án giáo viên không bị lệch khi cập nhật.
+
+3. Kiểm tra tự động
+- Mã 01: đáp án 1=10, 2=10, 3=10, 4=10; chuỗi giống nhau dài nhất=2.
+- Mã 02: đáp án 1=10, 2=10, 3=10, 4=10; chuỗi giống nhau dài nhất=2.
+- Mã 03: đáp án 1=10, 2=10, 3=10, 4=10; chuỗi giống nhau dài nhất=2.
+- Mã 04: đáp án 1=10, 2=10, 3=10, 4=10; chuỗi giống nhau dài nhất=2.
+- Mã 05: đáp án 1=10, 2=10, 3=10, 4=10; chuỗi giống nhau dài nhất=2.
+- 200/200 câu có đúng 4 lựa chọn.
+- 0 lựa chọn trùng trong cùng câu.
+- 15/15 câu どう書きますか có đáp án chứa Kanji và chỉ một vị trí đáp án.
+- Đáp án trong source, đề và file giáo viên được sinh từ cùng một dữ liệu.
+- 10/10 câu sắp xếp: vị trí ★ khớp câu hoàn chỉnh.
+
+4. Kiểm tra học thuật thủ công
+- Rà từng câu về ngữ pháp, kết hợp từ, độ tự nhiên và khả năng có nhiều đáp án.
+- Rà 40 câu đọc hiểu về thông tin, thời gian, giá tiền và điều kiện.
+- Nội dung trọng tâm nằm trong nền tảng N4; từ ngoài trọng tâm được giản hóa hoặc viết bằng hiragana.
+
+5. Kết luận
+- Nội dung: PASS sau chỉnh sửa.
+- Đồng bộ đáp án: PASS.
+- Cấu trúc: PASS.
+- Bố cục: PASS sau khi render và kiểm tra trực quan toàn bộ 42 trang PNG.
+- Tâm trắc: cần pilot 30–50 học sinh trước khi coi ngưỡng điểm là chuẩn ổn định.
+
+6. Visual QA cuối
+- 5 đề học sinh: mỗi đề 5 trang; tổng 25 trang.
+- File giáo viên: 17 trang.
+- Tổng số trang đã render và kiểm tra: 42.
+- Không còn câu hỏi bị dính đoạn, mất chữ, tràn bảng hoặc tách hai hàng lựa chọn sang hai trang.
+- Câu 32 của mỗi đề được giữ nguyên khối trên đầu trang; Mã 04 câu 38 được chuyển nguyên khối sang trang kế tiếp.
+- FINAL STATUS: PASS.

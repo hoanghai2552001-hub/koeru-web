@@ -1,0 +1,40 @@
+QA REPORT – ĐẦU VÀO N4, NỀN TẢNG N5 – READING QA FINAL
+
+Phạm vi:
+- 5 mã đề x 8 câu đọc hiểu = 40 câu đọc hiểu.
+- Kiểm tra văn bản nguồn, câu hỏi, lựa chọn, đáp án, thời gian, giá tiền và lịch trình.
+- Kiểm tra bố cục DOCX sau chỉnh sửa.
+
+Lỗi phát hiện và đã sửa:
+1. Mã 01 câu 33:
+   - Trùng tiêu đề 【メモ】.
+   - Nội dung thư bị tách thành nhiều đoạn rời; tên 佐藤 có nguy cơ dính vào câu hỏi.
+   - Chuẩn hóa thành một khối thư rõ ràng, có dòng người nhận, nội dung, người gửi và câu hỏi.
+   - Thay hai phương án nhiễu không tự nhiên.
+2. Mã 01 câu 35–40:
+   - Chuẩn hóa xuống dòng cho giờ mở cửa, lịch lớp và câu hỏi.
+   - Câu 36 thay lựa chọn rộng 'パン' bằng 'あんパン'.
+   - Câu 37 thay distractor chưa hợp lý bằng phương án cùng kiểu nguyên nhân.
+3. Mã 02:
+   - '学校はいつもどおりあります' đổi thành '授業はいつもどおりあります'.
+   - Chuẩn hóa dấu câu, đơn vị, giờ mở cửa và cách viết 前日までに.
+4. Mã 03:
+   - Chuẩn hóa memo, bảng giá, giờ xe buýt và dấu câu.
+   - Tách rõ văn bản nguồn với câu hỏi.
+5. Mã 04:
+   - Tách rõ người nhận/người gửi trong memo.
+   - Chuẩn hóa bảng giờ, giá vé và thông báo cửa hàng.
+6. Mã 05:
+   - Chuẩn hóa email, lịch giảm giá, đoạn văn và lịch làm việc của quầy tư vấn.
+   - Tách 'しやくしょ そうだんまどぐち' để dễ đọc.
+
+Kết quả học thuật:
+- 40/40 đáp án đọc hiểu được giữ nguyên và khớp thông tin trong bài.
+- Không phát hiện câu có hai đáp án đúng.
+- Không phát hiện phép tính thời gian/giá tiền sai.
+- Không phát hiện điều kiện lịch trình mâu thuẫn.
+- Các đoạn đọc phù hợp mục tiêu đánh giá nền tảng N5 để vào N4.
+
+Kết quả cuối:
+- PASS sau chỉnh sửa.
+- Bản này phù hợp hơn để in, public và chuyển sang web.

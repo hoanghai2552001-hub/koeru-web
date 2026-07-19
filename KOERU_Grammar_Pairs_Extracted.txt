@@ -1,0 +1,199 @@
+KOERU COMMONLY CONFUSED GRAMMAR PAIRS EXTRACTION
+================================================
+
+Level | Pattern A | Pattern B | Key Difference (Vietnamese)
+
+=== N5 LEVEL (80 pairs) ===
+
+N5 | ～ません | Không làm | Phủ định lịch sự
+N5 | ～ませんか | Mời nhẹ | Hỏi ý người nghe
+N5 | ～ましょう | Cùng làm thôi | Chủ động đề nghị
+N5 | ～ましょうか | Cùng làm nhé?/Tôi làm giúp nhé? | Hỏi đồng thuận hoặc đề nghị giúp
+N5 | は | Chủ đề | Thông tin đã biết hoặc muốn nói đến
+N5 | が | Chủ thể/trạng thái/tồn tại | だれが・Nが好き・Nがあります
+N5 | 疑問詞＋か | Ai/gì/đâu đó | Bất định
+N5 | 疑問詞＋も＋否定 | Không ai/gì/đâu | Phủ định toàn bộ
+N5 | と | Liệt kê cụ thể | Danh sách đóng
+N5 | や～など | Liệt kê ví dụ | Danh sách mở
+N5 | Vて、Vて | Chuỗi hành động | Có thứ tự
+N5 | VたりVたり | Hành động tiêu biểu | Không nhấn thứ tự
+N5 | に | Tồn tại/đích/thời điểm | います・行きます・7時に
+N5 | で | Nơi hành động/phương tiện | 教室で・バスで
+N5 | を | Đối tượng/rời/đi qua | 本を・家を出る
+N5 | てください | Hãy làm | Người nghe thực hiện
+N5 | てもいいですか | Tôi làm được không | Xin phép
+N5 | ないでください | Xin đừng làm | Yêu cầu phủ định
+N5 | てはいけません | Không được làm | Quy định/cấm
+N5 | なくてもいい | Không làm cũng được | Không bắt buộc
+N5 | なければならない | Phải làm | Nghĩa vụ
+N5 | 前に | Trước khi | V辞書形
+N5 | てから | Sau khi xong | Vて
+N5 | たあとで | Sau khi | Vた
+N5 | ～たいです | Muốn thực hiện hành động | Gốc ます (Vます bỏ ます)＋たいです
+N5 | 欲しい | Muốn có | Nが
+N5 | そして | Và/thêm thông tin | Bổ sung
+N5 | それから | Sau đó | Trình tự
+N5 | でも | Nhưng | Đối lập
+N5 | ですから | Vì vậy | Kết quả
+N5 | これから | Từ bây giờ | Tương lai gần
+N5 | もう | Đã… rồi | Hoàn thành
+N5 | まだ | Chưa / vẫn | Phụ thuộc khẳng định-phủ định
+N5 | 何を食べますか | Bạn ăn món gì? | Câu hỏi thông tin; muốn biết món cụ thể
+N5 | 何か食べますか | Bạn có ăn gì đó không? | Câu hỏi Yes/No; đối tượng không xác định
+N5 | だれかいますか | Có ai không? | だれか = ai đó; が thường được lược
+N5 | いつか日本へ行きたいです | Một ngày nào đó tôi muốn đi Nhật | いつか là thời điểm không xác định
+N5 | だれもいません | Không có ai cả | Phủ định toàn bộ người
+N5 | 何も食べません | Tôi không ăn gì cả | Phủ định toàn bộ đồ ăn
+N5 | どこも行きません | Tôi không đi đâu cả | Phủ định toàn bộ nơi chốn
+N5 | いつも勉強します | Tôi luôn học | いつも là từ cố định mang nghĩa luôn
+N5 | パンと牛乳を買いました | Tôi đã mua bánh mì và sữa | Danh sách cụ thể
+N5 | パンや牛乳などを買いました | Tôi đã mua những thứ như bánh mì, sữa, v.v. | Còn các món khác
+N5 | 休みの日は映画とか買い物とかを楽しみます | Ngày nghỉ tôi làm những việc như xem phim, mua sắm | Khẩu ngữ
+N5 | 朝起きて、顔を洗って、学校へ行きます | Sáng thức dậy, rửa mặt rồi đi học | Trình tự rõ ràng
+N5 | 日曜日は本を読んだり、音楽を聞いたりします | Chủ nhật tôi đọc sách, nghe nhạc, v.v. | Chỉ nêu ví dụ
+N5 | 教室に学生がいます | Trong lớp có học sinh | Nơi tồn tại
+N5 | 教室で勉強します | Tôi học trong lớp | Nơi hành động
+N5 | 大阪に住んでいます | Tôi sống ở Osaka | Nơi cư trú
+N5 | バスで学校へ行きます | Tôi đi đến trường bằng xe buýt | Phương tiện
+N5 | 日本に行きます | Tôi đi Nhật | Nhấn đích đến
+N5 | 日本へ行きます | Tôi đi về phía Nhật | Nhấn hướng
+N5 | 先生に会います | Tôi gặp giáo viên | Không dùng へ
+N5 | 本を読みます | Tôi đọc sách | Đối tượng trực tiếp
+N5 | 家を出ます | Tôi rời khỏi nhà | Nơi rời khỏi
+N5 | 公園を散歩します | Tôi đi dạo trong công viên | Không gian di chuyển
+N5 | ドアを開けてください | Vui lòng mở cửa | Người nghe thực hiện
+N5 | ドアを開けてもいいですか | Tôi mở cửa được không? | Người nói xin phép
+N5 | ここに入らないでください | Xin đừng vào đây | Lời yêu cầu
+N5 | ここに入ってはいけません | Không được vào đây | Quy định/cấm
+N5 | 明日は来なくてもいいです | Ngày mai không đến cũng được | Không bắt buộc
+N5 | 毎日、薬を飲まなければなりません | Mỗi ngày phải uống thuốc | Bắt buộc
+N5 | 寝る前に、歯を磨きます | Tôi đánh răng trước khi ngủ | Ngủ chưa xảy ra
+N5 | ごはんを食べてから、勉強します | Ăn xong rồi mới học | Thứ tự chặt
+N5 | ごはんを食べたあとで、散歩します | Sau khi ăn, tôi đi dạo | Nhấn thời điểm sau
+N5 | 日本へ行くとき、かばんを買いました | Khi chuẩn bị đi Nhật, tôi mua val | Mua trước chuyến đi
+N5 | 日本へ行ったとき、かばんを買いました | Khi đã đi/đến Nhật, tôi mua vali | Mua trong hoặc sau chuyến đi
+N5 | 机の上に本があります | Trên bàn có sách | Vật
+N5 | 教室に先生がいます | Trong lớp có giáo viên | Người
+N5 | 明日、会議があります | Ngày mai có cuộc họp | Sự kiện dùng あります
+N5 | 今、本を読んでいます | Bây giờ tôi đang đọc sách | Hành động đang diễn ra
+N5 | 結婚しています | Tôi đã kết hôn | Trạng thái kết quả
+N5 | 銀行で働いています | Tôi làm việc tại ngân hàng | Nghề nghiệp
+N5 | 大阪に住んでいます | Tôi sống ở Osaka | Trạng thái cư trú
+N5 | 日本へ行きたいです | Tôi muốn đi Nhật | Mong muốn hành động
+N5 | 新しい車が欲しいです | Tôi muốn một chiếc xe mới | Mong muốn có vật
+N5 | 車を買いたいです | Tôi muốn mua xe | Muốn thực hiện hành động mua
+N5 | この町は静かです。そして、きれいです | Thành phố này yên tĩnh và đẹp | Bổ sung
+N5 | ごはんを食べます。それから、勉強します | Ăn cơm, sau đó học | Trình tự
+N5 | 高いです。でも、買いたいです | Đắt, nhưng tôi muốn mua | Đối lập
+N5 | 雨です。ですから、出かけません | Trời mưa, vì vậy tôi không ra ngoà | Kết quả
+N5 | これから勉強します | Từ bây giờ tôi sẽ học | Thời gian tương lai gần
+N5 | まず名前を書いて、次に番号を押してください | Trước tiên viết tên, tiếp theo bấ | Quy trình
+N5 | 日本の生活はどうですか | Cuộc sống ở Nhật thế nào? | Hỏi đánh giá
+N5 | どうして休みましたか | Tại sao bạn nghỉ? | Hỏi nguyên nhân
+N5 | どうやって学校へ行きますか | Bạn đến trường bằng cách nào? | Hỏi phương pháp
+N5 | どの本ですか | Là quyển sách nào? | どの＋本
+N5 | あなたの本はどれですか | Sách của bạn là quyển nào? | どれ đứng độc lập
+N5 | コーヒーとお茶とどちらが好きですか | Bạn thích cà phê hay trà hơn? | Hai lựa chọn
+N5 | りんごはいくつありますか | Có bao nhiêu quả táo? | Số lượng
+N5 | このかばんはいくらですか | Cái túi này bao nhiêu tiền? | Giá
+N5 | 日本語をどのくらい勉強しましたか | Bạn đã học tiếng Nhật bao lâu? | Thời lượng
+N5 | 電車はバスより速いです | Tàu điện nhanh hơn xe buýt | バス là mốc
+N5 | 日本語と英語とどちらが難しいですか | Tiếng Nhật và tiếng Anh, tiếng nà | Hỏi hai lựa chọn
+N5 | 日本語のほうが難しいです | Tiếng Nhật khó hơn | Trả lời
+N5 | スポーツで何がいちばん好きですか | Trong các môn thể thao, bạn thích | Phạm vi＋で
+N5 | この料理はとてもおいしいです | Món này rất ngon | Mức độ tính từ
+N5 | よく映画を見ます | Tôi thường xem phim | Tần suất
+N5 | 日本語がよくわかります | Tôi hiểu tiếng Nhật khá rõ | Mức độ hiểu
+N5 | 本をたくさん読みます | Tôi đọc nhiều sách | Số lượng
+N5 | あまりテレビを見ません | Tôi không xem TV nhiều | Phủ định nhẹ
+N5 | 日本語がぜんぜんわかりません | Tôi hoàn toàn không hiểu tiếng Nh | Phủ định mạnh
+N5 | 毎日、パンを食べます | Mỗi ngày tôi ăn bánh mì | ます形 lịch sự
+N5 | 寝る前に、歯を磨きます | Đánh răng trước khi ngủ | 辞書形 trước 前に
+N5 | 明日は雨が降ると思います | Tôi nghĩ mai sẽ mưa | 普通形 trước と思います
+N5 | 彼は来なかったと言いました | Anh ấy nói rằng đã không đến | 普通形 quá khứ phủ định
+N5 | 頭が痛いですから、休みます | Vì đau đầu nên tôi nghỉ | Lý do rõ
+N5 | この町は静かで、きれいです | Thành phố này yên tĩnh và đẹp | Nối hai tính chất
+N5 | 頭が痛くて、勉強できません | Vì đau đầu nên không thể học | Nguyên nhân tự nhiên
+N5 | 9時から働きます | Tôi làm việc từ 9 giờ | Điểm bắt đầu thời gian
+N5 | ベトナムから来ました | Tôi đến từ Việt Nam | Nguồn xuất phát
+N5 | 雨ですから、出かけません | Vì trời mưa nên tôi không ra ngoà | Nguyên nhân
+
+=== N3 LEVEL (49 pairs) ===
+
+N3 | 日本で働くために、日本語を勉強しています | Tôi học tiếng Nhật để làm việc tạ | Mục đích chủ động
+N3 | 日本語が話せるように、毎日練習しています | Tôi luyện mỗi ngày để có thể nói | Mục tiêu khả năng
+N3 | 忘れないように、メモしてください | Hãy ghi chú để khỏi quên | Mục tiêu phủ định
+N3 | 来月、大阪へ転勤することになりました | Tôi được quyết định chuyển công t | Quyết định bên ngoài
+N3 | 毎朝走ることにしました | Tôi đã quyết định chạy mỗi sáng | Tự quyết định
+N3 | ここで写真を撮ることができます | Có thể chụp ảnh ở đây | Cho phép/khả năng
+N3 | 練習して、速く読めるようになりました | Nhờ luyện tập, tôi đã có thể đọc | Sự thay đổi
+N3 | 今から出かけるところです | Tôi đang chuẩn bị ra ngoài | Ngay trước hành động
+N3 | 今、料理しているところです | Tôi đang nấu ăn | Đúng lúc đang làm
+N3 | たった今、帰ったところです | Tôi vừa mới về xong | Ngay sau hành động
+N3 | 日本へ来たばかりです | Tôi mới đến Nhật | Mới theo cảm nhận
+N3 | 若いうちに、いろいろ経験したほうがいいです | Khi còn trẻ nên trải nghiệm nhiều | Trước khi già đi
+N3 | 忘れないうちに、メモします | Tôi ghi chú trước khi quên | Trạng thái sắp thay đổi
+N3 | 留守の間に、荷物が届きました | Trong lúc vắng nhà, bưu kiện đã đ | Sự kiện trong khoảng
+N3 | 年を取るにつれて、体力が落ちます | Càng lớn tuổi, thể lực càng giảm | Biến đổi tự nhiên
+N3 | 経済が発展するにしたがって、生活も変わりました | Cùng với kinh tế phát triển, đời | Văn viết
+N3 | 説明にしたがって、操作してください | Hãy thao tác theo hướng dẫn | Theo quy tắc
+N3 | この写真を見るたびに、故郷を思い出します | Mỗi lần nhìn ảnh này tôi nhớ quê | Mỗi sự kiện
+N3 | この薬は6時間ごとに飲んでください | Hãy uống thuốc mỗi 6 giờ | Chu kỳ
+N3 | 雨のせいで、試合が中止になりました | Vì mưa nên trận đấu bị hủy | Tiêu cực
+N3 | 先生のおかげで、合格できました | Nhờ thầy/cô tôi đã đỗ | Tích cực
+N3 | 事故のために、電車が遅れています | Do tai nạn, tàu đang trễ | Trung tính
+N3 | 田中さんはもう着いているはずです | Anh Tanaka chắc đã đến rồi | Kỳ vọng logic
+N3 | 毎日練習しているんですか。上手なわけですね | Ngày nào cũng luyện à? Thảo nào g | Kết luận
+N3 | 甘い物が嫌いなわけではありません | Không phải là tôi ghét đồ ngọt | Phủ định một phần
+N3 | 彼がそんなことをするわけがありません | Anh ấy không thể nào làm việc đó | Phủ định mạnh
+N3 | 電気がついています。まだ誰かいるに違いありません | Đèn còn sáng. Chắc chắn vẫn có ai | Tin chắc
+N3 | 明日は晴れるでしょう | Ngày mai có lẽ trời nắng | Dự đoán
+N3 | 彼は来ないかもしれません | Có thể anh ấy không đến | Khả năng
+N3 | 田中さんは「明日行きます」と言いました | Tanaka nói: "Ngày mai tôi đi." | Trích lời
+N3 | 先生は学生に遅れないように言いました | Giáo viên bảo học sinh đừng đến m | Yêu cầu gián tiếp
+N3 | 日本の教育について研究しています | Tôi nghiên cứu về giáo dục Nhật | Chủ đề
+N3 | 先生は学生に対して厳しいです | Giáo viên nghiêm khắc đối với học | Đối tượng
+N3 | 兄は活発なのに対して、弟は静かです | Trong khi anh trai năng động, em | Đối chiếu
+
+=== N4 LEVEL (66 pairs) ===
+
+N4 | 天気予報によると、明日は雨が降るそうです | Theo dự báo thời tiết, nghe nói n | 降る là thể thông thường; người nói không
+N4 | このケーキはおいしそうです | Chiếc bánh này trông ngon | Bỏ い của おいしい rồi thêm そうです
+N4 | 雨が降りそうです | Trời có vẻ sắp mưa | Phán đoán dựa vào mây hoặc dấu hiệu hiện
+N4 | 電気が消えています。田中さんは留守のようです | Đèn tắt. Có vẻ anh Tanaka không c | Suy luận từ bằng chứng
+N4 | あの人は先生みたいです | Người kia có vẻ là giáo viên | Khẩu ngữ
+N4 | ニュースでは、来月値段が上がるらしいです | Theo tin tức, nghe nói tháng sau | Nguồn tin gián tiếp
+N4 | 彼は本当に子どもらしいです | Cậu ấy đúng là rất trẻ con | らしい = mang đặc trưng
+N4 | 疲れたから、今日は早く寝ます | Vì mệt nên hôm nay tôi ngủ sớm | Quyết định cá nhân
+N4 | 電車が遅れたので、遅刻しました | Vì tàu trễ nên tôi đến muộn | Giải thích mềm
+N4 | 大雨のために、試合が中止になりました | Do mưa lớn, trận đấu bị hủy | Trang trọng/khách quan
+N4 | 薬を飲んだのに、まだ頭が痛いです | Mặc dù đã uống thuốc nhưng đầu vẫ | Trái kỳ vọng
+N4 | 雨が降っても、行きます | Dù trời mưa tôi vẫn đi | Điều kiện nhượng bộ
+N4 | 高いです。でも、買いたいです | Đắt. Nhưng tôi muốn mua | Liên từ giữa hai câu
+N4 | 時間があったら、映画を見ます | Nếu có thời gian, tôi sẽ xem phim | Điều kiện linh hoạt
+N4 | 日本へ行くなら、京都にも行ってください | Nếu đi Nhật thì hãy đi cả Kyoto | Phản hồi kế hoạch
+N4 | このボタンを押すと、ドアが開きます | Hễ nhấn nút này thì cửa mở | Kết quả tự động
+N4 | 音楽を聞きながら勉強します | Tôi vừa nghe nhạc vừa học | Cùng chủ thể
+N4 | 母が料理している間、私は本を読んでいました | Trong lúc mẹ nấu ăn, tôi đọc sách | Hai hành động kéo dài
+N4 | 留守の間に、荷物が届きました | Trong lúc vắng nhà, bưu kiện đã t | Một sự việc xảy ra trong khoảng
+N4 | この料理を食べてみます | Tôi sẽ thử ăn món này | Thử nghiệm
+N4 | 旅行の前に、ホテルを予約しておきます | Trước chuyến đi tôi đặt khách sạn | Chuẩn bị
+N4 | 財布をなくしてしまいました | Tôi lỡ làm mất ví | Tiếc nuối
+N4 | 日本語が話せるようになりました | Tôi đã trở nên có thể nói tiếng N | Kết quả thay đổi
+N4 | 毎日、日本語を読むようにしています | Tôi cố gắng duy trì đọc tiếng Nhậ | Nỗ lực chủ động
+N4 | 来年、日本へ留学するつもりです | Năm sau tôi định du học Nhật | Ý định
+N4 | 会議は3時に始まる予定です | Cuộc họp dự kiến bắt đầu lúc 3 gi | Lịch
+N4 | 毎日運動することにしました | Tôi đã quyết định tập thể dục mỗi | Quyết định
+N4 | 私は妹に宿題を教えてあげました | Tôi đã chỉ bài cho em gái | Tôi làm cho người khác
+N4 | 友達が私に日本語を教えてくれました | Bạn đã dạy tiếng Nhật cho tôi | Người khác làm cho tôi
+N4 | 私は先生に作文を直してもらいました | Tôi được giáo viên sửa bài văn | Tôi nhận lợi ích
+
+================================================
+SUMMARY
+================================================
+Total grammar pairs extracted: 195
+- N5 level: 80 pairs
+- N3 level: 49 pairs
+- N4 level: 66 pairs
+
+Format: Level | Pattern A | Pattern B | Key Difference (Vietnamese)
