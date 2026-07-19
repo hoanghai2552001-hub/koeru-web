@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KOERU — Minna no Nihongo N5 · N4</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0d14; --card:#121820; --card2:#1a2230;
+  --text:#f4f0ea; --muted:#8a8070;
+  --accent:#e8845a; --gold:#f5c842;
+  --ok:#5ac88a; --bad:#e85a6a;
+  --line:rgba(244,240,234,.09);
+  /* mới — bổ sung, không thay tên/giá trị token cũ */
+  --accent2:#d4703f; --gold2:#d4a832;
+  --card3:rgba(244,240,234,.06);
+  --line-strong:rgba(244,240,234,.18);
+  --focus:#f5c842;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+  --radius-sm:10px; --radius-md:14px; --radius-lg:20px;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px; --sp-8:32px;
+}
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible{
+  outline:2.5px solid var(--focus); outline-offset:2px;
+}
+body{
+  font-family:'Noto Sans JP','Noto Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);min-height:100vh;
+  -webkit-tap-highlight-color:transparent;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 50% at 15% 60%,rgba(232,132,90,.12) 0%,transparent 70%),
+             radial-gradient(ellipse 50% 40% at 85% 25%,rgba(245,200,66,.1) 0%,transparent 70%);}
+.wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:clamp(1.4rem,4.5vw,2rem)}
+.badge{display:inline-block;background:rgba(232,132,90,.15);color:var(--accent);
+  border:1px solid rgba(232,132,90,.35);border-radius:999px;padding:3px 12px;
+  font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:12px}
+.sub{color:var(--muted);margin-top:8px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:20px}
+.lesson-card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:14px;cursor:pointer;font-family:inherit;color:var(--text);text-align:left;
+  transition:border-color .15s,transform .1s;position:relative}
+.lesson-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.lesson-card b{font-size:1.05rem}
+.lesson-card .st{display:block;font-size:.7rem;margin-top:6px;color:var(--muted)}
+.lesson-card .best{position:absolute;top:10px;right:10px;font-size:.68rem;font-weight:700;
+  color:var(--ok);background:rgba(90,200,138,.12);border-radius:8px;padding:2px 7px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px}
+.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tab{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px 14px;
+  color:var(--muted);font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit}
+.tab.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.back{background:none;border:none;color:var(--muted);font-size:.9rem;cursor:pointer;
+  font-family:inherit;padding:4px 0;margin-bottom:4px}
+.back:hover{color:var(--accent)}
+.search{width:100%;margin-top:12px;background:var(--card2);border:1px solid var(--line);
+  border-radius:10px;padding:11px 14px;color:var(--text);font-size:.95rem;font-family:inherit}
+.search::placeholder{color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+td.jp{font-size:1.02rem;white-space:nowrap}
+td.kj{color:var(--gold);white-space:nowrap}
+td.vn{color:var(--muted);font-size:.9rem}
+ruby rt{font-size:.55em;color:var(--gold);opacity:.9}
+body.no-furigana ruby rt{display:none}
+.furi-toggle{position:fixed;top:14px;right:14px;z-index:5;background:var(--card2);
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:var(--text);
+  font-weight:700;font-size:.78rem;cursor:pointer;font-family:inherit}
+.furi-toggle.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+/* switch cấp độ N5/N4 (mới) */
+.level-switch{display:flex;gap:10px;margin:14px 0 4px}
+.level-switch button{flex:1;max-width:180px;background:var(--card);border:1.5px solid var(--line);
+  border-radius:var(--radius-md);padding:12px 14px;color:var(--muted);font-weight:800;font-size:1rem;
+  cursor:pointer;font-family:inherit;min-height:52px}
+.level-switch button small{display:block;font-weight:600;font-size:.68rem;margin-top:2px}
+.level-switch button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.5)}
+.lesson-card.nodata{opacity:.45;cursor:default}
+.lesson-card.nodata:hover{border-color:var(--line);transform:none}
+/* kết quả tra kanji trong search (mới) */
+.kj-hit{display:flex;align-items:center;gap:14px;width:100%;background:var(--card2);
+  border:1.5px solid var(--line);border-radius:var(--radius-md);padding:10px 14px;margin-top:8px;
+  cursor:pointer;font-family:inherit;color:var(--text);text-align:left;min-height:56px}
+.kj-hit:hover{border-color:var(--accent)}
+.kj-hit .kc{font-size:1.8rem}
+.kj-hit .ki{font-size:.85rem;color:var(--muted);line-height:1.5}
+.kj-hit .ki b{color:var(--gold)}
+.kj-hit .lvl{margin-left:auto;font-size:.68rem;font-weight:800;color:var(--accent);
+  background:rgba(232,132,90,.13);border-radius:6px;padding:2px 7px}
+.warn{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);border-radius:10px;
+  padding:10px 14px;font-size:.82rem;color:var(--gold);margin-top:12px;line-height:1.5}
+/* grammar self-check */
+.gr-item{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);
+  font-size:1rem;line-height:1.6;cursor:pointer}
+.gr-item .chk{flex:none;width:22px;height:22px;border-radius:6px;border:2px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#0a0d14;font-weight:900}
+.gr-item.done .chk{background:var(--ok);border-color:var(--ok)}
+.gr-item.done{color:var(--muted)}
+.gr-progress{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+.gr-progress b{color:var(--ok)}
+/* grammar detail cards (mới) */
+.gr-card{border:1.5px solid var(--line);border-radius:var(--radius-md);margin-top:10px;overflow:hidden}
+.gr-head{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;background:var(--card2)}
+.gr-head .chk{flex:none;width:22px;height:22px;border-radius:6px;border:2px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#0a0d14;font-weight:900;cursor:pointer}
+.gr-card.done .chk{background:var(--ok);border-color:var(--ok)}
+.gr-card.done .gr-title{color:var(--muted)}
+.gr-title{flex:1;font-weight:700;line-height:1.5}
+.gr-arrow{color:var(--muted);font-size:.8rem;transition:transform .15s}
+.gr-card.open .gr-arrow{transform:rotate(90deg)}
+.gr-body{display:none;padding:4px 14px 14px;border-top:1px solid var(--line)}
+.gr-card.open .gr-body{display:block}
+.gr-sec{margin-top:12px;font-size:.72rem;font-weight:800;color:var(--accent);letter-spacing:.05em}
+.gr-txt{margin-top:6px;font-size:.9rem;line-height:1.7;white-space:pre-wrap}
+.gr-txt.muted{color:var(--muted)}
+.gr-formula{margin-top:6px;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.25);
+  border-radius:var(--radius-sm);padding:10px 12px;font-size:.95rem;line-height:1.7;color:var(--gold);white-space:pre-wrap}
+.gr-ex{margin-top:8px;padding:9px 12px;background:var(--card2);border-radius:var(--radius-sm)}
+.gr-ex .jp{font-size:1.02rem;line-height:1.7}
+.gr-ex .vn{color:var(--muted);font-size:.85rem;margin-top:3px;line-height:1.5}
+/* quiz */
+.qprompt{font-size:1.3rem;line-height:1.7;margin-bottom:6px}
+.qsub{color:var(--muted);font-size:.82rem;margin-bottom:16px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card2);
+  border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;
+  font-size:1rem;line-height:1.5;font-family:inherit;color:var(--text);text-align:left;width:100%}
+.opt:hover{border-color:rgba(232,132,90,.5)}
+.opt.right{border-color:var(--ok);background:rgba(90,200,138,.12)}
+.opt.wrong{border-color:var(--bad);background:rgba(232,90,106,.12)}
+.btn{border:none;border-radius:12px;padding:13px 20px;font-size:1rem;font-weight:700;
+  cursor:pointer;font-family:inherit;margin-top:16px}
+.btn-main{background:linear-gradient(135deg,var(--accent),#d4703f);color:#fff;width:100%}
+.btn-ghost{background:var(--card2);color:var(--text);border:1px solid var(--line)}
+.score-line{font-size:1.6rem;font-weight:800;margin:10px 0;
+  background:linear-gradient(135deg,var(--accent),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+/* kanji drawing */
+.kanji-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:8px;margin-top:10px}
+.kanji-grid button{aspect-ratio:1;font-size:1.5rem;background:var(--card2);color:var(--text);
+  border:1.5px solid var(--line);border-radius:10px;cursor:pointer;font-family:inherit}
+.kanji-grid button.sel{border-color:var(--accent);background:rgba(232,132,90,.15)}
+.draw-area{display:flex;flex-direction:column;align-items:center;margin-top:16px}
+.draw-box{position:relative;width:min(300px,80vw);aspect-ratio:1;border:2px dashed rgba(245,200,66,.35);
+  border-radius:14px;background:var(--card2);overflow:hidden;touch-action:none}
+.draw-box .tmpl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:min(220px,58vw);color:rgba(244,240,234,.10);user-select:none;pointer-events:none;
+  font-family:'Noto Sans JP',serif}
+.draw-box canvas{position:absolute;inset:0;width:100%;height:100%}
+.draw-box .guide-h,.draw-box .guide-v{position:absolute;background:rgba(244,240,234,.06);pointer-events:none}
+.draw-box .guide-h{left:0;right:0;top:50%;height:1px}
+.draw-box .guide-v{top:0;bottom:0;left:50%;width:1px}
+.draw-btns{display:flex;gap:10px;margin-top:12px;width:min(300px,80vw)}
+.draw-btns .btn{flex:1;margin-top:0;padding:10px}
+.draw-info{margin-top:10px;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.6}
+.draw-info .rd{color:var(--gold)}
+/* tiến độ tổng quan (mới) */
+.progress-summary .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.progress-summary .pct{font-size:1.3rem;font-weight:800;color:var(--gold)}
+.progress-summary .bar{height:8px;background:var(--card2);border-radius:99px;overflow:hidden}
+.progress-summary .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold))}
+.progress-summary .stats{display:flex;gap:14px;margin-top:10px;font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+.hint-box{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);border-radius:var(--radius-md);
+  padding:10px 14px;margin-top:12px;font-size:.8rem;color:var(--gold);line-height:1.5}
+/* bảng từ vựng: nhóm cụm + sticky header (mới) */
+table thead tr{position:sticky;top:0;background:var(--card2);z-index:1}
+table thead th{text-align:left;padding:8px 10px;font-size:.7rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line)}
+tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.04em}
+/* chuyển đổi Bảng / Flashcard-list (mới) */
+.mode-toggle{display:flex;gap:8px;margin-bottom:14px}
+.mode-toggle button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:8px 14px;color:var(--muted);font-weight:700;font-size:.8rem;cursor:pointer;font-family:inherit;min-height:44px}
+.mode-toggle button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.vocab-flash-grid{display:flex;flex-wrap:wrap;gap:10px}
+.flash-card{width:140px;height:88px;background:var(--card2);border:1.5px solid var(--line);
+  border-radius:var(--radius-md);cursor:pointer;font-family:inherit;color:var(--text);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;
+  position:relative;transition:border-color .15s,transform .1s}
+.flash-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.flash-card .front{font-size:1.15rem}
+.flash-card .back{display:none;color:var(--muted);font-size:.85rem}
+.flash-card.flipped .front{display:none}
+.flash-card.flipped .back{display:block}
+.flash-card .tap{position:absolute;bottom:6px;right:8px;font-size:.6rem;color:var(--muted)}
+/* Flashcard chế độ 1 thẻ (port từ N4) */
+.flash-one-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px;flex-wrap:wrap}
+.flash-one-order{display:flex;gap:8px}
+.flash-one-order button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:7px 12px;color:var(--muted);font-weight:700;font-size:.75rem;cursor:pointer;font-family:inherit}
+.flash-one-order button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.flash-one-count{color:var(--muted);font-size:.8rem}
+.flash-one-card{background:var(--card2);border:1.5px solid var(--line);border-radius:var(--radius-lg);
+  min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:28px 20px;cursor:pointer;gap:10px}
+.flash-one-card .front{font-size:1.7rem}
+.flash-one-card .back{display:none;color:var(--muted);font-size:1rem}
+.flash-one-card.flipped .front{display:none}
+.flash-one-card.flipped .back{display:block}
+.flash-one-card .tap{color:var(--muted);font-size:.7rem}
+.flash-one-nav{display:flex;gap:10px;margin-top:14px}
+.flash-one-nav .btn{flex:1;margin-top:0}
+.hidden{display:none}
+/* popup kanji + stroke order (mới) */
+.kp-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50;display:none;
+  align-items:center;justify-content:center;padding:16px}
+.kp-overlay.visible{display:flex}
+.kp-modal{background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius-lg);
+  padding:20px;max-width:420px;width:100%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:var(--shadow)}
+.kp-close{position:absolute;top:6px;right:6px;background:none;border:none;color:var(--muted);
+  font-size:1.1rem;cursor:pointer;font-family:inherit;min-width:44px;min-height:44px}
+.kp-head{display:flex;align-items:center;gap:14px}
+.kp-char{font-size:3rem;line-height:1}
+.kp-meta{font-size:.85rem;color:var(--muted);line-height:1.6}
+.kp-meta b{color:var(--gold)}
+.kp-sec{margin-top:14px;font-size:.75rem;color:var(--accent);font-weight:700;letter-spacing:.04em}
+.kp-rel{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.kp-rel button{font-size:1.2rem;background:var(--card2);border:1px solid var(--line);
+  border-radius:var(--radius-sm);color:var(--text);cursor:pointer;min-width:44px;min-height:44px;font-family:inherit}
+.kp-rel button:hover{border-color:var(--accent)}
+.kp-read-group{margin-top:8px}
+.kp-read-group b{font-size:.8rem;color:var(--gold)}
+.kp-read-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.kp-read-chip{display:inline-block;background:var(--card2);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:5px 9px;font-size:.8rem;color:var(--text);line-height:1.4}
+.kj-click{cursor:pointer;border-bottom:1px dotted rgba(245,200,66,.5)}
+.kj-click:hover{color:var(--gold)}
+.stroke-loading,.stroke-not-found{color:var(--muted);text-align:center;padding:20px;font-size:.85rem}
+/* trạng thái học kanji (mới) */
+.kp-status{display:flex;align-items:center;gap:10px;margin-top:12px;width:100%;
+  background:var(--card2);border:1.5px solid var(--line);border-radius:var(--radius-md);
+  padding:11px 14px;cursor:pointer;font-family:inherit;color:var(--text);font-size:.9rem;font-weight:700}
+.kanji-grid button{position:relative}
+.kanji-grid button .kst{position:absolute;top:1px;right:3px;font-size:.6rem;line-height:1}
+.kst-filter{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.kst-filter button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:7px 11px;color:var(--muted);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:40px}
+.kst-filter button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+/* cột nhóm động từ (mới) */
+td.vg{white-space:nowrap}
+td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
+  background:rgba(232,132,90,.13);border-radius:6px;padding:2px 7px}
+@media(max-width:480px){
+  .wrap{padding:14px 12px 50px}
+  .card{padding:16px 13px}
+  td.jp,td.kj{white-space:normal}
+  td{padding:9px 5px}
+  .furi-toggle{top:10px;right:10px;padding:6px 10px;font-size:.72rem}
+}
+</style>
+</head>
+<body>
+<button class="furi-toggle" id="btnFuri">ふりがな ON</button>
+<div class="wrap">
+
+  <div id="home">
+    <span class="badge" id="homeBadge">MINNA NO NIHONGO — N5</span>
+    <div class="level-switch">
+      <button data-lv="N5">N5<small>Bài 1–25</small></button>
+      <button data-lv="N4">N4<small>Bài 26–50</small></button>
+    </div>
+    <h1 id="homeTitle">25 bài · Từ vựng &amp; Mẫu câu</h1>
+    <p class="sub" id="homeSub">Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo I.
+      Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
+    <div class="card" id="progressSummary"></div>
+    <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
+    <div class="card hidden" id="searchResult"></div>
+    <div class="grid" id="lessonGrid"></div>
+  </div>
+
+  <div id="detail" class="hidden">
+    <button class="back" id="btnBack">← Danh sách bài</button>
+    <span class="badge" id="dBadge"></span>
+    <h1 id="dTitle"></h1>
+    <div class="tabs">
+      <button class="tab on" data-tab="vocab">Từ vựng</button>
+      <button class="tab" data-tab="grammar">Mẫu câu</button>
+      <button class="tab" data-tab="write">Luyện viết</button>
+      <button class="tab" data-tab="quiz">Kiểm tra</button>
+    </div>
+    <div class="card" id="tabContent"></div>
+  </div>
+
+</div>
+
+<!-- Popup chi tiết kanji (mới) -->
+<div id="kanji-overlay" class="kp-overlay">
+  <div class="kp-modal">
+    <button class="kp-close" id="kpClose">✕</button>
+    <div id="kpBody"></div>
+  </div>
+</div>
+<!-- Modal stroke order — id bắt buộc khớp js/kanji-stroke.js -->
+<div id="stroke-overlay" class="kp-overlay">
+  <div class="kp-modal" id="stroke-modal">
+    <div id="stroke-kanji-title" style="font-size:2rem;text-align:center"></div>
+    <div id="stroke-svg-wrap"></div>
+    <div style="display:flex;gap:10px;margin-top:12px">
+      <button class="btn btn-ghost" onclick="replayStrokeOrder()" style="flex:1;margin-top:0">↺ Xem lại</button>
+      <button class="btn btn-ghost" onclick="closeStrokeOverlay()" style="flex:1;margin-top:0">Đóng</button>
+    </div>
+    <div style="text-align:center;margin-top:8px;font-size:.65rem;color:var(--muted)">KanjiVG · CC BY-SA 3.0</div>
+  </div>
+</div>
+
+<script src="js/kanji-data-n5.js?v=20260719"></script>
+<script src="js/kanji-data-n4.js?v=20260719"></script>
+<script src="js/kanji-stroke.js?v=20260718"></script>
+<script src="minna-n5-data.js?v=20260719"></script>
+<script src="minna-n4-data.js?v=20260719"></script>
+<script src="minna-grammar-data.js?v=20260719"></script>
+<script>
+(function(){
+'use strict';
+var qs = function(id){ return document.getElementById(id); };
+var curLesson = null, curTab = 'vocab';
+
+function store(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function load(k, d){ try{ var v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
+
+// Cấu hình 2 cấp độ — prefix giữ nguyên key cũ mn5_/mn4_ để không mất tiến độ
+var LEVELS = {
+  N5: { data: window.MINNA_N5 || [], kanji: window.KANJI_N5 || [], prefix: 'mn5_',
+        badge: 'MINNA NO NIHONGO — N5', title: '25 bài · Từ vựng & Mẫu câu',
+        sub: 'Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo I. Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".' },
+  N4: { data: window.MINNA_N4 || [], kanji: window.KANJI_N4 || [], prefix: 'mn4_',
+        badge: 'MINNA NO NIHONGO — N4', title: 'Bài 26–50 · Từ vựng & Mẫu câu',
+        sub: 'Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo II. Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 2".' }
+};
+var curLevel = (function(){
+  var m = location.search.match(/[?&]level=(N[45])/i);
+  return m ? m[1].toUpperCase() : load('mn_level', 'N5');
+})();
+if(!LEVELS[curLevel]) curLevel = 'N5';
+var LV = LEVELS[curLevel];
+function K(suffix){ return LV.prefix + suffix; }
+
+// Bật/tắt furigana toàn trang (port từ N4; key mới mn_furigana, fallback mn4_furigana cũ)
+var btnFuri = qs('btnFuri');
+function applyFurigana(){
+  var on = load('mn_furigana', load('mn4_furigana', true));
+  document.body.classList.toggle('no-furigana', !on);
+  btnFuri.textContent = 'ふりがな ' + (on ? 'ON' : 'OFF');
+  btnFuri.classList.toggle('on', on);
+}
+btnFuri.onclick = function(){
+  store('mn_furigana', !load('mn_furigana', load('mn4_furigana', true)));
+  applyFurigana();
+};
+applyFurigana();
+
+function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+// "漢字[かな]" → <ruby>; "[どうぞ]" (không đứng sau kanji) giữ nguyên
+function rubyfy(s){
+  return esc(s).replace(/([一-鿿々]+)\[([ぁ-ゖー]+)\]/g,'<ruby>$1<rt>$2</rt></ruby>');
+}
+function stripRuby(s){ return s.replace(/\[[ぁ-ゖー]+\]/g,''); }
+
+// Chuẩn hóa để align furigana: bỏ marker nhóm Ⅰ/Ⅱ/Ⅲ, ghi chú [..], khoảng trắng, ～ (mới)
+function normAlign(s){
+  return s.replace(/[ⅠⅡⅢ]/g,'').replace(/\[[^\]]*\]/g,'').replace(/[\s　～〜]/g,'');
+}
+// Align kana↔kanji: tách thành token {text, reading, isKanji}; null nếu không khớp (mới)
+function alignTokens(w, k){
+  var ck = normAlign(k.split('、')[0]);
+  var cw = normAlign(w);
+  if(!ck || /[0-9０-９]/.test(ck)) return null;
+  var tokens = ck.match(/[一-鿿々]+|[^一-鿿々]+/g) || [];
+  var re = '^', kanjiIdx = [];
+  tokens.forEach(function(t, i){
+    if(/[一-鿿々]/.test(t)){ re += '(.+?)'; kanjiIdx.push(i); }
+    else re += t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  });
+  var m = cw.match(new RegExp(re + '$'));
+  if(!m) return null;
+  var out = [], gi = 0;
+  tokens.forEach(function(t, i){
+    var isKj = kanjiIdx.indexOf(i) >= 0;
+    if(isKj) gi++;
+    out.push({text: t, reading: isKj ? m[gi] : t, isKanji: isKj});
+  });
+  return out;
+}
+// 見ます + みます → <ruby>見<rt>み</rt></ruby>ます; null nếu không khớp (mới)
+function alignRuby(w, k){
+  var tokens = alignTokens(w, k);
+  if(!tokens) return null;
+  return tokens.map(function(t){
+    return t.isKanji ? '<ruby>' + esc(t.text) + '<rt>' + esc(t.reading) + '</rt></ruby>' : esc(t.text);
+  }).join('');
+}
+
+// Nhóm động từ: bài 14+ có sẵn marker Ⅰ/Ⅱ/Ⅲ trong w; bài 4–13 tra bảng cứng (mới)
+var VERB_GROUP = {
+  'おきます':'II','ねます':'II','はたらきます':'I','やすみます':'I','べんきょうします':'III','おわります':'I',
+  'いきます':'I','きます':'III','かえります':'I',
+  'たべます':'II','のみます':'I','すいます':'I','みます':'II','ききます':'I','よみます':'I',
+  'かきます':'I','かいます':'I','とります':'I','します':'III','あいます':'I',
+  'きります':'I','おくります':'I','あげます':'II','もらいます':'I','かします':'I','かります':'II',
+  'おしえます':'II','ならいます':'I','かけます':'II',
+  'わかります':'I','あります':'I','います':'II','かかります':'I',
+  'あそびます':'I','およぎます':'I','むかえます':'II','つかれます':'II',
+  'けっこんします':'III','かいものします':'III','しょくじします':'III','さんぽします':'III',
+  // N4 bài 26-30 (data N4 không có marker Ⅰ/Ⅱ/Ⅲ)
+  'さがします':'I','おくれます':'II','まにあいます':'I','やります':'I','さんかします':'III',
+  'もうしこみます':'I','かたづきます':'I','だします':'I','もえます':'II','れんらくします':'III',
+  'たてます':'II','はしります':'I','みえます':'II','きこえます':'II','できます':'II','ひらきます':'I',
+  'うれます':'II','おどります':'I','かみます':'I','えらびます':'I','ちがいます':'I','かよいます':'I','メモします':'III',
+  'あきます':'I','しまります':'I','つきます':'I','きえます':'II','こみます':'I','すきます':'I',
+  'こわれます':'II','われます':'II','おれます':'II','やぶれます':'II','よごれます':'II','はずれます':'II',
+  'とまります':'I','まちがえます':'II','おとします':'I',
+  'はります':'I','かざります':'I','ならべます':'II','うえます':'II','もどします':'I','まとめます':'II',
+  'かたづけます':'II','しまいます':'I','きめます':'II','しらせます':'II',
+  'そうだんします':'III','よしゅうします':'III','ふくしゅうします':'III','そのままにします':'III'
+};
+function verbGroup(w){
+  var base = w.replace(/\[[^\]]*\]/g,'').trim();
+  var m = base.match(/([ⅠⅡⅢ])$/);
+  if(m) return {'Ⅰ':'I','Ⅱ':'II','Ⅲ':'III'}[m[1]];
+  return VERB_GROUP[base] || null;
+}
+
+// ---------- Home ----------
+function renderHome(){
+  var g = qs('lessonGrid'); g.innerHTML = '';
+  LV.data.forEach(function(l){
+    var b = document.createElement('button');
+    if(l.status === 'NO_DATA'){
+      b.className = 'lesson-card nodata';
+      b.innerHTML = '<b>Bài ' + l.lesson + '</b><span class="st">Chưa có dữ liệu</span>';
+      g.appendChild(b);
+      return;
+    }
+    var best = load(K('quiz_')+l.lesson, null);
+    var grDone = load(K('gr_')+l.lesson, []).length;
+    b.className = 'lesson-card';
+    b.innerHTML = '<b>Bài ' + l.lesson + '</b>' +
+      (best ? '<span class="best">✓ ' + best + '</span>' : '') +
+      '<span class="st">' + l.vocab.length + ' từ · ' + l.grammar.length + ' mẫu câu</span>' +
+      '<span class="st">Mẫu câu đã nắm: ' + grDone + '/' + l.grammar.length + '</span>';
+    b.onclick = function(){ openLesson(l); };
+    g.appendChild(b);
+  });
+  renderProgressSummary();
+}
+
+// Switch cấp độ N5/N4 (mới)
+function setLevel(lv){
+  curLevel = lv;
+  LV = LEVELS[lv];
+  store('mn_level', lv);
+  qs('homeBadge').textContent = LV.badge;
+  qs('homeTitle').textContent = LV.title;
+  qs('homeSub').textContent = LV.sub;
+  document.querySelectorAll('.level-switch button').forEach(function(b){
+    b.classList.toggle('on', b.dataset.lv === lv);
+  });
+  qs('searchBox').value = '';
+  qs('searchResult').classList.add('hidden');
+  try{ history.replaceState(null, '', 'minna.html?level=' + lv); }catch(e){}
+  renderHome();
+}
+document.querySelectorAll('.level-switch button').forEach(function(b){
+  b.onclick = function(){ if(b.dataset.lv !== curLevel) setLevel(b.dataset.lv); };
+});
+setLevel(curLevel);
+
+// Thanh tiến độ tổng quan 25 bài — tính từ mn5_quiz_<n> đã lưu (mới)
+function renderProgressSummary(){
+  var box = qs('progressSummary');
+  var withData = LV.data.filter(function(l){ return l.status !== 'NO_DATA'; });
+  var noData = LV.data.length - withData.length;
+  var total = withData.length, done = 0, weakLessons = [];
+  withData.forEach(function(l){
+    var best = load(K('quiz_')+l.lesson, null);
+    if(best){
+      done++;
+      var parts = best.split('/');
+      if(+parts[0] / +parts[1] < 0.7) weakLessons.push(l.lesson);
+    }
+  });
+  var pct = Math.round(done/total*100);
+  var h = '<div class="progress-summary">' +
+    '<div class="row"><span class="sub" style="margin:0">Tiến độ tổng quan</span><span class="pct">' + pct + '%</span></div>' +
+    '<div class="bar"><i style="width:' + pct + '%"></i></div>' +
+    '<div class="stats"><span><b style="color:var(--ok)">' + done + '</b> đã học</span>' +
+    '<span><b style="color:var(--gold)">' + weakLessons.length + '</b> nên ôn lại</span>' +
+    '<span><b>' + (total - done) + '</b> chưa học</span>' +
+    (noData ? '<span><b>' + noData + '</b> bài chưa có dữ liệu</span>' : '') + '</div></div>';
+  if(weakLessons.length){
+    h += '<div class="hint-box">◐ Bài ' + weakLessons.join(', ') + ' điểm quiz dưới 70% — nên ôn lại</div>';
+  }
+  box.innerHTML = h;
+}
+
+// Tra nhanh toàn bộ 25 bài
+qs('searchBox').addEventListener('input', function(){
+  var raw = this.value.trim();
+  var q = raw.toLowerCase();
+  var box = qs('searchResult');
+  // tra kanji trực tiếp: ký tự kanji trong query nằm trong pool N5+N4 (mới)
+  var kjHits = [];
+  for(var ch of raw){
+    if(/[一-鿿々]/.test(ch) && KMAP[ch] && kjHits.indexOf(ch) < 0) kjHits.push(ch);
+  }
+  if(q.length < 2 && !kjHits.length){ box.classList.add('hidden'); return; }
+  var hits = [];
+  LV.data.forEach(function(l){
+    l.vocab.forEach(function(v){
+      if((v.w+v.k+v.m).toLowerCase().indexOf(q) >= 0) hits.push([l.lesson, v]);
+    });
+  });
+  hits = hits.slice(0, 20);
+  var h = '';
+  kjHits.slice(0, 5).forEach(function(ch){
+    var e = KMAP[ch];
+    h += '<button class="kj-hit" data-kj="' + ch + '"><span class="kc">' + ch + '</span>' +
+      '<span class="ki"><b>' + esc(e.hanviet) + '</b> · ' + esc(e.meaning) + '<br>On: ' + esc(e.on || '—') + ' · Kun: ' + esc(e.kun || '—') + '</span>' +
+      '<span class="lvl">' + KLEVEL[ch] + '</span></button>';
+  });
+  if(!hits.length && !h){ h = '<p class="sub">Không tìm thấy.</p>'; }
+  else if(hits.length){
+    h += '<table>';
+    hits.forEach(function(x){
+      h += '<tr><td class="kj" style="color:var(--accent)">B' + x[0] + '</td><td class="jp">' + esc(x[1].w) + '</td><td class="kj">' + kanjiLinkify(x[1].k||'') + '</td><td class="vn">' + esc(x[1].m) + '</td></tr>';
+    });
+    h += '</table>';
+  }
+  box.innerHTML = h;
+  box.querySelectorAll('.kj-hit, .kj-click').forEach(function(el){
+    el.onclick = function(){ openKanjiPopup(el.dataset.kj); };
+  });
+  box.classList.remove('hidden');
+});
+
+qs('btnBack').onclick = function(){
+  qs('detail').classList.add('hidden');
+  qs('home').classList.remove('hidden');
+  renderHome(); // cập nhật tiến độ
+  window.scrollTo(0,0);
+};
+
+var tabs = document.querySelectorAll('.tab');
+tabs.forEach(function(t){
+  t.onclick = function(){
+    tabs.forEach(function(x){ x.classList.remove('on'); });
+    t.classList.add('on');
+    curTab = t.dataset.tab;
+    renderTab();
+  };
+});
+
+function openLesson(l){
+  curLesson = l;
+  curTab = 'vocab';
+  curVocabMode = 'table';
+  tabs.forEach(function(x){ x.classList.toggle('on', x.dataset.tab === 'vocab'); });
+  qs('dBadge').textContent = 'BÀI ' + l.lesson;
+  qs('dTitle').textContent = 'Minna no Nihongo — Bài ' + l.lesson;
+  qs('home').classList.add('hidden');
+  qs('detail').classList.remove('hidden');
+  renderTab();
+  window.scrollTo(0,0);
+}
+
+// ---------- Tabs ----------
+function renderTab(){
+  var l = curLesson;
+  if(curTab === 'vocab') renderVocab(l);
+  else if(curTab === 'grammar') renderGrammar(l);
+  else if(curTab === 'write') renderWrite(l);
+  else renderQuizStart(l);
+}
+
+var curVocabMode = 'table';
+var flashOne = { order: 'seq', idx: 0, list: [] };
+
+function renderVocab(l){
+  var box = qs('tabContent');
+  var h = '<div class="mode-toggle">' +
+    '<button data-mode="table" class="' + (curVocabMode==='table'?'on':'') + '">Bảng</button>' +
+    '<button data-mode="flash" class="' + (curVocabMode==='flash'?'on':'') + '">Flashcard</button>' +
+    '<button data-mode="flashone" class="' + (curVocabMode==='flashone'?'on':'') + '">Flashcard (1 thẻ)</button>' +
+    '</div>';
+  if(curVocabMode === 'flashone') h += renderFlashOne(l);
+  else h += curVocabMode === 'flash' ? renderFlashGrid(l) : renderVocabTable(l);
+  if(l.expressions.length){
+    h += '<h3 style="margin-top:20px;font-size:.95rem;color:var(--accent)">Mẫu giao tiếp (練習C・会話)</h3><table>';
+    l.expressions.forEach(function(v){
+      h += '<tr><td class="jp" style="white-space:normal">' + rubyfy(v.w) + '</td><td class="vn">' + esc(v.m) + '</td></tr>';
+    });
+    h += '</table>';
+  }
+  if(l.status === 'REVIEW_REQUIRED'){
+    h += '<div class="warn">⚠ Dữ liệu OCR từ sách, chưa được giáo viên duyệt lần cuối (REVIEW_REQUIRED).</div>';
+  }
+  box.innerHTML = h;
+  box.querySelectorAll('.mode-toggle button').forEach(function(b){
+    b.onclick = function(){
+      var prevMode = curVocabMode;
+      curVocabMode = b.dataset.mode;
+      if(curVocabMode === 'flashone' && prevMode !== 'flashone') resetFlashOne(l);
+      renderVocab(l);
+    };
+  });
+  box.querySelectorAll('.kj-click').forEach(function(el){
+    el.onclick = function(){ openKanjiPopup(el.dataset.kj); };
+  });
+  if(curVocabMode === 'flash'){
+    box.querySelectorAll('.flash-card').forEach(function(el){
+      el.onclick = function(){ el.classList.toggle('flipped'); };
+    });
+  }
+  if(curVocabMode === 'flashone') bindFlashOne(l);
+}
+
+// Front thẻ flashcard: furigana đã align, fallback ruby toàn cụm (dùng chung 2 mode flash)
+function flashFront(v){
+  if(!v.k) return esc(v.w);
+  return alignRuby(v.w, v.k) ||
+    '<ruby>' + esc(normAlign(v.k) || v.k) + '<rt>' + esc(normAlign(v.w)) + '</rt></ruby>';
+}
+
+// Flashcard 1 thẻ: xem tuần tự/random, nút lùi/tiếp (port từ N4)
+function resetFlashOne(l){
+  var idxs = l.vocab.map(function(_, i){ return i; });
+  flashOne.list = flashOne.order === 'random' ? shuffle(idxs) : idxs;
+  flashOne.idx = 0;
+}
+
+function renderFlashOne(l){
+  if(!flashOne.list.length || flashOne.list.length !== l.vocab.length) resetFlashOne(l);
+  var v = l.vocab[flashOne.list[flashOne.idx]];
+  var g = verbGroup(v.w);
+  return '<div class="flash-one-bar">' +
+      '<span class="flash-one-count">Thẻ ' + (flashOne.idx+1) + '/' + l.vocab.length + '</span>' +
+      '<div class="flash-one-order">' +
+        '<button data-order="seq" class="' + (flashOne.order==='seq'?'on':'') + '">Theo thứ tự</button>' +
+        '<button data-order="random" class="' + (flashOne.order==='random'?'on':'') + '">Ngẫu nhiên</button>' +
+      '</div></div>' +
+    '<div class="flash-one-card" id="foCard"><span class="front">' + flashFront(v) + '</span>' +
+      '<span class="back">' + esc(v.m) + (g ? '<br><b style="color:var(--accent)">Nhóm ' + g + '</b>' : '') +
+      '</span><span class="tap">chạm để xem nghĩa</span></div>' +
+    '<div class="flash-one-nav">' +
+      '<button class="btn btn-ghost" id="foPrev">← Lùi lại</button>' +
+      '<button class="btn btn-ghost" id="foNext">Tiếp theo →</button>' +
+    '</div>';
+}
+
+function bindFlashOne(l){
+  var box = qs('tabContent');
+  box.querySelector('#foCard').onclick = function(){ this.classList.toggle('flipped'); };
+  box.querySelector('#foPrev').onclick = function(){
+    flashOne.idx = (flashOne.idx - 1 + l.vocab.length) % l.vocab.length;
+    renderVocab(l);
+  };
+  box.querySelector('#foNext').onclick = function(){
+    flashOne.idx = (flashOne.idx + 1) % l.vocab.length;
+    renderVocab(l);
+  };
+  box.querySelectorAll('.flash-one-order button').forEach(function(b){
+    b.onclick = function(){
+      if(flashOne.order === b.dataset.order) return;
+      flashOne.order = b.dataset.order;
+      resetFlashOne(l);
+      renderVocab(l);
+    };
+  });
+}
+
+// Bảng: nhóm mỗi 8 từ kèm heading phụ + thead sticky (mới)
+function renderVocabTable(l){
+  var h = '<table><thead><tr><th>Từ</th><th>Kanji</th><th>Nghĩa</th><th>Nhóm</th></tr></thead><tbody>';
+  l.vocab.forEach(function(v, i){
+    if(i % 8 === 0){
+      h += '<tr class="vgroup"><td colspan="4">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
+    }
+    var g = verbGroup(v.w);
+    h += '<tr><td class="jp">' + esc(v.w) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
+      '<td class="vg">' + (g ? '<i>' + g + '</i>' : '') + '</td></tr>';
+  });
+  return h + '</tbody></table>';
+}
+
+// Bọc từng chữ kanji thành span clickable mở popup chi tiết (mới)
+function kanjiLinkify(s){
+  var out = '';
+  for(var ch of s){
+    if(/[一-鿿々]/.test(ch)) out += '<span class="kj-click" data-kj="' + ch + '">' + ch + '</span>';
+    else out += esc(ch);
+  }
+  return out;
+}
+
+// Flashcard-list: bấm để lật xem nghĩa (mới)
+function renderFlashGrid(l){
+  var h = '<div class="vocab-flash-grid">';
+  l.vocab.forEach(function(v){
+    var g = verbGroup(v.w);
+    h += '<div class="flash-card"><span class="front">' + flashFront(v) + '</span>' +
+      '<span class="back">' + esc(v.m) + (g ? '<br><b style="color:var(--accent)">Nhóm ' + g + '</b>' : '') +
+      '</span><span class="tap">chạm</span></div>';
+  });
+  return h + '</div>';
+}
+
+// --- Mẫu câu: card chi tiết (cấu trúc/giải thích/lưu ý/so sánh/ví dụ) + tự đánh giá ---
+var grOpen = {}; // giữ trạng thái mở/đóng card trong session: "lesson-idx" -> true
+
+function grSection(label, text, cls){
+  if(!text) return '';
+  return '<div class="gr-sec">' + label + '</div><div class="' + (cls||'gr-txt') + '">' + esc(text) + '</div>';
+}
+
+function renderGrammar(l){
+  var box = qs('tabContent');
+  var detail = (window.MINNA_GRAMMAR || {})[l.lesson] || null;
+  var items = detail || l.grammar;
+  if(!items.length){ box.innerHTML = '<p class="sub">Chưa có dữ liệu mẫu câu.</p>'; return; }
+  var done = load(K('gr_')+l.lesson, []);
+  var h = '<div class="gr-progress">Tự đánh giá: tick ☑ mẫu đã nắm vững — <b>' + done.length + '/' + items.length + '</b>' +
+          (detail ? ' · bấm tên mẫu để xem chi tiết' : '') + '</div>';
+  items.forEach(function(g, i){
+    var d = done.indexOf(i) >= 0;
+    if(!detail){
+      h += '<div class="gr-item' + (d?' done':'') + '" data-i="' + i + '"><span class="chk">' + (d?'✓':'') + '</span><span>' + esc(g) + '</span></div>';
+      return;
+    }
+    var open = grOpen[l.lesson + '-' + i];
+    var exs = (g.examples || []).map(function(x){
+      return '<div class="gr-ex"><div class="jp">' + esc(x.jp) + '</div>' +
+        (x.vn ? '<div class="vn">' + esc(x.vn) + '</div>' : '') + '</div>';
+    }).join('');
+    h += '<div class="gr-card' + (d?' done':'') + (open?' open':'') + '" data-i="' + i + '">' +
+      '<div class="gr-head"><span class="chk">' + (d?'✓':'') + '</span>' +
+      '<span class="gr-title">' + esc(g.title) + '</span><span class="gr-arrow">▶</span></div>' +
+      '<div class="gr-body">' +
+      grSection('CẤU TRÚC', g.formula, 'gr-formula') +
+      grSection('GIẢI THÍCH & SẮC THÁI', g.explain) +
+      grSection('LƯU Ý — KHI NÀO DÙNG / LỖI THƯỜNG GẶP', g.usage) +
+      grSection('PHÂN BIỆT VỚI NGỮ PHÁP DỄ NHẦM', g.compare) +
+      (exs ? '<div class="gr-sec">VÍ DỤ</div>' + exs : '') +
+      '</div></div>';
+  });
+  box.innerHTML = h;
+  function toggleDone(i){
+    var done = load(K('gr_')+l.lesson, []);
+    var p = done.indexOf(i);
+    if(p >= 0) done.splice(p,1); else done.push(i);
+    store(K('gr_')+l.lesson, done);
+    renderGrammar(l);
+  }
+  box.querySelectorAll('.gr-item').forEach(function(el){
+    el.onclick = function(){ toggleDone(+el.dataset.i); };
+  });
+  box.querySelectorAll('.gr-card').forEach(function(el){
+    var i = +el.dataset.i;
+    el.querySelector('.chk').onclick = function(e){ e.stopPropagation(); toggleDone(i); };
+    el.querySelector('.gr-head').onclick = function(){
+      grOpen[l.lesson + '-' + i] = !grOpen[l.lesson + '-' + i];
+      el.classList.toggle('open');
+    };
+  });
+}
+
+// --- Luyện viết kanji: canvas tô theo chữ mờ ---
+var drawState = null;
+
+function lessonKanji(l){
+  var seen = {}, out = [];
+  l.vocab.concat(l.expressions).forEach(function(v){
+    var src = (v.k || '') + stripRuby(v.w || '');
+    for(var ch of src){
+      if(/[一-鿿々]/.test(ch) && !seen[ch]){ seen[ch] = 1; out.push(ch); }
+    }
+  });
+  return out;
+}
+
+var writeFilter = '';
+
+function bindWriteFilter(box, l){
+  box.querySelectorAll('.kst-filter button').forEach(function(b){
+    b.onclick = function(){ writeFilter = b.dataset.f; renderWrite(l); };
+  });
+}
+
+function renderWrite(l){
+  var box = qs('tabContent');
+  var allKs = lessonKanji(l);
+  if(!allKs.length){ box.innerHTML = '<p class="sub">Bài này không có kanji để luyện viết.</p>'; return; }
+  var ks = writeFilter ? allKs.filter(function(k){ return kanjiStatus(k) === writeFilter; }) : allKs;
+  var h = '<p class="sub" style="margin-top:0">Chọn một chữ Hán rồi tô theo chữ mờ trong khung. Dùng ngón tay (điện thoại) hoặc chuột.</p>' +
+          '<div class="kst-filter">' +
+          [{id:'',lb:'Tất cả'},{id:'plan',lb:'📋 Kế hoạch'},{id:'want',lb:'★ Muốn học'},{id:'weak',lb:'◐ Chưa thuộc'},{id:'known',lb:'✓ Đã thuộc'}]
+            .map(function(f){ return '<button data-f="' + f.id + '"' + (writeFilter===f.id?' class="on"':'') + '>' + f.lb + '</button>'; }).join('') +
+          '</div>';
+  if(!ks.length){
+    h += '<p class="sub" style="margin-top:14px">Chưa có kanji nào ở trạng thái này trong bài.</p>';
+    box.innerHTML = h;
+    bindWriteFilter(box, l);
+    return;
+  }
+  h += '<div class="kanji-grid" id="kGrid">';
+  ks.forEach(function(k,i){
+    var st = stateOf(kanjiStatus(k));
+    h += '<button data-k="' + k + '"' + (i===0?' class="sel"':'') + '>' + k +
+      (st.id ? '<span class="kst" style="color:' + st.color + '">' + st.icon + '</span>' : '') + '</button>';
+  });
+  h += '</div><div class="draw-area">' +
+       '<div class="draw-box" id="drawBox"><div class="guide-h"></div><div class="guide-v"></div>' +
+       '<div class="tmpl" id="tmpl"></div><canvas id="cv"></canvas></div>' +
+       '<div class="draw-btns">' +
+       '<button class="btn btn-ghost" id="btnClear">Xóa</button>' +
+       '<button class="btn btn-ghost" id="btnGhost">Ẩn chữ mờ</button>' +
+       '<button class="btn btn-ghost" id="btnKInfo">ℹ Chi tiết</button>' +
+       '</div><div class="draw-info" id="drawInfo"></div></div>';
+  box.innerHTML = h;
+  bindWriteFilter(box, l);
+
+  var cv = qs('cv'), box2 = qs('drawBox');
+  var ctx = cv.getContext('2d');
+  function resize(){
+    var r = box2.getBoundingClientRect();
+    cv.width = r.width * devicePixelRatio; cv.height = r.height * devicePixelRatio;
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.strokeStyle = '#f5c842';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var curDrawK = ks[0];
+  function selectK(k){
+    curDrawK = k;
+    qs('tmpl').textContent = k;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    var info = findWord(l, k);
+    qs('drawInfo').innerHTML = info ? '<span class="rd">' + esc(info.w) + '</span> — ' + esc(info.m) : '';
+  }
+  function findWord(l, k){
+    var all = l.vocab.concat(l.expressions);
+    for(var i=0;i<all.length;i++){
+      if(((all[i].k||'') + (all[i].w||'')).indexOf(k) >= 0) return all[i];
+    }
+    return null;
+  }
+
+  qs('kGrid').querySelectorAll('button').forEach(function(b){
+    b.onclick = function(){
+      qs('kGrid').querySelectorAll('button').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      selectK(b.dataset.k);
+    };
+  });
+  selectK(ks[0]);
+
+  var drawing = false, last = null;
+  function pos(e){
+    var r = cv.getBoundingClientRect();
+    var p = e.touches ? e.touches[0] : e;
+    return [p.clientX - r.left, p.clientY - r.top];
+  }
+  function start(e){ drawing = true; last = pos(e); e.preventDefault(); }
+  function move(e){
+    if(!drawing) return;
+    var p = pos(e);
+    ctx.beginPath(); ctx.moveTo(last[0], last[1]); ctx.lineTo(p[0], p[1]); ctx.stroke();
+    last = p; e.preventDefault();
+  }
+  function end(){ drawing = false; }
+  cv.addEventListener('mousedown', start); cv.addEventListener('mousemove', move);
+  window.addEventListener('mouseup', end);
+  cv.addEventListener('touchstart', start, {passive:false});
+  cv.addEventListener('touchmove', move, {passive:false});
+  cv.addEventListener('touchend', end);
+
+  qs('btnKInfo').onclick = function(){ openKanjiPopup(curDrawK); };
+  qs('btnClear').onclick = function(){ ctx.clearRect(0,0,cv.width,cv.height); };
+  qs('btnGhost').onclick = function(){
+    var t = qs('tmpl');
+    var hid = t.style.visibility === 'hidden';
+    t.style.visibility = hid ? '' : 'hidden';
+    this.textContent = hid ? 'Ẩn chữ mờ' : 'Hiện chữ mờ';
+  };
+}
+
+// --- Popup chi tiết kanji + trạng thái học (mới) ---
+// Pool kanji gộp N5+N4 (N5 ưu tiên khi trùng)
+// Chuyển katakana → hiragana để so khớp với reading dạng kana (mới)
+function toHiragana(s){
+  return (s || '').replace(/[ァ-ヶ]/g, function(c){
+    return String.fromCharCode(c.charCodeAt(0) - 0x60);
+  });
+}
+// Bảng ánh xạ biến âm (rendaku): phụ âm đục → gốc, để so khớp reading trong từ ghép với on/kun gốc (mới)
+var RENDAKU = {
+  'が':'か','ぎ':'き','ぐ':'く','げ':'け','ご':'こ',
+  'ざ':'さ','じ':'し','ず':'す','ぜ':'せ','ぞ':'そ',
+  'だ':'た','ぢ':'ち','づ':'つ','で':'て','ど':'と',
+  'ば':'は','び':'ひ','ぶ':'ふ','べ':'へ','ぼ':'ほ',
+  'ぱ':'は','ぴ':'ひ','ぷ':'ふ','ぺ':'へ','ぽ':'ほ'
+};
+function unrendaku(s){
+  if(!s) return s;
+  var c0 = s[0], base = RENDAKU[c0];
+  return base ? base + s.slice(1) : s;
+}
+// Tìm candidate on/kun khớp với vị trí kanji trong 1 từ ghép: đầu từ→so khớp tiền tố,
+// cuối từ→so khớp hậu tố (dung sai biến âm), giữa từ→substring dự phòng (mới)
+function findKanjiReading(e, word, candidates){
+  if(word.w === e.kanji) {
+    var exact = candidates.filter(function(c){ return c.reading === word.r; })[0];
+    if(exact) return exact;
+  }
+  var idx = word.w.indexOf(e.kanji);
+  if(idx < 0) return null;
+  var sorted = candidates.slice().sort(function(a,b){ return b.reading.length - a.reading.length; });
+  if(idx === 0){
+    for(var i=0;i<sorted.length;i++){ if(word.r.indexOf(sorted[i].reading) === 0) return sorted[i]; }
+  }
+  if(idx === word.w.length - 1){
+    for(var j=0;j<sorted.length;j++){
+      var cand = sorted[j].reading;
+      var suf = word.r.slice(-cand.length);
+      if(suf === cand || unrendaku(suf) === cand) return sorted[j];
+    }
+  }
+  for(var k=0;k<sorted.length;k++){
+    var c = sorted[k].reading;
+    if(word.r.indexOf(c) >= 0) return sorted[k];
+  }
+  return null;
+}
+// Âm tiện (促音便): on-yomi kết thúc ち/つ/く/き thường biến thành っ khi đứng đầu từ ghép
+// (いち→いっか, ろく→ろっぷん...) — thêm biến thể っ làm candidate phụ để so khớp (mới)
+function sokuonVariant(r){
+  return /[ちつくき]$/.test(r) ? r.slice(0, -1) + 'っ' : null;
+}
+// Nhóm words[] của 1 kanji theo từng cách đọc on/kun cụ thể (mới)
+function groupReadings(e){
+  var onList = (e.on || '').split('、').map(toHiragana).filter(Boolean);
+  var kunList = (e.kun || '').split('、').filter(Boolean);
+  var on = onList.map(function(r){ return {reading: r, type: 'on', words: []}; });
+  var kun = kunList.map(function(r){ return {reading: r, type: 'kun', words: []}; });
+  var candidates = on.concat(kun);
+  on.forEach(function(g){
+    var sv = sokuonVariant(g.reading);
+    if(sv) candidates.push({reading: sv, type: 'on', words: g.words});
+  });
+  var other = [];
+  (e.words || []).forEach(function(word){
+    var hit = findKanjiReading(e, word, candidates);
+    if(hit) hit.words.push(word); else other.push(word);
+  });
+  return {
+    on: on.filter(function(g){ return g.words.length; }),
+    kun: kun.filter(function(g){ return g.words.length; }),
+    other: other
+  };
+}
+
+var KMAP = {}, KLEVEL = {};
+[['N5', window.KANJI_N5], ['N4', window.KANJI_N4]].forEach(function(pair){
+  (pair[1] || []).forEach(function(e){
+    if(!KMAP[e.kanji]){ KMAP[e.kanji] = e; KLEVEL[e.kanji] = pair[0]; }
+  });
+});
+var KALL = (window.KANJI_N5 || []).concat(window.KANJI_N4 || []);
+
+var K_STATES = [
+  {id:'',      icon:'☆',  label:'Chưa đánh dấu — bấm để đổi', color:'var(--muted)'},
+  {id:'plan',  icon:'📋', label:'Kế hoạch học',               color:'var(--muted)'},
+  {id:'want',  icon:'★',  label:'Muốn học',                   color:'var(--gold)'},
+  {id:'weak',  icon:'◐',  label:'Chưa thuộc',                 color:'var(--bad)'},
+  {id:'known', icon:'✓',  label:'Đã thuộc',                   color:'var(--ok)'}
+];
+function kanjiStatus(ch){ return load('mn5_kanji_status', {})[ch] || ''; }
+function stateOf(id){
+  for(var i=0;i<K_STATES.length;i++){ if(K_STATES[i].id === id) return K_STATES[i]; }
+  return K_STATES[0];
+}
+function kanjiStatusBtnHtml(ch){
+  var s = stateOf(kanjiStatus(ch));
+  return '<button class="kp-status" data-st="' + esc(ch) + '">' +
+    '<span style="color:' + s.color + ';font-size:1.1rem">' + s.icon + '</span>' +
+    '<span>' + s.label + '</span></button>';
+}
+function bindStatusBtn(box, ch){
+  var b = box.querySelector('[data-st]');
+  if(!b) return;
+  b.onclick = function(){
+    var map = load('mn5_kanji_status', {});
+    var cur = map[ch] || '';
+    var idx = 0;
+    K_STATES.forEach(function(s, i){ if(s.id === cur) idx = i; });
+    var next = K_STATES[(idx + 1) % K_STATES.length];
+    if(next.id) map[ch] = next.id; else delete map[ch];
+    store('mn5_kanji_status', map);
+    b.outerHTML = kanjiStatusBtnHtml(ch);
+    bindStatusBtn(box, ch);
+  };
+}
+
+// Render khối "TOÀN BỘ CÁCH ĐỌC": mỗi reading kèm chip ví dụ từ ghép (mới)
+function renderReadingGroups(e, gr){
+  function chip(word){
+    return '<span class="kp-read-chip">' + esc(word.w) + '（' + esc(word.r) + '）' + esc(word.m) + '</span>';
+  }
+  function block(label, groups){
+    if(!groups.length) return '';
+    return groups.map(function(g){
+      return '<div class="kp-read-group"><b>' + label + ': ' + esc(g.reading) + '</b><div class="kp-read-chips">' +
+        g.words.map(chip).join('') + '</div></div>';
+    }).join('');
+  }
+  var h = block('On', gr.on) + block('Kun', gr.kun);
+  if(gr.other.length){
+    h += '<div class="kp-read-group"><b>Khác</b><div class="kp-read-chips">' + gr.other.map(chip).join('') + '</div></div>';
+  }
+  if(!h) return '';
+  return '<div class="kp-sec">TOÀN BỘ CÁCH ĐỌC</div>' + h;
+}
+
+function openKanjiPopup(ch){
+  var e = KMAP[ch], h;
+  if(!e){
+    h = '<div class="kp-head"><span class="kp-char">' + esc(ch) + '</span>' +
+        '<div class="kp-meta">Ngoài phạm vi kanji N5+N4 của giáo trình.</div></div>' +
+        '<button class="btn btn-ghost" style="width:100%" data-stroke="' + esc(ch) + '">✍ Xem thứ tự nét</button>';
+  } else {
+    var eOn = (e.on || '').split('、').filter(Boolean);
+    var rel = KALL.filter(function(o){
+      if(o.kanji === ch) return false;
+      var sharePart = (e.parts || []).some(function(p){ return (o.parts || []).indexOf(p) >= 0; });
+      var shareOn = eOn.length && (o.on || '').split('、').some(function(x){ return x && eOn.indexOf(x) >= 0; });
+      return sharePart || shareOn;
+    }).slice(0, 10);
+    var vocabHits = [];
+    [LEVELS.N5, LEVELS.N4].forEach(function(lv){
+      lv.data.forEach(function(l){
+        if(l.status === 'NO_DATA') return;
+        l.vocab.forEach(function(v){
+          if((v.k || '').indexOf(ch) >= 0) vocabHits.push({b:l.lesson, w:v.w, k:v.k, m:v.m});
+        });
+      });
+    });
+    var gr = groupReadings(e);
+    var readSecHtml = renderReadingGroups(e, gr);
+    h = '<div class="kp-head"><span class="kp-char">' + esc(ch) + '</span><div class="kp-meta">' +
+        '<b>' + esc(e.hanviet) + '</b> · ' + esc(e.meaning) + ' · <b>' + KLEVEL[ch] + '</b>' +
+        '<br>' + e.stroke + ' nét · Bộ: ' + esc((e.radical || '').split('|')[0]) + '</div></div>' +
+        '<button class="btn btn-ghost" style="width:100%" data-stroke="' + esc(ch) + '">✍ Xem thứ tự nét (animation)</button>' +
+        kanjiStatusBtnHtml(ch) +
+        readSecHtml +
+        (rel.length ? '<div class="kp-sec">KANJI LIÊN QUAN (cùng bộ phận / âm on)</div><div class="kp-rel">' +
+          rel.map(function(o){ return '<button data-kj="' + o.kanji + '">' + o.kanji + '</button>'; }).join('') + '</div>' : '') +
+        (vocabHits.length ? '<div class="kp-sec">TỪ VỰNG TRONG GIÁO TRÌNH</div><table>' +
+          vocabHits.slice(0, 8).map(function(x){
+            var jp = alignRuby(x.w, x.k) || esc(x.k);
+            return '<tr><td class="kj" style="color:var(--accent)">B' + x.b + '</td><td class="jp" style="white-space:normal">' + jp + '</td><td class="vn">' + esc(x.m) + '</td></tr>';
+          }).join('') + '</table>' : '');
+  }
+  var body = qs('kpBody');
+  body.innerHTML = h;
+  qs('kanji-overlay').classList.add('visible');
+  body.querySelectorAll('[data-kj]').forEach(function(b){
+    b.onclick = function(){ openKanjiPopup(b.dataset.kj); };
+  });
+  var sb = body.querySelector('[data-stroke]');
+  if(sb) sb.onclick = function(){ showStrokeOrder(sb.dataset.stroke); };
+  bindStatusBtn(body, ch);
+}
+qs('kpClose').onclick = function(){ qs('kanji-overlay').classList.remove('visible'); };
+qs('kanji-overlay').addEventListener('click', function(e){
+  if(e.target === this) this.classList.remove('visible');
+});
+
+// --- Quiz (chỉ dùng dữ liệu đóng băng) ---
+var quiz = null;
+
+function shuffle(a){
+  for(var i=a.length-1;i>0;i--){
+    var j=Math.floor(Math.random()*(i+1)), t=a[i]; a[i]=a[j]; a[j]=t;
+  }
+  return a;
+}
+
+function renderQuizStart(l){
+  if(l.vocab.length < 4){
+    qs('tabContent').innerHTML = '<p class="sub">Chưa đủ dữ liệu từ vựng để tạo bài kiểm tra.</p>';
+    return;
+  }
+  startQuiz(l);
+}
+
+function startQuiz(l){
+  var pool = l.vocab.slice();
+  var n = Math.min(10, pool.length);
+  var picked = shuffle(pool.slice()).slice(0, n);
+  var qsArr = picked.map(function(v){
+    var jp2vn = Math.random() < 0.5;
+    var others = shuffle(pool.filter(function(o){ return o.w !== v.w; })).slice(0,3);
+    var options, correct;
+    if(jp2vn){
+      correct = v.m;
+      options = shuffle([v.m].concat(others.map(function(o){ return o.m; })));
+    } else {
+      var lbl = function(o){ return o.k ? o.w + '（' + o.k + '）' : o.w; };
+      correct = lbl(v);
+      options = shuffle([correct].concat(others.map(lbl)));
+    }
+    return {
+      prompt: jp2vn ? (v.k ? v.k + '（' + v.w + '）' : v.w) : v.m,
+      sub: jp2vn ? 'Chọn nghĩa tiếng Việt đúng' : 'Chọn từ tiếng Nhật đúng',
+      options: options, correct: correct
+    };
+  });
+  quiz = { qs: qsArr, i: 0, score: 0, locked: false };
+  renderQuiz();
+}
+
+function renderQuiz(){
+  var box = qs('tabContent');
+  if(quiz.i >= quiz.qs.length){
+    var key = K('quiz_') + curLesson.lesson;
+    var scoreStr = quiz.score + '/' + quiz.qs.length;
+    var best = load(key, null);
+    var bestScore = best ? +best.split('/')[0] : -1;
+    if(quiz.score > bestScore) store(key, scoreStr);
+    box.innerHTML =
+      '<p class="qsub">Hoàn thành — Bài ' + curLesson.lesson + '</p>' +
+      '<div class="score-line">' + scoreStr + ' câu đúng</div>' +
+      (best ? '<p class="sub" style="margin-top:0">Điểm cao nhất trước đó: ' + best + '</p>' : '') +
+      '<button class="btn btn-main" id="btnRetry">Làm lại (câu hỏi trộn mới)</button>';
+    qs('btnRetry').onclick = function(){ startQuiz(curLesson); };
+    return;
+  }
+  var q = quiz.qs[quiz.i];
+  var h = '<p class="qsub">Câu ' + (quiz.i+1) + '/' + quiz.qs.length + ' · ' + q.sub + '</p>' +
+          '<div class="qprompt">' + esc(q.prompt) + '</div><div class="opts">';
+  q.options.forEach(function(o,i){
+    h += '<button class="opt" data-i="' + i + '">' + esc(o) + '</button>';
+  });
+  h += '</div>';
+  box.innerHTML = h;
+  quiz.locked = false;
+  box.querySelectorAll('.opt').forEach(function(b){
+    b.onclick = function(){
+      if(quiz.locked) return;
+      quiz.locked = true;
+      var chosen = q.options[+b.dataset.i];
+      var right = chosen === q.correct;
+      if(right) quiz.score++;
+      box.querySelectorAll('.opt').forEach(function(x, xi){
+        if(q.options[xi] === q.correct) x.classList.add('right');
+        else if(x === b) x.classList.add('wrong');
+      });
+      setTimeout(function(){ quiz.i++; renderQuiz(); }, right ? 650 : 1400);
+    };
+  });
+}
+})();
+</script>
+</body>
+</html>
