@@ -21,6 +21,16 @@
   --radius-sm:10px; --radius-md:14px; --radius-lg:20px;
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px; --sp-8:32px;
 }
+/* chế độ sáng — bấm nút ☀/🌙 để đổi, lưu trong localStorage (mới) */
+:root[data-theme="light"]{
+  --bg:#f7f4ee; --card:#ffffff; --card2:#f0ece3;
+  --text:#2a2420; --muted:#8a7f6d;
+  --ok:#2f9e63; --bad:#d43e51;
+  --line:rgba(42,36,32,.12);
+  --card3:rgba(42,36,32,.05);
+  --line-strong:rgba(42,36,32,.22);
+  --shadow:0 8px 24px rgba(42,36,32,.12);
+}
 button:focus-visible, a:focus-visible, [tabindex]:focus-visible{
   outline:2.5px solid var(--focus); outline-offset:2px;
 }
@@ -69,6 +79,9 @@ body.no-furigana ruby rt{display:none}
   border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:var(--text);
   font-weight:700;font-size:.78rem;cursor:pointer;font-family:inherit}
 .furi-toggle.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.theme-toggle{position:fixed;top:14px;left:14px;z-index:5;background:var(--card2);
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:var(--text);
+  font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit;line-height:1}
 /* switch cấp độ N5/N4 (mới) */
 .level-switch{display:flex;gap:10px;margin:14px 0 4px}
 .level-switch button{flex:1;max-width:180px;background:var(--card);border:1.5px solid var(--line);
@@ -141,20 +154,6 @@ body.no-furigana ruby rt{display:none}
 .kanji-grid button{aspect-ratio:1;font-size:1.5rem;background:var(--card2);color:var(--text);
   border:1.5px solid var(--line);border-radius:10px;cursor:pointer;font-family:inherit}
 .kanji-grid button.sel{border-color:var(--accent);background:rgba(232,132,90,.15)}
-.draw-area{display:flex;flex-direction:column;align-items:center;margin-top:16px}
-.draw-box{position:relative;width:min(300px,80vw);aspect-ratio:1;border:2px dashed rgba(245,200,66,.35);
-  border-radius:14px;background:var(--card2);overflow:hidden;touch-action:none}
-.draw-box .tmpl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-size:min(220px,58vw);color:rgba(244,240,234,.10);user-select:none;pointer-events:none;
-  font-family:'Noto Sans JP',serif}
-.draw-box canvas{position:absolute;inset:0;width:100%;height:100%}
-.draw-box .guide-h,.draw-box .guide-v{position:absolute;background:rgba(244,240,234,.06);pointer-events:none}
-.draw-box .guide-h{left:0;right:0;top:50%;height:1px}
-.draw-box .guide-v{top:0;bottom:0;left:50%;width:1px}
-.draw-btns{display:flex;gap:10px;margin-top:12px;width:min(300px,80vw)}
-.draw-btns .btn{flex:1;margin-top:0;padding:10px}
-.draw-info{margin-top:10px;text-align:center;color:var(--muted);font-size:.85rem;line-height:1.6}
-.draw-info .rd{color:var(--gold)}
 /* tiến độ tổng quan (mới) */
 .progress-summary .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
 .progress-summary .pct{font-size:1.3rem;font-weight:800;color:var(--gold)}
@@ -227,6 +226,10 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
 .kj-click{cursor:pointer;border-bottom:1px dotted rgba(245,200,66,.5)}
 .kj-click:hover{color:var(--gold)}
 .stroke-loading,.stroke-not-found{color:var(--muted);text-align:center;padding:20px;font-size:.85rem}
+.kp-exercises{margin-top:8px}
+.kp-ex-item{margin-top:8px;padding:9px 11px;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm)}
+.kp-ex-sentence{font-size:.92rem;line-height:1.7}
+.kp-ex-src{margin-top:4px;font-size:.7rem;color:var(--muted)}
 /* trạng thái học kanji (mới) */
 .kp-status{display:flex;align-items:center;gap:10px;margin-top:12px;width:100%;
   background:var(--card2);border:1.5px solid var(--line);border-radius:var(--radius-md);
@@ -237,6 +240,10 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
 .kst-filter button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
   padding:7px 11px;color:var(--muted);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:40px}
 .kst-filter button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.kanji-mode-filter{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.kanji-mode-filter button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:7px 11px;color:var(--muted);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;min-height:40px}
+.kanji-mode-filter button.on{background:rgba(245,200,66,.15);color:var(--gold);border-color:rgba(245,200,66,.4)}
 /* cột nhóm động từ (mới) */
 td.vg{white-space:nowrap}
 td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
@@ -247,10 +254,12 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
   td.jp,td.kj{white-space:normal}
   td{padding:9px 5px}
   .furi-toggle{top:10px;right:10px;padding:6px 10px;font-size:.72rem}
+  .theme-toggle{top:10px;left:10px;padding:6px 10px;font-size:.8rem}
 }
 </style>
 </head>
 <body>
+<button class="theme-toggle" id="btnTheme" title="Đổi giao diện sáng/tối">🌙</button>
 <button class="furi-toggle" id="btnFuri">ふりがな ON</button>
 <div class="wrap">
 
@@ -265,6 +274,7 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
       Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
     <div class="card" id="progressSummary"></div>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
+    <div class="kanji-mode-filter" id="kanjiModeFilter"></div>
     <div class="card hidden" id="searchResult"></div>
     <div class="grid" id="lessonGrid"></div>
   </div>
@@ -304,8 +314,10 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
   </div>
 </div>
 
-<script src="js/kanji-data-n5.js?v=20260719"></script>
-<script src="js/kanji-data-n4.js?v=20260719"></script>
+<script src="js/kanji-data-n5.js?v=20260719b"></script>
+<script src="js/kanji-data-n4.js?v=20260719b"></script>
+<script src="js/kanji-data-n3.js?v=20260720"></script>
+<script src="js/kanji-data-n2.js?v=20260720"></script>
 <script src="js/kanji-stroke.js?v=20260718"></script>
 <script src="minna-n5-data.js?v=20260719"></script>
 <script src="minna-n4-data.js?v=20260719"></script>
@@ -350,7 +362,24 @@ btnFuri.onclick = function(){
 };
 applyFurigana();
 
+// Chế độ sáng/tối (mới) — mặc định tối, lưu lựa chọn trong localStorage
+var btnTheme = qs('btnTheme');
+function applyTheme(){
+  var theme = load('mn_theme', 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+  btnTheme.textContent = theme === 'light' ? '☀' : '🌙';
+}
+btnTheme.onclick = function(){
+  store('mn_theme', load('mn_theme', 'dark') === 'light' ? 'dark' : 'light');
+  applyTheme();
+};
+applyTheme();
+
 function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+// Tô đậm kanji mục tiêu trong câu ví dụ trích từ sách (mới)
+function highlightKanji(s, ch){
+  return esc(s).split(ch).join('<b style="color:var(--gold)">' + ch + '</b>');
+}
 // "漢字[かな]" → <ruby>; "[どうぞ]" (không đứng sau kanji) giữ nguyên
 function rubyfy(s){
   return esc(s).replace(/([一-鿿々]+)\[([ぁ-ゖー]+)\]/g,'<ruby>$1<rt>$2</rt></ruby>');
@@ -494,15 +523,31 @@ function renderProgressSummary(){
   box.innerHTML = h;
 }
 
+// Chế độ lọc kanji theo cấp độ N5/N4/N3/N2/Tất cả (mới) — áp dụng cho kết quả tra kanji trực tiếp
+var curKanjiMode = load('mn_kanji_mode', 'Tất cả');
+function renderKanjiModeFilter(){
+  qs('kanjiModeFilter').innerHTML = KANJI_MODES.map(function(m){
+    return '<button data-mode="' + m + '"' + (m === curKanjiMode ? ' class="on"' : '') + '>' + m + '</button>';
+  }).join('');
+  qs('kanjiModeFilter').querySelectorAll('button').forEach(function(b){
+    b.onclick = function(){
+      curKanjiMode = b.dataset.mode;
+      store('mn_kanji_mode', curKanjiMode);
+      renderKanjiModeFilter();
+      doSearch();
+    };
+  });
+}
+
 // Tra nhanh toàn bộ 25 bài
-qs('searchBox').addEventListener('input', function(){
-  var raw = this.value.trim();
+function doSearch(){
+  var raw = qs('searchBox').value.trim();
   var q = raw.toLowerCase();
   var box = qs('searchResult');
-  // tra kanji trực tiếp: ký tự kanji trong query nằm trong pool N5+N4 (mới)
+  // tra kanji trực tiếp: ký tự kanji trong query nằm trong pool N5-N2, lọc theo mode đang chọn (mới)
   var kjHits = [];
   for(var ch of raw){
-    if(/[一-鿿々]/.test(ch) && KMAP[ch] && kjHits.indexOf(ch) < 0) kjHits.push(ch);
+    if(/[一-鿿々]/.test(ch) && KMAP[ch] && kanjiModeMatch(ch, curKanjiMode) && kjHits.indexOf(ch) < 0) kjHits.push(ch);
   }
   if(q.length < 2 && !kjHits.length){ box.classList.add('hidden'); return; }
   var hits = [];
@@ -532,7 +577,8 @@ qs('searchBox').addEventListener('input', function(){
     el.onclick = function(){ openKanjiPopup(el.dataset.kj); };
   });
   box.classList.remove('hidden');
-});
+}
+qs('searchBox').addEventListener('input', doSearch);
 
 qs('btnBack').onclick = function(){
   qs('detail').classList.add('hidden');
@@ -791,7 +837,7 @@ function renderWrite(l){
   var allKs = lessonKanji(l);
   if(!allKs.length){ box.innerHTML = '<p class="sub">Bài này không có kanji để luyện viết.</p>'; return; }
   var ks = writeFilter ? allKs.filter(function(k){ return kanjiStatus(k) === writeFilter; }) : allKs;
-  var h = '<p class="sub" style="margin-top:0">Chọn một chữ Hán rồi tô theo chữ mờ trong khung. Dùng ngón tay (điện thoại) hoặc chuột.</p>' +
+  var h = '<p class="sub" style="margin-top:0">Chọn một chữ Hán để xem animation thứ tự nét vẽ (KanjiVG).</p>' +
           '<div class="kst-filter">' +
           [{id:'',lb:'Tất cả'},{id:'plan',lb:'📋 Kế hoạch'},{id:'want',lb:'★ Muốn học'},{id:'weak',lb:'◐ Chưa thuộc'},{id:'known',lb:'✓ Đã thuộc'}]
             .map(function(f){ return '<button data-f="' + f.id + '"' + (writeFilter===f.id?' class="on"':'') + '>' + f.lb + '</button>'; }).join('') +
@@ -805,85 +851,16 @@ function renderWrite(l){
   h += '<div class="kanji-grid" id="kGrid">';
   ks.forEach(function(k,i){
     var st = stateOf(kanjiStatus(k));
-    h += '<button data-k="' + k + '"' + (i===0?' class="sel"':'') + '>' + k +
+    h += '<button data-k="' + k + '">' + k +
       (st.id ? '<span class="kst" style="color:' + st.color + '">' + st.icon + '</span>' : '') + '</button>';
   });
-  h += '</div><div class="draw-area">' +
-       '<div class="draw-box" id="drawBox"><div class="guide-h"></div><div class="guide-v"></div>' +
-       '<div class="tmpl" id="tmpl"></div><canvas id="cv"></canvas></div>' +
-       '<div class="draw-btns">' +
-       '<button class="btn btn-ghost" id="btnClear">Xóa</button>' +
-       '<button class="btn btn-ghost" id="btnGhost">Ẩn chữ mờ</button>' +
-       '<button class="btn btn-ghost" id="btnKInfo">ℹ Chi tiết</button>' +
-       '</div><div class="draw-info" id="drawInfo"></div></div>';
+  h += '</div>';
   box.innerHTML = h;
   bindWriteFilter(box, l);
 
-  var cv = qs('cv'), box2 = qs('drawBox');
-  var ctx = cv.getContext('2d');
-  function resize(){
-    var r = box2.getBoundingClientRect();
-    cv.width = r.width * devicePixelRatio; cv.height = r.height * devicePixelRatio;
-    ctx.scale(devicePixelRatio, devicePixelRatio);
-    ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-    ctx.strokeStyle = '#f5c842';
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  var curDrawK = ks[0];
-  function selectK(k){
-    curDrawK = k;
-    qs('tmpl').textContent = k;
-    ctx.clearRect(0,0,cv.width,cv.height);
-    var info = findWord(l, k);
-    qs('drawInfo').innerHTML = info ? '<span class="rd">' + esc(info.w) + '</span> — ' + esc(info.m) : '';
-  }
-  function findWord(l, k){
-    var all = l.vocab.concat(l.expressions);
-    for(var i=0;i<all.length;i++){
-      if(((all[i].k||'') + (all[i].w||'')).indexOf(k) >= 0) return all[i];
-    }
-    return null;
-  }
-
   qs('kGrid').querySelectorAll('button').forEach(function(b){
-    b.onclick = function(){
-      qs('kGrid').querySelectorAll('button').forEach(function(x){ x.classList.remove('sel'); });
-      b.classList.add('sel');
-      selectK(b.dataset.k);
-    };
+    b.onclick = function(){ showStrokeOrder(b.dataset.k); };
   });
-  selectK(ks[0]);
-
-  var drawing = false, last = null;
-  function pos(e){
-    var r = cv.getBoundingClientRect();
-    var p = e.touches ? e.touches[0] : e;
-    return [p.clientX - r.left, p.clientY - r.top];
-  }
-  function start(e){ drawing = true; last = pos(e); e.preventDefault(); }
-  function move(e){
-    if(!drawing) return;
-    var p = pos(e);
-    ctx.beginPath(); ctx.moveTo(last[0], last[1]); ctx.lineTo(p[0], p[1]); ctx.stroke();
-    last = p; e.preventDefault();
-  }
-  function end(){ drawing = false; }
-  cv.addEventListener('mousedown', start); cv.addEventListener('mousemove', move);
-  window.addEventListener('mouseup', end);
-  cv.addEventListener('touchstart', start, {passive:false});
-  cv.addEventListener('touchmove', move, {passive:false});
-  cv.addEventListener('touchend', end);
-
-  qs('btnKInfo').onclick = function(){ openKanjiPopup(curDrawK); };
-  qs('btnClear').onclick = function(){ ctx.clearRect(0,0,cv.width,cv.height); };
-  qs('btnGhost').onclick = function(){
-    var t = qs('tmpl');
-    var hid = t.style.visibility === 'hidden';
-    t.style.visibility = hid ? '' : 'hidden';
-    this.textContent = hid ? 'Ẩn chữ mờ' : 'Hiện chữ mờ';
-  };
 }
 
 // --- Popup chi tiết kanji + trạng thái học (mới) ---
@@ -955,19 +932,23 @@ function groupReadings(e){
     if(hit) hit.words.push(word); else other.push(word);
   });
   return {
-    on: on.filter(function(g){ return g.words.length; }),
-    kun: kun.filter(function(g){ return g.words.length; }),
+    on: on,
+    kun: kun,
     other: other
   };
 }
 
+// Kanji pool mở rộng N5-N2 (mới) — cho phép tra cứu đầy đủ thông tin mọi kanji, không chỉ riêng N5+N4 của giáo trình Minna
 var KMAP = {}, KLEVEL = {};
-[['N5', window.KANJI_N5], ['N4', window.KANJI_N4]].forEach(function(pair){
+[['N5', window.KANJI_N5], ['N4', window.KANJI_N4], ['N3', window.KANJI_N3], ['N2', window.KANJI_N2]].forEach(function(pair){
   (pair[1] || []).forEach(function(e){
     if(!KMAP[e.kanji]){ KMAP[e.kanji] = e; KLEVEL[e.kanji] = pair[0]; }
   });
 });
-var KALL = (window.KANJI_N5 || []).concat(window.KANJI_N4 || []);
+var KALL = (window.KANJI_N5 || []).concat(window.KANJI_N4 || [], window.KANJI_N3 || [], window.KANJI_N2 || []);
+var KANJI_MODES = ['Tất cả','N5','N4','N3','N2'];
+function kanjiModeMatch(ch, mode){ return mode === 'Tất cả' || KLEVEL[ch] === mode; }
+renderKanjiModeFilter();
 
 var K_STATES = [
   {id:'',      icon:'☆',  label:'Chưa đánh dấu — bấm để đổi', color:'var(--muted)'},
@@ -1011,8 +992,9 @@ function renderReadingGroups(e, gr){
   function block(label, groups){
     if(!groups.length) return '';
     return groups.map(function(g){
-      return '<div class="kp-read-group"><b>' + label + ': ' + esc(g.reading) + '</b><div class="kp-read-chips">' +
-        g.words.map(chip).join('') + '</div></div>';
+      return '<div class="kp-read-group"><b>' + label + ': ' + esc(g.reading) + '</b>' +
+        (g.words.length ? '<div class="kp-read-chips">' + g.words.map(chip).join('') + '</div>' : '') +
+        '</div>';
     }).join('');
   }
   var h = block('On', gr.on) + block('Kun', gr.kun);
@@ -1027,7 +1009,7 @@ function openKanjiPopup(ch){
   var e = KMAP[ch], h;
   if(!e){
     h = '<div class="kp-head"><span class="kp-char">' + esc(ch) + '</span>' +
-        '<div class="kp-meta">Ngoài phạm vi kanji N5+N4 của giáo trình.</div></div>' +
+        '<div class="kp-meta">Chưa có dữ liệu chi tiết cho kanji này trong KOERU (ngoài N5-N2).</div></div>' +
         '<button class="btn btn-ghost" style="width:100%" data-stroke="' + esc(ch) + '">✍ Xem thứ tự nét</button>';
   } else {
     var eOn = (e.on || '').split('、').filter(Boolean);
@@ -1060,7 +1042,12 @@ function openKanjiPopup(ch){
           vocabHits.slice(0, 8).map(function(x){
             var jp = alignRuby(x.w, x.k) || esc(x.k);
             return '<tr><td class="kj" style="color:var(--accent)">B' + x.b + '</td><td class="jp" style="white-space:normal">' + jp + '</td><td class="vn">' + esc(x.m) + '</td></tr>';
-          }).join('') + '</table>' : '');
+          }).join('') + '</table>' : '') +
+        ((e.exercises || []).length ? '<div class="kp-sec">BÀI TẬP TỪ SÁCH (Minna Kanji Eigoban)</div><div class="kp-exercises">' +
+          e.exercises.map(function(ex){
+            return '<div class="kp-ex-item"><div class="kp-ex-sentence">' + highlightKanji(ex.s, ch) + '</div>' +
+              '<div class="kp-ex-src">' + esc(ex.src) + '</div></div>';
+          }).join('') + '</div>' : '');
   }
   var body = qs('kpBody');
   body.innerHTML = h;
