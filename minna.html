@@ -449,6 +449,10 @@ function verbGroup(w){
   if(m) return {'Ⅰ':'I','Ⅱ':'II','Ⅲ':'III'}[m[1]];
   return VERB_GROUP[base] || null;
 }
+// Bỏ ký hiệu nhóm động từ ⅠⅡⅢ khỏi phần hiển thị "Từ" — đã có cột/nhãn "Nhóm" riêng (mới)
+function stripGroupMark(w){
+  return (w || '').replace(/[ⅠⅡⅢ](?=\s*\[|$)/g, '');
+}
 
 // ---------- Home ----------
 function renderHome(){
@@ -568,7 +572,7 @@ function doSearch(){
   else if(hits.length){
     h += '<table>';
     hits.forEach(function(x){
-      h += '<tr><td class="kj" style="color:var(--accent)">B' + x[0] + '</td><td class="jp">' + esc(x[1].w) + '</td><td class="kj">' + kanjiLinkify(x[1].k||'') + '</td><td class="vn">' + esc(x[1].m) + '</td></tr>';
+      h += '<tr><td class="kj" style="color:var(--accent)">B' + x[0] + '</td><td class="jp">' + esc(stripGroupMark(x[1].w)) + '</td><td class="kj">' + kanjiLinkify(x[1].k||'') + '</td><td class="vn">' + esc(x[1].m) + '</td></tr>';
     });
     h += '</table>';
   }
@@ -663,9 +667,10 @@ function renderVocab(l){
 
 // Front thẻ flashcard: furigana đã align, fallback ruby toàn cụm (dùng chung 2 mode flash)
 function flashFront(v){
-  if(!v.k) return esc(v.w);
-  return alignRuby(v.w, v.k) ||
-    '<ruby>' + esc(normAlign(v.k) || v.k) + '<rt>' + esc(normAlign(v.w)) + '</rt></ruby>';
+  var w = stripGroupMark(v.w);
+  if(!v.k) return esc(w);
+  return alignRuby(w, v.k) ||
+    '<ruby>' + esc(normAlign(v.k) || v.k) + '<rt>' + esc(normAlign(w)) + '</rt></ruby>';
 }
 
 // Flashcard 1 thẻ: xem tuần tự/random, nút lùi/tiếp (port từ N4)
@@ -723,7 +728,7 @@ function renderVocabTable(l){
       h += '<tr class="vgroup"><td colspan="4">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
     }
     var g = verbGroup(v.w);
-    h += '<tr><td class="jp">' + esc(v.w) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
+    h += '<tr><td class="jp">' + esc(stripGroupMark(v.w)) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
       '<td class="vg">' + (g ? '<i>' + g + '</i>' : '') + '</td></tr>';
   });
   return h + '</tbody></table>';
@@ -1040,7 +1045,7 @@ function openKanjiPopup(ch){
           rel.map(function(o){ return '<button data-kj="' + o.kanji + '">' + o.kanji + '</button>'; }).join('') + '</div>' : '') +
         (vocabHits.length ? '<div class="kp-sec">TỪ VỰNG TRONG GIÁO TRÌNH</div><table>' +
           vocabHits.slice(0, 8).map(function(x){
-            var jp = alignRuby(x.w, x.k) || esc(x.k);
+            var jp = alignRuby(stripGroupMark(x.w), x.k) || esc(x.k);
             return '<tr><td class="kj" style="color:var(--accent)">B' + x.b + '</td><td class="jp" style="white-space:normal">' + jp + '</td><td class="vn">' + esc(x.m) + '</td></tr>';
           }).join('') + '</table>' : '') +
         ((e.exercises || []).length ? '<div class="kp-sec">BÀI TẬP TỪ SÁCH (Minna Kanji Eigoban)</div><div class="kp-exercises">' +
@@ -1094,12 +1099,12 @@ function startQuiz(l){
       correct = v.m;
       options = shuffle([v.m].concat(others.map(function(o){ return o.m; })));
     } else {
-      var lbl = function(o){ return o.k ? o.w + '（' + o.k + '）' : o.w; };
+      var lbl = function(o){ var w = stripGroupMark(o.w); return o.k ? w + '（' + o.k + '）' : w; };
       correct = lbl(v);
       options = shuffle([correct].concat(others.map(lbl)));
     }
     return {
-      prompt: jp2vn ? (v.k ? v.k + '（' + v.w + '）' : v.w) : v.m,
+      prompt: jp2vn ? (v.k ? v.k + '（' + stripGroupMark(v.w) + '）' : stripGroupMark(v.w)) : v.m,
       sub: jp2vn ? 'Chọn nghĩa tiếng Việt đúng' : 'Chọn từ tiếng Nhật đúng',
       options: options, correct: correct
     };
