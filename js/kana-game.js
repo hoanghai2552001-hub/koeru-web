@@ -180,7 +180,7 @@ function answer(idx) {
   answered = true;
   clearInterval(timerInterval);
   clearTimeout(audioTimeout);
-  speechSynthesis.cancel();
+  window.speechSynthesis?.cancel();
 
   const btn    = document.getElementById('ans' + idx);
   const chosen = choices[idx];
@@ -210,7 +210,7 @@ function answer(idx) {
 function timeOut() {
   answered = true;
   clearTimeout(audioTimeout);
-  speechSynthesis.cancel();
+  window.speechSynthesis?.cancel();
   scoreWrong++;
   totalAnswered++;
   streak = 0;
@@ -292,9 +292,33 @@ function goHome() {
   }
   clearInterval(timerInterval);
   clearTimeout(audioTimeout);
-  speechSynthesis.cancel();
+  window.speechSynthesis?.cancel();
   showScreen('home-screen');
 }
 
 // Init counts on load
 updateCounts();
+
+/* ── Event binding ── */
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('btn-hira').addEventListener('click', e => selectScript('hiragana', e.currentTarget));
+  document.getElementById('btn-kata').addEventListener('click', e => selectScript('katakana', e.currentTarget));
+  document.getElementById('btn-mix').addEventListener('click', e => selectScript('mixed', e.currentTarget));
+
+  document.getElementById('lvl1').addEventListener('click', () => selectLevel(1));
+  document.getElementById('lvl2').addEventListener('click', () => selectLevel(2));
+  document.getElementById('lvl3').addEventListener('click', () => selectLevel(3));
+
+  document.getElementById('start-btn').addEventListener('click', startGame);
+  document.getElementById('game-back-btn').addEventListener('click', goHome);
+  document.getElementById('restart-btn').addEventListener('click', restartGame);
+  document.getElementById('result-home-btn').addEventListener('click', goHome);
+
+  for (let i = 0; i < 4; i++) {
+    document.getElementById('ans' + i).addEventListener('click', () => answer(i));
+  }
+
+  document.getElementById('cta-n5-link').addEventListener('click', () => {
+    localStorage.setItem('lead_source', 'kana_speed');
+  });
+});

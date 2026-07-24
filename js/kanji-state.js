@@ -27,7 +27,7 @@ function updateHomeProgress() {
   const dueEl   = document.getElementById('home-due-count');
   if (!fill || !text) return;
 
-  const total   = typeof ALL_KANJI !== 'undefined' ? ALL_KANJI.length : 1765;
+  const total   = typeof ALL_KANJI !== 'undefined' ? ALL_KANJI.length : 1581;
   const ms      = window.koeruMastery;
   const seen    = ms ? ms.countSeen() : 0;
   const stats   = ms ? ms.getStats()  : { due: 0, learned: 0 };

@@ -2197,6 +2197,11 @@ canvas#sp-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4
   #draw-meaning { font-size: 1.8rem; }
 }
 
+@media (max-height: 500px) and (orientation: landscape) {
+  #card-wrap { height: min(280px, 80vh); }
+  #kanji     { font-size: clamp(3rem, 10vw, 5rem); }
+}
+
 /* animCJK SVG stroke animation override — đảm bảo màu sắc hiện đúng trên dark bg */
 #stroke-svg-wrap svg path {
   stroke: #c4b5fd;
@@ -2205,3 +2210,44 @@ canvas#sp-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4
 #stroke-svg-wrap svg ellipse {
   fill: #6366f1;
 }
+
+/* Utility */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ══════════════════════════════
+   LEAD MODAL
+══════════════════════════════ */
+#kanji-lead-modal{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+  z-index:9999;align-items:center;justify-content:center;padding:20px;
+}
+.lead-box{
+  background:#1a1a2e;border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;padding:28px 24px;width:100%;max-width:400px;position:relative;
+}
+.lead-close{
+  position:absolute;top:12px;right:14px;background:none;border:none;
+  color:rgba(255,255,255,.4);font-size:20px;cursor:pointer;
+}
+.lead-title{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:6px}
+.lead-sub{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:18px}
+#kanji-lead-success{
+  display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);
+  border-radius:8px;padding:14px;color:#86efac;font-size:.85rem;text-align:center;margin-bottom:12px;
+}
+.lead-success-msg{margin-bottom:10px}
+.lead-success-btn{
+  padding:8px 18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  border-radius:8px;color:#fff;font-size:.82rem;font-weight:700;cursor:pointer;
+}
+#kanji-lead-form{display:flex;flex-direction:column;gap:10px}
+.lead-input{
+  padding:10px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;color:#fff;font-size:.85rem;outline:none;
+}
+.lead-input:focus{border-color:rgba(99,102,241,.5)}
+#kanji-lead-submit{
+  padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:700;cursor:pointer;
+}
+.lead-disclaimer{font-size:.72rem;color:rgba(255,255,255,.3);text-align:center}

@@ -31,10 +31,14 @@ function switchWriteScript(script) {
 }
 
 function buildWriteGrid() {
-  document.getElementById('write-grid-wrap').innerHTML =
+  const wrap = document.getElementById('write-grid-wrap');
+  wrap.innerHTML =
     getWriteList().map((x, i) =>
-      `<button class="wg-btn" id="wg-${i}" onclick="openWriteChar(${i})">${x.k}<span>${x.r}</span></button>`
+      `<button class="wg-btn" id="wg-${i}" data-idx="${i}">${x.k}<span>${x.r}</span></button>`
     ).join('');
+  wrap.querySelectorAll('.wg-btn').forEach(btn => {
+    btn.addEventListener('click', () => openWriteChar(+btn.dataset.idx));
+  });
 }
 
 function openWriteChar(idx) {
@@ -96,3 +100,15 @@ function switchWriteTab(tab) {
   document.getElementById('wtab-grid').classList.toggle('active', tab === 'grid');
   document.getElementById('wtab-view').classList.toggle('active', tab === 'view');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('write-mode-btn').addEventListener('click', openWriteMode);
+  document.getElementById('write-back-btn').addEventListener('click', goHome);
+  document.getElementById('wtab-hira').addEventListener('click', () => switchWriteScript('hiragana'));
+  document.getElementById('wtab-kata').addEventListener('click', () => switchWriteScript('katakana'));
+  document.getElementById('wtab-grid').addEventListener('click', () => switchWriteTab('grid'));
+  document.getElementById('wtab-view').addEventListener('click', () => switchWriteTab('view'));
+  document.getElementById('prev-btn').addEventListener('click', () => writeNav(-1));
+  document.getElementById('replay-btn').addEventListener('click', replayGif);
+  document.getElementById('next-btn').addEventListener('click', () => writeNav(1));
+});

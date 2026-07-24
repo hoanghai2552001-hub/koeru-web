@@ -3,6 +3,11 @@
 // ══════════════════════════════════════
 const FP_KEY = 'fp_v1';
 
+function _escHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 function fpLoad() {
   try { return JSON.parse(localStorage.getItem(FP_KEY) || '{}'); } catch(e) { return {}; }
 }
@@ -81,7 +86,7 @@ function fpRenderGoal() {
   list.innerHTML = items.map(m => `
     <div class="fp-ml-item">
       <input type="checkbox" ${m.done ? 'checked' : ''} onchange="fpToggleMilestone(${m.id})">
-      <span style="${m.done ? 'text-decoration:line-through;opacity:.5' : ''}">${m.text}</span>
+      <span style="${m.done ? 'text-decoration:line-through;opacity:.5' : ''}">${_escHtml(m.text)}</span>
       <button class="fp-ml-del" onclick="fpDelMilestone(${m.id})">✕</button>
     </div>`).join('');
 }
@@ -165,7 +170,7 @@ function fpRenderDiary() {
     <div class="fp-diary-entry">
       <div class="fp-diary-dot"></div>
       <div>
-        <div class="fp-diary-text">${d.text}</div>
+        <div class="fp-diary-text">${_escHtml(d.text)}</div>
         <div class="fp-diary-time">${d.date} ${d.time}</div>
       </div>
     </div>`).join('');
@@ -175,7 +180,7 @@ function fpRenderDiary() {
 function fpExportCSV() {
   const headers = ['kanji','hanviet','on','kun','meaning','meaning_jp','level'];
   const rows = ALL_KANJI.map(k =>
-    headers.map(h => (k[h]||'').replace(/"/g,'\"')).map(v => `"${v}"`).join(',')
+    headers.map(h => (k[h]||'').replace(/"/g,'""')).map(v => `"${v}"`).join(',')
   );
   const csv = [headers.join(','), ...rows].join('\n');
   const blob = new Blob(['﻿' + csv], {type:'text/csv;charset=utf-8'});
