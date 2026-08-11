@@ -12,7 +12,7 @@
     {"w": "メモします", "k": "", "m": "ghi chép"},
     {"w": "まじめ[な]", "k": "", "m": "nghiêm túc, nghiêm chỉnh"},
     {"w": "ねっしん[な]", "k": "熱心[な]", "m": "nhiệt tâm, nhiệt tình, hết lòng"},
-    {"w": "やさしい", "k": "優しい", "m": "tình cảm, hiền lành"},
+    {"w": "やさしい", "k": "優しい", "m": "dịu dàng, hiền lành, tốt bụng"},
     {"w": "えらい", "k": "偉い", "m": "vĩ đại, đáng kính, đáng khâm phục"},
     {"w": "ちょうどいい", "k": "", "m": "vừa đủ, vừa đúng"},
     {"w": "しゅうかん", "k": "習慣", "m": "tập quán"},
@@ -42,7 +42,7 @@
     {"w": "しばらく", "k": "", "m": "một khoảng thời gian ngắn, một lúc, một lát"},
     {"w": "たいてい", "k": "", "m": "thường, thông thường"},
     {"w": "それに", "k": "", "m": "thêm nữa là, thêm vào đó là"},
-    {"w": "それで", "k": "", "m": "thế thì, thế nên"}
+    {"w": "それで", "k": "", "m": "vì vậy, do đó"}
   ],
   "expressions": [
     {"w": "[ちょっと] お願[ねが]いが あるんですが。", "m": "Tôi có (chút) việc muốn nhờ anh/chị."},

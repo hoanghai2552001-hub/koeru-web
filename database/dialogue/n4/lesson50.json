@@ -1,0 +1,21 @@
+{
+  "lesson": 50,
+  "source": "Minna no Nihongo II SBT — 会話 CD73, tr.205",
+  "status": "REVIEW_REQUIRED",
+  "title": "心[こころ]から 感謝[かんしゃ]いたします",
+  "characters": ["司会者[しかいしゃ]", "ミラー"],
+  "lines": [
+    {"spk": "司会者[しかいしゃ]", "jp": "優勝[ゆうしょう] おめでとう ございます。すばらしい スピーチでした。", "vn": "Xin chúc mừng anh đã giành chiến thắng. Bài phát biểu tuyệt vời quá."},
+    {"spk": "ミラー", "jp": "ありがとう ございます。", "vn": "Cảm ơn ạ."},
+    {"spk": "司会者[しかいしゃ]", "jp": "緊張[きんちょう] なさいましたか。", "vn": "Anh có hồi hộp không?"},
+    {"spk": "ミラー", "jp": "はい、とても 緊張[きんちょう] いたしました。", "vn": "Vâng, tôi đã rất hồi hộp."},
+    {"spk": "司会者[しかいしゃ]", "jp": "練習[れんしゅう]は 大変[たいへん]でしたか。", "vn": "Việc luyện tập có vất vả không?"},
+    {"spk": "ミラー", "jp": "ええ。忙[いそが]しくて、なかなか 練習[れんしゅう]の 時間[じかん]が ありませんでした。", "vn": "Vâng. Vì bận nên tôi hầu như không có thời gian luyện tập."},
+    {"spk": "司会者[しかいしゃ]", "jp": "賞金[しょうきん]は 何[なに]に お使[つか]いに なりますか。", "vn": "Anh sẽ dùng tiền thưởng vào việc gì?"},
+    {"spk": "ミラー", "jp": "そうですね。わたしは 動物[どうぶつ]が 好[す]きで、子[こ]どもの ときから アフリカへ 行[い]くのが 夢[ゆめ]でした。", "vn": "Để tôi xem. Tôi thích động vật, và từ nhỏ đã mơ ước được đến châu Phi."},
+    {"spk": "司会者[しかいしゃ]", "jp": "じゃ、アフリカへ 行[い]かれますか。", "vn": "Vậy là anh sẽ đến châu Phi ạ?"},
+    {"spk": "ミラー", "jp": "はい。アフリカの 自然[しぜん]の 中[なか]で きりんや 象[ぞう]を 見[み]たいと 思[おも]います。", "vn": "Vâng. Tôi muốn được ngắm hươu cao cổ, voi giữa thiên nhiên châu Phi."},
+    {"spk": "司会者[しかいしゃ]", "jp": "子[こ]どもの ころの 夢[ゆめ]が かなうんですね。", "vn": "Vậy là ước mơ thời thơ ấu sắp thành hiện thực rồi nhỉ."},
+    {"spk": "ミラー", "jp": "はい。うれしいです。応援[おうえん]して くださった 皆様[みなさま]に 心[こころ]から 感謝[かんしゃ]いたします。どうも ありがとう ございました。", "vn": "Vâng. Tôi rất vui. Tôi xin chân thành cảm ơn tất cả mọi người đã cổ vũ cho tôi. Xin cảm ơn rất nhiều."}
+  ]
+}

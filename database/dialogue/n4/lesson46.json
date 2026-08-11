@@ -1,0 +1,19 @@
+{
+  "lesson": 46,
+  "source": "Minna no Nihongo II SBT — 会話 CD61, tr.173",
+  "status": "REVIEW_REQUIRED",
+  "title": "先週[せんしゅう] 直[なお]して もらった ばかりなのに、また……",
+  "characters": ["タワポン", "係員[かかりいん]"],
+  "lines": [
+    {"spk": "係員[かかりいん]", "jp": "はい、ガスサービスセンターで ございます。", "vn": "Vâng, đây là trung tâm dịch vụ ga."},
+    {"spk": "タワポン", "jp": "あのう、ガスレンジの 調子[ちょうし]が おかしいんですが……。", "vn": "À, cái bếp ga nhà tôi bị trục trặc……"},
+    {"spk": "係員[かかりいん]", "jp": "どんな 具合[ぐあい]ですか。", "vn": "Cụ thể là bị làm sao ạ?"},
+    {"spk": "タワポン", "jp": "先週[せんしゅう] 直[なお]して もらった ばかりなのに、また 火[ひ]が 消[き]えて しまうんです。危[あぶ]ないので、すぐ 見[み]に 来[き]て くれませんか。", "vn": "Tuần trước vừa mới được sửa mà lửa lại tắt nữa. Nguy hiểm quá, anh đến xem giúp tôi ngay được không?"},
+    {"spk": "係員[かかりいん]", "jp": "わかりました。5時[じ]ごろには 行[い]けると 思[おも]います。ご住所[じゅうしょ]と お名前[なまえ]を お願[ねが]いします。", "vn": "Vâng tôi hiểu rồi. Khoảng 5 giờ tôi có thể đến được. Anh/chị cho tôi xin địa chỉ và tên."},
+    {"spk": "タワポン", "jp": "もしもし、5時[じ]ごろに ガスレンジを 見[み]に 来[き]て くれる はずなんですが、まだですか。", "vn": "Alo, khoảng 5 giờ đáng lẽ có người đến xem bếp ga rồi mà, vẫn chưa đến à?"},
+    {"spk": "係員[かかりいん]", "jp": "申[もう]し訳[わけ] ありません。どちら様[さま]でしょうか。", "vn": "Tôi xin lỗi. Xin cho biết quý danh ạ?"},
+    {"spk": "タワポン", "jp": "タワポンです。", "vn": "Tôi là Tawapon."},
+    {"spk": "係員[かかりいん]", "jp": "少々[しょうしょう] お待[ま]ち ください。係員[かかりいん]に 連絡[れんらく]しますから。", "vn": "Xin đợi một chút. Tôi sẽ liên lạc với nhân viên phụ trách."},
+    {"spk": "係員[かかりいん]", "jp": "お待[ま]たせしました。今[いま] そちらに 向[む]かって いる ところです。あと 10分[ぷん]ほど お待[ま]ち ください。", "vn": "Xin lỗi đã để anh/chị đợi lâu. Bây giờ nhân viên đang trên đường đến chỗ anh/chị. Xin đợi thêm khoảng 10 phút nữa."}
+  ]
+}
