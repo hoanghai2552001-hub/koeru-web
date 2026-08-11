@@ -77,13 +77,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
-      - name: Khởi động HTTP server
-        run: |
-          python3 -m http.server 8000 &
-          echo "Server PID: $!"
-          sleep 2  # chờ server sẵn sàng
-
       - name: Chạy E2E tests
+        # Playwright tự khởi động HTTP server theo config `webServer` trong playwright.config.js
         run: npx playwright test --project=chromium
 
       - name: Upload test report (khi fail)
