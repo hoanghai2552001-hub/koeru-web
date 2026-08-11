@@ -1,0 +1,21 @@
+{
+  "lesson": 31,
+  "source": "Minna no Nihongo II SBT — 会話 CD16, tr.45",
+  "status": "REVIEW_REQUIRED",
+  "title": "料理[りょうり]を 習[なら]おうと 思[おも]って います",
+  "characters": ["小川[おがわ]", "ミラー"],
+  "lines": [
+    {"spk": "小川[おがわ]", "jp": "来月[らいげつ]から 独身[どくしん]です。", "vn": "Từ tháng sau tôi sống độc thân rồi."},
+    {"spk": "ミラー", "jp": "えっ？", "vn": "Hả?"},
+    {"spk": "小川[おがわ]", "jp": "実[じつ]は 大阪[おおさか]の 本社[ほんしゃ]に 転勤[てんきん]なんです。", "vn": "Thật ra là tôi được điều chuyển về trụ sở chính ở Osaka."},
+    {"spk": "ミラー", "jp": "本社[ほんしゃ]ですか。それは おめでとう ございます。でも、どうして 独身[どくしん]に なるんですか。", "vn": "Về trụ sở chính à? Chúc mừng anh nhé. Nhưng sao lại thành độc thân?"},
+    {"spk": "小川[おがわ]", "jp": "妻[つま]と 子[こ]どもは 東京[とうきょう]に 残[のこ]るんです。", "vn": "Vợ con tôi sẽ ở lại Tokyo."},
+    {"spk": "ミラー", "jp": "えっ、いっしょに 行[い]かないんですか。", "vn": "Ơ, không đi cùng à?"},
+    {"spk": "小川[おがわ]", "jp": "ええ。息子[むすこ]は 来年[らいねん] 大学[だいがく]の 入学試験[にゅうがくしけん]が あるから、東京[とうきょう]に 残[のこ]ると 言[い]うし、妻[つま]も 今[いま]の 会社[かいしゃ]を やめたくないと 言[い]うんです。", "vn": "Vâng. Con trai tôi sang năm phải thi đại học nên nói muốn ở lại Tokyo, còn vợ tôi cũng nói không muốn nghỉ công việc hiện tại."},
+    {"spk": "ミラー", "jp": "それで、別々[べつべつ]に 住[す]むんですね。", "vn": "Vậy nên mới sống riêng đúng không."},
+    {"spk": "小川[おがわ]", "jp": "ええ。でも、月[つき]に 2、3回[かい] 週末[しゅうまつ]に 帰[かえ]る つもりです。", "vn": "Vâng. Nhưng tôi định mỗi tháng về nhà vào cuối tuần khoảng 2, 3 lần."},
+    {"spk": "ミラー", "jp": "大変[たいへん]ですね。", "vn": "Vất vả nhỉ."},
+    {"spk": "小川[おがわ]", "jp": "でも、いい チャンスですから、料理[りょうり]を 習[なら]おうと 思[おも]って います。", "vn": "Nhưng đây cũng là cơ hội tốt, nên tôi định học nấu ăn."},
+    {"spk": "ミラー", "jp": "それは いいですね。", "vn": "Vậy thì hay đấy."}
+  ]
+}

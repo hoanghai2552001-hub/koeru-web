@@ -1,0 +1,18 @@
+{
+  "lesson": 32,
+  "source": "Minna no Nihongo II SBT — 会話 CD19, tr.53",
+  "status": "REVIEW_REQUIRED",
+  "title": "無理[むり]を しない ほうが いいですよ",
+  "characters": ["小川[おがわ]", "シュミット"],
+  "lines": [
+    {"spk": "小川[おがわ]", "jp": "シュミットさん、元気[げんき]が ありませんね。どう したんですか。", "vn": "Anh Schmidt, trông không được khỏe nhỉ. Có chuyện gì vậy?"},
+    {"spk": "シュミット", "jp": "最近[さいきん] 体[からだ]の 調子[ちょうし]が よくないんです。時々[ときどき] 頭[あたま]や 胃[い]が 痛[いた]く なるんですよ。", "vn": "Dạo này người tôi không được khỏe. Thỉnh thoảng bị đau đầu, đau dạ dày nữa."},
+    {"spk": "小川[おがわ]", "jp": "それは いけませんね。仕事[しごと]が 忙[いそが]しいんですか。", "vn": "Vậy thì không ổn rồi. Công việc anh có bận không?"},
+    {"spk": "シュミット", "jp": "ええ。残業[ざんぎょう]が 多[おお]いんです。", "vn": "Vâng. Tôi phải làm thêm giờ nhiều lắm."},
+    {"spk": "小川[おがわ]", "jp": "ストレスかも しれませんね。一度[いちど] 病院[びょういん]で 診[み]て もらった ほうが いいですよ。", "vn": "Có thể là do căng thẳng đấy. Anh nên đi khám bác sĩ một lần xem sao."},
+    {"spk": "シュミット", "jp": "ええ、そうですね。", "vn": "Vâng, đúng vậy nhỉ."},
+    {"spk": "小川[おがわ]", "jp": "無理[むり]を しない ほうが いいですよ。", "vn": "Anh không nên cố quá sức đâu."},
+    {"spk": "シュミット", "jp": "ええ、今[いま]の 仕事[しごと]が 終[お]わったら、休[やす]みを 取[と]ろうと 思[おも]って います。", "vn": "Vâng, tôi định xong việc hiện tại thì sẽ xin nghỉ phép."},
+    {"spk": "小川[おがわ]", "jp": "それは いいですね。", "vn": "Vậy thì tốt đấy."}
+  ]
+}
