@@ -225,6 +225,28 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
   border-radius:var(--radius-sm);padding:5px 9px;font-size:.8rem;color:var(--text);line-height:1.4}
 .kj-click{cursor:pointer;border-bottom:1px dotted rgba(245,200,66,.5)}
 .kj-click:hover{color:var(--gold)}
+/* phát âm + ghi chú/ví dụ cá nhân theo từ (mới) */
+.vrow-actions{display:flex;gap:2px;white-space:nowrap}
+.vact-btn{background:none;border:none;color:var(--muted);font-size:.95rem;cursor:pointer;
+  min-width:32px;min-height:32px;font-family:inherit;border-radius:8px}
+.vact-btn:hover{color:var(--accent);background:var(--card3)}
+.vact-btn.has-note{color:var(--gold)}
+.note-textarea{width:100%;margin-top:8px;background:var(--card2);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:9px 11px;color:var(--text);font-family:inherit;font-size:.88rem;
+  line-height:1.6;resize:vertical;min-height:56px}
+.note-field-label{font-size:.7rem;font-weight:800;color:var(--accent);letter-spacing:.04em;margin-top:10px;display:block}
+.note-modal-head{font-size:1.05rem;line-height:1.5;padding-right:24px}
+.note-modal-sub{color:var(--muted);font-size:.85rem;margin-top:2px}
+.note-modal-actions{display:flex;gap:10px;margin-top:14px}
+.note-modal-actions .btn{margin-top:0;flex:1}
+.note-review-item{border:1px solid var(--line);border-radius:var(--radius-md);padding:12px 14px;margin-top:10px}
+.note-review-item .nr-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.note-review-item .nr-jp{font-size:1.05rem}
+.note-review-item .nr-lesson{font-size:.68rem;color:var(--muted);white-space:nowrap}
+.note-review-item .nr-m{color:var(--muted);font-size:.85rem;margin-top:2px}
+.note-review-item .nr-block{margin-top:8px;font-size:.87rem;line-height:1.6}
+.note-review-item .nr-block b{color:var(--accent);font-size:.7rem;letter-spacing:.04em;display:block;margin-bottom:2px}
+.note-review-empty{color:var(--muted);font-size:.88rem;text-align:center;padding:24px 10px}
 .stroke-loading,.stroke-not-found{color:var(--muted);text-align:center;padding:20px;font-size:.85rem}
 .kp-exercises{margin-top:8px}
 .kp-ex-item{margin-top:8px;padding:9px 11px;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm)}
@@ -273,6 +295,7 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
     <p class="sub" id="homeSub">Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo I.
       Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
     <div class="card" id="progressSummary"></div>
+    <button class="btn btn-ghost" id="btnMyNotes" style="width:100%">📒 Ghi chú &amp; ví dụ của tôi</button>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
     <div class="kanji-mode-filter" id="kanjiModeFilter"></div>
     <div class="card hidden" id="searchResult"></div>
@@ -299,6 +322,20 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
   <div class="kp-modal">
     <button class="kp-close" id="kpClose">✕</button>
     <div id="kpBody"></div>
+  </div>
+</div>
+<!-- Modal ghi chú + ví dụ cá nhân theo từ (mới) -->
+<div id="note-overlay" class="kp-overlay">
+  <div class="kp-modal">
+    <button class="kp-close" id="noteClose">✕</button>
+    <div id="noteBody"></div>
+  </div>
+</div>
+<!-- Modal xem lại tất cả ghi chú/ví dụ đã lưu (mới) -->
+<div id="notereview-overlay" class="kp-overlay">
+  <div class="kp-modal" style="max-width:560px">
+    <button class="kp-close" id="noteReviewClose">✕</button>
+    <div id="noteReviewBody"></div>
   </div>
 </div>
 <!-- Modal stroke order — id bắt buộc khớp js/kanji-stroke.js -->
@@ -330,6 +367,106 @@ var curLesson = null, curTab = 'vocab';
 
 function store(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 function load(k, d){ try{ var v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
+
+// ---------- Phát âm (Web Speech API) ----------
+function speak(text){
+  if(!window.speechSynthesis || !text) return;
+  speechSynthesis.cancel();
+  var utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'ja-JP'; utter.rate = 0.82; utter.pitch = 1.0; utter.volume = 1.0;
+  var pick = function(){
+    var voices = speechSynthesis.getVoices().filter(function(v){ return v.lang === 'ja-JP'; });
+    if(voices.length) utter.voice = voices[0];
+    speechSynthesis.speak(utter);
+  };
+  if(speechSynthesis.getVoices().length) pick();
+  else speechSynthesis.addEventListener('voiceschanged', pick, { once: true });
+}
+
+// ---------- Ghi chú & ví dụ cá nhân theo từ vựng ----------
+// Lưu độc lập theo cấp độ + bài + từ, không phụ thuộc thứ tự trong mảng vocab
+var NOTES_KEY = 'koeru_minna_notes';
+function noteKey(level, lessonNum, v){ return level + '-' + lessonNum + '-' + v.w; }
+function getAllNotes(){ return load(NOTES_KEY, {}); }
+function getNote(key){ return getAllNotes()[key] || null; }
+function saveNote(key, meta, example, note){
+  var all = getAllNotes();
+  if(!example && !note){ delete all[key]; }
+  else { all[key] = { level: meta.level, lesson: meta.lesson, w: meta.w, k: meta.k, m: meta.m, example: example, note: note, updated: Date.now() }; }
+  store(NOTES_KEY, all);
+}
+function deleteNote(key){ var all = getAllNotes(); delete all[key]; store(NOTES_KEY, all); }
+
+function openNoteEditor(level, lessonNum, v){
+  var key = noteKey(level, lessonNum, v);
+  var existing = getNote(key) || {};
+  var overlay = qs('note-overlay');
+  var body = qs('noteBody');
+  body.innerHTML =
+    '<div class="note-modal-head">' + kanjiLinkify(v.k || v.w) + (v.k ? ' <span style="color:var(--muted);font-size:.85rem">(' + esc(stripGroupMark(v.w)) + ')</span>' : '') + '</div>' +
+    '<div class="note-modal-sub">' + esc(v.m) + ' · Bài ' + lessonNum + '</div>' +
+    '<label class="note-field-label">Ví dụ của tôi</label>' +
+    '<textarea class="note-textarea" id="noteExampleInput" placeholder="Đặt câu ví dụ với từ này…">' + esc(existing.example || '') + '</textarea>' +
+    '<label class="note-field-label">Ghi chú</label>' +
+    '<textarea class="note-textarea" id="noteNoteInput" placeholder="Cách nhớ, lưu ý cách dùng…">' + esc(existing.note || '') + '</textarea>' +
+    '<div class="note-modal-actions">' +
+      (existing.example || existing.note ? '<button class="btn btn-ghost" id="noteDeleteBtn" style="color:var(--bad)">Xoá</button>' : '') +
+      '<button class="btn btn-main" id="noteSaveBtn">Lưu lại</button>' +
+    '</div>';
+  overlay.classList.add('visible');
+  body.querySelector('#noteSaveBtn').onclick = function(){
+    var ex = body.querySelector('#noteExampleInput').value.trim();
+    var nt = body.querySelector('#noteNoteInput').value.trim();
+    saveNote(key, { level: level, lesson: lessonNum, w: v.w, k: v.k, m: v.m }, ex, nt);
+    overlay.classList.remove('visible');
+    if(curLesson) renderTab();
+  };
+  var delBtn = body.querySelector('#noteDeleteBtn');
+  if(delBtn) delBtn.onclick = function(){
+    deleteNote(key);
+    overlay.classList.remove('visible');
+    if(curLesson) renderTab();
+  };
+}
+qs('noteClose').onclick = function(){ qs('note-overlay').classList.remove('visible'); };
+qs('note-overlay').onclick = function(e){ if(e.target === this) this.classList.remove('visible'); };
+
+function renderNoteReview(){
+  var all = getAllNotes();
+  var keys = Object.keys(all).sort(function(a,b){ return all[b].updated - all[a].updated; });
+  var h = '<h3 style="font-size:1.1rem">📒 Ghi chú &amp; ví dụ của tôi</h3>';
+  if(!keys.length){
+    h += '<div class="note-review-empty">Chưa có ghi chú nào. Vào một bài học → tab Từ vựng → bấm ✎ cạnh từ để thêm ví dụ/ghi chú riêng.</div>';
+  } else {
+    h += '<p class="note-modal-sub">' + keys.length + ' từ đã ghi chú</p>';
+    keys.forEach(function(key){
+      var n = all[key];
+      h += '<div class="note-review-item" data-key="' + esc(key) + '">' +
+        '<div class="nr-head"><span class="nr-jp">' + kanjiLinkify(n.k || n.w) + '</span>' +
+        '<span class="nr-lesson">' + n.level + ' · Bài ' + n.lesson + '</span></div>' +
+        '<div class="nr-m">' + esc(n.m) + '</div>' +
+        (n.example ? '<div class="nr-block"><b>VÍ DỤ</b>' + esc(n.example) + '</div>' : '') +
+        (n.note ? '<div class="nr-block"><b>GHI CHÚ</b>' + esc(n.note) + '</div>' : '') +
+        '<div class="note-modal-actions">' +
+          '<button class="btn btn-ghost vact-speak" data-w="' + esc(n.w) + '" style="margin-top:10px">🔊 Nghe</button>' +
+          '<button class="btn btn-ghost vact-del" data-key="' + esc(key) + '" style="margin-top:10px;color:var(--bad)">Xoá</button>' +
+        '</div></div>';
+    });
+  }
+  qs('noteReviewBody').innerHTML = h;
+  qs('noteReviewBody').querySelectorAll('.vact-speak').forEach(function(b){
+    b.onclick = function(){ speak(b.dataset.w); };
+  });
+  qs('noteReviewBody').querySelectorAll('.vact-del').forEach(function(b){
+    b.onclick = function(){ deleteNote(b.dataset.key); renderNoteReview(); };
+  });
+  qs('noteReviewBody').querySelectorAll('.kj-click').forEach(function(el){
+    el.onclick = function(){ openKanjiPopup(el.dataset.kj); };
+  });
+}
+qs('btnMyNotes').onclick = function(){ renderNoteReview(); qs('notereview-overlay').classList.add('visible'); };
+qs('noteReviewClose').onclick = function(){ qs('notereview-overlay').classList.remove('visible'); };
+qs('notereview-overlay').onclick = function(e){ if(e.target === this) this.classList.remove('visible'); };
 
 // Cấu hình 2 cấp độ — prefix giữ nguyên key cũ mn5_/mn4_ để không mất tiến độ
 var LEVELS = {
@@ -657,6 +794,12 @@ function renderVocab(l){
   box.querySelectorAll('.kj-click').forEach(function(el){
     el.onclick = function(){ openKanjiPopup(el.dataset.kj); };
   });
+  box.querySelectorAll('.vact-speak').forEach(function(el){
+    el.onclick = function(e){ e.stopPropagation(); speak(l.vocab[el.dataset.i].w); };
+  });
+  box.querySelectorAll('.vact-note').forEach(function(el){
+    el.onclick = function(e){ e.stopPropagation(); openNoteEditor(curLevel, l.lesson, l.vocab[el.dataset.i]); };
+  });
   if(curVocabMode === 'flash'){
     box.querySelectorAll('.flash-card').forEach(function(el){
       el.onclick = function(){ el.classList.toggle('flipped'); };
@@ -684,6 +827,7 @@ function renderFlashOne(l){
   if(!flashOne.list.length || flashOne.list.length !== l.vocab.length) resetFlashOne(l);
   var v = l.vocab[flashOne.list[flashOne.idx]];
   var g = verbGroup(v.w);
+  var hasNote = !!getNote(noteKey(curLevel, l.lesson, v));
   return '<div class="flash-one-bar">' +
       '<span class="flash-one-count">Thẻ ' + (flashOne.idx+1) + '/' + l.vocab.length + '</span>' +
       '<div class="flash-one-order">' +
@@ -693,6 +837,10 @@ function renderFlashOne(l){
     '<div class="flash-one-card" id="foCard"><span class="front">' + flashFront(v) + '</span>' +
       '<span class="back">' + esc(v.m) + (g ? '<br><b style="color:var(--accent)">Nhóm ' + g + '</b>' : '') +
       '</span><span class="tap">chạm để xem nghĩa</span></div>' +
+    '<div class="vrow-actions" style="justify-content:center;margin-top:10px">' +
+      '<button class="vact-btn" id="foSpeak" title="Nghe phát âm">🔊 Nghe</button>' +
+      '<button class="vact-btn' + (hasNote ? ' has-note' : '') + '" id="foNote" title="Ví dụ / ghi chú">✎ Ghi chú</button>' +
+    '</div>' +
     '<div class="flash-one-nav">' +
       '<button class="btn btn-ghost" id="foPrev">← Lùi lại</button>' +
       '<button class="btn btn-ghost" id="foNext">Tiếp theo →</button>' +
@@ -702,6 +850,8 @@ function renderFlashOne(l){
 function bindFlashOne(l){
   var box = qs('tabContent');
   box.querySelector('#foCard').onclick = function(){ this.classList.toggle('flipped'); };
+  box.querySelector('#foSpeak').onclick = function(){ speak(l.vocab[flashOne.list[flashOne.idx]].w); };
+  box.querySelector('#foNote').onclick = function(){ openNoteEditor(curLevel, l.lesson, l.vocab[flashOne.list[flashOne.idx]]); };
   box.querySelector('#foPrev').onclick = function(){
     flashOne.idx = (flashOne.idx - 1 + l.vocab.length) % l.vocab.length;
     renderVocab(l);
@@ -722,14 +872,19 @@ function bindFlashOne(l){
 
 // Bảng: nhóm mỗi 8 từ kèm heading phụ + thead sticky (mới)
 function renderVocabTable(l){
-  var h = '<table><thead><tr><th>Từ</th><th>Kanji</th><th>Nghĩa</th><th>Nhóm</th></tr></thead><tbody>';
+  var h = '<table><thead><tr><th>Từ</th><th>Kanji</th><th>Nghĩa</th><th>Nhóm</th><th></th></tr></thead><tbody>';
   l.vocab.forEach(function(v, i){
     if(i % 8 === 0){
-      h += '<tr class="vgroup"><td colspan="4">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
+      h += '<tr class="vgroup"><td colspan="5">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
     }
     var g = verbGroup(v.w);
+    var hasNote = !!getNote(noteKey(curLevel, l.lesson, v));
     h += '<tr><td class="jp">' + esc(stripGroupMark(v.w)) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
-      '<td class="vg">' + (g ? '<i>' + g + '</i>' : '') + '</td></tr>';
+      '<td class="vg">' + (g ? '<i>' + g + '</i>' : '') + '</td>' +
+      '<td><div class="vrow-actions">' +
+        '<button class="vact-btn vact-speak" data-i="' + i + '" title="Nghe phát âm">🔊</button>' +
+        '<button class="vact-btn vact-note' + (hasNote ? ' has-note' : '') + '" data-i="' + i + '" title="Ví dụ / ghi chú">✎</button>' +
+      '</div></td></tr>';
   });
   return h + '</tbody></table>';
 }
