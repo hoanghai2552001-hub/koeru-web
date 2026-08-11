@@ -1,0 +1,18 @@
+{
+  "lesson": 40,
+  "source": "Minna no Nihongo II SBT — 会話 CD43, tr.121",
+  "status": "REVIEW_REQUIRED",
+  "title": "友達[ともだち]が できたか どうか、心配[しんぱい]です",
+  "characters": ["クララ", "伊藤先生[いとうせんせい]"],
+  "lines": [
+    {"spk": "クララ", "jp": "先生[せんせい]、ハンスは 学校[がっこう]で どうでしょうか。友達[ともだち]が できたか どうか、心配[しんぱい]なんですが……。", "vn": "Cô ơi, cháu Hans ở trường thế nào ạ? Tôi lo không biết cháu đã có bạn chưa……"},
+    {"spk": "伊藤先生[いとうせんせい]", "jp": "大丈夫[だいじょうぶ]ですよ。ハンス君[くん]は クラスで とても 人気[にんき]が あります。", "vn": "Không sao đâu ạ. Cháu Hans rất được các bạn trong lớp yêu quý đấy."},
+    {"spk": "クララ", "jp": "そうですか。安心[あんしん]しました。勉強[べんきょう]は どうですか。漢字[かんじ]が 大変[たいへん]だと 言[い]って いますが……。", "vn": "Vậy à. Tôi yên tâm rồi. Còn việc học thì sao ạ? Cháu nói học chữ Kanji vất vả lắm……"},
+    {"spk": "伊藤先生[いとうせんせい]", "jp": "毎日[まいにち] 漢字[かんじ]の テストを して いますが、ハンス君[くん]は いい 成績[せいせき]ですよ。", "vn": "Ngày nào chúng tôi cũng có kiểm tra Kanji, nhưng cháu Hans đạt điểm tốt lắm đấy."},
+    {"spk": "クララ", "jp": "そうですか。ありがとう ございます。", "vn": "Vậy ạ. Cảm ơn cô nhiều."},
+    {"spk": "伊藤先生[いとうせんせい]", "jp": "ところで、もうすぐ 運動会[うんどうかい]ですが、お父[とう]さんも いらっしゃいますか。", "vn": "À nhân tiện, sắp tới có hội thao rồi, bố cháu có đến được không ạ?"},
+    {"spk": "クララ", "jp": "ええ。", "vn": "Có ạ."},
+    {"spk": "伊藤先生[いとうせんせい]", "jp": "ハンス君[くん]が 学校[がっこう]で どんな 様子[ようす]か、ぜひ 見[み]て ください。", "vn": "Xin anh chị nhất định đến xem cháu Hans thể hiện ở trường thế nào nhé."},
+    {"spk": "クララ", "jp": "わかりました。これからも よろしく お願[ねが]いします。", "vn": "Vâng tôi hiểu rồi. Từ nay xin cô tiếp tục quan tâm giúp đỡ cháu."}
+  ]
+}

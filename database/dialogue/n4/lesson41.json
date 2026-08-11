@@ -1,0 +1,15 @@
+{
+  "lesson": 41,
+  "source": "Minna no Nihongo II SBT — 会話 CD46, tr.131",
+  "status": "REVIEW_REQUIRED",
+  "title": "ご結婚[けっこん] おめでとう ございます",
+  "characters": ["学長[がくちょう]", "皆[みな]", "司会者[しかいしゃ]", "松本良子[まつもとよしこ]", "大学職員[だいがくしょくいん]", "ミラー"],
+  "lines": [
+    {"spk": "学長[がくちょう]", "jp": "ワットさん、いずみさん、ご結婚[けっこん] おめでとう ございます。乾杯[かんぱい]。", "vn": "Anh Watt, chị Izumi, chúc mừng hai người kết hôn. Nào, cạn ly."},
+    {"spk": "皆[みな]", "jp": "乾杯[かんぱい]。", "vn": "Cạn ly!"},
+    {"spk": "司会者[しかいしゃ]", "jp": "次[つぎ]に こちらの 皆[みな]さんに ひとことずつ お願[ねが]いします。", "vn": "Tiếp theo, xin mời quý vị ở đây mỗi người nói vài lời."},
+    {"spk": "松本良子[まつもとよしこ]", "jp": "わたしは 去年[きょねん]の 夏[なつ]の クラスで ワット先生[せんせい]に 英語[えいご]を 教[おし]えて いただきました。先生[せんせい]の 授業[じゅぎょう]は ユーモアが あって、楽[たの]しかったです。実[じつ]は その クラスに いずみさんも いらっしゃったんです。", "vn": "Tôi đã được thầy Watt dạy tiếng Anh trong lớp học mùa hè năm ngoái. Giờ học của thầy rất hài hước và vui vẻ. Thật ra chị Izumi cũng ở trong lớp học đó đấy."},
+    {"spk": "大学職員[だいがくしょくいん]", "jp": "わたしは 先生[せんせい]に 『上手[じょうず]な 整理[せいり]の 方法[ほうほう]』と いう 本[ほん]を いただきました。先生[せんせい]は 整理[せいり]するのが お上手[じょうず]で、研究室[けんきゅうしつ]は いつも きれいです。きっと お二人[ふたり]の お宅[たく]も すてきだと 思[おも]います。", "vn": "Tôi đã được thầy tặng cuốn sách 'Cách sắp xếp khéo léo'. Thầy sắp xếp rất giỏi, phòng nghiên cứu lúc nào cũng gọn gàng. Chắc chắn nhà của hai người cũng sẽ rất đẹp."},
+    {"spk": "ミラー", "jp": "ワットさん、今度[こんど]は 『すてきな 人[ひと]と 結婚[けっこん]する 方法[ほうほう]』と いう 本[ほん]を 書[か]いて くださいませんか。ぜひ 読[よ]んで、勉強[べんきょう]したいです。どうぞ お幸[しあわ]せに。", "vn": "Anh Watt ơi, lần này anh viết giúp cuốn sách 'Cách kết hôn với người tuyệt vời' được không ạ? Tôi rất muốn đọc để học hỏi. Chúc hai người hạnh phúc."}
+  ]
+}

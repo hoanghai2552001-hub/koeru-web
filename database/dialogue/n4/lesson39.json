@@ -1,0 +1,17 @@
+{
+  "lesson": 39,
+  "source": "Minna no Nihongo II SBT — 会話 CD40, tr.113",
+  "status": "REVIEW_REQUIRED",
+  "title": "遅[おく]れて、すみません",
+  "characters": ["ミラー", "中村課長[なかむらかちょう]"],
+  "lines": [
+    {"spk": "ミラー", "jp": "課長[かちょう]、遅[おく]れて、すみません。", "vn": "Trưởng phòng, xin lỗi vì tôi đến muộn."},
+    {"spk": "中村課長[なかむらかちょう]", "jp": "ミラーさん、どう したんですか。", "vn": "Anh Miller, có chuyện gì vậy?"},
+    {"spk": "ミラー", "jp": "実[じつ]は 来[く]る 途中[とちゅう]で 事故[じこ]が あって、バスが 遅[おく]れて しまったんです。", "vn": "Thật ra là trên đường đến đây có tai nạn, nên xe buýt bị chậm giờ mất."},
+    {"spk": "中村課長[なかむらかちょう]", "jp": "バスの 事故[じこ]ですか。", "vn": "Xe buýt gặp tai nạn à?"},
+    {"spk": "ミラー", "jp": "いいえ。交差点[こうさてん]で トラックと 車[くるま]が ぶつかって、バスが 動[うご]かなかったんです。", "vn": "Không ạ. Ở ngã tư có xe tải và xe hơi đâm nhau, nên xe buýt không đi được."},
+    {"spk": "中村課長[なかむらかちょう]", "jp": "それは 大変[たいへん]でしたね。連絡[れんらく]が ないので、みんな 心配[しんぱい]して いたんですよ。", "vn": "Vất vả cho anh quá nhỉ. Vì không có liên lạc gì nên mọi người đều lo lắng đấy."},
+    {"spk": "ミラー", "jp": "電話[でんわ]したかったんですが、ケータイを うちに 忘[わす]れて しまって……。どうも すみませんでした。", "vn": "Tôi cũng muốn gọi điện lắm, nhưng lại để quên điện thoại ở nhà mất…… Thật xin lỗi mọi người."},
+    {"spk": "中村課長[なかむらかちょう]", "jp": "わかりました。じゃ、会議[かいぎ]を 始[はじ]めましょう。", "vn": "Tôi hiểu rồi. Vậy chúng ta bắt đầu họp thôi."}
+  ]
+}

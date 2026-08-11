@@ -1,0 +1,19 @@
+{
+  "lesson": 44,
+  "source": "Minna no Nihongo II SBT — 会話 CD55, tr.155",
+  "status": "REVIEW_REQUIRED",
+  "title": "この 写真[しゃしん]みたいに して ください",
+  "characters": ["美容師[びようし]", "イー"],
+  "lines": [
+    {"spk": "美容師[びようし]", "jp": "いらっしゃいませ。きょうは どう なさいますか。", "vn": "Xin chào quý khách. Hôm nay chị muốn làm kiểu gì ạ?"},
+    {"spk": "イー", "jp": "カット、お願[ねが]いします。", "vn": "Cho tôi cắt tóc."},
+    {"spk": "美容師[びようし]", "jp": "じゃ、シャンプーを しますから、こちらへ どうぞ。", "vn": "Vậy để tôi gội đầu trước, mời chị qua đây."},
+    {"spk": "美容師[びようし]", "jp": "カットは どういうふうに なさいますか。", "vn": "Chị muốn cắt kiểu như thế nào ạ?"},
+    {"spk": "イー", "jp": "ショートに したいんですけど……。この 写真[しゃしん]みたいに して ください。", "vn": "Tôi muốn cắt ngắn…… Anh cắt giống như trong ảnh này giúp tôi nhé."},
+    {"spk": "美容師[びようし]", "jp": "あ、すてきですね。", "vn": "À, đẹp đấy ạ."},
+    {"spk": "美容師[びようし]", "jp": "前[まえ]の 長[なが]さは これで よろしいでしょうか。", "vn": "Độ dài phần tóc mái thế này được chưa ạ?"},
+    {"spk": "イー", "jp": "そうですね。もう 少[すこ]し 短[みじか]く して ください。", "vn": "Để xem. Anh cắt ngắn thêm chút nữa giúp tôi."},
+    {"spk": "美容師[びようし]", "jp": "どうも お疲[つか]れさまでした。", "vn": "Xong rồi ạ, cảm ơn chị đã chờ."},
+    {"spk": "イー", "jp": "ありがとう。", "vn": "Cảm ơn anh."}
+  ]
+}
