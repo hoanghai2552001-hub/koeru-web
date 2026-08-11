@@ -132,6 +132,23 @@ body.no-furigana ruby rt{display:none}
 .gr-ex{margin-top:8px;padding:9px 12px;background:var(--card2);border-radius:var(--radius-sm)}
 .gr-ex .jp{font-size:1.02rem;line-height:1.7}
 .gr-ex .vn{color:var(--muted);font-size:.85rem;margin-top:3px;line-height:1.5}
+/* hội thoại (mới) */
+.dlg-title{font-weight:700;font-size:1.02rem;margin-bottom:4px}
+.dlg-src{font-size:.75rem;color:var(--muted);margin-bottom:14px}
+.dlg-toolbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.dlg-line{display:flex;gap:10px;align-items:flex-start;margin-top:10px;padding:10px 12px;
+  background:var(--card2);border-radius:var(--radius-sm)}
+.dlg-spk{flex:none;width:64px;font-size:.78rem;font-weight:800;color:var(--accent);line-height:1.7;
+  padding-top:2px;word-break:break-word}
+.dlg-body{flex:1;min-width:0}
+.dlg-jp{font-size:1.02rem;line-height:1.7}
+.dlg-vn{display:none;color:var(--muted);font-size:.85rem;margin-top:4px;line-height:1.5}
+.dlg-vn.on{display:block}
+.dlg-play{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);
+  background:var(--card);color:var(--accent);font-size:.85rem;cursor:pointer;display:flex;
+  align-items:center;justify-content:center;padding:0}
+.dlg-play:active{transform:scale(.92)}
+.dlg-play.playing{border-color:var(--accent);color:var(--accent);background:rgba(232,132,90,.15)}
 /* quiz */
 .qprompt{font-size:1.3rem;line-height:1.7;margin-bottom:6px}
 .qsub{color:var(--muted);font-size:.82rem;margin-bottom:16px}
@@ -285,6 +302,7 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
     <h1 id="dTitle"></h1>
     <div class="tabs">
       <button class="tab on" data-tab="vocab">Từ vựng</button>
+      <button class="tab" data-tab="dialogue">Hội thoại</button>
       <button class="tab" data-tab="grammar">Mẫu câu</button>
       <button class="tab" data-tab="write">Luyện viết</button>
       <button class="tab" data-tab="quiz">Kiểm tra</button>
@@ -322,6 +340,7 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
 <script src="minna-n5-data.js?v=20260719"></script>
 <script src="minna-n4-data.js?v=20260719"></script>
 <script src="minna-grammar-data.js?v=20260719"></script>
+<script src="minna-dialogue-data.js?v=20260811"></script>
 <script>
 (function(){
 'use strict';
@@ -452,6 +471,10 @@ function verbGroup(w){
 // Bỏ ký hiệu nhóm động từ ⅠⅡⅢ khỏi phần hiển thị "Từ" — đã có cột/nhãn "Nhóm" riêng (mới)
 function stripGroupMark(w){
   return (w || '').replace(/[ⅠⅡⅢ](?=\s*\[|$)/g, '');
+}
+// Kana thuần (bỏ marker nhóm + ghi chú [..]) — dùng làm tên file audio/vocab/<kana>.mp3 và text TTS
+function vocabKana(w){
+  return stripGroupMark(w || '').replace(/\s*\[[^\]]*\]/g, '').trim();
 }
 
 // ---------- Home ----------
@@ -618,6 +641,7 @@ function openLesson(l){
 function renderTab(){
   var l = curLesson;
   if(curTab === 'vocab') renderVocab(l);
+  else if(curTab === 'dialogue') renderDialogue(l);
   else if(curTab === 'grammar') renderGrammar(l);
   else if(curTab === 'write') renderWrite(l);
   else renderQuizStart(l);
@@ -656,6 +680,13 @@ function renderVocab(l){
   });
   box.querySelectorAll('.kj-click').forEach(function(el){
     el.onclick = function(){ openKanjiPopup(el.dataset.kj); };
+  });
+  box.querySelectorAll('.voc-play').forEach(function(btn){
+    btn.onclick = function(e){
+      e.stopPropagation();
+      var w = btn.dataset.w;
+      playAudio(btn, w, 'audio/vocab/' + encodeURIComponent(w) + '.mp3');
+    };
   });
   if(curVocabMode === 'flash'){
     box.querySelectorAll('.flash-card').forEach(function(el){
@@ -722,13 +753,14 @@ function bindFlashOne(l){
 
 // Bảng: nhóm mỗi 8 từ kèm heading phụ + thead sticky (mới)
 function renderVocabTable(l){
-  var h = '<table><thead><tr><th>Từ</th><th>Kanji</th><th>Nghĩa</th><th>Nhóm</th></tr></thead><tbody>';
+  var h = '<table><thead><tr><th></th><th>Từ</th><th>Kanji</th><th>Nghĩa</th><th>Nhóm</th></tr></thead><tbody>';
   l.vocab.forEach(function(v, i){
     if(i % 8 === 0){
-      h += '<tr class="vgroup"><td colspan="4">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
+      h += '<tr class="vgroup"><td colspan="5">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
     }
     var g = verbGroup(v.w);
-    h += '<tr><td class="jp">' + esc(stripGroupMark(v.w)) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
+    h += '<tr><td><button class="dlg-play voc-play" data-w="' + esc(vocabKana(v.w)) + '" title="Nghe">🔊</button></td>' +
+      '<td class="jp">' + esc(stripGroupMark(v.w)) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
       '<td class="vg">' + (g ? '<i>' + g + '</i>' : '') + '</td></tr>';
   });
   return h + '</tbody></table>';
@@ -811,6 +843,89 @@ function renderGrammar(l){
     el.querySelector('.gr-head').onclick = function(){
       grOpen[l.lesson + '-' + i] = !grOpen[l.lesson + '-' + i];
       el.classList.toggle('open');
+    };
+  });
+}
+
+// --- Audio: thử phát mp3 local trước, lỗi/thiếu file thì fallback giọng đọc trình duyệt ---
+// Quy ước file mp3 hội thoại (chưa có sẵn, tạo khung để bổ sung sau):
+// audio/dialogue/<n4|n5>/lesson<N>_<01,02,...>.mp3 — 1 file / lượt thoại, đánh số theo thứ tự trong lines[]
+function jpReading(s){
+  return s.replace(/[一-鿿々]+\[([ぁ-ゖー]+)\]/g, '$1');
+}
+function speakJP(text, done){
+  if(!window.speechSynthesis){ if(done) done(); return; }
+  speechSynthesis.cancel();
+  var utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'ja-JP';
+  utter.rate = 0.85;
+  utter.pitch = 1.0;
+  if(done) utter.onend = done;
+  var PREFERRED = ['Haruka', 'Sayaka', 'Ayumi', 'Ichiro'];
+  var speak = function(){
+    var voices = speechSynthesis.getVoices().filter(function(v){ return v.lang === 'ja-JP'; });
+    var picked = null;
+    for(var i=0;i<PREFERRED.length && !picked;i++){
+      picked = voices.filter(function(v){ return v.name.indexOf(PREFERRED[i]) >= 0; })[0];
+    }
+    if(!picked && voices.length) picked = voices[0];
+    if(picked) utter.voice = picked;
+    setTimeout(function(){ speechSynthesis.speak(utter); }, 60);
+  };
+  if(speechSynthesis.getVoices().length) speak();
+  else speechSynthesis.addEventListener('voiceschanged', speak, { once: true });
+}
+function playAudio(btn, text, mp3Path){
+  document.querySelectorAll('.dlg-play.playing, .voc-play.playing').forEach(function(x){
+    if(x !== btn) x.classList.remove('playing');
+  });
+  btn.classList.add('playing');
+  var done = function(){ btn.classList.remove('playing'); };
+  var a = new Audio(mp3Path);
+  a.oncanplaythrough = function(){ a.play().catch(function(){ speakJP(text, done); }); };
+  a.onerror = function(){ speakJP(text, done); };
+  a.onended = done;
+  a.load();
+}
+
+// --- Hội thoại (会話): 1 bài = 1 hội thoại nhiều lượt, khớp ngữ pháp/từ vựng của bài ---
+var dlgShowVn = true;
+function renderDialogue(l){
+  var box = qs('tabContent');
+  var d = (window.MINNA_DIALOGUE || {})[l.lesson];
+  if(!d || !d.lines || !d.lines.length){
+    box.innerHTML = '<p class="sub">Chưa có dữ liệu hội thoại.</p>';
+    return;
+  }
+  var h = '<div class="dlg-title">' + rubyfy(d.title || '') + '</div>';
+  if(d.characters && d.characters.length){
+    h += '<div class="dlg-src">Nhân vật: ' + d.characters.map(function(c){ return rubyfy(c); }).join(', ') + '</div>';
+  }
+  h += '<div class="dlg-toolbar"><button class="btn btn-ghost" id="dlgToggleVn" style="margin-top:0">' +
+    (dlgShowVn ? 'Ẩn nghĩa' : 'Hiện nghĩa') + '</button></div>';
+  d.lines.forEach(function(ln, i){
+    h += '<div class="dlg-line">' +
+      '<span class="dlg-spk">' + rubyfy(ln.spk || '') + '</span>' +
+      '<div class="dlg-body">' +
+        '<div class="dlg-jp">' + rubyfy(ln.jp) + '</div>' +
+        '<div class="dlg-vn' + (dlgShowVn ? ' on' : '') + '">' + esc(ln.vn || '') + '</div>' +
+      '</div>' +
+      '<button class="dlg-play" data-i="' + i + '" title="Nghe">🔊</button>' +
+    '</div>';
+  });
+  if(d.status === 'REVIEW_REQUIRED'){
+    h += '<div class="warn">⚠ Dữ liệu hội thoại chưa được giáo viên duyệt lần cuối (REVIEW_REQUIRED).</div>';
+  }
+  box.innerHTML = h;
+  var vnBtn = qs('dlgToggleVn');
+  if(vnBtn) vnBtn.onclick = function(){ dlgShowVn = !dlgShowVn; renderDialogue(l); };
+  box.querySelectorAll('.dlg-play').forEach(function(btn){
+    btn.onclick = function(){
+      var i = +btn.dataset.i;
+      var ln = d.lines[i];
+      var mp3 = 'audio/dialogue/' + curLevel.toLowerCase() + '/lesson' + l.lesson + '_' +
+        (i+1 < 10 ? '0' + (i+1) : (i+1)) + '.mp3';
+      playAudio(btn, jpReading(ln.jp), mp3);
     };
   });
 }

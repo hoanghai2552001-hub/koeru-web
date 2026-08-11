@@ -1,0 +1,23 @@
+{
+  "lesson": 29,
+  "source": "Minna no Nihongo II SBT — 会話 CD10, tr.27",
+  "status": "REVIEW_REQUIRED",
+  "title": "忘[わす]れ物[もの]を して しまったんです",
+  "characters": ["イー", "駅員[えきいん]"],
+  "lines": [
+    {"spk": "イー", "jp": "すみません。今[いま]の 電車[でんしゃ]に 忘[わす]れ物[もの]を して しまったんですが……。", "vn": "Xin lỗi. Tôi vừa để quên đồ trên chuyến tàu vừa rồi……"},
+    {"spk": "駅員[えきいん]", "jp": "何[なに]を 忘[わす]れたんですか。", "vn": "Anh/chị để quên gì vậy?"},
+    {"spk": "イー", "jp": "青[あお]い かばんです。このくらいの……。外側[そとがわ]に 大[おお]きい ポケットが 付[つ]いて います。", "vn": "Cái túi màu xanh. Cỡ khoảng chừng này…… Bên ngoài có cái túi to."},
+    {"spk": "駅員[えきいん]", "jp": "どの 辺[へん]に 置[お]きましたか。", "vn": "Anh/chị để ở khoảng chỗ nào?"},
+    {"spk": "イー", "jp": "よく 覚[おぼ]えて いません。でも、網棚[あみだな]の 上[うえ]に 置[お]きました。", "vn": "Tôi không nhớ rõ lắm. Nhưng mà tôi để trên giá hành lý."},
+    {"spk": "駅員[えきいん]", "jp": "中[なか]に 何[なに]が 入[はい]って いますか。", "vn": "Bên trong có những gì?"},
+    {"spk": "イー", "jp": "えーと、確[たし]か、本[ほん]と 傘[かさ]が 入[はい]って います。", "vn": "Để xem, hình như là có sách với ô."},
+    {"spk": "駅員[えきいん]", "jp": "じゃ、調[しら]べますから、ちょっと 待[ま]って いて ください。", "vn": "Vậy để tôi kiểm tra, anh/chị đợi một chút nhé."},
+    {"spk": "駅員[えきいん]", "jp": "ありましたよ。", "vn": "Có rồi đây."},
+    {"spk": "イー", "jp": "ああ、よかった。", "vn": "Ôi, may quá."},
+    {"spk": "駅員[えきいん]", "jp": "今[いま] 新宿駅[しんじゅくえき]に ありますが、どう しますか。", "vn": "Hiện đồ đang ở ga Shinjuku, anh/chị muốn xử lý thế nào?"},
+    {"spk": "イー", "jp": "すぐ 取[と]りに 行[い]きます。", "vn": "Tôi sẽ đến lấy ngay."},
+    {"spk": "駅員[えきいん]", "jp": "じゃ、新宿駅[しんじゅくえき]の 事務所[じむしょ]に 行[い]って ください。", "vn": "Vậy anh/chị đến văn phòng ga Shinjuku nhé."},
+    {"spk": "イー", "jp": "はい。どうも ありがとう ございました。", "vn": "Vâng. Cảm ơn anh nhiều."}
+  ]
+}

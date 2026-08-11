@@ -1,0 +1,21 @@
+{
+  "lesson": 28,
+  "source": "Minna no Nihongo II SBT — 会話 CD07, tr.19",
+  "status": "REVIEW_REQUIRED",
+  "title": "出張[しゅっちょう]も 多[おお]いし、試験[しけん]も あるし……",
+  "characters": ["小川幸子[おがわさちこ]", "ミラー"],
+  "lines": [
+    {"spk": "小川幸子[おがわさちこ]", "jp": "ミラーさん、ちょっと お願[ねが]いが あるんですが。", "vn": "Anh Miller ơi, tôi có chút việc muốn nhờ anh."},
+    {"spk": "ミラー", "jp": "何[なん]ですか。", "vn": "Chuyện gì vậy?"},
+    {"spk": "小川幸子[おがわさちこ]", "jp": "実[じつ]は 8月[がつ]に オーストラリアへ ホームステイに 行[い]くんです。", "vn": "Thật ra là tháng 8 tôi sẽ đi homestay ở Úc."},
+    {"spk": "ミラー", "jp": "ホームステイですか。いいですね。", "vn": "Homestay hả? Hay quá nhỉ."},
+    {"spk": "小川幸子[おがわさちこ]", "jp": "ええ。それで 今[いま] 友達[ともだち]と 英語[えいご]を 勉強[べんきょう]して いるんですが……。", "vn": "Vâng. Nên là bây giờ tôi đang học tiếng Anh cùng bạn……."},
+    {"spk": "ミラー", "jp": "ええ。", "vn": "Ừ."},
+    {"spk": "小川幸子[おがわさちこ]", "jp": "なかなか 上手[じょうず]に ならないんです。先生[せんせい]も いないし、英語[えいご]で 話[はな]す チャンスも ないし……。ミラーさん、会話[かいわ]の 先生[せんせい]に なって いただけませんか。", "vn": "Mãi mà vẫn không giỏi lên được. Vừa không có thầy, vừa không có cơ hội nói tiếng Anh…… Anh Miller làm thầy dạy hội thoại cho tôi được không?"},
+    {"spk": "ミラー", "jp": "え？先生[せんせい]に？うーん、ちょっと 仕事[しごと]が……。", "vn": "Hả? Làm thầy á? Ừm, công việc của tôi hơi……"},
+    {"spk": "小川幸子[おがわさちこ]", "jp": "お暇[ひま]な とき、お茶[ちゃ]でも 飲[の]みながら……。", "vn": "Lúc nào rảnh thì mình vừa uống trà vừa nói chuyện thôi mà……"},
+    {"spk": "ミラー", "jp": "うーん、出張[しゅっちょう]も 多[おお]いし、もうすぐ 日本語[にほんご]の 試験[しけん]も あるし……。", "vn": "Ừm, tôi vừa hay phải đi công tác, vừa sắp có kỳ thi tiếng Nhật nữa……"},
+    {"spk": "小川幸子[おがわさちこ]", "jp": "そうですか。", "vn": "Vậy à."},
+    {"spk": "ミラー", "jp": "すみません。", "vn": "Xin lỗi nhé."}
+  ]
+}
