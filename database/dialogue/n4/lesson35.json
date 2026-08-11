@@ -1,0 +1,20 @@
+{
+  "lesson": 35,
+  "source": "Minna no Nihongo II SBT — 会話 CD28, tr.77",
+  "status": "REVIEW_REQUIRED",
+  "title": "どこか いい 所[ところ]、ありませんか",
+  "characters": ["タワポン", "鈴木[すずき]"],
+  "lines": [
+    {"spk": "タワポン", "jp": "鈴木[すずき]さん、冬休[ふゆやす]みに 友達[ともだち]と スキーに 行[い]きたいんですが、どこか いい 所[ところ]、ありませんか。", "vn": "Anh Suzuki, kỳ nghỉ đông tôi muốn đi trượt tuyết với bạn, anh có biết chỗ nào hay không?"},
+    {"spk": "鈴木[すずき]", "jp": "何日[なんにち]ぐらいの 予定[よてい]ですか。", "vn": "Anh dự định đi khoảng mấy ngày?"},
+    {"spk": "タワポン", "jp": "3日[みっか]ぐらいです。", "vn": "Khoảng 3 ngày."},
+    {"spk": "鈴木[すずき]", "jp": "それなら、草津[くさつ]か 志賀高原[しがこうげん]が いいと 思[おも]いますよ。温泉[おんせん]も あるし……。", "vn": "Vậy thì Kusatsu hoặc cao nguyên Shiga được đấy. Ở đó cũng có suối nước nóng nữa……"},
+    {"spk": "タワポン", "jp": "どうやって 行[い]くんですか。", "vn": "Đi bằng cách nào vậy?"},
+    {"spk": "鈴木[すずき]", "jp": "JRでも 行[い]けますが、夜行[やこう]バスなら、朝[あさ] 着[つ]きますから、便利[べんり]ですよ。", "vn": "Đi JR cũng được, nhưng nếu đi xe buýt đêm thì sáng đến nơi luôn, tiện lắm."},
+    {"spk": "タワポン", "jp": "そうですか。どちらが 安[やす]いんですか。", "vn": "Vậy à. Cái nào rẻ hơn vậy?"},
+    {"spk": "鈴木[すずき]", "jp": "さあ……。旅行社[りょこうしゃ]へ 行[い]けば もっと 詳[くわ]しい ことが わかりますよ。", "vn": "Để xem…… Anh đến công ty du lịch hỏi thì sẽ biết rõ hơn đấy."},
+    {"spk": "タワポン", "jp": "それから スキーの 道具[どうぐ]や 服[ふく]は 何[なに]も 持[も]って いないんですが……。", "vn": "À với lại tôi không có dụng cụ hay quần áo trượt tuyết gì cả……"},
+    {"spk": "鈴木[すずき]", "jp": "全部[ぜんぶ] スキー場[じょう]で 借[か]りられますよ。心配[しんぱい]なら、旅行社[りょこうしゃ]で 予約[よやく]も できるし……。", "vn": "Có thể thuê hết ở khu trượt tuyết luôn. Nếu lo thì cũng có thể đặt trước ở công ty du lịch nữa……"},
+    {"spk": "タワポン", "jp": "そうですか。どうも ありがとう ございました。", "vn": "Vậy à. Cảm ơn anh nhiều."}
+  ]
+}
