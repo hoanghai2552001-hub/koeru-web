@@ -67,8 +67,9 @@ kanji_export.csv
 kanji_api_cache.json
 kanji_words_cache.json
 
-# ── Claude AI workspace (không cần public) ─────────────────────
-.claude/
+# ── Claude AI workspace (không cần public, trừ skills dùng chung) ────
+.claude/*
+!.claude/skills/
 
 # ── Thư mục thiết kế / prototype cũ ──────────────────────────
 Kanji map/
