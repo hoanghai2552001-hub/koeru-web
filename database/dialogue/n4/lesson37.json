@@ -1,0 +1,16 @@
+{
+  "lesson": 37,
+  "source": "Minna no Nihongo II SBT — 会話 CD34, tr.97",
+  "status": "REVIEW_REQUIRED",
+  "title": "金閣寺[きんかくじ]は 14世紀[せいき]に 建[た]てられました",
+  "characters": ["ガイド", "カリナ"],
+  "lines": [
+    {"spk": "ガイド", "jp": "皆様[みなさま]、あちらが 有名[ゆうめい]な 金閣寺[きんかくじ]です。金閣寺[きんかくじ]は 14世紀[せいき]に 建[た]てられました。1950年[ねん]に 一度[いちど] 焼[や]けて しまいましたが、その後[ご] 新[あたら]しい 建物[たてもの]が 建[た]てられて、1994年[ねん]に 世界遺産[せかいいさん]に なりました。京都[きょうと]で 人気[にんき]が ある お寺[てら]の 一[ひと]つです。", "vn": "Thưa quý vị, đằng kia là chùa Vàng Kinkaku nổi tiếng. Chùa Kinkaku được xây dựng vào thế kỷ 14. Năm 1950 nó từng bị cháy một lần, nhưng sau đó một công trình mới đã được xây dựng lại, và năm 1994 nó trở thành di sản thế giới. Đây là một trong những ngôi chùa được yêu thích ở Kyoto."},
+    {"spk": "カリナ", "jp": "きれいですね。壁[かべ]が 金色[きんいろ]ですが、本物[ほんもの]の 金[きん]ですか。", "vn": "Đẹp quá. Bức tường màu vàng kim vậy, có phải là vàng thật không ạ?"},
+    {"spk": "ガイド", "jp": "はい。金[きん]が 20キロぐらい 使[つか]われました。", "vn": "Vâng. Người ta đã dùng khoảng 20 kg vàng đấy."},
+    {"spk": "カリナ", "jp": "そうですか。あの 中[なか]に 入[はい]れますか。", "vn": "Vậy à. Mình có thể vào bên trong được không ạ?"},
+    {"spk": "ガイド", "jp": "中[なか]には 入[はい]れないんです。池[いけ]の 周[まわ]りを 歩[ある]きながら 見[み]て ください。", "vn": "Không thể vào bên trong được đâu. Xin mời quý vị vừa đi dạo quanh hồ vừa ngắm nhé."},
+    {"spk": "カリナ", "jp": "紅葉[もみじ]が きれいですね。", "vn": "Lá đỏ mùa thu đẹp quá."},
+    {"spk": "ガイド", "jp": "ええ。金閣寺[きんかくじ]は 紅葉[もみじ]と 雪[ゆき]の 季節[きせつ]が 特[とく]に 美[うつく]しいと 言[い]われて います。", "vn": "Vâng. Người ta nói chùa Kinkaku đẹp nhất vào mùa lá đỏ và mùa tuyết đấy."}
+  ]
+}

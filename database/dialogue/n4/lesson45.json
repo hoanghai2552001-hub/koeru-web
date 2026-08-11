@@ -1,0 +1,20 @@
+{
+  "lesson": 45,
+  "source": "Minna no Nihongo II SBT — 会話 CD58, tr.163",
+  "status": "REVIEW_REQUIRED",
+  "title": "コースを まちがえた 場合[ばあい]は、どう したら いいですか",
+  "characters": ["係員[かかりいん]", "参加者[さんかしゃ]全員[ぜんいん]", "参加者[さんかしゃ]1", "参加者[さんかしゃ]2", "鈴木[すずき]", "ミラー"],
+  "lines": [
+    {"spk": "係員[かかりいん]", "jp": "皆[みな]さん、この マラソンは 健康[けんこう]マラソンですから、無理[むり]を しないで ください。もし 気分[きぶん]が 悪[わる]く なったら、係員[かかりいん]に 言[い]って ください。", "vn": "Thưa mọi người, đây là giải marathon sức khỏe, nên xin đừng cố quá sức. Nếu thấy khó chịu trong người thì xin báo ngay cho nhân viên phụ trách nhé."},
+    {"spk": "参加者[さんかしゃ]全員[ぜんいん]", "jp": "はい。", "vn": "Vâng."},
+    {"spk": "参加者[さんかしゃ]1", "jp": "すみません。コースを まちがえた 場合[ばあい]は、どう したら いいですか。", "vn": "Xin lỗi, nếu chạy nhầm đường thì phải làm sao ạ?"},
+    {"spk": "係員[かかりいん]", "jp": "元[もと]の 所[ところ]に 戻[もど]って、続[つづ]けて ください。", "vn": "Xin quay lại điểm cũ rồi tiếp tục chạy."},
+    {"spk": "参加者[さんかしゃ]2", "jp": "あのう、途中[とちゅう]で やめたい 場合[ばあい]は？", "vn": "À, nếu muốn bỏ dở giữa chừng thì sao ạ?"},
+    {"spk": "係員[かかりいん]", "jp": "その 場合[ばあい]は、近[ちか]くの 係員[かかりいん]に 名前[なまえ]を 言[い]って、帰[かえ]って ください。では、スタートの 時間[じかん]です。", "vn": "Trường hợp đó, xin báo tên với nhân viên phụ trách gần nhất rồi về. Vậy, đến giờ xuất phát rồi."},
+    {"spk": "鈴木[すずき]", "jp": "ミラーさん、マラソンは どうでしたか。", "vn": "Anh Miller, chạy marathon thế nào rồi?"},
+    {"spk": "ミラー", "jp": "2位[い]でした。", "vn": "Tôi về nhì."},
+    {"spk": "鈴木[すずき]", "jp": "2位[い]だったんですか。すごいですね。", "vn": "Về nhì cơ à? Giỏi quá vậy."},
+    {"spk": "ミラー", "jp": "いいえ、一生懸命[いっしょうけんめい] 練習[れんしゅう]したのに、優勝[ゆうしょう]できなくて、残念[ざんねん]です。", "vn": "Không đâu, tôi đã luyện tập chăm chỉ vậy mà lại không giành được quán quân, tiếc thật."},
+    {"spk": "鈴木[すずき]", "jp": "また 来年[らいねん]が ありますよ。", "vn": "Sang năm còn cơ hội mà."}
+  ]
+}

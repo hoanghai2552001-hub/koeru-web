@@ -1,0 +1,17 @@
+{
+  "lesson": 43,
+  "source": "Minna no Nihongo II SBT — 会話 CD52, tr.147",
+  "status": "REVIEW_REQUIRED",
+  "title": "毎日[まいにち] 楽[たの]しそうです",
+  "characters": ["林[はやし]", "シュミット"],
+  "lines": [
+    {"spk": "林[はやし]", "jp": "これ、どなたの 写真[しゃしん]ですか。", "vn": "Đây là ảnh của ai vậy?"},
+    {"spk": "シュミット", "jp": "息子[むすこ]の ハンスです。運動会[うんどうかい]の とき、撮[と]った 写真[しゃしん]です。", "vn": "Con trai tôi, Hans. Ảnh chụp lúc hội thao đấy."},
+    {"spk": "林[はやし]", "jp": "元気[げんき]そうですね。", "vn": "Trông khỏe mạnh nhỉ."},
+    {"spk": "シュミット", "jp": "ええ。ハンスは 走[はし]るのが 速[はや]いんですよ。日本[にほん]の 小学校[しょうがっこう]にも 慣[な]れて、友達[ともだち]も できて、毎日[まいにち] 楽[たの]しそうです。", "vn": "Vâng. Hans chạy nhanh lắm đấy. Cháu cũng đã quen với trường tiểu học Nhật Bản, có bạn bè rồi, ngày nào trông cũng vui vẻ."},
+    {"spk": "林[はやし]", "jp": "よかったですね。こちらの 方[かた]は 奥[おく]さんですか。きれいな 方[かた]ですね。", "vn": "Tốt quá rồi nhỉ. Còn người này là vợ anh à? Chị ấy xinh quá."},
+    {"spk": "シュミット", "jp": "ありがとう ございます。妻[つま]は いろいろな ことに 興味[きょうみ]が あって、いっしょに いると、おもしろいんですよ。", "vn": "Cảm ơn anh. Vợ tôi thích rất nhiều thứ, ở bên cô ấy lúc nào cũng thú vị."},
+    {"spk": "林[はやし]", "jp": "そうですか。", "vn": "Vậy à."},
+    {"spk": "シュミット", "jp": "特[とく]に 歴史[れきし]が 好[す]きで、時間[じかん]が あれば、古[ふる]い 町[まち]を 歩[ある]いて います。", "vn": "Cô ấy đặc biệt thích lịch sử, hễ có thời gian là lại đi dạo quanh những khu phố cổ."}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "lesson": 42,
+  "source": "Minna no Nihongo II SBT — 会話 CD49, tr.139",
+  "status": "REVIEW_REQUIRED",
+  "title": "ボーナスは 何[なに]に 使[つか]いますか",
+  "characters": ["鈴木[すずき]", "林[はやし]", "小川[おがわ]"],
+  "lines": [
+    {"spk": "鈴木[すずき]", "jp": "林[はやし]さん、ボーナスは いつ 出[で]るんですか。", "vn": "Chị Hayashi, khi nào thì có tiền thưởng vậy?"},
+    {"spk": "林[はやし]", "jp": "来週[らいしゅう]です。鈴木[すずき]さんの 会社[かいしゃ]は？", "vn": "Tuần sau. Còn công ty anh Suzuki thì sao?"},
+    {"spk": "鈴木[すずき]", "jp": "あしたです。楽[たの]しみですね。", "vn": "Ngày mai. Háo hức quá nhỉ."},
+    {"spk": "林[はやし]", "jp": "ええ。鈴木[すずき]さんは 何[なに]に 使[つか]いますか。", "vn": "Vâng. Anh Suzuki sẽ dùng vào việc gì?"},
+    {"spk": "鈴木[すずき]", "jp": "まず 新[あたら]しい 自転車[じてんしゃ]を 買[か]って、それから 旅行[りょこう]に 行[い]って……。", "vn": "Trước tiên tôi sẽ mua xe đạp mới, sau đó đi du lịch……"},
+    {"spk": "小川[おがわ]", "jp": "貯金[ちょきん]は しないんですか。", "vn": "Anh không để dành tiết kiệm à?"},
+    {"spk": "鈴木[すずき]", "jp": "僕[ぼく]は あまり 考[かんが]えた こと、ありませんね。", "vn": "Tôi thì cũng không nghĩ đến chuyện đó nhiều lắm."},
+    {"spk": "林[はやし]", "jp": "わたしは 半分[はんぶん]は 貯金[ちょきん]する つもりです。", "vn": "Tôi thì định để dành một nửa."},
+    {"spk": "鈴木[すずき]", "jp": "えっ、半分[はんぶん]も 貯金[ちょきん]するんですか。", "vn": "Ơ, để dành tận một nửa cơ à?"},
+    {"spk": "林[はやし]", "jp": "ええ、いつか イギリスへ 留学[りゅうがく]しようと 思[おも]って いるんです。", "vn": "Vâng, tôi đang định một ngày nào đó sẽ đi du học Anh."},
+    {"spk": "小川[おがわ]", "jp": "へえ、独身[どくしん]の 人[ひと]は いいですね。全部[ぜんぶ] 自分[じぶん]の ために、使[つか]えて。わたしは 家[いえ]の ローンを 払[はら]って、子[こ]どもの 教育[きょういく]の ために、貯金[ちょきん]したら、ほとんど 残[のこ]りませんよ。", "vn": "Ồ, người độc thân sướng thật, được dùng hết cho bản thân. Còn tôi thì phải trả nợ nhà, rồi để dành cho việc học của con, tính ra chẳng còn lại bao nhiêu."}
+  ]
+}
