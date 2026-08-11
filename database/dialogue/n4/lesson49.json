@@ -1,0 +1,19 @@
+{
+  "lesson": 49,
+  "source": "Minna no Nihongo II SBT — 会話 CD70, tr.197",
+  "status": "REVIEW_REQUIRED",
+  "title": "よろしく お伝[つた]え ください",
+  "characters": ["先生[せんせい]", "クララ"],
+  "lines": [
+    {"spk": "先生[せんせい]", "jp": "はい、ひまわり 小学校[しょうがっこう]です。", "vn": "Vâng, đây là trường tiểu học Himawari."},
+    {"spk": "クララ", "jp": "おはよう ございます。5年[ねん]2組[くみ]の ハンス・シュミットの 母[はは]ですが、伊藤先生[いとうせんせい]は いらっしゃいますか。", "vn": "Chào buổi sáng. Tôi là mẹ của cháu Hans Schmidt lớp 5-2, xin hỏi cô Ito có ở đó không ạ?"},
+    {"spk": "先生[せんせい]", "jp": "まだなんですが……。", "vn": "Cô ấy vẫn chưa đến……"},
+    {"spk": "クララ", "jp": "では、伊藤先生[いとうせんせい]に 伝[つた]えて いただきたいんですが……。", "vn": "Vậy thì phiền thầy/cô nhắn lại giúp cô Ito……"},
+    {"spk": "先生[せんせい]", "jp": "はい、何[なん]でしょうか。", "vn": "Vâng, chuyện gì ạ?"},
+    {"spk": "クララ", "jp": "実[じつ]は ハンスが ゆうべ 熱[ねつ]を 出[だ]しまして、けさも まだ 下[さ]がらないんです。", "vn": "Thật ra là cháu Hans tối qua bị sốt, sáng nay vẫn chưa hạ."},
+    {"spk": "先生[せんせい]", "jp": "それは いけませんね。", "vn": "Ôi vậy thì không ổn rồi."},
+    {"spk": "クララ", "jp": "それで きょうは 学校[がっこう]を 休[やす]ませますので、先生[せんせい]に よろしく お伝[つた]え ください。", "vn": "Vì vậy hôm nay tôi sẽ cho cháu nghỉ học, xin nhờ thầy/cô chuyển lời đến cô Ito giúp."},
+    {"spk": "先生[せんせい]", "jp": "わかりました。どうぞ お大事[だいじ]に。", "vn": "Tôi hiểu rồi. Mong cháu mau khỏe."},
+    {"spk": "クララ", "jp": "ありがとう ございます。失礼[しつれい]いたします。", "vn": "Cảm ơn thầy/cô. Tôi xin phép cúp máy."}
+  ]
+}

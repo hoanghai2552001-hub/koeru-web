@@ -1,0 +1,21 @@
+{
+  "lesson": 47,
+  "source": "Minna no Nihongo II SBT — 会話 CD64, tr.181",
+  "status": "REVIEW_REQUIRED",
+  "title": "婚約[こんやく]したそうです",
+  "characters": ["渡辺[わたなべ]", "高橋[たかはし]", "林[はやし]"],
+  "lines": [
+    {"spk": "渡辺[わたなべ]", "jp": "お先[さき]に 失礼[しつれい]します。", "vn": "Tôi xin phép về trước."},
+    {"spk": "高橋[たかはし]", "jp": "あっ、渡辺[わたなべ]さん、ちょっと 待[ま]って。僕[ぼく]も 帰[かえ]ります。", "vn": "Ơ, chị Watanabe, khoan đã. Tôi cũng về đây."},
+    {"spk": "渡辺[わたなべ]", "jp": "すみません、ちょっと 急[いそ]ぎますから。", "vn": "Xin lỗi, tôi đang hơi vội."},
+    {"spk": "高橋[たかはし]", "jp": "渡辺[わたなべ]さん、このごろ 早[はや]く 帰[かえ]りますね。どうも 恋人[こいびと]が できたようですね。", "vn": "Dạo này chị Watanabe về sớm nhỉ. Hình như có người yêu rồi thì phải."},
+    {"spk": "林[はやし]", "jp": "あ、知[し]らないんですか。この間[あいだ] 婚約[こんやく]したそうですよ。", "vn": "Ơ, anh chưa biết à? Nghe nói vừa đính hôn hôm trước rồi đấy."},
+    {"spk": "高橋[たかはし]", "jp": "えっ、だれですか、相手[あいて]は。", "vn": "Ơ, đối tượng là ai vậy?"},
+    {"spk": "林[はやし]", "jp": "IMCの 鈴木[すずき]さんですよ。", "vn": "Anh Suzuki bên IMC đấy."},
+    {"spk": "高橋[たかはし]", "jp": "えっ、鈴木[すずき]さん？", "vn": "Hả, anh Suzuki?"},
+    {"spk": "林[はやし]", "jp": "ワットさんの 結婚式[けっこんしき]で 知[し]り合[あ]ったそうですよ。", "vn": "Nghe nói hai người quen nhau ở đám cưới anh Watt đấy."},
+    {"spk": "高橋[たかはし]", "jp": "そうですか。", "vn": "Vậy à."},
+    {"spk": "林[はやし]", "jp": "ところで、高橋[たかはし]さんは？", "vn": "À mà anh Takahashi thì sao?"},
+    {"spk": "高橋[たかはし]", "jp": "僕[ぼく]ですか。僕[ぼく]は 仕事[しごと]が 恋人[こいびと]です。", "vn": "Tôi á? Người yêu của tôi là công việc."}
+  ]
+}
