@@ -1,0 +1,20 @@
+{
+  "lesson": 3,
+  "source": "Minna no Nihongo I SBT — 会話 CD09, tr.23",
+  "status": "REVIEW_REQUIRED",
+  "title": "これを ください",
+  "characters": ["店員[てんいん]A", "マリア", "店員[てんいん]B"],
+  "lines": [
+    {"spk": "店員[てんいん]A", "jp": "いらっしゃいませ。", "vn": "Kính chào quý khách."},
+    {"spk": "マリア", "jp": "すみません。ワイン売[う]り場[ば]は どこですか。", "vn": "Xin lỗi, quầy rượu vang ở đâu vậy ạ?"},
+    {"spk": "店員[てんいん]A", "jp": "地下[ちか]1階[かい]です。", "vn": "Ở tầng hầm 1 ạ."},
+    {"spk": "マリア", "jp": "どうも。", "vn": "Cảm ơn."},
+    {"spk": "マリア", "jp": "すみません。その ワインを 見[み]せて ください。", "vn": "Xin lỗi, cho tôi xem chai rượu vang đó với."},
+    {"spk": "店員[てんいん]B", "jp": "はい、どうぞ。", "vn": "Vâng, mời chị xem."},
+    {"spk": "マリア", "jp": "これは どこの ワインですか。", "vn": "Đây là rượu vang của nước nào vậy?"},
+    {"spk": "店員[てんいん]B", "jp": "日本[にほん]のです。", "vn": "Của Nhật Bản ạ."},
+    {"spk": "マリア", "jp": "いくらですか。", "vn": "Bao nhiêu tiền vậy?"},
+    {"spk": "店員[てんいん]B", "jp": "2,500円[えん]です。", "vn": "2.500 yên ạ."},
+    {"spk": "マリア", "jp": "じゃ、これを ください。", "vn": "Vậy cho tôi lấy cái này."}
+  ]
+}

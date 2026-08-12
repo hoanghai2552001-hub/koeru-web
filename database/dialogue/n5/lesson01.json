@@ -1,0 +1,13 @@
+{
+  "lesson": 1,
+  "source": "Minna no Nihongo I SBT — 会話 CD01, tr.7",
+  "status": "REVIEW_REQUIRED",
+  "title": "初[はじ]めまして",
+  "characters": ["佐藤[さとう]", "山田[やまだ]", "ミラー"],
+  "lines": [
+    {"spk": "佐藤[さとう]", "jp": "おはよう ございます。", "vn": "Chào buổi sáng."},
+    {"spk": "山田[やまだ]", "jp": "おはよう ございます。佐藤[さとう]さん、こちらは マイク・ミラーさんです。", "vn": "Chào buổi sáng. Chị Sato, đây là anh Mike Miller."},
+    {"spk": "ミラー", "jp": "初[はじ]めまして。マイク・ミラーです。アメリカから 来[き]ました。どうぞ よろしく。", "vn": "Rất hân hạnh được gặp. Tôi là Mike Miller. Tôi đến từ Mỹ. Mong được giúp đỡ."},
+    {"spk": "佐藤[さとう]", "jp": "佐藤[さとう]けい子[こ]です。どうぞ よろしく。", "vn": "Tôi là Sato Keiko. Mong được giúp đỡ."}
+  ]
+}
