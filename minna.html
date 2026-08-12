@@ -386,7 +386,7 @@ function speak(text){
 // ---------- Ghi chú & ví dụ cá nhân theo từ vựng ----------
 // Lưu độc lập theo cấp độ + bài + từ, không phụ thuộc thứ tự trong mảng vocab
 var NOTES_KEY = 'koeru_minna_notes';
-function noteKey(level, lessonNum, v){ return level + '-' + lessonNum + '-' + v.w; }
+function noteKey(level, lessonNum, idx){ return level + '-' + lessonNum + '-' + idx; }
 function getAllNotes(){ return load(NOTES_KEY, {}); }
 function getNote(key){ return getAllNotes()[key] || null; }
 function saveNote(key, meta, example, note){
@@ -397,8 +397,8 @@ function saveNote(key, meta, example, note){
 }
 function deleteNote(key){ var all = getAllNotes(); delete all[key]; store(NOTES_KEY, all); }
 
-function openNoteEditor(level, lessonNum, v){
-  var key = noteKey(level, lessonNum, v);
+function openNoteEditor(level, lessonNum, idx, v){
+  var key = noteKey(level, lessonNum, idx);
   var existing = getNote(key) || {};
   var overlay = qs('note-overlay');
   var body = qs('noteBody');
@@ -798,7 +798,7 @@ function renderVocab(l){
     el.onclick = function(e){ e.stopPropagation(); speak(l.vocab[el.dataset.i].w); };
   });
   box.querySelectorAll('.vact-note').forEach(function(el){
-    el.onclick = function(e){ e.stopPropagation(); openNoteEditor(curLevel, l.lesson, l.vocab[el.dataset.i]); };
+    el.onclick = function(e){ e.stopPropagation(); openNoteEditor(curLevel, l.lesson, +el.dataset.i, l.vocab[el.dataset.i]); };
   });
   if(curVocabMode === 'flash'){
     box.querySelectorAll('.flash-card').forEach(function(el){
@@ -827,7 +827,7 @@ function renderFlashOne(l){
   if(!flashOne.list.length || flashOne.list.length !== l.vocab.length) resetFlashOne(l);
   var v = l.vocab[flashOne.list[flashOne.idx]];
   var g = verbGroup(v.w);
-  var hasNote = !!getNote(noteKey(curLevel, l.lesson, v));
+  var hasNote = !!getNote(noteKey(curLevel, l.lesson, flashOne.list[flashOne.idx]));
   return '<div class="flash-one-bar">' +
       '<span class="flash-one-count">Thẻ ' + (flashOne.idx+1) + '/' + l.vocab.length + '</span>' +
       '<div class="flash-one-order">' +
@@ -851,7 +851,7 @@ function bindFlashOne(l){
   var box = qs('tabContent');
   box.querySelector('#foCard').onclick = function(){ this.classList.toggle('flipped'); };
   box.querySelector('#foSpeak').onclick = function(){ speak(l.vocab[flashOne.list[flashOne.idx]].w); };
-  box.querySelector('#foNote').onclick = function(){ openNoteEditor(curLevel, l.lesson, l.vocab[flashOne.list[flashOne.idx]]); };
+  box.querySelector('#foNote').onclick = function(){ openNoteEditor(curLevel, l.lesson, flashOne.list[flashOne.idx], l.vocab[flashOne.list[flashOne.idx]]); };
   box.querySelector('#foPrev').onclick = function(){
     flashOne.idx = (flashOne.idx - 1 + l.vocab.length) % l.vocab.length;
     renderVocab(l);
@@ -878,7 +878,7 @@ function renderVocabTable(l){
       h += '<tr class="vgroup"><td colspan="5">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
     }
     var g = verbGroup(v.w);
-    var hasNote = !!getNote(noteKey(curLevel, l.lesson, v));
+    var hasNote = !!getNote(noteKey(curLevel, l.lesson, i));
     h += '<tr><td class="jp">' + esc(stripGroupMark(v.w)) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
       '<td class="vg">' + (g ? '<i>' + g + '</i>' : '') + '</td>' +
       '<td><div class="vrow-actions">' +
