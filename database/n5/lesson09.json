@@ -3,59 +3,699 @@
   "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.58-59 (PDF trang 77-78)",
   "status": "REVIEW_REQUIRED",
   "vocab": [
-    {"w": "わかります", "k": "", "m": "hiểu, nắm được"},
-    {"w": "あります", "k": "", "m": "có (sở hữu)"},
-    {"w": "すき[な]", "k": "好き[な]", "m": "thích"},
-    {"w": "きらい[な]", "k": "嫌い[な]", "m": "ghét, không thích"},
-    {"w": "じょうず[な]", "k": "上手[な]", "m": "giỏi, khéo"},
-    {"w": "へた[な]", "k": "下手[な]", "m": "kém"},
-    {"w": "のみもの", "k": "飲み物", "m": "đồ uống"},
-    {"w": "りょうり", "k": "料理", "m": "món ăn, việc nấu ăn (～を します: nấu ăn)"},
-    {"w": "スポーツ", "k": "", "m": "thể thao (～を します: chơi thể thao)"},
-    {"w": "やきゅう", "k": "野球", "m": "bóng chày (～を します: chơi bóng chày)"},
-    {"w": "ダンス", "k": "", "m": "nhảy, khiêu vũ (～を します: nhảy, khiêu vũ)"},
-    {"w": "りょこう", "k": "旅行", "m": "du lịch, chuyến du lịch (～[を] します: đi du lịch)"},
-    {"w": "おんがく", "k": "音楽", "m": "âm nhạc"},
-    {"w": "うた", "k": "歌", "m": "bài hát"},
-    {"w": "クラシック", "k": "", "m": "nhạc cổ điển"},
-    {"w": "ジャズ", "k": "", "m": "nhạc jazz"},
-    {"w": "コンサート", "k": "", "m": "buổi hòa nhạc"},
-    {"w": "カラオケ", "k": "", "m": "karaoke"},
-    {"w": "かぶき", "k": "歌舞伎", "m": "Kabuki (một thể loại ca kịch truyền thống của Nhật)"},
-    {"w": "え", "k": "絵", "m": "tranh, hội họa"},
-    {"w": "じ", "k": "字", "m": "chữ"},
-    {"w": "かんじ", "k": "漢字", "m": "chữ Hán"},
-    {"w": "ひらがな", "k": "", "m": "chữ Hiragana"},
-    {"w": "かたかな", "k": "", "m": "chữ Katakana"},
-    {"w": "ローマじ", "k": "ローマ字", "m": "chữ La Mã"},
-    {"w": "こまかい おかね", "k": "細かい お金", "m": "tiền lẻ"},
-    {"w": "チケット", "k": "", "m": "vé"},
-    {"w": "じかん", "k": "時間", "m": "thời gian"},
-    {"w": "ようじ", "k": "用事", "m": "việc bận, công chuyện"},
-    {"w": "やくそく", "k": "約束", "m": "cuộc hẹn, lời hứa (～[を] します: hứa, hẹn)"},
-    {"w": "アルバイト", "k": "", "m": "việc làm thêm (～を します: làm thêm)"},
-    {"w": "ごしゅじん", "k": "ご主人", "m": "chồng (dùng khi nói về chồng người khác)"},
-    {"w": "おっと／しゅじん", "k": "夫／主人", "m": "chồng (dùng khi nói về chồng mình)"},
-    {"w": "おくさん", "k": "奥さん", "m": "vợ (dùng khi nói về vợ người khác)"},
-    {"w": "つま／かない", "k": "妻／家内", "m": "vợ (dùng khi nói về vợ mình)"},
-    {"w": "こども", "k": "子ども", "m": "con cái"},
-    {"w": "よく", "k": "", "m": "tốt, rõ (chỉ mức độ)"},
-    {"w": "だいたい", "k": "", "m": "đại khái, đại thể"},
-    {"w": "たくさん", "k": "", "m": "nhiều"},
-    {"w": "すこし", "k": "少し", "m": "ít, một ít"},
-    {"w": "ぜんぜん", "k": "全然", "m": "hoàn toàn ~ không (dùng với thể phủ định)"},
-    {"w": "はやく", "k": "早く、速く", "m": "sớm, nhanh"},
-    {"w": "～から", "k": "", "m": "vì ~"},
-    {"w": "どうして", "k": "", "m": "tại sao"}
+    {
+      "w": "わかります",
+      "k": "",
+      "m": "hiểu, nắm được",
+      "examples": [
+        {
+          "jp": "この 資料[しりょう]の 意味[いみ]が わかりません。",
+          "vn": "Tôi không hiểu ý nghĩa của tài liệu này."
+        },
+        {
+          "jp": "日本語[にほんご]が 少[すこ]し わかります。",
+          "vn": "Tôi hiểu một chút tiếng Nhật."
+        }
+      ]
+    },
+    {
+      "w": "あります",
+      "k": "",
+      "m": "có (sở hữu)",
+      "examples": [
+        {
+          "jp": "今日[きょう]、会議[かいぎ]が あります。",
+          "vn": "Hôm nay có cuộc họp."
+        },
+        {
+          "jp": "田中[たなか]さんは 車[くるま]が あります。",
+          "vn": "Anh Tanaka có xe ô tô."
+        }
+      ]
+    },
+    {
+      "w": "すき[な]",
+      "k": "好き[な]",
+      "m": "thích",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは コーヒーが 好[す]きです。",
+          "vn": "Anh Tanaka thích cà phê."
+        },
+        {
+          "jp": "わたしは この 仕事[しごと]が 好[す]きです。",
+          "vn": "Tôi thích công việc này."
+        }
+      ]
+    },
+    {
+      "w": "きらい[な]",
+      "k": "嫌い[な]",
+      "m": "ghét, không thích",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 残業[ざんぎょう]が 嫌[きら]いです。",
+          "vn": "Anh Tanaka ghét làm thêm giờ."
+        },
+        {
+          "jp": "わたしは 満員[まんいん]電車[でんしゃ]が 嫌[きら]いです。",
+          "vn": "Tôi ghét tàu điện đông đúc."
+        }
+      ]
+    },
+    {
+      "w": "じょうず[な]",
+      "k": "上手[な]",
+      "m": "giỏi, khéo",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 英語[えいご]が 上手[じょうず]です。",
+          "vn": "Anh Tanaka giỏi tiếng Anh."
+        },
+        {
+          "jp": "山田[やまだ]さんは 料理[りょうり]が 上手[じょうず]です。",
+          "vn": "Chị Yamada nấu ăn giỏi."
+        }
+      ]
+    },
+    {
+      "w": "へた[な]",
+      "k": "下手[な]",
+      "m": "kém",
+      "examples": [
+        {
+          "jp": "わたしは 日本語[にほんご]が 下手[へた]です。",
+          "vn": "Tôi kém tiếng Nhật."
+        },
+        {
+          "jp": "田中[たなか]さんは 歌[うた]が 下手[へた]です。",
+          "vn": "Anh Tanaka hát không hay."
+        }
+      ]
+    },
+    {
+      "w": "のみもの",
+      "k": "飲み物",
+      "m": "đồ uống",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]に 飲[の]み物[もの]が あります。",
+          "vn": "Trong phòng họp có đồ uống."
+        },
+        {
+          "jp": "どんな 飲[の]み物[もの]が 好[す]きですか。",
+          "vn": "Bạn thích loại đồ uống nào?"
+        }
+      ]
+    },
+    {
+      "w": "りょうり",
+      "k": "料理",
+      "m": "món ăn, việc nấu ăn (～を します: nấu ăn)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 料理[りょうり]が 上手[じょうず]です。",
+          "vn": "Anh Tanaka nấu ăn giỏi."
+        },
+        {
+          "jp": "日本[にほん]の 料理[りょうり]が 好[す]きです。",
+          "vn": "Tôi thích món ăn Nhật."
+        }
+      ]
+    },
+    {
+      "w": "スポーツ",
+      "k": "",
+      "m": "thể thao (～を します: chơi thể thao)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは スポーツが 好[す]きです。",
+          "vn": "Anh Tanaka thích thể thao."
+        },
+        {
+          "jp": "どんな スポーツが 好[す]きですか。",
+          "vn": "Bạn thích môn thể thao nào?"
+        }
+      ]
+    },
+    {
+      "w": "やきゅう",
+      "k": "野球",
+      "m": "bóng chày (～を します: chơi bóng chày)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 野球[やきゅう]が 好[す]きです。",
+          "vn": "Anh Tanaka thích bóng chày."
+        },
+        {
+          "jp": "週末[しゅうまつ]、野球[やきゅう]を します。",
+          "vn": "Cuối tuần tôi chơi bóng chày."
+        }
+      ]
+    },
+    {
+      "w": "ダンス",
+      "k": "",
+      "m": "nhảy, khiêu vũ (～を します: nhảy, khiêu vũ)",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは ダンスが 上手[じょうず]です。",
+          "vn": "Chị Yamada nhảy giỏi."
+        },
+        {
+          "jp": "ダンスが 好[す]きですか。",
+          "vn": "Bạn có thích nhảy không?"
+        }
+      ]
+    },
+    {
+      "w": "りょこう",
+      "k": "旅行",
+      "m": "du lịch, chuyến du lịch (～[を] します: đi du lịch)",
+      "examples": [
+        {
+          "jp": "旅行[りょこう]が 好[す]きです。",
+          "vn": "Tôi thích du lịch."
+        },
+        {
+          "jp": "来月[らいげつ]、旅行[りょこう]を します。",
+          "vn": "Tháng sau tôi sẽ đi du lịch."
+        }
+      ]
+    },
+    {
+      "w": "おんがく",
+      "k": "音楽",
+      "m": "âm nhạc",
+      "examples": [
+        {
+          "jp": "音楽[おんがく]を 聞[き]きながら 仕事[しごと]します。",
+          "vn": "Tôi vừa nghe nhạc vừa làm việc."
+        },
+        {
+          "jp": "どんな 音楽[おんがく]が 好[す]きですか。",
+          "vn": "Bạn thích loại nhạc nào?"
+        }
+      ]
+    },
+    {
+      "w": "うた",
+      "k": "歌",
+      "m": "bài hát",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 歌[うた]が 上手[じょうず]です。",
+          "vn": "Anh Tanaka hát hay."
+        },
+        {
+          "jp": "カラオケで 歌[うた]を 歌[うた]います。",
+          "vn": "Tôi hát ở quán karaoke."
+        }
+      ]
+    },
+    {
+      "w": "クラシック",
+      "k": "",
+      "m": "nhạc cổ điển",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは クラシックが 好[す]きです。",
+          "vn": "Chị Yamada thích nhạc cổ điển."
+        },
+        {
+          "jp": "クラシックの コンサートに 行[い]きます。",
+          "vn": "Tôi sẽ đi xem buổi hòa nhạc cổ điển."
+        }
+      ]
+    },
+    {
+      "w": "ジャズ",
+      "k": "",
+      "m": "nhạc jazz",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは ジャズが 好[す]きです。",
+          "vn": "Anh Tanaka thích nhạc jazz."
+        },
+        {
+          "jp": "ジャズを 聞[き]きながら 仕事[しごと]します。",
+          "vn": "Tôi vừa nghe nhạc jazz vừa làm việc."
+        }
+      ]
+    },
+    {
+      "w": "コンサート",
+      "k": "",
+      "m": "buổi hòa nhạc",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ]、コンサートに 行[い]きます。",
+          "vn": "Cuối tuần tôi sẽ đi xem hòa nhạc."
+        },
+        {
+          "jp": "コンサートの チケットが あります。",
+          "vn": "Tôi có vé buổi hòa nhạc."
+        }
+      ]
+    },
+    {
+      "w": "カラオケ",
+      "k": "",
+      "m": "karaoke",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]と カラオケに 行[い]きます。",
+          "vn": "Tôi sẽ đi karaoke cùng đồng nghiệp."
+        },
+        {
+          "jp": "カラオケが 好[す]きですか。",
+          "vn": "Bạn có thích karaoke không?"
+        }
+      ]
+    },
+    {
+      "w": "かぶき",
+      "k": "歌舞伎",
+      "m": "Kabuki (một thể loại ca kịch truyền thống của Nhật)",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]と 歌舞伎[かぶき]を 見[み]ます。",
+          "vn": "Tôi sẽ xem kịch Kabuki cùng đối tác."
+        },
+        {
+          "jp": "歌舞伎[かぶき]が 好[す]きですか。",
+          "vn": "Bạn có thích kịch Kabuki không?"
+        }
+      ]
+    },
+    {
+      "w": "え",
+      "k": "絵",
+      "m": "tranh, hội họa",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは 絵[え]が 上手[じょうず]です。",
+          "vn": "Chị Yamada vẽ giỏi."
+        },
+        {
+          "jp": "絵[え]が 好[す]きですか。",
+          "vn": "Bạn có thích tranh không?"
+        }
+      ]
+    },
+    {
+      "w": "じ",
+      "k": "字",
+      "m": "chữ",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 字[じ]が きれいです。",
+          "vn": "Chữ của anh Tanaka đẹp."
+        },
+        {
+          "jp": "この 字[じ]が わかりません。",
+          "vn": "Tôi không hiểu chữ này."
+        }
+      ]
+    },
+    {
+      "w": "かんじ",
+      "k": "漢字",
+      "m": "chữ Hán",
+      "examples": [
+        {
+          "jp": "漢字[かんじ]が わかりません。",
+          "vn": "Tôi không hiểu chữ Hán."
+        },
+        {
+          "jp": "漢字[かんじ]が 少[すこ]し わかります。",
+          "vn": "Tôi hiểu một chút chữ Hán."
+        }
+      ]
+    },
+    {
+      "w": "ひらがな",
+      "k": "",
+      "m": "chữ Hiragana",
+      "examples": [
+        {
+          "jp": "ひらがなが わかります。",
+          "vn": "Tôi hiểu chữ Hiragana."
+        },
+        {
+          "jp": "この 名前[なまえ]は ひらがなで 書[か]きます。",
+          "vn": "Tên này viết bằng chữ Hiragana."
+        }
+      ]
+    },
+    {
+      "w": "かたかな",
+      "k": "",
+      "m": "chữ Katakana",
+      "examples": [
+        {
+          "jp": "カタカナが わかりますか。",
+          "vn": "Bạn có hiểu chữ Katakana không?"
+        },
+        {
+          "jp": "会社[かいしゃ]の 名前[なまえ]は カタカナです。",
+          "vn": "Tên công ty được viết bằng chữ Katakana."
+        }
+      ]
+    },
+    {
+      "w": "ローマじ",
+      "k": "ローマ字",
+      "m": "chữ La Mã",
+      "examples": [
+        {
+          "jp": "ローマ字[じ]が わかります。",
+          "vn": "Tôi hiểu chữ La Mã."
+        },
+        {
+          "jp": "名前[なまえ]を ローマ字[じ]で 書[か]いて ください。",
+          "vn": "Hãy viết tên bằng chữ La Mã giúp tôi."
+        }
+      ]
+    },
+    {
+      "w": "こまかい おかね",
+      "k": "細かい お金",
+      "m": "tiền lẻ",
+      "examples": [
+        {
+          "jp": "細[こま]かい お金[かね]が ありません。",
+          "vn": "Tôi không có tiền lẻ."
+        },
+        {
+          "jp": "細[こま]かい お金[かね]が 少[すこ]し あります。",
+          "vn": "Tôi có một ít tiền lẻ."
+        }
+      ]
+    },
+    {
+      "w": "チケット",
+      "k": "",
+      "m": "vé",
+      "examples": [
+        {
+          "jp": "コンサートの チケットが あります。",
+          "vn": "Tôi có vé buổi hòa nhạc."
+        },
+        {
+          "jp": "チケットを 2枚[にまい] もらいました。",
+          "vn": "Tôi đã được cho 2 vé."
+        }
+      ]
+    },
+    {
+      "w": "じかん",
+      "k": "時間",
+      "m": "thời gian",
+      "examples": [
+        {
+          "jp": "今日[きょう]は 時間[じかん]が ありません。",
+          "vn": "Hôm nay tôi không có thời gian."
+        },
+        {
+          "jp": "時間[じかん]が あれば、手伝[てつだ]って ください。",
+          "vn": "Nếu có thời gian thì giúp tôi với."
+        }
+      ]
+    },
+    {
+      "w": "ようじ",
+      "k": "用事",
+      "m": "việc bận, công chuyện",
+      "examples": [
+        {
+          "jp": "今日[きょう]は 用事[ようじ]が あります。",
+          "vn": "Hôm nay tôi có việc bận."
+        },
+        {
+          "jp": "用事[ようじ]が あるから、早[はや]く 帰[かえ]ります。",
+          "vn": "Vì có việc nên tôi về sớm."
+        }
+      ]
+    },
+    {
+      "w": "やくそく",
+      "k": "約束",
+      "m": "cuộc hẹn, lời hứa (～[を] します: hứa, hẹn)",
+      "examples": [
+        {
+          "jp": "今日[きょう]、約束[やくそく]が あります。",
+          "vn": "Hôm nay tôi có cuộc hẹn."
+        },
+        {
+          "jp": "取引先[とりひきさき]と 約束[やくそく]を しました。",
+          "vn": "Tôi đã hẹn gặp với đối tác."
+        }
+      ]
+    },
+    {
+      "w": "アルバイト",
+      "k": "",
+      "m": "việc làm thêm (～を します: làm thêm)",
+      "examples": [
+        {
+          "jp": "学生[がくせい]は アルバイトを します。",
+          "vn": "Học sinh làm thêm."
+        },
+        {
+          "jp": "アルバイトが 忙[いそが]しいです。",
+          "vn": "Việc làm thêm bận rộn."
+        }
+      ]
+    },
+    {
+      "w": "ごしゅじん",
+      "k": "ご主人",
+      "m": "chồng (dùng khi nói về chồng người khác)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんの ご主人[しゅじん]は 医者[いしゃ]です。",
+          "vn": "Chồng chị Tanaka là bác sĩ."
+        },
+        {
+          "jp": "ご主人[しゅじん]は お元気[げんき]ですか。",
+          "vn": "Chồng chị có khỏe không ạ?"
+        }
+      ]
+    },
+    {
+      "w": "おっと／しゅじん",
+      "k": "夫／主人",
+      "m": "chồng (dùng khi nói về chồng mình)",
+      "examples": [
+        {
+          "jp": "夫[おっと]は 会社員[かいしゃいん]です。",
+          "vn": "Chồng tôi là nhân viên công ty."
+        },
+        {
+          "jp": "主人[しゅじん]と 一緒[いっしょ]に 旅行[りょこう]します。",
+          "vn": "Tôi sẽ đi du lịch cùng chồng."
+        }
+      ]
+    },
+    {
+      "w": "おくさん",
+      "k": "奥さん",
+      "m": "vợ (dùng khi nói về vợ người khác)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんの 奥[おく]さんは 先生[せんせい]です。",
+          "vn": "Vợ anh Tanaka là giáo viên."
+        },
+        {
+          "jp": "奥[おく]さんは お元気[げんき]ですか。",
+          "vn": "Vợ anh có khỏe không ạ?"
+        }
+      ]
+    },
+    {
+      "w": "つま／かない",
+      "k": "妻／家内",
+      "m": "vợ (dùng khi nói về vợ mình)",
+      "examples": [
+        {
+          "jp": "妻[つま]は 会社員[かいしゃいん]です。",
+          "vn": "Vợ tôi là nhân viên công ty."
+        },
+        {
+          "jp": "家内[かない]と 買[か]い物[もの]に 行[い]きます。",
+          "vn": "Tôi sẽ đi mua sắm cùng vợ."
+        }
+      ]
+    },
+    {
+      "w": "こども",
+      "k": "子ども",
+      "m": "con cái",
+      "examples": [
+        {
+          "jp": "子[こ]どもが 2人[ふたり] います。",
+          "vn": "Tôi có 2 người con."
+        },
+        {
+          "jp": "子[こ]どもと 遊[あそ]びます。",
+          "vn": "Tôi chơi cùng con."
+        }
+      ]
+    },
+    {
+      "w": "よく",
+      "k": "",
+      "m": "tốt, rõ (chỉ mức độ)",
+      "examples": [
+        {
+          "jp": "よく わかりません。",
+          "vn": "Tôi không hiểu rõ lắm."
+        },
+        {
+          "jp": "田中[たなか]さんを よく 知[し]って います。",
+          "vn": "Tôi biết rõ anh Tanaka."
+        }
+      ]
+    },
+    {
+      "w": "だいたい",
+      "k": "",
+      "m": "đại khái, đại thể",
+      "examples": [
+        {
+          "jp": "だいたい わかりました。",
+          "vn": "Tôi đã hiểu đại khái rồi."
+        },
+        {
+          "jp": "会議[かいぎ]は だいたい 1時間[いちじかん]です。",
+          "vn": "Cuộc họp kéo dài đại khái 1 tiếng."
+        }
+      ]
+    },
+    {
+      "w": "たくさん",
+      "k": "",
+      "m": "nhiều",
+      "examples": [
+        {
+          "jp": "今日[きょう]は 仕事[しごと]が たくさん あります。",
+          "vn": "Hôm nay có nhiều việc phải làm."
+        },
+        {
+          "jp": "資料[しりょう]が たくさん あります。",
+          "vn": "Có rất nhiều tài liệu."
+        }
+      ]
+    },
+    {
+      "w": "すこし",
+      "k": "少し",
+      "m": "ít, một ít",
+      "examples": [
+        {
+          "jp": "日本語[にほんご]が 少[すこ]し わかります。",
+          "vn": "Tôi hiểu một chút tiếng Nhật."
+        },
+        {
+          "jp": "時間[じかん]が 少[すこ]し あります。",
+          "vn": "Tôi có một chút thời gian."
+        }
+      ]
+    },
+    {
+      "w": "ぜんぜん",
+      "k": "全然",
+      "m": "hoàn toàn ~ không (dùng với thể phủ định)",
+      "examples": [
+        {
+          "jp": "漢字[かんじ]が 全然[ぜんぜん] わかりません。",
+          "vn": "Tôi hoàn toàn không hiểu chữ Hán."
+        },
+        {
+          "jp": "今日[きょう]は 全然[ぜんぜん] 忙[いそが]しく ないです。",
+          "vn": "Hôm nay tôi hoàn toàn không bận."
+        }
+      ]
+    },
+    {
+      "w": "はやく",
+      "k": "早く、速く",
+      "m": "sớm, nhanh",
+      "examples": [
+        {
+          "jp": "早[はや]く 資料[しりょう]を 送[おく]って ください。",
+          "vn": "Hãy gửi tài liệu sớm giúp tôi."
+        },
+        {
+          "jp": "今日[きょう]は 早[はや]く 帰[かえ]ります。",
+          "vn": "Hôm nay tôi sẽ về sớm."
+        }
+      ]
+    },
+    {
+      "w": "～から",
+      "k": "",
+      "m": "vì ~",
+      "examples": [
+        {
+          "jp": "忙[いそが]しいから、早[はや]く 帰[かえ]ります。",
+          "vn": "Vì bận nên tôi sẽ về sớm."
+        },
+        {
+          "jp": "用事[ようじ]が あるから、休[やす]みます。",
+          "vn": "Vì có việc bận nên tôi xin nghỉ."
+        }
+      ]
+    },
+    {
+      "w": "どうして",
+      "k": "",
+      "m": "tại sao",
+      "examples": [
+        {
+          "jp": "どうして 遅[おく]れましたか。",
+          "vn": "Tại sao bạn lại đến muộn?"
+        },
+        {
+          "jp": "どうして 会議[かいぎ]に 出席[しゅっせき]しませんでしたか。",
+          "vn": "Tại sao bạn không tham dự cuộc họp?"
+        }
+      ]
+    }
   ],
   "expressions": [
-    {"w": "貸[か]して ください。", "m": "Hãy cho tôi mượn (nó)."},
-    {"w": "いいですよ。", "m": "Được chứ./Được ạ."},
-    {"w": "残念[ざんねん]です[が]", "m": "Tôi xin lỗi, [nhưng…]/Đáng tiếc là…"},
-    {"w": "ああ", "m": "Ah/Ồi"},
-    {"w": "いっしょに いかがですか。", "m": "Anh/Chị cùng ~ với tôi (chúng tôi) không?"},
-    {"w": "[～は] ちょっと……。", "m": "[~ thì] có lẽ không được rồi. (cách từ chối khéo khi nhận được một lời mời nào đó)"},
-    {"w": "だめですか。", "m": "Không được à?"},
-    {"w": "また 今度[こんど] お願[ねが]いします。", "m": "Hẹn anh/chị lần sau vậy. (cách từ chối khéo một lời mời mà không muốn làm phật lòng người đưa ra lời mời)"}
+    {
+      "w": "貸[か]して ください。",
+      "m": "Hãy cho tôi mượn (nó)."
+    },
+    {
+      "w": "いいですよ。",
+      "m": "Được chứ./Được ạ."
+    },
+    {
+      "w": "残念[ざんねん]です[が]",
+      "m": "Tôi xin lỗi, [nhưng…]/Đáng tiếc là…"
+    },
+    {
+      "w": "ああ",
+      "m": "Ah/Ồi"
+    },
+    {
+      "w": "いっしょに いかがですか。",
+      "m": "Anh/Chị cùng ~ với tôi (chúng tôi) không?"
+    },
+    {
+      "w": "[～は] ちょっと……。",
+      "m": "[~ thì] có lẽ không được rồi. (cách từ chối khéo khi nhận được một lời mời nào đó)"
+    },
+    {
+      "w": "だめですか。",
+      "m": "Không được à?"
+    },
+    {
+      "w": "また 今度[こんど] お願[ねが]いします。",
+      "m": "Hẹn anh/chị lần sau vậy. (cách từ chối khéo một lời mời mà không muốn làm phật lòng người đưa ra lời mời)"
+    }
   ]
 }
