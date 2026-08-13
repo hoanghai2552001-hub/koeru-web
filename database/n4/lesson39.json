@@ -6,177 +6,527 @@
     {
       "w": "こたえますⅡ [しつもんに～]",
       "k": "答えます [質問に～]",
-      "m": "trả lời [câu hỏi]"
+      "m": "trả lời [câu hỏi]",
+      "examples": [
+        {
+          "jp": "お客様[きゃくさま]の 質問[しつもん]に 答[こた]えられなくて 困[こま]りました。",
+          "vn": "Tôi khó xử vì không trả lời được câu hỏi của khách hàng."
+        },
+        {
+          "jp": "面接[めんせつ]で 質問[しつもん]に うまく 答[こた]えられて 安心[あんしん]しました。",
+          "vn": "Tôi yên tâm vì đã trả lời câu hỏi phỏng vấn tốt."
+        }
+      ]
     },
     {
       "w": "たおれますⅡ [ビルが～]",
       "k": "倒れます",
-      "m": "đổ [nhà cao tầng ~]"
+      "m": "đổ [nhà cao tầng ~]",
+      "examples": [
+        {
+          "jp": "地震[じしん]で 古[ふる]い ビルが 倒[たお]れたので、みんな びっくりしました。",
+          "vn": "Vì động đất làm sập tòa nhà cũ nên mọi người ai cũng giật mình."
+        },
+        {
+          "jp": "台風[たいふう]で 木[き]が 倒[たお]れて、道[みち]が 通[とお]れませんでした。",
+          "vn": "Vì bão làm đổ cây nên đường không đi qua được."
+        }
+      ]
     },
     {
       "w": "やけますⅡ [うちが～]",
       "k": "焼けます",
-      "m": "cháy [nhà ~]"
+      "m": "cháy [nhà ~]",
+      "examples": [
+        {
+          "jp": "火事[かじ]で 近所[きんじょ]の 家[いえ]が 焼[や]けて しまいました。",
+          "vn": "Vì hỏa hoạn nên nhà hàng xóm bị cháy mất rồi."
+        },
+        {
+          "jp": "家[いえ]が 焼[や]けたと 聞[き]いて、とても びっくりしました。",
+          "vn": "Nghe tin nhà bị cháy, tôi đã rất giật mình."
+        }
+      ]
     },
     {
       "w": "やけますⅡ [パンが～]",
       "k": "焼けます",
-      "m": "được nướng [bánh mì ~]"
+      "m": "được nướng [bánh mì ~]",
+      "examples": [
+        {
+          "jp": "パンが おいしそうに 焼[や]けました。",
+          "vn": "Bánh mì đã nướng xong trông rất ngon."
+        },
+        {
+          "jp": "パンが 焼[や]けたので、朝[あさ]ご飯[はん]に しましょう。",
+          "vn": "Bánh mì nướng xong rồi, mình ăn sáng nhé."
+        }
+      ]
     },
     {
       "w": "やけますⅡ [にくが～]",
       "k": "焼けます [肉が～]",
-      "m": "được nướng [thịt ~]"
+      "m": "được nướng [thịt ~]",
+      "examples": [
+        {
+          "jp": "肉[にく]が 焼[や]けたので、そろそろ 食[た]べましょう。",
+          "vn": "Thịt nướng xong rồi, ăn thôi nào."
+        },
+        {
+          "jp": "会社[かいしゃ]の バーベキューで 肉[にく]が よく 焼[や]けました。",
+          "vn": "Ở buổi BBQ của công ty, thịt được nướng rất ngon."
+        }
+      ]
     },
     {
       "w": "とおりますⅠ [みちを～]",
       "k": "通ります [道を～]",
-      "m": "đi qua [đường]"
+      "m": "đi qua [đường]",
+      "examples": [
+        {
+          "jp": "工事中[こうじちゅう]で この 道[みち]は 通[とお]れません。",
+          "vn": "Vì đang thi công nên con đường này không đi qua được."
+        },
+        {
+          "jp": "毎朝[まいあさ] 公園[こうえん]を 通[とお]って 会社[かいしゃ]に 行[い]きます。",
+          "vn": "Sáng nào tôi cũng đi qua công viên để đến công ty."
+        }
+      ]
     },
     {
       "w": "しにますⅠ",
       "k": "死にます",
-      "m": "chết"
+      "m": "chết",
+      "examples": [
+        {
+          "jp": "有名[ゆうめい]な 作家[さっか]が 死[し]んだ ニュースを 聞[き]いて、悲[かな]しかったです。",
+          "vn": "Nghe tin nhà văn nổi tiếng qua đời, tôi thấy buồn."
+        },
+        {
+          "jp": "会社[かいしゃ]の 観葉植物[かんようしょくぶつ]が 死[し]んで しまいました。",
+          "vn": "Cây cảnh trong văn phòng đã chết mất rồi."
+        }
+      ]
     },
     {
       "w": "びっくりしますⅢ",
       "k": "",
-      "m": "ngạc nhiên, giật mình"
+      "m": "ngạc nhiên, giật mình",
+      "examples": [
+        {
+          "jp": "急[きゅう]に 部長[ぶちょう]に 呼[よ]ばれて びっくりしました。",
+          "vn": "Đột nhiên bị trưởng phòng gọi nên tôi giật mình."
+        },
+        {
+          "jp": "ボーナスの 金額[きんがく]を 見[み]て びっくりしました。",
+          "vn": "Tôi ngạc nhiên khi thấy số tiền thưởng."
+        }
+      ]
     },
     {
       "w": "がっかりしますⅢ",
       "k": "",
-      "m": "thất vọng"
+      "m": "thất vọng",
+      "examples": [
+        {
+          "jp": "契約[けいやく]が 取[と]れなくて がっかりしました。",
+          "vn": "Vì không ký được hợp đồng nên tôi thất vọng."
+        },
+        {
+          "jp": "試験[しけん]に 落[お]ちたので、がっかりして います。",
+          "vn": "Vì trượt kỳ thi nên tôi đang thất vọng."
+        }
+      ]
     },
     {
       "w": "あんしんしますⅢ",
       "k": "安心します",
-      "m": "yên tâm"
+      "m": "yên tâm",
+      "examples": [
+        {
+          "jp": "プロジェクトが 無事[ぶじ]に 終[お]わったので、安心[あんしん]しました。",
+          "vn": "Dự án kết thúc suôn sẻ nên tôi thấy yên tâm."
+        },
+        {
+          "jp": "検査[けんさ]の 結果[けっか]が よかったので、安心[あんしん]しました。",
+          "vn": "Kết quả kiểm tra tốt nên tôi thấy yên tâm."
+        }
+      ]
     },
     {
       "w": "ちこくしますⅢ",
       "k": "遅刻します",
-      "m": "đến chậm, đến muộn"
+      "m": "đến chậm, đến muộn",
+      "examples": [
+        {
+          "jp": "電車[でんしゃ]が 遅[おく]れて、会議[かいぎ]に 遅刻[ちこく]して しまいました。",
+          "vn": "Vì tàu điện bị trễ nên tôi đã đến họp muộn."
+        },
+        {
+          "jp": "寝坊[ねぼう]したので、遅刻[ちこく]しました。",
+          "vn": "Vì ngủ quên nên tôi đã đi trễ."
+        }
+      ]
     },
     {
       "w": "そうたいしますⅢ",
       "k": "早退します",
-      "m": "về sớm, ra sớm (việc làm hay trường học)"
+      "m": "về sớm, ra sớm (việc làm hay trường học)",
+      "examples": [
+        {
+          "jp": "体調[たいちょう]が 悪[わる]いので、今日[きょう]は 早退[そうたい]します。",
+          "vn": "Vì cơ thể không khỏe nên hôm nay tôi xin về sớm."
+        },
+        {
+          "jp": "子供[こども]が 熱[ねつ]を 出[だ]したので、早退[そうたい]させて いただけませんか。",
+          "vn": "Con tôi bị sốt nên tôi có thể xin về sớm được không ạ?"
+        }
+      ]
     },
     {
       "w": "けんかしますⅢ",
       "k": "",
-      "m": "cãi nhau"
+      "m": "cãi nhau",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]と 意見[いけん]が 合[あ]わなくて、けんかして しまいました。",
+          "vn": "Vì bất đồng ý kiến nên tôi đã cãi nhau với đồng nghiệp."
+        },
+        {
+          "jp": "子供[こども]たちが おもちゃで けんかして います。",
+          "vn": "Bọn trẻ đang tranh cãi về đồ chơi."
+        }
+      ]
     },
     {
       "w": "りこんしますⅢ",
       "k": "離婚します",
-      "m": "ly dị, ly hôn"
+      "m": "ly dị, ly hôn",
+      "examples": [
+        {
+          "jp": "知[し]り合[あ]いの 夫婦[ふうふ]が 離婚[りこん]したそうです。",
+          "vn": "Nghe nói cặp vợ chồng quen biết đã ly hôn."
+        },
+        {
+          "jp": "離婚[りこん]する 夫婦[ふうふ]が 増[ふ]えて います。",
+          "vn": "Số cặp vợ chồng ly hôn đang tăng lên."
+        }
+      ]
     },
     {
       "w": "ふくざつ[な]",
       "k": "複雑[な]",
-      "m": "phức tạp"
+      "m": "phức tạp",
+      "examples": [
+        {
+          "jp": "この 手続[てつづ]きは 複雑[ふくざつ]で、分[わ]かりにくいです。",
+          "vn": "Thủ tục này phức tạp nên khó hiểu."
+        },
+        {
+          "jp": "事情[じじょう]が 複雑[ふくざつ]で、説明[せつめい]が 難[むずか]しいです。",
+          "vn": "Tình huống phức tạp nên khó giải thích."
+        }
+      ]
     },
     {
       "w": "じゃま[な]",
       "k": "邪魔[な]",
-      "m": "cản trở, chiếm diện tích"
+      "m": "cản trở, chiếm diện tích",
+      "examples": [
+        {
+          "jp": "この 箱[はこ]、通路[つうろ]の 邪魔[じゃま]に なって います。",
+          "vn": "Cái hộp này đang chắn lối đi."
+        },
+        {
+          "jp": "お忙[いそが]しい ところ、お邪魔[じゃま]して すみません。",
+          "vn": "Xin lỗi đã làm phiền lúc anh/chị đang bận."
+        }
+      ]
     },
     {
       "w": "きたない",
       "k": "汚い",
-      "m": "bẩn"
+      "m": "bẩn",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]が 汚[きたな]かったので、掃除[そうじ]しました。",
+          "vn": "Vì phòng họp bẩn nên tôi đã dọn dẹp."
+        },
+        {
+          "jp": "机[つくえ]の 上[うえ]が 汚[きたな]くて、すぐに 片[かた]づけました。",
+          "vn": "Vì bàn làm việc bẩn nên tôi đã dọn ngay."
+        }
+      ]
     },
     {
       "w": "うれしい",
       "k": "",
-      "m": "vui, mừng"
+      "m": "vui, mừng",
+      "examples": [
+        {
+          "jp": "契約[けいやく]が 決[き]まって、とても うれしいです。",
+          "vn": "Hợp đồng được chốt nên tôi rất vui."
+        },
+        {
+          "jp": "同僚[どうりょう]に 助[たす]けて もらって うれしかったです。",
+          "vn": "Tôi rất vui vì được đồng nghiệp giúp đỡ."
+        }
+      ]
     },
     {
       "w": "かなしい",
       "k": "悲しい",
-      "m": "buồn, đau thương"
+      "m": "buồn, đau thương",
+      "examples": [
+        {
+          "jp": "先輩[せんぱい]が 会社[かいしゃ]を 辞[や]めるそうで、悲[かな]しいです。",
+          "vn": "Nghe nói tiền bối sắp nghỉ việc nên tôi thấy buồn."
+        },
+        {
+          "jp": "プロジェクトが 中止[ちゅうし]に なって、悲[かな]しかったです。",
+          "vn": "Dự án bị hủy nên tôi thấy buồn."
+        }
+      ]
     },
     {
       "w": "はずかしい",
       "k": "恥ずかしい",
-      "m": "xấu hổ, thẹn, hổ thẹn"
+      "m": "xấu hổ, thẹn, hổ thẹn",
+      "examples": [
+        {
+          "jp": "会議中[かいぎちゅう]に 名前[なまえ]を 間違[まちが]えられて 恥[は]ずかしかったです。",
+          "vn": "Bị gọi nhầm tên trong lúc họp nên tôi thấy xấu hổ."
+        },
+        {
+          "jp": "みんなの 前[まえ]で 発表[はっぴょう]するのは 恥[は]ずかしいです。",
+          "vn": "Thuyết trình trước mọi người thì thấy hơi ngại."
+        }
+      ]
     },
     {
       "w": "じしん",
       "k": "地震",
-      "m": "động đất"
+      "m": "động đất",
+      "examples": [
+        {
+          "jp": "地震[じしん]が あったので、会議[かいぎ]を 中断[ちゅうだん]しました。",
+          "vn": "Vì có động đất nên chúng tôi đã tạm dừng cuộc họp."
+        },
+        {
+          "jp": "地震[じしん]で エレベーターが 止[と]まって しまいました。",
+          "vn": "Thang máy dừng lại vì động đất."
+        }
+      ]
     },
     {
       "w": "たいふう",
       "k": "台風",
-      "m": "bão"
+      "m": "bão",
+      "examples": [
+        {
+          "jp": "台風[たいふう]なので、今日[きょう]は 在宅[ざいたく]勤務[きんむ]に して います。",
+          "vn": "Vì có bão nên hôm nay tôi làm việc tại nhà."
+        },
+        {
+          "jp": "台風[たいふう]で 電車[でんしゃ]が 止[と]まって いました。",
+          "vn": "Tàu điện đã dừng chạy vì bão."
+        }
+      ]
     },
     {
       "w": "かじ",
       "k": "火事",
-      "m": "hỏa hoạn"
+      "m": "hỏa hoạn",
+      "examples": [
+        {
+          "jp": "近所[きんじょ]で 火事[かじ]が あったので、驚[おどろ]きました。",
+          "vn": "Gần nhà tôi có hỏa hoạn nên tôi rất bất ngờ."
+        },
+        {
+          "jp": "火事[かじ]の 原因[げんいん]は まだ 分[わ]かって いません。",
+          "vn": "Nguyên nhân vụ cháy vẫn chưa được xác định."
+        }
+      ]
     },
     {
       "w": "じこ",
       "k": "事故",
-      "m": "tai nạn, sự cố"
+      "m": "tai nạn, sự cố",
+      "examples": [
+        {
+          "jp": "事故[じこ]で 電車[でんしゃ]が 遅[おく]れて、会議[かいぎ]に 遅刻[ちこく]しました。",
+          "vn": "Vì tai nạn khiến tàu bị trễ nên tôi đến họp muộn."
+        },
+        {
+          "jp": "工場[こうじょう]で 事故[じこ]が あって、作業[さぎょう]が 止[と]まりました。",
+          "vn": "Có sự cố ở nhà máy nên công việc bị dừng lại."
+        }
+      ]
     },
     {
       "w": "[お]みあい",
       "k": "[お]見合い",
-      "m": "nam nữ làm quen qua giới thiệu, làm mối"
+      "m": "nam nữ làm quen qua giới thiệu, làm mối",
+      "examples": [
+        {
+          "jp": "友達[ともだち]に お見合[みあ]いを 頼[たの]まれました。",
+          "vn": "Tôi được bạn nhờ giới thiệu một buổi xem mắt."
+        },
+        {
+          "jp": "彼[かれ]は お見合[みあ]いで 今[いま]の 奥[おく]さんと 出会[であ]ったそうです。",
+          "vn": "Nghe nói anh ấy gặp vợ hiện tại qua một buổi xem mắt."
+        }
+      ]
     },
     {
       "w": "でんわだい",
       "k": "電話代",
-      "m": "tiền điện thoại, phí điện thoại"
+      "m": "tiền điện thoại, phí điện thoại",
+      "examples": [
+        {
+          "jp": "今月[こんげつ]の 電話代[でんわだい]が 高[たか]くて びっくりしました。",
+          "vn": "Tiền điện thoại tháng này cao quá làm tôi giật mình."
+        },
+        {
+          "jp": "会社[かいしゃ]の 電話代[でんわだい]は 経費[けいひ]で 落[お]ちます。",
+          "vn": "Tiền điện thoại của công ty được tính vào chi phí."
+        }
+      ]
     },
     {
       "w": "～だい",
       "k": "～代",
-      "m": "tiền ~, phí ~"
+      "m": "tiền ~, phí ~",
+      "examples": [
+        {
+          "jp": "タクシー代[だい]は 会社[かいしゃ]が 出[だ]して くれます。",
+          "vn": "Tiền taxi thì công ty sẽ chi trả."
+        },
+        {
+          "jp": "食事代[しょくじだい]が 予算[よさん]より 高[たか]かったので、がっかりしました。",
+          "vn": "Tiền ăn cao hơn ngân sách dự tính nên tôi thất vọng."
+        }
+      ]
     },
     {
       "w": "フロント",
       "k": "",
-      "m": "bộ phận tiếp tân, bộ phận thường trực"
+      "m": "bộ phận tiếp tân, bộ phận thường trực",
+      "examples": [
+        {
+          "jp": "何[なに]か あったら フロントに 連絡[れんらく]して ください。",
+          "vn": "Nếu có gì thì hãy liên lạc với quầy lễ tân."
+        },
+        {
+          "jp": "フロントで チェックインの 手続[てつづ]きを しました。",
+          "vn": "Tôi đã làm thủ tục nhận phòng ở quầy lễ tân."
+        }
+      ]
     },
     {
       "w": "－ごうしつ",
       "k": "－号室",
-      "m": "phòng số －"
+      "m": "phòng số －",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]は 302号室[ごうしつ]で 行[おこな]われます。",
+          "vn": "Cuộc họp sẽ diễn ra ở phòng số 302."
+        },
+        {
+          "jp": "お客様[きゃくさま]の お部屋[へや]は 505号室[ごうしつ]です。",
+          "vn": "Phòng của quý khách là phòng số 505."
+        }
+      ]
     },
     {
       "w": "あせ",
       "k": "汗",
-      "m": "mồ hôi (～を かきます: ra mồ hôi)"
+      "m": "mồ hôi (～を かきます: ra mồ hôi)",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]に 遅刻[ちこく]しそうで、汗[あせ]を かきました。",
+          "vn": "Suýt trễ giờ họp nên tôi toát mồ hôi."
+        },
+        {
+          "jp": "運動[うんどう]して たくさん 汗[あせ]を かきました。",
+          "vn": "Tôi vận động nên ra rất nhiều mồ hôi."
+        }
+      ]
     },
     {
       "w": "タオル",
       "k": "",
-      "m": "khăn lau, khăn tắm"
+      "m": "khăn lau, khăn tắm",
+      "examples": [
+        {
+          "jp": "汗[あせ]を かいたので、タオルで 拭[ふ]きました。",
+          "vn": "Vì ra mồ hôi nên tôi đã lau bằng khăn."
+        },
+        {
+          "jp": "会社[かいしゃ]の ジムに タオルを 忘[わす]れて しまいました。",
+          "vn": "Tôi đã để quên khăn ở phòng gym của công ty."
+        }
+      ]
     },
     {
       "w": "せっけん",
       "k": "",
-      "m": "xà phòng"
+      "m": "xà phòng",
+      "examples": [
+        {
+          "jp": "手[て]を 洗[あら]う ときは 石[せっ]けんを 使[つか]って ください。",
+          "vn": "Khi rửa tay xin hãy dùng xà phòng."
+        },
+        {
+          "jp": "トイレの 石[せっ]けんが 切[き]れて いました。",
+          "vn": "Xà phòng trong toilet đã hết."
+        }
+      ]
     },
     {
       "w": "おおぜい",
       "k": "大勢",
-      "m": "nhiều người"
+      "m": "nhiều người",
+      "examples": [
+        {
+          "jp": "展示会[てんじかい]に 大勢[おおぜい]の お客様[きゃくさま]が 来[き]ました。",
+          "vn": "Rất nhiều khách hàng đã đến buổi triển lãm."
+        },
+        {
+          "jp": "大勢[おおぜい]の 前[まえ]で 話[はな]すのは 緊張[きんちょう]します。",
+          "vn": "Nói trước nhiều người thì tôi thấy hồi hộp."
+        }
+      ]
     },
     {
       "w": "おつかれさまでした。",
       "k": "お疲れさまでした。",
-      "m": "Chắc anh chị đã mệt vì làm việc. (câu chào dùng để nói với người đã làm xong một việc gì đó)"
+      "m": "Chắc anh chị đã mệt vì làm việc. (câu chào dùng để nói với người đã làm xong một việc gì đó)",
+      "examples": [
+        {
+          "jp": "今日[きょう]も 一日[いちにち]、お疲[つか]れさまでした。",
+          "vn": "Hôm nay lại một ngày vất vả rồi, mọi người nghỉ ngơi nhé."
+        },
+        {
+          "jp": "プロジェクトが 終[お]わりました。皆[みな]さん、お疲[つか]れさまでした。",
+          "vn": "Dự án đã kết thúc. Mọi người vất vả rồi."
+        }
+      ]
     },
     {
       "w": "うかがいます。",
       "k": "伺います。",
-      "m": "Tôi đến thăm. (cách nói khiêm nhường của いきます)"
+      "m": "Tôi đến thăm. (cách nói khiêm nhường của いきます)",
+      "examples": [
+        {
+          "jp": "午後[ごご]2時[にじ]に 御社[おんしゃ]に 伺[うかが]います。",
+          "vn": "2 giờ chiều tôi sẽ đến thăm quý công ty."
+        },
+        {
+          "jp": "後[のち]ほど、詳[くわ]しい 話[はなし]を 伺[うかが]いに 参[まい]ります。",
+          "vn": "Lát nữa tôi sẽ đến để nghe chi tiết hơn."
+        }
+      ]
     }
   ],
   "expressions": [
