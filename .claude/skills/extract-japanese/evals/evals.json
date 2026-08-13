@@ -1,0 +1,69 @@
+{
+  "skill_name": "extract-japanese",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tôi muốn trích xuất kanji từ bài học N5. Đây là các kanji cần thêm vào app: 山 (núi), 川 (sông), 田 (ruộng), 力 (sức mạnh), 口 (miệng). Trích xuất đầy đủ thông tin On/Kun reading, âm Hán Việt, nghĩa tiếng Việt và 2-3 từ ghép mẫu cho mỗi kanji, rồi hiển thị dạng bảng.",
+      "expected_output": "Bảng kanji đầy đủ với 5 kanji, mỗi kanji có: kanji, hanviet, on, kun, meaning, level N5, và mảng words với 2-3 từ ghép. Sau đó hỏi user có muốn đẩy lên Sheet không.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Output có bảng markdown với cột Kanji, Âm HV, On, Kun, Nghĩa, Level",
+          "type": "qualitative"
+        },
+        {
+          "text": "Có đủ 5 kanji: 山, 川, 田, 力, 口",
+          "type": "qualitative"
+        },
+        {
+          "text": "Âm Hán Việt viết HOA (SAN/THỦY/ĐIỀN/LỰC/KHẨU hoặc tương đương)",
+          "type": "qualitative"
+        },
+        {
+          "text": "Có câu hỏi xác nhận sau bảng (hỏi có muốn đẩy lên Sheet không)",
+          "type": "qualitative"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Đây là nội dung trang sách Minna no Nihongo Bài 6:\n\nTừ vựng:\n- デパート (depāto) - trung tâm thương mại\n- スーパー (sūpā) - siêu thị\n- コンビニ (konbini) - cửa hàng tiện lợi\n- 電気屋 (でんきや) - cửa hàng điện\n- 本屋 (ほんや) - hiệu sách\n\nNgữ pháp:\n〜で - chỉ địa điểm thực hiện hành động\nví dụ: デパートで買います。(Tôi mua ở trung tâm thương mại)\n\nTrích xuất tất cả từ vựng và ngữ pháp, hiển thị bảng.",
+      "expected_output": "Bảng từ vựng với 5 từ (word, reading, meaning) + bảng ngữ pháp với mẫu 〜で và giải thích tiếng Việt + ví dụ.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Có bảng từ vựng với đủ 5 từ",
+          "type": "qualitative"
+        },
+        {
+          "text": "Bảng ngữ pháp có mẫu 〜で với giải thích và ví dụ tiếng Việt",
+          "type": "qualitative"
+        },
+        {
+          "text": "Các từ katakana (デパート, スーパー, etc.) có reading đúng",
+          "type": "qualitative"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Thêm các kanji sau vào app Koeru từ sách Kanji Look and Learn N4: 活, 海, 強, 弱, 急. Sau khi trích xuất xong thì tạo script Python để đẩy lên Google Sheet URL: https://script.google.com/macros/s/example/exec với action=append.",
+      "expected_output": "Trích xuất 5 kanji N4 đầy đủ thông tin, sau đó tạo file push_to_sheet.py với dữ liệu đã trích xuất và GAS_URL đã cho, dùng action=append.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Có 5 kanji: 活, 海, 強, 弱, 急 với đầy đủ on/kun/meaning/hanviet",
+          "type": "qualitative"
+        },
+        {
+          "text": "Script Python được tạo với action=append và Content-Type: text/plain",
+          "type": "qualitative"
+        },
+        {
+          "text": "Script dùng URL được cung cấp (https://script.google.com/macros/s/example/exec)",
+          "type": "qualitative"
+        }
+      ]
+    }
+  ]
+}
