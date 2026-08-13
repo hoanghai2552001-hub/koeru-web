@@ -6,127 +6,377 @@
     {
       "w": "なきますⅠ",
       "k": "泣きます",
-      "m": "khóc"
+      "m": "khóc",
+      "examples": [
+        {
+          "jp": "感動[かんどう]的[てき]な スピーチで、社員[しゃいん]たちが 泣[な]きました。",
+          "vn": "Bài phát biểu cảm động khiến các nhân viên bật khóc."
+        },
+        {
+          "jp": "赤[あか]ちゃんが 夜中[よなか]に 泣[な]いて、眠[ねむ]れませんでした。",
+          "vn": "Em bé khóc lúc nửa đêm nên tôi không ngủ được."
+        }
+      ]
     },
     {
       "w": "わらいますⅠ",
       "k": "笑います",
-      "m": "cười"
+      "m": "cười",
+      "examples": [
+        {
+          "jp": "彼[かれ]の 冗談[じょうだん]で みんな 笑[わら]いました。",
+          "vn": "Câu đùa của anh ấy khiến mọi người bật cười."
+        },
+        {
+          "jp": "面接[めんせつ]の とき、緊張[きんちょう]しすぎて うまく 笑[わら]えませんでした。",
+          "vn": "Lúc phỏng vấn tôi quá căng thẳng nên không cười tự nhiên được."
+        }
+      ]
     },
     {
       "w": "かわきますⅠ",
       "k": "乾きます",
-      "m": "khô"
+      "m": "khô",
+      "examples": [
+        {
+          "jp": "洗濯物[せんたくもの]が もう 乾[かわ]きました。",
+          "vn": "Quần áo giặt đã khô rồi."
+        },
+        {
+          "jp": "空気[くうき]が 乾[かわ]きすぎて、喉[のど]が 痛[いた]いです。",
+          "vn": "Không khí khô quá nên cổ họng tôi bị đau."
+        }
+      ]
     },
     {
       "w": "ぬれますⅡ",
       "k": "",
-      "m": "ướt"
+      "m": "ướt",
+      "examples": [
+        {
+          "jp": "急[きゅう]な 雨[あめ]で 資料[しりょう]が ぬれて しまいました。",
+          "vn": "Trời mưa đột ngột làm tài liệu bị ướt."
+        },
+        {
+          "jp": "傘[かさ]を 持[も]たずに 出[で]て、服[ふく]が ぬれました。",
+          "vn": "Tôi ra ngoài không mang ô nên quần áo bị ướt."
+        }
+      ]
     },
     {
       "w": "すべりますⅠ",
       "k": "滑ります",
-      "m": "trượt"
+      "m": "trượt",
+      "examples": [
+        {
+          "jp": "雨[あめ]の 日[ひ]は 床[ゆか]が 滑[すべ]りやすいので、気[き]を つけて ください。",
+          "vn": "Ngày mưa sàn dễ trơn trượt nên hãy cẩn thận."
+        },
+        {
+          "jp": "この 靴[くつ]は 滑[すべ]りにくくて 安全[あんぜん]です。",
+          "vn": "Đôi giày này khó trơn trượt nên an toàn."
+        }
+      ]
     },
     {
       "w": "おきますⅡ [じこが～]",
       "k": "起きます [事故が～]",
-      "m": "xảy ra [tai nạn ~]"
+      "m": "xảy ra [tai nạn ~]",
+      "examples": [
+        {
+          "jp": "工場[こうじょう]で 事故[じこ]が 起[お]きないように、安全[あんぜん]管理[かんり]を 徹底[てってい]して います。",
+          "vn": "Chúng tôi quản lý an toàn nghiêm ngặt để không xảy ra tai nạn ở nhà máy."
+        },
+        {
+          "jp": "先週[せんしゅう]、社内[しゃない]で 小[ちい]さな 事故[じこ]が 起[お]きました。",
+          "vn": "Tuần trước trong công ty đã xảy ra một sự cố nhỏ."
+        }
+      ]
     },
     {
       "w": "ちょうせつしますⅢ",
       "k": "調節します",
-      "m": "điều tiết, điều chỉnh"
+      "m": "điều tiết, điều chỉnh",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]の 温度[おんど]を 調節[ちょうせつ]して ください。",
+          "vn": "Hãy điều chỉnh nhiệt độ phòng họp giúp tôi."
+        },
+        {
+          "jp": "スケジュールを 調節[ちょうせつ]して、会[あ]える 時間[じかん]を 作[つく]りました。",
+          "vn": "Tôi đã điều chỉnh lịch trình để sắp xếp được thời gian gặp mặt."
+        }
+      ]
     },
     {
       "w": "あんぜん[な]",
       "k": "安全[な]",
-      "m": "an toàn"
+      "m": "an toàn",
+      "examples": [
+        {
+          "jp": "安全[あんぜん]な 作業[さぎょう]の ために、ルールを 守[まも]って ください。",
+          "vn": "Vì công việc an toàn, xin hãy tuân thủ quy định."
+        },
+        {
+          "jp": "この 場所[ばしょ]は 安全[あんぜん]に 荷物[にもつ]を 置[お]けます。",
+          "vn": "Có thể để đồ an toàn ở chỗ này."
+        }
+      ]
     },
     {
       "w": "ていねい[な]",
       "k": "丁寧[な]",
-      "m": "lịch sự, cẩn thận"
+      "m": "lịch sự, cẩn thận",
+      "examples": [
+        {
+          "jp": "お客様[きゃくさま]には 丁寧[ていねい]に 対応[たいおう]して ください。",
+          "vn": "Xin hãy tiếp đón khách hàng một cách lịch sự, chu đáo."
+        },
+        {
+          "jp": "彼女[かのじょ]は いつも 仕事[しごと]を 丁寧[ていねい]に します。",
+          "vn": "Cô ấy lúc nào cũng làm việc cẩn thận."
+        }
+      ]
     },
     {
       "w": "こまかい",
       "k": "細かい",
-      "m": "chi tiết, tỉ mỉ, nhỏ"
+      "m": "chi tiết, tỉ mỉ, nhỏ",
+      "examples": [
+        {
+          "jp": "細[こま]かい 部分[ぶぶん]まで 確認[かくにん]した ほうが いいですよ。",
+          "vn": "Nên kiểm tra kỹ đến cả những chi tiết nhỏ."
+        },
+        {
+          "jp": "この 説明書[せつめいしょ]は 細[こま]かすぎて 分[わ]かりにくいです。",
+          "vn": "Tài liệu hướng dẫn này quá chi tiết nên khó hiểu."
+        }
+      ]
     },
     {
       "w": "こい",
       "k": "濃い",
-      "m": "nồng, đậm"
+      "m": "nồng, đậm",
+      "examples": [
+        {
+          "jp": "このコーヒー、ちょっと 濃[こ]すぎますね。",
+          "vn": "Cà phê này hơi đậm quá nhỉ."
+        },
+        {
+          "jp": "もう少[すこ]し 濃[こ]い 色[いろ]に して ください。",
+          "vn": "Hãy làm màu đậm hơn một chút giúp tôi."
+        }
+      ]
     },
     {
       "w": "うすい",
       "k": "薄い",
-      "m": "nhạt"
+      "m": "nhạt",
+      "examples": [
+        {
+          "jp": "この スープは 味[あじ]が 薄[うす]すぎます。",
+          "vn": "Món súp này vị nhạt quá."
+        },
+        {
+          "jp": "薄[うす]い 色[いろ]の ほうが 見[み]やすいです。",
+          "vn": "Màu nhạt thì dễ nhìn hơn."
+        }
+      ]
     },
     {
       "w": "くうき",
       "k": "空気",
-      "m": "không khí"
+      "m": "không khí",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]の 空気[くうき]が 悪[わる]いので、窓[まど]を 開[あ]けましょう。",
+          "vn": "Không khí phòng họp không tốt, mở cửa sổ ra nhé."
+        },
+        {
+          "jp": "この 場所[ばしょ]は 空気[くうき]が きれいで 気持[きも]ちが いいです。",
+          "vn": "Nơi này không khí trong lành nên rất dễ chịu."
+        }
+      ]
     },
     {
       "w": "なみだ",
       "k": "涙",
-      "m": "nước mắt"
+      "m": "nước mắt",
+      "examples": [
+        {
+          "jp": "彼[かれ]の 話[はなし]を 聞[き]いて、涙[なみだ]が 出[で]ました。",
+          "vn": "Nghe câu chuyện của anh ấy, tôi đã rơi nước mắt."
+        },
+        {
+          "jp": "退職[たいしょく]する 先輩[せんぱい]の あいさつで 涙[なみだ]が 止[と]まりませんでした。",
+          "vn": "Bài phát biểu chia tay của tiền bối nghỉ việc khiến tôi rơi nước mắt không ngừng."
+        }
+      ]
     },
     {
       "w": "わしょく",
       "k": "和食",
-      "m": "món ăn Nhật"
+      "m": "món ăn Nhật",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]の 接待[せったい]は 和食[わしょく]の 店[みせ]に しました。",
+          "vn": "Tôi đã chọn nhà hàng món Nhật để tiếp đãi đối tác."
+        },
+        {
+          "jp": "和食[わしょく]は 健康[けんこう]に いいと 言[い]われて います。",
+          "vn": "Người ta nói món ăn Nhật tốt cho sức khỏe."
+        }
+      ]
     },
     {
       "w": "ようしょく",
       "k": "洋食",
-      "m": "món ăn Âu Mỹ"
+      "m": "món ăn Âu Mỹ",
+      "examples": [
+        {
+          "jp": "今日[きょう]の 昼[ひる]ご飯[はん]は 洋食[ようしょく]に しましょう。",
+          "vn": "Bữa trưa hôm nay mình ăn món Âu nhé."
+        },
+        {
+          "jp": "接待[せったい]は 洋食[ようしょく]の レストランを 選[えら]びました。",
+          "vn": "Tôi đã chọn nhà hàng món Âu để tiếp khách."
+        }
+      ]
     },
     {
       "w": "おかず",
       "k": "",
-      "m": "thức ăn"
+      "m": "thức ăn",
+      "examples": [
+        {
+          "jp": "お弁当[べんとう]の おかずを 作[つく]りすぎて しまいました。",
+          "vn": "Tôi đã làm quá nhiều món cho cơm hộp."
+        },
+        {
+          "jp": "今日[きょう]の おかずは 何[なに]に しますか。",
+          "vn": "Hôm nay ăn món gì đây nhỉ?"
+        }
+      ]
     },
     {
       "w": "りょう",
       "k": "量",
-      "m": "lượng"
+      "m": "lượng",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]の 資料[しりょう]は 量[りょう]が 多[おお]すぎます。",
+          "vn": "Tài liệu cuộc họp có khối lượng quá nhiều."
+        },
+        {
+          "jp": "仕事[しごと]の 量[りょう]を 調節[ちょうせつ]して ください。",
+          "vn": "Hãy điều chỉnh khối lượng công việc giúp tôi."
+        }
+      ]
     },
     {
       "w": "－ばい",
       "k": "－倍",
-      "m": "－ lần"
+      "m": "－ lần",
+      "examples": [
+        {
+          "jp": "今年[ことし]の 売[う]り上[あ]げは 去年[きょねん]の 2倍[にばい]に なりました。",
+          "vn": "Doanh số năm nay đã tăng gấp đôi năm ngoái."
+        },
+        {
+          "jp": "予算[よさん]を 前[まえ]の 3倍[さんばい]に しました。",
+          "vn": "Chúng tôi đã tăng ngân sách lên gấp ba lần trước."
+        }
+      ]
     },
     {
       "w": "はんぶん",
       "k": "半分",
-      "m": "một nửa"
+      "m": "một nửa",
+      "examples": [
+        {
+          "jp": "資料[しりょう]の 量[りょう]を 半分[はんぶん]に しました。",
+          "vn": "Tôi đã giảm khối lượng tài liệu xuống còn một nửa."
+        },
+        {
+          "jp": "仕事[しごと]が まだ 半分[はんぶん]しか 終[お]わって いません。",
+          "vn": "Công việc mới xong được một nửa thôi."
+        }
+      ]
     },
     {
       "w": "シングル",
       "k": "",
-      "m": "phòng đơn (1 giường)"
+      "m": "phòng đơn (1 giường)",
+      "examples": [
+        {
+          "jp": "出張[しゅっちょう]の ホテルは シングルルームを 予約[よやく]しました。",
+          "vn": "Tôi đã đặt phòng đơn cho khách sạn công tác."
+        },
+        {
+          "jp": "シングルルームは ツインより 少[すこ]し 安[やす]いです。",
+          "vn": "Phòng đơn rẻ hơn phòng đôi một chút."
+        }
+      ]
     },
     {
       "w": "ツイン",
       "k": "",
-      "m": "phòng đôi (2 giường)"
+      "m": "phòng đôi (2 giường)",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]と 一緒[いっしょ]なので、ツインルームに しました。",
+          "vn": "Vì đi cùng đồng nghiệp nên tôi đã đặt phòng đôi."
+        },
+        {
+          "jp": "ツインルームなら 二人[ふたり]で 泊[と]まれます。",
+          "vn": "Nếu là phòng đôi thì hai người có thể ở cùng."
+        }
+      ]
     },
     {
       "w": "たんす",
       "k": "",
-      "m": "tủ đựng quần áo"
+      "m": "tủ đựng quần áo",
+      "examples": [
+        {
+          "jp": "冬[ふゆ]服[ふく]を たんすに しまいました。",
+          "vn": "Tôi đã cất quần áo mùa đông vào tủ."
+        },
+        {
+          "jp": "たんすの 中[なか]を 整理[せいり]しました。",
+          "vn": "Tôi đã sắp xếp lại bên trong tủ quần áo."
+        }
+      ]
     },
     {
       "w": "せんたくもの",
       "k": "洗濯物",
-      "m": "quần áo giặt"
+      "m": "quần áo giặt",
+      "examples": [
+        {
+          "jp": "洗濯物[せんたくもの]が 乾[かわ]きにくい 季節[きせつ]です。",
+          "vn": "Đây là mùa mà quần áo giặt khó khô."
+        },
+        {
+          "jp": "洗濯物[せんたくもの]を 部屋[へや]の 中[なか]に 干[ほ]しました。",
+          "vn": "Tôi đã phơi quần áo giặt trong phòng."
+        }
+      ]
     },
     {
       "w": "りゆう",
       "k": "理由",
-      "m": "lý do"
+      "m": "lý do",
+      "examples": [
+        {
+          "jp": "遅刻[ちこく]した 理由[りゆう]を 説明[せつめい]しました。",
+          "vn": "Tôi đã giải thích lý do đi trễ."
+        },
+        {
+          "jp": "契約[けいやく]を 断[ことわ]られた 理由[りゆう]が 分[わ]かりません。",
+          "vn": "Tôi không rõ lý do bị từ chối hợp đồng."
+        }
+      ]
     }
   ],
   "expressions": [

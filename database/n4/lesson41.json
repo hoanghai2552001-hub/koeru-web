@@ -6,167 +6,497 @@
     {
       "w": "いただきますⅠ",
       "k": "",
-      "m": "nhận (khiêm nhường ngữ của もらいます)"
+      "m": "nhận (khiêm nhường ngữ của もらいます)",
+      "examples": [
+        {
+          "jp": "部長[ぶちょう]に アドバイスを いただきました。",
+          "vn": "Tôi đã nhận được lời khuyên từ trưởng phòng."
+        },
+        {
+          "jp": "先輩[せんぱい]に 資料[しりょう]の 作[つく]り方[かた]を 教[おし]えて いただきました。",
+          "vn": "Tôi đã được tiền bối chỉ cho cách làm tài liệu."
+        }
+      ]
     },
     {
       "w": "くださいますⅠ",
       "k": "",
-      "m": "cho, tặng (tôi) (tôn kính ngữ của くれます)"
+      "m": "cho, tặng (tôi) (tôn kính ngữ của くれます)",
+      "examples": [
+        {
+          "jp": "課長[かちょう]が 誕生日[たんじょうび]に プレゼントを くださいました。",
+          "vn": "Trưởng phòng đã tặng quà sinh nhật cho tôi."
+        },
+        {
+          "jp": "お客様[きゃくさま]が 貴重[きちょう]な ご意見[いけん]を くださいました。",
+          "vn": "Khách hàng đã cho chúng tôi ý kiến quý báu."
+        }
+      ]
     },
     {
       "w": "やりますⅠ",
       "k": "",
-      "m": "cho, tặng (dùng với người dưới hoặc bằng vai)"
+      "m": "cho, tặng (dùng với người dưới hoặc bằng vai)",
+      "examples": [
+        {
+          "jp": "後輩[こうはい]に 仕事[しごと]の コツを 教[おし]えて やりました。",
+          "vn": "Tôi đã chỉ bí quyết công việc cho hậu bối."
+        },
+        {
+          "jp": "子供[こども]に 誕生日[たんじょうび]プレゼントを 買[か]って やりました。",
+          "vn": "Tôi đã mua quà sinh nhật cho con."
+        }
+      ]
     },
     {
       "w": "よびますⅠ",
       "k": "呼びます",
-      "m": "mời"
+      "m": "mời",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]に 田中[たなか]さんを 呼[よ]んで いただけませんか。",
+          "vn": "Anh/chị mời giúp tôi anh Tanaka đến cuộc họp được không?"
+        },
+        {
+          "jp": "誕生日[たんじょうび]パーティーに 友達[ともだち]を 呼[よ]びました。",
+          "vn": "Tôi đã mời bạn bè đến tiệc sinh nhật."
+        }
+      ]
     },
     {
       "w": "とりかえますⅡ",
       "k": "取り替えます",
-      "m": "đổi, thay"
+      "m": "đổi, thay",
+      "examples": [
+        {
+          "jp": "この 部品[ぶひん]を 新[あたら]しい ものに 取[と]り替[か]えて くださいませんか。",
+          "vn": "Anh/chị đổi giúp tôi linh kiện này sang cái mới được không?"
+        },
+        {
+          "jp": "壊[こわ]れた コピー機[き]を 取[と]り替[か]えて いただけませんか。",
+          "vn": "Anh/chị đổi giúp tôi máy photocopy bị hỏng được không ạ?"
+        }
+      ]
     },
     {
       "w": "しんせつに しますⅢ",
       "k": "親切に します",
-      "m": "giúp đỡ, đối xử thân thiện"
+      "m": "giúp đỡ, đối xử thân thiện",
+      "examples": [
+        {
+          "jp": "新入社員[しんにゅうしゃいん]に 親切[しんせつ]に して あげて ください。",
+          "vn": "Hãy đối xử thân thiện với nhân viên mới giúp tôi."
+        },
+        {
+          "jp": "先輩[せんぱい]は いつも 私[わたし]に 親切[しんせつ]に して くださいます。",
+          "vn": "Tiền bối lúc nào cũng đối xử thân thiện với tôi."
+        }
+      ]
     },
     {
       "w": "かわいい",
       "k": "",
-      "m": "xinh, đáng yêu"
+      "m": "xinh, đáng yêu",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]の お子[こ]さんの 写真[しゃしん]、かわいいですね。",
+          "vn": "Ảnh con của đồng nghiệp dễ thương thật đấy."
+        },
+        {
+          "jp": "娘[むすめ]に かわいい ハンカチを 買[か]って やりました。",
+          "vn": "Tôi đã mua chiếc khăn tay dễ thương cho con gái."
+        }
+      ]
     },
     {
       "w": "おいわい",
       "k": "お祝い",
-      "m": "mừng, quà mừng (～を します: mừng)"
+      "m": "mừng, quà mừng (～を します: mừng)",
+      "examples": [
+        {
+          "jp": "昇進[しょうしん]の お祝[いわ]いを して いただきました。",
+          "vn": "Tôi đã được mọi người tổ chức mừng thăng chức."
+        },
+        {
+          "jp": "結婚[けっこん]の お祝[いわ]いに ネクタイを あげました。",
+          "vn": "Tôi đã tặng cà vạt mừng đám cưới."
+        }
+      ]
     },
     {
       "w": "おとしだま",
       "k": "お年玉",
-      "m": "tiền mừng tuổi"
+      "m": "tiền mừng tuổi",
+      "examples": [
+        {
+          "jp": "お正月[しょうがつ]に 甥[おい]に お年玉[としだま]を あげました。",
+          "vn": "Tết tôi đã lì xì cho cháu trai."
+        },
+        {
+          "jp": "子供[こども]の 頃[ころ]、祖父[そふ]に お年玉[としだま]を もらいました。",
+          "vn": "Hồi nhỏ tôi đã được ông cho tiền lì xì."
+        }
+      ]
     },
     {
       "w": "[お]みまい",
       "k": "[お]見舞い",
-      "m": "thăm người ốm"
+      "m": "thăm người ốm",
+      "examples": [
+        {
+          "jp": "入院[にゅういん]して いる 同僚[どうりょう]の お見舞[みま]いに 行[い]きました。",
+          "vn": "Tôi đã đi thăm đồng nghiệp đang nằm viện."
+        },
+        {
+          "jp": "お見舞[みま]いに 花[はな]を 買[か]って いきました。",
+          "vn": "Tôi đã mua hoa mang đi thăm bệnh."
+        }
+      ]
     },
     {
       "w": "きょうみ",
       "k": "興味",
-      "m": "sở thích, quan tâm ([コンピューターに] ～が あります: quan tâm đến [máy tính])"
+      "m": "sở thích, quan tâm ([コンピューターに] ～が あります: quan tâm đến [máy tính])",
+      "examples": [
+        {
+          "jp": "この プロジェクトに 興味[きょうみ]が あります。",
+          "vn": "Tôi có hứng thú với dự án này."
+        },
+        {
+          "jp": "彼[かれ]は マーケティングに 興味[きょうみ]を 持[も]って います。",
+          "vn": "Anh ấy có sự quan tâm đến marketing."
+        }
+      ]
     },
     {
       "w": "じょうほう",
       "k": "情報",
-      "m": "thông tin"
+      "m": "thông tin",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 情報[じょうほう]を 教[おし]えて いただけませんか。",
+          "vn": "Anh/chị chỉ cho tôi thông tin mới được không ạ?"
+        },
+        {
+          "jp": "この 情報[じょうほう]は お客様[きゃくさま]から いただきました。",
+          "vn": "Thông tin này là do khách hàng cho chúng tôi biết."
+        }
+      ]
     },
     {
       "w": "ぶんぽう",
       "k": "文法",
-      "m": "ngữ pháp"
+      "m": "ngữ pháp",
+      "examples": [
+        {
+          "jp": "先生[せんせい]に 文法[ぶんぽう]を 教[おし]えて いただきました。",
+          "vn": "Tôi đã được thầy dạy cho về ngữ pháp."
+        },
+        {
+          "jp": "この 文法[ぶんぽう]は 少[すこ]し 難[むずか]しいです。",
+          "vn": "Ngữ pháp này hơi khó."
+        }
+      ]
     },
     {
       "w": "はつおん",
       "k": "発音",
-      "m": "phát âm"
+      "m": "phát âm",
+      "examples": [
+        {
+          "jp": "先輩[せんぱい]に 発音[はつおん]を 直[なお]して いただきました。",
+          "vn": "Tôi đã được tiền bối sửa cho cách phát âm."
+        },
+        {
+          "jp": "この 単語[たんご]の 発音[はつおん]を 教[おし]えて くださいませんか。",
+          "vn": "Anh/chị chỉ cho tôi cách phát âm từ này được không ạ?"
+        }
+      ]
     },
     {
       "w": "さる",
       "k": "猿",
-      "m": "con khỉ"
+      "m": "con khỉ",
+      "examples": [
+        {
+          "jp": "動物園[どうぶつえん]で 猿[さる]に 餌[えさ]を あげました。",
+          "vn": "Tôi đã cho khỉ ăn ở vườn thú."
+        },
+        {
+          "jp": "子供[こども]は 猿[さる]を 見[み]て 喜[よろこ]んで いました。",
+          "vn": "Con tôi nhìn thấy khỉ nên rất vui."
+        }
+      ]
     },
     {
       "w": "えさ",
       "k": "",
-      "m": "đồ ăn cho động vật, mồi"
+      "m": "đồ ăn cho động vật, mồi",
+      "examples": [
+        {
+          "jp": "犬[いぬ]に 餌[えさ]を やる 時間[じかん]です。",
+          "vn": "Đến giờ cho chó ăn rồi."
+        },
+        {
+          "jp": "動物園[どうぶつえん]では 餌[えさ]を あげないで ください。",
+          "vn": "Ở vườn thú xin đừng cho động vật ăn."
+        }
+      ]
     },
     {
       "w": "おもちゃ",
       "k": "",
-      "m": "đồ chơi"
+      "m": "đồ chơi",
+      "examples": [
+        {
+          "jp": "誕生日[たんじょうび]に 息子[むすこ]に おもちゃを 買[か]って やりました。",
+          "vn": "Sinh nhật tôi đã mua đồ chơi cho con trai."
+        },
+        {
+          "jp": "甥[おい]に おもちゃを あげたら、とても 喜[よろこ]びました。",
+          "vn": "Tôi tặng đồ chơi cho cháu, nó vui lắm."
+        }
+      ]
     },
     {
       "w": "えほん",
       "k": "絵本",
-      "m": "quyển truyện tranh"
+      "m": "quyển truyện tranh",
+      "examples": [
+        {
+          "jp": "娘[むすめ]に 絵本[えほん]を 読[よ]んで あげました。",
+          "vn": "Tôi đã đọc truyện tranh cho con gái nghe."
+        },
+        {
+          "jp": "友達[ともだち]の 子[こ]に 絵本[えほん]を プレゼントしました。",
+          "vn": "Tôi đã tặng sách truyện tranh cho con của bạn."
+        }
+      ]
     },
     {
       "w": "えはがき",
       "k": "絵はがき",
-      "m": "bưu ảnh"
+      "m": "bưu ảnh",
+      "examples": [
+        {
+          "jp": "旅行先[りょこうさき]から 同僚[どうりょう]に 絵[え]はがきを 送[おく]りました。",
+          "vn": "Tôi đã gửi bưu ảnh cho đồng nghiệp từ nơi du lịch."
+        },
+        {
+          "jp": "絵[え]はがきを もらって、うれしかったです。",
+          "vn": "Tôi rất vui khi nhận được bưu ảnh."
+        }
+      ]
     },
     {
       "w": "ドライバー",
       "k": "",
-      "m": "cái tua-vít"
+      "m": "cái tua-vít",
+      "examples": [
+        {
+          "jp": "ドライバーを 貸[か]して いただけませんか。",
+          "vn": "Anh/chị cho tôi mượn cái tua vít được không ạ?"
+        },
+        {
+          "jp": "同僚[どうりょう]に ドライバーを 借[か]りました。",
+          "vn": "Tôi đã mượn tua vít từ đồng nghiệp."
+        }
+      ]
     },
     {
       "w": "ハンカチ",
       "k": "",
-      "m": "khăn mùi xoa, khăn tay"
+      "m": "khăn mùi xoa, khăn tay",
+      "examples": [
+        {
+          "jp": "上司[じょうし]に ハンカチを プレゼントしました。",
+          "vn": "Tôi đã tặng khăn tay cho sếp."
+        },
+        {
+          "jp": "母[はは]に ハンカチを もらいました。",
+          "vn": "Tôi đã được mẹ cho khăn tay."
+        }
+      ]
     },
     {
       "w": "くつした",
       "k": "靴下",
-      "m": "cái tất"
+      "m": "cái tất",
+      "examples": [
+        {
+          "jp": "父[ちち]に 靴下[くつした]を プレゼントしました。",
+          "vn": "Tôi đã tặng bố đôi tất."
+        },
+        {
+          "jp": "冬[ふゆ]用[よう]の 靴下[くつした]を 買[か]いました。",
+          "vn": "Tôi đã mua tất dùng cho mùa đông."
+        }
+      ]
     },
     {
       "w": "てぶくろ",
       "k": "手袋",
-      "m": "cái găng tay"
+      "m": "cái găng tay",
+      "examples": [
+        {
+          "jp": "妻[つま]に 手袋[てぶくろ]を 買[か]って やりました。",
+          "vn": "Tôi đã mua găng tay cho vợ."
+        },
+        {
+          "jp": "祖母[そぼ]から 手編[てあ]みの 手袋[てぶくろ]を もらいました。",
+          "vn": "Tôi được bà tặng đôi găng tay đan tay."
+        }
+      ]
     },
     {
       "w": "ゆびわ",
       "k": "指輪",
-      "m": "cái nhẫn"
+      "m": "cái nhẫn",
+      "examples": [
+        {
+          "jp": "結婚[けっこん]記念日[きねんび]に 妻[つま]に 指輪[ゆびわ]を 買[か]って やりました。",
+          "vn": "Nhân dịp kỷ niệm ngày cưới tôi đã mua nhẫn cho vợ."
+        },
+        {
+          "jp": "祖母[そぼ]の 指輪[ゆびわ]を 大切[たいせつ]に して います。",
+          "vn": "Tôi trân trọng giữ gìn chiếc nhẫn của bà."
+        }
+      ]
     },
     {
       "w": "バッグ",
       "k": "",
-      "m": "cái túi (bag)"
+      "m": "cái túi (bag)",
+      "examples": [
+        {
+          "jp": "先輩[せんぱい]に 素敵[すてき]な バッグを いただきました。",
+          "vn": "Tôi đã được tiền bối tặng cho một cái túi rất đẹp."
+        },
+        {
+          "jp": "母[はは]の 誕生日[たんじょうび]に バッグを 買[か]って あげました。",
+          "vn": "Tôi đã mua túi tặng mẹ nhân sinh nhật."
+        }
+      ]
     },
     {
       "w": "そふ",
       "k": "祖父",
-      "m": "ông (dùng với bản thân)"
+      "m": "ông (dùng với bản thân)",
+      "examples": [
+        {
+          "jp": "祖父[そふ]から 貴重[きちょう]な アドバイスを いただきました。",
+          "vn": "Tôi đã nhận được lời khuyên quý báu từ ông."
+        },
+        {
+          "jp": "祖父[そふ]の お見舞[みま]いに 行[い]きました。",
+          "vn": "Tôi đã đi thăm bệnh ông."
+        }
+      ]
     },
     {
       "w": "そぼ",
       "k": "祖母",
-      "m": "bà (dùng với bản thân)"
+      "m": "bà (dùng với bản thân)",
+      "examples": [
+        {
+          "jp": "祖母[そぼ]に 手編[てあ]みの セーターを もらいました。",
+          "vn": "Tôi được bà cho chiếc áo len đan tay."
+        },
+        {
+          "jp": "祖母[そぼ]の 誕生日[たんじょうび]に 花[はな]を あげました。",
+          "vn": "Tôi đã tặng hoa cho bà nhân sinh nhật."
+        }
+      ]
     },
     {
       "w": "まご",
       "k": "孫",
-      "m": "cháu"
+      "m": "cháu",
+      "examples": [
+        {
+          "jp": "祖父[そふ]は 孫[まご]に お年玉[としだま]を あげました。",
+          "vn": "Ông đã lì xì cho cháu."
+        },
+        {
+          "jp": "孫[まご]が 生[う]まれて、とても うれしいです。",
+          "vn": "Cháu tôi vừa chào đời nên tôi rất vui."
+        }
+      ]
     },
     {
       "w": "おじ",
       "k": "",
-      "m": "chú, cậu, bác (dùng với bản thân)"
+      "m": "chú, cậu, bác (dùng với bản thân)",
+      "examples": [
+        {
+          "jp": "叔父[おじ]に お祝[いわ]いを いただきました。",
+          "vn": "Tôi đã được chú/bác tặng quà mừng."
+        },
+        {
+          "jp": "叔父[おじ]の 会社[かいしゃ]で アルバイトを した ことが あります。",
+          "vn": "Tôi đã từng làm thêm ở công ty của chú/bác."
+        }
+      ]
     },
     {
       "w": "おじさん",
       "k": "",
-      "m": "chú, cậu, bác (dùng với người khác)"
+      "m": "chú, cậu, bác (dùng với người khác)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんの おじさんは 会社[かいしゃ]の 社長[しゃちょう]だそうです。",
+          "vn": "Nghe nói chú/bác của anh Tanaka là giám đốc công ty."
+        },
+        {
+          "jp": "おじさんに いろいろ 教[おし]えて いただきました。",
+          "vn": "Tôi đã được chú/bác chỉ cho nhiều điều."
+        }
+      ]
     },
     {
       "w": "おば",
       "k": "",
-      "m": "cô, dì, bác (dùng với bản thân)"
+      "m": "cô, dì, bác (dùng với bản thân)",
+      "examples": [
+        {
+          "jp": "叔母[おば]から お祝[いわ]いを いただきました。",
+          "vn": "Tôi đã được cô/dì tặng quà mừng."
+        },
+        {
+          "jp": "叔母[おば]の お見舞[みま]いに 行[い]きました。",
+          "vn": "Tôi đã đi thăm bệnh cô/dì."
+        }
+      ]
     },
     {
       "w": "おばさん",
       "k": "",
-      "m": "cô, dì, bác (dùng với người khác)"
+      "m": "cô, dì, bác (dùng với người khác)",
+      "examples": [
+        {
+          "jp": "近所[きんじょ]の おばさんに 親切[しんせつ]に して いただきました。",
+          "vn": "Tôi đã được bác gái hàng xóm đối xử thân thiện."
+        },
+        {
+          "jp": "おばさんに 手作[てづく]りの お菓子[かし]を もらいました。",
+          "vn": "Tôi được bác gái cho bánh tự làm."
+        }
+      ]
     },
     {
       "w": "おととし",
       "k": "",
-      "m": "năm kia"
+      "m": "năm kia",
+      "examples": [
+        {
+          "jp": "一昨年[おととし]、この 会社[かいしゃ]に 入社[にゅうしゃ]しました。",
+          "vn": "Tôi đã vào công ty này từ hai năm trước."
+        },
+        {
+          "jp": "一昨年[おととし]から 貯金[ちょきん]を 始[はじ]めました。",
+          "vn": "Tôi đã bắt đầu tiết kiệm từ hai năm trước."
+        }
+      ]
     }
   ],
   "expressions": [
