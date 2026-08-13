@@ -242,6 +242,10 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
   border-radius:var(--radius-sm);padding:5px 9px;font-size:.8rem;color:var(--text);line-height:1.4}
 .kj-click{cursor:pointer;border-bottom:1px dotted rgba(245,200,66,.5)}
 .kj-click:hover{color:var(--gold)}
+.ex-toggle{background:none;border:none;cursor:pointer;font-size:.85rem;padding:0 2px;
+  font-family:inherit;vertical-align:middle;opacity:.75}
+.ex-toggle:hover{opacity:1}
+.ex-row td{padding-top:2px;padding-bottom:10px}
 .stroke-loading,.stroke-not-found{color:var(--muted);text-align:center;padding:20px;font-size:.85rem}
 .kp-exercises{margin-top:8px}
 .kp-ex-item{margin-top:8px;padding:9px 11px;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm)}
@@ -338,7 +342,7 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
 <script src="js/kanji-data-n2.js?v=20260721f"></script>
 <script src="js/kanji-stroke.js?v=20260718"></script>
 <script src="minna-n5-data.js?v=20260719"></script>
-<script src="minna-n4-data.js?v=20260812"></script>
+<script src="minna-n4-data.js?v=20260813"></script>
 <script src="minna-grammar-data.js?v=20260719"></script>
 <script src="minna-dialogue-data.js?v=20260812e"></script>
 <script>
@@ -688,6 +692,13 @@ function renderVocab(l){
       playAudio(btn, w, 'audio/vocab/' + encodeURIComponent(w) + '.mp3');
     };
   });
+  box.querySelectorAll('.ex-toggle').forEach(function(btn){
+    btn.onclick = function(e){
+      e.stopPropagation();
+      var row = box.querySelector('.ex-row[data-exfor="' + btn.dataset.i + '"]');
+      if(row) row.classList.toggle('hidden');
+    };
+  });
   if(curVocabMode === 'flash'){
     box.querySelectorAll('.flash-card').forEach(function(el){
       el.onclick = function(){ el.classList.toggle('flipped'); };
@@ -759,9 +770,19 @@ function renderVocabTable(l){
       h += '<tr class="vgroup"><td colspan="5">TỪ ' + (i+1) + '–' + Math.min(i+8, l.vocab.length) + '</td></tr>';
     }
     var g = verbGroup(v.w);
+    var hasEx = v.examples && v.examples.length;
     h += '<tr><td><button class="dlg-play voc-play" data-w="' + esc(vocabKana(v.w)) + '" title="Nghe">🔊</button></td>' +
-      '<td class="jp">' + esc(stripGroupMark(v.w)) + '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
+      '<td class="jp">' + esc(stripGroupMark(v.w)) +
+        (hasEx ? ' <button class="ex-toggle" data-i="' + i + '" title="Xem ví dụ">📖</button>' : '') +
+      '</td><td class="kj">' + kanjiLinkify(v.k||'') + '</td><td class="vn">' + esc(v.m) + '</td>' +
       '<td class="vg">' + (g ? '<i>' + g + '</i>' : '') + '</td></tr>';
+    if(hasEx){
+      h += '<tr class="ex-row hidden" data-exfor="' + i + '"><td colspan="5">' +
+        v.examples.map(function(ex){
+          return '<div class="gr-ex"><div class="jp">' + rubyfy(ex.jp) + '</div><div class="vn">' + esc(ex.vn) + '</div></div>';
+        }).join('') +
+      '</td></tr>';
+    }
   });
   return h + '</tbody></table>';
 }
