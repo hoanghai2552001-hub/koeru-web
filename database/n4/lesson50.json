@@ -6,122 +6,362 @@
     {
       "w": "まいりますⅠ",
       "k": "参ります",
-      "m": "đi, đến (khiêm nhường ngữ của いきます và きます)"
+      "m": "đi, đến (khiêm nhường ngữ của いきます và きます)",
+      "examples": [
+        {
+          "jp": "午後[ごご]2時[にじ]に 御社[おんしゃ]へ 参[まい]ります。",
+          "vn": "2 giờ chiều tôi sẽ đến quý công ty ạ."
+        },
+        {
+          "jp": "すぐに そちらへ 参[まい]ります。",
+          "vn": "Tôi sẽ đến đó ngay ạ."
+        }
+      ]
     },
     {
       "w": "おりますⅠ",
       "k": "",
-      "m": "ở, có (khiêm nhường ngữ của います)"
+      "m": "ở, có (khiêm nhường ngữ của います)",
+      "examples": [
+        {
+          "jp": "私[わたし]は 営業部[えいぎょうぶ]に おります。",
+          "vn": "Tôi làm việc ở bộ phận kinh doanh ạ."
+        },
+        {
+          "jp": "只今[ただいま]、席[せき]を 外[はず]して おります。",
+          "vn": "Hiện tại tôi đang không có ở chỗ ngồi ạ."
+        }
+      ]
     },
     {
       "w": "いただきますⅠ",
       "k": "",
-      "m": "ăn, uống, nhận (khiêm nhường ngữ của たべます, のみます và もらいます)"
+      "m": "ăn, uống, nhận (khiêm nhường ngữ của たべます, のみます và もらいます)",
+      "examples": [
+        {
+          "jp": "資料[しりょう]を 拝見[はいけん]させて いただきました。",
+          "vn": "Tôi đã được xem tài liệu ạ."
+        },
+        {
+          "jp": "お土産[みやげ]を いただき、ありがとう ございます。",
+          "vn": "Xin cảm ơn ngài đã cho quà ạ."
+        }
+      ]
     },
     {
       "w": "もうしますⅠ",
       "k": "申します",
-      "m": "nói (khiêm nhường ngữ của いいます)"
+      "m": "nói (khiêm nhường ngữ của いいます)",
+      "examples": [
+        {
+          "jp": "初[はじ]めまして。田中[たなか]と 申[もう]します。",
+          "vn": "Rất hân hạnh. Tôi tên là Tanaka ạ."
+        },
+        {
+          "jp": "ABC社[しゃ]の 山田[やまだ]と 申[もう]します。",
+          "vn": "Tôi là Yamada của công ty ABC ạ."
+        }
+      ]
     },
     {
       "w": "いたしますⅠ",
       "k": "",
-      "m": "làm (khiêm nhường ngữ của します)"
+      "m": "làm (khiêm nhường ngữ của します)",
+      "examples": [
+        {
+          "jp": "私[わたし]が ご案内[あんない] いたします。",
+          "vn": "Tôi xin phép được hướng dẫn ạ."
+        },
+        {
+          "jp": "確認[かくにん]いたしますので、少々[しょうしょう] お待[ま]ち ください。",
+          "vn": "Tôi sẽ kiểm tra ngay, xin ngài chờ một chút ạ."
+        }
+      ]
     },
     {
       "w": "はいけんしますⅢ",
       "k": "拝見します",
-      "m": "xem, nhìn (khiêm nhường ngữ của みます)"
+      "m": "xem, nhìn (khiêm nhường ngữ của みます)",
+      "examples": [
+        {
+          "jp": "資料[しりょう]を 拝見[はいけん]しました。",
+          "vn": "Tôi đã xem qua tài liệu rồi ạ."
+        },
+        {
+          "jp": "先[さき]ほどの メール、拝見[はいけん]いたしました。",
+          "vn": "Tôi đã đọc email vừa rồi của ngài ạ."
+        }
+      ]
     },
     {
       "w": "ぞんじますⅡ",
       "k": "存じます",
-      "m": "biết (khiêm nhường ngữ của しります)"
+      "m": "biết (khiêm nhường ngữ của しります)",
+      "examples": [
+        {
+          "jp": "その 件[けん]は 存[ぞん]じて おります。",
+          "vn": "Việc đó tôi đã biết rồi ạ."
+        },
+        {
+          "jp": "申[もう]し訳[わけ]ございません、存[ぞん]じません。",
+          "vn": "Thành thật xin lỗi, tôi không biết ạ."
+        }
+      ]
     },
     {
       "w": "うかがいますⅠ",
       "k": "伺います",
-      "m": "hỏi, nghe, đến thăm (khiêm nhường ngữ của ききます và いきます)"
+      "m": "hỏi, nghe, đến thăm (khiêm nhường ngữ của ききます và いきます)",
+      "examples": [
+        {
+          "jp": "明日[あした] 御社[おんしゃ]に 伺[うかが]っても よろしいでしょうか。",
+          "vn": "Ngày mai tôi đến quý công ty có được không ạ?"
+        },
+        {
+          "jp": "詳[くわ]しい お話[はなし]を 伺[うかが]いたいのですが。",
+          "vn": "Tôi muốn được nghe câu chuyện chi tiết hơn ạ."
+        }
+      ]
     },
     {
       "w": "おめに かかりますⅠ",
       "k": "お目に かかります",
-      "m": "gặp (khiêm nhường ngữ của あいます)"
+      "m": "gặp (khiêm nhường ngữ của あいます)",
+      "examples": [
+        {
+          "jp": "お目[め]に かかれて 光栄[こうえい]です。",
+          "vn": "Tôi rất vinh hạnh được gặp ngài."
+        },
+        {
+          "jp": "来週[らいしゅう]、お目[め]に かかれますでしょうか。",
+          "vn": "Tuần sau tôi có thể được gặp ngài không ạ?"
+        }
+      ]
     },
     {
       "w": "ございますⅠ",
       "k": "",
-      "m": "có (thể lịch sự của あります)"
+      "m": "có (thể lịch sự của あります)",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]は 3階[さんがい]に ございます。",
+          "vn": "Phòng họp ở tầng 3 ạ."
+        },
+        {
+          "jp": "何[なに]か ご質問[しつもん]は ございますか。",
+          "vn": "Ngài có câu hỏi gì không ạ?"
+        }
+      ]
     },
     {
       "w": "～で ございます",
       "k": "",
-      "m": "là (thể lịch sự của ～です)"
+      "m": "là (thể lịch sự của ～です)",
+      "examples": [
+        {
+          "jp": "こちらは 会議室[かいぎしつ]で ございます。",
+          "vn": "Đây là phòng họp ạ."
+        },
+        {
+          "jp": "私[わたし]が 担当[たんとう]で ございます。",
+          "vn": "Tôi là người phụ trách ạ."
+        }
+      ]
     },
     {
       "w": "わたくし",
       "k": "私",
-      "m": "tôi (khiêm nhường ngữ của わたし)"
+      "m": "tôi (khiêm nhường ngữ của わたし)",
+      "examples": [
+        {
+          "jp": "私[わたくし]が ご説明[せつめい]いたします。",
+          "vn": "Tôi xin phép được giải thích ạ."
+        },
+        {
+          "jp": "私[わたくし]、営業部[えいぎょうぶ]の 田中[たなか]と 申[もう]します。",
+          "vn": "Tôi là Tanaka thuộc bộ phận kinh doanh ạ."
+        }
+      ]
     },
     {
       "w": "ガイド",
       "k": "",
-      "m": "người hướng dẫn, hướng dẫn viên"
+      "m": "người hướng dẫn, hướng dẫn viên",
+      "examples": [
+        {
+          "jp": "私[わたくし]が 本日[ほんじつ]の ガイドを させて いただきます。",
+          "vn": "Tôi xin phép được làm hướng dẫn viên hôm nay ạ."
+        },
+        {
+          "jp": "ガイドの 方[かた]に いろいろ 説明[せつめい]して いただきました。",
+          "vn": "Tôi đã được hướng dẫn viên giải thích cho nhiều điều ạ."
+        }
+      ]
     },
     {
       "w": "おたく",
       "k": "お宅",
-      "m": "nhà (dùng cho người khác)"
+      "m": "nhà (dùng cho người khác)",
+      "examples": [
+        {
+          "jp": "お宅[たく]は どちらに ございますか。",
+          "vn": "Nhà ngài ở đâu ạ?"
+        },
+        {
+          "jp": "後[のち]ほど お宅[たく]に 伺[うかが]っても よろしいでしょうか。",
+          "vn": "Lát nữa tôi đến nhà ngài có được không ạ?"
+        }
+      ]
     },
     {
       "w": "こうがい",
       "k": "郊外",
-      "m": "ngoại ô"
+      "m": "ngoại ô",
+      "examples": [
+        {
+          "jp": "工場[こうじょう]は 郊外[こうがい]に ございます。",
+          "vn": "Nhà máy nằm ở ngoại ô ạ."
+        },
+        {
+          "jp": "郊外[こうがい]の 支店[してん]に 参[まい]ります。",
+          "vn": "Tôi sẽ đến chi nhánh ở ngoại ô ạ."
+        }
+      ]
     },
     {
       "w": "アルバム",
       "k": "",
-      "m": "an-bom"
+      "m": "an-bom",
+      "examples": [
+        {
+          "jp": "イベントの 写真[しゃしん]を アルバムに まとめました。",
+          "vn": "Tôi đã gom ảnh sự kiện vào một cuốn album ạ."
+        },
+        {
+          "jp": "こちらの アルバムを ご覧[らん]に なりますか。",
+          "vn": "Ngài muốn xem cuốn album này không ạ?"
+        }
+      ]
     },
     {
       "w": "さらいしゅう",
       "k": "さ来週",
-      "m": "tuần sau nữa"
+      "m": "tuần sau nữa",
+      "examples": [
+        {
+          "jp": "さ来週[らいしゅう]、また 参[まい]ります。",
+          "vn": "Tuần sau nữa tôi sẽ lại đến ạ."
+        },
+        {
+          "jp": "さ来週[らいしゅう]の 会議[かいぎ]の 予定[よてい]を お伝[つた]えします。",
+          "vn": "Tôi xin thông báo lịch họp tuần sau nữa ạ."
+        }
+      ]
     },
     {
       "w": "さらいげつ",
       "k": "さ来月",
-      "m": "tháng sau nữa"
+      "m": "tháng sau nữa",
+      "examples": [
+        {
+          "jp": "さ来月[らいげつ]、契約[けいやく]を 更新[こうしん]いたします。",
+          "vn": "Tháng sau nữa chúng tôi sẽ gia hạn hợp đồng ạ."
+        },
+        {
+          "jp": "さ来月[らいげつ]まで お待[ま]ちいただけますか。",
+          "vn": "Ngài có thể đợi đến tháng sau nữa được không ạ?"
+        }
+      ]
     },
     {
       "w": "さらいねん",
       "k": "さ来年",
-      "m": "năm sau nữa"
+      "m": "năm sau nữa",
+      "examples": [
+        {
+          "jp": "さ来年[らいねん]、新[あたら]しい 支店[してん]を 出[だ]す 予定[よてい]で ございます。",
+          "vn": "Năm sau nữa chúng tôi dự định mở chi nhánh mới ạ."
+        },
+        {
+          "jp": "さ来年[らいねん]まで この プロジェクトを 担当[たんとう]いたします。",
+          "vn": "Tôi sẽ phụ trách dự án này đến năm sau nữa ạ."
+        }
+      ]
     },
     {
       "w": "はんとし",
       "k": "半年",
-      "m": "nửa năm"
+      "m": "nửa năm",
+      "examples": [
+        {
+          "jp": "半年[はんとし]ほど 前[まえ]から 存[ぞん]じて おります。",
+          "vn": "Tôi đã biết chuyện đó từ khoảng nửa năm trước ạ."
+        },
+        {
+          "jp": "半年[はんとし]で この プロジェクトを 完成[かんせい]させます。",
+          "vn": "Chúng tôi sẽ hoàn thành dự án này trong nửa năm ạ."
+        }
+      ]
     },
     {
       "w": "さいしょに",
       "k": "最初に",
-      "m": "đầu tiên, trước hết"
+      "m": "đầu tiên, trước hết",
+      "examples": [
+        {
+          "jp": "最初[さいしょ]に 私[わたくし]から ご説明[せつめい]いたします。",
+          "vn": "Đầu tiên tôi xin phép được giải thích ạ."
+        },
+        {
+          "jp": "最初[さいしょ]に 資料[しりょう]を 拝見[はいけん]させて いただけますか。",
+          "vn": "Trước hết cho tôi được xem qua tài liệu ạ."
+        }
+      ]
     },
     {
       "w": "さいごに",
       "k": "最後に",
-      "m": "cuối cùng"
+      "m": "cuối cùng",
+      "examples": [
+        {
+          "jp": "最後[さいご]に 一言[ひとこと] 申[もう]し上[あ]げます。",
+          "vn": "Cuối cùng tôi xin phép được nói đôi lời ạ."
+        },
+        {
+          "jp": "最後[さいご]に ご質問[しつもん]を お受[う]けいたします。",
+          "vn": "Cuối cùng tôi xin tiếp nhận câu hỏi ạ."
+        }
+      ]
     },
     {
       "w": "ただいま",
       "k": "ただ今",
-      "m": "bây giờ (thể lịch sự của いま)"
+      "m": "bây giờ (thể lịch sự của いま)",
+      "examples": [
+        {
+          "jp": "ただ今[いま]、確認[かくにん]いたします。",
+          "vn": "Bây giờ tôi xin kiểm tra ngay ạ."
+        },
+        {
+          "jp": "担当者[たんとうしゃ]は ただ今[いま] 席[せき]を 外[はず]して おります。",
+          "vn": "Người phụ trách hiện đang không có ở chỗ ngồi ạ."
+        }
+      ]
     },
     {
       "w": "えどとうきょうはくぶつかん",
       "k": "江戸東京博物館",
-      "m": "Bảo tàng Edo-Tokyo"
+      "m": "Bảo tàng Edo-Tokyo",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]の 方[かた]を 江戸[えど]東京[とうきょう]博物館[はくぶつかん]へ ご案内[あんない]しました。",
+          "vn": "Tôi đã hướng dẫn phía đối tác đến Bảo tàng Edo-Tokyo ạ."
+        },
+        {
+          "jp": "江戸[えど]東京[とうきょう]博物館[はくぶつかん]は とても 興味[きょうみ]深[ぶか]い 場所[ばしょ]で ございます。",
+          "vn": "Bảo tàng Edo-Tokyo là một nơi rất thú vị ạ."
+        }
+      ]
     }
   ],
   "expressions": [
