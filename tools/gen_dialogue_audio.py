@@ -43,8 +43,8 @@ SOT_STATUS_URL = "https://api.soundoftext.com/sounds/{}"
 GOOGLE_API_KEY = os.environ.get("GOOGLE_TTS_API_KEY")
 GOOGLE_API_URL = "https://texttospeech.googleapis.com/v1/text:synthesize"
 GOOGLE_VOICES = [
-    {"name": "ja-JP-Neural2-B", "ssmlGender": "FEMALE"},
-    {"name": "ja-JP-Neural2-C", "ssmlGender": "MALE"},
+    {"name": "ja-JP-Chirp3-HD-Kore", "ssmlGender": "FEMALE"},
+    {"name": "ja-JP-Chirp3-HD-Puck", "ssmlGender": "MALE"},
 ]
 # Dự phòng nếu Neural2 lỗi (project chưa bật) — bỏ comment để dùng WaveNet:
 # GOOGLE_VOICES = [

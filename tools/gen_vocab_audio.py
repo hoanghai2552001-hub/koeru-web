@@ -29,7 +29,7 @@ OUT_DIR = os.path.join(ROOT, "audio", "vocab")
 
 GOOGLE_API_KEY = os.environ.get("GOOGLE_TTS_API_KEY")
 GOOGLE_API_URL = "https://texttospeech.googleapis.com/v1/text:synthesize"
-GOOGLE_VOICE = {"name": "ja-JP-Neural2-B", "ssmlGender": "FEMALE"}
+GOOGLE_VOICE = {"name": "ja-JP-Chirp3-HD-Kore", "ssmlGender": "FEMALE"}
 
 
 def vocab_kana(w):
