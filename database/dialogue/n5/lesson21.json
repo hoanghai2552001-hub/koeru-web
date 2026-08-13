@@ -1,0 +1,21 @@
+{
+  "lesson": 21,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD72, tr.179",
+  "status": "REVIEW_REQUIRED",
+  "title": "わたしも そう 思[おも]います",
+  "characters": ["松本[まつもと]", "サントス"],
+  "lines": [
+    {"spk": "松本[まつもと]", "jp": "あ、サントスさん、久[ひさ]しぶりですね。", "vn": "Ơ, anh Santos, lâu rồi không gặp nhỉ."},
+    {"spk": "サントス", "jp": "あ、松本[まつもと]さん、お元気[げんき]ですか。", "vn": "À, anh Matsumoto, anh khỏe không?"},
+    {"spk": "松本[まつもと]", "jp": "ええ。 ちょっと ビールでも 飲[の]みませんか。", "vn": "Khỏe. Đi làm ly bia không?"},
+    {"spk": "サントス", "jp": "いいですね。", "vn": "Hay đấy."},
+    {"spk": "サントス", "jp": "今晩[こんばん] 10時[じ]から 日本[にほん]と ブラジルの サッカーの 試合[しあい]が ありますね。", "vn": "Tối nay 10 giờ có trận bóng đá Nhật gặp Brazil nhỉ."},
+    {"spk": "松本[まつもと]", "jp": "ああ、そうですね。", "vn": "À, đúng vậy."},
+    {"spk": "松本[まつもと]", "jp": "サントスさんは どちらが 勝[か]つと 思[おも]いますか。", "vn": "Anh Santos nghĩ đội nào sẽ thắng?"},
+    {"spk": "サントス", "jp": "もちろん ブラジルですよ。", "vn": "Dĩ nhiên là Brazil rồi."},
+    {"spk": "松本[まつもと]", "jp": "そうですね。 でも、最近[さいきん] 日本[にほん]も 強[つよ]く なりましたよ。", "vn": "Cũng đúng. Nhưng mà gần đây Nhật cũng mạnh lên rồi đấy."},
+    {"spk": "サントス", "jp": "ええ、わたしも そう 思[おも]いますが、……。", "vn": "Vâng, tôi cũng nghĩ vậy, nhưng mà..."},
+    {"spk": "サントス", "jp": "あ、もう 帰[かえ]らないと……。", "vn": "À, giờ tôi phải về thôi..."},
+    {"spk": "松本[まつもと]", "jp": "ええ、帰[かえ]りましょう。", "vn": "Ừ, về thôi."}
+  ]
+}

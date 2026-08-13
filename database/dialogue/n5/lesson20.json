@@ -1,0 +1,20 @@
+{
+  "lesson": 20,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD69, tr.171",
+  "status": "REVIEW_REQUIRED",
+  "title": "いっしょに 行[い]かない？",
+  "characters": ["小林[こばやし]", "タワポン"],
+  "lines": [
+    {"spk": "小林[こばやし]", "jp": "夏休[なつやす]みは 国[くに]へ 帰[かえ]る？", "vn": "Nghỉ hè cậu có về nước không?"},
+    {"spk": "タワポン", "jp": "ううん。 帰[かえ]りたいけど、……。", "vn": "Không. Tớ cũng muốn về nhưng mà..."},
+    {"spk": "小林[こばやし]", "jp": "そう。", "vn": "Vậy à."},
+    {"spk": "小林[こばやし]", "jp": "タワポン君[くん]、富士山[ふじさん]に 登[のぼ]った こと ある？", "vn": "Tawaphon này, cậu từng leo núi Phú Sĩ chưa?"},
+    {"spk": "タワポン", "jp": "ううん、ない。", "vn": "Chưa, chưa từng."},
+    {"spk": "小林[こばやし]", "jp": "じゃ、よかったら、いっしょに 行[い]かない？", "vn": "Vậy nếu được thì cùng đi với tớ không?"},
+    {"spk": "タワポン", "jp": "うん。 いつごろ？", "vn": "Ừ. Khoảng khi nào?"},
+    {"spk": "小林[こばやし]", "jp": "8月[がつ]の 初[はじ]めごろは どう？", "vn": "Đầu tháng 8 thì sao?"},
+    {"spk": "タワポン", "jp": "いいよ。", "vn": "Được đó."},
+    {"spk": "小林[こばやし]", "jp": "じゃ、いろいろ 調[しら]べて、また 電話[でんわ]するよ。", "vn": "Vậy để tớ tìm hiểu rồi gọi lại sau nhé."},
+    {"spk": "タワポン", "jp": "ありがとう。 待[ま]ってるよ。", "vn": "Cảm ơn cậu. Tớ chờ nhé."}
+  ]
+}

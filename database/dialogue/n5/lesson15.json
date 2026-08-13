@@ -1,0 +1,19 @@
+{
+  "lesson": 15,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD53, tr.127",
+  "status": "REVIEW_REQUIRED",
+  "title": "ご家族[かぞく]は？",
+  "characters": ["木村[きむら]", "ミラー"],
+  "lines": [
+    {"spk": "木村[きむら]", "jp": "いい 映画[えいが]でしたね。", "vn": "Phim hay thật nhỉ."},
+    {"spk": "ミラー", "jp": "ええ。 わたしは 家族[かぞく]を 思[おも]い出[だ]しました。", "vn": "Vâng. Tôi nhớ gia đình mình quá."},
+    {"spk": "木村[きむら]", "jp": "そうですか。 ミラーさんの ご家族[かぞく]は？", "vn": "Vậy à. Gia đình anh Miller thế nào?"},
+    {"spk": "ミラー", "jp": "両親[りょうしん]と 姉[あね]が 1人[ひとり] います。", "vn": "Tôi có bố mẹ và một chị gái."},
+    {"spk": "木村[きむら]", "jp": "どちらに いらっしゃいますか。", "vn": "Mọi người ở đâu vậy?"},
+    {"spk": "ミラー", "jp": "両親[りょうしん]は ニューヨークの 近[ちか]くに 住[す]んで います。", "vn": "Bố mẹ tôi sống gần New York."},
+    {"spk": "ミラー", "jp": "姉[あね]は ロンドンで 働[はたら]いて います。", "vn": "Chị tôi làm việc ở London."},
+    {"spk": "ミラー", "jp": "木村[きむら]さんの ご家族[かぞく]は？", "vn": "Còn gia đình chị Kimura thì sao?"},
+    {"spk": "木村[きむら]", "jp": "3人[にん]です。 父[ちち]は 銀行員[ぎんこういん]です。", "vn": "Nhà tôi có 3 người. Bố tôi là nhân viên ngân hàng."},
+    {"spk": "木村[きむら]", "jp": "母[はは]は 高校[こうこう]で 英語[えいご]を 教[おし]えて います。", "vn": "Mẹ tôi dạy tiếng Anh ở trường cấp 3."}
+  ]
+}

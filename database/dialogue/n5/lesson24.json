@@ -1,0 +1,22 @@
+{
+  "lesson": 24,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD82, tr.205",
+  "status": "REVIEW_REQUIRED",
+  "title": "手伝[てつだ]いに 行[い]きましょうか",
+  "characters": ["カリナ", "ワン"],
+  "lines": [
+    {"spk": "カリナ", "jp": "ワンさん、日曜日[にちようび] 引[ひ]っ越[こ]しですね。", "vn": "Anh Wang, Chủ Nhật anh chuyển nhà nhỉ."},
+    {"spk": "カリナ", "jp": "手伝[てつだ]いに 行[い]きましょうか。", "vn": "Tôi qua giúp anh nhé?"},
+    {"spk": "ワン", "jp": "ありがとう ございます。", "vn": "Cảm ơn chị."},
+    {"spk": "ワン", "jp": "じゃ、すみませんが、9時[じ]ごろ お願[ねが]いします。", "vn": "Vậy phiền chị đến khoảng 9 giờ giúp tôi."},
+    {"spk": "カリナ", "jp": "ほかに だれが 手伝[てつだ]いに 行[い]きますか。", "vn": "Còn ai khác đến giúp nữa không?"},
+    {"spk": "ワン", "jp": "山田[やまだ]さんと ミラーさんが 来[き]て くれます。", "vn": "Anh Yamada và anh Miller sẽ đến giúp."},
+    {"spk": "カリナ", "jp": "車[くるま]は？", "vn": "Còn xe thì sao?"},
+    {"spk": "ワン", "jp": "山田[やまだ]さんに 貸[か]して もらいます。", "vn": "Tôi được anh Yamada cho mượn xe."},
+    {"spk": "カリナ", "jp": "昼[ひる]ごはんは どう しますか。", "vn": "Còn cơm trưa thì tính sao?"},
+    {"spk": "ワン", "jp": "えーと……。", "vn": "Ừm..."},
+    {"spk": "カリナ", "jp": "わたしが お弁当[べんとう]を 持[も]って 行[い]きましょうか。", "vn": "Hay để tôi mang cơm hộp đến nhé?"},
+    {"spk": "ワン", "jp": "すみません。 お願[ねが]いします。", "vn": "Cảm ơn chị. Nhờ chị vậy."},
+    {"spk": "カリナ", "jp": "じゃ、日曜日[にちようび]に。", "vn": "Vậy hẹn Chủ Nhật nhé."}
+  ]
+}

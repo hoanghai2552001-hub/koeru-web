@@ -1,0 +1,22 @@
+{
+  "lesson": 9,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD32, tr.75",
+  "status": "REVIEW_REQUIRED",
+  "title": "残念[ざんねん]ですが",
+  "characters": ["木村[きむら]", "ミラー"],
+  "lines": [
+    {"spk": "木村[きむら]", "jp": "はい。", "vn": "Alô."},
+    {"spk": "ミラー", "jp": "木村[きむら]さんですか。 ミラーです。", "vn": "Chị Kimura phải không ạ? Tôi là Miller."},
+    {"spk": "木村[きむら]", "jp": "ああ、ミラーさん、こんばんは。 お元気[げんき]ですか。", "vn": "À, anh Miller, chào anh. Anh khỏe không?"},
+    {"spk": "ミラー", "jp": "ええ、元気[げんき]です。", "vn": "Vâng, tôi khỏe."},
+    {"spk": "ミラー", "jp": "あのう、木村[きむら]さん、クラシックの コンサート、いっしょに いかがですか。", "vn": "Chị Kimura này, chị có muốn cùng tôi đi nghe hòa nhạc cổ điển không?"},
+    {"spk": "木村[きむら]", "jp": "いいですね。 いつですか。", "vn": "Hay đấy. Khi nào vậy?"},
+    {"spk": "ミラー", "jp": "来週[らいしゅう]の 金曜日[きんようび]の 晩[ばん]です。", "vn": "Tối thứ Sáu tuần sau."},
+    {"spk": "木村[きむら]", "jp": "金曜日[きんようび]ですか。", "vn": "Thứ Sáu à."},
+    {"spk": "木村[きむら]", "jp": "金曜日[きんようび]の 晩[ばん]は ちょっと……。", "vn": "Tối thứ Sáu thì hơi... (khó)."},
+    {"spk": "ミラー", "jp": "だめですか。", "vn": "Không được à?"},
+    {"spk": "木村[きむら]", "jp": "ええ、残念[ざんねん]ですが、友達[ともだち]と 約束[やくそく]が ありますから、……。", "vn": "Vâng, tiếc quá, tôi có hẹn với bạn rồi..."},
+    {"spk": "ミラー", "jp": "そうですか。", "vn": "Vậy à."},
+    {"spk": "木村[きむら]", "jp": "ええ。 また 今度[こんど] お願[ねが]いします。", "vn": "Vâng. Lần sau nhờ anh rủ lại nhé."}
+  ]
+}

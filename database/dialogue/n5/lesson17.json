@@ -1,0 +1,20 @@
+{
+  "lesson": 17,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD60, tr.145",
+  "status": "REVIEW_REQUIRED",
+  "title": "どう しましたか",
+  "characters": ["医者[いしゃ]", "松本[まつもと]"],
+  "lines": [
+    {"spk": "医者[いしゃ]", "jp": "どう しましたか。", "vn": "Bác bị làm sao vậy?"},
+    {"spk": "松本[まつもと]", "jp": "きのうから のどが 痛[いた]くて、熱[ねつ]も 少[すこ]し あります。", "vn": "Từ hôm qua tôi bị đau họng, lại hơi sốt nữa."},
+    {"spk": "医者[いしゃ]", "jp": "そうですか。 ちょっと 口[くち]を 開[あ]けて ください。", "vn": "Vậy à. Bác há miệng ra cho tôi xem một chút."},
+    {"spk": "医者[いしゃ]", "jp": "かぜですね。 2、3日[にち] ゆっくり 休[やす]んで ください。", "vn": "Bác bị cảm rồi. Nghỉ ngơi từ từ khoảng 2, 3 ngày nhé."},
+    {"spk": "松本[まつもと]", "jp": "あのう、あしたから 東京[とうきょう]へ 出張[しゅっちょう]しなければ なりません。", "vn": "À mà, từ mai tôi phải đi công tác Tokyo."},
+    {"spk": "医者[いしゃ]", "jp": "じゃ、きょうは 薬[くすり]を 飲[の]んで、早[はや]く 寝[ね]て ください。", "vn": "Vậy hôm nay bác uống thuốc rồi đi ngủ sớm nhé."},
+    {"spk": "松本[まつもと]", "jp": "はい。", "vn": "Vâng."},
+    {"spk": "医者[いしゃ]", "jp": "それから 今晩[こんばん]は おふろに 入[はい]らないで くださいね。", "vn": "Với lại tối nay đừng tắm bồn nhé."},
+    {"spk": "松本[まつもと]", "jp": "はい、わかりました。", "vn": "Vâng, tôi hiểu rồi."},
+    {"spk": "医者[いしゃ]", "jp": "じゃ、お大事[だいじ]に。", "vn": "Vậy bác giữ gìn sức khỏe nhé."},
+    {"spk": "松本[まつもと]", "jp": "どうも ありがとう ございました。", "vn": "Cảm ơn bác sĩ nhiều."}
+  ]
+}

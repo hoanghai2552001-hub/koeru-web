@@ -1,0 +1,21 @@
+{
+  "lesson": 25,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD85, tr.213",
+  "status": "REVIEW_REQUIRED",
+  "title": "いろいろ お世話[せわ]に なりました",
+  "characters": ["木村[きむら]", "ミラー", "佐藤[さとう]", "サントス"],
+  "lines": [
+    {"spk": "木村[きむら]", "jp": "転勤[てんきん]、おめでとう ございます。", "vn": "Chúc mừng anh được điều chuyển công tác."},
+    {"spk": "ミラー", "jp": "ありがとう ございます。", "vn": "Cảm ơn chị."},
+    {"spk": "木村[きむら]", "jp": "ミラーさんが 東京[とうきょう]へ 行[い]ったら、寂[さび]しく なりますね。", "vn": "Anh Miller đi Tokyo rồi chắc buồn lắm đây."},
+    {"spk": "佐藤[さとう]", "jp": "そうですね。", "vn": "Đúng vậy."},
+    {"spk": "木村[きむら]", "jp": "東京[とうきょう]へ 行[い]っても、大阪[おおさか]の ことを 忘[わす]れないで くださいね。", "vn": "Dù có đi Tokyo thì cũng đừng quên Osaka nhé."},
+    {"spk": "ミラー", "jp": "もちろん。 皆[みな]さん、暇[ひま]が あったら、ぜひ 東京[とうきょう]へ 遊[あそ]びに 来[き]て ください。", "vn": "Đương nhiên rồi. Mọi người có rảnh thì nhất định ghé Tokyo chơi nhé."},
+    {"spk": "サントス", "jp": "ミラーさんも 大阪[おおさか]へ 来[き]たら、電話[でんわ]を ください。", "vn": "Anh Miller mà đến Osaka thì gọi điện cho tôi nhé."},
+    {"spk": "サントス", "jp": "いっしょに 飲[の]みましょう。", "vn": "Mình cùng đi nhậu nhé."},
+    {"spk": "ミラー", "jp": "ええ、ぜひ。", "vn": "Vâng, nhất định rồi."},
+    {"spk": "ミラー", "jp": "皆[みな]さん、ほんとうに いろいろ お世話[せわ]に なりました。", "vn": "Mọi người thật sự đã giúp đỡ tôi rất nhiều."},
+    {"spk": "佐藤[さとう]", "jp": "頑張[がんば]って ください。 お体[からだ]に 気[き]を つけて。", "vn": "Cố lên nhé. Giữ gìn sức khỏe."},
+    {"spk": "ミラー", "jp": "はい。 皆[みな]さんも どうぞ お元気[げんき]で。", "vn": "Vâng. Mọi người cũng giữ gìn sức khỏe nhé."}
+  ]
+}

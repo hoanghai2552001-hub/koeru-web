@@ -1,0 +1,20 @@
+{
+  "lesson": 14,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD49, tr.119",
+  "status": "REVIEW_REQUIRED",
+  "title": "みどり町[ちょう]まで お願[ねが]いします",
+  "characters": ["カリナ", "運転手[うんてんしゅ]"],
+  "lines": [
+    {"spk": "カリナ", "jp": "みどり町[ちょう]まで お願[ねが]いします。", "vn": "Cho tôi đến khu Midori-chou."},
+    {"spk": "運転手[うんてんしゅ]", "jp": "はい。", "vn": "Vâng."},
+    {"spk": "カリナ", "jp": "すみません。 あの 信号[しんごう]を 右[みぎ]へ 曲[ま]がって ください。", "vn": "Xin lỗi, đến đèn giao thông kia anh rẽ phải giúp tôi."},
+    {"spk": "運転手[うんてんしゅ]", "jp": "右[みぎ]ですね。", "vn": "Rẽ phải phải không ạ."},
+    {"spk": "カリナ", "jp": "ええ。", "vn": "Vâng."},
+    {"spk": "運転手[うんてんしゅ]", "jp": "まっすぐですか。", "vn": "Đi thẳng ạ?"},
+    {"spk": "カリナ", "jp": "ええ、まっすぐ 行[い]って ください。", "vn": "Vâng, anh đi thẳng giúp tôi."},
+    {"spk": "カリナ", "jp": "あの 花屋[はなや]の 前[まえ]で 止[と]めて ください。", "vn": "Anh dừng trước tiệm hoa kia giúp tôi."},
+    {"spk": "運転手[うんてんしゅ]", "jp": "はい。 1,800円[えん]です。", "vn": "Vâng. 1.800 yên ạ."},
+    {"spk": "カリナ", "jp": "これで お願[ねが]いします。", "vn": "Gửi anh tiền này."},
+    {"spk": "運転手[うんてんしゅ]", "jp": "3,200円[えん]の お釣[つ]りです。 ありがとう ございました。", "vn": "3.200 yên tiền thối lại ạ. Cảm ơn quý khách."}
+  ]
+}

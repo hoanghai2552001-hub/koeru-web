@@ -1,0 +1,20 @@
+{
+  "lesson": 23,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD78, tr.197",
+  "status": "REVIEW_REQUIRED",
+  "title": "どうやって 行[い]きますか",
+  "characters": ["図書館[としょかん]の 人[ひと]", "カリナ"],
+  "lines": [
+    {"spk": "図書館[としょかん]の 人[ひと]", "jp": "はい、みどり図書館[としょかん]です。", "vn": "Vâng, thư viện Midori xin nghe."},
+    {"spk": "カリナ", "jp": "あのう、そちらまで どうやって 行[い]きますか。", "vn": "Xin hỏi, đến chỗ đó thì đi thế nào ạ?"},
+    {"spk": "図書館[としょかん]の 人[ひと]", "jp": "本田駅[ほんだえき]から 12番[ばん]の バスに 乗[の]って、図書館前[としょかんまえ]で 降[お]りて ください。", "vn": "Từ ga Honda chị đón xe buýt số 12, xuống ở trạm trước thư viện."},
+    {"spk": "図書館[としょかん]の 人[ひと]", "jp": "3[みっ]つ目[め]です。", "vn": "Là trạm thứ ba."},
+    {"spk": "カリナ", "jp": "3[みっ]つ目[め]ですね。", "vn": "Trạm thứ ba nhỉ."},
+    {"spk": "図書館[としょかん]の 人[ひと]", "jp": "ええ。 降[お]りると、前[まえ]に 公園[こうえん]が あります。", "vn": "Vâng. Xuống xe là thấy công viên ngay phía trước."},
+    {"spk": "図書館[としょかん]の 人[ひと]", "jp": "図書館[としょかん]は 公園[こうえん]の 中[なか]の 白[しろ]い 建物[たてもの]です。", "vn": "Thư viện là tòa nhà màu trắng trong công viên đó."},
+    {"spk": "カリナ", "jp": "わかりました。", "vn": "Tôi hiểu rồi."},
+    {"spk": "カリナ", "jp": "それから 本[ほん]を 借[か]りる とき、何[なに]か 要[い]りますか。", "vn": "À với lại khi mượn sách thì cần gì không ạ?"},
+    {"spk": "図書館[としょかん]の 人[ひと]", "jp": "お名前[なまえ]と ご住所[じゅうしょ]が わかる 物[もの]を 持[も]って 来[き]て ください。", "vn": "Chị mang theo giấy tờ có ghi tên và địa chỉ của chị nhé."},
+    {"spk": "カリナ", "jp": "はい。 どうも ありがとう ございました。", "vn": "Vâng. Cảm ơn anh/chị nhiều."}
+  ]
+}

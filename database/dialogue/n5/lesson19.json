@@ -1,0 +1,20 @@
+{
+  "lesson": 19,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD66, tr.161",
+  "status": "REVIEW_REQUIRED",
+  "title": "ダイエットは あしたから します",
+  "characters": ["皆[みな]", "松本良子[まつもとよしこ]", "マリア"],
+  "lines": [
+    {"spk": "皆[みな]", "jp": "乾杯[かんぱい]。", "vn": "Cạn ly!"},
+    {"spk": "松本良子[まつもとよしこ]", "jp": "マリアさん、あまり 食[た]べませんね。", "vn": "Chị Maria không ăn mấy nhỉ."},
+    {"spk": "マリア", "jp": "ええ。 きのうから ダイエットを して います。", "vn": "Vâng, từ hôm qua tôi đang ăn kiêng."},
+    {"spk": "松本良子[まつもとよしこ]", "jp": "そうですか。 わたしも ダイエットを した ことが あります。", "vn": "Vậy à. Tôi cũng từng ăn kiêng rồi."},
+    {"spk": "マリア", "jp": "どんな ダイエットですか。", "vn": "Chị ăn kiêng kiểu gì vậy?"},
+    {"spk": "松本良子[まつもとよしこ]", "jp": "毎日[まいにち] りんごだけ 食[た]べたり、水[みず]を たくさん 飲[の]んだり しました。", "vn": "Hàng ngày tôi chỉ ăn táo, hoặc uống thật nhiều nước."},
+    {"spk": "松本良子[まつもとよしこ]", "jp": "でも、無理[むり]な ダイエットは 体[からだ]に よくないですね。", "vn": "Nhưng mà ăn kiêng quá sức thì không tốt cho sức khỏe đâu."},
+    {"spk": "マリア", "jp": "そうですね。", "vn": "Đúng vậy."},
+    {"spk": "松本良子[まつもとよしこ]", "jp": "マリアさん、この アイスクリーム、おいしいですよ。", "vn": "Chị Maria, kem này ngon lắm đấy."},
+    {"spk": "マリア", "jp": "そうですか。", "vn": "Vậy à."},
+    {"spk": "マリア", "jp": "……。 ダイエットは また あしたから します。", "vn": "...Thôi, ăn kiêng để mai làm tiếp vậy."}
+  ]
+}

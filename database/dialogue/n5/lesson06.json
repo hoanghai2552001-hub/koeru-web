@@ -1,0 +1,19 @@
+{
+  "lesson": 6,
+  "source": "Minna no Nihongo I - Honsatsu — 会話 CD21, tr.49",
+  "status": "REVIEW_REQUIRED",
+  "title": "いっしょに 行[い]きませんか",
+  "characters": ["佐藤[さとう]", "ミラー"],
+  "lines": [
+    {"spk": "佐藤[さとう]", "jp": "ミラーさん。", "vn": "Anh Miller ơi."},
+    {"spk": "ミラー", "jp": "何[なん]ですか。", "vn": "Gì vậy chị?"},
+    {"spk": "佐藤[さとう]", "jp": "あした 友達[ともだち]と お花見[はなみ]を します。", "vn": "Ngày mai tôi đi ngắm hoa với bạn."},
+    {"spk": "佐藤[さとう]", "jp": "ミラーさんも いっしょに 行[い]きませんか。", "vn": "Anh Miller có muốn đi cùng không?"},
+    {"spk": "ミラー", "jp": "いいですね。 どこへ 行[い]きますか。", "vn": "Hay đấy. Đi đâu vậy?"},
+    {"spk": "佐藤[さとう]", "jp": "大阪城[おおさかじょう]です。", "vn": "Thành Osaka."},
+    {"spk": "ミラー", "jp": "何時[なんじ]に 行[い]きますか。", "vn": "Mấy giờ đi vậy?"},
+    {"spk": "佐藤[さとう]", "jp": "10時[じ]に 大阪駅[おおさかえき]で 会[あ]いましょう。", "vn": "10 giờ gặp nhau ở ga Osaka nhé."},
+    {"spk": "ミラー", "jp": "わかりました。", "vn": "Được rồi."},
+    {"spk": "佐藤[さとう]", "jp": "じゃ、また あした。", "vn": "Vậy hẹn mai gặp lại."}
+  ]
+}
