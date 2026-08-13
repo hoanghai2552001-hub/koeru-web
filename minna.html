@@ -290,6 +290,7 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
     <p class="sub" id="homeSub">Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo I.
       Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
     <div class="card" id="progressSummary"></div>
+    <div class="card hidden" id="srsWidget"></div>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
     <div class="kanji-mode-filter" id="kanjiModeFilter"></div>
     <div class="card hidden" id="searchResult"></div>
@@ -308,6 +309,13 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
       <button class="tab" data-tab="quiz">Kiểm tra</button>
     </div>
     <div class="card" id="tabContent"></div>
+  </div>
+
+  <div id="reviewScreen" class="hidden">
+    <button class="back" id="btnReviewBack">← Trang chủ</button>
+    <span class="badge">📌 ÔN TẬP NGẮT QUÃNG</span>
+    <h1>Từ cần ôn hôm nay</h1>
+    <div class="card" id="reviewContent"></div>
   </div>
 
 </div>
@@ -477,6 +485,47 @@ function vocabKana(w){
   return stripGroupMark(w || '').replace(/\s*\[[^\]]*\]/g, '').trim();
 }
 
+// ---------- Ôn tập ngắt quãng (SRS, kiểu SM-2 rút gọn) ----------
+// Lưu 1 chỗ chung "srs_vocab" (không tách theo bài) vì ôn tập cần trộn từ nhiều bài.
+// Key = "<level>|<kana thuần>" — trùng từ giữa các bài thì dùng chung 1 lịch ôn (hợp lý,
+// cùng 1 từ thì nên nhớ đồng bộ, không tách theo bài xuất hiện).
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function srsKey(level, w){ return level + '|' + vocabKana(w); }
+function srsAll(){ return load('srs_vocab', {}); }
+function srsUpdate(level, w, correct){
+  var all = srsAll();
+  var key = srsKey(level, w);
+  var s = all[key] || { interval: 0, ease: 2.3, streak: 0 };
+  if(correct){
+    s.streak++;
+    s.interval = s.streak <= 1 ? 1 : Math.round(s.interval * s.ease) || 1;
+    s.ease = Math.min(3, s.ease + 0.05);
+  } else {
+    s.streak = 0;
+    s.interval = 1;
+    s.ease = Math.max(1.3, s.ease - 0.2);
+  }
+  var due = new Date();
+  due.setDate(due.getDate() + s.interval);
+  s.due = due.toISOString().slice(0, 10);
+  all[key] = s;
+  store('srs_vocab', all);
+}
+// Trả về mảng {v, key} các từ đến hạn ôn hôm nay trong cấp độ hiện tại (trộn mọi bài).
+function srsDueVocab(){
+  var all = srsAll(), today = todayStr(), prefix = curLevel + '|', out = [], seen = {};
+  LV.data.forEach(function(l){
+    if(l.status === 'NO_DATA') return;
+    l.vocab.forEach(function(v){
+      var key = prefix + vocabKana(v.w);
+      if(seen[key]) return; // từ trùng giữa các bài chỉ lấy 1 lần
+      var s = all[key];
+      if(s && s.due <= today){ seen[key] = true; out.push(v); }
+    });
+  });
+  return out;
+}
+
 // ---------- Home ----------
 function renderHome(){
   var g = qs('lessonGrid'); g.innerHTML = '';
@@ -499,6 +548,7 @@ function renderHome(){
     g.appendChild(b);
   });
   renderProgressSummary();
+  renderSrsWidget();
 }
 
 // Switch cấp độ N5/N4 (mới)
@@ -548,6 +598,22 @@ function renderProgressSummary(){
     h += '<div class="hint-box">◐ Bài ' + weakLessons.join(', ') + ' điểm quiz dưới 70% — nên ôn lại</div>';
   }
   box.innerHTML = h;
+}
+
+// Widget "Cần ôn hôm nay" trên trang chủ — trộn từ đến hạn ôn (SRS) từ mọi bài đã học
+function renderSrsWidget(){
+  var box = qs('srsWidget');
+  var due = srsDueVocab();
+  if(!due.length){ box.classList.add('hidden'); box.innerHTML = ''; return; }
+  box.classList.remove('hidden');
+  box.innerHTML =
+    '<div class="progress-summary">' +
+      '<div class="row"><span class="sub" style="margin:0">📌 Cần ôn hôm nay</span>' +
+        '<span class="pct" style="color:var(--accent)">' + due.length + ' từ</span></div>' +
+      '<div class="hint-box" style="margin-top:10px">Những từ bạn hay quên hoặc sắp đến hạn ôn lại theo lịch ngắt quãng — trộn từ mọi bài đã học.</div>' +
+      '<button class="btn btn-main" id="btnStartReview" style="margin-top:12px">Ôn ngay (' + due.length + ' từ)</button>' +
+    '</div>';
+  qs('btnStartReview').onclick = startReview;
 }
 
 // Chế độ lọc kanji theo cấp độ N5/N4/N3/N2/Tất cả (mới) — áp dụng cho kết quả tra kanji trực tiếp
@@ -1202,46 +1268,82 @@ function renderQuizStart(l){
   startQuiz(l);
 }
 
+// Xây 1 câu hỏi trắc nghiệm cho từ v, lấy nhiễu (distractor) từ pool — dùng chung cho
+// quiz theo bài (startQuiz) và ôn tập trộn bài (startReview).
+function buildQuizQuestion(v, pool){
+  var jp2vn = Math.random() < 0.5;
+  var others = shuffle(pool.filter(function(o){ return o.w !== v.w; })).slice(0,3);
+  var options, correct;
+  if(jp2vn){
+    correct = v.m;
+    options = shuffle([v.m].concat(others.map(function(o){ return o.m; })));
+  } else {
+    var lbl = function(o){ var w = stripGroupMark(o.w); return o.k ? w + '（' + o.k + '）' : w; };
+    correct = lbl(v);
+    options = shuffle([correct].concat(others.map(lbl)));
+  }
+  return {
+    word: v,
+    prompt: jp2vn ? (v.k ? v.k + '（' + stripGroupMark(v.w) + '）' : stripGroupMark(v.w)) : v.m,
+    sub: jp2vn ? 'Chọn nghĩa tiếng Việt đúng' : 'Chọn từ tiếng Nhật đúng',
+    options: options, correct: correct
+  };
+}
+
 function startQuiz(l){
   var pool = l.vocab.slice();
   var n = Math.min(10, pool.length);
   var picked = shuffle(pool.slice()).slice(0, n);
-  var qsArr = picked.map(function(v){
-    var jp2vn = Math.random() < 0.5;
-    var others = shuffle(pool.filter(function(o){ return o.w !== v.w; })).slice(0,3);
-    var options, correct;
-    if(jp2vn){
-      correct = v.m;
-      options = shuffle([v.m].concat(others.map(function(o){ return o.m; })));
-    } else {
-      var lbl = function(o){ var w = stripGroupMark(o.w); return o.k ? w + '（' + o.k + '）' : w; };
-      correct = lbl(v);
-      options = shuffle([correct].concat(others.map(lbl)));
-    }
-    return {
-      prompt: jp2vn ? (v.k ? v.k + '（' + stripGroupMark(v.w) + '）' : stripGroupMark(v.w)) : v.m,
-      sub: jp2vn ? 'Chọn nghĩa tiếng Việt đúng' : 'Chọn từ tiếng Nhật đúng',
-      options: options, correct: correct
-    };
-  });
-  quiz = { qs: qsArr, i: 0, score: 0, locked: false };
+  quiz = { mode: 'lesson', qs: picked.map(function(v){ return buildQuizQuestion(v, pool); }), i: 0, score: 0, locked: false };
   renderQuiz();
 }
 
-function renderQuiz(){
-  var box = qs('tabContent');
+// Ôn tập ngắt quãng: trộn các từ đến hạn ôn (mọi bài đã học trong cấp độ hiện tại).
+// Nhiễu (distractor) lấy từ toàn bộ từ vựng cấp độ để luôn đủ 4 lựa chọn dù số từ đến hạn ít.
+function startReview(){
+  var due = srsDueVocab();
+  if(!due.length) return;
+  var fullPool = [];
+  LV.data.forEach(function(l){ if(l.status !== 'NO_DATA') fullPool = fullPool.concat(l.vocab); });
+  var n = Math.min(15, due.length);
+  var picked = shuffle(due.slice()).slice(0, n);
+  quiz = { mode: 'review', qs: picked.map(function(v){ return buildQuizQuestion(v, fullPool); }), i: 0, score: 0, locked: false };
+  qs('home').classList.add('hidden');
+  qs('reviewScreen').classList.remove('hidden');
+  renderQuiz(qs('reviewContent'));
+  window.scrollTo(0,0);
+}
+qs('btnReviewBack').onclick = function(){
+  qs('reviewScreen').classList.add('hidden');
+  renderHome();
+};
+
+function renderQuiz(boxOverride){
+  var box = boxOverride || qs('tabContent');
+  var isReview = quiz.mode === 'review';
   if(quiz.i >= quiz.qs.length){
-    var key = K('quiz_') + curLesson.lesson;
     var scoreStr = quiz.score + '/' + quiz.qs.length;
-    var best = load(key, null);
-    var bestScore = best ? +best.split('/')[0] : -1;
-    if(quiz.score > bestScore) store(key, scoreStr);
-    box.innerHTML =
-      '<p class="qsub">Hoàn thành — Bài ' + curLesson.lesson + '</p>' +
-      '<div class="score-line">' + scoreStr + ' câu đúng</div>' +
-      (best ? '<p class="sub" style="margin-top:0">Điểm cao nhất trước đó: ' + best + '</p>' : '') +
-      '<button class="btn btn-main" id="btnRetry">Làm lại (câu hỏi trộn mới)</button>';
-    qs('btnRetry').onclick = function(){ startQuiz(curLesson); };
+    if(isReview){
+      box.innerHTML =
+        '<p class="qsub">Hoàn thành ôn tập</p>' +
+        '<div class="score-line">' + scoreStr + ' câu đúng</div>' +
+        '<button class="btn btn-main" id="btnBackHome">Về trang chủ</button>';
+      qs('btnBackHome').onclick = function(){
+        qs('reviewScreen').classList.add('hidden');
+        renderHome();
+      };
+    } else {
+      var key = K('quiz_') + curLesson.lesson;
+      var best = load(key, null);
+      var bestScore = best ? +best.split('/')[0] : -1;
+      if(quiz.score > bestScore) store(key, scoreStr);
+      box.innerHTML =
+        '<p class="qsub">Hoàn thành — Bài ' + curLesson.lesson + '</p>' +
+        '<div class="score-line">' + scoreStr + ' câu đúng</div>' +
+        (best ? '<p class="sub" style="margin-top:0">Điểm cao nhất trước đó: ' + best + '</p>' : '') +
+        '<button class="btn btn-main" id="btnRetry">Làm lại (câu hỏi trộn mới)</button>';
+      qs('btnRetry').onclick = function(){ startQuiz(curLesson); };
+    }
     return;
   }
   var q = quiz.qs[quiz.i];
@@ -1260,11 +1362,12 @@ function renderQuiz(){
       var chosen = q.options[+b.dataset.i];
       var right = chosen === q.correct;
       if(right) quiz.score++;
+      srsUpdate(curLevel, q.word.w, right);
       box.querySelectorAll('.opt').forEach(function(x, xi){
         if(q.options[xi] === q.correct) x.classList.add('right');
         else if(x === b) x.classList.add('wrong');
       });
-      setTimeout(function(){ quiz.i++; renderQuiz(); }, right ? 650 : 1400);
+      setTimeout(function(){ quiz.i++; renderQuiz(box); }, right ? 650 : 1400);
     };
   });
 }
