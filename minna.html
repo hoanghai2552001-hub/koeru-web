@@ -347,6 +347,7 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
     <h1>Kiểm tra từ vựng nhiều bài</h1>
     <p class="sub">Chọn các bài muốn ôn, sau đó tạo phiếu kiểm tra từ vựng — tự bật/tắt từng cột để tăng giảm độ khó.</p>
     <div class="card" id="wsHub"></div>
+    <div class="card hidden" id="wsHistCard"></div>
     <div class="card hidden" id="wsTestCard">
       <div id="wsSummary"></div>
       <div id="wsToolbar"></div>
@@ -1365,7 +1366,32 @@ function openWorksheetHub(){
   wsTestGenerated = false;
   qs('wsTestCard').classList.add('hidden');
   renderWorksheetHub();
+  renderWorksheetHistory();
   window.scrollTo(0,0);
+}
+
+// Lịch sử làm bài: mỗi lần chấm điểm lưu 1 bản ghi {date, lessons, correct, total, pct} (mới)
+function wsFormatDate(iso){
+  var d = new Date(iso);
+  return d.toLocaleDateString('vi-VN') + ' ' + d.toLocaleTimeString('vi-VN', {hour:'2-digit', minute:'2-digit'});
+}
+function renderWorksheetHistory(){
+  var hist = load(K('ws_hist'), []);
+  var card = qs('wsHistCard');
+  if(!hist.length){ card.classList.add('hidden'); card.innerHTML = ''; return; }
+  card.classList.remove('hidden');
+  var h = '<h3 style="font-size:.9rem;color:var(--accent);margin-bottom:8px">📊 Lịch sử làm bài (' + hist.length + ')</h3><table><thead><tr><th>Thời gian</th><th>Bài đã ôn</th><th>Điểm</th></tr></thead><tbody>';
+  hist.slice().reverse().slice(0, 20).forEach(function(r){
+    h += '<tr><td class="vn">' + esc(wsFormatDate(r.date)) + '</td><td class="vn">Bài ' + esc(r.lessons.join(', ')) + '</td>' +
+      '<td class="jp">' + r.correct + '/' + r.total + ' <span class="sub" style="margin:0">(' + r.pct + '%)</span></td></tr>';
+  });
+  h += '</tbody></table><button class="btn btn-ghost" id="wsHistClear" style="margin-top:8px">Xoá lịch sử</button>';
+  card.innerHTML = h;
+  card.querySelector('#wsHistClear').onclick = function(){
+    if(!confirm('Xoá toàn bộ lịch sử làm bài?')) return;
+    store(K('ws_hist'), []);
+    renderWorksheetHistory();
+  };
 }
 function closeWorksheet(){
   qs('worksheet').classList.add('hidden');
@@ -1516,6 +1542,12 @@ function gradeWorksheet(){
   });
   var pct = total ? Math.round(correct / total * 100) : 0;
   qs('wsSummary').innerHTML = 'Kết quả: <span class="pct-ok">' + correct + '/' + total + '</span> đúng (' + pct + '%)';
+
+  var hist = load(K('ws_hist'), []);
+  hist.push({ date: new Date().toISOString(), lessons: wsSelected.slice(), correct: correct, total: total, pct: pct });
+  if(hist.length > 50) hist = hist.slice(hist.length - 50);
+  store(K('ws_hist'), hist);
+  renderWorksheetHistory();
 }
 
 qs('btnWorksheet').onclick = openWorksheetHub;
