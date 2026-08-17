@@ -1442,9 +1442,12 @@ function renderWorksheetTable(){
   pool.forEach(function(v, i){
     var kana = vocabKana(v.w);
     var wordCell = v.k ? kanjiLinkify(v.k) : esc(stripGroupMark(kana));
+    // Hiện nghĩa tham khảo dưới "Từ" để phân biệt các mục gộp nhiều kanji (見ます、診ます...) —
+    // chỉ khi KHÔNG đang test "Điền nghĩa", tránh lộ đáp án (mới)
+    var refMeaning = !wsToggles.fillMeaning ? '<br><span class="sub" style="font-size:.72rem">' + esc(v.m) + '</span>' : '';
     body += '<tr data-key="' + esc(kana) + '" data-meaning="' + esc(v.m) + '">';
     body += '<td>' + (i + 1) + '</td>';
-    body += '<td class="jp">' + wordCell + ' <button class="dlg-play voc-play" data-w="' + esc(kana) + '" title="Nghe">🔊</button></td>';
+    body += '<td class="jp">' + wordCell + refMeaning + ' <button class="dlg-play voc-play" data-w="' + esc(kana) + '" title="Nghe">🔊</button></td>';
     if(wsToggles.hint) body += '<td class="jp">' + esc(stripGroupMark(v.w)) + '</td>';
     if(wsToggles.fillKana) body += '<td><input type="text" class="ws-in-kana" placeholder="かな" autocomplete="off"></td>';
     if(wsToggles.fillMeaning) body += '<td><input type="text" class="ws-in-meaning" placeholder="nghĩa" autocomplete="off"></td>';
