@@ -3,35 +3,122 @@
   "source": "Minna no Nihongo II - Bản dịch và giải thích ngữ pháp (Sơ cấp 2), tr.33-34",
   "status": "REVIEW_REQUIRED",
   "vocab": [
-    {"w": "かいます [どうぶつを～]", "k": "飼います", "m": "nuôi (động vật)"},
-    {"w": "たてます", "k": "建てます", "m": "xây, xây dựng"},
-    {"w": "はしります [みちを～]", "k": "走ります [道を～]", "m": "chạy [trên đường]"},
-    {"w": "とります [やすみを～]", "k": "取ります [休みを～]", "m": "xin [nghỉ]"},
-    {"w": "みえます [やまが～]", "k": "見えます [山が～]", "m": "nhìn thấy, có thể nhìn thấy [núi]"},
-    {"w": "きこえます [おとが～]", "k": "聞こえます [音が～]", "m": "nghe thấy, có thể nghe thấy [âm thanh]"},
-    {"w": "できます [くうこうが～]", "k": "", "m": "được xây dựng lên, hoàn thành [sân bay ~]"},
-    {"w": "ひらきます [きょうしつを～]", "k": "開きます [教室を～]", "m": "mở [lớp học]"},
-    {"w": "ペット", "k": "", "m": "động vật cảnh (pet)"},
-    {"w": "とり", "k": "鳥", "m": "chim"},
-    {"w": "こえ", "k": "声", "m": "tiếng nói, giọng nói"},
-    {"w": "なみ", "k": "波", "m": "sóng"},
-    {"w": "はなび", "k": "花火", "m": "pháo hoa"},
-    {"w": "けしき", "k": "景色", "m": "phong cảnh"},
-    {"w": "ひるま", "k": "昼間", "m": "thời gian ban ngày"},
-    {"w": "むかし", "k": "昔", "m": "ngày xưa, trước đây"},
-    {"w": "どうぐ", "k": "道具", "m": "dụng cụ, công cụ"},
-    {"w": "じどうはんばいき", "k": "自動販売機", "m": "máy bán tự động"},
-    {"w": "つうしんはんばい", "k": "通信販売", "m": "bán hàng qua thư/quảng cáo, home shopping (mua bán hàng qua các phương tiện truyền thông)"},
-    {"w": "クリーニング", "k": "", "m": "giặt ủi"},
-    {"w": "マンション", "k": "", "m": "nhà chung cư"},
-    {"w": "だいどころ", "k": "台所", "m": "bếp"},
-    {"w": "～きょうしつ", "k": "～教室", "m": "lớp học ~"},
-    {"w": "パーティールーム", "k": "", "m": "phòng tiệc"},
-    {"w": "～ご", "k": "～後", "m": "~ sau (khoảng thời gian)"},
-    {"w": "～しか", "k": "", "m": "chỉ ~ (dùng với thể phủ định)"},
-    {"w": "ほかの", "k": "", "m": "khác"},
-    {"w": "はっきり", "k": "", "m": "rõ, rõ ràng"},
-    {"w": "ほとんど", "k": "", "m": "hầu hết, hầu như"}
+    {"w": "かいます [どうぶつを～]", "k": "飼います", "m": "nuôi (động vật)", "examples": [
+      {"jp": "課長[かちょう]の うちでは 犬[いぬ]を 2匹[にひき] 飼[か]って いるそうです。", "vn": "Nghe nói nhà trưởng phòng nuôi 2 con chó."},
+      {"jp": "実[じつ]は、来月[らいげつ] 猫[ねこ]を 飼[か]おうと 思[おも]って いるんです。", "vn": "Thật ra là tháng sau tôi định nuôi mèo đấy."}
+    ]},
+    {"w": "たてます", "k": "建てます", "m": "xây, xây dựng", "examples": [
+      {"jp": "いつか 自分[じぶん]の 家[いえ]を 建[た]てるのが 夢[ゆめ]なんです。", "vn": "Ước mơ của tôi là một ngày nào đó tự xây nhà riêng."},
+      {"jp": "部長[ぶちょう]は 去年[きょねん] 新[あたら]しい 家[いえ]を 建[た]てたそうですよ。", "vn": "Nghe nói giám đốc năm ngoái đã xây nhà mới đấy."}
+    ]},
+    {"w": "はしります [みちを～]", "k": "走ります [道を～]", "m": "chạy [trên đường]", "examples": [
+      {"jp": "遅刻[ちこく]しそうで、駅[えき]まで 走[はし]りました。", "vn": "Sợ trễ giờ nên tôi đã chạy tới ga."},
+      {"jp": "朝[あさ]、時間[じかん]が ない ときは いつも 走[はし]って 会社[かいしゃ]へ 行[い]きます。", "vn": "Buổi sáng khi không có thời gian, tôi luôn chạy đến công ty."}
+    ]},
+    {"w": "とります [やすみを～]", "k": "取ります [休みを～]", "m": "xin [nghỉ]", "examples": [
+      {"jp": "来週[らいしゅう]、休[やす]みを 取[と]らせて いただけませんか。", "vn": "Tuần sau cho tôi xin nghỉ được không ạ?"},
+      {"jp": "みんな 忙[いそが]しくて、なかなか 休[やす]みが 取[と]れませんね。", "vn": "Mọi người bận quá nên khó mà xin nghỉ được nhỉ."}
+    ]},
+    {"w": "みえます [やまが～]", "k": "見えます [山が～]", "m": "nhìn thấy, có thể nhìn thấy [núi]", "examples": [
+      {"jp": "この 会議室[かいぎしつ]から 東京[とうきょう]タワーが 見[み]えるんですよ。", "vn": "Từ phòng họp này có thể nhìn thấy tháp Tokyo đấy."},
+      {"jp": "8階[かい]の オフィスからは 海[うみ]が 見[み]えます。", "vn": "Từ văn phòng tầng 8 có thể nhìn thấy biển."}
+    ]},
+    {"w": "きこえます [おとが～]", "k": "聞こえます [音が～]", "m": "nghe thấy, có thể nghe thấy [âm thanh]", "examples": [
+      {"jp": "隣[となり]の 会議室[かいぎしつ]から 声[こえ]が 聞[き]こえます。", "vn": "Nghe thấy tiếng nói từ phòng họp bên cạnh."},
+      {"jp": "すみません、電話[でんわ]の 声[こえ]が よく 聞[き]こえないんですが。", "vn": "Xin lỗi, tôi nghe không rõ tiếng qua điện thoại lắm."}
+    ]},
+    {"w": "できます [くうこうが～]", "k": "", "m": "được xây dựng lên, hoàn thành [sân bay ~]", "examples": [
+      {"jp": "来月[らいげつ]までに 新[あたら]しい システムが できる 予定[よてい]です。", "vn": "Dự kiến đến tháng sau hệ thống mới sẽ hoàn thành."},
+      {"jp": "駅前[えきまえ]に 新[あたら]しい オフィスビルが できましたね。", "vn": "Trước ga có một toà văn phòng mới được xây xong nhỉ."}
+    ]},
+    {"w": "ひらきます [きょうしつを～]", "k": "開きます [教室を～]", "m": "mở [lớp học]", "examples": [
+      {"jp": "来週[らいしゅう]、新入社員[しんにゅうしゃいん]の ための 研修[けんしゅう]を 開[ひら]きます。", "vn": "Tuần sau sẽ mở khoá đào tạo cho nhân viên mới."},
+      {"jp": "3時[じ]から 会議[かいぎ]を 開[ひら]く 予定[よてい]です。", "vn": "Dự kiến 3 giờ sẽ mở cuộc họp."}
+    ]},
+    {"w": "ペット", "k": "", "m": "động vật cảnh (pet)", "examples": [
+      {"jp": "オフィスでは よく ペットの 話[はなし]で 盛[も]り上[あ]がります。", "vn": "Ở văn phòng chúng tôi hay nói chuyện rôm rả về thú cưng."},
+      {"jp": "課長[かちょう]は ペットが 大好[だいす]きだそうです。", "vn": "Nghe nói trưởng phòng rất thích thú cưng."}
+    ]},
+    {"w": "とり", "k": "鳥", "m": "chim", "examples": [
+      {"jp": "ベランダに 鳥[とり]が 来[き]て、みんなで 写真[しゃしん]を 撮[と]りました。", "vn": "Có chim đến ban công, mọi người đã cùng chụp ảnh."},
+      {"jp": "会社[かいしゃ]の 庭[にわ]に よく 鳥[とり]が 来[き]ます。", "vn": "Chim hay đến sân công ty."}
+    ]},
+    {"w": "こえ", "k": "声", "m": "tiếng nói, giọng nói", "examples": [
+      {"jp": "お電話[でんわ]の 声[こえ]、少[すこ]し 遠[とお]いようです。", "vn": "Giọng nói qua điện thoại nghe hơi xa quá."},
+      {"jp": "プレゼンの とき、もう少[すこ]し 大[おお]きい 声[こえ]で お願[ねが]いします。", "vn": "Lúc thuyết trình, xin nói to hơn một chút."}
+    ]},
+    {"w": "なみ", "k": "波", "m": "sóng", "examples": [
+      {"jp": "出張[しゅっちょう]の とき、海[うみ]の 波[なみ]の 音[おと]を 聞[き]きながら 休[やす]みました。", "vn": "Lúc đi công tác, tôi đã nghỉ ngơi trong khi nghe tiếng sóng biển."},
+      {"jp": "今週[こんしゅう]は 波[なみ]が 高[たか]くて、船[ふね]が 出[で]ませんでした。", "vn": "Tuần này sóng cao nên tàu không chạy."}
+    ]},
+    {"w": "はなび", "k": "花火", "m": "pháo hoa", "examples": [
+      {"jp": "夏[なつ]の 花火[はなび]は 会社[かいしゃ]の みんなで 見[み]に 行[い]きました。", "vn": "Pháo hoa mùa hè tôi đã cùng mọi người trong công ty đi xem."},
+      {"jp": "あの 花火[はなび]は 本当[ほんとう]に きれいでした。", "vn": "Pháo hoa đó thật sự rất đẹp."}
+    ]},
+    {"w": "けしき", "k": "景色", "m": "phong cảnh", "examples": [
+      {"jp": "この ホテルの 会議室[かいぎしつ]から 見[み]える 景色[けしき]は すばらしいですね。", "vn": "Phong cảnh nhìn thấy từ phòng họp khách sạn này tuyệt đẹp nhỉ."},
+      {"jp": "新幹線[しんかんせん]の 窓[まど]から きれいな 景色[けしき]が 見[み]えました。", "vn": "Từ cửa sổ tàu Shinkansen nhìn thấy phong cảnh đẹp."}
+    ]},
+    {"w": "ひるま", "k": "昼間", "m": "thời gian ban ngày", "examples": [
+      {"jp": "昼間[ひるま]は 会議[かいぎ]が 多[おお]くて、メールを 見[み]る 時間[じかん]が ありません。", "vn": "Ban ngày có nhiều cuộc họp nên không có thời gian xem email."},
+      {"jp": "昼間[ひるま]に お電話[でんわ]いただけますか。", "vn": "Anh/chị có thể gọi điện cho tôi vào ban ngày được không?"}
+    ]},
+    {"w": "むかし", "k": "昔", "m": "ngày xưa, trước đây", "examples": [
+      {"jp": "昔[むかし]は この 仕事[しごと]を 一人[ひとり]で して いたんですよ。", "vn": "Ngày xưa tôi từng làm công việc này một mình đấy."},
+      {"jp": "昔[むかし]の 資料[しりょう]を 探[さが]して いるんですが、見[み]つかりません。", "vn": "Tôi đang tìm tài liệu cũ nhưng không tìm thấy."}
+    ]},
+    {"w": "どうぐ", "k": "道具", "m": "dụng cụ, công cụ", "examples": [
+      {"jp": "会議[かいぎ]に 必要[ひつよう]な 道具[どうぐ]を 準備[じゅんび]しました。", "vn": "Tôi đã chuẩn bị dụng cụ cần thiết cho cuộc họp."},
+      {"jp": "この 道具[どうぐ]の 使[つか]い方[かた]を 教[おし]えて もらえますか。", "vn": "Anh/chị chỉ tôi cách dùng dụng cụ này được không?"}
+    ]},
+    {"w": "じどうはんばいき", "k": "自動販売機", "m": "máy bán tự động", "examples": [
+      {"jp": "休憩室[きゅうけいしつ]に 自動[じどう]販売機[はんばいき]が あります。", "vn": "Ở phòng nghỉ có máy bán tự động."},
+      {"jp": "コーヒーは 自動[じどう]販売機[はんばいき]で 買[か]えますよ。", "vn": "Cà phê có thể mua ở máy bán tự động đấy."}
+    ]},
+    {"w": "つうしんはんばい", "k": "通信販売", "m": "bán hàng qua thư/quảng cáo, home shopping (mua bán hàng qua các phương tiện truyền thông)", "examples": [
+      {"jp": "忙[いそが]しくて 買[か]い物[もの]に 行[い]けないので、通信[つうしん]販売[はんばい]を よく 使[つか]います。", "vn": "Vì bận không đi mua sắm được nên tôi hay dùng hình thức home shopping."},
+      {"jp": "会社[かいしゃ]の 制服[せいふく]も 通信[つうしん]販売[はんばい]で 注文[ちゅうもん]できます。", "vn": "Đồng phục công ty cũng có thể đặt qua home shopping."}
+    ]},
+    {"w": "クリーニング", "k": "", "m": "giặt ủi", "examples": [
+      {"jp": "スーツを クリーニングに 出[だ]して おきました。", "vn": "Tôi đã mang bộ vest đi giặt ủi rồi."},
+      {"jp": "出張[しゅっちょう]の 前[まえ]に、シャツを クリーニングに 出[だ]さないと。", "vn": "Trước khi đi công tác phải mang áo sơ mi đi giặt ủi mới được."}
+    ]},
+    {"w": "マンション", "k": "", "m": "nhà chung cư", "examples": [
+      {"jp": "転勤[てんきん]で、会社[かいしゃ]の 近[ちか]くの マンションに 引[ひ]っ越[こ]しました。", "vn": "Vì chuyển công tác nên tôi đã dọn đến chung cư gần công ty."},
+      {"jp": "出張[しゅっちょう]で 泊[と]まる マンションを 予約[よやく]しました。", "vn": "Tôi đã đặt chung cư để ở khi đi công tác."}
+    ]},
+    {"w": "だいどころ", "k": "台所", "m": "bếp", "examples": [
+      {"jp": "会社[かいしゃ]の 台所[だいどころ]で お茶[ちゃ]を 入[い]れました。", "vn": "Tôi đã pha trà ở bếp công ty."},
+      {"jp": "休憩室[きゅうけいしつ]の 台所[だいどころ]は だれでも 使[つか]えます。", "vn": "Bếp ở phòng nghỉ ai cũng dùng được."}
+    ]},
+    {"w": "～きょうしつ", "k": "～教室", "m": "lớp học ~", "examples": [
+      {"jp": "新入社員[しんにゅうしゃいん]の ための パソコン教室[きょうしつ]が あります。", "vn": "Có lớp học máy tính dành cho nhân viên mới."},
+      {"jp": "英語[えいご]教室[きょうしつ]に 通[かよ]って、仕事[しごと]で 使[つか]えるように したいです。", "vn": "Tôi muốn theo học lớp tiếng Anh để có thể dùng trong công việc."}
+    ]},
+    {"w": "パーティールーム", "k": "", "m": "phòng tiệc", "examples": [
+      {"jp": "歓迎会[かんげいかい]は 会社[かいしゃ]の 近[ちか]くの パーティールームで します。", "vn": "Tiệc chào mừng nhân viên mới sẽ tổ chức ở phòng tiệc gần công ty."},
+      {"jp": "パーティールームを 借[か]りるには、予約[よやく]が 必要[ひつよう]です。", "vn": "Để thuê phòng tiệc thì cần đặt trước."}
+    ]},
+    {"w": "～ご", "k": "～後", "m": "~ sau (khoảng thời gian)", "examples": [
+      {"jp": "会議[かいぎ]の 後[ご]で、少[すこ]し お話[はなし]しても いいですか。", "vn": "Sau cuộc họp, tôi có thể nói chuyện một chút được không?"},
+      {"jp": "入社[にゅうしゃ]3年後[ねんご]に 海外[かいがい]で 働[はたら]きたいです。", "vn": "3 năm sau khi vào công ty, tôi muốn làm việc ở nước ngoài."}
+    ]},
+    {"w": "～しか", "k": "", "m": "chỉ ~ (dùng với thể phủ định)", "examples": [
+      {"jp": "今月[こんげつ]の 予算[よさん]は これしか ありません。", "vn": "Ngân sách tháng này chỉ có bấy nhiêu thôi."},
+      {"jp": "あと 1時間[じかん]しか ないので、急[いそ]ぎましょう。", "vn": "Chỉ còn 1 tiếng nữa thôi nên chúng ta nhanh lên nào."}
+    ]},
+    {"w": "ほかの", "k": "", "m": "khác", "examples": [
+      {"jp": "ほかの 案[あん]も 考[かんが]えて みませんか。", "vn": "Chúng ta thử nghĩ thêm phương án khác được không?"},
+      {"jp": "この 時間[じかん]が だめなら、ほかの 時間[じかん]は いかがですか。", "vn": "Nếu giờ này không được thì giờ khác thì sao ạ?"}
+    ]},
+    {"w": "はっきり", "k": "", "m": "rõ, rõ ràng", "examples": [
+      {"jp": "ご意見[いけん]を もっと はっきり 言[い]って ください。", "vn": "Xin hãy nói ý kiến của anh/chị rõ ràng hơn."},
+      {"jp": "すみません、資料[しりょう]の 字[じ]が 小[ちい]さくて はっきり 見[み]えません。", "vn": "Xin lỗi, chữ trong tài liệu nhỏ quá nên tôi không nhìn rõ."}
+    ]},
+    {"w": "ほとんど", "k": "", "m": "hầu hết, hầu như", "examples": [
+      {"jp": "きょうの 会議[かいぎ]には ほとんどの 社員[しゃいん]が 参加[さんか]しました。", "vn": "Hầu hết nhân viên đã tham gia cuộc họp hôm nay."},
+      {"jp": "この プロジェクトは ほとんど 終[お]わりました。", "vn": "Dự án này gần như đã hoàn thành."}
+    ]}
   ],
   "expressions": [
     {"w": "関西空港[かんさいくうこう]", "m": "Sân bay (quốc tế) Kansai"},

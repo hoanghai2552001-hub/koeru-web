@@ -6,192 +6,572 @@
     {
       "w": "さきますⅠ [はなが～]",
       "k": "咲きます [花が～]",
-      "m": "nở [hoa ~]"
+      "m": "nở [hoa ~]",
+      "examples": [
+        {
+          "jp": "春[はる]に なれば、桜[さくら]が 咲[さ]きます。",
+          "vn": "Sang xuân là hoa anh đào sẽ nở."
+        },
+        {
+          "jp": "この 花[はな]は 暖[あたた]かければ 咲[さ]きやすいです。",
+          "vn": "Loài hoa này ấm áp là dễ nở."
+        }
+      ]
     },
     {
       "w": "かわりますⅠ [いろが～]",
       "k": "変わります [色が～]",
-      "m": "thay đổi, đổi [màu]"
+      "m": "thay đổi, đổi [màu]",
+      "examples": [
+        {
+          "jp": "季節[きせつ]が 変[か]われば、葉[は]の 色[いろ]も 変[か]わります。",
+          "vn": "Mùa thay đổi thì màu lá cũng đổi theo."
+        },
+        {
+          "jp": "この 資料[しりょう]の 色[いろ]は もっと 変[か]えれば 見[み]やすく なるでしょう。",
+          "vn": "Đổi thêm màu tài liệu này thì chắc sẽ dễ nhìn hơn."
+        }
+      ]
     },
     {
       "w": "こまりますⅠ",
       "k": "困ります",
-      "m": "rắc rối, khó xử, có vấn đề"
+      "m": "rắc rối, khó xử, có vấn đề",
+      "examples": [
+        {
+          "jp": "納期[のうき]に 間[ま]に 合[あ]わなければ 困[こま]ります。",
+          "vn": "Không kịp deadline thì sẽ rắc rối đấy."
+        },
+        {
+          "jp": "パソコンが 壊[こわ]れて、仕事[しごと]が できなくて 困[こま]りました。",
+          "vn": "Máy tính bị hỏng nên tôi khổ sở vì không làm việc được."
+        }
+      ]
     },
     {
       "w": "つけますⅡ [まるを～]",
       "k": "付けます [丸を～]",
-      "m": "vẽ, đánh dấu [tròn]"
+      "m": "vẽ, đánh dấu [tròn]",
+      "examples": [
+        {
+          "jp": "正[ただ]しい 答[こた]えに 丸[まる]を 付[つ]けて ください。",
+          "vn": "Hãy khoanh tròn vào đáp án đúng."
+        },
+        {
+          "jp": "重要[じゅうよう]な 部分[ぶぶん]に 丸[まる]を つければ 分[わ]かりやすいです。",
+          "vn": "Khoanh vào chỗ quan trọng thì sẽ dễ hiểu hơn."
+        }
+      ]
     },
     {
       "w": "ひろいますⅠ",
       "k": "拾います",
-      "m": "nhặt, nhặt lên"
+      "m": "nhặt, nhặt lên",
+      "examples": [
+        {
+          "jp": "駅[えき]で 財布[さいふ]を 拾[ひろ]って、交番[こうばん]に 届[とど]けました。",
+          "vn": "Tôi nhặt được ví ở ga và đã đem nộp cho trạm cảnh sát."
+        },
+        {
+          "jp": "会議室[かいぎしつ]で 落[お]ちて いた ペンを 拾[ひろ]いました。",
+          "vn": "Tôi đã nhặt cây bút bị rơi trong phòng họp."
+        }
+      ]
     },
     {
       "w": "かかりますⅠ [でんわが～]",
       "k": "かかります [電話が～]",
-      "m": "có điện thoại"
+      "m": "có điện thoại",
+      "examples": [
+        {
+          "jp": "会議中[かいぎちゅう]に 電話[でんわ]が かかって きました。",
+          "vn": "Có điện thoại gọi đến trong lúc họp."
+        },
+        {
+          "jp": "電話[でんわ]が かかれば、すぐ 出[で]て ください。",
+          "vn": "Nếu có điện thoại gọi đến thì hãy nghe ngay."
+        }
+      ]
     },
     {
       "w": "らく[な]",
       "k": "楽[な]",
-      "m": "thoải mái, nhàn hạ, dễ dàng"
+      "m": "thoải mái, nhàn hạ, dễ dàng",
+      "examples": [
+        {
+          "jp": "在宅[ざいたく]勤務[きんむ]なら 通勤[つうきん]が 楽[らく]です。",
+          "vn": "Làm việc tại nhà thì việc đi lại thoải mái hơn."
+        },
+        {
+          "jp": "この 作業[さぎょう]は 手順[てじゅん]を 覚[おぼ]えれば 楽[らく]に なります。",
+          "vn": "Công việc này nhớ được quy trình thì sẽ nhàn hơn."
+        }
+      ]
     },
     {
       "w": "ただしい",
       "k": "正しい",
-      "m": "đúng, chính xác"
+      "m": "đúng, chính xác",
+      "examples": [
+        {
+          "jp": "正[ただ]しい データを 使[つか]わなければ 意味[いみ]が ありません。",
+          "vn": "Không dùng dữ liệu chính xác thì vô nghĩa."
+        },
+        {
+          "jp": "この 資料[しりょう]の 数字[すうじ]は 正[ただ]しいですか。",
+          "vn": "Con số trong tài liệu này đúng chưa vậy?"
+        }
+      ]
     },
     {
       "w": "めずらしい",
       "k": "珍しい",
-      "m": "hiếm, hiếm có"
+      "m": "hiếm, hiếm có",
+      "examples": [
+        {
+          "jp": "こんなに 大[おお]きい 契約[けいやく]は 珍[めずら]しいです。",
+          "vn": "Hợp đồng lớn thế này thì hiếm có đấy."
+        },
+        {
+          "jp": "部長[ぶちょう]が 早[はや]く 帰[かえ]るなんて 珍[めずら]しいですね。",
+          "vn": "Trưởng phòng về sớm thế này thì hiếm thấy nhỉ."
+        }
+      ]
     },
     {
       "w": "かた",
       "k": "方",
-      "m": "vị, người (cách nói kính trọng của ひと)"
+      "m": "vị, người (cách nói kính trọng của ひと)",
+      "examples": [
+        {
+          "jp": "あちらの 方[かた]は 新[あたら]しい 部長[ぶちょう]です。",
+          "vn": "Vị đó là trưởng phòng mới."
+        },
+        {
+          "jp": "この 方[かた]に 相談[そうだん]すれば 安心[あんしん]です。",
+          "vn": "Bàn bạc với vị này thì yên tâm."
+        }
+      ]
     },
     {
       "w": "むこう",
       "k": "向こう",
-      "m": "bên kia, bên đấy, phía đằng kia"
+      "m": "bên kia, bên đấy, phía đằng kia",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]は 廊下[ろうか]の 向[む]こうです。",
+          "vn": "Phòng họp ở phía bên kia hành lang."
+        },
+        {
+          "jp": "向[む]こうに 着[つ]いたら 連絡[れんらく]して ください。",
+          "vn": "Khi đến nơi bên đó thì liên lạc cho tôi nhé."
+        }
+      ]
     },
     {
       "w": "しま",
       "k": "島",
-      "m": "đảo, hòn đảo"
+      "m": "đảo, hòn đảo",
+      "examples": [
+        {
+          "jp": "夏休[なつやす]みに 島[しま]へ 旅行[りょこう]に 行[い]きます。",
+          "vn": "Kỳ nghỉ hè tôi sẽ đi du lịch ra đảo."
+        },
+        {
+          "jp": "天気[てんき]が よければ 島[しま]まで 見[み]えます。",
+          "vn": "Nếu trời đẹp thì có thể nhìn thấy tận đảo."
+        }
+      ]
     },
     {
       "w": "むら",
       "k": "村",
-      "m": "làng"
+      "m": "làng",
+      "examples": [
+        {
+          "jp": "田舎[いなか]の 村[むら]で のんびり 過[す]ごしました。",
+          "vn": "Tôi đã có thời gian thư thái ở làng quê."
+        },
+        {
+          "jp": "この 村[むら]は 静[しず]かなら 静[しず]かなほど 好[す]きです。",
+          "vn": "Ngôi làng này càng yên tĩnh tôi càng thích."
+        }
+      ]
     },
     {
       "w": "みなと",
       "k": "港",
-      "m": "cảng, bến cảng"
+      "m": "cảng, bến cảng",
+      "examples": [
+        {
+          "jp": "港[みなと]の 近[ちか]くに 新[あたら]しい 支店[してん]が できました。",
+          "vn": "Gần cảng vừa mở một chi nhánh mới."
+        },
+        {
+          "jp": "船[ふね]は 港[みなと]に 着[つ]けば すぐに 出発[しゅっぱつ]します。",
+          "vn": "Thuyền đến cảng thì sẽ khởi hành ngay."
+        }
+      ]
     },
     {
       "w": "きんじょ",
       "k": "近所",
-      "m": "hàng xóm, khu vực lân cận"
+      "m": "hàng xóm, khu vực lân cận",
+      "examples": [
+        {
+          "jp": "近所[きんじょ]の 人[ひと]に あいさつしました。",
+          "vn": "Tôi đã chào hỏi hàng xóm."
+        },
+        {
+          "jp": "近所[きんじょ]に 新[あたら]しい カフェが できました。",
+          "vn": "Gần nhà tôi vừa mở một quán cà phê mới."
+        }
+      ]
     },
     {
       "w": "おくじょう",
       "k": "屋上",
-      "m": "mái nhà, nóc nhà"
+      "m": "mái nhà, nóc nhà",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]の 屋上[おくじょう]で 昼[ひる]ご飯[はん]を 食[た]べました。",
+          "vn": "Tôi đã ăn trưa trên sân thượng công ty."
+        },
+        {
+          "jp": "屋上[おくじょう]から 景色[けしき]が よく 見[み]えます。",
+          "vn": "Từ sân thượng có thể ngắm cảnh rất đẹp."
+        }
+      ]
     },
     {
       "w": "かいがい",
       "k": "海外",
-      "m": "nước ngoài, hải ngoại"
+      "m": "nước ngoài, hải ngoại",
+      "examples": [
+        {
+          "jp": "海外[かいがい]の 支店[してん]と オンラインで 会議[かいぎ]します。",
+          "vn": "Tôi sẽ họp online với chi nhánh nước ngoài."
+        },
+        {
+          "jp": "海外[かいがい]で 働[はたら]けば、いい 経験[けいけん]に なります。",
+          "vn": "Làm việc ở nước ngoài thì sẽ là một kinh nghiệm tốt."
+        }
+      ]
     },
     {
       "w": "やまのぼり",
       "k": "山登り",
-      "m": "leo núi"
+      "m": "leo núi",
+      "examples": [
+        {
+          "jp": "休[やす]みの 日[ひ]に 山登[やまのぼ]りを するのが 好[す]きです。",
+          "vn": "Tôi thích leo núi vào ngày nghỉ."
+        },
+        {
+          "jp": "山登[やまのぼ]りは 準備[じゅんび]すればするほど 安全[あんぜん]です。",
+          "vn": "Leo núi càng chuẩn bị kỹ thì càng an toàn."
+        }
+      ]
     },
     {
       "w": "ハイキング",
       "k": "",
-      "m": "leo núi, đi bộ trên núi"
+      "m": "leo núi, đi bộ trên núi",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ]、同僚[どうりょう]と ハイキングに 行[い]きました。",
+          "vn": "Cuối tuần tôi đã đi hiking với đồng nghiệp."
+        },
+        {
+          "jp": "天気[てんき]が よければ ハイキングに 行[い]きましょう。",
+          "vn": "Nếu trời đẹp thì mình đi hiking nhé."
+        }
+      ]
     },
     {
       "w": "きかい",
       "k": "機会",
-      "m": "cơ hội"
+      "m": "cơ hội",
+      "examples": [
+        {
+          "jp": "海外[かいがい]で 働[はたら]く 機会[きかい]が あれば、ぜひ 挑戦[ちょうせん]したいです。",
+          "vn": "Nếu có cơ hội làm việc ở nước ngoài, tôi rất muốn thử."
+        },
+        {
+          "jp": "こんな 機会[きかい]は めったに ありません。",
+          "vn": "Cơ hội thế này hiếm khi có được."
+        }
+      ]
     },
     {
       "w": "きょか",
       "k": "許可",
-      "m": "phép, giấy phép"
+      "m": "phép, giấy phép",
+      "examples": [
+        {
+          "jp": "外出[がいしゅつ]する 前[まえ]に 部長[ぶちょう]の 許可[きょか]を もらいました。",
+          "vn": "Trước khi ra ngoài tôi đã xin phép trưởng phòng."
+        },
+        {
+          "jp": "許可[きょか]が なければ、ここには 入[はい]れません。",
+          "vn": "Không có giấy phép thì không được vào đây."
+        }
+      ]
     },
     {
       "w": "まる",
       "k": "丸",
-      "m": "tròn, vòng tròn"
+      "m": "tròn, vòng tròn",
+      "examples": [
+        {
+          "jp": "正[ただ]しい 答[こた]えに 丸[まる]を 書[か]いて ください。",
+          "vn": "Hãy vẽ vòng tròn vào đáp án đúng."
+        },
+        {
+          "jp": "地図[ちず]に 丸[まる]で 印[しるし]を つけました。",
+          "vn": "Tôi đã đánh dấu bằng vòng tròn trên bản đồ."
+        }
+      ]
     },
     {
       "w": "そうさ",
       "k": "操作",
-      "m": "thao tác"
+      "m": "thao tác",
+      "examples": [
+        {
+          "jp": "この 機械[きかい]の 操作[そうさ]は 簡単[かんたん]です。",
+          "vn": "Thao tác máy này rất đơn giản."
+        },
+        {
+          "jp": "操作[そうさ]を 間違[まちが]えると、故障[こしょう]するかもしれません。",
+          "vn": "Thao tác sai thì có thể sẽ làm hỏng máy."
+        }
+      ]
     },
     {
       "w": "ほうほう",
       "k": "方法",
-      "m": "phương pháp"
+      "m": "phương pháp",
+      "examples": [
+        {
+          "jp": "もっと いい 方法[ほうほう]が あれば 教[おし]えて ください。",
+          "vn": "Nếu có phương pháp tốt hơn thì hãy chỉ tôi với."
+        },
+        {
+          "jp": "この 方法[ほうほう]なら 早[はや]く 終[お]わります。",
+          "vn": "Nếu theo phương pháp này thì sẽ xong sớm."
+        }
+      ]
     },
     {
       "w": "せつび",
       "k": "設備",
-      "m": "thiết bị"
+      "m": "thiết bị",
+      "examples": [
+        {
+          "jp": "オフィスの 設備[せつび]が 新[あたら]しく なりました。",
+          "vn": "Thiết bị văn phòng đã được đổi mới."
+        },
+        {
+          "jp": "設備[せつび]が よければ よいほど 作業[さぎょう]が 楽[らく]です。",
+          "vn": "Thiết bị càng tốt thì công việc càng nhàn."
+        }
+      ]
     },
     {
       "w": "カーテン",
       "k": "",
-      "m": "cái rèm"
+      "m": "cái rèm",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]の カーテンを 閉[し]めて ください。",
+          "vn": "Hãy kéo rèm phòng họp lại giúp tôi."
+        },
+        {
+          "jp": "新[あたら]しい カーテンを 買[か]いました。",
+          "vn": "Tôi đã mua rèm cửa mới."
+        }
+      ]
     },
     {
       "w": "ひも",
       "k": "",
-      "m": "sợi dây"
+      "m": "sợi dây",
+      "examples": [
+        {
+          "jp": "資料[しりょう]を 紐[ひも]で まとめました。",
+          "vn": "Tôi đã buộc dây gom tài liệu lại."
+        },
+        {
+          "jp": "紐[ひも]が 切[き]れて しまいました。",
+          "vn": "Sợi dây bị đứt mất rồi."
+        }
+      ]
     },
     {
       "w": "ふた",
       "k": "",
-      "m": "cái nắp"
+      "m": "cái nắp",
+      "examples": [
+        {
+          "jp": "使[つか]ったら 蓋[ふた]を 閉[し]めて ください。",
+          "vn": "Dùng xong thì đóng nắp lại giúp tôi."
+        },
+        {
+          "jp": "この 箱[はこ]の 蓋[ふた]が 開[あ]きません。",
+          "vn": "Nắp của cái hộp này không mở được."
+        }
+      ]
     },
     {
       "w": "は",
       "k": "葉",
-      "m": "cái lá"
+      "m": "cái lá",
+      "examples": [
+        {
+          "jp": "秋[あき]に なると 葉[は]の 色[いろ]が 変[か]わります。",
+          "vn": "Vào mùa thu thì màu lá thay đổi."
+        },
+        {
+          "jp": "会社[かいしゃ]の 前[まえ]の 木[き]の 葉[は]が 落[お]ちて います。",
+          "vn": "Lá của cây trước công ty đang rụng."
+        }
+      ]
     },
     {
       "w": "きょく",
       "k": "曲",
-      "m": "bài hát, bản nhạc"
+      "m": "bài hát, bản nhạc",
+      "examples": [
+        {
+          "jp": "好[す]きな 曲[きょく]を 聞[き]きながら 仕事[しごと]します。",
+          "vn": "Tôi vừa nghe bài hát yêu thích vừa làm việc."
+        },
+        {
+          "jp": "この 曲[きょく]は 聞[き]けば 聞[き]くほど 好[す]きに なります。",
+          "vn": "Bài hát này càng nghe càng thấy thích."
+        }
+      ]
     },
     {
       "w": "たのしみ",
       "k": "楽しみ",
-      "m": "niềm vui, điều vui"
+      "m": "niềm vui, điều vui",
+      "examples": [
+        {
+          "jp": "今度[こんど]の 出張[しゅっちょう]、楽[たの]しみに して います。",
+          "vn": "Tôi đang rất mong đợi chuyến công tác lần này."
+        },
+        {
+          "jp": "週末[しゅうまつ]の 旅行[りょこう]が 楽[たの]しみです。",
+          "vn": "Tôi đang mong đợi chuyến du lịch cuối tuần."
+        }
+      ]
     },
     {
       "w": "もっと",
       "k": "",
-      "m": "hơn, nữa"
+      "m": "hơn, nữa",
+      "examples": [
+        {
+          "jp": "もっと 早[はや]く 始[はじ]めれば よかったです。",
+          "vn": "Giá mà bắt đầu sớm hơn thì đã tốt hơn."
+        },
+        {
+          "jp": "もっと 頑張[がんば]らなければ なりません。",
+          "vn": "Tôi phải cố gắng nhiều hơn nữa."
+        }
+      ]
     },
     {
       "w": "はじめに",
       "k": "初めに",
-      "m": "đầu tiên, trước hết"
+      "m": "đầu tiên, trước hết",
+      "examples": [
+        {
+          "jp": "初[はじ]めに、今日[きょう]の 予定[よてい]を 説明[せつめい]します。",
+          "vn": "Trước hết, tôi xin giải thích lịch trình hôm nay."
+        },
+        {
+          "jp": "初[はじ]めに 自己紹介[じこしょうかい]を お願[ねが]いします。",
+          "vn": "Trước hết xin mời tự giới thiệu."
+        }
+      ]
     },
     {
       "w": "これで おわります。",
       "k": "これで 終わります。",
-      "m": "Đến đây là hết./ Chúng ta dừng ở đây."
+      "m": "Đến đây là hết./ Chúng ta dừng ở đây.",
+      "examples": [
+        {
+          "jp": "これで 説明[せつめい]を 終[お]わります。ご質問[しつもん]は ありますか。",
+          "vn": "Phần giải thích đến đây là hết. Có câu hỏi gì không ạ?"
+        },
+        {
+          "jp": "本日[ほんじつ]の 会議[かいぎ]は これで 終[お]わります。",
+          "vn": "Cuộc họp hôm nay đến đây là kết thúc."
+        }
+      ]
     },
     {
       "w": "はこね",
       "k": "箱根",
-      "m": "một địa điểm nghỉ ngơi ở tỉnh Kanagawa"
+      "m": "một địa điểm nghỉ ngơi ở tỉnh Kanagawa",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ]、箱根[はこね]の 温泉[おんせん]に 行[い]く 予定[よてい]です。",
+          "vn": "Cuối tuần tôi dự định đi suối nước nóng Hakone."
+        },
+        {
+          "jp": "箱根[はこね]なら 東京[とうきょう]から 近[ちか]いです。",
+          "vn": "Nếu là Hakone thì gần Tokyo lắm."
+        }
+      ]
     },
     {
       "w": "にっこう",
       "k": "日光",
-      "m": "một địa điểm du lịch ở tỉnh Tochigi"
+      "m": "một địa điểm du lịch ở tỉnh Tochigi",
+      "examples": [
+        {
+          "jp": "日光[にっこう]へ 紅葉[こうよう]を 見[み]に 行[い]きました。",
+          "vn": "Tôi đã đi Nikko để ngắm lá đỏ."
+        },
+        {
+          "jp": "日光[にっこう]は 秋[あき]が いちばん きれいです。",
+          "vn": "Nikko đẹp nhất là vào mùa thu."
+        }
+      ]
     },
     {
       "w": "はくば",
       "k": "白馬",
-      "m": "một địa điểm nghỉ ngơi ở tỉnh Nagano"
+      "m": "một địa điểm nghỉ ngơi ở tỉnh Nagano",
+      "examples": [
+        {
+          "jp": "冬[ふゆ]に 白馬[はくば]へ スキーに 行[い]く つもりです。",
+          "vn": "Mùa đông tôi định đi trượt tuyết ở Hakuba."
+        },
+        {
+          "jp": "白馬[はくば]は 雪[ゆき]が 多[おお]ければ 多[おお]いほど スキーが 楽[たの]しいです。",
+          "vn": "Hakuba tuyết càng nhiều thì trượt tuyết càng vui."
+        }
+      ]
     },
     {
       "w": "アフリカ",
       "k": "",
-      "m": "châu Phi (Africa)"
+      "m": "châu Phi (Africa)",
+      "examples": [
+        {
+          "jp": "アフリカに 支店[してん]を 出[だ]す 予定[よてい]です。",
+          "vn": "Chúng tôi dự định mở chi nhánh ở châu Phi."
+        },
+        {
+          "jp": "アフリカの 市場[しじょう]は これから 伸[の]びるでしょう。",
+          "vn": "Thị trường châu Phi từ giờ chắc sẽ phát triển."
+        }
+      ]
     }
   ],
   "expressions": [

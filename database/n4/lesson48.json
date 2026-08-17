@@ -6,72 +6,212 @@
     {
       "w": "おろしますⅠ",
       "k": "降ろします、下ろします",
-      "m": "cho xuống, hạ xuống"
+      "m": "cho xuống, hạ xuống",
+      "examples": [
+        {
+          "jp": "課長[かちょう]は 新人[しんじん]に 荷物[にもつ]を 車[くるま]から 降[お]ろさせました。",
+          "vn": "Trưởng phòng đã bảo nhân viên mới hạ hàng xuống từ xe."
+        },
+        {
+          "jp": "駅[えき]で 同僚[どうりょう]を 降[お]ろさせて いただけませんか。",
+          "vn": "Anh cho tôi thả đồng nghiệp xuống ở ga được không ạ?"
+        }
+      ]
     },
     {
       "w": "とどけますⅡ",
       "k": "届けます",
-      "m": "gửi đến, chuyển đến"
+      "m": "gửi đến, chuyển đến",
+      "examples": [
+        {
+          "jp": "部長[ぶちょう]は 私[わたし]に 書類[しょるい]を 取引先[とりひきさき]まで 届[とど]けさせました。",
+          "vn": "Trưởng phòng đã bảo tôi mang tài liệu đến giao cho đối tác."
+        },
+        {
+          "jp": "この 資料[しりょう]を 明日[あした]までに 届[とど]けさせて いただけませんか。",
+          "vn": "Tôi có thể xin phép gửi tài liệu này trước ngày mai được không ạ?"
+        }
+      ]
     },
     {
       "w": "せわを しますⅢ",
       "k": "世話を します",
-      "m": "chăm sóc"
+      "m": "chăm sóc",
+      "examples": [
+        {
+          "jp": "新入社員[しんにゅうしゃいん]の 世話[せわ]を させて いただけませんか。",
+          "vn": "Cho phép tôi được chăm sóc nhân viên mới có được không ạ?"
+        },
+        {
+          "jp": "先輩[せんぱい]は 後輩[こうはい]に 顧客[こきゃく]の 世話[せわ]を させました。",
+          "vn": "Tiền bối đã để hậu bối chăm sóc khách hàng."
+        }
+      ]
     },
     {
       "w": "いや [な]",
       "k": "嫌 [な]",
-      "m": "ngán, không thích"
+      "m": "ngán, không thích",
+      "examples": [
+        {
+          "jp": "無理[むり]な 残業[ざんぎょう]は 社員[しゃいん]を 嫌[いや]な 気持[きも]ちに させます。",
+          "vn": "Tăng ca quá sức khiến nhân viên cảm thấy khó chịu."
+        },
+        {
+          "jp": "その 話題[わだい]は 少[すこ]し 嫌[いや]です。",
+          "vn": "Chủ đề đó tôi hơi không thích."
+        }
+      ]
     },
     {
       "w": "きびしい",
       "k": "厳しい",
-      "m": "nghiêm, nghiêm khắc, nghiêm ngặt"
+      "m": "nghiêm, nghiêm khắc, nghiêm ngặt",
+      "examples": [
+        {
+          "jp": "課長[かちょう]は 部下[ぶか]に 厳[きび]しい 指導[しどう]を させました。",
+          "vn": "Trưởng phòng đã để tôi hướng dẫn nghiêm khắc cấp dưới."
+        },
+        {
+          "jp": "納期[のうき]の チェックは 厳[きび]しく して います。",
+          "vn": "Chúng tôi kiểm tra deadline rất nghiêm ngặt."
+        }
+      ]
     },
     {
       "w": "じゅく",
       "k": "塾",
-      "m": "cơ sở học thêm"
+      "m": "cơ sở học thêm",
+      "examples": [
+        {
+          "jp": "息子[むすこ]を 塾[じゅく]に 通[かよ]わせて います。",
+          "vn": "Tôi cho con trai đi học thêm."
+        },
+        {
+          "jp": "娘[むすめ]を どの 塾[じゅく]に 通[かよ]わせるか 悩[なや]んで います。",
+          "vn": "Tôi đang phân vân nên cho con gái học thêm ở đâu."
+        }
+      ]
     },
     {
       "w": "スケジュール",
       "k": "",
-      "m": "thời khóa biểu, lịch làm việc"
+      "m": "thời khóa biểu, lịch làm việc",
+      "examples": [
+        {
+          "jp": "部長[ぶちょう]は 秘書[ひしょ]に スケジュールを 確認[かくにん]させました。",
+          "vn": "Trưởng phòng đã bảo thư ký kiểm tra lịch trình."
+        },
+        {
+          "jp": "スケジュールを 少[すこ]し 変[か]えさせて いただけませんか。",
+          "vn": "Tôi có thể xin phép thay đổi lịch trình một chút được không ạ?"
+        }
+      ]
     },
     {
       "w": "せいと",
       "k": "生徒",
-      "m": "học sinh, học trò"
+      "m": "học sinh, học trò",
+      "examples": [
+        {
+          "jp": "先生[せんせい]は 生徒[せいと]に 作文[さくぶん]を 書[か]かせました。",
+          "vn": "Thầy giáo đã cho học sinh viết bài văn."
+        },
+        {
+          "jp": "生徒[せいと]たちを 自由[じゆう]に 発表[はっぴょう]させました。",
+          "vn": "Thầy đã để học sinh tự do phát biểu."
+        }
+      ]
     },
     {
       "w": "もの",
       "k": "者",
-      "m": "người (là người thân hoặc cấp dưới)"
+      "m": "người (là người thân hoặc cấp dưới)",
+      "examples": [
+        {
+          "jp": "その 件[けん]は 担当[たんとう]の 者[もの]に 確認[かくにん]させます。",
+          "vn": "Việc đó tôi sẽ cho người phụ trách xác nhận."
+        },
+        {
+          "jp": "弊社[へいしゃ]の 者[もの]に すぐ 連絡[れんらく]させます。",
+          "vn": "Tôi sẽ cho nhân viên bên tôi liên lạc ngay."
+        }
+      ]
     },
     {
       "w": "にゅうかん",
       "k": "入管",
-      "m": "Cục Quản lý nhập cảnh"
+      "m": "Cục Quản lý nhập cảnh",
+      "examples": [
+        {
+          "jp": "ビザの 手続[てつづ]きの ために 入管[にゅうかん]に 行[い]きました。",
+          "vn": "Tôi đã đến Cục Quản lý nhập cảnh để làm thủ tục visa."
+        },
+        {
+          "jp": "入管[にゅうかん]から 書類[しょるい]を 提出[ていしゅつ]させられました。",
+          "vn": "Tôi bị Cục Quản lý nhập cảnh yêu cầu nộp giấy tờ."
+        }
+      ]
     },
     {
       "w": "さいにゅうこくビザ",
       "k": "再入国ビザ",
-      "m": "thị thực tái nhập cảnh"
+      "m": "thị thực tái nhập cảnh",
+      "examples": [
+        {
+          "jp": "出張[しゅっちょう]の 前[まえ]に 再入国[さいにゅうこく]ビザを 取[と]りました。",
+          "vn": "Trước chuyến công tác tôi đã xin visa tái nhập cảnh."
+        },
+        {
+          "jp": "再入国[さいにゅうこく]ビザが なければ、日本[にほん]に 戻[もど]れません。",
+          "vn": "Không có visa tái nhập cảnh thì không quay lại Nhật được."
+        }
+      ]
     },
     {
       "w": "じゆうに",
       "k": "自由に",
-      "m": "tự do"
+      "m": "tự do",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]で 自由[じゆう]に 意見[いけん]を 言[い]わせて います。",
+          "vn": "Trong cuộc họp chúng tôi để mọi người tự do phát biểu ý kiến."
+        },
+        {
+          "jp": "休憩[きゅうけい]中[ちゅう]は 自由[じゆう]に 過[す]ごして ください。",
+          "vn": "Trong giờ giải lao xin cứ thoải mái tự do."
+        }
+      ]
     },
     {
       "w": "～かん",
       "k": "～間",
-      "m": "trong ~ (dùng để chỉ khoảng thời gian)"
+      "m": "trong ~ (dùng để chỉ khoảng thời gian)",
+      "examples": [
+        {
+          "jp": "1週間[いっしゅうかん]、海外[かいがい]出張[しゅっちょう]に 行[い]かせて いただけませんか。",
+          "vn": "Tôi có thể xin phép đi công tác nước ngoài một tuần được không ạ?"
+        },
+        {
+          "jp": "3年間[さんねんかん] この プロジェクトを 担当[たんとう]しました。",
+          "vn": "Tôi đã phụ trách dự án này trong 3 năm."
+        }
+      ]
     },
     {
       "w": "いい ことですね。",
       "k": "",
-      "m": "Hay nhỉ./ Được đấy nhỉ."
+      "m": "Hay nhỉ./ Được đấy nhỉ.",
+      "examples": [
+        {
+          "jp": "部下[ぶか]に 自由[じゆう]に 考[かんが]えさせて いるんですね。いい ことですね。",
+          "vn": "Anh để nhân viên tự do suy nghĩ à. Hay đấy nhỉ."
+        },
+        {
+          "jp": "新人[しんじん]に いろいろな 仕事[しごと]を 経験[けいけん]させて いるんです。「いい ことですね。」",
+          "vn": "\"Tôi đang cho nhân viên mới trải nghiệm nhiều việc khác nhau.\" \"Được đấy nhỉ.\""
+        }
+      ]
     }
   ],
   "expressions": [

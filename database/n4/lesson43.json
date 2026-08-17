@@ -6,107 +6,317 @@
     {
       "w": "ふえますⅡ [ゆしゅつが～]",
       "k": "増えます [輸出が～]",
-      "m": "tăng, tăng lên [xuất khẩu ~]"
+      "m": "tăng, tăng lên [xuất khẩu ~]",
+      "examples": [
+        {
+          "jp": "今年[ことし]は 輸出[ゆしゅつ]が 増[ふ]えそうです。",
+          "vn": "Năm nay xuất khẩu có vẻ sẽ tăng lên."
+        },
+        {
+          "jp": "この 商品[しょうひん]は 人気[にんき]が あって、売[う]り上[あ]げが 増[ふ]えて きました。",
+          "vn": "Sản phẩm này được ưa chuộng nên doanh số đã tăng dần lên."
+        }
+      ]
     },
     {
       "w": "へりますⅠ [ゆしゅつが～]",
       "k": "減ります [輸出が～]",
-      "m": "giảm, giảm xuống [xuất khẩu ~]"
+      "m": "giảm, giảm xuống [xuất khẩu ~]",
+      "examples": [
+        {
+          "jp": "不況[ふきょう]で 輸出[ゆしゅつ]が 減[へ]りそうです。",
+          "vn": "Do suy thoái nên xuất khẩu có vẻ sẽ giảm."
+        },
+        {
+          "jp": "最近[さいきん]、注文[ちゅうもん]が だんだん 減[へ]って きました。",
+          "vn": "Dạo này đơn hàng đã dần dần giảm xuống."
+        }
+      ]
     },
     {
       "w": "あがりますⅠ [ねだんが～]",
       "k": "上がります [値段が～]",
-      "m": "tăng, tăng lên [giá ~]"
+      "m": "tăng, tăng lên [giá ~]",
+      "examples": [
+        {
+          "jp": "原料[げんりょう]の 値段[ねだん]が また 上[あ]がりそうです。",
+          "vn": "Giá nguyên liệu có vẻ sẽ lại tăng nữa."
+        },
+        {
+          "jp": "この 商品[しょうひん]は 値段[ねだん]が 上[あ]がって きました。",
+          "vn": "Giá sản phẩm này đã tăng dần lên."
+        }
+      ]
     },
     {
       "w": "さがりますⅠ [ねだんが～]",
       "k": "下がります [値段が～]",
-      "m": "giảm, giảm xuống [giá ~]"
+      "m": "giảm, giảm xuống [giá ~]",
+      "examples": [
+        {
+          "jp": "セールで 値段[ねだん]が 下[さ]がりそうです。",
+          "vn": "Nhân đợt giảm giá, giá có vẻ sẽ giảm."
+        },
+        {
+          "jp": "石油[せきゆ]の 値段[ねだん]が 少[すこ]し 下[さ]がって きました。",
+          "vn": "Giá dầu mỏ đã giảm xuống một chút."
+        }
+      ]
     },
     {
       "w": "きれますⅡ [ひもが～]",
       "k": "切れます",
-      "m": "đứt [sợi dây bị ~]"
+      "m": "đứt [sợi dây bị ~]",
+      "examples": [
+        {
+          "jp": "この 紐[ひも]、今[いま]にも 切[き]れそうです。",
+          "vn": "Sợi dây này trông như sắp đứt đến nơi."
+        },
+        {
+          "jp": "梱包[こんぽう]の 紐[ひも]が 切[き]れて しまいました。",
+          "vn": "Sợi dây đóng gói đã bị đứt mất."
+        }
+      ]
     },
     {
       "w": "とれますⅡ [ボタンが～]",
       "k": "",
-      "m": "tuột [cái cúc bị ~]"
+      "m": "tuột [cái cúc bị ~]",
+      "examples": [
+        {
+          "jp": "シャツの ボタンが 取[と]れそうです。",
+          "vn": "Cúc áo sơ mi trông như sắp bung ra."
+        },
+        {
+          "jp": "会議[かいぎ]の 前[まえ]に ボタンが 取[と]れて しまい、困[こま]りました。",
+          "vn": "Trước cuộc họp cúc áo bị bung ra làm tôi khổ sở."
+        }
+      ]
     },
     {
       "w": "おちますⅡ [にもつが～]",
       "k": "落ちます [荷物が～]",
-      "m": "rơi [hành lý bị ~]"
+      "m": "rơi [hành lý bị ~]",
+      "examples": [
+        {
+          "jp": "棚[たな]の 荷物[にもつ]が 今[いま]にも 落[お]ちそうです。",
+          "vn": "Hành lý trên kệ trông như sắp rơi xuống."
+        },
+        {
+          "jp": "電車[でんしゃ]の 棚[たな]から 荷物[にもつ]が 落[お]ちて きました。",
+          "vn": "Hành lý đã rơi xuống từ giá để đồ trên tàu."
+        }
+      ]
     },
     {
       "w": "なくなりますⅠ [ガソリンが～]",
       "k": "",
-      "m": "mất, hết [xăng bị ~]"
+      "m": "mất, hết [xăng bị ~]",
+      "examples": [
+        {
+          "jp": "ガソリンが なくなりそうなので、給油[きゅうゆ]しましょう。",
+          "vn": "Xăng có vẻ sắp hết rồi, mình đổ xăng thôi."
+        },
+        {
+          "jp": "会議室[かいぎしつ]の コーヒーが なくなって きました。",
+          "vn": "Cà phê trong phòng họp đã sắp hết."
+        }
+      ]
     },
     {
       "w": "じょうぶ[な]",
       "k": "丈夫[な]",
-      "m": "chắc, bền"
+      "m": "chắc, bền",
+      "examples": [
+        {
+          "jp": "この かばんは 丈夫[じょうぶ]そうですね。",
+          "vn": "Cái túi này trông có vẻ bền nhỉ."
+        },
+        {
+          "jp": "丈夫[じょうぶ]な 素材[そざい]で 作[つく]られた 製品[せいひん]です。",
+          "vn": "Đây là sản phẩm được làm từ chất liệu bền chắc."
+        }
+      ]
     },
     {
       "w": "へん[な]",
       "k": "変[な]",
-      "m": "lạ, kỳ quặc"
+      "m": "lạ, kỳ quặc",
+      "examples": [
+        {
+          "jp": "この コピー機[き]、何[なに]か 変[へん]な 音[おと]が しますね。",
+          "vn": "Cái máy photocopy này phát ra tiếng hơi lạ nhỉ."
+        },
+        {
+          "jp": "資料[しりょう]の 数字[すうじ]が 変[へん]な ので、確認[かくにん]しました。",
+          "vn": "Vì con số trong tài liệu có vẻ lạ nên tôi đã kiểm tra lại."
+        }
+      ]
     },
     {
       "w": "しあわせ[な]",
       "k": "幸せ[な]",
-      "m": "hạnh phúc"
+      "m": "hạnh phúc",
+      "examples": [
+        {
+          "jp": "彼[かれ]は とても 幸[しあわ]せそうです。",
+          "vn": "Trông anh ấy có vẻ rất hạnh phúc."
+        },
+        {
+          "jp": "家族[かぞく]と 過[す]ごす 時間[じかん]が 一番[いちばん] 幸[しあわ]せです。",
+          "vn": "Thời gian bên gia đình là hạnh phúc nhất."
+        }
+      ]
     },
     {
       "w": "うまい",
       "k": "",
-      "m": "ngon"
+      "m": "ngon",
+      "examples": [
+        {
+          "jp": "この 店[みせ]の ラーメンは うまそうですね。",
+          "vn": "Mì ramen của quán này trông có vẻ ngon nhỉ."
+        },
+        {
+          "jp": "彼[かれ]は プレゼンが うまいですね。",
+          "vn": "Anh ấy thuyết trình giỏi thật đấy."
+        }
+      ]
     },
     {
       "w": "まずい",
       "k": "",
-      "m": "dở"
+      "m": "dở",
+      "examples": [
+        {
+          "jp": "この コーヒー、ちょっと まずいですね。",
+          "vn": "Cà phê này hơi dở nhỉ."
+        },
+        {
+          "jp": "計画[けいかく]どおりに 進[すす]まないのは まずいです。",
+          "vn": "Kế hoạch không đi đúng hướng thì không hay đâu."
+        }
+      ]
     },
     {
       "w": "つまらない",
       "k": "",
-      "m": "buồn tẻ, không hấp dẫn, không thú vị"
+      "m": "buồn tẻ, không hấp dẫn, không thú vị",
+      "examples": [
+        {
+          "jp": "今日[きょう]の 会議[かいぎ]は ちょっと つまらなかったです。",
+          "vn": "Cuộc họp hôm nay hơi buồn tẻ."
+        },
+        {
+          "jp": "つまらなそうな 顔[かお]を しないで ください。",
+          "vn": "Đừng tỏ vẻ mặt chán chường như vậy."
+        }
+      ]
     },
     {
       "w": "ガソリン",
       "k": "",
-      "m": "xăng"
+      "m": "xăng",
+      "examples": [
+        {
+          "jp": "ガソリンが 切[き]れそうなので、給油[きゅうゆ]しに 行[い]きます。",
+          "vn": "Xăng có vẻ sắp hết nên tôi đi đổ xăng đây."
+        },
+        {
+          "jp": "ガソリンの 値段[ねだん]が 上[あ]がって きました。",
+          "vn": "Giá xăng đã tăng lên."
+        }
+      ]
     },
     {
       "w": "ひ",
       "k": "火",
-      "m": "lửa"
+      "m": "lửa",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]で 火[ひ]を 使[つか]わないで ください。",
+          "vn": "Xin đừng dùng lửa trong phòng họp."
+        },
+        {
+          "jp": "ろうそくの 火[ひ]が 今[いま]にも 消[き]えそうです。",
+          "vn": "Ngọn lửa nến trông như sắp tắt đến nơi."
+        }
+      ]
     },
     {
       "w": "だんぼう",
       "k": "暖房",
-      "m": "thiết bị làm ấm, lò sưởi, máy điều hòa"
+      "m": "thiết bị làm ấm, lò sưởi, máy điều hòa",
+      "examples": [
+        {
+          "jp": "冬[ふゆ]は オフィスの 暖房[だんぼう]を つけて います。",
+          "vn": "Mùa đông văn phòng có bật máy sưởi."
+        },
+        {
+          "jp": "暖房[だんぼう]の 調子[ちょうし]が 悪[わる]そうです。",
+          "vn": "Máy sưởi trông có vẻ đang bị trục trặc."
+        }
+      ]
     },
     {
       "w": "れいぼう",
       "k": "冷房",
-      "m": "thiết bị làm mát, máy điều hòa"
+      "m": "thiết bị làm mát, máy điều hòa",
+      "examples": [
+        {
+          "jp": "夏[なつ]は 冷房[れいぼう]が ないと 暑[あつ]くて 仕事[しごと]が できません。",
+          "vn": "Mùa hè không có máy lạnh thì nóng không làm việc được."
+        },
+        {
+          "jp": "会議室[かいぎしつ]の 冷房[れいぼう]が 効[き]きすぎて 寒[さむ]いです。",
+          "vn": "Máy lạnh phòng họp mạnh quá nên lạnh."
+        }
+      ]
     },
     {
       "w": "センス",
       "k": "",
-      "m": "có khiếu, có gu ([ふくの] ～が あります: có gu [ăn mặc])"
+      "m": "có khiếu, có gu ([ふくの] ～が あります: có gu [ăn mặc])",
+      "examples": [
+        {
+          "jp": "彼女[かのじょ]は 服[ふく]の センスが いいですね。",
+          "vn": "Cô ấy có gu ăn mặc đẹp thật đấy."
+        },
+        {
+          "jp": "彼[かれ]の デザインの センスは すばらしいです。",
+          "vn": "Gu thiết kế của anh ấy rất tuyệt vời."
+        }
+      ]
     },
     {
       "w": "いまにも",
       "k": "今にも",
-      "m": "(có vẻ, sắp) ~ đến nơi"
+      "m": "(có vẻ, sắp) ~ đến nơi",
+      "examples": [
+        {
+          "jp": "空[そら]が 暗[くら]くて、今[いま]にも 雨[あめ]が 降[ふ]りそうです。",
+          "vn": "Trời tối sầm, trông có vẻ sắp mưa đến nơi."
+        },
+        {
+          "jp": "今[いま]にも 倒[たお]れそうな 木[き]が あるので、注意[ちゅうい]して ください。",
+          "vn": "Có cái cây trông như sắp đổ nên hãy chú ý."
+        }
+      ]
     },
     {
       "w": "わあ",
       "k": "",
-      "m": "Ôi! (câu nói dùng khi ngạc nhiên hoặc cảm thán điều gì)"
+      "m": "Ôi! (câu nói dùng khi ngạc nhiên hoặc cảm thán điều gì)",
+      "examples": [
+        {
+          "jp": "わあ、この 資料[しりょう]、すごく よく できて いますね。",
+          "vn": "Ôi, tài liệu này làm hay quá nhỉ."
+        },
+        {
+          "jp": "わあ、契約[けいやく]が 決[き]まったんですね！",
+          "vn": "Ôi, hợp đồng đã được ký rồi à!"
+        }
+      ]
     }
   ],
   "expressions": [

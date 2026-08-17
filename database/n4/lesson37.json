@@ -6,167 +6,497 @@
     {
       "w": "ほめますⅡ",
       "k": "褒めます",
-      "m": "khen"
+      "m": "khen",
+      "examples": [
+        {
+          "jp": "今日[きょう]の 発表[はっぴょう]、部長[ぶちょう]に 褒[ほ]められました。",
+          "vn": "Bài thuyết trình hôm nay tôi được trưởng phòng khen."
+        },
+        {
+          "jp": "子供[こども]は 先生[せんせい]に 褒[ほ]められて 喜[よろこ]んで いました。",
+          "vn": "Con tôi được cô giáo khen nên rất vui."
+        }
+      ]
     },
     {
       "w": "しかりますⅠ",
       "k": "",
-      "m": "mắng"
+      "m": "mắng",
+      "examples": [
+        {
+          "jp": "遅刻[ちこく]して、課長[かちょう]に 叱[しか]られました。",
+          "vn": "Vì đi trễ nên tôi bị trưởng phòng mắng."
+        },
+        {
+          "jp": "子供[こども]は いたずらして 母[はは]に 叱[しか]られました。",
+          "vn": "Đứa trẻ nghịch dại nên bị mẹ mắng."
+        }
+      ]
     },
     {
       "w": "さそいますⅠ",
       "k": "誘います",
-      "m": "mời, rủ"
+      "m": "mời, rủ",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に 飲[の]み会[かい]に 誘[さそ]われました。",
+          "vn": "Tôi được đồng nghiệp rủ đi nhậu."
+        },
+        {
+          "jp": "友達[ともだち]を 映画[えいが]に 誘[さそ]いました。",
+          "vn": "Tôi đã rủ bạn đi xem phim."
+        }
+      ]
     },
     {
       "w": "おこしますⅠ",
       "k": "起こします",
-      "m": "đánh thức"
+      "m": "đánh thức",
+      "examples": [
+        {
+          "jp": "今朝[けさ] 母[はは]に 起[お]こされました。",
+          "vn": "Sáng nay tôi bị mẹ đánh thức."
+        },
+        {
+          "jp": "夜中[よなか]に 電話[でんわ]の 音[おと]で 起[お]こされました。",
+          "vn": "Nửa đêm tôi bị tiếng chuông điện thoại đánh thức."
+        }
+      ]
     },
     {
       "w": "しょうたいしますⅢ",
       "k": "招待します",
-      "m": "mời"
+      "m": "mời",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]の パーティーに 招待[しょうたい]されました。",
+          "vn": "Tôi được mời đến bữa tiệc của đối tác."
+        },
+        {
+          "jp": "友達[ともだち]の 結婚式[けっこんしき]に 招待[しょうたい]されました。",
+          "vn": "Tôi được mời đến đám cưới của bạn."
+        }
+      ]
     },
     {
       "w": "たのみますⅠ",
       "k": "頼みます",
-      "m": "nhờ"
+      "m": "nhờ",
+      "examples": [
+        {
+          "jp": "部長[ぶちょう]に 資料[しりょう]の 作成[さくせい]を 頼[たの]まれました。",
+          "vn": "Tôi bị (được) trưởng phòng nhờ làm tài liệu."
+        },
+        {
+          "jp": "同僚[どうりょう]に 手伝[てつだ]いを 頼[たの]みました。",
+          "vn": "Tôi đã nhờ đồng nghiệp giúp đỡ."
+        }
+      ]
     },
     {
       "w": "ちゅういしますⅢ",
       "k": "注意します",
-      "m": "chú ý, nhắc nhở"
+      "m": "chú ý, nhắc nhở",
+      "examples": [
+        {
+          "jp": "会議中[かいぎちゅう]に 携帯[けいたい]を 見[み]て、注意[ちゅうい]されました。",
+          "vn": "Tôi xem điện thoại lúc họp nên bị nhắc nhở."
+        },
+        {
+          "jp": "運転[うんてん]中[ちゅう]、警官[けいかん]に 注意[ちゅうい]されました。",
+          "vn": "Trong lúc lái xe tôi bị cảnh sát nhắc nhở."
+        }
+      ]
     },
     {
       "w": "とりますⅠ",
       "k": "",
-      "m": "ăn trộm, lấy cắp"
+      "m": "ăn trộm, lấy cắp",
+      "examples": [
+        {
+          "jp": "電車[でんしゃ]の 中[なか]で 財布[さいふ]を 取[と]られました。",
+          "vn": "Tôi bị mất ví trên tàu điện."
+        },
+        {
+          "jp": "自転車[じてんしゃ]を 取[と]られて しまいました。",
+          "vn": "Xe đạp của tôi bị lấy trộm mất rồi."
+        }
+      ]
     },
     {
       "w": "ふみますⅠ",
       "k": "踏みます",
-      "m": "giẫm, giẫm lên, giẫm vào"
+      "m": "giẫm, giẫm lên, giẫm vào",
+      "examples": [
+        {
+          "jp": "電車[でんしゃ]の 中[なか]で 足[あし]を 踏[ふ]まれました。",
+          "vn": "Tôi bị giẫm chân trên tàu điện."
+        },
+        {
+          "jp": "満員[まんいん]電車[でんしゃ]で 誰[だれ]かに 足[あし]を 踏[ふ]まれました。",
+          "vn": "Trên tàu đông đúc tôi bị ai đó giẫm phải chân."
+        }
+      ]
     },
     {
       "w": "こわしますⅠ",
       "k": "壊します",
-      "m": "phá, làm hỏng"
+      "m": "phá, làm hỏng",
+      "examples": [
+        {
+          "jp": "後輩[こうはい]に コピー機[き]を 壊[こわ]されました。",
+          "vn": "Máy photocopy bị hậu bối làm hỏng."
+        },
+        {
+          "jp": "子供[こども]に おもちゃを 壊[こわ]されました。",
+          "vn": "Đồ chơi bị con tôi làm hỏng."
+        }
+      ]
     },
     {
       "w": "よごしますⅠ",
       "k": "汚します",
-      "m": "làm bẩn"
+      "m": "làm bẩn",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]の 机[つくえ]を コーヒーで 汚[よご]されました。",
+          "vn": "Bàn phòng họp bị làm bẩn vì cà phê."
+        },
+        {
+          "jp": "新[あたら]しい シャツを 子供[こども]に 汚[よご]されました。",
+          "vn": "Áo sơ mi mới của tôi bị con làm bẩn."
+        }
+      ]
     },
     {
       "w": "おこないますⅠ",
       "k": "行います",
-      "m": "thực hiện, tiến hành"
+      "m": "thực hiện, tiến hành",
+      "examples": [
+        {
+          "jp": "毎年[まいとし] 春[はる]に 入社[にゅうしゃ]式[しき]が 行[おこな]われます。",
+          "vn": "Hàng năm lễ nhập công ty được tổ chức vào mùa xuân."
+        },
+        {
+          "jp": "この 展覧会[てんらんかい]は 東京[とうきょう]で 行[おこな]われます。",
+          "vn": "Triển lãm này được tổ chức tại Tokyo."
+        }
+      ]
     },
     {
       "w": "ゆしゅつしますⅢ",
       "k": "輸出します",
-      "m": "xuất khẩu"
+      "m": "xuất khẩu",
+      "examples": [
+        {
+          "jp": "この 製品[せいひん]は 海外[かいがい]に 輸出[ゆしゅつ]されて います。",
+          "vn": "Sản phẩm này được xuất khẩu ra nước ngoài."
+        },
+        {
+          "jp": "米[こめ]は 世界中[せかいじゅう]に 輸出[ゆしゅつ]されて います。",
+          "vn": "Gạo được xuất khẩu đi khắp thế giới."
+        }
+      ]
     },
     {
       "w": "ゆにゅうしますⅢ",
       "k": "輸入します",
-      "m": "nhập khẩu"
+      "m": "nhập khẩu",
+      "examples": [
+        {
+          "jp": "石油[せきゆ]は 海外[かいがい]から 輸入[ゆにゅう]されて います。",
+          "vn": "Dầu mỏ được nhập khẩu từ nước ngoài."
+        },
+        {
+          "jp": "この 原料[げんりょう]は 中国[ちゅうごく]から 輸入[ゆにゅう]されます。",
+          "vn": "Nguyên liệu này được nhập khẩu từ Trung Quốc."
+        }
+      ]
     },
     {
       "w": "ほんやくしますⅢ",
       "k": "翻訳します",
-      "m": "dịch (sách, tài liệu)"
+      "m": "dịch (sách, tài liệu)",
+      "examples": [
+        {
+          "jp": "この 契約書[けいやくしょ]は 英語[えいご]に 翻訳[ほんやく]されました。",
+          "vn": "Hợp đồng này đã được dịch sang tiếng Anh."
+        },
+        {
+          "jp": "この 漫画[まんが]は 世界中[せかいじゅう]の 言葉[ことば]に 翻訳[ほんやく]されて います。",
+          "vn": "Truyện tranh này được dịch ra nhiều thứ tiếng khắp thế giới."
+        }
+      ]
     },
     {
       "w": "はつめいしますⅢ",
       "k": "発明します",
-      "m": "phát minh"
+      "m": "phát minh",
+      "examples": [
+        {
+          "jp": "この 機械[きかい]は 100年[ひゃくねん]前[まえ]に 発明[はつめい]されました。",
+          "vn": "Máy này được phát minh cách đây 100 năm."
+        },
+        {
+          "jp": "新[あたら]しい 技術[ぎじゅつ]が 発明[はつめい]されました。",
+          "vn": "Một kỹ thuật mới đã được phát minh."
+        }
+      ]
     },
     {
       "w": "はっけんしますⅢ",
       "k": "発見します",
-      "m": "phát kiến, tìm ra, tìm thấy"
+      "m": "phát kiến, tìm ra, tìm thấy",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 資料[しりょう]が 倉庫[そうこ]で 発見[はっけん]されました。",
+          "vn": "Tài liệu mới đã được tìm thấy trong kho."
+        },
+        {
+          "jp": "そのミスは 会議[かいぎ]で 発見[はっけん]されました。",
+          "vn": "Lỗi đó đã được phát hiện trong cuộc họp."
+        }
+      ]
     },
     {
       "w": "せっけいしますⅢ",
       "k": "設計します",
-      "m": "thiết kế"
+      "m": "thiết kế",
+      "examples": [
+        {
+          "jp": "この ビルは 有名[ゆうめい]な 建築家[けんちくか]に よって 設計[せっけい]されました。",
+          "vn": "Tòa nhà này được thiết kế bởi một kiến trúc sư nổi tiếng."
+        },
+        {
+          "jp": "新[あたら]しい オフィスは 社員[しゃいん]の 意見[いけん]を 参考[さんこう]に 設計[せっけい]されました。",
+          "vn": "Văn phòng mới được thiết kế dựa theo ý kiến nhân viên."
+        }
+      ]
     },
     {
       "w": "こめ",
       "k": "米",
-      "m": "gạo"
+      "m": "gạo",
+      "examples": [
+        {
+          "jp": "この 地方[ちほう]では おいしい 米[こめ]が 作[つく]られて います。",
+          "vn": "Ở vùng này người ta trồng được gạo ngon."
+        },
+        {
+          "jp": "米[こめ]の 値段[ねだん]が 少[すこ]し 上[あ]がりました。",
+          "vn": "Giá gạo đã tăng lên một chút."
+        }
+      ]
     },
     {
       "w": "むぎ",
       "k": "麦",
-      "m": "lúa mạch"
+      "m": "lúa mạch",
+      "examples": [
+        {
+          "jp": "このパンは 麦[むぎ]から 作[つく]られて います。",
+          "vn": "Bánh mì này được làm từ lúa mạch."
+        },
+        {
+          "jp": "麦[むぎ]の 生産[せいさん]は 天気[てんき]に よって 変[か]わります。",
+          "vn": "Sản lượng lúa mạch thay đổi theo thời tiết."
+        }
+      ]
     },
     {
       "w": "せきゆ",
       "k": "石油",
-      "m": "dầu mỏ"
+      "m": "dầu mỏ",
+      "examples": [
+        {
+          "jp": "この 国[くに]は 石油[せきゆ]の 輸出[ゆしゅつ]で 有名[ゆうめい]です。",
+          "vn": "Nước này nổi tiếng về xuất khẩu dầu mỏ."
+        },
+        {
+          "jp": "石油[せきゆ]の 価格[かかく]が 上[あ]がって います。",
+          "vn": "Giá dầu mỏ đang tăng."
+        }
+      ]
     },
     {
       "w": "げんりょう",
       "k": "原料",
-      "m": "nguyên liệu"
+      "m": "nguyên liệu",
+      "examples": [
+        {
+          "jp": "この 製品[せいひん]の 原料[げんりょう]は 国内[こくない]で 調達[ちょうたつ]されて います。",
+          "vn": "Nguyên liệu của sản phẩm này được thu mua trong nước."
+        },
+        {
+          "jp": "原料[げんりょう]の 価格[かかく]が 上[あ]がって、コストが 増[ふ]えました。",
+          "vn": "Giá nguyên liệu tăng khiến chi phí tăng theo."
+        }
+      ]
     },
     {
       "w": "デート",
       "k": "",
-      "m": "cuộc hẹn hò (của nam nữ)"
+      "m": "cuộc hẹn hò (của nam nữ)",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ]、彼女[かのじょ]と デートする 予定[よてい]です。",
+          "vn": "Cuối tuần tôi có kế hoạch hẹn hò với bạn gái."
+        },
+        {
+          "jp": "同僚[どうりょう]に デートの 話[はなし]を からかわれました。",
+          "vn": "Tôi bị đồng nghiệp trêu chọc về chuyện hẹn hò."
+        }
+      ]
     },
     {
       "w": "どろぼう",
       "k": "泥棒",
-      "m": "kẻ trộm"
+      "m": "kẻ trộm",
+      "examples": [
+        {
+          "jp": "夜中[よなか]に 泥棒[どろぼう]に 会社[かいしゃ]の パソコンを 盗[ぬす]まれました。",
+          "vn": "Đêm khuya máy tính công ty bị kẻ trộm lấy mất."
+        },
+        {
+          "jp": "泥棒[どろぼう]が 警官[けいかん]に 捕[つか]まえられました。",
+          "vn": "Tên trộm đã bị cảnh sát bắt."
+        }
+      ]
     },
     {
       "w": "けいかん",
       "k": "警官",
-      "m": "cảnh sát"
+      "m": "cảnh sát",
+      "examples": [
+        {
+          "jp": "警官[けいかん]に 道[みち]を 聞[き]きました。",
+          "vn": "Tôi đã hỏi đường một viên cảnh sát."
+        },
+        {
+          "jp": "駐車[ちゅうしゃ]違反[いはん]で 警官[けいかん]に 注意[ちゅうい]されました。",
+          "vn": "Tôi bị cảnh sát nhắc nhở vì đỗ xe sai quy định."
+        }
+      ]
     },
     {
       "w": "けんちくか",
       "k": "建築家",
-      "m": "kiến trúc sư"
+      "m": "kiến trúc sư",
+      "examples": [
+        {
+          "jp": "このビルは 有名[ゆうめい]な 建築家[けんちくか]が 設計[せっけい]しました。",
+          "vn": "Tòa nhà này do một kiến trúc sư nổi tiếng thiết kế."
+        },
+        {
+          "jp": "将来[しょうらい]、建築家[けんちくか]に なりたいです。",
+          "vn": "Tương lai tôi muốn trở thành kiến trúc sư."
+        }
+      ]
     },
     {
       "w": "かがくしゃ",
       "k": "科学者",
-      "m": "nhà khoa học"
+      "m": "nhà khoa học",
+      "examples": [
+        {
+          "jp": "その 発見[はっけん]は 有名[ゆうめい]な 科学者[かがくしゃ]に よる ものです。",
+          "vn": "Phát hiện đó là do một nhà khoa học nổi tiếng thực hiện."
+        },
+        {
+          "jp": "科学者[かがくしゃ]たちが 新[あたら]しい 薬[くすり]を 開発[かいはつ]しました。",
+          "vn": "Các nhà khoa học đã phát triển một loại thuốc mới."
+        }
+      ]
     },
     {
       "w": "まんが",
       "k": "漫画",
-      "m": "truyện tranh"
+      "m": "truyện tranh",
+      "examples": [
+        {
+          "jp": "この 漫画[まんが]は 世界中[せかいじゅう]で 読[よ]まれて います。",
+          "vn": "Truyện tranh này được đọc khắp thế giới."
+        },
+        {
+          "jp": "休憩中[きゅうけいちゅう]に 漫画[まんが]を 読[よ]みました。",
+          "vn": "Trong giờ giải lao tôi đã đọc truyện tranh."
+        }
+      ]
     },
     {
       "w": "せかいじゅう",
       "k": "世界中",
-      "m": "khắp thế giới, toàn thế giới"
+      "m": "khắp thế giới, toàn thế giới",
+      "examples": [
+        {
+          "jp": "この 商品[しょうひん]は 世界中[せかいじゅう]で 売[う]られて います。",
+          "vn": "Sản phẩm này được bán khắp thế giới."
+        },
+        {
+          "jp": "世界中[せかいじゅう]から お客様[きゃくさま]が 集[あつ]まりました。",
+          "vn": "Khách hàng từ khắp thế giới đã tập trung lại."
+        }
+      ]
     },
     {
       "w": "～じゅう",
       "k": "～中",
-      "m": "khắp ~, toàn ~"
+      "m": "khắp ~, toàn ~",
+      "examples": [
+        {
+          "jp": "一日中[いちにちじゅう] 会議[かいぎ]が 続[つづ]きました。",
+          "vn": "Cuộc họp kéo dài suốt cả ngày."
+        },
+        {
+          "jp": "会社[かいしゃ]中[じゅう]に そのニュースが 広[ひろ]まりました。",
+          "vn": "Tin đó đã lan ra khắp công ty."
+        }
+      ]
     },
     {
       "w": "～に よって",
       "k": "",
-      "m": "do ~"
+      "m": "do ~",
+      "examples": [
+        {
+          "jp": "この 製品[せいひん]は 若[わか]い エンジニアに よって 開発[かいはつ]されました。",
+          "vn": "Sản phẩm này được phát triển bởi các kỹ sư trẻ."
+        },
+        {
+          "jp": "地域[ちいき]に よって 習慣[しゅうかん]が 違[ちが]います。",
+          "vn": "Tùy theo khu vực mà tập quán khác nhau."
+        }
+      ]
     },
     {
       "w": "よかったですね。",
       "k": "",
-      "m": "May nhỉ./ May cho anh/chị nhỉ."
+      "m": "May nhỉ./ May cho anh/chị nhỉ.",
+      "examples": [
+        {
+          "jp": "契約[けいやく]が 決[き]まったんですね。よかったですね。",
+          "vn": "Hợp đồng đã chốt rồi à. May quá nhỉ."
+        },
+        {
+          "jp": "試験[しけん]に 合格[ごうかく]したそうです。よかったですね。",
+          "vn": "Nghe nói bạn đỗ kỳ thi rồi. Hay quá nhỉ."
+        }
+      ]
     },
     {
       "w": "ドミニカ",
       "k": "",
-      "m": "Dominica, tên một quốc gia ở Trung Mỹ"
+      "m": "Dominica, tên một quốc gia ở Trung Mỹ",
+      "examples": [
+        {
+          "jp": "この 原料[げんりょう]は ドミニカから 輸入[ゆにゅう]されて います。",
+          "vn": "Nguyên liệu này được nhập khẩu từ Dominica."
+        },
+        {
+          "jp": "ドミニカ出身[しゅっしん]の 同僚[どうりょう]が います。",
+          "vn": "Tôi có một đồng nghiệp quê ở Dominica."
+        }
+      ]
     }
   ],
   "expressions": [

@@ -6,102 +6,302 @@
     {
       "w": "あやまりますⅠ",
       "k": "謝ります",
-      "m": "xin lỗi, tạ lỗi"
+      "m": "xin lỗi, tạ lỗi",
+      "examples": [
+        {
+          "jp": "納期[のうき]に 遅[おく]れた ことを お客様[きゃくさま]に 謝[あやま]りました。",
+          "vn": "Tôi đã xin lỗi khách hàng vì chậm deadline."
+        },
+        {
+          "jp": "ミスを した 場合[ばあい]は、すぐに 謝[あやま]って ください。",
+          "vn": "Trong trường hợp có sai sót thì hãy xin lỗi ngay."
+        }
+      ]
     },
     {
       "w": "あいますⅠ [じこに～]",
       "k": "[事故に～]",
-      "m": "gặp [tai nạn]"
+      "m": "gặp [tai nạn]",
+      "examples": [
+        {
+          "jp": "出張[しゅっちょう]の 途中[とちゅう]で 事故[じこ]に 遭[あ]いました。",
+          "vn": "Trên đường công tác tôi đã gặp tai nạn."
+        },
+        {
+          "jp": "台風[たいふう]の 日[ひ]は 事故[じこ]に 遭[あ]わないように 気[き]を つけて ください。",
+          "vn": "Ngày có bão thì hãy cẩn thận để không gặp tai nạn."
+        }
+      ]
     },
     {
       "w": "しんじますⅡ",
       "k": "信じます",
-      "m": "tin, tin tưởng"
+      "m": "tin, tin tưởng",
+      "examples": [
+        {
+          "jp": "彼[かれ]の 説明[せつめい]を 信[しん]じましたが、間違[まちが]って いました。",
+          "vn": "Tôi đã tin vào lời giải thích của anh ấy nhưng lại sai."
+        },
+        {
+          "jp": "頑張[がんば]れば、必[かなら]ず うまく いくと 信[しん]じて います。",
+          "vn": "Tôi tin rằng nếu cố gắng thì nhất định sẽ thành công."
+        }
+      ]
     },
     {
       "w": "よういしますⅢ",
       "k": "用意します",
-      "m": "chuẩn bị"
+      "m": "chuẩn bị",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]の 資料[しりょう]を 用意[ようい]しました。",
+          "vn": "Tôi đã chuẩn bị tài liệu cho cuộc họp."
+        },
+        {
+          "jp": "資料[しりょう]を 用意[ようい]したのに、会議[かいぎ]は 中止[ちゅうし]に なりました。",
+          "vn": "Đã chuẩn bị sẵn tài liệu vậy mà cuộc họp lại bị hủy."
+        }
+      ]
     },
     {
       "w": "キャンセルしますⅢ",
       "k": "",
-      "m": "hủy, hủy bỏ"
+      "m": "hủy, hủy bỏ",
+      "examples": [
+        {
+          "jp": "急[きゅう]な 用事[ようじ]で 予約[よやく]を キャンセルしました。",
+          "vn": "Vì có việc gấp nên tôi đã hủy đặt chỗ."
+        },
+        {
+          "jp": "キャンセルする 場合[ばあい]は、前日[ぜんじつ]までに ご連絡[れんらく] ください。",
+          "vn": "Trong trường hợp hủy, xin liên lạc trước một ngày."
+        }
+      ]
     },
     {
       "w": "うまく いきますⅠ",
       "k": "",
-      "m": "tốt, thuận lợi"
+      "m": "tốt, thuận lợi",
+      "examples": [
+        {
+          "jp": "しっかり 準備[じゅんび]したのに、プレゼンは うまく いきませんでした。",
+          "vn": "Đã chuẩn bị kỹ vậy mà buổi thuyết trình lại không suôn sẻ."
+        },
+        {
+          "jp": "今回[こんかい]の プロジェクトは うまく いきそうです。",
+          "vn": "Dự án lần này có vẻ sẽ diễn ra suôn sẻ."
+        }
+      ]
     },
     {
       "w": "ほしょうしょ",
       "k": "保証書",
-      "m": "giấy bảo hành"
+      "m": "giấy bảo hành",
+      "examples": [
+        {
+          "jp": "修理[しゅうり]を 頼[たの]む 場合[ばあい]は、保証書[ほしょうしょ]が 必要[ひつよう]です。",
+          "vn": "Trường hợp muốn nhờ sửa chữa thì cần có giấy bảo hành."
+        },
+        {
+          "jp": "保証書[ほしょうしょ]を なくして しまいました。",
+          "vn": "Tôi đã làm mất giấy bảo hành mất rồi."
+        }
+      ]
     },
     {
       "w": "りょうしゅうしょ",
       "k": "領収書",
-      "m": "hóa đơn"
+      "m": "hóa đơn",
+      "examples": [
+        {
+          "jp": "経費[けいひ]精算[せいさん]の ために 領収書[りょうしゅうしょ]を もらいました。",
+          "vn": "Tôi đã xin hóa đơn để thanh toán chi phí."
+        },
+        {
+          "jp": "領収書[りょうしゅうしょ]が ない 場合[ばあい]は、精算[せいさん]できません。",
+          "vn": "Trường hợp không có hóa đơn thì không thể thanh toán được."
+        }
+      ]
     },
     {
       "w": "おくりもの",
       "k": "贈り物",
-      "m": "quà tặng (～を します: tặng quà)"
+      "m": "quà tặng (～を します: tặng quà)",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]に お中元[ちゅうげん]の 贈[おく]り物[もの]を しました。",
+          "vn": "Tôi đã gửi quà biếu giữa năm cho đối tác."
+        },
+        {
+          "jp": "贈[おく]り物[もの]を 用意[ようい]したのに、渡[わた]す 機会[きかい]が ありませんでした。",
+          "vn": "Đã chuẩn bị sẵn quà vậy mà lại không có dịp để tặng."
+        }
+      ]
     },
     {
       "w": "まちがいでんわ",
       "k": "まちがい電話",
-      "m": "điện thoại nhầm"
+      "m": "điện thoại nhầm",
+      "examples": [
+        {
+          "jp": "夜中[よなか]に 間違[まちが]い電話[でんわ]が かかって きました。",
+          "vn": "Nửa đêm có điện thoại gọi nhầm đến."
+        },
+        {
+          "jp": "間違[まちが]い電話[でんわ]の 場合[ばあい]は、すぐに 切[き]って ください。",
+          "vn": "Trường hợp là điện thoại gọi nhầm thì hãy tắt máy ngay."
+        }
+      ]
     },
     {
       "w": "キャンプ",
       "k": "",
-      "m": "trại"
+      "m": "trại",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]の イベントで キャンプに 行[い]きました。",
+          "vn": "Tôi đã đi cắm trại nhân sự kiện của công ty."
+        },
+        {
+          "jp": "キャンプの 準備[じゅんび]を したのに、雨[あめ]で 中止[ちゅうし]に なりました。",
+          "vn": "Đã chuẩn bị cắm trại vậy mà lại bị hủy vì mưa."
+        }
+      ]
     },
     {
       "w": "かかり",
       "k": "係",
-      "m": "nhân viên, người phụ trách"
+      "m": "nhân viên, người phụ trách",
+      "examples": [
+        {
+          "jp": "この 件[けん]の 係[かかり]は 田中[たなか]さんです。",
+          "vn": "Người phụ trách việc này là anh Tanaka."
+        },
+        {
+          "jp": "分[わ]からない 場合[ばあい]は、係[かかり]の 人[ひと]に 聞[き]いて ください。",
+          "vn": "Trường hợp không rõ thì hãy hỏi người phụ trách."
+        }
+      ]
     },
     {
       "w": "ちゅうし",
       "k": "中止",
-      "m": "dừng, đình chỉ"
+      "m": "dừng, đình chỉ",
+      "examples": [
+        {
+          "jp": "台風[たいふう]の ため、イベントは 中止[ちゅうし]に なりました。",
+          "vn": "Vì bão nên sự kiện đã bị hủy."
+        },
+        {
+          "jp": "会議[かいぎ]が 中止[ちゅうし]に なった 場合[ばあい]は、メールで お知[し]らせします。",
+          "vn": "Trong trường hợp cuộc họp bị hủy, chúng tôi sẽ thông báo qua email."
+        }
+      ]
     },
     {
       "w": "てん",
       "k": "点",
-      "m": "điểm"
+      "m": "điểm",
+      "examples": [
+        {
+          "jp": "この 提案[ていあん]には いくつか 問題[もんだい]な 点[てん]が あります。",
+          "vn": "Đề xuất này có vài điểm còn vấn đề."
+        },
+        {
+          "jp": "その 点[てん]に ついて、もう少[すこ]し 説明[せつめい]して ください。",
+          "vn": "Về điểm đó, hãy giải thích rõ hơn giúp tôi."
+        }
+      ]
     },
     {
       "w": "レバー",
       "k": "",
-      "m": "tay bẻ, tay số, cần gạt"
+      "m": "tay bẻ, tay số, cần gạt",
+      "examples": [
+        {
+          "jp": "このレバーを 引[ひ]くと、ドアが 開[あ]きます。",
+          "vn": "Kéo cái cần gạt này thì cửa sẽ mở."
+        },
+        {
+          "jp": "レバーが 壊[こわ]れて いて、うまく 動[うご]きません。",
+          "vn": "Cái cần gạt bị hỏng nên không hoạt động tốt."
+        }
+      ]
     },
     {
       "w": "[－えん] さつ",
       "k": "[－円] 札",
-      "m": "tờ tiền giấy [－ yên]"
+      "m": "tờ tiền giấy [－ yên]",
+      "examples": [
+        {
+          "jp": "1万円[いちまんえん]札[さつ]しか なくて、両替[りょうがえ]を お願[ねが]いしました。",
+          "vn": "Tôi chỉ có tờ 10.000 yên nên đã nhờ đổi tiền."
+        },
+        {
+          "jp": "千円[せんえん]札[さつ]を 用意[ようい]して おいて ください。",
+          "vn": "Hãy chuẩn bị sẵn tờ 1.000 yên giúp tôi."
+        }
+      ]
     },
     {
       "w": "ちゃんと",
       "k": "",
-      "m": "đúng, hẳn hoi"
+      "m": "đúng, hẳn hoi",
+      "examples": [
+        {
+          "jp": "書類[しょるい]は ちゃんと 確認[かくにん]してから 提出[ていしゅつ]して ください。",
+          "vn": "Hãy kiểm tra tài liệu cẩn thận rồi mới nộp."
+        },
+        {
+          "jp": "ちゃんと 説明[せつめい]したのに、伝[つた]わって いなかった ようです。",
+          "vn": "Đã giải thích cẩn thận vậy mà có vẻ vẫn chưa truyền đạt được."
+        }
+      ]
     },
     {
       "w": "きゅうに",
       "k": "急に",
-      "m": "gấp"
+      "m": "gấp",
+      "examples": [
+        {
+          "jp": "急[きゅう]に 予定[よてい]が 変[か]わって、会議[かいぎ]を キャンセルしました。",
+          "vn": "Lịch trình đột nhiên thay đổi nên tôi đã hủy cuộc họp."
+        },
+        {
+          "jp": "急[きゅう]に 雨[あめ]が 降[ふ]って きました。",
+          "vn": "Trời đột nhiên đổ mưa."
+        }
+      ]
     },
     {
       "w": "たのしみに して います",
       "k": "楽しみに して います",
-      "m": "mong đợi, lấy làm vui"
+      "m": "mong đợi, lấy làm vui",
+      "examples": [
+        {
+          "jp": "来月[らいげつ]の 出張[しゅっちょう]、楽[たの]しみに して います。",
+          "vn": "Tôi đang rất mong đợi chuyến công tác tháng sau."
+        },
+        {
+          "jp": "皆様[みなさま]に お会[あ]いできるのを 楽[たの]しみに して います。",
+          "vn": "Tôi đang mong đợi được gặp mọi người."
+        }
+      ]
     },
     {
       "w": "いじょうです。",
       "k": "以上です。",
-      "m": "Xin hết."
+      "m": "Xin hết.",
+      "examples": [
+        {
+          "jp": "報告[ほうこく]は 以上[いじょう]です。ご質問[しつもん]は ありますか。",
+          "vn": "Phần báo cáo đến đây là hết. Có câu hỏi gì không ạ?"
+        },
+        {
+          "jp": "説明[せつめい]は 以上[いじょう]です。ありがとう ございました。",
+          "vn": "Phần giải thích đến đây là hết. Xin cảm ơn."
+        }
+      ]
     }
   ],
   "expressions": [

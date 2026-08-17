@@ -6,227 +6,677 @@
     {
       "w": "かぞえますⅡ",
       "k": "数えます",
-      "m": "đếm"
+      "m": "đếm",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]に 出席[しゅっせき]する 人数[にんずう]を 数[かぞ]えました。",
+          "vn": "Tôi đã đếm số người tham dự cuộc họp."
+        },
+        {
+          "jp": "在庫[ざいこ]の 数[かず]を もう一度[いちど] 数[かぞ]えて みます。",
+          "vn": "Tôi sẽ thử đếm lại số hàng tồn kho một lần nữa."
+        }
+      ]
     },
     {
       "w": "はかりますⅠ",
       "k": "測ります、量ります",
-      "m": "đo, cân"
+      "m": "đo, cân",
+      "examples": [
+        {
+          "jp": "荷物[にもつ]の 重[おも]さを 測[はか]って みました。",
+          "vn": "Tôi đã thử cân trọng lượng hành lý."
+        },
+        {
+          "jp": "会議室[かいぎしつ]の 広[ひろ]さを 測[はか]った ほうが いいですね。",
+          "vn": "Nên đo thử diện tích phòng họp thì hơn."
+        }
+      ]
     },
     {
       "w": "たしかめますⅡ",
       "k": "確かめます",
-      "m": "xác nhận"
+      "m": "xác nhận",
+      "examples": [
+        {
+          "jp": "予約[よやく]が できて いるか どうか 確[たし]かめて ください。",
+          "vn": "Hãy xác nhận xem đã đặt chỗ được chưa."
+        },
+        {
+          "jp": "メールを 送[おく]る 前[まえ]に、内容[ないよう]を もう一度[いちど] 確[たし]かめました。",
+          "vn": "Trước khi gửi email tôi đã kiểm tra lại nội dung một lần nữa."
+        }
+      ]
     },
     {
       "w": "あいますⅠ [サイズが～]",
       "k": "合います",
-      "m": "vừa, hợp [kích thước ~]"
+      "m": "vừa, hợp [kích thước ~]",
+      "examples": [
+        {
+          "jp": "この スーツは サイズが 合[あ]うか どうか 着[き]て みて ください。",
+          "vn": "Hãy thử mặc xem bộ vest này có vừa size không."
+        },
+        {
+          "jp": "靴[くつ]が 合[あ]わなくて、少[すこ]し 痛[いた]いです。",
+          "vn": "Giày không vừa nên hơi đau chân."
+        }
+      ]
     },
     {
       "w": "しゅっぱつしますⅢ",
       "k": "出発します",
-      "m": "xuất phát, khởi hành, đi"
+      "m": "xuất phát, khởi hành, đi",
+      "examples": [
+        {
+          "jp": "何時[なんじ]に 出発[しゅっぱつ]するか まだ 決[き]まって いません。",
+          "vn": "Mấy giờ xuất phát thì vẫn chưa quyết định."
+        },
+        {
+          "jp": "飛行機[ひこうき]は 予定[よてい]どおりに 出発[しゅっぱつ]しました。",
+          "vn": "Máy bay đã khởi hành đúng giờ dự kiến."
+        }
+      ]
     },
     {
       "w": "とうちゃくしますⅢ",
       "k": "到着します",
-      "m": "đến, đến nơi"
+      "m": "đến, đến nơi",
+      "examples": [
+        {
+          "jp": "何時[なんじ]に 到着[とうちゃく]するか 確[たし]かめて おきます。",
+          "vn": "Tôi sẽ xác nhận trước xem mấy giờ đến nơi."
+        },
+        {
+          "jp": "お客様[きゃくさま]は もう 到着[とうちゃく]されましたか。",
+          "vn": "Khách hàng đã đến nơi chưa ạ?"
+        }
+      ]
     },
     {
       "w": "よいますⅠ",
       "k": "酔います",
-      "m": "say"
+      "m": "say",
+      "examples": [
+        {
+          "jp": "飲[の]み会[かい]で 少[すこ]し 酔[よ]って しまいました。",
+          "vn": "Trong buổi nhậu tôi hơi say một chút."
+        },
+        {
+          "jp": "酔[よ]ったか どうか 自分[じぶん]でも 分[わ]かりません。",
+          "vn": "Bản thân tôi cũng không biết mình có say hay không."
+        }
+      ]
     },
     {
       "w": "きけん[な]",
       "k": "危険[な]",
-      "m": "nguy hiểm"
+      "m": "nguy hiểm",
+      "examples": [
+        {
+          "jp": "工事現場[こうじげんば]は 危険[きけん]なので、注意[ちゅうい]して ください。",
+          "vn": "Công trường nguy hiểm nên xin hãy chú ý."
+        },
+        {
+          "jp": "危険[きけん]か どうか、もう一度[いちど] 確[たし]かめて みます。",
+          "vn": "Tôi sẽ kiểm tra lại xem có nguy hiểm hay không."
+        }
+      ]
     },
     {
       "w": "ひつよう[な]",
       "k": "必要[な]",
-      "m": "cần thiết"
+      "m": "cần thiết",
+      "examples": [
+        {
+          "jp": "この 資料[しりょう]が 必要[ひつよう]か どうか 教[おし]えて ください。",
+          "vn": "Hãy cho tôi biết tài liệu này có cần thiết hay không."
+        },
+        {
+          "jp": "契約[けいやく]に 必要[ひつよう]な 書類[しょるい]を 準備[じゅんび]しました。",
+          "vn": "Tôi đã chuẩn bị giấy tờ cần thiết cho hợp đồng."
+        }
+      ]
     },
     {
       "w": "うちゅう",
       "k": "宇宙",
-      "m": "vũ trụ"
+      "m": "vũ trụ",
+      "examples": [
+        {
+          "jp": "息子[むすこ]は 宇宙[うちゅう]に 興味[きょうみ]が あります。",
+          "vn": "Con trai tôi có hứng thú với vũ trụ."
+        },
+        {
+          "jp": "宇宙[うちゅう]に 関[かん]する 本[ほん]を 読[よ]んで みました。",
+          "vn": "Tôi đã thử đọc sách về vũ trụ."
+        }
+      ]
     },
     {
       "w": "ちきゅう",
       "k": "地球",
-      "m": "trái đất"
+      "m": "trái đất",
+      "examples": [
+        {
+          "jp": "地球[ちきゅう]の 環境[かんきょう]を 守[まも]る ことは 大切[たいせつ]です。",
+          "vn": "Bảo vệ môi trường trái đất là điều quan trọng."
+        },
+        {
+          "jp": "地球[ちきゅう]の 大[おお]きさを 調[しら]べて みました。",
+          "vn": "Tôi đã thử tìm hiểu về kích thước của trái đất."
+        }
+      ]
     },
     {
       "w": "ぼうねんかい",
       "k": "忘年会",
-      "m": "tiệc tất niên"
+      "m": "tiệc tất niên",
+      "examples": [
+        {
+          "jp": "忘年会[ぼうねんかい]は 12月[じゅうにがつ]の いつに するか まだ 決[き]まって いません。",
+          "vn": "Tiệc tất niên tổ chức ngày nào trong tháng 12 thì vẫn chưa quyết định."
+        },
+        {
+          "jp": "忘年会[ぼうねんかい]に 出席[しゅっせき]するか どうか 教[おし]えて ください。",
+          "vn": "Hãy cho tôi biết bạn có tham dự tiệc tất niên hay không."
+        }
+      ]
     },
     {
       "w": "しんねんかい",
       "k": "新年会",
-      "m": "tiệc tân niên"
+      "m": "tiệc tân niên",
+      "examples": [
+        {
+          "jp": "新年会[しんねんかい]は 1月[いちがつ]に 行[おこな]われる 予定[よてい]です。",
+          "vn": "Tiệc tân niên dự kiến sẽ được tổ chức vào tháng 1."
+        },
+        {
+          "jp": "新年会[しんねんかい]の 場所[ばしょ]を 確[たし]かめて おきます。",
+          "vn": "Tôi sẽ xác nhận trước địa điểm tiệc tân niên."
+        }
+      ]
     },
     {
       "w": "にじかい",
       "k": "二次会",
-      "m": "bữa tiệc thứ hai, \"tăng hai\""
+      "m": "bữa tiệc thứ hai, \"tăng hai\"",
+      "examples": [
+        {
+          "jp": "忘年会[ぼうねんかい]の あとで 二次会[にじかい]に 行[い]きました。",
+          "vn": "Sau tiệc tất niên tôi đã đi tăng hai."
+        },
+        {
+          "jp": "二次会[にじかい]に 参加[さんか]するか どうか 迷[まよ]って います。",
+          "vn": "Tôi đang phân vân không biết có tham gia tăng hai không."
+        }
+      ]
     },
     {
       "w": "たいかい",
       "k": "大会",
-      "m": "đại hội, cuộc thi"
+      "m": "đại hội, cuộc thi",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]の スポーツ大会[たいかい]に 参加[さんか]しました。",
+          "vn": "Tôi đã tham gia đại hội thể thao của công ty."
+        },
+        {
+          "jp": "大会[たいかい]が いつ 行[おこな]われるか 確[たし]かめて ください。",
+          "vn": "Hãy xác nhận xem đại hội được tổ chức khi nào."
+        }
+      ]
     },
     {
       "w": "マラソン",
       "k": "",
-      "m": "ma-ra-tông"
+      "m": "ma-ra-tông",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ]の マラソン大会[たいかい]に 出[で]る つもりです。",
+          "vn": "Cuối tuần tôi định tham gia giải marathon."
+        },
+        {
+          "jp": "マラソンを 走[はし]った あと、足[あし]に 傷[きず]が できました。",
+          "vn": "Sau khi chạy marathon xong chân tôi bị trầy xước."
+        }
+      ]
     },
     {
       "w": "コンテスト",
       "k": "",
-      "m": "cuộc thi"
+      "m": "cuộc thi",
+      "examples": [
+        {
+          "jp": "英語[えいご]スピーチコンテストに 申[もう]し込[こ]みました。",
+          "vn": "Tôi đã đăng ký cuộc thi hùng biện tiếng Anh."
+        },
+        {
+          "jp": "コンテストの 結果[けっか]は まだ 分[わ]かりません。",
+          "vn": "Kết quả cuộc thi thì vẫn chưa rõ."
+        }
+      ]
     },
     {
       "w": "おもて",
       "k": "表",
-      "m": "phía trước, mặt trước"
+      "m": "phía trước, mặt trước",
+      "examples": [
+        {
+          "jp": "名刺[めいし]の 表[おもて]に 名前[なまえ]を 印刷[いんさつ]しました。",
+          "vn": "Tôi đã in tên ở mặt trước danh thiếp."
+        },
+        {
+          "jp": "資料[しりょう]の 表[おもて]から 見[み]て ください。",
+          "vn": "Hãy xem từ mặt trước tài liệu."
+        }
+      ]
     },
     {
       "w": "うら",
       "k": "裏",
-      "m": "phía sau, mặt sau"
+      "m": "phía sau, mặt sau",
+      "examples": [
+        {
+          "jp": "書類[しょるい]の 裏[うら]に サインを して ください。",
+          "vn": "Hãy ký tên ở mặt sau tài liệu."
+        },
+        {
+          "jp": "名刺[めいし]の 裏[うら]に 英語[えいご]で 情報[じょうほう]を 書[か]きました。",
+          "vn": "Tôi đã ghi thông tin bằng tiếng Anh ở mặt sau danh thiếp."
+        }
+      ]
     },
     {
       "w": "へんじ",
       "k": "返事",
-      "m": "hồi âm, trả lời"
+      "m": "hồi âm, trả lời",
+      "examples": [
+        {
+          "jp": "お客様[きゃくさま]から まだ 返事[へんじ]が ありません。",
+          "vn": "Vẫn chưa có hồi âm từ phía khách hàng."
+        },
+        {
+          "jp": "メールの 返事[へんじ]を 忘[わす]れないで ください。",
+          "vn": "Đừng quên trả lời email."
+        }
+      ]
     },
     {
       "w": "もうしこみ",
       "k": "申し込み",
-      "m": "đăng ký"
+      "m": "đăng ký",
+      "examples": [
+        {
+          "jp": "セミナーの 申[もう]し込[こ]みは 今日[きょう]までです。",
+          "vn": "Đăng ký hội thảo hạn chót là hôm nay."
+        },
+        {
+          "jp": "申[もう]し込[こ]みが 完了[かんりょう]したか どうか 確[たし]かめて ください。",
+          "vn": "Hãy xác nhận xem đã đăng ký hoàn tất chưa."
+        }
+      ]
     },
     {
       "w": "ほんとう",
       "k": "",
-      "m": "thật"
+      "m": "thật",
+      "examples": [
+        {
+          "jp": "その 話[はなし]が 本当[ほんとう]か どうか 確[たし]かめて みます。",
+          "vn": "Tôi sẽ thử xác nhận xem câu chuyện đó có thật hay không."
+        },
+        {
+          "jp": "本当[ほんとう]に ありがとう ございました。",
+          "vn": "Thật lòng cảm ơn anh/chị nhiều."
+        }
+      ]
     },
     {
       "w": "まちがい",
       "k": "",
-      "m": "sai, lỗi"
+      "m": "sai, lỗi",
+      "examples": [
+        {
+          "jp": "資料[しりょう]に 間違[まちが]いが ないか 確[たし]かめて ください。",
+          "vn": "Hãy kiểm tra xem tài liệu có sai sót gì không."
+        },
+        {
+          "jp": "計算[けいさん]に 間違[まちが]いが 見[み]つかりました。",
+          "vn": "Tôi đã phát hiện sai sót trong tính toán."
+        }
+      ]
     },
     {
       "w": "きず",
       "k": "傷",
-      "m": "vết thương"
+      "m": "vết thương",
+      "examples": [
+        {
+          "jp": "製品[せいひん]に 傷[きず]が ないか 確[たし]かめて から 出荷[しゅっか]します。",
+          "vn": "Kiểm tra xem sản phẩm có vết trầy xước không rồi mới xuất xưởng."
+        },
+        {
+          "jp": "運[はこ]ぶ ときに 家具[かぐ]に 傷[きず]が ついて しまいました。",
+          "vn": "Lúc vận chuyển đồ nội thất bị trầy xước mất rồi."
+        }
+      ]
     },
     {
       "w": "ズボン",
       "k": "",
-      "m": "cái quần"
+      "m": "cái quần",
+      "examples": [
+        {
+          "jp": "この ズボン、サイズが 合[あ]うか どうか 試着[しちゃく]して みます。",
+          "vn": "Tôi sẽ thử mặc xem cái quần này có vừa size không."
+        },
+        {
+          "jp": "新[あたら]しい ズボンを 買[か]いました。",
+          "vn": "Tôi đã mua cái quần mới."
+        }
+      ]
     },
     {
       "w": "ながさ",
       "k": "長さ",
-      "m": "chiều dài"
+      "m": "chiều dài",
+      "examples": [
+        {
+          "jp": "テーブルの 長[なが]さを 測[はか]って みました。",
+          "vn": "Tôi đã thử đo chiều dài cái bàn."
+        },
+        {
+          "jp": "ロープの 長[なが]さが 足[た]りません。",
+          "vn": "Sợi dây thừng không đủ dài."
+        }
+      ]
     },
     {
       "w": "おもさ",
       "k": "重さ",
-      "m": "cân nặng, trọng lượng"
+      "m": "cân nặng, trọng lượng",
+      "examples": [
+        {
+          "jp": "荷物[にもつ]の 重[おも]さは 5キロ以下[いか]で なければ なりません。",
+          "vn": "Trọng lượng hành lý phải từ 5kg trở xuống."
+        },
+        {
+          "jp": "この 箱[はこ]の 重[おも]さを 量[はか]って ください。",
+          "vn": "Hãy cân trọng lượng cái hộp này giúp tôi."
+        }
+      ]
     },
     {
       "w": "たかさ",
       "k": "高さ",
-      "m": "chiều cao"
+      "m": "chiều cao",
+      "examples": [
+        {
+          "jp": "この 棚[たな]の 高[たか]さを 確[たし]かめて から 買[か]いました。",
+          "vn": "Tôi đã kiểm tra chiều cao cái kệ này trước rồi mới mua."
+        },
+        {
+          "jp": "机[つくえ]の 高[たか]さが 少[すこ]し 低[ひく]いです。",
+          "vn": "Chiều cao cái bàn hơi thấp."
+        }
+      ]
     },
     {
       "w": "おおきさ",
       "k": "大きさ",
-      "m": "cỡ, kích thước"
+      "m": "cỡ, kích thước",
+      "examples": [
+        {
+          "jp": "資料[しりょう]の 文字[もじ]の 大[おお]きさを もう少[すこ]し 大[おお]きく して ください。",
+          "vn": "Hãy phóng to chữ trong tài liệu lên một chút."
+        },
+        {
+          "jp": "箱[はこ]の 大[おお]きさが 荷物[にもつ]に 合[あ]いません。",
+          "vn": "Kích thước hộp không vừa với hành lý."
+        }
+      ]
     },
     {
       "w": "[－]びん",
       "k": "[－]便",
-      "m": "chuyến bay [－]"
+      "m": "chuyến bay [－]",
+      "examples": [
+        {
+          "jp": "何便[なんびん]で 出張[しゅっちょう]に 行[い]くか まだ 決[き]まって いません。",
+          "vn": "Đi công tác chuyến bay số mấy thì vẫn chưa quyết định."
+        },
+        {
+          "jp": "JL便[びん]で 大阪[おおさか]に 行[い]きます。",
+          "vn": "Tôi sẽ đi Osaka bằng chuyến bay của JL."
+        }
+      ]
     },
     {
       "w": "－ごう",
       "k": "－号",
-      "m": "số [－] (số hiệu đoàn tàu, cơn bão v.v.)"
+      "m": "số [－] (số hiệu đoàn tàu, cơn bão v.v.)",
+      "examples": [
+        {
+          "jp": "のぞみ号[ごう]で 東京[とうきょう]に 向[む]かいます。",
+          "vn": "Tôi sẽ đi tàu Nozomi đến Tokyo."
+        },
+        {
+          "jp": "台風[たいふう]15号[ごう]が 接近[せっきん]して いるそうです。",
+          "vn": "Nghe nói bão số 15 đang tiến đến gần."
+        }
+      ]
     },
     {
       "w": "－こ",
       "k": "－個",
-      "m": "cái, cục, viên (đơn vị đếm vật nhỏ)"
+      "m": "cái, cục, viên (đơn vị đếm vật nhỏ)",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]の お菓子[かし]を 20個[にじゅっこ] 用意[ようい]しました。",
+          "vn": "Tôi đã chuẩn bị 20 cái bánh kẹo cho cuộc họp."
+        },
+        {
+          "jp": "サンプルを 3個[さんこ] 送[おく]って ください。",
+          "vn": "Hãy gửi cho tôi 3 mẫu sản phẩm."
+        }
+      ]
     },
     {
       "w": "－ほん（－ぼん、－ぽん）",
       "k": "－本",
-      "m": "－ cái (đơn vị đếm vật dài)"
+      "m": "－ cái (đơn vị đếm vật dài)",
+      "examples": [
+        {
+          "jp": "ペンを 5本[ごほん] 買[か]って きて ください。",
+          "vn": "Hãy mua giúp tôi 5 cây bút."
+        },
+        {
+          "jp": "会議室[かいぎしつ]に ペットボトルを 10本[じゅっぽん] 置[お]きました。",
+          "vn": "Tôi đã đặt 10 chai nước ở phòng họp."
+        }
+      ]
     },
     {
       "w": "－はい（－ばい、－ぱい）",
       "k": "－杯",
-      "m": "－ chén, － cốc"
+      "m": "－ chén, － cốc",
+      "examples": [
+        {
+          "jp": "コーヒーを もう1杯[いっぱい] いただけますか。",
+          "vn": "Cho tôi thêm một ly cà phê nữa được không ạ?"
+        },
+        {
+          "jp": "水[みず]を 2杯[にはい] 飲[の]みました。",
+          "vn": "Tôi đã uống 2 cốc nước."
+        }
+      ]
     },
     {
       "w": "－キロ",
       "k": "",
-      "m": "－ ki-lô, － cân"
+      "m": "－ ki-lô, － cân",
+      "examples": [
+        {
+          "jp": "荷物[にもつ]の 重[おも]さは 10キロ以上[いじょう]です。",
+          "vn": "Hành lý nặng từ 10 kilogram trở lên."
+        },
+        {
+          "jp": "会社[かいしゃ]まで 5キロぐらいです。",
+          "vn": "Đến công ty khoảng 5 kilomet."
+        }
+      ]
     },
     {
       "w": "－グラム",
       "k": "",
-      "m": "－ gam"
+      "m": "－ gam",
+      "examples": [
+        {
+          "jp": "この 材料[ざいりょう]は 500グラム 必要[ひつよう]です。",
+          "vn": "Nguyên liệu này cần khoảng 500 gam."
+        },
+        {
+          "jp": "重[おも]さを グラムで 教[おし]えて ください。",
+          "vn": "Hãy cho tôi biết trọng lượng theo đơn vị gam."
+        }
+      ]
     },
     {
       "w": "－センチ",
       "k": "",
-      "m": "－ xăng-ti-mét"
+      "m": "－ xăng-ti-mét",
+      "examples": [
+        {
+          "jp": "この 棚[たな]の 高[たか]さは 80センチです。",
+          "vn": "Chiều cao cái kệ này là 80 xăng ti mét."
+        },
+        {
+          "jp": "長[なが]さを センチで 測[はか]って ください。",
+          "vn": "Hãy đo chiều dài theo đơn vị centimet."
+        }
+      ]
     },
     {
       "w": "－ミリ",
       "k": "",
-      "m": "－ mi-li-mét"
+      "m": "－ mi-li-mét",
+      "examples": [
+        {
+          "jp": "この 部品[ぶひん]の 厚[あつ]さは 5ミリです。",
+          "vn": "Độ dày của linh kiện này là 5 milimet."
+        },
+        {
+          "jp": "ミリ単位[たんい]で 正確[せいかく]に 測[はか]って ください。",
+          "vn": "Hãy đo chính xác theo đơn vị milimet."
+        }
+      ]
     },
     {
       "w": "～いじょう",
       "k": "～以上",
-      "m": "~ trở lên, trên"
+      "m": "~ trở lên, trên",
+      "examples": [
+        {
+          "jp": "5年[ごねん]以上[いじょう] この 会社[かいしゃ]で 働[はたら]いて います。",
+          "vn": "Tôi đã làm việc ở công ty này từ 5 năm trở lên."
+        },
+        {
+          "jp": "10万円[じゅうまんえん]以上[いじょう]の 注文[ちゅうもん]は 送料[そうりょう]が 無料[むりょう]です。",
+          "vn": "Đơn hàng từ 100.000 yên trở lên thì miễn phí vận chuyển."
+        }
+      ]
     },
     {
       "w": "～いか",
       "k": "～以下",
-      "m": "~ trở xuống, dưới"
+      "m": "~ trở xuống, dưới",
+      "examples": [
+        {
+          "jp": "5人[ごにん]以下[いか]の 会議[かいぎ]は この 部屋[へや]で できます。",
+          "vn": "Cuộc họp từ 5 người trở xuống thì có thể dùng phòng này."
+        },
+        {
+          "jp": "予算[よさん]は 10万円[じゅうまんえん]以下[いか]に して ください。",
+          "vn": "Xin hãy giữ ngân sách ở mức 100.000 yên trở xuống."
+        }
+      ]
     },
     {
       "w": "さあ",
       "k": "",
-      "m": "À..., Ồ... (dùng khi không rõ về điều gì đó)"
+      "m": "À..., Ồ... (dùng khi không rõ về điều gì đó)",
+      "examples": [
+        {
+          "jp": "さあ、会議[かいぎ]を 始[はじ]めましょう。",
+          "vn": "Nào, chúng ta bắt đầu cuộc họp thôi."
+        },
+        {
+          "jp": "さあ、それは 私[わたし]にも 分[わ]かりません。",
+          "vn": "Ừm, cái đó thì tôi cũng không rõ."
+        }
+      ]
     },
     {
       "w": "ゴッホ",
       "k": "",
-      "m": "Van-gốc (1853-1890), danh họa người Hà Lan"
+      "m": "Van-gốc (1853-1890), danh họa người Hà Lan",
+      "examples": [
+        {
+          "jp": "美術館[びじゅつかん]で ゴッホの 絵[え]を 見[み]ました。",
+          "vn": "Tôi đã xem tranh của Van Gogh ở bảo tàng mỹ thuật."
+        },
+        {
+          "jp": "ゴッホに ついて 調[しら]べて みました。",
+          "vn": "Tôi đã thử tìm hiểu về Van Gogh."
+        }
+      ]
     },
     {
       "w": "ゆきまつり",
       "k": "雪祭り",
-      "m": "Lễ hội tuyết (ở Sapporo)"
+      "m": "Lễ hội tuyết (ở Sapporo)",
+      "examples": [
+        {
+          "jp": "冬[ふゆ]に 札幌[さっぽろ]の 雪[ゆき]祭[まつ]りを 見[み]に 行[い]きました。",
+          "vn": "Mùa đông tôi đã đi xem lễ hội tuyết ở Sapporo."
+        },
+        {
+          "jp": "雪[ゆき]祭[まつ]りは いつ 行[おこな]われるか 確[たし]かめて ください。",
+          "vn": "Hãy xác nhận xem lễ hội tuyết được tổ chức khi nào."
+        }
+      ]
     },
     {
       "w": "のぞみ",
       "k": "",
-      "m": "tên một loại tàu Shinkansen"
+      "m": "tên một loại tàu Shinkansen",
+      "examples": [
+        {
+          "jp": "のぞみに 乗[の]って 出張[しゅっちょう]に 行[い]きます。",
+          "vn": "Tôi sẽ đi công tác bằng tàu Nozomi."
+        },
+        {
+          "jp": "のぞみの 切符[きっぷ]を 予約[よやく]しました。",
+          "vn": "Tôi đã đặt vé tàu Nozomi."
+        }
+      ]
     },
     {
       "w": "JL",
       "k": "",
-      "m": "Hãng hàng không Nhật Bản (Japan Airlines)"
+      "m": "Hãng hàng không Nhật Bản (Japan Airlines)",
+      "examples": [
+        {
+          "jp": "JLの 便[びん]で 大阪[おおさか]に 出張[しゅっちょう]します。",
+          "vn": "Tôi đi công tác Osaka bằng chuyến bay của JL."
+        },
+        {
+          "jp": "JLの チケットを 予約[よやく]して おきました。",
+          "vn": "Tôi đã đặt sẵn vé của hãng JL."
+        }
+      ]
     }
   ],
   "expressions": [

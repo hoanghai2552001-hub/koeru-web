@@ -6,157 +6,467 @@
     {
       "w": "みがきますⅠ [はを～]",
       "k": "磨きます [歯を～]",
-      "m": "mài, đánh [răng]"
+      "m": "mài, đánh [răng]",
+      "examples": [
+        {
+          "jp": "朝[あさ]、歯[は]を 磨[みが]いてから 出社[しゅっしゃ]します。",
+          "vn": "Buổi sáng tôi đánh răng xong rồi mới đi làm."
+        },
+        {
+          "jp": "子供[こども]に 歯[こ]の 磨[みが]き方[かた]を 教[おし]えました。",
+          "vn": "Tôi đã dạy con cách đánh răng."
+        }
+      ]
     },
     {
       "w": "くみたてますⅡ",
       "k": "組み立てます",
-      "m": "lắp, lắp ráp, lắp đặt"
+      "m": "lắp, lắp ráp, lắp đặt",
+      "examples": [
+        {
+          "jp": "説明書[せつめいしょ]の とおりに 棚[たな]を 組[く]み立[た]てました。",
+          "vn": "Tôi đã lắp cái kệ đúng theo hướng dẫn."
+        },
+        {
+          "jp": "機械[きかい]を 組[く]み立[た]てた あとで、動作[どうさ]を 確認[かくにん]します。",
+          "vn": "Sau khi lắp ráp xong máy, tôi sẽ kiểm tra hoạt động."
+        }
+      ]
     },
     {
       "w": "おりますⅠ",
       "k": "折ります",
-      "m": "gấp, gập, bẻ gãy"
+      "m": "gấp, gập, bẻ gãy",
+      "examples": [
+        {
+          "jp": "紙[かみ]を 半分[はんぶん]に 折[お]って ください。",
+          "vn": "Hãy gấp đôi tờ giấy lại."
+        },
+        {
+          "jp": "資料[しりょう]を 三[さん]つ折[お]りに して 封筒[ふうとう]に 入[い]れました。",
+          "vn": "Tôi đã gấp ba tài liệu rồi cho vào phong bì."
+        }
+      ]
     },
     {
       "w": "きが つきますⅠ [わすれものに～]",
       "k": "気が つきます [忘れ物に～]",
-      "m": "nhận thấy, phát hiện [đồ bỏ quên]"
+      "m": "nhận thấy, phát hiện [đồ bỏ quên]",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]に 着[つ]いてから 忘[わす]れ物[もの]に 気[き]が つきました。",
+          "vn": "Sau khi đến công ty tôi mới nhận ra mình để quên đồ."
+        },
+        {
+          "jp": "電車[でんしゃ]を 降[お]りた あとで 傘[かさ]を 忘[わす]れた ことに 気[き]が つきました。",
+          "vn": "Sau khi xuống tàu tôi mới nhận ra đã bỏ quên ô."
+        }
+      ]
     },
     {
       "w": "つけますⅡ [しょうゆを～]",
       "k": "",
-      "m": "chấm [xì-dầu]"
+      "m": "chấm [xì-dầu]",
+      "examples": [
+        {
+          "jp": "刺身[さしみ]に 醤油[しょうゆ]を つけて 食[た]べます。",
+          "vn": "Tôi chấm xì dầu vào cá sống rồi ăn."
+        },
+        {
+          "jp": "説明書[せつめいしょ]の とおりに ソースを つけて ください。",
+          "vn": "Hãy chấm nước xốt đúng theo hướng dẫn."
+        }
+      ]
     },
     {
       "w": "みつかりますⅠ [かぎが～]",
       "k": "見つかります",
-      "m": "được tìm thấy [chìa khóa ~]"
+      "m": "được tìm thấy [chìa khóa ~]",
+      "examples": [
+        {
+          "jp": "探[さが]して いた 書類[しょるい]が やっと 見[み]つかりました。",
+          "vn": "Cuối cùng tôi cũng tìm thấy tài liệu đang tìm."
+        },
+        {
+          "jp": "落[お]とした 鍵[かぎ]が 見[み]つからなくて 困[こま]って います。",
+          "vn": "Tôi không tìm được chìa khóa bị rơi nên đang khổ sở."
+        }
+      ]
     },
     {
       "w": "しますⅢ [ネクタイを～]",
       "k": "",
-      "m": "đeo, thắt [cà-vạt]"
+      "m": "đeo, thắt [cà-vạt]",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]の 前[まえ]に ネクタイを して きて ください。",
+          "vn": "Hãy thắt cà vạt trước khi đến họp."
+        },
+        {
+          "jp": "ネクタイを しないで 出社[しゅっしゃ]して しまいました。",
+          "vn": "Tôi đã đi làm mà quên không thắt cà vạt."
+        }
+      ]
     },
     {
       "w": "しつもんしますⅢ",
       "k": "質問します",
-      "m": "hỏi"
+      "m": "hỏi",
+      "examples": [
+        {
+          "jp": "説明[せつめい]の あとで 質問[しつもん]して ください。",
+          "vn": "Xin hãy hỏi sau khi nghe giải thích xong."
+        },
+        {
+          "jp": "分[わ]からない ことが あれば、質問[しつもん]しても いいですか。",
+          "vn": "Nếu có gì chưa hiểu tôi hỏi được không ạ?"
+        }
+      ]
     },
     {
       "w": "ほそい",
       "k": "細い",
-      "m": "gầy, hẹp, thon"
+      "m": "gầy, hẹp, thon",
+      "examples": [
+        {
+          "jp": "この 道[みち]は 細[ほそ]いので、車[くるま]は 通[とお]れません。",
+          "vn": "Đường này hẹp nên ô tô không đi qua được."
+        },
+        {
+          "jp": "細[ほそ]い ペンで 図[ず]を 描[か]きました。",
+          "vn": "Tôi đã vẽ sơ đồ bằng bút nét mảnh."
+        }
+      ]
     },
     {
       "w": "ふとい",
       "k": "太い",
-      "m": "béo, to"
+      "m": "béo, to",
+      "examples": [
+        {
+          "jp": "太[ふと]い 矢印[やじるし]で 方向[ほうこう]を 示[しめ]しました。",
+          "vn": "Tôi đã đánh dấu hướng đi bằng mũi tên đậm."
+        },
+        {
+          "jp": "この 線[せん]は もう少[すこ]し 太[ふと]く した ほうが 見[み]やすいです。",
+          "vn": "Đường này nên vẽ đậm hơn một chút thì dễ nhìn hơn."
+        }
+      ]
     },
     {
       "w": "ぼんおどり",
       "k": "盆踊り",
-      "m": "múa trong hội Bon"
+      "m": "múa trong hội Bon",
+      "examples": [
+        {
+          "jp": "夏[なつ]に 家族[かぞく]で 盆踊[ぼんおど]りを 見[み]に 行[い]きました。",
+          "vn": "Mùa hè tôi đã đi xem múa Bon cùng gia đình."
+        },
+        {
+          "jp": "盆踊[ぼんおど]りの あとで、屋台[やたい]で ご飯[はん]を 食[た]べました。",
+          "vn": "Sau khi xem múa Bon xong, tôi đã ăn ở quầy hàng."
+        }
+      ]
     },
     {
       "w": "スポーツクラブ",
       "k": "",
-      "m": "câu lạc bộ thể thao, câu lạc bộ thể hình"
+      "m": "câu lạc bộ thể thao, câu lạc bộ thể hình",
+      "examples": [
+        {
+          "jp": "仕事[しごと]の あとで スポーツクラブに 通[かよ]って います。",
+          "vn": "Sau giờ làm tôi đi tập ở câu lạc bộ thể thao."
+        },
+        {
+          "jp": "会社[かいしゃ]の 近[ちか]くに スポーツクラブが できました。",
+          "vn": "Gần công ty vừa mở một câu lạc bộ thể thao."
+        }
+      ]
     },
     {
       "w": "かぐ",
       "k": "家具",
-      "m": "gia cụ, đồ dùng nội thất"
+      "m": "gia cụ, đồ dùng nội thất",
+      "examples": [
+        {
+          "jp": "新[あたら]しい オフィスの 家具[かぐ]を 選[えら]んで います。",
+          "vn": "Tôi đang chọn nội thất cho văn phòng mới."
+        },
+        {
+          "jp": "家具[かぐ]は 説明書[せつめいしょ]の とおりに 組[く]み立[た]てて ください。",
+          "vn": "Hãy lắp nội thất đúng theo hướng dẫn."
+        }
+      ]
     },
     {
       "w": "キー",
       "k": "",
-      "m": "chìa khóa"
+      "m": "chìa khóa",
+      "examples": [
+        {
+          "jp": "オフィスの キーを なくして しまいました。",
+          "vn": "Tôi làm mất chìa khóa văn phòng rồi."
+        },
+        {
+          "jp": "キーを 開[あ]けてから、電気[でんき]を つけます。",
+          "vn": "Mở khóa xong rồi tôi mới bật đèn."
+        }
+      ]
     },
     {
       "w": "シートベルト",
       "k": "",
-      "m": "dây an toàn (ở ghế ngồi)"
+      "m": "dây an toàn (ở ghế ngồi)",
+      "examples": [
+        {
+          "jp": "車[くるま]に 乗[の]ったら、必[かなら]ず シートベルトを して ください。",
+          "vn": "Khi lên xe thì nhất định phải thắt dây an toàn."
+        },
+        {
+          "jp": "シートベルトを しないで 運転[うんてん]するのは 危[あぶ]ないです。",
+          "vn": "Lái xe mà không thắt dây an toàn thì rất nguy hiểm."
+        }
+      ]
     },
     {
       "w": "せつめいしょ",
       "k": "説明書",
-      "m": "quyển hướng dẫn"
+      "m": "quyển hướng dẫn",
+      "examples": [
+        {
+          "jp": "説明書[せつめいしょ]の とおりに 操作[そうさ]して ください。",
+          "vn": "Hãy thao tác theo đúng hướng dẫn sử dụng."
+        },
+        {
+          "jp": "説明書[せつめいしょ]を 読[よ]んだ あとで 質問[しつもん]して ください。",
+          "vn": "Hãy hỏi sau khi đọc xong tài liệu hướng dẫn."
+        }
+      ]
     },
     {
       "w": "ず",
       "k": "図",
-      "m": "sơ đồ, hình vẽ"
+      "m": "sơ đồ, hình vẽ",
+      "examples": [
+        {
+          "jp": "資料[しりょう]に 図[ず]を 入[い]れて 説明[せつめい]しました。",
+          "vn": "Tôi đã cho sơ đồ vào tài liệu để giải thích."
+        },
+        {
+          "jp": "図[ず]の とおりに 配置[はいち]して ください。",
+          "vn": "Hãy sắp xếp đúng theo sơ đồ."
+        }
+      ]
     },
     {
       "w": "せん",
       "k": "線",
-      "m": "đường"
+      "m": "đường",
+      "examples": [
+        {
+          "jp": "重要[じゅうよう]な 部分[ぶぶん]に 線[せん]を 引[ひ]きました。",
+          "vn": "Tôi đã gạch chân phần quan trọng."
+        },
+        {
+          "jp": "線[せん]の とおりに 切[き]って ください。",
+          "vn": "Hãy cắt theo đúng đường kẻ."
+        }
+      ]
     },
     {
       "w": "やじるし",
       "k": "矢印",
-      "m": "dấu mũi tên"
+      "m": "dấu mũi tên",
+      "examples": [
+        {
+          "jp": "矢印[やじるし]の とおりに 進[すす]んで ください。",
+          "vn": "Hãy đi theo hướng mũi tên."
+        },
+        {
+          "jp": "地図[ちず]に 矢印[やじるし]で ルートを 描[か]きました。",
+          "vn": "Tôi đã vẽ lộ trình bằng mũi tên trên bản đồ."
+        }
+      ]
     },
     {
       "w": "くろ",
       "k": "黒",
-      "m": "màu đen"
+      "m": "màu đen",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]には 黒[くろ]の スーツを 着[き]て いきます。",
+          "vn": "Tôi sẽ mặc vest đen đi họp."
+        },
+        {
+          "jp": "黒[くろ]の ペンで 名前[なまえ]を 書[か]いて ください。",
+          "vn": "Hãy viết tên bằng bút mực đen."
+        }
+      ]
     },
     {
       "w": "しろ",
       "k": "白",
-      "m": "màu trắng"
+      "m": "màu trắng",
+      "examples": [
+        {
+          "jp": "白[しろ]の シャツを 買[か]いました。",
+          "vn": "Tôi đã mua áo sơ mi trắng."
+        },
+        {
+          "jp": "資料[しりょう]は 白[しろ]の 紙[かみ]に 印刷[いんさつ]して ください。",
+          "vn": "Hãy in tài liệu ra giấy trắng."
+        }
+      ]
     },
     {
       "w": "あか",
       "k": "赤",
-      "m": "màu đỏ"
+      "m": "màu đỏ",
+      "examples": [
+        {
+          "jp": "重要[じゅうよう]な ところは 赤[あか]で 印[しるし]を つけました。",
+          "vn": "Tôi đã đánh dấu bằng màu đỏ ở những chỗ quan trọng."
+        },
+        {
+          "jp": "赤[あか]い ペンで 修正[しゅうせい]して ください。",
+          "vn": "Hãy sửa bằng bút đỏ."
+        }
+      ]
     },
     {
       "w": "あお",
       "k": "青",
-      "m": "màu xanh da trời"
+      "m": "màu xanh da trời",
+      "examples": [
+        {
+          "jp": "資料[しりょう]の タイトルは 青[あお]に しました。",
+          "vn": "Tôi đã đổi tiêu đề tài liệu sang màu xanh."
+        },
+        {
+          "jp": "青[あお]い ネクタイが よく 似合[にあ]って いますね。",
+          "vn": "Cà vạt xanh hợp với anh quá."
+        }
+      ]
     },
     {
       "w": "こん",
       "k": "紺",
-      "m": "màu xanh lam"
+      "m": "màu xanh lam",
+      "examples": [
+        {
+          "jp": "面接[めんせつ]には 紺[こん]の スーツを 着[き]て いきます。",
+          "vn": "Tôi sẽ mặc vest xanh navy đi phỏng vấn."
+        },
+        {
+          "jp": "紺[こん]色[いろ]の かばんを 買[か]いました。",
+          "vn": "Tôi đã mua cái túi màu xanh navy."
+        }
+      ]
     },
     {
       "w": "きいろ",
       "k": "黄色",
-      "m": "màu vàng"
+      "m": "màu vàng",
+      "examples": [
+        {
+          "jp": "黄色[きいろ]い マーカーで 大事[だいじ]な ところを 塗[ぬ]りました。",
+          "vn": "Tôi đã tô màu vàng vào chỗ quan trọng."
+        },
+        {
+          "jp": "黄色[きいろ]の 花[はな]を 受付[うけつけ]に 飾[かざ]りました。",
+          "vn": "Tôi đã trang trí hoa vàng ở quầy lễ tân."
+        }
+      ]
     },
     {
       "w": "ちゃいろ",
       "k": "茶色",
-      "m": "màu nâu"
+      "m": "màu nâu",
+      "examples": [
+        {
+          "jp": "茶色[ちゃいろ]の 靴[くつ]を 履[は]いて 出勤[しゅっきん]しました。",
+          "vn": "Tôi đã đi giày màu nâu đến công ty."
+        },
+        {
+          "jp": "茶色[ちゃいろ]の かばんが 欲[ほ]しいです。",
+          "vn": "Tôi muốn có một cái túi màu nâu."
+        }
+      ]
     },
     {
       "w": "しょうゆ",
       "k": "",
-      "m": "xì-dầu"
+      "m": "xì-dầu",
+      "examples": [
+        {
+          "jp": "醤油[しょうゆ]を つけて 食[た]べた ほうが おいしいですよ。",
+          "vn": "Chấm xì dầu ăn sẽ ngon hơn đấy."
+        },
+        {
+          "jp": "醤油[しょうゆ]が 切[き]れたので、買[か]いに 行[い]きました。",
+          "vn": "Xì dầu hết nên tôi đã đi mua."
+        }
+      ]
     },
     {
       "w": "ソース",
       "k": "",
-      "m": "nước chấm, nước xốt"
+      "m": "nước chấm, nước xốt",
+      "examples": [
+        {
+          "jp": "このソースを つけて 食[た]べて みて ください。",
+          "vn": "Hãy thử chấm sốt này ăn xem."
+        },
+        {
+          "jp": "ソースの 味[あじ]が ちょっと 濃[こ]いです。",
+          "vn": "Vị của nước xốt hơi đậm."
+        }
+      ]
     },
     {
       "w": "～か ～",
       "k": "",
-      "m": "~ hay ~"
+      "m": "~ hay ~",
+      "examples": [
+        {
+          "jp": "コーヒーか お茶[ちゃ]、どちらが いいですか。",
+          "vn": "Cà phê hay trà, anh/chị muốn dùng cái nào?"
+        },
+        {
+          "jp": "月曜日[げつようび]か 火曜日[かようび]に 会議[かいぎ]を しましょう。",
+          "vn": "Chúng ta họp vào thứ hai hoặc thứ ba nhé."
+        }
+      ]
     },
     {
       "w": "ゆうべ",
       "k": "",
-      "m": "tối qua, đêm qua"
+      "m": "tối qua, đêm qua",
+      "examples": [
+        {
+          "jp": "夕[ゆう]べ 遅[おそ]くまで 資料[しりょう]を 作[つく]って いました。",
+          "vn": "Tối qua tôi đã làm tài liệu đến tận khuya."
+        },
+        {
+          "jp": "夕[ゆう]べの メールを 確認[かくにん]しました。",
+          "vn": "Tôi đã kiểm tra email từ tối qua."
+        }
+      ]
     },
     {
       "w": "さっき",
       "k": "",
-      "m": "vừa rồi, vừa lúc nãy"
+      "m": "vừa rồi, vừa lúc nãy",
+      "examples": [
+        {
+          "jp": "さっき 田中[たなか]さんから 電話[でんわ]が ありました。",
+          "vn": "Vừa nãy anh Tanaka có gọi điện đến."
+        },
+        {
+          "jp": "さっき 説明[せつめい]した とおりに して ください。",
+          "vn": "Hãy làm đúng theo những gì tôi vừa giải thích."
+        }
+      ]
     }
   ],
   "expressions": [
