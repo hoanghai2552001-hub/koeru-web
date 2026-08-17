@@ -135,15 +135,18 @@ body.no-furigana ruby rt{display:none}
 /* hội thoại (mới) */
 .dlg-title{font-weight:700;font-size:1.02rem;margin-bottom:4px}
 .dlg-src{font-size:.75rem;color:var(--muted);margin-bottom:14px}
-.dlg-toolbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.dlg-toolbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-bottom:10px}
 .dlg-line{display:flex;gap:10px;align-items:flex-start;margin-top:10px;padding:10px 12px;
   background:var(--card2);border-radius:var(--radius-sm)}
 .dlg-spk{flex:none;width:64px;font-size:.78rem;font-weight:800;color:var(--accent);line-height:1.7;
   padding-top:2px;word-break:break-word}
 .dlg-body{flex:1;min-width:0}
 .dlg-jp{font-size:1.02rem;line-height:1.7}
-.dlg-vn{display:none;color:var(--muted);font-size:.85rem;margin-top:4px;line-height:1.5}
-.dlg-vn.on{display:block}
+.dlg-vn{color:var(--muted);font-size:.85rem;margin-top:4px;line-height:1.5}
+.dlg-answer{display:block;width:100%;background:var(--card);color:var(--text);
+  border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:.85rem;margin-top:4px;
+  font-family:inherit;resize:vertical;min-height:36px}
+.dlg-check{margin-top:4px;padding:4px 10px;font-size:.75rem}
 .dlg-play{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);
   background:var(--card);color:var(--accent);font-size:.85rem;cursor:pointer;display:flex;
   align-items:center;justify-content:center;padding:0}
@@ -294,6 +297,24 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
 .ws-mark.bad{color:var(--bad)}
 #wsSummary{font-weight:800;margin-bottom:4px}
 #wsSummary .pct-ok{color:var(--ok)}
+/* QA am thanh (moi) */
+.qa-section-title{font-size:.85rem;font-weight:800;color:var(--accent);margin:16px 0 8px;
+  text-transform:uppercase;letter-spacing:.03em}
+.qa-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.qa-item .qa-main{flex:1;min-width:0}
+.qa-item .qa-text{font-size:.95rem;margin-bottom:6px;line-height:1.5}
+.qa-item .qa-sub{color:var(--muted);font-size:.8rem;margin-bottom:6px}
+.qa-item textarea{width:100%;min-height:32px;background:var(--card2);border:1px solid var(--line);
+  border-radius:8px;padding:6px 8px;color:var(--text);font-family:inherit;font-size:.82rem;resize:vertical}
+.qa-status-btn{flex:none;border:2px solid var(--line);border-radius:10px;padding:8px 10px;
+  font-size:.85rem;font-weight:800;cursor:pointer;background:var(--card2);color:var(--muted);
+  min-width:64px;text-align:center;font-family:inherit}
+.qa-status-btn.ok{border-color:var(--ok);color:var(--ok);background:rgba(90,200,138,.12)}
+.qa-status-btn.bad{border-color:var(--bad);color:var(--bad);background:rgba(232,90,106,.12)}
+.qa-lesson-block{margin-bottom:6px}
+.qa-lesson-head{display:flex;align-items:center;justify-content:space-between;cursor:pointer;
+  padding:10px 0;font-weight:800}
+.qa-lesson-head .cnt{font-size:.75rem;color:var(--muted);font-weight:600}
 @media(max-width:480px){
   .wrap{padding:14px 12px 50px}
   .card{padding:16px 13px}
@@ -320,6 +341,7 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
       Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
     <div class="card" id="progressSummary"></div>
     <button class="btn btn-main" id="btnWorksheet" style="margin-top:14px">📝 Ôn tập nhiều bài · Kiểm tra từ vựng</button>
+    <button class="btn btn-ghost" id="btnQA" style="margin-top:8px">🔍 QA âm thanh (giáo viên)</button>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
     <div class="kanji-mode-filter" id="kanjiModeFilter"></div>
     <div class="card hidden" id="searchResult"></div>
@@ -353,6 +375,24 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
       <div id="wsToolbar"></div>
       <div style="overflow-x:auto"><table class="ws-table" id="wsTable"></table></div>
       <button class="btn btn-main" id="btnWsGrade">✓ Chấm điểm</button>
+    </div>
+  </div>
+
+  <!-- QA am thanh: giao vien nghe + ghi chu tung cau hoi thoai / tu vung (moi) -->
+  <div id="qapage" class="hidden">
+    <button class="back" id="btnQaBack">← Trang chủ</button>
+    <span class="badge">QA ÂM THANH</span>
+    <h1>Kiểm tra chất lượng ghi âm</h1>
+    <p class="sub">Chọn bài cần kiểm tra, nghe từng câu (hội thoại + từ vựng), đánh dấu đúng/sai và ghi chú nhanh.</p>
+    <div class="card" id="qaHub"></div>
+    <div class="card hidden" id="qaListCard">
+      <div id="qaToolbar"></div>
+      <div id="qaList"></div>
+    </div>
+    <div class="card hidden" id="qaReportCard">
+      <h3 style="font-size:.9rem;color:var(--accent);margin-bottom:8px">📋 Báo cáo các mục bị đánh dấu sai / có ghi chú</h3>
+      <textarea id="qaReportText" readonly style="width:100%;min-height:220px;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:10px;color:var(--text);font-family:monospace;font-size:.8rem"></textarea>
+      <button class="btn btn-ghost" id="qaCopyReport" style="margin-top:8px">📋 Sao chép báo cáo</button>
     </div>
   </div>
 
@@ -936,6 +976,9 @@ function playAudio(btn, text, mp3Path){
 
 // --- Hội thoại (会話): 1 bài = 1 hội thoại nhiều lượt, khớp ngữ pháp/từ vựng của bài ---
 var dlgShowVn = true;
+var dlgShowJp = true;
+var dlgRevealed = {}; // "vn-2" / "jp-0" -> true khi hs đã bấm xem đáp án dòng đó
+
 function renderDialogue(l){
   var box = qs('tabContent');
   var d = (window.MINNA_DIALOGUE || {})[l.lesson];
@@ -947,15 +990,31 @@ function renderDialogue(l){
   if(d.characters && d.characters.length){
     h += '<div class="dlg-src">Nhân vật: ' + d.characters.map(function(c){ return rubyfy(c); }).join(', ') + '</div>';
   }
-  h += '<div class="dlg-toolbar"><button class="btn btn-ghost" id="dlgToggleVn" style="margin-top:0">' +
-    (dlgShowVn ? 'Ẩn nghĩa' : 'Hiện nghĩa') + '</button></div>';
+  h += '<div class="dlg-toolbar">' +
+    '<button class="btn btn-ghost" id="dlgToggleVn" style="margin-top:0">' + (dlgShowVn ? 'Luyện điền nghĩa' : 'Hiện nghĩa') + '</button>' +
+    '<button class="btn btn-ghost" id="dlgToggleJp" style="margin-top:0">' + (dlgShowJp ? 'Luyện điền câu' : 'Hiện hội thoại') + '</button>' +
+  '</div>';
+
   d.lines.forEach(function(ln, i){
+    var jpKey = 'jp-' + i, vnKey = 'vn-' + i;
+    var jpDone = dlgShowJp || dlgRevealed[jpKey];
+    var vnDone = dlgShowVn || dlgRevealed[vnKey];
     h += '<div class="dlg-line">' +
       '<span class="dlg-spk">' + rubyfy(ln.spk || '') + '</span>' +
-      '<div class="dlg-body">' +
-        '<div class="dlg-jp">' + rubyfy(ln.jp) + '</div>' +
-        '<div class="dlg-vn' + (dlgShowVn ? ' on' : '') + '">' + esc(ln.vn || '') + '</div>' +
-      '</div>' +
+      '<div class="dlg-body">';
+    if(jpDone){
+      h += '<div class="dlg-jp">' + rubyfy(ln.jp) + '</div>';
+    } else {
+      h += '<textarea class="dlg-answer" data-key="' + jpKey + '" placeholder="Điền câu tiếng Nhật đã nghe..."></textarea>' +
+        '<button class="btn btn-ghost dlg-check" data-key="' + jpKey + '">Xem đáp án</button>';
+    }
+    if(vnDone){
+      h += '<div class="dlg-vn on">' + esc(ln.vn || '') + '</div>';
+    } else {
+      h += '<textarea class="dlg-answer" data-key="' + vnKey + '" placeholder="Điền nghĩa tiếng Việt..."></textarea>' +
+        '<button class="btn btn-ghost dlg-check" data-key="' + vnKey + '">Xem đáp án</button>';
+    }
+    h += '</div>' +
       '<button class="dlg-play" data-i="' + i + '" title="Nghe">🔊</button>' +
     '</div>';
   });
@@ -963,8 +1022,15 @@ function renderDialogue(l){
     h += '<div class="warn">⚠ Dữ liệu hội thoại chưa được giáo viên duyệt lần cuối (REVIEW_REQUIRED).</div>';
   }
   box.innerHTML = h;
+
   var vnBtn = qs('dlgToggleVn');
-  if(vnBtn) vnBtn.onclick = function(){ dlgShowVn = !dlgShowVn; renderDialogue(l); };
+  if(vnBtn) vnBtn.onclick = function(){ dlgShowVn = !dlgShowVn; dlgRevealed = {}; renderDialogue(l); };
+  var jpBtn = qs('dlgToggleJp');
+  if(jpBtn) jpBtn.onclick = function(){ dlgShowJp = !dlgShowJp; dlgRevealed = {}; renderDialogue(l); };
+
+  box.querySelectorAll('.dlg-check').forEach(function(btn){
+    btn.onclick = function(){ dlgRevealed[btn.dataset.key] = true; renderDialogue(l); };
+  });
   box.querySelectorAll('.dlg-play').forEach(function(btn){
     btn.onclick = function(){
       var i = +btn.dataset.i;
@@ -1553,6 +1619,197 @@ function gradeWorksheet(){
 qs('btnWorksheet').onclick = openWorksheetHub;
 qs('btnWsBack').onclick = closeWorksheet;
 qs('btnWsGrade').onclick = gradeWorksheet;
+
+// ---------- QA am thanh (moi): giao vien nghe + ghi chu tung cau hoi thoai/tu vung ----------
+var qaSelected = load(K('qa_sel'), []);
+var qaListGenerated = false;
+
+function openQAHub(){
+  qs('home').classList.add('hidden');
+  qs('worksheet').classList.add('hidden');
+  qs('detail').classList.add('hidden');
+  qs('qapage').classList.remove('hidden');
+  qaListGenerated = false;
+  qs('qaListCard').classList.add('hidden');
+  qs('qaReportCard').classList.add('hidden');
+  renderQAHub();
+  window.scrollTo(0,0);
+}
+function closeQA(){
+  qs('qapage').classList.add('hidden');
+  qs('home').classList.remove('hidden');
+  renderHome();
+}
+
+function qaStatusKey(kind, id){ return K('qa_' + kind + '_') + id; }
+function qaGetState(kind, id){ return load(qaStatusKey(kind, id), { status: '', note: '' }); }
+function qaSetState(kind, id, patch){
+  var cur = qaGetState(kind, id);
+  var next = Object.assign({}, cur, patch);
+  store(qaStatusKey(kind, id), next);
+  return next;
+}
+
+function renderQAHub(){
+  var withData = LV.data.filter(function(l){ return l.status !== 'NO_DATA'; });
+  var h = '<div class="ws-lesson-grid">';
+  withData.forEach(function(l){
+    var checked = qaSelected.indexOf(l.lesson) >= 0;
+    h += '<label class="ws-lesson-chk' + (checked ? ' on' : '') + '" data-lesson="' + l.lesson + '">' +
+      '<input type="checkbox"' + (checked ? ' checked' : '') + '> Bài ' + l.lesson + '</label>';
+  });
+  h += '</div>';
+  h += '<div class="ws-bulk"><button class="btn btn-ghost" id="qaSelAll" style="margin-top:0">Chọn tất cả</button>' +
+    '<button class="btn btn-ghost" id="qaSelNone" style="margin-top:0">Bỏ chọn tất cả</button></div>';
+  h += '<p class="ws-count">Đã chọn: <b>' + qaSelected.length + '</b> bài</p>';
+  h += '<button class="btn btn-main" id="qaGenerate" style="margin-top:10px">' +
+    (qaListGenerated ? 'Cập nhật danh sách' : 'Tạo danh sách QA') + '</button>';
+  var hub = qs('qaHub');
+  hub.innerHTML = h;
+  hub.querySelectorAll('.ws-lesson-chk input').forEach(function(cb){
+    cb.onchange = function(){
+      var lesson = +cb.closest('.ws-lesson-chk').dataset.lesson;
+      var idx = qaSelected.indexOf(lesson);
+      if(cb.checked && idx < 0) qaSelected.push(lesson);
+      else if(!cb.checked && idx >= 0) qaSelected.splice(idx, 1);
+      store(K('qa_sel'), qaSelected);
+      renderQAHub();
+    };
+  });
+  hub.querySelector('#qaSelAll').onclick = function(){
+    qaSelected = withData.map(function(l){ return l.lesson; });
+    store(K('qa_sel'), qaSelected);
+    renderQAHub();
+  };
+  hub.querySelector('#qaSelNone').onclick = function(){
+    qaSelected = [];
+    store(K('qa_sel'), qaSelected);
+    renderQAHub();
+  };
+  hub.querySelector('#qaGenerate').onclick = function(){
+    if(!qaSelected.length){ alert('Chọn ít nhất 1 bài trước đã.'); return; }
+    qaListGenerated = true;
+    qs('qaListCard').classList.remove('hidden');
+    qs('qaReportCard').classList.remove('hidden');
+    renderQAList();
+    qs('qaListCard').scrollIntoView({ behavior:'smooth', block:'start' });
+  };
+}
+
+function qaItemRow(kind, id, textHtml, subText, playWord, playMp3Path){
+  var st = qaGetState(kind, id);
+  var mp3 = playMp3Path || (playWord ? 'audio/vocab/' + encodeURIComponent(playWord) + '.mp3' : null);
+  var h = '<div class="qa-item" data-kind="' + kind + '" data-id="' + esc(id) + '">' +
+    '<button class="qa-status-btn ' + (st.status || '') + '" data-kind="' + kind + '" data-id="' + esc(id) + '">' +
+      (st.status === 'ok' ? '✓ Đúng' : st.status === 'bad' ? '✗ Sai' : '— Chưa') + '</button>' +
+    '<div class="qa-main">' +
+      '<div class="qa-text">' + textHtml +
+        (mp3 ? ' <button class="dlg-play qa-play" data-mp3="' + esc(mp3) + '" data-w="' + esc(playWord || '') + '" title="Nghe">🔊</button>' : '') +
+      '</div>' +
+      (subText ? '<div class="qa-sub">' + subText + '</div>' : '') +
+      '<textarea placeholder="Ghi chú nhanh…" data-kind="' + kind + '" data-id="' + esc(id) + '">' + esc(st.note || '') + '</textarea>' +
+    '</div></div>';
+  return h;
+}
+
+function renderQAList(){
+  var box = qs('qaList');
+  var h = '';
+
+  // --- Tu vung: gop trung theo kana tren cac bai da chon ---
+  var seen = {}, vocabPool = [];
+  LV.data.forEach(function(l){
+    if(qaSelected.indexOf(l.lesson) < 0) return;
+    l.vocab.forEach(function(v){
+      var key = vocabKana(v.w);
+      if(!key || seen[key]) return;
+      seen[key] = true;
+      vocabPool.push(v);
+    });
+  });
+  h += '<div class="qa-section-title">Từ vựng (' + vocabPool.length + ')</div>';
+  vocabPool.forEach(function(v){
+    var kana = vocabKana(v.w);
+    var textHtml = (v.k ? kanjiLinkify(v.k) + ' — ' : '') + esc(stripGroupMark(kana));
+    h += qaItemRow('v', kana, textHtml, esc(v.m), kana);
+  });
+
+  // --- Hoi thoai: theo tung bai da chon ---
+  h += '<div class="qa-section-title">Hội thoại</div>';
+  qaSelected.slice().sort(function(a,b){ return a-b; }).forEach(function(lesson){
+    var d = (window.MINNA_DIALOGUE || {})[lesson];
+    if(!d || !d.lines || !d.lines.length) return;
+    h += '<div class="qa-lesson-block"><div class="qa-lesson-head">Bài ' + lesson +
+      ' <span class="cnt">' + d.lines.length + ' câu</span></div>';
+    d.lines.forEach(function(ln, i){
+      var id = lesson + '_' + (i + 1);
+      var textHtml = '<b style="color:var(--accent)">' + rubyfy(ln.spk || '') + '</b>： ' + rubyfy(ln.jp || '');
+      var mp3Path = 'audio/dialogue/' + (curLevel === 'N4' ? 'n4' : 'n5') + '/lesson' + lesson + '_' + String(i+1).padStart(2,'0') + '.mp3';
+      h += qaItemRow('d', id, textHtml, esc(ln.vn || ''), stripRuby(ln.jp || ''), mp3Path);
+    });
+    h += '</div>';
+  });
+
+  box.innerHTML = h;
+
+  box.querySelectorAll('.qa-play').forEach(function(btn){
+    btn.onclick = function(e){
+      e.stopPropagation();
+      playAudio(btn, btn.dataset.w, btn.dataset.mp3);
+    };
+  });
+  box.querySelectorAll('.qa-status-btn').forEach(function(btn){
+    btn.onclick = function(){
+      var kind = btn.dataset.kind, id = btn.dataset.id;
+      var cur = qaGetState(kind, id).status || '';
+      var next = cur === '' ? 'ok' : cur === 'ok' ? 'bad' : '';
+      qaSetState(kind, id, { status: next });
+      btn.className = 'qa-status-btn ' + next;
+      btn.textContent = next === 'ok' ? '✓ Đúng' : next === 'bad' ? '✗ Sai' : '— Chưa';
+      renderQAReport();
+    };
+  });
+  box.querySelectorAll('textarea[data-kind]').forEach(function(el){
+    el.onblur = function(){
+      qaSetState(el.dataset.kind, el.dataset.id, { note: el.value });
+      renderQAReport();
+    };
+  });
+
+  renderQAReport();
+}
+
+function renderQAReport(){
+  var lines = [];
+  document.querySelectorAll('#qaList .qa-item').forEach(function(item){
+    var kind = item.dataset.kind, id = item.dataset.id;
+    var st = qaGetState(kind, id);
+    if(st.status === 'bad' || (st.note && st.note.trim())){
+      var textEl = item.querySelector('.qa-text').cloneNode(true);
+      var playBtn = textEl.querySelector('.qa-play');
+      if(playBtn) playBtn.remove();
+      var label = textEl.textContent.trim();
+      var statusLabel = st.status === 'bad' ? '✗ SAI' : st.status === 'ok' ? '✓ đúng' : '— chưa đánh giá';
+      lines.push('[' + (kind === 'v' ? 'Từ vựng' : 'Hội thoại') + '] ' + label + '\n  Trạng thái: ' + statusLabel +
+        (st.note ? '\n  Ghi chú: ' + st.note : ''));
+    }
+  });
+  qs('qaReportText').value = lines.length ? lines.join('\n\n') : '(Chưa có mục nào bị đánh dấu sai hoặc có ghi chú.)';
+}
+
+qs('btnQA').onclick = openQAHub;
+qs('btnQaBack').onclick = closeQA;
+qs('qaCopyReport').onclick = function(){
+  var ta = qs('qaReportText');
+  ta.select();
+  try{
+    navigator.clipboard.writeText(ta.value);
+    var btn = qs('qaCopyReport');
+    var old = btn.textContent;
+    btn.textContent = '✓ Đã sao chép';
+    setTimeout(function(){ btn.textContent = old; }, 1500);
+  }catch(e){}
+};
 })();
 </script>
 </body>
