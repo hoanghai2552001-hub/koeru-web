@@ -265,6 +265,35 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
 td.vg{white-space:nowrap}
 td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
   background:rgba(232,132,90,.13);border-radius:6px;padding:2px 7px}
+/* Ôn tập nhiều bài · Kiểm tra từ vựng tổng hợp (mới) */
+.ws-lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin:12px 0}
+.ws-lesson-chk{display:flex;align-items:center;gap:7px;background:var(--card2);border:1.5px solid var(--line);
+  border-radius:10px;padding:9px 10px;cursor:pointer;font-size:.85rem;user-select:none}
+.ws-lesson-chk.on{border-color:var(--accent);background:rgba(232,132,90,.13);color:var(--accent)}
+.ws-lesson-chk input{accent-color:var(--accent)}
+.ws-bulk{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.ws-toggles{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.ws-toggle-btn{background:var(--card2);border:1.5px solid var(--line);border-radius:999px;padding:7px 13px;
+  font-size:.78rem;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit}
+.ws-toggle-btn.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
+.ws-count{font-size:.85rem;color:var(--muted);margin-top:6px}
+.ws-count b{color:var(--accent)}
+table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88rem}
+.ws-table th{background:var(--card2);color:var(--muted);font-size:.72rem;text-transform:uppercase;
+  letter-spacing:.03em;padding:8px 6px;text-align:left;position:sticky;top:0}
+.ws-table td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.ws-table input[type=text], .ws-table textarea{width:100%;min-width:90px;background:var(--card2);
+  border:1.5px solid var(--line);border-radius:8px;padding:6px 8px;color:var(--text);font-family:inherit;font-size:.86rem}
+.ws-table textarea{resize:vertical;min-height:34px}
+.ws-hint-hidden{filter:blur(5px);user-select:none;transition:filter .15s}
+.ws-hint-hidden:hover{filter:blur(0)}
+.ws-row-correct td{background:rgba(90,200,138,.08)}
+.ws-row-wrong td{background:rgba(232,90,106,.08)}
+.ws-mark{font-weight:900;font-size:1rem}
+.ws-mark.ok{color:var(--ok)}
+.ws-mark.bad{color:var(--bad)}
+#wsSummary{font-weight:800;margin-bottom:4px}
+#wsSummary .pct-ok{color:var(--ok)}
 @media(max-width:480px){
   .wrap{padding:14px 12px 50px}
   .card{padding:16px 13px}
@@ -290,6 +319,7 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
     <p class="sub" id="homeSub">Ôn tập và kiểm tra bài về nhà theo giáo trình Minna no Nihongo I.
       Dữ liệu trích từ sách "Bản dịch và giải thích ngữ pháp – Tập 1".</p>
     <div class="card" id="progressSummary"></div>
+    <button class="btn btn-main" id="btnWorksheet" style="margin-top:14px">📝 Ôn tập nhiều bài · Kiểm tra từ vựng</button>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
     <div class="kanji-mode-filter" id="kanjiModeFilter"></div>
     <div class="card hidden" id="searchResult"></div>
@@ -308,6 +338,21 @@ td.vg i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--accent);
       <button class="tab" data-tab="quiz">Kiểm tra</button>
     </div>
     <div class="card" id="tabContent"></div>
+  </div>
+
+  <!-- Ôn tập nhiều bài · Kiểm tra từ vựng tổng hợp (mới) -->
+  <div id="worksheet" class="hidden">
+    <button class="back" id="btnWsBack">← Trang chủ</button>
+    <span class="badge">ÔN TẬP TỔNG HỢP</span>
+    <h1>Kiểm tra từ vựng nhiều bài</h1>
+    <p class="sub">Chọn các bài muốn ôn, sau đó tạo phiếu kiểm tra từ vựng — tự bật/tắt từng cột để tăng giảm độ khó.</p>
+    <div class="card" id="wsHub"></div>
+    <div class="card hidden" id="wsTestCard">
+      <div id="wsSummary"></div>
+      <div id="wsToolbar"></div>
+      <div style="overflow-x:auto"><table class="ws-table" id="wsTable"></table></div>
+      <button class="btn btn-main" id="btnWsGrade">✓ Chấm điểm</button>
+    </div>
   </div>
 
 </div>
@@ -1268,6 +1313,211 @@ function renderQuiz(){
     };
   });
 }
+
+// ---------- Ôn tập nhiều bài · Kiểm tra từ vựng tổng hợp (mới) ----------
+var wsSelected = load(K('ws_sel'), []);
+var wsToggles = load('mn_ws_toggles', { hint:true, fillKana:true, fillMeaning:true, note:true, example:true });
+var wsTestGenerated = false;
+
+function wsPool(){
+  var seen = {}, pool = [];
+  LV.data.forEach(function(l){
+    if(wsSelected.indexOf(l.lesson) < 0) return;
+    l.vocab.forEach(function(v){
+      var key = vocabKana(v.w);
+      if(!key || seen[key]) return;
+      seen[key] = true;
+      pool.push(v);
+    });
+  });
+  return pool;
+}
+
+function wsToggleButtonsHtml(){
+  var defs = [
+    ['hint', '👁 Gợi ý Hiragana'],
+    ['fillKana', '✏ Điền Hiragana'],
+    ['fillMeaning', '✏ Điền nghĩa'],
+    ['note', '📝 Ghi chú'],
+    ['example', '💬 Ví dụ']
+  ];
+  return defs.map(function(d){
+    return '<button class="ws-toggle-btn' + (wsToggles[d[0]] ? ' on' : '') + '" data-k="' + d[0] + '">' + d[1] + '</button>';
+  }).join('');
+}
+
+function bindWsToggleButtons(container){
+  container.querySelectorAll('.ws-toggle-btn').forEach(function(b){
+    b.onclick = function(){
+      var k = b.dataset.k;
+      wsToggles[k] = !wsToggles[k];
+      store('mn_ws_toggles', wsToggles);
+      renderWorksheetHub();
+      if(wsTestGenerated) renderWorksheetTable();
+    };
+  });
+}
+
+function openWorksheetHub(){
+  qs('home').classList.add('hidden');
+  qs('detail').classList.add('hidden');
+  qs('worksheet').classList.remove('hidden');
+  wsTestGenerated = false;
+  qs('wsTestCard').classList.add('hidden');
+  renderWorksheetHub();
+  window.scrollTo(0,0);
+}
+function closeWorksheet(){
+  qs('worksheet').classList.add('hidden');
+  qs('home').classList.remove('hidden');
+  renderHome();
+}
+
+function renderWorksheetHub(){
+  var withData = LV.data.filter(function(l){ return l.status !== 'NO_DATA'; });
+  var h = '<div class="ws-lesson-grid">';
+  withData.forEach(function(l){
+    var checked = wsSelected.indexOf(l.lesson) >= 0;
+    h += '<label class="ws-lesson-chk' + (checked ? ' on' : '') + '" data-lesson="' + l.lesson + '">' +
+      '<input type="checkbox"' + (checked ? ' checked' : '') + '> Bài ' + l.lesson +
+      ' <span class="sub" style="margin:0">(' + l.vocab.length + ' từ)</span></label>';
+  });
+  h += '</div>';
+  h += '<div class="ws-bulk"><button class="btn btn-ghost" id="wsSelAll" style="margin-top:0">Chọn tất cả</button>' +
+    '<button class="btn btn-ghost" id="wsSelNone" style="margin-top:0">Bỏ chọn tất cả</button></div>';
+  var pool = wsPool();
+  h += '<p class="ws-count">Đã chọn: <b>' + wsSelected.length + '</b> bài · <b>' + pool.length + '</b> từ vựng (đã gộp trùng)</p>';
+  h += '<div class="ws-toggles">' + wsToggleButtonsHtml() + '</div>';
+  h += '<button class="btn btn-main" id="wsGenerate" style="margin-top:10px">' +
+    (wsTestGenerated ? 'Cập nhật phiếu' : 'Tạo phiếu kiểm tra') + '</button>';
+  var hub = qs('wsHub');
+  hub.innerHTML = h;
+  hub.querySelectorAll('.ws-lesson-chk input').forEach(function(cb){
+    cb.onchange = function(){
+      var lesson = +cb.closest('.ws-lesson-chk').dataset.lesson;
+      var idx = wsSelected.indexOf(lesson);
+      if(cb.checked && idx < 0) wsSelected.push(lesson);
+      else if(!cb.checked && idx >= 0) wsSelected.splice(idx, 1);
+      store(K('ws_sel'), wsSelected);
+      renderWorksheetHub();
+    };
+  });
+  hub.querySelector('#wsSelAll').onclick = function(){
+    wsSelected = withData.map(function(l){ return l.lesson; });
+    store(K('ws_sel'), wsSelected);
+    renderWorksheetHub();
+  };
+  hub.querySelector('#wsSelNone').onclick = function(){
+    wsSelected = [];
+    store(K('ws_sel'), wsSelected);
+    renderWorksheetHub();
+  };
+  bindWsToggleButtons(hub);
+  hub.querySelector('#wsGenerate').onclick = function(){
+    if(!pool.length){ alert('Chọn ít nhất 1 bài có từ vựng trước đã.'); return; }
+    wsTestGenerated = true;
+    qs('wsTestCard').classList.remove('hidden');
+    renderWorksheetTable();
+    qs('wsTestCard').scrollIntoView({ behavior:'smooth', block:'start' });
+  };
+}
+
+function renderWorksheetTable(){
+  var pool = wsPool();
+  qs('wsSummary').innerHTML = '';
+  qs('wsToolbar').innerHTML = '<div class="ws-toggles">' + wsToggleButtonsHtml() + '</div>';
+  bindWsToggleButtons(qs('wsToolbar'));
+
+  var hasFill = wsToggles.fillKana || wsToggles.fillMeaning;
+  var head = '<thead><tr><th>#</th><th>Từ</th>';
+  if(wsToggles.hint) head += '<th>Hiragana</th>';
+  if(wsToggles.fillKana) head += '<th>Điền Hiragana</th>';
+  if(wsToggles.fillMeaning) head += '<th>Điền nghĩa</th>';
+  if(hasFill) head += '<th>Kết quả</th>';
+  if(wsToggles.note) head += '<th>Ghi chú</th>';
+  if(wsToggles.example) head += '<th>Ví dụ</th>';
+  head += '</tr></thead>';
+
+  var body = '<tbody>';
+  pool.forEach(function(v, i){
+    var kana = vocabKana(v.w);
+    var wordCell = v.k ? kanjiLinkify(v.k) : esc(stripGroupMark(kana));
+    body += '<tr data-key="' + esc(kana) + '" data-meaning="' + esc(v.m) + '">';
+    body += '<td>' + (i + 1) + '</td>';
+    body += '<td class="jp">' + wordCell + ' <button class="dlg-play voc-play" data-w="' + esc(kana) + '" title="Nghe">🔊</button></td>';
+    if(wsToggles.hint) body += '<td class="jp">' + esc(stripGroupMark(v.w)) + '</td>';
+    if(wsToggles.fillKana) body += '<td><input type="text" class="ws-in-kana" placeholder="かな" autocomplete="off"></td>';
+    if(wsToggles.fillMeaning) body += '<td><input type="text" class="ws-in-meaning" placeholder="nghĩa" autocomplete="off"></td>';
+    if(hasFill) body += '<td class="ws-mark-cell"></td>';
+    if(wsToggles.note) body += '<td><textarea class="ws-in-note" placeholder="ghi chú">' + esc(load('mn_wsnote_' + kana, '')) + '</textarea></td>';
+    if(wsToggles.example) body += '<td><textarea class="ws-in-example" placeholder="viết câu ví dụ">' + esc(load('mn_wsex_' + kana, '')) + '</textarea></td>';
+    body += '</tr>';
+  });
+  body += '</tbody>';
+
+  var table = qs('wsTable');
+  table.innerHTML = head + body;
+  table.querySelectorAll('.voc-play').forEach(function(btn){
+    btn.onclick = function(e){
+      e.stopPropagation();
+      var w = btn.dataset.w;
+      playAudio(btn, w, 'audio/vocab/' + encodeURIComponent(w) + '.mp3');
+    };
+  });
+  table.querySelectorAll('.kj-click').forEach(function(el){
+    el.onclick = function(){ openKanjiPopup(el.dataset.kj); };
+  });
+  table.querySelectorAll('.ws-in-note').forEach(function(el){
+    el.onblur = function(){
+      var key = el.closest('tr').dataset.key;
+      store('mn_wsnote_' + key, el.value);
+    };
+  });
+  table.querySelectorAll('.ws-in-example').forEach(function(el){
+    el.onblur = function(){
+      var key = el.closest('tr').dataset.key;
+      store('mn_wsex_' + key, el.value);
+    };
+  });
+}
+
+function wsNormKana(s){ return (s || '').trim().replace(/[\s　]/g, ''); }
+function wsNormMeaning(s){ return (s || '').trim().toLowerCase(); }
+
+function gradeWorksheet(){
+  var hasFill = wsToggles.fillKana || wsToggles.fillMeaning;
+  if(!hasFill){
+    qs('wsSummary').innerHTML = '<span style="color:var(--gold)">Bật cột "Điền Hiragana" hoặc "Điền nghĩa" để có thể chấm điểm.</span>';
+    return;
+  }
+  var rows = qs('wsTable').querySelectorAll('tbody tr');
+  var total = 0, correct = 0;
+  rows.forEach(function(row){
+    row.classList.remove('ws-row-correct', 'ws-row-wrong');
+    var key = row.dataset.key, meaning = row.dataset.meaning;
+    var ok = true;
+    if(wsToggles.fillKana){
+      var inKana = row.querySelector('.ws-in-kana');
+      ok = ok && wsNormKana(inKana.value) === wsNormKana(key);
+    }
+    if(wsToggles.fillMeaning){
+      var inMeaning = row.querySelector('.ws-in-meaning');
+      var am = wsNormMeaning(inMeaning.value), cm = wsNormMeaning(meaning);
+      ok = ok && am.length > 0 && (cm.indexOf(am) >= 0 || am.indexOf(cm) >= 0);
+    }
+    total++;
+    if(ok) correct++;
+    row.classList.add(ok ? 'ws-row-correct' : 'ws-row-wrong');
+    var markCell = row.querySelector('.ws-mark-cell');
+    if(markCell) markCell.innerHTML = '<span class="ws-mark ' + (ok ? 'ok' : 'bad') + '">' + (ok ? '✓' : '✗') + '</span>';
+  });
+  var pct = total ? Math.round(correct / total * 100) : 0;
+  qs('wsSummary').innerHTML = 'Kết quả: <span class="pct-ok">' + correct + '/' + total + '</span> đúng (' + pct + '%)';
+}
+
+qs('btnWorksheet').onclick = openWorksheetHub;
+qs('btnWsBack').onclick = closeWorksheet;
+qs('btnWsGrade').onclick = gradeWorksheet;
 })();
 </script>
 </body>
