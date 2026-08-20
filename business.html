@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOERU — Business Japanese: Khách sạn &amp; Nhà hàng</title>
+<style>
+:root{
+  --bg:#0a0d14; --card:#121820; --card2:#1a2230;
+  --line:rgba(255,255,255,.08); --text:#eef1f6; --muted:#8a93a6;
+  --accent:#e8845a; --gold:#f5c842; --accent2:#d4703f; --radius-md:12px;
+}
+:root[data-theme="light"]{
+  --bg:#f7f4ee; --card:#ffffff; --card2:#f0ece3;
+  --line:rgba(0,0,0,.08); --text:#1c1a17; --muted:#7a7468;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Noto Sans JP','Noto Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);min-height:100vh;padding:16px}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:1.3rem;margin:0 0 4px}
+.sub{color:var(--muted);font-size:.85rem;margin:0 0 20px}
+.badge{display:inline-block;background:rgba(232,132,90,.15);color:var(--accent);
+  border-radius:999px;padding:3px 10px;font-size:.72rem;font-weight:700;margin-bottom:10px}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:16px;margin-bottom:14px}
+.sec h2{font-size:.95rem;margin:0 0 12px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec h2 .num{background:var(--accent);color:#fff;width:22px;height:22px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;flex:none}
+.voc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:520px){.voc-grid{grid-template-columns:1fr}}
+.voc-item{background:var(--card2);border-radius:8px;padding:8px 10px;font-size:.88rem}
+.voc-item ruby rt{font-size:.6em;color:var(--muted)}
+.voc-item .m{color:var(--muted);font-size:.8rem;margin-top:2px}
+.btn-speak{display:block;width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;border:none;border-radius:10px;padding:10px;font-weight:700;font-size:.86rem;
+  cursor:pointer;font-family:inherit;margin-bottom:12px}
+.phrase-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.phrase-list li{background:var(--card2);border-radius:8px;padding:9px 12px;font-size:.92rem;line-height:1.6}
+.phrase-list li ruby rt{font-size:.6em;color:var(--muted)}
+.phrase-list li .vn{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.dlg-line{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.dlg-line:last-child{border-bottom:none}
+.dlg-spk{flex:none;width:70px;font-size:.75rem;font-weight:800;color:var(--accent);line-height:1.6}
+.dlg-txt{flex:1;font-size:.94rem;line-height:1.7}
+.dlg-txt ruby rt{font-size:.6em;color:var(--muted)}
+.dlg-vn{color:var(--muted);font-size:.78rem;margin-top:2px}
+.rp-item{background:var(--card2);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.rp-item .tag{font-size:.7rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.04em}
+.rp-item .jp{font-size:.92rem;margin-top:4px}
+.rp-item .jp ruby rt{font-size:.6em;color:var(--muted)}
+.rp-item .vn{color:var(--muted);font-size:.8rem;margin-top:3px}
+.ai-box{background:linear-gradient(135deg,rgba(232,132,90,.12),rgba(245,200,66,.08));
+  border:1px solid rgba(232,132,90,.3);border-radius:10px;padding:12px 14px;font-size:.88rem;line-height:1.6}
+.ai-box b{color:var(--accent)}
+.note{font-size:.76rem;color:var(--muted);margin-top:16px;text-align:center;line-height:1.6}
+.topic-nav{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.topic-nav a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;
+  font-size:.78rem;font-weight:700;color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topic-nav" id="topicNav"></div>
+  <div id="topics"></div>
+  <p class="note">Nội dung viết lại dựa trên cách dùng từ/kính ngữ chuẩn tham khảo từ sách hội thoại tiếp khách tiếng Nhật, không sao chép nguyên văn.<br>
+  <span id="progressNote"></span></p>
+</div>
+<script src="js/speak-practice.js?v=20260819"></script>
+<script>
+// "漢字[かな]" -> <ruby>; đồng bộ quy ước với rubyfy() trong minna.html
+function esc(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+function rubyfy(s){ return esc(s).replace(/([一-鿿々]+)\[([ぁ-ゖー]+)\]/g,'<ruby>$1<rt>$2</rt></ruby>'); }
+function stripRuby(s){ return (s || '').replace(/\[[ぁ-ゖー]+\]/g,''); }
+
+var TOPICS = [
+{
+  id:1, stage:'N4', title:'Check-in khách sạn',
+  sub:'Xác nhận tên, đặt phòng, hộ chiếu, số đêm, loại phòng.',
+  vocab:[
+    {w:'予約', r:'よやく', m:'đặt phòng, đặt chỗ trước'},
+    {w:'チェックイン', r:'', m:'nhận phòng'},
+    {w:'チェックアウト', r:'', m:'trả phòng'},
+    {w:'部屋番号', r:'へやばんごう', m:'số phòng'},
+    {w:'鍵', r:'かぎ', m:'chìa khóa'},
+    {w:'朝食券', r:'ちょうしょくけん', m:'phiếu ăn sáng'},
+    {w:'フロント', r:'', m:'quầy lễ tân'},
+    {w:'一泊', r:'いっぱく', m:'một đêm lưu trú'},
+    {w:'宿泊料金', r:'しゅくはくりょうきん', m:'phí lưu trú'},
+    {w:'かしこまりました', r:'', m:'vâng, tôi đã rõ (đáp lại yêu cầu khách)'}
+  ],
+  phrases:[
+    {jp:'いらっしゃいませ。ご予約[よやく]のお名前[なまえ]をお願[ねが]いいたします。', vn:'Kính chào quý khách. Xin cho biết tên đã đặt phòng ạ.'},
+    {jp:'少々[しょうしょう]お待[ま]ちくださいませ。', vn:'Xin quý khách đợi trong giây lát.'},
+    {jp:'こちらにお名前[なまえ]とご住所[じゅうしょ]をご記入[きにゅう]ください。', vn:'Xin quý khách điền tên và địa chỉ vào đây ạ.'},
+    {jp:'お部屋[へや]の番号[ばんごう]は305でございます。こちらが鍵[かぎ]でございます。', vn:'Phòng của quý khách là số 305. Đây là chìa khóa ạ.'},
+    {jp:'朝食[ちょうしょく]は1階[かい]のレストランでご用意[ようい]しております。', vn:'Bữa sáng được phục vụ tại nhà hàng tầng 1 ạ.'},
+    {jp:'申[もう]し訳[わけ]ございません。もう一度[いちど]お名前[なまえ]を伺[うかが]ってもよろしいでしょうか。', vn:'Thành thật xin lỗi. Quý khách vui lòng cho biết lại tên được không ạ.'},
+    {jp:'かしこまりました。', vn:'Vâng, tôi đã rõ ạ.'}
+  ],
+  dialogue:[
+    {spk:'スタッフ', jp:'いらっしゃいませ、はなホテルでございます。ご予約[よやく]のお名前[なまえ]をお願[ねが]いいたします。', vn:'Kính chào, đây là khách sạn Hana. Xin cho biết tên đã đặt phòng ạ.'},
+    {spk:'お客様', jp:'グエンです。今日[きょう]から二泊[にはく]予約[よやく]しています。', vn:'Tôi tên Nguyễn. Tôi đã đặt phòng từ hôm nay, ở 2 đêm.'},
+    {spk:'スタッフ', jp:'グエン様[さま]でございますね。少々[しょうしょう]お待[ま]ちくださいませ。…こちらにお名前[なまえ]とご住所[じゅうしょ]をご記入[きにゅう]ください。', vn:'Dạ, quý khách Nguyễn ạ. Xin đợi trong giây lát... Xin quý khách điền tên và địa chỉ vào đây ạ.'},
+    {spk:'お客様', jp:'はい、わかりました。', vn:'Vâng, tôi hiểu rồi.'},
+    {spk:'スタッフ', jp:'お部屋[へや]の番号[ばんごう]は305でございます。こちらが鍵[かぎ]と朝食[ちょうしょく]券[けん]でございます。朝食[ちょうしょく]は1階[かい]のレストランでご用意[ようい]しております。', vn:'Phòng của quý khách là số 305. Đây là chìa khóa và phiếu ăn sáng ạ. Bữa sáng được phục vụ tại nhà hàng tầng 1.'},
+    {spk:'お客様', jp:'ありがとうございます。', vn:'Cảm ơn.'}
+  ],
+  roleplay:[
+    {tag:'Lần 1 — bình thường', jp:'予約[よやく]したグエンです。', vn:'Tôi là Nguyễn, đã đặt phòng.'},
+    {tag:'Lần 2 — chưa tìm thấy tên', jp:'申[もう]し訳[わけ]ございません、お名前[なまえ]が見[み]つからないのですが…アプリでご予約[よやく]されましたか。', vn:'Xin lỗi quý khách, tôi không tìm thấy tên đặt phòng... quý khách đặt qua ứng dụng phải không ạ?'},
+    {tag:'Lần 3 — đến sớm, phòng chưa sẵn sàng', jp:'まだお部屋[へや]の準備[じゅんび]ができておりません。1時間[じかん]ほどお待[ま]ちいただけますでしょうか。', vn:'Phòng chưa được dọn xong ạ. Quý khách có thể đợi khoảng 1 tiếng được không ạ?'},
+    {tag:'Lần 4 — khách muốn đổi loại phòng', jp:'禁煙[きんえん]の部屋[へや]に変[か]えられますか。', vn:'Tôi có thể đổi sang phòng không hút thuốc được không?'}
+  ],
+  ai:{ role:'AI đóng vai lễ tân khách sạn "はなホテル", học viên đóng vai khách đến check-in.',
+    steps:['AI hỏi tên đặt phòng — bạn trả lời tên + số đêm','AI yêu cầu điền thông tin — bạn xác nhận bằng tiếng Nhật','Bạn chủ động hỏi giờ ăn sáng / Wi-Fi','AI đổi 1 biến số bất ngờ (không tìm thấy tên / phòng chưa sẵn sàng) — bạn phải phản xạ xử lý'] }
+},
+{
+  id:2, stage:'N4', title:'Check-out khách sạn',
+  sub:'Kiểm tra hóa đơn, thanh toán, trả phòng, cảm ơn khách.',
+  vocab:[
+    {w:'会計', r:'かいけい', m:'thanh toán, tính tiền'},
+    {w:'支払い', r:'しはらい', m:'hình thức thanh toán'},
+    {w:'現金', r:'げんきん', m:'tiền mặt'},
+    {w:'カード', r:'', m:'thẻ (tín dụng)'},
+    {w:'暗証番号', r:'あんしょうばんごう', m:'mã PIN'},
+    {w:'サイン', r:'', m:'chữ ký'},
+    {w:'お釣り', r:'おつり', m:'tiền thối'},
+    {w:'領収書', r:'りょうしゅうしょ', m:'hóa đơn, biên lai'},
+    {w:'延長', r:'えんちょう', m:'gia hạn (thời gian)'},
+    {w:'忘れ物', r:'わすれもの', m:'đồ để quên'}
+  ],
+  phrases:[
+    {jp:'お会計[かいけい]はあちらになります。', vn:'Quầy thanh toán ở đằng kia ạ.'},
+    {jp:'お支払[しはら]いはどのようになさいますか。', vn:'Quý khách muốn thanh toán bằng hình thức nào ạ?'},
+    {jp:'カードをお預[あず]かりします。', vn:'Tôi xin phép giữ thẻ của quý khách một chút ạ.'},
+    {jp:'こちらに暗証番号[あんしょうばんごう]をご入力[にゅうりょく]ください。', vn:'Xin quý khách nhập mã PIN vào đây ạ.'},
+    {jp:'カードのお返[かえ]しと領収書[りょうしゅうしょ]でございます。', vn:'Đây là thẻ và hóa đơn của quý khách ạ.'},
+    {jp:'お部屋[へや]にお忘[わす]れ物[もの]はございませんか。', vn:'Quý khách có để quên đồ gì trong phòng không ạ?'},
+    {jp:'本日[ほんじつ]はご利用[りよう]ありがとうございました。', vn:'Cảm ơn quý khách đã sử dụng dịch vụ hôm nay ạ.'}
+  ],
+  dialogue:[
+    {spk:'お客様', jp:'すみません、チェックアウトをお願[ねが]いします。305号室[ごうしつ]のグエンです。', vn:'Xin lỗi, tôi muốn trả phòng. Tôi là Nguyễn, phòng 305.'},
+    {spk:'スタッフ', jp:'グエン様[さま]でございますね。少々[しょうしょう]お待[ま]ちください。…お会計[かいけい]は8,000円[えん]でございます。お支払[しはら]いはどのようになさいますか。', vn:'Dạ, quý khách Nguyễn ạ. Xin đợi một chút... Tổng tiền là 8,000 yên. Quý khách muốn thanh toán bằng hình thức nào ạ?'},
+    {spk:'お客様', jp:'カードでお願[ねが]いします。', vn:'Tôi trả bằng thẻ.'},
+    {spk:'スタッフ', jp:'カードをお預[あず]かりします。こちらに暗証番号[あんしょうばんごう]をご入力[にゅうりょく]ください。…カードのお返[かえ]しと領収書[りょうしゅうしょ]でございます。お部屋[へや]にお忘[わす]れ物[もの]はございませんか。', vn:'Tôi xin giữ thẻ một chút. Xin nhập mã PIN vào đây ạ... Đây là thẻ và hóa đơn của quý khách. Quý khách có để quên đồ gì trong phòng không ạ?'},
+    {spk:'お客様', jp:'ないです。ありがとうございました。', vn:'Không có ạ. Cảm ơn.'},
+    {spk:'スタッフ', jp:'本日[ほんじつ]はご利用[りよう]ありがとうございました。', vn:'Cảm ơn quý khách đã sử dụng dịch vụ hôm nay ạ.'}
+  ],
+  roleplay:[
+    {tag:'Lần 1 — thanh toán thẻ', jp:'カードでお願[ねが]いします。', vn:'Tôi trả bằng thẻ.'},
+    {tag:'Lần 2 — thanh toán tiền mặt', jp:'現金[げんきん]で払[はら]えますか。', vn:'Tôi có thể trả bằng tiền mặt được không?'},
+    {tag:'Lần 3 — muốn gia hạn giờ trả phòng', jp:'チェックアウトを1時間[じかん]延長[えんちょう]できますか。', vn:'Tôi có thể gia hạn giờ trả phòng thêm 1 tiếng được không?'},
+    {tag:'Lần 4 — thắc mắc phí phát sinh', jp:'この金額[きんがく]は何[なん]ですか。頼[たの]んでいないのですが…', vn:'Khoản tiền này là gì vậy? Tôi không gọi món này...'}
+  ],
+  ai:{ role:'AI đóng vai lễ tân khách sạn "はなホテル", học viên đóng vai khách đến check-out.',
+    steps:['AI thông báo số tiền — bạn chọn hình thức thanh toán','Nếu chọn thẻ: bạn phản xạ theo hướng dẫn nhập PIN','Bạn chủ động hỏi về đồ để quên / gợi ý taxi ra sân bay','AI đổi 1 biến số bất ngờ (phí phát sinh lạ / muốn gia hạn) — bạn phải phản xạ xử lý'] }
+},
+{
+  id:3, stage:'N4', title:'Hỏi giờ ăn sáng',
+  sub:'Giải thích thời gian, địa điểm và cách đi đến nhà hàng.',
+  vocab:[
+    {w:'朝食', r:'ちょうしょく', m:'bữa sáng'},
+    {w:'営業時間', r:'えいぎょうじかん', m:'giờ hoạt động, giờ mở cửa'},
+    {w:'開店', r:'かいてん', m:'mở cửa (cửa hàng)'},
+    {w:'閉店', r:'へいてん', m:'đóng cửa (cửa hàng)'},
+    {w:'会場', r:'かいじょう', m:'địa điểm, nơi tổ chức'},
+    {w:'奥', r:'おく', m:'phía trong, đằng sau'},
+    {w:'突き当たり', r:'つきあたり', m:'cuối hành lang'},
+    {w:'エレベーター', r:'', m:'thang máy'},
+    {w:'まっすぐ', r:'', m:'đi thẳng'},
+    {w:'案内', r:'あんない', m:'hướng dẫn, chỉ đường'}
+  ],
+  phrases:[
+    {jp:'朝食[ちょうしょく]は午前[ごぜん]6時半[じはん]から10時[じ]まででございます。', vn:'Bữa sáng phục vụ từ 6 giờ rưỡi đến 10 giờ sáng ạ.'},
+    {jp:'朝食[ちょうしょく]会場[かいじょう]は1階[かい]のレストランでございます。', vn:'Nơi ăn sáng ở nhà hàng tầng 1 ạ.'},
+    {jp:'あちらのエレベーターで1階[かい]までお下[お]がりください。', vn:'Xin quý khách xuống tầng 1 bằng thang máy đằng kia ạ.'},
+    {jp:'エレベーターを降[お]りて、まっすぐ行[い]った突[つ]き当[あ]たりにございます。', vn:'Ra khỏi thang máy, đi thẳng đến cuối hành lang là tới ạ.'},
+    {jp:'土日[どにち]は朝食[ちょうしょく]のお時間[じかん]が異[こと]なりますので、ご注意[ちゅうい]ください。', vn:'Cuối tuần giờ ăn sáng có thay đổi, xin quý khách lưu ý ạ.'},
+    {jp:'ご案内[あんない]いたしましょうか。', vn:'Để tôi dẫn quý khách đi được không ạ?'},
+    {jp:'承知[しょうち]いたしました。', vn:'Vâng, tôi đã rõ ạ.'}
+  ],
+  dialogue:[
+    {spk:'お客様', jp:'すみません、朝食[ちょうしょく]は何時[なんじ]からですか。', vn:'Xin lỗi, bữa sáng phục vụ từ mấy giờ vậy?'},
+    {spk:'スタッフ', jp:'朝食[ちょうしょく]は午前[ごぜん]6時半[じはん]から10時[じ]まで、1階[かい]のレストランでございます。', vn:'Bữa sáng từ 6 giờ rưỡi đến 10 giờ sáng, tại nhà hàng tầng 1 ạ.'},
+    {spk:'お客様', jp:'どうやって行[い]けばいいですか。', vn:'Tôi đi đường nào vậy?'},
+    {spk:'スタッフ', jp:'あちらのエレベーターで1階[かい]までお下[お]がりください。降[お]りて、まっすぐ行[い]った突[つ]き当[あ]たりにございます。', vn:'Xin quý khách xuống tầng 1 bằng thang máy đằng kia. Ra khỏi thang máy, đi thẳng đến cuối hành lang là tới ạ.'},
+    {spk:'お客様', jp:'わかりました。ありがとうございます。', vn:'Tôi hiểu rồi. Cảm ơn.'}
+  ],
+  roleplay:[
+    {tag:'Lần 1 — hỏi giờ bình thường', jp:'朝食[ちょうしょく]は何時[なんじ]までですか。', vn:'Bữa sáng phục vụ đến mấy giờ vậy?'},
+    {tag:'Lần 2 — dậy muộn, hỏi có kịp không', jp:'9時半[じはん]でもまだ間[ま]に合[あ]いますか。', vn:'9 giờ rưỡi thì có còn kịp ăn sáng không?'},
+    {tag:'Lần 3 — hỏi có thể mang lên phòng không', jp:'部屋[へや]まで朝食[ちょうしょく]を運[はこ]んでもらえますか。', vn:'Có thể mang bữa sáng lên phòng cho tôi được không?'},
+    {tag:'Lần 4 — bị lạc đường, cần dẫn đi', jp:'道[みち]に迷[まよ]ってしまいました。ご案内[あんない]いただけますか。', vn:'Tôi bị lạc đường rồi. Anh/chị dẫn tôi đi được không?'}
+  ],
+  ai:{ role:'AI đóng vai lễ tân khách sạn "はなホテル", học viên đóng vai khách hỏi về bữa sáng.',
+    steps:['Bạn hỏi giờ ăn sáng — AI trả lời giờ + địa điểm','Bạn hỏi đường đi — AI hướng dẫn từng bước','AI đổi 1 biến số bất ngờ (cuối tuần đổi giờ / bạn dậy muộn) — bạn phải phản xạ hỏi tiếp'] }
+},
+{
+  id:4, stage:'N4', title:'Hướng dẫn khách trong khách sạn',
+  sub:'Thang máy, nhà hàng, toilet, quầy lễ tân, phòng hút thuốc.',
+  vocab:[
+    {w:'お手洗い', r:'おてあらい', m:'nhà vệ sinh (cách nói lịch sự)'},
+    {w:'喫煙室', r:'きつえんしつ', m:'phòng hút thuốc'},
+    {w:'廊下', r:'ろうか', m:'hành lang'},
+    {w:'階段', r:'かいだん', m:'cầu thang'},
+    {w:'ロビー', r:'', m:'sảnh chờ'},
+    {w:'左手', r:'ひだりて', m:'bên tay trái'},
+    {w:'右手', r:'みぎて', m:'bên tay phải'},
+    {w:'奥', r:'おく', m:'phía trong, đằng sau'},
+    {w:'突き当たり', r:'つきあたり', m:'cuối hành lang'},
+    {w:'案内', r:'あんない', m:'hướng dẫn, chỉ đường'}
+  ],
+  phrases:[
+    {jp:'あちらの奥[おく]でございます。', vn:'Ở đằng kia, phía trong ạ.'},
+    {jp:'廊下[ろうか]の突[つ]き当[あ]たりでございます。', vn:'Ở cuối hành lang ạ.'},
+    {jp:'ここをまっすぐ行[い]った突[つ]き当[あ]たりの右[みぎ]にございます。', vn:'Đi thẳng từ đây, cuối hành lang rẽ phải là tới ạ.'},
+    {jp:'エレベーターで2階[かい]に上[あ]がると、左手[ひだりて]奥[おく]にございます。', vn:'Lên tầng 2 bằng thang máy, phía trong bên trái ạ.'},
+    {jp:'1階[かい]と2階[かい]の階段[かいだん]付近[ふきん]にございます。', vn:'Ở gần cầu thang giữa tầng 1 và tầng 2 ạ.'},
+    {jp:'喫煙室[きつえんしつ]はロビーの奥[おく]にございます。', vn:'Phòng hút thuốc ở phía trong sảnh ạ.'},
+    {jp:'ご案内[あんない]いたしましょうか。', vn:'Để tôi dẫn quý khách đi nhé ạ?'}
+  ],
+  dialogue:[
+    {spk:'お客様', jp:'すみません、お手洗[てあら]いはどこですか。', vn:'Xin lỗi, nhà vệ sinh ở đâu vậy?'},
+    {spk:'スタッフ', jp:'廊下[ろうか]の突[つ]き当[あ]たりでございます。', vn:'Ở cuối hành lang ạ.'},
+    {spk:'お客様', jp:'ありがとうございます。あと、喫煙室[きつえんしつ]はありますか。', vn:'Cảm ơn. Với lại, có phòng hút thuốc không?'},
+    {spk:'スタッフ', jp:'はい、ロビーの奥[おく]にございます。ご案内[あんない]いたしましょうか。', vn:'Dạ có, ở phía trong sảnh ạ. Để tôi dẫn quý khách đi nhé?'},
+    {spk:'お客様', jp:'大丈夫[だいじょうぶ]です、自分[じぶん]で行[い]けます。', vn:'Không sao, tôi tự đi được.'}
+  ],
+  roleplay:[
+    {tag:'Lần 1 — hỏi nhà vệ sinh', jp:'お手洗[てあら]いはどこですか。', vn:'Nhà vệ sinh ở đâu vậy?'},
+    {tag:'Lần 2 — hỏi phòng hút thuốc', jp:'喫煙[きつえん]できる場所[ばしょ]はありますか。', vn:'Có chỗ nào hút thuốc được không?'},
+    {tag:'Lần 3 — hỏi lobby/quầy lễ tân', jp:'フロントに戻[もど]りたいのですが、どちらでしたか。', vn:'Tôi muốn quay lại quầy lễ tân, ở hướng nào vậy?'},
+    {tag:'Lần 4 — phức tạp quá, muốn được dẫn đi', jp:'ちょっとわかりにくいので、連[つ]れて行[い]っていただけますか。', vn:'Hơi khó hiểu, anh/chị dẫn tôi đi được không?'}
+  ],
+  ai:{ role:'AI đóng vai lễ tân khách sạn "はなホテル", học viên đóng vai khách hỏi đường trong khách sạn.',
+    steps:['Bạn hỏi 1 địa điểm trong khách sạn — AI chỉ đường bằng trái/phải/tầng','Bạn hỏi tiếp địa điểm thứ 2 — AI chỉ đường khác','AI chủ động đề nghị dẫn đi — bạn phản xạ nhận lời hoặc từ chối lịch sự'] }
+}
+];
+
+function renderVocGrid(elId, vocab){
+  document.getElementById(elId).innerHTML = vocab.map(function(v){
+    var jp = v.r ? '<ruby>' + esc(v.w) + '<rt>' + esc(v.r) + '</rt></ruby>' : esc(v.w);
+    return '<div class="voc-item">' + jp + ' <div class="m">' + esc(v.m) + '</div></div>';
+  }).join('');
+}
+
+function renderTopic(t){
+  var vocGridId = 'vocGrid' + t.id, speakBtnId = 'btnSpeakVocab' + t.id;
+  var h = '<section id="topic' + t.id + '" class="topic">' +
+    '<div class="badge">🏨 Business Japanese — Giai đoạn 1 · ' + esc(t.stage) + '</div>' +
+    '<h1>Chủ đề ' + t.id + ': ' + esc(t.title) + '</h1>' +
+    '<p class="sub">' + esc(t.sub) + '</p>' +
+
+    '<div class="sec"><h2><span class="num">1</span>Từ vựng cần dùng</h2>' +
+    '<button class="btn-speak" id="' + speakBtnId + '" type="button">🎤 Luyện nói từ vựng</button>' +
+    '<div class="voc-grid" id="' + vocGridId + '"></div></div>' +
+
+    '<div class="sec"><h2><span class="num">2</span>Câu phản xạ bắt buộc</h2><ul class="phrase-list">' +
+    t.phrases.map(function(p){
+      return '<li>' + rubyfy(p.jp) + '<span class="vn">' + esc(p.vn) + '</span></li>';
+    }).join('') + '</ul></div>' +
+
+    '<div class="sec"><h2><span class="num">3</span>Hội thoại mẫu</h2>' +
+    t.dialogue.map(function(d){
+      return '<div class="dlg-line"><div class="dlg-spk">' + esc(d.spk) + '</div>' +
+        '<div><div class="dlg-txt">' + rubyfy(d.jp) + '</div><div class="dlg-vn">' + esc(d.vn) + '</div></div></div>';
+    }).join('') + '</div>' +
+
+    '<div class="sec"><h2><span class="num">4</span>Role-play biến đổi tình huống</h2>' +
+    t.roleplay.map(function(r){
+      return '<div class="rp-item"><div class="tag">' + esc(r.tag) + '</div>' +
+        '<div class="jp">' + rubyfy(r.jp) + '</div><div class="vn">' + esc(r.vn) + '</div></div>';
+    }).join('') + '</div>' +
+
+    '<div class="sec"><h2><span class="num">5</span>Bài tập AI — luyện nói 5-10 phút</h2>' +
+    '<div class="ai-box"><b>' + esc(t.ai.role) + '</b><br><br>Gợi ý kịch bản luyện tập:' +
+    '<ol style="margin:6px 0 0;padding-left:18px">' +
+    t.ai.steps.map(function(s){ return '<li>' + esc(s) + '</li>'; }).join('') +
+    '</ol></div></div>' +
+    '</section>';
+
+  return h;
+}
+
+document.getElementById('topicNav').innerHTML = TOPICS.map(function(t){
+  return '<a href="#topic' + t.id + '">Chủ đề ' + t.id + ' · ' + esc(t.title.split(' ')[0]) + '</a>';
+}).join('');
+
+document.getElementById('topics').innerHTML = TOPICS.map(renderTopic).join('');
+
+TOPICS.forEach(function(t){
+  renderVocGrid('vocGrid' + t.id, t.vocab);
+  document.getElementById('btnSpeakVocab' + t.id).onclick = function(){
+    SpeakPractice.open(t.vocab.map(function(v){
+      var key = v.r || v.w;
+      return { word: v.w, reading: v.r, meaning: v.m, mp3: 'audio/vocab-business/' + encodeURIComponent(key) + '.mp3' };
+    }), { title: 'Chủ đề ' + t.id });
+  };
+});
+
+document.getElementById('progressNote').textContent =
+  'Đã hoàn thành ' + TOPICS.length + '/30 chủ đề — tiếp tục triển khai các chủ đề còn lại.';
+</script>
+</body>
+</html>
