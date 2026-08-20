@@ -376,6 +376,7 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
       <div id="wsSummary"></div>
       <div id="wsToolbar"></div>
       <div style="overflow-x:auto"><table class="ws-table" id="wsTable"></table></div>
+      <input class="search" id="wsStudentName" style="margin-top:12px" placeholder="✏ Tên của bạn (để giáo viên biết ai làm bài)">
       <button class="btn btn-main" id="btnWsGrade">✓ Chấm điểm</button>
     </div>
   </div>
@@ -1453,6 +1454,7 @@ function openWorksheetHub(){
   qs('worksheet').classList.remove('hidden');
   wsTestGenerated = false;
   qs('wsTestCard').classList.add('hidden');
+  qs('wsStudentName').value = load('koeru_student_name', '');
   renderWorksheetHub();
   renderWorksheetHistory();
   window.scrollTo(0,0);
@@ -1606,6 +1608,18 @@ function renderWorksheetTable(){
 function wsNormKana(s){ return (s || '').trim().replace(/[\s　]/g, ''); }
 function wsNormMeaning(s){ return (s || '').trim().toLowerCase(); }
 
+// URL Web App Google Apps Script nhận kết quả (rỗng = chưa bật, không gửi gì)
+var RESULTS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyQ6-8R83K5begoutA_uWEN7-eE8DRBqc9jG7mTnm_WOGOpWjgieMtFSFjm5rpJEGAb7g/exec';
+
+function sendResultToTeacher(payload){
+  if(!RESULTS_ENDPOINT) return;
+  fetch(RESULTS_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  }).catch(function(){});
+}
+
 function gradeWorksheet(){
   var hasFill = wsToggles.fillKana || wsToggles.fillMeaning;
   if(!hasFill){
@@ -1641,6 +1655,10 @@ function gradeWorksheet(){
   if(hist.length > 50) hist = hist.slice(hist.length - 50);
   store(K('ws_hist'), hist);
   renderWorksheetHistory();
+
+  var name = (qs('wsStudentName').value || '').trim();
+  store('koeru_student_name', name);
+  sendResultToTeacher({ name: name, level: curLevel, lessons: wsSelected.slice(), correct: correct, total: total, pct: pct });
 }
 
 qs('btnWorksheet').onclick = openWorksheetHub;
