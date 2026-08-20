@@ -188,7 +188,7 @@ table thead th{text-align:left;padding:8px 10px;font-size:.7rem;color:var(--mute
   text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line)}
 tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.04em}
 /* chuyển đổi Bảng / Flashcard-list (mới) */
-.mode-toggle{display:flex;gap:8px;margin-bottom:14px}
+.mode-toggle{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
 .mode-toggle button{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-sm);
   padding:8px 14px;color:var(--muted);font-weight:700;font-size:.8rem;cursor:pointer;font-family:inherit;min-height:44px}
 .mode-toggle button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
@@ -342,6 +342,8 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
     <div class="card" id="progressSummary"></div>
     <button class="btn btn-main" id="btnWorksheet" style="margin-top:14px">📝 Ôn tập nhiều bài · Kiểm tra từ vựng</button>
     <button class="btn btn-ghost" id="btnQA" style="margin-top:8px">🔍 QA âm thanh (giáo viên)</button>
+    <button class="btn btn-ghost" id="btnSpeakHome" style="margin-top:8px">🎤 Luyện nói từ vựng</button>
+    <button class="btn btn-ghost" id="btnSpeakSaved" style="margin-top:8px">📌 Từ/câu đã lưu</button>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh từ vựng (kana / kanji / nghĩa Việt)…">
     <div class="kanji-mode-filter" id="kanjiModeFilter"></div>
     <div class="card hidden" id="searchResult"></div>
@@ -426,7 +428,8 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
 <script src="minna-n5-data.js?v=20260719"></script>
 <script src="minna-n4-data.js?v=20260812"></script>
 <script src="minna-grammar-data.js?v=20260719"></script>
-<script src="minna-dialogue-data.js?v=20260813a"></script>
+<script src="minna-dialogue-data.js?v=20260819"></script>
+<script src="js/speak-practice.js?v=20260819"></script>
 <script>
 (function(){
 'use strict';
@@ -742,6 +745,7 @@ function renderVocab(l){
     '<button data-mode="table" class="' + (curVocabMode==='table'?'on':'') + '">Bảng</button>' +
     '<button data-mode="flash" class="' + (curVocabMode==='flash'?'on':'') + '">Flashcard</button>' +
     '<button data-mode="flashone" class="' + (curVocabMode==='flashone'?'on':'') + '">Flashcard (1 thẻ)</button>' +
+    '<button id="btnSpeakLesson" style="margin-left:auto">🎤 Luyện nói</button>' +
     '</div>';
   if(curVocabMode === 'flashone') h += renderFlashOne(l);
   else h += curVocabMode === 'flash' ? renderFlashGrid(l) : renderVocabTable(l);
@@ -774,6 +778,9 @@ function renderVocab(l){
       playAudio(btn, w, 'audio/vocab/' + encodeURIComponent(w) + '.mp3');
     };
   });
+  box.querySelector('#btnSpeakLesson').onclick = function(){
+    SpeakPractice.open(speakPracticeItems(l.vocab), { title: 'Bài ' + l.lesson });
+  };
   if(curVocabMode === 'flash'){
     box.querySelectorAll('.flash-card').forEach(function(el){
       el.onclick = function(){ el.classList.toggle('flipped'); };
@@ -993,6 +1000,7 @@ function renderDialogue(l){
   h += '<div class="dlg-toolbar">' +
     '<button class="btn btn-ghost" id="dlgToggleVn" style="margin-top:0">' + (dlgShowVn ? 'Luyện điền nghĩa' : 'Hiện nghĩa') + '</button>' +
     '<button class="btn btn-ghost" id="dlgToggleJp" style="margin-top:0">' + (dlgShowJp ? 'Luyện điền câu' : 'Hiện hội thoại') + '</button>' +
+    '<button class="btn btn-ghost" id="dlgSpeak" style="margin-top:0">🎤 Luyện nói hội thoại</button>' +
   '</div>';
 
   d.lines.forEach(function(ln, i){
@@ -1027,6 +1035,13 @@ function renderDialogue(l){
   if(vnBtn) vnBtn.onclick = function(){ dlgShowVn = !dlgShowVn; dlgRevealed = {}; renderDialogue(l); };
   var jpBtn = qs('dlgToggleJp');
   if(jpBtn) jpBtn.onclick = function(){ dlgShowJp = !dlgShowJp; dlgRevealed = {}; renderDialogue(l); };
+  qs('dlgSpeak').onclick = function(){
+    var items = d.lines.map(function(ln, i){
+      return { jp: ln.jp, spk: ln.spk, meaning: ln.vn,
+        mp3: 'audio/dialogue/' + curLevel.toLowerCase() + '/lesson' + l.lesson + '_' + String(i+1).padStart(2,'0') + '.mp3' };
+    });
+    SpeakPractice.open(items, { title: 'Bài ' + l.lesson + ' — hội thoại' });
+  };
 
   box.querySelectorAll('.dlg-check').forEach(function(btn){
     btn.onclick = function(){ dlgRevealed[btn.dataset.key] = true; renderDialogue(l); };
@@ -1400,6 +1415,13 @@ function wsPool(){
   return pool;
 }
 
+function speakPracticeItems(pool){
+  return pool.map(function(v){
+    var k = vocabKana(v.w);
+    return { word: v.k || stripGroupMark(v.w), reading: v.k ? k : '', meaning: v.m, mp3: 'audio/vocab/' + k + '.mp3' };
+  });
+}
+
 function wsToggleButtonsHtml(){
   var defs = [
     ['hint', '👁 Gợi ý Hiragana'],
@@ -1482,6 +1504,7 @@ function renderWorksheetHub(){
   h += '<div class="ws-toggles">' + wsToggleButtonsHtml() + '</div>';
   h += '<button class="btn btn-main" id="wsGenerate" style="margin-top:10px">' +
     (wsTestGenerated ? 'Cập nhật phiếu' : 'Tạo phiếu kiểm tra') + '</button>';
+  h += '<button class="btn btn-ghost" id="wsSpeak" style="margin-top:8px">🎤 Luyện nói (nghe · nói lại · ghi âm)</button>';
   var hub = qs('wsHub');
   hub.innerHTML = h;
   hub.querySelectorAll('.ws-lesson-chk input').forEach(function(cb){
@@ -1511,6 +1534,10 @@ function renderWorksheetHub(){
     qs('wsTestCard').classList.remove('hidden');
     renderWorksheetTable();
     qs('wsTestCard').scrollIntoView({ behavior:'smooth', block:'start' });
+  };
+  hub.querySelector('#wsSpeak').onclick = function(){
+    if(!pool.length){ alert('Chọn ít nhất 1 bài có từ vựng trước đã.'); return; }
+    SpeakPractice.open(speakPracticeItems(pool), { title: wsSelected.length === 1 ? 'Bài ' + wsSelected[0] : wsSelected.length + ' bài' });
   };
 }
 
@@ -1617,6 +1644,8 @@ function gradeWorksheet(){
 }
 
 qs('btnWorksheet').onclick = openWorksheetHub;
+qs('btnSpeakHome').onclick = openWorksheetHub;
+qs('btnSpeakSaved').onclick = function(){ SpeakPractice.openSaved(); };
 qs('btnWsBack').onclick = closeWorksheet;
 qs('btnWsGrade').onclick = gradeWorksheet;
 
