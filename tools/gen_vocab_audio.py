@@ -40,6 +40,18 @@ def vocab_kana(w):
     return w
 
 
+def tts_text(raw_w):
+    """Văn bản đưa vào TTS, tính trực tiếp từ w gốc (khác vocab_kana() dùng làm
+    filename): giữ lại tiền tố kính ngữ [お] để đọc đúng (VD おみやげ thay vì
+    みやげ), bỏ marker nhóm ⅠⅡⅢ, bỏ ghi chú ngoặc vuông khác, bỏ cách đọc phụ
+    trong ngoặc tròn và dấu gạch nối bộ đếm '－' (nếu không TTS đọc thành "minus")."""
+    t = re.sub(r"[ⅠⅡⅢ](?=\s*\[|$)", "", raw_w or "")
+    t = re.sub(r"\[(お|ご)\]", r"\1", t)
+    t = re.sub(r"\s*\[[^\]]*\]", "", t)
+    t = re.sub(r"（[^）]*）", "", t)
+    return t.replace("－", "").strip()
+
+
 def synthesize_google(text):
     payload = {
         "input": {"text": text},
@@ -53,7 +65,7 @@ def synthesize_google(text):
 
 
 def load_words(level_filter=None, lesson_filter=None):
-    """Trả về list (word_kana, level, lesson) đã dedup theo word_kana,
+    """Trả về list (word_kana, raw_w, level, lesson) đã dedup theo word_kana,
     giữ thứ tự xuất hiện đầu tiên."""
     seen = set()
     words = []
@@ -65,11 +77,12 @@ def load_words(level_filter=None, lesson_filter=None):
             if lesson_filter and d["lesson"] != lesson_filter:
                 continue
             for entry in d.get("vocab", []):
-                kana = vocab_kana(entry.get("w", ""))
+                raw_w = entry.get("w", "")
+                kana = vocab_kana(raw_w)
                 if not kana or kana in seen:
                     continue
                 seen.add(kana)
-                words.append((kana, level, d["lesson"]))
+                words.append((kana, raw_w, level, d["lesson"]))
     return words
 
 
@@ -94,13 +107,13 @@ def main():
 
     os.makedirs(OUT_DIR, exist_ok=True)
     done = skipped = failed = 0
-    for kana, level, lesson in words:
+    for kana, raw_w, level, lesson in words:
         out_path = os.path.join(OUT_DIR, f"{kana}.mp3")
         if os.path.exists(out_path):
             skipped += 1
             continue
         try:
-            audio = synthesize_google(kana)
+            audio = synthesize_google(tts_text(raw_w))
             with open(out_path, "wb") as f:
                 f.write(audio)
             print(f"  ✓  {kana}  ({level} bài {lesson})")
