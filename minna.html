@@ -1627,22 +1627,29 @@ function gradeWorksheet(){
     return;
   }
   var rows = qs('wsTable').querySelectorAll('tbody tr');
-  var total = 0, correct = 0;
+  var total = 0, correct = 0, details = [];
   rows.forEach(function(row){
     row.classList.remove('ws-row-correct', 'ws-row-wrong');
     var key = row.dataset.key, meaning = row.dataset.meaning;
+    var inKana = row.querySelector('.ws-in-kana');
+    var inMeaning = row.querySelector('.ws-in-meaning');
     var ok = true;
     if(wsToggles.fillKana){
-      var inKana = row.querySelector('.ws-in-kana');
       ok = ok && wsNormKana(inKana.value) === wsNormKana(key);
     }
     if(wsToggles.fillMeaning){
-      var inMeaning = row.querySelector('.ws-in-meaning');
       var am = wsNormMeaning(inMeaning.value), cm = wsNormMeaning(meaning);
       ok = ok && am.length > 0 && (cm.indexOf(am) >= 0 || am.indexOf(cm) >= 0);
     }
     total++;
     if(ok) correct++;
+    details.push({
+      word: key,
+      correctMeaning: meaning,
+      yourKana: inKana ? inKana.value : '',
+      yourMeaning: inMeaning ? inMeaning.value : '',
+      ok: ok
+    });
     row.classList.add(ok ? 'ws-row-correct' : 'ws-row-wrong');
     var markCell = row.querySelector('.ws-mark-cell');
     if(markCell) markCell.innerHTML = '<span class="ws-mark ' + (ok ? 'ok' : 'bad') + '">' + (ok ? '✓' : '✗') + '</span>';
@@ -1658,7 +1665,7 @@ function gradeWorksheet(){
 
   var name = (qs('wsStudentName').value || '').trim();
   store('koeru_student_name', name);
-  sendResultToTeacher({ name: name, level: curLevel, lessons: wsSelected.slice(), correct: correct, total: total, pct: pct });
+  sendResultToTeacher({ name: name, level: curLevel, lessons: wsSelected.slice(), correct: correct, total: total, pct: pct, details: details });
 }
 
 qs('btnWorksheet').onclick = openWorksheetHub;
