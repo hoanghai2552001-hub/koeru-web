@@ -3,8 +3,7 @@ Sinh audio hội thoại (会話) từ database/dialogue/n4|n5/*.json — tự n
 Web Speech API đang dùng làm fallback trong minna.html.
 
 2 engine:
-  soundoftext (mặc định) — KHÔNG cần API key, dùng chung API mà
-      tools/download_vocab_audio.py đã dùng để tạo audio/vocab/*.mp3.
+  soundoftext (mặc định) — KHÔNG cần API key, gọi soundoftext.com.
       Giọng ja-JP đơn (Google TTS), không phân biệt nhân vật.
   google — cần GOOGLE_TTS_API_KEY (Neural2/WaveNet, tự nhiên hơn, mỗi
       nhân vật 1 giọng nam/nữ riêng). Lấy key tại
@@ -35,7 +34,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_DIR = os.path.join(ROOT, "database", "dialogue")
 OUT_DIR = os.path.join(ROOT, "audio", "dialogue")
 
-# --- engine: soundoftext.com (không cần key, giống tools/download_vocab_audio.py) ---
+# --- engine: soundoftext.com (không cần key) ---
 SOT_API_URL = "https://api.soundoftext.com/sounds"
 SOT_STATUS_URL = "https://api.soundoftext.com/sounds/{}"
 

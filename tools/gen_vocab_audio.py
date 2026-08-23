@@ -44,12 +44,13 @@ def tts_text(raw_w):
     """Văn bản đưa vào TTS, tính trực tiếp từ w gốc (khác vocab_kana() dùng làm
     filename): giữ lại tiền tố kính ngữ [お] để đọc đúng (VD おみやげ thay vì
     みやげ), bỏ marker nhóm ⅠⅡⅢ, bỏ ghi chú ngoặc vuông khác, bỏ cách đọc phụ
-    trong ngoặc tròn và dấu gạch nối bộ đếm '－' (nếu không TTS đọc thành "minus")."""
+    trong ngoặc tròn, và bỏ các dấu điền-vào-chỗ-trống '－'/'～' (nếu không TTS
+    đọc thành "minus" hoặc đọc luôn dấu ngã ra tiếng)."""
     t = re.sub(r"[ⅠⅡⅢ](?=\s*\[|$)", "", raw_w or "")
     t = re.sub(r"\[(お|ご)\]", r"\1", t)
     t = re.sub(r"\s*\[[^\]]*\]", "", t)
     t = re.sub(r"（[^）]*）", "", t)
-    return t.replace("－", "").strip()
+    return t.replace("－", "").replace("～", "").strip()
 
 
 def synthesize_google(text):

@@ -79,7 +79,7 @@ python tools/bump_cache.py
 git add <files>
 git commit -m "type(scope): message
 
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+Co-Authored-By: Codex Sonnet 4.6 <noreply@anthropic.com>"
 git push origin dev
 ```
 
@@ -147,9 +147,9 @@ python tools/watch_excel.py           # Watchdog: auto-sync khi Excel thay đổ
 Khi làm việc với từ vựng Nhật-Việt (dịch nghĩa, review data, thêm từ mới, báo cáo lỗi),
 bắt buộc đọc và áp dụng:
 
-- @.claude/rules/dictionary_standard.md — Tiêu chuẩn dịch thuật & chuẩn hóa
-- @.claude/rules/qa_validation.md       — Checklist phát hiện lỗi & format báo cáo
-- @.claude/brand-voice-guidelines.md    — Brand voice & phong cách triển khai tổng quan
+- @.Codex/rules/dictionary_standard.md — Tiêu chuẩn dịch thuật & chuẩn hóa
+- @.Codex/rules/qa_validation.md       — Checklist phát hiện lỗi & format báo cáo
+- @.Codex/brand-voice-guidelines.md    — Brand voice & phong cách triển khai tổng quan
 
 **Trigger**: Bất kỳ yêu cầu nào liên quan đến:
 - Dịch nghĩa từ Nhật → Việt
