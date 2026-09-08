@@ -136,3 +136,6 @@ audio/_hsk_aligned/
 
 # Audio hội thoại Minna cắt từ CD chờ duyệt (tools/align_dialogue_audio.py)
 audio/_aligned/
+
+# Đề xuất từ vựng do tools/find_hsk_missing_words.py sinh ra — chạy lại là có
+database/hsk_missing_words.json
