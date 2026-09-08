@@ -44,6 +44,17 @@ POS_LABELS = [
 ]
 
 HAN_RE = re.compile(r"[\u4e00-\u9fff]")
+
+# Gi\u00e1o tr\u00ecnh g\u00f5 l\u1eabn d\u1ea5u c\u00e2u ASCII v\u1edbi d\u1ea5u full-width. Ngo\u00e0i chuy\u1ec7n kh\u00f4ng nh\u1ea5t
+# qu\u00e1n, "?" v\u00e0 ":" c\u00f2n KH\u00d4NG h\u1ee3p l\u1ec7 trong t\u00ean file Windows \u2014 m\u00e0 audio \u0111\u1eb7t t\u00ean
+# theo \u0111\u00fang c\u00e2u (audio/hsk/<c\u00e2u>.mp3), n\u00ean ph\u1ea3i chu\u1ea9n ho\u00e1 ngay t\u1eeb kh\u00e2u b\u00f3c.
+ASCII_PUNCT = {"?": "\uff1f", "!": "\uff01", ":": "\uff1a", ";": "\uff1b", ",": "\uff0c"}
+
+
+def norm_punct(s):
+    for a, b in ASCII_PUNCT.items():
+        s = s.replace(a, b)
+    return s
 PINYIN_RE = re.compile(r"^[a-z\u00e0-\u01ff\u0251\u0261\s]{2,24}$")
 
 
@@ -199,7 +210,7 @@ def parse_lesson_pptx(zf, n):
                         "topic": mt.group(2),
                         # Giáo trình gõ ɡ (U+0261) thay g thường — đổi lại cho khớp font
                         "p": re.sub(r"\s+", " ", lines[0].replace("ɡ", "g")).strip(),
-                        "zh": re.sub(r"\s+", "", lines[1]),
+                        "zh": norm_punct(re.sub(r"\s+", "", lines[1])),
                         "vi": lines[2],
                     })
 
