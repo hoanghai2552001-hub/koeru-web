@@ -1,0 +1,387 @@
+{
+  "lesson": 5,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第5课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在小丽家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在小丽家"
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家"
+    },
+    {
+      "part": 2,
+      "topic": "打电话"
+    },
+    {
+      "part": 2,
+      "topic": "打电话"
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家"
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家"
+    },
+    {
+      "part": 4,
+      "topic": "在小刚家"
+    },
+    {
+      "part": 4,
+      "topic": "在小刚家"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "发烧",
+      "p": "fā shāo",
+      "pos": "",
+      "m": "sốt",
+      "hv": "phát thiếu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "季节",
+      "p": "jì jié",
+      "pos": "",
+      "m": "mùa",
+      "hv": "quý tiết",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "感冒",
+      "p": "gǎn mào",
+      "pos": "",
+      "m": "cảm",
+      "hv": "cảm mạo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "草",
+      "p": "cǎo",
+      "pos": "",
+      "m": "thảo",
+      "hv": "thảo.tạo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "裙子",
+      "p": "qúnzi",
+      "pos": "",
+      "m": "váy; cái củn",
+      "hv": "quần tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "最近",
+      "p": "zuìjìn",
+      "pos": "",
+      "m": "gần đây; mới đây; vừa qua",
+      "hv": "tối cận",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "用",
+      "p": "yòng",
+      "pos": "",
+      "m": "sử dụng; dùng",
+      "hv": "dụng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "照顾",
+      "p": "zhàogù",
+      "pos": "",
+      "m": "chăm sóc",
+      "hv": "chiếu cố",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "当然",
+      "p": "dāngrán",
+      "pos": "",
+      "m": "nên như thế; phải thế; tất nhiên; đương nhiên; dĩ nhiên",
+      "hv": "đương nhiên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "越",
+      "p": "yuè",
+      "pos": "",
+      "m": "việt",
+      "hv": "việt.hoạt",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "春",
+      "p": "chūn",
+      "pos": "",
+      "m": "xuân",
+      "hv": "xuân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "出现",
+      "p": "chūxiàn",
+      "pos": "",
+      "m": "xuất hiện; nảy sinh; ló ra; nổi lên; hiện ra",
+      "hv": "xuất hiện",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“了”表示变化",
+      "vi": ""
+    },
+    {
+      "zh": "越来越+Adj/Mental V",
+      "vi": ""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "朋友",
+      "p": "Qián jǐ tiān yǒu diǎnr fā shāo, xiàn zài hǎo duō le.",
+      "zh": "我听说你身体不舒服，怎么了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "Wǒ tīng shuō nǐ shēn tǐ bù shū fu, zěn me le?",
+      "zh": "前几天有点儿发烧，现在好多了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "朋友",
+      "p": "lǜ chá, hěn bú cuò.",
+      "zh": "喝杯茶吧，这是我为你买的",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "",
+      "p": "péng you: Hē bēi chá ba, zhè shì wǒ wèi nǐ mǎi de",
+      "zh": "绿茶，很不错。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "Hǎo de.",
+      "zh": "谢谢，我要吃药，不喝茶了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "朋友",
+      "p": "Nà hē bēi shuǐ ba.",
+      "zh": "那喝杯水吧。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "Xiè xie, wǒ yào chī yào, bù hē chá le.",
+      "zh": "好的。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "打电话",
+      "spk": "周太太",
+      "p": "Duì bu qǐ, wǒ míng tiān bù néng hé nǐ men chū qù wánr le.",
+      "zh": "对不起，我明天不能和你们出去玩儿了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "打电话",
+      "spk": "张太太",
+      "p": "Wèi shén me? Zěn me le?",
+      "zh": "为什么？怎么了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "打电话",
+      "spk": "周太太",
+      "p": "Wǒ ér zi shēng bìng le, wǒ yào zài jiā zhào gù tā.",
+      "zh": "我儿子生病了，我要在家照顾他。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "打电话",
+      "spk": "张太太",
+      "p": "Tā chī yào le ma? Yào bú yào qù yī yuàn?",
+      "zh": "他吃药了吗？要不要去医院？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "打电话",
+      "spk": "周太太",
+      "p": "Bú yòng qù yī yuàn, zuó tiān chī le gǎn mào yào, xiàn zài hǎo yì xiē le.",
+      "zh": "不用去医院，昨天吃了感冒药，现在好一些了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "打电话",
+      "spk": "张太太",
+      "p": "Nà wǒ men xià cì zài yì qǐ chū qu wánr ba.",
+      "zh": "那我们下次再一起出去玩儿吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家",
+      "spk": "小丽",
+      "p": "Nǐ zuì xǐ huan nǎ ge jì jié？",
+      "zh": "你最喜欢哪个季节？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家",
+      "spk": "小刚",
+      "p": "Dāng rán shì chūn tiān, tiān qì bú nà me lěng le,",
+      "zh": "当然是春天，天气不那么冷了，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家",
+      "spk": "",
+      "p": "Xiǎo lì: Zěn me? Nǐ yě yǒu piào liang de qún zi?",
+      "zh": "草和树都绿了，花也开了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家",
+      "spk": "小丽",
+      "p": "Wǒ zuì xǐ huan xià tiān, yīn wèi wǒ kě yǐ chuān piào liang de qún zi le.",
+      "zh": "我最喜欢夏天，因为我可以穿漂亮的裙子了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家",
+      "spk": "小刚",
+      "p": "Nà wǒ yě xǐ huan xià tiān le.",
+      "zh": "那我也喜欢夏天了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家",
+      "spk": "小丽",
+      "p": "cǎo hé shù dōu lǜ le, huā yě kāi le.",
+      "zh": "怎么？你也有漂亮的裙子？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小刚家",
+      "spk": "小刚",
+      "p": "Bù, wǒ xǐ huan kàn nǐ chuān piào liang de qún zi.",
+      "zh": "不，我喜欢看你穿漂亮的裙子。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小刚家",
+      "spk": "小丽",
+      "p": "Wǒ zuì jìn yuè lái yuè pàng le.",
+      "zh": "我最近越来越胖了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小刚家",
+      "spk": "小刚",
+      "p": "Shéi shuō de？ Wǒ jué de nǐ yuè lái yuè piào liang le.",
+      "zh": "谁说的？我觉得你越来越漂亮了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小刚家",
+      "spk": "小丽",
+      "p": "Wǒ zuò de fàn yuè lái yuè hǎo chī, wǒ néng shǎo chī ma?",
+      "zh": "你看，这条裙子是去年买的，今年就不能穿了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小刚家",
+      "spk": "小刚",
+      "p": "Nǐ kàn, zhè tiáo qún zi shì qù nián mǎi de, jīn nián jiù bù néng chuān le.",
+      "zh": "那是因为你吃得太多了，少吃点儿吧。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小刚家",
+      "spk": "小丽",
+      "p": "Nà shì yīn wèi nǐ chī de tài duō le, shǎo chī diǎnr ba.",
+      "zh": "我做的饭越来越好吃，我能少吃吗？",
+      "vi": ""
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "lesson": 15,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第15课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在朋友家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在朋友家"
+    },
+    {
+      "part": 1,
+      "topic": "在朋友家"
+    },
+    {
+      "part": 2,
+      "topic": "在公司"
+    },
+    {
+      "part": 2,
+      "topic": "在公司"
+    },
+    {
+      "part": 3,
+      "topic": "在车站"
+    },
+    {
+      "part": 3,
+      "topic": "在车站"
+    },
+    {
+      "part": 4,
+      "topic": "在咖啡店门口"
+    },
+    {
+      "part": 4,
+      "topic": "在咖啡店门口"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "阴",
+      "p": "yīn",
+      "pos": "",
+      "m": "âm (triết học cổ đại Trung Quốc cho rằng mọi vật tồn tại trong vũ trụ đều có hai mặt đối lập âm và dương)",
+      "hv": "âm.ấm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "票",
+      "p": "piào",
+      "pos": "",
+      "m": "vé; phiếu; thẻ; hoá đőn",
+      "hv": "phiếu.phiêu.tiêu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "大家",
+      "p": "dàjiā",
+      "pos": "",
+      "m": "mọi người",
+      "hv": "đại gia",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "妹妹",
+      "p": "mèimei",
+      "pos": "",
+      "m": "(d)em gái",
+      "hv": "muội muội",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "动作的状态“要……了”",
+      "vi": "“要……了”Biểu thị trạng thái của hành động"
+    },
+    {
+      "zh": "：“都……了”",
+      "vi": "Cấu trúc \"都……了”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在朋友家",
+      "spk": "A",
+      "p": "Jīn tiān shì shí’èr yuè èr shí rì, xīn nián jiù yào dào le.",
+      "zh": "今天是12月20日，新年就要到了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在朋友家",
+      "spk": "B",
+      "p": "Xīn nián nǐ zhǔn bèi zuò shén me?",
+      "zh": "新年你准备做什么？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在朋友家",
+      "spk": "A",
+      "p": "Wǒ xiǎng qù Běi jīng lǚ yóu, Běi jīng hěn bú cuò,",
+      "zh": "我想去北京旅游，北京很不错，我去过一次。B：你买票了吗？A：还没有呢，明天就去火车站买票。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "A",
+      "p": "Shí jiān guò de zhēn kuài, xīn de yì nián kuài yào dào le!",
+      "zh": "时间过得真快，新的一年快要到了！B：是啊，谢谢大家这一年对我的帮助！",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "C",
+      "p": "Shì a, xiè xie dà jiā zhè yì nián duì wǒ de bāng zhù!",
+      "zh": "希望我们的公司明年更好！",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在车站",
+      "spk": "A",
+      "p": "Nǐ mèi mei zěn me hái méi lái？ Dōu bā diǎn sì shí le ！",
+      "zh": "你妹妹怎么还没来？都八点四十了！B：我们再等她几分钟吧。A：都等她半个小时了！",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在车站",
+      "spk": "B",
+      "p": "Wǒ men zài děng tā jǐ fēn zhōng ba.",
+      "zh": "她来了，我听见她说话了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在咖啡店门口",
+      "spk": "A",
+      "p": "Tiān yīn le, wǒ yào huí qu le.",
+      "zh": "天阴了，我要回去了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在咖啡店门口",
+      "spk": "B",
+      "p": "Hǎo de, kuài yào xià yǔ le, nǐ lù shàng màn diǎnr.",
+      "zh": "好的，快要下雨了，你路上慢点儿。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在咖啡店门口",
+      "spk": "A",
+      "p": "Hǎo de, zài jiàn.",
+      "zh": "没关系，我坐公共汽车。B：好的，再见。",
+      "vi": ""
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "lesson": 5,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第5课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家里",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家里"
+    },
+    {
+      "part": 1,
+      "topic": "在家里"
+    },
+    {
+      "part": 2,
+      "topic": "在商店"
+    },
+    {
+      "part": 2,
+      "topic": "在商店"
+    },
+    {
+      "part": 3,
+      "topic": "在教室"
+    },
+    {
+      "part": 3,
+      "topic": "在教室"
+    },
+    {
+      "part": 4,
+      "topic": "在公司"
+    },
+    {
+      "part": 4,
+      "topic": "在公司"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "件",
+      "p": "jiàn",
+      "pos": "",
+      "m": "chiếc; kiện; cái",
+      "hv": "kiện",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "就",
+      "p": "jiù",
+      "pos": "",
+      "m": "dựa sát; gần; đến gần; sát",
+      "hv": "tựu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "准备",
+      "p": "zhǔnbèi",
+      "pos": "",
+      "m": "(đ/d)chuẩn bị",
+      "hv": "chuẩn bị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "鱼",
+      "p": "yú",
+      "pos": "",
+      "m": "cá",
+      "hv": "ngư",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "吧",
+      "p": "ba",
+      "pos": "",
+      "m": "nào; nhé; chứ; thôi; đi (dùng ở cuối câu, biểu thị thương lượng, thỉnh cầu, nghi vấn, cảm thán, mệnh lệnh, thúc giục)",
+      "hv": "ba",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "还",
+      "p": "hái",
+      "pos": "",
+      "m": "còn; vẫn; vẫn còn (phó từ)",
+      "hv": "hoàn.toàn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "可以",
+      "p": "kěyǐ",
+      "pos": "",
+      "m": "có thể; có khả năng; có năng lực",
+      "hv": "khả dĩ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "考试",
+      "p": "kǎoshì",
+      "pos": "",
+      "m": "thi",
+      "hv": "khảo thí",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "意思",
+      "p": "yìsi",
+      "pos": "",
+      "m": "ỵ́; ý nghĩa (ý nghĩ của ngôn ngữ, văn tự)",
+      "hv": "ý tứ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "咖啡",
+      "p": "kāfēi",
+      "pos": "",
+      "m": "cà phê",
+      "hv": "ca phê",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "副词“就”",
+      "vi": "Trạng từ “就”"
+    },
+    {
+      "zh": "语气副词“还”(1)",
+      "vi": "Trạng từ khiếm khuyết“还”(1)"
+    },
+    {
+      "zh": "程度副词“有点儿”",
+      "vi": "Phó từ bổ nghĩa \"một chút\""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Wǎn shang wǒ men qù fàn guǎn chī fàn ，zěn me yàng ？",
+      "zh": "晚上我们去饭馆吃饭，怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Wǒ bù xiǎng qù wài miàn chī ，wǒ xiǎng zài jiā chī 。",
+      "zh": "我不想去外面吃，我想在家吃。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nà nǐ zhǔn bèi zuò shén me ne ？",
+      "zh": "那你准备做什么呢？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Jiù zuò nǐ ài chī de yú ba 。",
+      "zh": "就做你爱吃的鱼吧。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "A",
+      "p": "Bāng wǒ kàn yí xià zhè jiàn yī fu zěn me yàng 。",
+      "zh": "帮我看一下这件衣服怎么样。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "B",
+      "p": "Yán sè hái kě yǐ ，jiù shì yǒu diǎn ér dà 。",
+      "zh": "颜色还可以，就是有点儿大。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "A",
+      "p": "Zhè jiàn xiǎo de zěn me yàng ？",
+      "zh": "这件小的怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "B",
+      "p": "Zhè jiàn bú cuò ，jiù mǎi zhè jiàn ba 。",
+      "zh": "这件不错，就买这件吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Jīn tiān qù bú qù dǎ qiú ？",
+      "zh": "今天去不去打球？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Zhè liǎng tiān yǒu diǎn ér lèi ，bú qù dǎ qiú le 。",
+      "zh": "这两天有点儿累，不去打球了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Nǐ zài zuò shén me ne ？shì zài xiǎng zuó tiān de kǎo shì ma ？",
+      "zh": "你在做什么呢？是在想昨天的考试吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "shì ā ，wǒ júe de tīng hé shuō hái kě yǐ ，dú hé xiě bù",
+      "zh": "是啊，我觉得听和说还可以，读和写不",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在教室",
+      "spk": "",
+      "p": "hǎo ，hěn duō zì wǒ dōu bù zhī dào shì shén me yì sī 。",
+      "zh": "好，很多字我都不知道是什么意思。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "A",
+      "p": "Xiū xi yí xià ba ，hē kā fēi ma ？",
+      "zh": "休息一下吧，喝咖啡吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "B",
+      "p": "Bù hē le ，wǒ yǐ jīng hē liǎng bēi le 。",
+      "zh": "不喝了，我已经喝两杯了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "A",
+      "p": "Shì ā ，hē kā fēi duō le duì shēn tǐ bù hǎo 。",
+      "zh": "是啊，喝咖啡多了对身体不好。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "B",
+      "p": "Yǐ hòu wǒ shǎo hē yì diǎn ér ，měi tiān hē yì bēi 。",
+      "zh": "以后我少喝一点儿，每天喝一杯。",
+      "vi": ""
+    }
+  ]
+}

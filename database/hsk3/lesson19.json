@@ -1,0 +1,344 @@
+{
+  "lesson": 19,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第19课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在看照片"
+    },
+    {
+      "part": 2,
+      "topic": "在看照片"
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家"
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家"
+    },
+    {
+      "part": 4,
+      "topic": "旅游"
+    },
+    {
+      "part": 4,
+      "topic": "旅游"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "耳朵",
+      "p": "Ěrduo",
+      "pos": "",
+      "m": "lỗ tai",
+      "hv": "nhĩ đoá",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "短",
+      "p": "duǎn",
+      "pos": "",
+      "m": "ngắn; đoản",
+      "hv": "đoản",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "蓝",
+      "p": "lán",
+      "pos": "",
+      "m": "xanh; lam; xanh da trời",
+      "hv": "lam",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "哭",
+      "p": "kū",
+      "pos": "",
+      "m": "khóc; khóc lóc",
+      "hv": "khốc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "经过",
+      "p": "jīngguò",
+      "pos": "",
+      "m": "kinh qua; trải qua; đi qua; qua (nơi chốn, thời gian, động tác); đã được",
+      "hv": "kinh quá",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "黄",
+      "p": "huáng",
+      "pos": "",
+      "m": "huỳnh",
+      "hv": "hoàng.huỳnh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "鸟",
+      "p": "diǎo",
+      "pos": "",
+      "m": "đồ buồi; đồ con buồi (tiếng chửi)",
+      "hv": "điểu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "趋向补语的引申义",
+      "vi": "Mở rộng sự bổ sung của hướng"
+    },
+    {
+      "zh": "趋向补语的引申义",
+      "vi": "Mở rộng sự bổ sung của phương hướng"
+    },
+    {
+      "zh": "“使” “叫” “让”",
+      "vi": "so sánh “使”, “叫” và “让”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "爸爸",
+      "p": "Nǚ ér zuì jìn xǐ huɑn bǎ tóu fa fàng zài ěr duo hòu miàn ， nǐ zhī dào wéi shén me ma ？",
+      "zh": "女儿最近喜欢把头发放在耳朵后面，你知道为什么吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "妈妈",
+      "p": "Zhè yàng kě yǐ shǐ tā de liǎn kàn shàng qù piào liɑng yì xiē.",
+      "zh": "这样可以使她的脸看上去漂亮一些。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "爸爸",
+      "p": "Wǒ zuì jìn jué dé tā hé yǐ qián bú tài yí yàng le.",
+      "zh": "我最近觉得她和以前不太一样了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "妈妈",
+      "p": "Nǚ ér biàn huà bú xiǎo ，tā xiǎo shí hòu xǐ huan duǎn tóu fà ，xiàng nán hái zǐ yī yàng.",
+      "zh": "女儿变化不小，她小时候喜欢短头发，像男孩子一样。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "爸爸",
+      "p": "Wǒ yě xiǎng qǐ lái le 。tā xiàn zài màn man de kāi shǐ xiàng gè nǚ hái zi le 。",
+      "zh": "我也想起来了。她现在慢慢地开始像个女孩子了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "小丽",
+      "p": "shàng cì wǒ men cān jiā qí mǎ bǐ sài de zhào piàn ，",
+      "zh": "上次我们参加骑马比赛的照片，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "",
+      "p": "wǒ xuǎn le jǐ zhāng xǐ chū lái le.",
+      "zh": "我选了几张洗出来了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "同事",
+      "p": "kuài gěi wǒ kàn kan 。qí de zuì kuài de zhè wèi shì shuí ？",
+      "zh": "快给我看看。骑得最快的这位是谁？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "小丽",
+      "p": "nǐ méi kàn chū lái ma ？tā shì xiǎo gāng ā.",
+      "zh": "你没看出来吗？他是小刚啊。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "同事",
+      "p": "zěn me kàn shàng qù gēn xiàn zài bú tài yī yàng ？",
+      "zh": "怎么看上去跟现在不太一样？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "小丽",
+      "p": "tā shàng bān chuān xī fú 、chèn shān ，bǐ sài de shí hòu chuān de shì yùn dòng fú.",
+      "zh": "他上班穿西服、衬衫，比赛的时候穿的是运动服。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "同事",
+      "p": "tā jīn tiān chuān lán xī fú ，kàn shàng qù xiàng 40duō suì,",
+      "zh": "他今天穿蓝西服，看上去像40多岁，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在看照片",
+      "spk": "",
+      "p": "hái shì chuān yùn dòng fú ràng tā gèng nián qīng.",
+      "zh": "还是穿运动服让他更年轻。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家",
+      "spk": "朋友",
+      "p": "wǒ men yì nián méi jiàn miàn le ba ？",
+      "zh": "我们一年没见面了吧？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "tīng shuō nǐ dōu yǒu nǚ ér le ？tā duō dà le ？",
+      "zh": "听说你都有女儿了？她多大了？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家",
+      "spk": "朋友",
+      "p": "tā qù nián qiū tiān chū shēng de ，gāng guò wán yí suì shēng rì 。",
+      "zh": "她去年秋天出生的，刚过完一岁生日。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "tā xǐ huɑn shén me ？wǒ sòng gěi tā 。",
+      "zh": "她喜欢什么？我送给她。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家",
+      "spk": "朋友",
+      "p": "tā jiù xǐ huɑn tīng tā bà bɑ xué niǎo jiào 。kū de shí hou",
+      "zh": "她就喜欢听她爸爸学鸟叫。哭的时候，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家",
+      "spk": "",
+      "p": "zhǐ yào tā bà bɑ xué xiǎo niǎo jiào ，tā mǎ shàng jiù ān jìng xià lái le",
+      "zh": "只要他爸爸学小鸟叫，她马上就安静下来了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "ā ？zhè ge lǐ wù wǒ méi bàn fǎ sòng",
+      "zh": "啊？这个礼物我没办法送。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "旅游",
+      "spk": "",
+      "p": "zhè cì lǚ yóu ，wǒ qù le bù shǎo dì fɑng ，měi gè dì",
+      "zh": "这次旅游，我去了不少地方，每个地",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "旅游",
+      "spk": "",
+      "p": "fɑng dōu ràng wǒ fēi cháng nán wàng 。wǒ xiān qù kàn le huáng hé ，huáng",
+      "zh": "方都让我非常难忘。我先去看了黄河，黄",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "旅游",
+      "spk": "",
+      "p": "hé shì zhōng guó yǒu míng de dà hé ，wǒ zuò zài chuán shàng ，yì biān",
+      "zh": "河是中国有名的大河，我坐在船上，一边",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "旅游",
+      "spk": "",
+      "p": "kàn yì biān zhào xiàng 。yì lù shàng jīng guò le hěn duō dì fɑng ，měi",
+      "zh": "看一边照相。一路上经过了很多地方，每",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "旅游",
+      "spk": "",
+      "p": "gè dì fɑng dōu bù yí yàng 。wǒ xiǎng kuài diǎn ér bǎ zhào piàn fā gěi",
+      "zh": "个地方都不一样。我想快点儿把照片发给",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "旅游",
+      "spk": "",
+      "p": "dà jiā ，jiào péng yǒu men yě gāo xìng gāo xìng 。",
+      "zh": "大家，叫朋友们也高兴高兴。",
+      "vi": ""
+    }
+  ]
+}

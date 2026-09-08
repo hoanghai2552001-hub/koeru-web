@@ -1,0 +1,438 @@
+{
+  "lesson": 6,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第6课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在客厅",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在客厅"
+    },
+    {
+      "part": 1,
+      "topic": "在客厅"
+    },
+    {
+      "part": 2,
+      "topic": "在打电话"
+    },
+    {
+      "part": 2,
+      "topic": "在打电话"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    },
+    {
+      "part": 4,
+      "topic": "在客厅"
+    },
+    {
+      "part": 4,
+      "topic": "在客厅"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "眼镜",
+      "p": "yǎnjìng",
+      "pos": "",
+      "m": "mắt kính; kính đeo mắt",
+      "hv": "nhãn kính",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "突然",
+      "p": "tūrán",
+      "pos": "",
+      "m": "đột nhiên; bỗng nhiên; bất thình lình; chợt",
+      "hv": "đột nhiên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "离开",
+      "p": "líkāi",
+      "pos": "",
+      "m": "rời khỏi; tách khỏi; ly khai",
+      "hv": "ly khai",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "清楚",
+      "p": "qīng chǔ",
+      "pos": "",
+      "m": "rõ ràng",
+      "hv": "thanh sở",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "刚才",
+      "p": "gāngcái",
+      "pos": "",
+      "m": "vừa; vừa mới; vừa rồi; ban nãy",
+      "hv": "cương tài",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "帮忙",
+      "p": "bāngmáng",
+      "pos": "",
+      "m": "giúp; giúp đỡ",
+      "hv": "bang mang",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "特别",
+      "p": "tèbié",
+      "pos": "",
+      "m": "(t)đặc biệt",
+      "hv": "đặc biệt",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "讲",
+      "p": "jiǎng",
+      "pos": "",
+      "m": "nói; kể",
+      "hv": "giảng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "明白",
+      "p": "míngbái",
+      "pos": "",
+      "m": "hiểu",
+      "hv": "minh bạch",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "锻炼",
+      "p": "duànliàn",
+      "pos": "",
+      "m": "rèn đúc",
+      "hv": "đoạn luyện",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "音乐",
+      "p": "yīnyuè",
+      "pos": "",
+      "m": "âm nhạc",
+      "hv": "âm nhạc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "公园",
+      "p": "gōngyuán",
+      "pos": "",
+      "m": "công viên; vườn hoa",
+      "hv": "công viên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "更",
+      "p": "gèng",
+      "pos": "",
+      "m": "thay đổi; biến đổi; thay; đổi",
+      "hv": "canh.cánh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "冬",
+      "p": "dōng",
+      "pos": "",
+      "m": "mùa đông; đông",
+      "hv": "đông",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "脸",
+      "p": "liǎn",
+      "pos": "",
+      "m": "mặt",
+      "hv": "kiểm.thiểm.liễm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "花园",
+      "p": "huā yuán",
+      "pos": "",
+      "m": "hoa viên, vườn hoa",
+      "hv": "hoa viên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "才",
+      "p": "cái",
+      "pos": "",
+      "m": "tài",
+      "hv": "tài",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "可能补语",
+      "vi": "V得/不 +Phần bổ sung cho khả năng “可能补语”"
+    },
+    {
+      "zh": "“呢”询问处所：“N+呢”",
+      "vi": "“N+呢”Dùng để hỏi về vị trí"
+    },
+    {
+      "zh": "“刚”和“刚才”",
+      "vi": "So sánh “刚” và “刚才”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在客厅",
+      "spk": "周明",
+      "p": "Wǒ de yǎn jìng ne？Zěn me tū rán zhǎo bú dào le? Nǐ kàn jiàn le ma？",
+      "zh": "我的眼镜呢？怎么突然找不到了？你看见了吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在客厅",
+      "spk": "周太太",
+      "p": "Wǒ méi kàn jiàn a.",
+      "zh": "我没看见啊。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在客厅",
+      "spk": "周明",
+      "p": "Wǒ lí bu kāi yǎn jìng, méi yǒu yǎn jìng, wǒ yí ge zì yě kàn bu qīng chu.",
+      "zh": "我离不开眼镜，没有眼镜，我一个字也看不清楚。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在客厅",
+      "spk": "周太太",
+      "p": "Nǐ qù fáng jiān zhǎo zhao, shì bu shì gāng cái fàng zài zhuō zi shàng le?",
+      "zh": "你去房间找找，是不是刚才放在桌子上了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在客厅",
+      "spk": "周明",
+      "p": "Wǒ zěn me kàn dé dào a? Nǐ kuài guò lái bāng máng a.",
+      "zh": "我怎么看得到啊？你快过来帮忙啊。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在客厅",
+      "spk": "周太太",
+      "p": "Hǎo ba, wǒ bāng nǐ qù zhǎo zhao.",
+      "zh": "好吧，我帮你去找找。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "同学",
+      "p": "Jīn tiān de zuò yè nǐ zuò wán le ma?",
+      "zh": "今天的作业你做完了吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "儿子",
+      "p": "Gāng zuò wán, nǐ ne？",
+      "zh": "刚做完，你呢？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "同学",
+      "p": "Jīn tiān zhè xiē tí tè bié nán, wǒ kàn bu dǒng, bú huì zuò，",
+      "zh": "今天这些题特别难，我看不懂，不会做，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "",
+      "p": "nǐ néng bāng wǒ ma？",
+      "zh": "你能帮我吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "儿子",
+      "p": "Diàn huà li jiǎng bu míng bái, nǐ lái wǒ jiā ba, wǒ gěi nǐ jiǎng jiang.",
+      "zh": "电话里讲不明白，你来我家吧，我给你讲讲。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "同学",
+      "p": "Hǎo a, wǒ duàn liàn wán le jiù guò qu.",
+      "zh": "好啊，我锻炼完了就过去。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Wǒ xiǎng qǐng Xiǎo lì chī fàn， dàn shì zhǎo bu dào hǎo fàn guǎn.",
+      "zh": "你怎么有点儿不高兴？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Nà nǐ qǐng tā tīng yīn yuè huì ba，tā xǐ huan tīng yīn yuè.",
+      "zh": "我想请小丽吃饭，但是找不到好饭馆。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Yīn yuè huì rén tài duō, mǎi bu dào piào.",
+      "zh": "那你请她听音乐会吧，她喜欢听音乐。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Nà qù gōng yuán zǒu zou，liáo liao tiānr ba.",
+      "zh": "音乐会人太多，买不到票。同事：那去公园走走，聊聊天儿吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Gōng yuán tài dà, duō lèi a.",
+      "zh": "公园太大，多累啊。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在客厅",
+      "spk": "周太太",
+      "p": "Nǐ zěn me hái hē kā fēi？",
+      "zh": "你怎么还喝咖啡？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在客厅",
+      "spk": "周明",
+      "p": "Zěn me le ？",
+      "zh": "怎么了？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在客厅",
+      "spk": "周太太",
+      "p": "Nǐ bú shì shuō wǎn shang shuì bu zháo jiào ma？",
+      "zh": "你不是说晚上睡不着觉吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在客厅",
+      "spk": "周明",
+      "p": "Méi shì, wǒ zhǐ hē yì bēi.",
+      "zh": "没事，我只喝一杯。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在客厅",
+      "spk": "周太太",
+      "p": "Nǐ hái shì hē niú nǎi ba， kě yǐ shuì de gèng hǎo xiē.",
+      "zh": "你还是喝牛奶吧，可以睡得更好些。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在客厅",
+      "spk": "周明",
+      "p": "Hǎo ba，niú nǎi ne？",
+      "zh": "好吧，牛奶呢？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在客厅",
+      "spk": "周太太",
+      "p": "Hái méi mǎi ne.",
+      "zh": "还没买呢。",
+      "vi": ""
+    }
+  ]
+}

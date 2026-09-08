@@ -1,6 +1,7 @@
 {
   "lesson": 3,
-  "source": "HSK标准教程1 第3课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "level": "HSK1",
+  "source": "HSK标准教程1 第3课 (PPTX) + danh sách từ vựng HSK1",
   "status": "REVIEW_REQUIRED",
   "title": "在学校",
   "topics": [
@@ -180,6 +181,7 @@
     {
       "part": 1,
       "topic": "在学校",
+      "spk": "",
       "p": "nǐ jiào shén me míng zi",
       "zh": "你叫什么名字？",
       "vi": "Bạn tên là gì?"
@@ -187,6 +189,7 @@
     {
       "part": 1,
       "topic": "在学校",
+      "spk": "",
       "p": "wǒ jiào lǐ yuè",
       "zh": "我叫李月！",
       "vi": "Tên tôi là Li Yue"
@@ -194,6 +197,7 @@
     {
       "part": 2,
       "topic": "在教室",
+      "spk": "",
       "p": "wǒ bú shì lǎo shī, wǒ shì xué sheng",
       "zh": "我不是老师，我是学生。",
       "vi": "Tôi không phải là giáo viên mà là một học sinh."
@@ -201,6 +205,7 @@
     {
       "part": 2,
       "topic": "在教室",
+      "spk": "",
       "p": "nǐ shì lǎo shī ma",
       "zh": "你是老师吗？",
       "vi": "Bạn là giáo viên?"
@@ -208,6 +213,7 @@
     {
       "part": 3,
       "topic": "在学校",
+      "spk": "",
       "p": "nǐ shì zhōng guó rén ma",
       "zh": "你是中国人吗？",
       "vi": "Bạn là người Trung Quốc à?"

@@ -1,0 +1,382 @@
+{
+  "lesson": 9,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第9课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店"
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店"
+    },
+    {
+      "part": 3,
+      "topic": "在山上"
+    },
+    {
+      "part": 3,
+      "topic": "在山上"
+    },
+    {
+      "part": 4,
+      "topic": "在小明家"
+    },
+    {
+      "part": 4,
+      "topic": "在小明家"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "一样",
+      "p": "yīyàng",
+      "pos": "",
+      "m": "giống nhau",
+      "hv": "nhất dạng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "放心",
+      "p": "fàngxīn",
+      "pos": "",
+      "m": "yên tâm; yên lòng; yên bụng",
+      "hv": "phóng tâm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "一定",
+      "p": "yīdìng",
+      "pos": "",
+      "m": "nhất định",
+      "hv": "nhất định",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "担心",
+      "p": "dānxīn",
+      "pos": "",
+      "m": "lo lắng; không yên tâm; lo âu; không yên lòng; lo nghĩ",
+      "hv": "đảm tâm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "比较",
+      "p": "bǐjiào",
+      "pos": "",
+      "m": "so sánh",
+      "hv": "tỷ giảo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "了解",
+      "p": "liǎojiě",
+      "pos": "",
+      "m": "hiểu rõ; biết rõ",
+      "hv": "liễu giải",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "先",
+      "p": "xiān",
+      "pos": "",
+      "m": "trước kia; trước đó",
+      "hv": "tiên.tiến",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "中间",
+      "p": "zhōngjiān",
+      "pos": "",
+      "m": "(d)giữa, trung gian",
+      "hv": "trung gian",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "参加",
+      "p": "cānjiā",
+      "pos": "",
+      "m": "tham gia; gia nhập; tham dự; dự (gia nhập một tổ chức hoặc tham gia hoạt động nào đó)",
+      "hv": "tham gia",
+      "ex_zh": "我参加了比赛。",
+      "ex_p": "Wǒ cānjiā le bǐsài.",
+      "ex_vi": "Tôi đã tham gia cuộc thi.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "影响",
+      "p": "yǐngxiǎng",
+      "pos": "",
+      "m": "(đ/d)ảnh hưởng",
+      "hv": "ảnh hưởng",
+      "ex_zh": "天气影响心情。",
+      "ex_p": "Tiānqì yǐngxiǎng xīnqíng.",
+      "ex_vi": "Thời tiết ảnh hưởng đến tâm trạng.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "马",
+      "p": "mǎ",
+      "pos": "",
+      "m": "ngựa",
+      "hv": "mã",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "祝",
+      "p": "zhù",
+      "pos": "",
+      "m": "chúc; cầu chúc",
+      "hv": "chú.chúc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "教",
+      "p": "jiào",
+      "pos": "",
+      "m": "dạy dỗ; giáo dục; chỉ bảo",
+      "hv": "giáo.giao",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "越A越B",
+      "vi": "Cấu trúc “越A越B”"
+    },
+    {
+      "zh": "比较句1：A跟B一样（+形容词）",
+      "vi": "Câu so sánh 1: AA跟B一样（+Adj.）"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "大山",
+      "p": "Nǎ li nǎ li, wǒ men bān Wáng Jìng shuō de gèng hǎo.",
+      "zh": "马可，你的中文越说越好了！",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "马可",
+      "p": "Mǎ kě, nǐ de zhōng wén yuè shuō yuè hǎo le！",
+      "zh": "哪里哪里，我们班王静说得更好。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "大山",
+      "p": "Tā de Hàn yǔ shuō de gēn Zhōng guó rén yí yàng hǎo.",
+      "zh": "怎么好？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "马可",
+      "p": "Zěn me hǎo?",
+      "zh": "她的汉语说得跟中国人一样好。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "大山",
+      "p": "Tā shì wǒ men de Hàn yǔ lǎo shī.",
+      "zh": "王静？我怎么没听说过这个名字？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "马可",
+      "p": "Wáng Jìng? Wǒ zěn me méi tīng shuō guo zhè ge míng zi?",
+      "zh": "她是我们的汉语老师。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店",
+      "spk": "小丽",
+      "p": "Zhè shì zuì hòu yí kuài.",
+      "zh": "别吃了，你已经吃了三块蛋糕了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店",
+      "spk": "小刚",
+      "p": "Bié chī le, nǐ yǐ jīng chī le sān kuài dàn gāo le.",
+      "zh": "这是最后一块。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店",
+      "spk": "小丽",
+      "p": "Nǐ fàng xīn, wǒ yí dìng bú huì biàn pàng.",
+      "zh": "你总是吃甜的东西，会越吃越胖。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店",
+      "spk": "小刚",
+      "p": "Nǐ zǒng shì chī tián de dōng xi, huì yuè chī yuè pàng.",
+      "zh": "你放心，我一定不会变胖。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店",
+      "spk": "小丽",
+      "p": "Wǒ men jiā de rén dōu hěn shòu, chī bú pàng.",
+      "zh": "为什么？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在蛋糕店",
+      "spk": "小刚",
+      "p": "Wèi shén me?",
+      "zh": "我们家的人都很瘦，吃不胖。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在山上",
+      "spk": "小丽",
+      "p": "Zěn me le？",
+      "zh": "我有点儿害怕。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在山上",
+      "spk": "小刚",
+      "p": "Wǒ yǒu diǎnr hài pà.",
+      "zh": "怎么了？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在山上",
+      "spk": "小丽",
+      "p": "Bú yòng dān xīn, yǒu wǒ ne, wǒ duì zhèr bǐ jiào liǎo jiě.",
+      "zh": "山越高，路越难走，我也越爬越冷。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在山上",
+      "spk": "小刚",
+      "p": "Shān yuè gāo, lù yuè nán zǒu, wǒ yě yuè pá yuè lěng.",
+      "zh": "不用担心，有我呢，我对这儿比较了解。小丽：那我们先休息一下，一会儿再爬。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在山上",
+      "spk": "小刚",
+      "p": "Hǎo, yí huìr wǒ men kě yǐ cóng zhōng jiān zhè tiáo lù shàng qù.",
+      "zh": "好，一会儿我们可以从中间这条路上去。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "同学",
+      "p": "Xiǎo míng, nǐ de yǎn jing zěn me gēn dà xióng māo yí yàng le？",
+      "zh": "小明，你的眼睛怎么跟大熊猫一样了？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "小明",
+      "p": "Wǒ zhè jǐ tiān jiǎo téng, méi xiū xi hǎo.",
+      "zh": "我这几天脚疼，没休息好。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "同学",
+      "p": "Xià ge yuè de lán qiú bǐ sài, nǐ néng cān jiā ma?",
+      "zh": "去医院了吗？医生说什么？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "小明",
+      "p": "Qù yī yuàn le ma? Yī shēng shuō shén me?",
+      "zh": "他让我多休息.休息得越多，好得越快。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "同学",
+      "p": "Tā ràng wǒ duō xiū xi. Xiū xi de yuè duō, hǎo de yuè kuài.",
+      "zh": "下个月的篮球比赛，你能参加吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "小明",
+      "p": "Yí dìng néng cān jiā, yì diǎnr yǐng xiǎng yě méi yǒu.",
+      "zh": "一定能参加，一点儿影响也没有。",
+      "vi": ""
+    }
+  ]
+}

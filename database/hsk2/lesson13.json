@@ -1,0 +1,169 @@
+{
+  "lesson": 13,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第13课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在办公室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在办公室"
+    },
+    {
+      "part": 1,
+      "topic": "在办公室"
+    },
+    {
+      "part": 2,
+      "topic": "在办公室"
+    },
+    {
+      "part": 2,
+      "topic": "在办公室"
+    },
+    {
+      "part": 3,
+      "topic": "在运动场"
+    },
+    {
+      "part": 3,
+      "topic": "在运动场"
+    },
+    {
+      "part": 4,
+      "topic": "在路上"
+    },
+    {
+      "part": 4,
+      "topic": "在路上"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "着",
+      "p": "zhe",
+      "pos": "",
+      "m": "đang (đặt sau động từ chỉ sự việc đang tiến hành)",
+      "hv": "trứ.trữ.trước.hồ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "笑",
+      "p": "xiào",
+      "pos": "",
+      "m": "cười",
+      "hv": "tiếu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "动态助词“着”",
+      "vi": "Hạt cấu trúc “着”"
+    },
+    {
+      "zh": "：反问句“不是……吗”",
+      "vi": "Câu hỏi tu từ \"不是……吗”"
+    },
+    {
+      "zh": "介词“往”",
+      "vi": "Giới từ “往”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Mén kāi zhe ne, qǐng jìn.",
+      "zh": "门开着呢，请进。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Qǐng wèn, Zhāng xiān sheng zài ma？",
+      "zh": "请问，张先生在吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Tā chū qu le. Nǐ xià wǔ zài lái ba.",
+      "zh": "他出去了。你下午再来吧。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Hǎo de, xiè xie！",
+      "zh": "好的，谢谢！",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Nà ge zhèng zài shuō huà de nǚ háir shì shéi？",
+      "zh": "那个正在说话的女孩儿是谁？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Wǒ zhī dào tā de míng zi, tā xìng Yáng, jiào Yáng xiào xiao.",
+      "zh": "我知道她的名字，她姓杨，叫杨笑笑，她姐姐是我同学。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "tā jiě jie shì wǒ tóng xué.",
+      "zh": "那个手里拿着铅笔的呢？B：我不认识。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "A",
+      "p": "Qǐng wèn, zhèr lí Xīn jīng Bīn guǎn yuǎn ma？",
+      "zh": "请问，这儿离新京宾馆远吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "B",
+      "p": "Bù yuǎn, zǒu lù èr shí fēn zhōng jiù dào.",
+      "zh": "不远，走路二十分钟就到。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "A",
+      "p": "dào le qián miàn de lù kǒu zài wǎng yòu zǒu.",
+      "zh": "你能告诉我怎么走吗？B：从这儿一直往前走，",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "",
+      "p": "Cóng zhèr yì zhí wǎng qián zǒu,",
+      "zh": "到了前面的路口再往右走。",
+      "vi": ""
+    }
+  ]
+}

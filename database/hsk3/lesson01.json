@@ -1,0 +1,424 @@
+{
+  "lesson": 1,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第1课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "谈周末的打算",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "谈周末的打算"
+    },
+    {
+      "part": 1,
+      "topic": "谈周末的打算"
+    },
+    {
+      "part": 2,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在家"
+    },
+    {
+      "part": 3,
+      "topic": "聊旅游计划"
+    },
+    {
+      "part": 3,
+      "topic": "聊旅游计划"
+    },
+    {
+      "part": 4,
+      "topic": "准备去旅游"
+    },
+    {
+      "part": 4,
+      "topic": "准备去旅游"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "周末",
+      "p": "zhōumò",
+      "pos": "",
+      "m": "cuối tuần",
+      "hv": "chu mạt",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "打算",
+      "p": "dǎsuan",
+      "pos": "",
+      "m": "dự định; định; tính toán; lo liệu",
+      "hv": "đả toán",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "跟",
+      "p": "gēn",
+      "pos": "",
+      "m": "gót; gót chân",
+      "hv": "cân.ngân.căn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "地图",
+      "p": "dìtú",
+      "pos": "",
+      "m": "(d)bản đồ",
+      "hv": "địa đồ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "游戏",
+      "p": "yóuxì",
+      "pos": "",
+      "m": "trò chơi; du hý",
+      "hv": "du hí",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "班",
+      "p": "bān",
+      "pos": "",
+      "m": "tiểu đội",
+      "hv": "ban",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "一直",
+      "p": "yīzhí",
+      "pos": "",
+      "m": "thẳng; thẳng tuốt",
+      "hv": "nhất trực",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "夏",
+      "p": "xià",
+      "pos": "",
+      "m": "hạ",
+      "hv": "hạ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "北方",
+      "p": "běifāng",
+      "pos": "",
+      "m": "miền bắc",
+      "hv": "bắc phương",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "着急",
+      "p": "zhāojí",
+      "pos": "",
+      "m": "suốt ruột",
+      "hv": "trứ cấp",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "面包",
+      "p": "miàn bāo",
+      "pos": "",
+      "m": "bánh mì",
+      "hv": "miến bao",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "地",
+      "p": "dì",
+      "pos": "",
+      "m": "đất; trái đất; địa cầu; mặt đất; vỏ quả đất",
+      "hv": "địa",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "表示",
+      "p": "biǎoshì",
+      "pos": "",
+      "m": "dấu hiệu",
+      "hv": "biểu thị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "复习",
+      "p": "fùxí",
+      "pos": "",
+      "m": "ôn tập",
+      "hv": "phúc tập",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "啊",
+      "p": "a",
+      "pos": "",
+      "m": "quá; thật là (dùng ở cuối câu, tỏ ý ca ngợi, mang ngữ khí nghi vấn)",
+      "hv": "a",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "搬",
+      "p": "bān",
+      "pos": "",
+      "m": "chuyển; xê dịch; dời chỗ; chuyển chỗ; đưa vào; lấy đi; mang đi; đem đi; cất đi",
+      "hv": "ban.bàn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "东",
+      "p": "dōng",
+      "pos": "",
+      "m": "phía đông; phương đông; đông",
+      "hv": "đông",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "带",
+      "p": "dài",
+      "pos": "",
+      "m": "dây; thắt lưng; băng; cái đai",
+      "hv": "đới.đái",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "作业",
+      "p": "zuòyè",
+      "pos": "",
+      "m": "bài tập",
+      "hv": "tác nghiệp",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "结果补语“好”",
+      "vi": "Sự bổ sung của kết quả “好”"
+    },
+    {
+      "zh": "“一……也/都+不/没……”表示否定",
+      "vi": "Cấu trúc phủ định “一……也/不+不/无……”"
+    },
+    {
+      "zh": "结果“那”",
+      "vi": "Liên từ “那”"
+    },
+    {
+      "zh": "结果“那”",
+      "vi": "Liên từ “那”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "谈周末的打算",
+      "spk": "小丽",
+      "p": "Zhōu mò nǐ yǒu shén me dǎ suàn ？",
+      "zh": "周末你有什么打算？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "谈周末的打算",
+      "spk": "小刚",
+      "p": "Wǒ zǎo jiù xiǎng hǎo le ， qǐng nǐ chī fàn 、 kàn diàn yǐng 、 hē kā fēi 。",
+      "zh": "我早就想好了，请你吃饭、看电影、喝咖啡。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "谈周末的打算",
+      "spk": "小丽",
+      "p": "Qǐng wǒ ？",
+      "zh": "请我？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "谈周末的打算",
+      "spk": "小刚",
+      "p": "Shì a ， wǒ yǐ jīng zhǎo hǎo fàn guǎn le ， diàn yǐng piào yě mǎi hǎo le。",
+      "zh": "是啊，我已经找好饭馆了，电影票也买好了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "谈周末的打算",
+      "spk": "小丽",
+      "p": "Wǒ hái méi xiǎng hǎo yào bú yào gēn nǐ qù ne 。",
+      "zh": "我还没想好要不要跟你去呢。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "妈妈",
+      "p": "Nǐ yì zhí wánr diàn nǎo yóu xì ， zuò yè xiě wán le ma ？",
+      "zh": "你一直玩儿电脑游戏，作业写完了吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "儿子",
+      "p": "Dōu xiě wán le 。",
+      "zh": "都写完了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "妈妈",
+      "p": "Míng tiān bú shì yǒu kǎo shì ma ？ nǐ zěn me yì diǎnr yě bù zháo jí ？",
+      "zh": "明天不是有考试吗？你怎么一点儿也不着急？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "儿子",
+      "p": "Wǒ zǎo jiù fù xí hǎo le 。",
+      "zh": "我早就复习好了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "妈妈",
+      "p": "Nà yě bù néng yì zhí wánr a 。",
+      "zh": "那也不能一直玩儿啊。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "聊旅游计划",
+      "spk": "小丽",
+      "p": "Xià ge yuè wǒ qù lǚ yóu ， nǐ néng gēn wǒ yì qǐ qù ma ？",
+      "zh": "下个月我去旅游，你能跟我一起去吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "聊旅游计划",
+      "spk": "小刚",
+      "p": "Wǒ hái méi xiǎng hǎo ne 。 nǐ jué de nǎr zuì hǎo wánr ？",
+      "zh": "我还没想好呢。你觉得哪儿最好玩儿？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "聊旅游计划",
+      "spk": "小丽",
+      "p": "Nán fāng a ， wǒ men qù nián jiù shì zhè ge shí hou qù de 。",
+      "zh": "南方啊，我们去年就是这个时候去的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "聊旅游计划",
+      "spk": "小刚",
+      "p": "nán fāng tài rè le ， běi fāng hǎo yì xiē ， bù lěng yě bù rè 。",
+      "zh": "南方太热了，北方好一些，不冷也不热。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "准备去旅游",
+      "spk": "小刚",
+      "p": "Shuǐ guǒ 、 miàn bāo 、 chá dū zhǔn bèi hǎo le ， wǒ mén hái dài shén me ？",
+      "zh": "水果、面包、茶都准备好了，我们还带什么？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "准备去旅游",
+      "spk": "小丽",
+      "p": "Shǒu jī 、 diàn nǎo 、 dì tú ， yí gè yě bù néng shǎo 。",
+      "zh": "手机、电脑、地图，一个也不能少。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "准备去旅游",
+      "spk": "小刚",
+      "p": "zhè xiē wǒ zuó tiān xià wǔ jiù zhǔn bèi hǎo le 。",
+      "zh": "这些我昨天下午就准备好了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "准备去旅游",
+      "spk": "小丽",
+      "p": "Zài duō dài jǐ jiàn yī fu ba 。",
+      "zh": "再多带几件衣服吧。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "准备去旅游",
+      "spk": "小刚",
+      "p": "wǒ men shì qù lǚ yóu ， bú shì bān jiā ， hái shì shǎo dài yì xiē ba 。",
+      "zh": "我们是去旅游，不是搬家，还是少带一些吧。",
+      "vi": ""
+    }
+  ]
+}

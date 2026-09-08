@@ -1,0 +1,409 @@
+{
+  "lesson": 10,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第10课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    },
+    {
+      "part": 4,
+      "topic": "在看房子"
+    },
+    {
+      "part": 4,
+      "topic": "在看房子"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "矮",
+      "p": "ǎi",
+      "pos": "",
+      "m": "lùn; thấp lùn; thấp",
+      "hv": "ải.nuỵ.oải",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "历史",
+      "p": "lì shǐ",
+      "pos": "",
+      "m": "lịch sử",
+      "hv": "lịch sử",
+      "ex_zh": "中国历史很悠久。",
+      "ex_p": "Zhōngguó lìshǐ hěn yōujiǔ.",
+      "ex_vi": "Lịch sử Trung Quốc rất lâu đời.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "体育",
+      "p": "tǐ yù",
+      "pos": "",
+      "m": "thể dục",
+      "hv": "thể dục",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "数学",
+      "p": "shùxué",
+      "pos": "",
+      "m": "toán học; toán",
+      "hv": "số học",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "方便",
+      "p": "fāngbiàn",
+      "pos": "",
+      "m": "(t)thuận tiện, dễ dàng",
+      "hv": "phương tiện",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "骑",
+      "p": "qí",
+      "pos": "",
+      "m": "cưỡi; đi",
+      "hv": "kỵ.kị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "旧",
+      "p": "jiù",
+      "pos": "",
+      "m": "cũ; xưa",
+      "hv": "cựu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "换",
+      "p": "huàn",
+      "pos": "",
+      "m": "đổi; trao đổi; hoán đổi; hoán",
+      "hv": "hoán",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "地方",
+      "p": "dìfāng",
+      "pos": "",
+      "m": "(d)địa phương, nơi, chỗ",
+      "hv": "địa phương",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "主要",
+      "p": "zhǔyào",
+      "pos": "",
+      "m": "chủ yếu; chính",
+      "hv": "chủ yếu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "环境",
+      "p": "huánjìng",
+      "pos": "",
+      "m": "môi trường; cảnh vật chung quanh",
+      "hv": "hoàn cảnh",
+      "ex_zh": "保护环境。",
+      "ex_p": "Bǎohù huánjìng.",
+      "ex_vi": "Bảo vệ môi trường.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "附近",
+      "p": "fùjìn",
+      "pos": "",
+      "m": "phụ cận; lân cận",
+      "hv": "phụ cận",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "信",
+      "p": "xìn",
+      "pos": "",
+      "m": "tín",
+      "hv": "tín.thân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "把",
+      "p": "bǎ",
+      "pos": "",
+      "m": "khoảng; gần; độ chừng; ước chừng; chừng; ngót (dùng sau các lượng từ \"百，千，万\"và\"里，斤，个\", biểu thị số lượng gần tới những số đơn vị này ) Phía trước không được thêm lượng từ 加在\"百，千，万\"和\"里，斤，个\"等量词后头，表示数量近于这个单位数（前头不能再加数量词）",
+      "hv": "bả.bà.bá",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "比较句2：A比B+形容词+一点儿/一些/得多/多了",
+      "vi": "Câu so sánh 2: A比B+Adj+一点儿/一些/得多/多了"
+    },
+    {
+      "zh": "概数的表达1",
+      "vi": "Biểu thức của số gần đúng1"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "朋友",
+      "p": "Nǎ nǐ men shéi dà?",
+      "zh": "大山，你和马可谁个子高？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "大山",
+      "p": "Mǎ kě bǐ wǒ gāo, wǒ bǐ Mǎ kě ǎi yì diǎnr.",
+      "zh": "马可比我高，我比马可矮一点儿。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "朋友",
+      "p": "Nǐ men shéi de Hàn yǔ shuō de gèng hǎo?",
+      "zh": "那你们谁大？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "大山",
+      "p": "Wǒ bǐ Mǎ kě dà liǎng suì.",
+      "zh": "我比马可大两岁。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "朋友",
+      "p": "Mǎ kě bǐ wǒ shuō de hǎo yì xiē, wǒ de Hàn yǔ méi yǒu tā hǎo.",
+      "zh": "你们谁的汉语说得更好？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "大山",
+      "p": "Dà shān, nǐ hé Mǎ kě shéi gè zi gāo?",
+      "zh": "马可比我说得好一些，我的汉语没有他好。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Wèi shén me? Shù xué yě hěn yǒu yì si a.",
+      "zh": "我喜欢历史课、体育课，不喜欢数学课。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Wǒ xǐ huan lì shǐ kè、tǐ yù kè, bù xǐ huan shù xué kè.",
+      "zh": "为什么？数学也很有意思啊。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Bié dān xīn, wǒ kě yǐ bāng nǐ.",
+      "zh": "我觉得数学比历史难多了，我听不懂。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Wǒ jué de shù xué bǐ lì shǐ nán duō le, wǒ tīng bu dǒng.",
+      "zh": "别担心，我可以帮你。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Yì liǎng ge xiǎo shí ba.",
+      "zh": "好啊，我们每天学多长时间？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Hǎo a, wǒ men měi tiān xué duō cháng shí jiān?",
+      "zh": "一两个小时吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Nǐ zuì jìn bǐ yǐ qián lái de zǎo duō le, bān jiā le?",
+      "zh": "你最近比以前来得早多了，搬家了？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "Shì a, nǐ bù zhī dào? Wǒ shàng ge yuè jiù bān jiā le,",
+      "zh": "是啊，你不知道？我上个月就搬家了，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "",
+      "p": "tóng shì: Nà hěn fāng biàn a.",
+      "zh": "走路二十分钟就到。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Wǒ hái dǎ suàn mǎi liàng zì xíng chē, qí chē qī-bā fēn zhōng jiù néng dào.",
+      "zh": "那很方便啊。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "Nǐ bú shì yǒu yí liàng ma?",
+      "zh": "我还打算买辆自行车，骑车七八分钟就能到。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Nà liàng tài jiù le, yào huàn yí liàng ， hěn pián yi ， liǎng-sān bǎi kuài qián.",
+      "zh": "你不是有一辆吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "zǒu lù èr shí fēn zhōng jiù dào.",
+      "zh": "那辆太旧了，要换一辆，很便宜，两三百块钱。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在看房子",
+      "spk": "大山",
+      "p": "Zhè liǎng ge dì fāng de fáng zi yí yàng ma？",
+      "zh": "这两个地方的房子一样吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在看房子",
+      "spk": "中介",
+      "p": "bù yí yàng. Nín kàn, xué xiào wài bian de fáng zi bǐ xué xiào lǐ bian de dà yì xiē.",
+      "zh": "不一样。您看，学校外边的房子比学校里边的大一些。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在看房子",
+      "spk": "大山",
+      "p": "Nǎ ge fāng biàn yì xiē ne？",
+      "zh": "大小没关系，主要是环境，哪个更安静？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在看房子",
+      "spk": "中介",
+      "p": "Dà xiǎo méi guān xi, zhǔ yào shì huán jìng, nǎ ge gèng ān jìng ？",
+      "zh": "学校里边的没有学校外边的那么安静。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在看房子",
+      "spk": "大山",
+      "p": "Xué xiào lǐ bian de méi yǒu xué xiào wài bian de nà me ān jìng.",
+      "zh": "哪个方便一些呢？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在看房子",
+      "spk": "中介",
+      "p": "Xué xiào lǐ bian bǐ xué xiào wài bian fāng biàn, fù jìn yǒu sān-sì ge chē zhàn.",
+      "zh": "学校里边比学校外边方便，附近有三四个车站。",
+      "vi": ""
+    }
+  ]
+}

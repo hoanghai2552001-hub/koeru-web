@@ -1,0 +1,363 @@
+{
+  "lesson": 18,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第18课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在打电话",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在打电话"
+    },
+    {
+      "part": 1,
+      "topic": "在打电话"
+    },
+    {
+      "part": 2,
+      "topic": "在商店"
+    },
+    {
+      "part": 2,
+      "topic": "在商店"
+    },
+    {
+      "part": 3,
+      "topic": "在公司"
+    },
+    {
+      "part": 3,
+      "topic": "在公司"
+    },
+    {
+      "part": 4,
+      "topic": "Text"
+    },
+    {
+      "part": 4,
+      "topic": "不同的国家有不同的文化，每种文化都有自己的特点。到了一个新环境，你会觉得什么都很新鲜，而且还会觉得有点奇怪：有些国家的人名写在姓前面，有些国家的人名写在姓后面，但是只要经过一段时间，就会慢慢地习惯。"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "同意",
+      "p": "tóngyì",
+      "pos": "",
+      "m": "đồng ý; bằng lòng; tán thành",
+      "hv": "đồng ý",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "国家",
+      "p": "guójiā",
+      "pos": "",
+      "m": "(d)quôc gia, nhà nước",
+      "hv": "quốc gia",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "动物",
+      "p": "dòngwù",
+      "pos": "",
+      "m": "(d)động vật",
+      "hv": "động vật",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "相信",
+      "p": "xiāngxìn",
+      "pos": "",
+      "m": "tin tưởng; tin",
+      "hv": "tương tín",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "万",
+      "p": "wàn",
+      "pos": "",
+      "m": "vạn = 10.000",
+      "hv": "vạn.mặc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "奇怪",
+      "p": "qíguài",
+      "pos": "",
+      "m": "kỳ quái; kỳ lạ; quái lạ; lạ lùng; quái gở",
+      "hv": "kỳ quái",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "段",
+      "p": "duàn",
+      "pos": "",
+      "m": "đoạn; quãng; khúc",
+      "hv": "đoạn.đoàn.đoán",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "有名",
+      "p": "yǒumíng",
+      "pos": "",
+      "m": "có tiếng; nổi tiếng",
+      "hv": "hữu danh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "关于",
+      "p": "guānyú",
+      "pos": "",
+      "m": "về (giới từ)",
+      "hv": "quan ư",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "机会",
+      "p": "jīhuì",
+      "pos": "",
+      "m": "cơ hội",
+      "hv": "cơ hội",
+      "ex_zh": "抓住机会。",
+      "ex_p": "Zhuā zhù jīhuì.",
+      "ex_vi": "Nắm lấy cơ hội.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "种",
+      "p": "zhǒng",
+      "pos": "",
+      "m": "loài",
+      "hv": "chủng.chúng.xung.trùng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "而且",
+      "p": "érqiě",
+      "pos": "",
+      "m": "(l)vả lại, hơn nữa",
+      "hv": "nhi thả",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "只要……就……",
+      "vi": "Cấu trúc “只要……就……”"
+    },
+    {
+      "zh": "关于",
+      "vi": "Giới từ “关于”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在打电话",
+      "spk": "朋友",
+      "p": "méi wèn tí,zhǐ yào wǒ yǒu,jiù yí dìng huì jiè gěi nǐ de.",
+      "zh": "老周，我打算买房子了，想向你借点儿钱。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在打电话",
+      "spk": "周明",
+      "p": "lǎo zhōu,wǒ dǎ suàn mǎi fáng zi le,xiǎng xiàng nǐ jiè diǎnr qián.",
+      "zh": "没问题，只要我有，就一定会借给你的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在打电话",
+      "spk": "",
+      "p": "Péng yǒu: hái chà wǔ wàn kuài qián.",
+      "zh": "还差多少？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在打电话",
+      "spk": "朋友",
+      "p": "Hái chà duō shǎo ？",
+      "zh": "还差5万块钱。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在打电话",
+      "spk": "周明",
+      "p": "jiù zài wǒ men yī yuàn qián miàn.",
+      "zh": "好，钱下午打给你。你打算在哪儿买房？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在打电话",
+      "spk": "朋友",
+      "p": "hǎo,qián xià wǔ dǎ gěi nǐ.Nǐ dǎ suàn zài nǎr mǎi fáng ？",
+      "zh": "就在我们医院前面。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在打电话",
+      "spk": "周明",
+      "p": "nà nǐ yǐ hòu qù yī yuàn jiù fāng biàn le .",
+      "zh": "那你以后去医院就方便了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "小明",
+      "p": "Zuǐ xiǎo xiǎo de ， wǒ men mǎi huí qù ba.",
+      "zh": "妈妈，你看那只狗多可爱，眼睛大大的，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "",
+      "p": "Xiǎo míng :mā ma,nǐ kàn nà zhī gǒu duō kě ài ,yǎn jīng dà dà de ,",
+      "zh": "嘴小小的，我们买回去吧。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "妈妈",
+      "p": "shuí zhào gù tā a ？",
+      "zh": "动物和小孩儿一样，都需要人照顾。买回家",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "",
+      "p": "Mā ma :dòng wù hé xiǎo háir yí yàng ， dōu xū yào rén zhào gù .Mǎi huí jiā",
+      "zh": "谁照顾它啊？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "小明",
+      "p": "zhè duàn shí jiān nǐ zì jǐ de yī fu dōu méi xǐ ,nǐ néng zhào gù hǎo tā ma ？",
+      "zh": "我照顾啊。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "妈妈",
+      "p": "wǒ zhào gù a.",
+      "zh": "这段时间你自己的衣服都没洗，你能照顾好它吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商店",
+      "spk": "小明",
+      "p": "zhǐ yào nǐ gěi wǒ mǎi, wǒ jiù néng zhào gù hǎo tā .",
+      "zh": "只要你给我买，我就能照顾好它。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "经理",
+      "p": "guì gōng sī bú dàn hěn yǒu míng,ér qiě gōng zuò huán jìng hǎo.",
+      "zh": "说说你为什么选择来我们公司工作。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "学生",
+      "p": "shuō shuo nǐ wèi shén me xuǎn zé lái wǒ men gōng sī gōng zuò.",
+      "zh": "贵公司不但很有名，而且工作环境好。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "经理",
+      "p": "Nǐ jiā rén tóng yì ma ？",
+      "zh": "做这个工作有点儿累，需要经常去外地。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Jīng lǐ :zuò zhè ge gōng zuò yǒu diǎnr lèi ， xū yào jīng cháng qù wài dì.",
+      "zh": "你家人同意吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "学生",
+      "p": "hái yǒu shén me wèn tí ma ？",
+      "zh": "只要我愿意，我相信他们就会同意的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "经理",
+      "p": "hǎo,nà nǐ míng tiān lái shàng bān ba,guān yú zhè ge gōng zuò,",
+      "zh": "好，那你明天来上班吧。关于这个工作，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Xué shēng:méi yǒu le,xiè xiè nín gěi wǒ zhè ge jī huì,wǒ huì nǔ lì de.",
+      "zh": "还有什么问题吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "学生",
+      "p": "zhǐ yào wǒ yuàn yì,wǒ xiāng xìn tā men jiù huì tóng yì de.",
+      "zh": "没有了，谢谢您给我这个机会，我会努力的。",
+      "vi": ""
+    }
+  ]
+}

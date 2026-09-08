@@ -1,6 +1,7 @@
 {
   "lesson": 5,
-  "source": "HSK标准教程1 第5课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "level": "HSK1",
+  "source": "HSK标准教程1 第5课 (PPTX) + danh sách từ vựng HSK1",
   "status": "REVIEW_REQUIRED",
   "title": "在学校",
   "topics": [
@@ -162,6 +163,7 @@
     {
       "part": 1,
       "topic": "在学校",
+      "spk": "",
       "p": "nǐ jiā yǒu jǐ kǒu rén",
       "zh": "你家有几口人？",
       "vi": "Có bao nhiêu người trong gia đình bạn?"
@@ -169,6 +171,7 @@
     {
       "part": 1,
       "topic": "在学校",
+      "spk": "",
       "p": "wǒ jiā yǒu sān kǒu rén",
       "zh": "我家有三人。",
       "vi": "Có 3 người trong gia đình"
@@ -176,6 +179,7 @@
     {
       "part": 2,
       "topic": "在办公室",
+      "spk": "",
       "p": "Nǐ nǚ ér jǐ suì le",
       "zh": "你女儿几岁了？",
       "vi": "Tuổi của con gái bạn là bao nhiêu?"
@@ -183,6 +187,7 @@
     {
       "part": 2,
       "topic": "在办公室",
+      "spk": "",
       "p": "Tā jīn nián sì suì le",
       "zh": "她今年四岁了。",
       "vi": "Cô ấy 4 tuổi."

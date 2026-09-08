@@ -1,0 +1,356 @@
+{
+  "lesson": 11,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第11课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在会议室"
+    },
+    {
+      "part": 2,
+      "topic": "在会议室"
+    },
+    {
+      "part": 3,
+      "topic": "在客厅"
+    },
+    {
+      "part": 3,
+      "topic": "在客厅"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "图书馆",
+      "p": "túshū guǎn",
+      "pos": "",
+      "m": "thư viện",
+      "hv": "đồ thư quán",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "借",
+      "p": "jiè",
+      "pos": "",
+      "m": "mượn; vay",
+      "hv": "tá",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "灯",
+      "p": "dēng",
+      "pos": "",
+      "m": "đăng",
+      "hv": "đăng.đinh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "会议",
+      "p": "huì yì",
+      "pos": "",
+      "m": "hội nghị",
+      "hv": "hội nghị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "结束",
+      "p": "jiéshù",
+      "pos": "",
+      "m": "kết thúc",
+      "hv": "kết thúc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "忘记",
+      "p": "wàngjì",
+      "pos": "",
+      "m": "quên",
+      "hv": "vong ký",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "空调",
+      "p": "kòng tiáo",
+      "pos": "",
+      "m": "máy điều hòa không khí",
+      "hv": "không điều",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "关",
+      "p": "guān",
+      "pos": "",
+      "m": "quan,đóng",
+      "hv": "quan.loan.tiếu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "地铁",
+      "p": "dìtiě",
+      "pos": "",
+      "m": "tàu điện ngầm",
+      "hv": "địa thiết",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "双",
+      "p": "shuāng",
+      "pos": "",
+      "m": "đôi",
+      "hv": "song",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "筷子",
+      "p": "kuài zi",
+      "pos": "",
+      "m": "đũa",
+      "hv": "khoái tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "啤酒",
+      "p": "píjiǔ",
+      "pos": "",
+      "m": "bia",
+      "hv": "bì tửu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "口",
+      "p": "kǒu",
+      "pos": "",
+      "m": "miệng",
+      "hv": "khẩu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "习惯",
+      "p": "xíguàn",
+      "pos": "",
+      "m": "(đ/d)tập quán",
+      "hv": "tập quán",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "电子",
+      "p": "diàn zǐ",
+      "pos": "",
+      "m": "điện tử",
+      "hv": "điện tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“把”字句1 ：A把B+动词+……",
+      "vi": ""
+    },
+    {
+      "zh": "概数的表达2：左右",
+      "vi": ""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Wǒ qù tú shū guǎn jiè běn shū.",
+      "zh": "我先走了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Nǐ qù nǎr?",
+      "zh": "你去哪儿？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Hǎo, děng yí huìr nǐ lí kāi jiào shì de shí hou, jì de bǎ dēng guān le.",
+      "zh": "我去图书馆借本书。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Bāng wǒ bǎ zhè běn cí diǎn huán le ba.",
+      "zh": "帮我把这本词典还了吧。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Hǎo de, fàng xīn ba.",
+      "zh": "好，等一会儿你离开教室的时候，记得把灯关了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Wǒ xiān zǒu le.",
+      "zh": "好的，放心吧。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在会议室",
+      "spk": "周明",
+      "p": "Hǎo de. Wáng jīng lǐ liǎng diǎn zuǒ yòu lái le ge diàn huà.",
+      "zh": "会议结束后，别忘记把空调关了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在会议室",
+      "spk": "小丽",
+      "p": "Huì yì jié shù hòu, bié wàng jì bǎ kōng tiáo guān le.",
+      "zh": "好的。王经理两点左右来了个电话。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在会议室",
+      "spk": "周明",
+      "p": "Shì de, tā zhèng zuò dì tiě lái wǒ men gōng sī ne.",
+      "zh": "他已经到北京了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在会议室",
+      "spk": "小丽",
+      "p": "Tā yǐ jīng dào Běi jīng le?",
+      "zh": "是的，他正坐地铁来我们公司呢。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在会议室",
+      "spk": "周明",
+      "p": "Děng tā dào le jiù gào su wǒ.",
+      "zh": "等他到了就告诉我。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在客厅",
+      "spk": "妈妈",
+      "p": "Hái chà yì shuāng kuài zi, nǐ qù ná yí xià.",
+      "zh": "还差一双筷子，你去拿一下。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在客厅",
+      "spk": "儿子",
+      "p": "Jīn tiān zěn me zuò le zhè me duō cài?",
+      "zh": "今天怎么做了这么多菜？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在客厅",
+      "spk": "妈妈",
+      "p": "Zhēn de a? Wǒ bǎ bà ba de shēng rì wàng le.",
+      "zh": "今天是你爸爸的生日。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在客厅",
+      "spk": "儿子",
+      "p": "Nà wǒ men jīn tiān hē diǎnr pí jiǔ ba.",
+      "zh": "真的啊？我把爸爸的生日忘了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在客厅",
+      "spk": "",
+      "p": "mā ma: Yī shēng shuō nǐ bà ba yì kǒu jiǔ dōu bù néng hē,",
+      "zh": "那我们今天喝点儿啤酒吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在客厅",
+      "spk": "妈妈",
+      "p": "bié ràng tā kàn jiàn jiǔ píng zi.",
+      "zh": "医生说你爸爸一口酒都不能喝，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在客厅",
+      "spk": "",
+      "p": "mā ma: Jīn tiān shì nǐ bà ba de shēng rì.",
+      "zh": "别让他看见酒瓶子。",
+      "vi": ""
+    }
+  ]
+}

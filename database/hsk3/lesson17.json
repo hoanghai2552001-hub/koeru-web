@@ -1,0 +1,323 @@
+{
+  "lesson": 17,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第17课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在公司",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在公司"
+    },
+    {
+      "part": 1,
+      "topic": "在公司"
+    },
+    {
+      "part": 2,
+      "topic": "在公司"
+    },
+    {
+      "part": 2,
+      "topic": "在公司"
+    },
+    {
+      "part": 3,
+      "topic": "在家"
+    },
+    {
+      "part": 3,
+      "topic": "在家"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "一共",
+      "p": "yīgòng",
+      "pos": "",
+      "m": "tất cả,tổng số",
+      "hv": "nhất cộng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "邻居",
+      "p": "línjū",
+      "pos": "",
+      "m": "hàng xóm; láng giềng",
+      "hv": "lân cư",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "爱好",
+      "p": "àihào",
+      "pos": "",
+      "m": "sở thích",
+      "hv": "ái hiếu",
+      "ex_zh": "我的爱好是音乐。",
+      "ex_p": "Wǒ de àihào shì yīnyuè.",
+      "ex_vi": "Sở thích của tôi là âm nhạc.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "办法",
+      "p": "bànfǎ",
+      "pos": "",
+      "m": "biện pháp",
+      "hv": "biện pháp",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "饱",
+      "p": "bǎo",
+      "pos": "",
+      "m": "no",
+      "hv": "bão",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "为了",
+      "p": "wèile",
+      "pos": "",
+      "m": "để; vì (biểu thị mục đích).",
+      "hv": "vi liễu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "决定",
+      "p": "juédìng",
+      "pos": "",
+      "m": "(d/đ) quyết định",
+      "hv": "quyết định",
+      "ex_zh": "我决定去留学。",
+      "ex_p": "Wǒ juédìng qù liúxué.",
+      "ex_vi": "Tôi quyết định đi du học.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "必须",
+      "p": "bìxū",
+      "pos": "",
+      "m": "(p)phải",
+      "hv": "tất tu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "根据",
+      "p": "gēnjù",
+      "pos": "",
+      "m": "căn cứ; căn cứ vào; dựa vào",
+      "hv": "căn cứ",
+      "ex_zh": "根据天气预报…",
+      "ex_p": "Gēnjù tiānqì yùbào…",
+      "ex_vi": "Dựa theo dự báo thời tiết…",
+      "_src": "pinyin"
+    },
+    {
+      "h": "渴",
+      "p": "kě",
+      "pos": "",
+      "m": "khát; khát nước",
+      "hv": "khát.hạt.kiệt",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "河",
+      "p": "hé",
+      "pos": "",
+      "m": "sông; sông ngòi",
+      "hv": "hà",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "选择",
+      "p": "xuăn zé",
+      "pos": "",
+      "m": "chọn",
+      "hv": "tuyến trạch",
+      "ex_zh": "你有很多选择。",
+      "ex_p": "Nǐ yǒu hěnduō xuǎnzé.",
+      "ex_vi": "Bạn có rất nhiều lựa chọn.",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "双音节动词重叠",
+      "vi": "Sự lặp lại của các động từ có nhiều âm tiết"
+    },
+    {
+      "zh": "疑问代词活用3",
+      "vi": "Sử dụng linh hoạt các đại từ nghi vấn 3"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Nǐ yǒu shén me shì？",
+      "zh": "周经理，下个星期我可以请几天假吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "周明",
+      "p": "Zhōu jīng lǐ, xià ge xīng qī wǒ kě yǐ qǐng jǐ tiān jià ma？",
+      "zh": "你有什么事？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Nǐ yí gòng xiǎng qǐng jǐ tiān jià？",
+      "zh": "我的一个老朋友结婚，我跟他两年没见了。周明：你一共想请几天假？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Wǒ de yí ge lǎo péng yǒu jié hūn， wǒ gēn tā liǎng nián méi jiàn le.",
+      "zh": "三天。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "同事",
+      "p": "Wǒ men guò qù shì lín jū, hòu lái shì dà xué tóng xué,",
+      "zh": "小丽，那个高高的男人是你们公司的吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Xiǎo lì, nà ge gāo gāo de nán rén shì nǐ men gōng sī de ma？",
+      "zh": "我们过去是邻居，后来是大学同学，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "",
+      "p": "tóng shì: Tā yì bān xǐ huan zuò shén me？",
+      "zh": "关系一直很不错。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "同事",
+      "p": "guān xì yì zhí hěn bù cuò.",
+      "zh": "他一般喜欢做什么？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Zhēn de？Nà nǐ jiè shào wǒ men rèn shi rèn shi ba.",
+      "zh": "他有很多爱好，唱歌、画画儿、踢足球什么都会。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "同事",
+      "p": "Tā yǒu hěn duō ài hào, chàng gē, huà huàr, tī zú qiú shén me dōu huì.",
+      "zh": "真的？那你介绍我们认识认识吧。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Bù xíng, xiàn zài tā shì wǒ zhàng fu.",
+      "zh": "不行，现在他是我丈夫。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Zuì jìn wǒ jué de nǎr dōu bù shū fu, nǐ dài wǒ qù yī yuàn jiǎn chá jiǎn cha ba.",
+      "zh": "最近我觉得哪儿都不舒服，你带我去医院检查检查吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "周 明",
+      "p": "Wǒ wèn nǐ, nǐ duō jiǔ méi yùn dòng le？",
+      "zh": "不用去医院，谁都有办法看好你的“病”。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "",
+      "p": "Zhōu míng: Bù yòng qú yī yuàn, shéi dōu yǒu bàn fǎ kàn hǎo nǐ de“bìng”.",
+      "zh": "我问你，你多久没运动了？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Wèi le jiàn kāng, wǒ zhēn yīng gāi duō duàn liàn duàn lian le.",
+      "zh": "我三年没运动了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "周 明",
+      "p": "Shéi dōu zhī dào yùn dòng duì shēn tǐ hǎo. Dàn shì nǐ chī bǎo le jiù shuì.",
+      "zh": "谁都知道运动对身体好。但是你吃饱了就睡。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Wǒ sān nián méi yùn dòng le.",
+      "zh": "为了健康，我真应该多锻炼锻炼。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "",
+      "p": "Cóng míng tiān qǐ, wǒ jué dìng měi tiān qù cháng pǎo.",
+      "zh": "从明天起，我决定每天去长跑。",
+      "vi": ""
+    }
+  ]
+}

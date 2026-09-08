@@ -1,0 +1,321 @@
+{
+  "lesson": 9,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第9课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "打电话",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "打电话"
+    },
+    {
+      "part": 1,
+      "topic": "打电话"
+    },
+    {
+      "part": 2,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "在学校"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 4,
+      "topic": "在教室"
+    },
+    {
+      "part": 4,
+      "topic": "在教室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "唱歌",
+      "p": "chànggē",
+      "pos": "",
+      "m": "hát",
+      "hv": "xướng ca",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "问题",
+      "p": "wèntí",
+      "pos": "",
+      "m": "câu hỏi; đề hỏi",
+      "hv": "vấn đề",
+      "ex_zh": "你有什么问题？",
+      "ex_p": "Nǐ yǒu shénme wèntí?",
+      "ex_vi": "Bạn có câu hỏi gì không?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "第一",
+      "p": "dìyī",
+      "pos": "",
+      "m": "thứ nhất; hạng nhất; bậc nhất; đầu tiên; đệ nhất",
+      "hv": "đệ nhất",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "跳舞",
+      "p": "tiào wǔ",
+      "pos": "",
+      "m": "khiêu vũ",
+      "hv": "khiêu vũ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "错",
+      "p": "cuò",
+      "pos": "",
+      "m": "sai; dát; nạm; khảm; lắp vào (vàng, bạc)",
+      "hv": "thác.thố",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "从",
+      "p": "cóng",
+      "pos": "",
+      "m": "ghi chú: (⑤⑥⑦旧读zòng)",
+      "hv": "tòng.thung.tụng.tung.túng.tùng",
+      "ex_zh": "从北京到上海。",
+      "ex_p": "Cóng Běijīng dào Shànghǎi.",
+      "ex_vi": "Từ Bắc Kinh đến Thượng Hải.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "希望",
+      "p": "xīwàng",
+      "pos": "",
+      "m": "niềm hy vọng",
+      "hv": "hi vọng",
+      "ex_zh": "我希望你成功。",
+      "ex_p": "Wǒ xīwàng nǐ chénggōng.",
+      "ex_vi": "Tôi hi vọng bạn thành công.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "欢迎",
+      "p": "huānyíng",
+      "pos": "",
+      "m": "hoan nghênh",
+      "hv": "hoan nghênh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "上班",
+      "p": "shàng bān",
+      "pos": "",
+      "m": "đi làm",
+      "hv": "thượng ban",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "懂",
+      "p": "dǒng",
+      "pos": "",
+      "m": "hiểu; biết; thạo; thông thạo; hiểu biết",
+      "hv": "đổng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "完",
+      "p": "wán",
+      "pos": "",
+      "m": "nguyên lành; toàn vẹn",
+      "hv": "hoàn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "题",
+      "p": "tí",
+      "pos": "",
+      "m": "đề mục",
+      "hv": "đề",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "向",
+      "p": "xiàng",
+      "pos": "",
+      "m": "hướng",
+      "hv": "hướng.hưởng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "次",
+      "p": "cì",
+      "pos": "",
+      "m": "giữa; đang; đang lúc; đang khi",
+      "hv": "thứ.tư",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "结果补语",
+      "vi": "Khen ngợi kết quả"
+    },
+    {
+      "zh": "介词“从”",
+      "vi": "Giới từ “从”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "打电话",
+      "spk": "A",
+      "p": "Nǐ hǎo ！ Qǐng wèn zhāng huān zài ma？",
+      "zh": "你好！请问张欢在吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "打电话",
+      "spk": "B",
+      "p": "Nǐ dǎ cuò le ， wǒ men zhèr méi yǒu jiào zhāng huān de.",
+      "zh": "你打错了，我们这儿没有叫张欢的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "打电话",
+      "spk": "A",
+      "p": "Duì bu qǐ.",
+      "zh": "对不起。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Nín cóng jǐ suì kāi shǐ xué xí tiào wǔ?",
+      "zh": "您从几岁开始学习跳舞？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "B",
+      "p": "Wǒ dì yī cì tiào wǔ shì zài qī suì de shí hou.",
+      "zh": "我第一次跳舞是在七岁的时候。A：我女儿今年也七岁了。我希望她能跟您学跳舞，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "",
+      "p": "Wǒ nǚ ér jīn nián yě qī suì le. Wǒ xī wàng tā néng gēn nín xué tiào wǔ ，",
+      "zh": "可以吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Méi wèn tí, fēi cháng huān yíng.",
+      "zh": "没问题，非常欢迎。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nǐ zhī dào ma? Dà wèi zhǎo dào gōng zuò le.",
+      "zh": "你知道吗？大卫找到工作了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Tài hǎo le! Tā cóng shén me shí hòu kāi shǐ shàng bān?",
+      "zh": "太好了！他从什么时候开始上班？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Zhè shì tā de dì yī ge gōng zuò ， xī wàng tā néng xǐ huan.",
+      "zh": "从下个星期一开始。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Cóng xià ge xīng qī yī kāi shǐ.",
+      "zh": "这是他的第一个工作，希望他能喜欢。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Zuó tiān de kǎo shì zěn me yàng？ Nǐ dōu tīng dǒng le ma？",
+      "zh": "昨天的考试怎么样？你都听懂了吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Tīng dǒng le.",
+      "zh": "听懂了。A：你都做完了没有？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Tí tài duō, wǒ méi zuò wán.",
+      "zh": "题太多，我没做完。",
+      "vi": ""
+    }
+  ]
+}

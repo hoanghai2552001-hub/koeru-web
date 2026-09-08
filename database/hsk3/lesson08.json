@@ -1,0 +1,447 @@
+{
+  "lesson": 8,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第8课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在休息室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在休息室"
+    },
+    {
+      "part": 1,
+      "topic": "在休息室"
+    },
+    {
+      "part": 2,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "在学校"
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅"
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅"
+    },
+    {
+      "part": 4,
+      "topic": "在周明家"
+    },
+    {
+      "part": 4,
+      "topic": "在周明家"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "满意",
+      "p": "mǎnyì",
+      "pos": "",
+      "m": "thoả mãn; hài lòng; vừa lòng; vừa ý; bằng lòng",
+      "hv": "mãn ý",
+      "ex_zh": "我对结果很满意。",
+      "ex_p": "Wǒ duì jiéguǒ hěn mǎnyì.",
+      "ex_vi": "Tôi rất hài lòng với kết quả.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "电梯",
+      "p": "diàntī",
+      "pos": "",
+      "m": "(d)thang máy",
+      "hv": "điện thê",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "层",
+      "p": "céng",
+      "pos": "",
+      "m": "tầng; lớp (dùng cho các thứ trùng lặp, tích luỹ)",
+      "hv": "tằng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "害怕",
+      "p": "hàipà",
+      "pos": "",
+      "m": "sợ; sợ hãi; sợ sệt",
+      "hv": "hại phạ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "熊猫",
+      "p": "xióng māo",
+      "pos": "",
+      "m": "gấu mèo, gấu trúc",
+      "hv": "hùng miêu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "见面",
+      "p": "jiànmiàn",
+      "pos": "",
+      "m": "gặp mặt",
+      "hv": "kiến diện",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "安静",
+      "p": "ānjìng",
+      "pos": "",
+      "m": "(t)yên tĩnh",
+      "hv": "an tĩnh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "一会儿",
+      "p": "yīhuìr",
+      "pos": "",
+      "m": "một chốc; một lát",
+      "hv": "nhất hội nhi",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "马上",
+      "p": "mǎshàng",
+      "pos": "",
+      "m": "(p)lập tức",
+      "hv": "mã thượng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "洗手间",
+      "p": "xǐshǒujiān",
+      "pos": "",
+      "m": "nhà vệ sinh; WC",
+      "hv": "tẩy thủ gian",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "老",
+      "p": "lǎo",
+      "pos": "",
+      "m": "già",
+      "hv": "lão",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "几乎",
+      "p": "jīhū",
+      "pos": "",
+      "m": "hầu như; cơ hồ; gần như; chừng; gần",
+      "hv": "cơ hồ",
+      "ex_zh": "几乎每天都来。",
+      "ex_p": "Jīhū měitiān dōu lái.",
+      "ex_vi": "Gần như ngày nào cũng đến.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "变化",
+      "p": "biànhuà",
+      "pos": "",
+      "m": "biến hoá; biến đổi; thay đổi",
+      "hv": "biến hoá",
+      "ex_zh": "城市变化很大。",
+      "ex_p": "Chéngshì biànhuà hěn dà.",
+      "ex_vi": "Thành phố thay đổi rất nhiều.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "健康",
+      "p": "jiànkāng",
+      "pos": "",
+      "m": "khoẻ mạnh; tráng kiện, sức khỏe",
+      "hv": "kiện khang",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "重要",
+      "p": "zhòngyào",
+      "pos": "",
+      "m": "(t)trọng yếu, quan trọng",
+      "hv": "trọng yếu",
+      "ex_zh": "健康最重要。",
+      "ex_p": "Jiànkāng zuì zhòngyào.",
+      "ex_vi": "Sức khỏe là quan trọng nhất.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "极",
+      "p": "jí",
+      "pos": "",
+      "m": "đỉnh điểm; điểm cực cao; cực điểm; đỉnh cao",
+      "hv": "cực.cấp.cập.kiệp",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“又”和“再”",
+      "vi": "So sánh “又” và “再”"
+    },
+    {
+      "zh": "疑问代词活用1",
+      "vi": "Sử dụng linh hoạt các đại từ nghi vấn 1"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Shì, zuó tiān qù kàn le kàn, jīn tiān yòu qù kàn le kàn,",
+      "zh": "听说你最近打算买房子？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "Tīng shuō nǐ zuì jìn dǎ suàn mǎi fáng zi?",
+      "zh": "是，昨天去看了看，今天又去看了看，",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "",
+      "p": "Xiǎo lì: Yí gè méi yǒu diàn tī, bù fāng biàn. Yí gè yǒu diàn tī.",
+      "zh": "明天还要再去看看。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Dōu bù mǎn yì ma?",
+      "zh": "都不满意吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "Tài gāo le, wǎng xià kàn duō hài pà a!",
+      "zh": "一个没有电梯，不方便。一个有电梯，",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "",
+      "p": "tóng shì: Er shí céng zěn me le?",
+      "zh": "但是在二十层。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "míng tiān hái yào zài qù kàn kan.",
+      "zh": "二十层怎么了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "dàn shì zài èr shí céng.",
+      "zh": "太高了，往下看多害怕啊！",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "小明",
+      "p": "Shì a, zhēn bù xiǎng lí kāi Běi jīng.",
+      "zh": "听说你下个星期就要回国了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "马可",
+      "p": "Tīng shuō nǐ xià ge xīng qī jiù yào huí guó le?",
+      "zh": "是啊，真不想离开北京。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "小明",
+      "p": "Méi guān xi, nǐ máng ba.",
+      "zh": "我下星期不在北京，不能去机场送你了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "马可",
+      "p": "Wǒ xià xīng qī bú zài Běi jīng, bù néng qù jī cháng sòng nǐ le.",
+      "zh": "没关系，你忙吧。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "小明",
+      "p": "Xiè xiè, xī wàng yǐ hòu néng zài jiàn miàn.",
+      "zh": "这个小熊猫送给你，欢迎你以后再到中国来。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在学校",
+      "spk": "马可",
+      "p": "Zhè ge xiǎo xióng māo sòng gěi nǐ, huān yíng nǐ yǐ hòu zài dào Zhōng guó lái.",
+      "zh": "谢谢，希望以后能再见面。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅",
+      "spk": "小丽",
+      "p": "Zuò zhèr ba, zhèr ān jìng. Nǐ xiǎng hē shén me yǐn liào?",
+      "zh": "小刚，我们坐哪儿？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅",
+      "spk": "小刚",
+      "p": "Nǐ zuò nǎr wǒ jiù zuò nǎr.",
+      "zh": "你坐哪儿我就坐哪儿。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅",
+      "spk": "小丽",
+      "p": "Nǐ hē shén me wǒ jiù hē shén me.",
+      "zh": "坐这儿吧，这儿安静。你想喝什么饮料。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅",
+      "spk": "小刚",
+      "p": "Xiǎo gāng, wǒ men zuò nǎr?",
+      "zh": "你喝什么我就喝什么。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅",
+      "spk": "小丽",
+      "p": "Hē kě lè ba, nǐ děng wǒ yí huìr, wǒ mǎ shàng huí lái.",
+      "zh": "喝可乐吧，你等我一会儿，我马上回来。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅",
+      "spk": "小刚",
+      "p": "Xiǎo lì, nǐ qù nǎr？Nǐ qù nǎr wǒ jiù qù nǎr.",
+      "zh": "小丽，你去哪儿？你去哪儿我就去哪儿。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡厅",
+      "spk": "小丽",
+      "p": "Wǒ qù xǐ shǒu jiān.",
+      "zh": "我去洗手间。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在周明家",
+      "spk": "老同学",
+      "p": "Kuài wǔ nián le, nǐ jī hū méi biàn huà.",
+      "zh": "快五年了，你几乎没变化。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在周明家",
+      "spk": "周太太",
+      "p": "Shéi shuō de？ Wǒ pàn le, yǐ qián de yī fu dōu bù néng chuān le.",
+      "zh": "谁说的？我胖了，以前的衣服都不能穿了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在周明家",
+      "spk": "老同学",
+      "p": "Nǐ zuò fàn hái shi Zhōu míng zuò fàn?",
+      "zh": "健康最重要，胖瘦没关系。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在周明家",
+      "spk": "周太太",
+      "p": "Jiàn kāng zuì zhòng yào, pàn shòu méi guān xi.",
+      "zh": "是呀，想吃什么就吃什么。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在周明家",
+      "spk": "老同学",
+      "p": "Shì ya, xiǎng chī shén me jiù chī shén me.",
+      "zh": "你做饭还是周明做饭？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在周明家",
+      "spk": "周太太",
+      "p": "Wǒ zuò, wǒ xiǎng chī shén me jiù zuò shén me,xiǎng chī duō shao jiù zuò duō shao.",
+      "zh": "我做，我想吃什么就做什么，想吃多少就做多少。",
+      "vi": ""
+    }
+  ]
+}

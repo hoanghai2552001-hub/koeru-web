@@ -1,0 +1,409 @@
+{
+  "lesson": 15,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第15课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "办公室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "办公室"
+    },
+    {
+      "part": 1,
+      "topic": "在办公室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "水平",
+      "p": "shuǐpíng",
+      "pos": "",
+      "m": "ngang mặt nước",
+      "hv": "thuỷ bình",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "提高",
+      "p": "tígāo",
+      "pos": "",
+      "m": "đề cao; nâng cao",
+      "hv": "đề cao",
+      "ex_zh": "提高汉语水平。",
+      "ex_p": "Tígāo Hànyǔ shuǐpíng.",
+      "ex_vi": "Nâng cao trình độ tiếng Trung.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "练习",
+      "p": "liànxí",
+      "pos": "",
+      "m": "luyện tập; ôn tập",
+      "hv": "luyện tập",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "完成",
+      "p": "wán chéng",
+      "pos": "",
+      "m": "hoàn thành",
+      "hv": "hoàn thành",
+      "ex_zh": "任务完成了。",
+      "ex_p": "Rènwù wánchéng le.",
+      "ex_vi": "Nhiệm vụ đã hoàn thành.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "句子",
+      "p": "jùzi",
+      "pos": "",
+      "m": "câu",
+      "hv": "câu tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "其他",
+      "p": "qí tā",
+      "pos": "",
+      "m": "lỗi khác",
+      "hv": "kì tha",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "要求",
+      "p": "yāoqiú",
+      "pos": "",
+      "m": "yêu cầu; đòi hỏi; hi vọng",
+      "hv": "yêu cầu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "注意",
+      "p": "zhùyì",
+      "pos": "",
+      "m": "(đ)chú ý, để ý",
+      "hv": "chú ý",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "上网",
+      "p": "shàng wǎng",
+      "pos": "",
+      "m": "lên mạng",
+      "hv": "thượng võng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "除了",
+      "p": "chúle",
+      "pos": "",
+      "m": "ngoài ra; trừ ra",
+      "hv": "trừ liễu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "新闻",
+      "p": "xīnwén",
+      "pos": "",
+      "m": "(d)tin tức",
+      "hv": "tân văn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "节日",
+      "p": "jiérì",
+      "pos": "",
+      "m": "ngày lễ",
+      "hv": "tiết nhật",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "举行",
+      "p": "jǔxíng",
+      "pos": "",
+      "m": "tiến hành; tổ chức (hội họp, thi đấu)",
+      "hv": "cử hành",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "世界",
+      "p": "shìjiè",
+      "pos": "",
+      "m": "(d)thế giới",
+      "hv": "thế giới",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "街道",
+      "p": "jiēdào",
+      "pos": "",
+      "m": "đường phố",
+      "hv": "nhai đạo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "文化",
+      "p": "wénhuà",
+      "pos": "",
+      "m": "(d)văn hóa",
+      "hv": "văn hoá",
+      "ex_zh": "中国文化很有趣。",
+      "ex_p": "Zhōngguó wénhuà hěn yǒuqù.",
+      "ex_vi": "Văn hóa Trung Quốc rất thú vị.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "秋",
+      "p": "qiū",
+      "pos": "",
+      "m": "thu",
+      "hv": "thu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "可爱",
+      "p": "kěài",
+      "pos": "",
+      "m": "đáng yêu; dễ thương",
+      "hv": "khả ái",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "除了……以外，都/还/也……",
+      "vi": "Cấu trúc \"除了……以外，都/还/也……\""
+    },
+    {
+      "zh": "疑问代词活用2",
+      "vi": "Sử dụng linh hoạt các đại từ nghi vấn 2"
+    },
+    {
+      "zh": "程度的表达：极了",
+      "vi": "“极了”Dùng để chỉ mức độ"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "大山",
+      "p": "Zhè shì wǒ zuó tiān de zuò yè, nín bāng wǒ kàn kan duì bu duì.",
+      "zh": "老师我来中国留学两年了，",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Dà shān: Lǎo shī wǒ lái Zhōng guó liú xué liǎng nián le,",
+      "zh": "但是我的汉语水平提高的一点儿也不快啊。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "老师",
+      "p": "Xiè xie lǎo shī!",
+      "zh": "你每天认真学习，做练习，完成作业，一直不错啊。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "大山",
+      "p": "Nǐ měi tiān rèn zhēn xué xí, zuò liàn xí, wán chéng zuò yè, yì zhí bú cuò a.",
+      "zh": "这是我昨天的作业，您帮我看看对不对。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "老师",
+      "p": "Xiě de bú cuò, chú le zhè ge jù zi yì si yǒu xiē bù qīng chu wài, qí tā dōu méi shén me wèn tí.",
+      "zh": "写的不错，除了这个句子意思有些不清楚外，其他都没什么问题。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "大山",
+      "p": "Yǐ hòu yǒu shén me bù míng bái de dì fāng, kě yǐ gěi wǒ dǎ diàn huà huò zhě fā diàn zǐ yóu jiàn.",
+      "zh": "谢谢老师！",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "老师",
+      "p": "dàn shì wǒ de Hàn yǔ shuǐ píng tí gāo de yì diǎnr yě bú kuài a.",
+      "zh": "以后有什么不明白的地方，可以给我打电话或者发电子邮件。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "学生",
+      "p": "Bǐ sài mǎ shàng jiù yào kāi shǐ le, Xiǎo yún zěn me hái méi lái?",
+      "zh": "老师，除了小云，其他人都来了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "老师",
+      "p": "Lǎo shī, chú le Xiǎo yún, qí tā rén dōu lái le.",
+      "zh": "比赛马上就要开始了，小云怎么还没来？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "学生",
+      "p": "Bù děng tā le, wǒ xiān gěi dà jiā jiǎng jiang zhè cì bǐ sài",
+      "zh": "刚才给她打电话了，她在路上呢。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "老师",
+      "p": "Gāng cái gěi tā dǎ diàn huà le， tā zài lù shàng ne.",
+      "zh": "不等她了，我先给大家讲讲这次比赛",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "",
+      "p": "Xué shēng: Lǎo shī, nín fàng xīn, jīn tiān de bǐ sài wǒ men yí dìng néng ná dì yī.",
+      "zh": "的要求和一些需要注意的地方。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "学生",
+      "p": "de yào qiú hé yì xiē xū yào zhù yì de dì fāng.",
+      "zh": "老师，您放心，今天的比赛我们一定能拿第一。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Shì a, chú le kàn xīn wén, rén men há kě yǐ zài wǎng shang tīng gē、",
+      "zh": "现在用电脑上网真方便啊！",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Xiàn zài yòng diàn nǎo shàng wǎng zhēn fāng biàn a!",
+      "zh": "是啊，除了看新闻，人们还可以在网上听歌、",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "",
+      "p": "tóng shì: Duìle, nǐ cóng wǎng shang mǎi de nà jiàn yī fu ne? Zěn me méi jiàn nǐ chuān?",
+      "zh": "看电影、买东西。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "kàn diàn yǐng、 mǎi dōng xi.",
+      "zh": "对了，你从网上买的那件衣服呢？怎么没见你穿？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Tā mǎn yì ma?",
+      "zh": "那件衣服我穿着有点儿小，给我弟弟了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Nà jiàn yī fu wǒ chuān zhe yǒu diǎnr xiǎo, gěi wǒ dì di le .",
+      "zh": "他满意吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Bú yòng huā qián, hái yǒu xīn yī fu chuān, tā mǎn yì jí le.",
+      "zh": "不用花钱，还有新衣服穿，他满意极了。",
+      "vi": ""
+    }
+  ]
+}

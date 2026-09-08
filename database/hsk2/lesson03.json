@@ -1,0 +1,349 @@
+{
+  "lesson": 3,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第3课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在房间",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在房间"
+    },
+    {
+      "part": 1,
+      "topic": "在房间"
+    },
+    {
+      "part": 2,
+      "topic": "在家里"
+    },
+    {
+      "part": 2,
+      "topic": "在家里"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 4,
+      "topic": "在办公室"
+    },
+    {
+      "part": 4,
+      "topic": "在办公室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "手表",
+      "p": "shǒubiǎo",
+      "pos": "",
+      "m": "đồng hồ đeo tay",
+      "hv": "thủ biểu",
+      "ex_zh": "这块手表很贵。",
+      "ex_p": "Zhè kuài shǒubiǎo hěn guì.",
+      "ex_vi": "Chiếc đồng hồ này rất đắt.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "牛奶",
+      "p": "niúnǎi",
+      "pos": "",
+      "m": "sữa bò",
+      "hv": "ngưu nãi",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "报纸",
+      "p": "bàozhǐ",
+      "pos": "",
+      "m": "báo, báo giấy",
+      "hv": "báo chỉ",
+      "ex_zh": "爸爸在看报纸。",
+      "ex_p": "Bàba zài kàn bàozhǐ.",
+      "ex_vi": "Bố đang đọc báo.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "千",
+      "p": "qiān",
+      "pos": "",
+      "m": "nghìn",
+      "hv": "thiên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "送",
+      "p": "sòng",
+      "pos": "",
+      "m": "đưa; chuyển giao",
+      "hv": "tống",
+      "ex_zh": "我送你一本书。",
+      "ex_p": "Wǒ sòng nǐ yī běn shū.",
+      "ex_vi": "Tôi tặng bạn một cuốn sách.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "房间",
+      "p": "fángjiān",
+      "pos": "",
+      "m": "(d)phòng",
+      "hv": "phòng gian",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "丈夫",
+      "p": "zhàngfū",
+      "pos": "",
+      "m": "chồng",
+      "hv": "trượng phu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "左边",
+      "p": "zuǒbiān",
+      "pos": "",
+      "m": "bên trái",
+      "hv": "tả biên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "真",
+      "p": "zhēn",
+      "pos": "",
+      "m": "thật,bản tính",
+      "hv": "chân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "旁边",
+      "p": "pángbiān",
+      "pos": "",
+      "m": "hai bên trái phải; chỗ tiếp cận; bên cạnh",
+      "hv": "bàng biên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "颜色",
+      "p": "yánsè",
+      "pos": "",
+      "m": "(d)màu sắc",
+      "hv": "nhan sắc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "张",
+      "p": "zhāng",
+      "pos": "",
+      "m": "tấm",
+      "hv": "trương.trướng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "给",
+      "p": "jǐ",
+      "pos": "",
+      "m": "cho;cung cấp; cấp; cung ứng; tiếp; cung",
+      "hv": "cấp",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "红",
+      "p": "hóng",
+      "pos": "",
+      "m": "hồng",
+      "hv": "hồng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“的”字短语",
+      "vi": "Cụm từ \"的\""
+    },
+    {
+      "zh": "一下",
+      "vi": "Bộ phân loại số “一下”"
+    },
+    {
+      "zh": "语气副词“真”",
+      "vi": "Trạng từ khiếm khuyết “真”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在房间",
+      "spk": "A",
+      "p": "Zhè kuài shǒu biǎo shì nǐ de ma?",
+      "zh": "这块手表是你的吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在房间",
+      "spk": "B",
+      "p": "Bú shì wǒ de ，shì wǒ bà bà de.",
+      "zh": "不是我的，是我爸爸的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在房间",
+      "spk": "A",
+      "p": "Duō shǎo qián mǎi de ？",
+      "zh": "多少钱买的？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在房间",
+      "spk": "B",
+      "p": "Sān qiān duō kuài.",
+      "zh": "三千多块。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Zhè shì jīn tiān zǎo shang de bào zhǐ ma?",
+      "zh": "这是今天早上的报纸吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Bú shì ，shì zuó tiān de.",
+      "zh": "不是，是昨天的。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nǐ tīng ，shì bú shì sòng bào zhǐ de lái le?",
+      "zh": "你听，是不是送报纸的来了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Wǒ kàn yí xià ，bú shì ，shì sòng niú nǎi de.",
+      "zh": "我看一下，不是，是送牛奶的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Zhè shì shuí de fáng jiān？",
+      "zh": "这是谁的房间？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Zhè shì wǒ hé wǒ zhàng fu de，",
+      "zh": "这是我和我丈夫的，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "",
+      "p": "Páng biān nà ge xiǎo de fáng jiān shì wǒ nǚ ér de 。",
+      "zh": "旁边那个小的房间是我女儿的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nǐ nǚ ér de fáng jiān zhēn piào liang ！Dōu shì fěn sè de。",
+      "zh": "你女儿的房间真漂亮！都是粉色的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Shì ā ，fěn sè shì wǒ nǚ ér zuì xǐ huān de yán sè 。",
+      "zh": "是啊，粉色是我女儿最喜欢的颜色。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Nǐ kàn jiàn wǒ de bēi zi le ma ？",
+      "zh": "你看见我的杯子了吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Zhè lǐ yǒu jǐ ge bēi zi ，nǎ ge shì nǐ de ？",
+      "zh": "这里有几个杯子，哪个是你的？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Zuǒ bian nà ge hóng sè de shì wǒ de 。",
+      "zh": "左边那个红色的是我的。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Gěi nǐ.",
+      "zh": "给你。",
+      "vi": ""
+    }
+  ]
+}

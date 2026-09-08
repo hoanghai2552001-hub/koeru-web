@@ -1,0 +1,305 @@
+{
+  "lesson": 4,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第4课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在家里"
+    },
+    {
+      "part": 2,
+      "topic": "在家里"
+    },
+    {
+      "part": 3,
+      "topic": "在运动场"
+    },
+    {
+      "part": 3,
+      "topic": "在运动场"
+    },
+    {
+      "part": 4,
+      "topic": "在公司"
+    },
+    {
+      "part": 4,
+      "topic": "在公司"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "生日",
+      "p": "shēngrì",
+      "pos": "",
+      "m": "sinh nhật",
+      "hv": "sinh nhật",
+      "ex_zh": "今天是我的生日。",
+      "ex_p": "Jīntiān shì wǒ de shēngrì.",
+      "ex_vi": "Hôm nay là sinh nhật của tôi.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "晚上",
+      "p": "wǎn shang",
+      "pos": "",
+      "m": "buổi tối",
+      "hv": "vãn thượng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "快乐",
+      "p": "kuàilè",
+      "pos": "",
+      "m": "vui vẻ",
+      "hv": "khoái lạc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "问",
+      "p": "wèn",
+      "pos": "",
+      "m": "hỏi",
+      "hv": "vấn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "非常",
+      "p": "fēicháng",
+      "pos": "",
+      "m": "(p)phi thường, khác thường, rất",
+      "hv": "phi thường",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "已经",
+      "p": "yǐjing",
+      "pos": "",
+      "m": "đã; rồi",
+      "hv": "dĩ kinh",
+      "ex_zh": "他已经走了。",
+      "ex_p": "Tā yǐjīng zǒu le.",
+      "ex_vi": "Anh ấy đã đi rồi.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "开始",
+      "p": "kāishǐ",
+      "pos": "",
+      "m": "(đ/n) bắt đầu",
+      "hv": "khai thuỷ",
+      "ex_zh": "我们开始上课。",
+      "ex_p": "Wǒmen kāishǐ shàngkè.",
+      "ex_vi": "Chúng ta bắt đầu học.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "长",
+      "p": "cháng",
+      "pos": "",
+      "m": "dài",
+      "hv": "trường",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "两",
+      "p": "liǎng",
+      "pos": "",
+      "m": "hai (chỉ số lượng, đứng trước''半、千、万、亿''và lượng từ)",
+      "hv": "lưỡng.lượng.lạng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "介绍",
+      "p": "jièshào",
+      "pos": "",
+      "m": "giới thiệu; mở đầu",
+      "hv": "giới thiệu",
+      "ex_zh": "我来介绍一下。",
+      "ex_p": "Wǒ lái jièshào yīxià.",
+      "ex_vi": "Để tôi giới thiệu một chút.",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“是……的”句",
+      "vi": "Cấu trúc “là…”"
+    },
+    {
+      "zh": "……的时候",
+      "vi": "……的时候  Chỉ thời gian"
+    },
+    {
+      "zh": "时间副词“已经”",
+      "vi": "Trạng từ chỉ thời gian “already”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Shēng rì kuài lè ！zhè shì wǒ sòng gěi nǐ de ！",
+      "zh": "生日快乐！这是我送给你的！",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Shì shén me ？shì yì běn shū ma ？",
+      "zh": "是什么？是一本书吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Duì ，zhè běn shū shì wǒ xiě de 。",
+      "zh": "对，这本书是我写的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Tài xiè xie nǐ le ！",
+      "zh": "太谢谢你了！",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Zǎo shang yǒu nǐ yí ge diàn huà 。",
+      "zh": "早上有你一个电话。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Diàn huà shì shuí dǎ de ？",
+      "zh": "电话是谁打的？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Bù zhī dào ，shì ér zǐ jiē de 。",
+      "zh": "不知道，是儿子接的。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Hǎo ，wǎn shang wǒ wèn yí xià ér zi 。",
+      "zh": "好，晚上我问一下儿子。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在运动场",
+      "spk": "A",
+      "p": "Nǐ xǐ huān tī zú qiú ma ？",
+      "zh": "你喜欢踢足球吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在运动场",
+      "spk": "B",
+      "p": "Fēi cháng xǐ huān 。",
+      "zh": "非常喜欢。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在运动场",
+      "spk": "A",
+      "p": "Nǐ shì shén me shí hou kāi shǐ tī zú qiú de ？",
+      "zh": "你是什么时候开始踢足球的？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在运动场",
+      "spk": "B",
+      "p": "wǒ shí yī suì kāi shǐ tī zú qiú ，yǐ jīng tī le shí nián le 。",
+      "zh": "我十一岁开始踢足球，已经踢了十年了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "A",
+      "p": "Nǐ zài zhè ér gōng zuò duō cháng shí jiān le ？",
+      "zh": "你在这儿工作多长时间了？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "B",
+      "p": "Yǐ jīng liǎng nián duō le ，wǒ shì 2011nián lái de 。",
+      "zh": "已经两年多了，我是2011年来的。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "A",
+      "p": "Nǐ rèn shi xiè xiān sheng ma ？",
+      "zh": "你认识谢先生吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "B",
+      "p": "Rèn shi ，wǒ men shì dà xué tóng xué ，",
+      "zh": "认识，我们是大学同学，",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Zhè ge gōng zuò shì tā bāng wǒ jiè shào de 。",
+      "zh": "这个工作是他帮我介绍的。",
+      "vi": ""
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "lesson": 14,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第14课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在打电话"
+    },
+    {
+      "part": 2,
+      "topic": "在打电话"
+    },
+    {
+      "part": 3,
+      "topic": "在小明家"
+    },
+    {
+      "part": 3,
+      "topic": "在小明家"
+    },
+    {
+      "part": 4,
+      "topic": "你吃过水果饭吗"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "打扫",
+      "p": "dǎsǎo",
+      "pos": "",
+      "m": "quét tước; quét dọn; dọn dẹp; thu dọn; quét",
+      "hv": "đả tảo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "干净",
+      "p": "gānjìng",
+      "pos": "",
+      "m": "sạch sẽ; sạch; sạch gọn",
+      "hv": "can tịnh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "然后",
+      "p": "ránhòu",
+      "pos": "",
+      "m": "sau đó; tiếp đó",
+      "hv": "nhiên hậu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "冰箱",
+      "p": "bīngxiāng",
+      "pos": "",
+      "m": "tủ lạnh; tủ đá",
+      "hv": "băng sương",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "洗澡",
+      "p": "xǐzǎo",
+      "pos": "",
+      "m": "tắm; tắm rửa",
+      "hv": "tẩy táo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "节目",
+      "p": "jiémù",
+      "pos": "",
+      "m": "tiết mục",
+      "hv": "tiết mục",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "月亮",
+      "p": "yuèliàng",
+      "pos": "",
+      "m": "mặt trăng",
+      "hv": "nguyệt lượng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "盘子",
+      "p": "pán zi",
+      "pos": "",
+      "m": "khay, mâm",
+      "hv": "bàn tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "叔叔",
+      "p": "shūshu",
+      "pos": "",
+      "m": "chú",
+      "hv": "thúc thúc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "阿姨",
+      "p": "Ā yí",
+      "pos": "",
+      "m": "cô, dì",
+      "hv": "a di",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "故事",
+      "p": "gùshi",
+      "pos": "",
+      "m": "truyện; câu chuyện",
+      "hv": "cố sự",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "菜单",
+      "p": "càidān",
+      "pos": "",
+      "m": "(d)thực đơn",
+      "hv": "thái đơn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "简单",
+      "p": "jiǎndān",
+      "pos": "",
+      "m": "giản đơn; đơn giản",
+      "hv": "giản đơn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "香蕉",
+      "p": "xiāng jiāo",
+      "pos": "",
+      "m": "chuối tiêu",
+      "hv": "hương tiêu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "敢",
+      "p": "gǎn",
+      "pos": "",
+      "m": "can đảm; có dũng khí; có chí khí; quả cảm; dũng cảm",
+      "hv": "cảm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "辆",
+      "p": "liàng",
+      "pos": "",
+      "m": "chiếc (chỉ xe cộ)",
+      "hv": "lượng.lạng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "声音",
+      "p": "shēng yīn voice",
+      "pos": "",
+      "m": "giọng nói",
+      "hv": "thanh âm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "刷",
+      "p": "shuā",
+      "pos": "",
+      "m": "soàn soạt; rào rào; rầm rầm; rào rạt",
+      "hv": "xoát.loát",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "刮",
+      "p": "guā",
+      "pos": "",
+      "m": "cạo; đánh; gọt; róc; nạo vét",
+      "hv": "quát",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "A把B+动词+结果补语/趋向补语",
+      "vi": ""
+    },
+    {
+      "zh": "先……，再／又……，然后……",
+      "vi": ""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Bié zháo jí, wǒ ràng hái zi men dǎ sǎo ne, kè rén lái de shí hou,",
+      "zh": "客人就要来了，你怎么还不打扫房间啊？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "周明",
+      "p": "Kè rén jiù yào lái le, nǐ zěn me hái bù dǎ sǎo fáng jiān a?",
+      "zh": "别着急，我让孩子们打扫呢，客人来的时候，",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "tā men huì bǎ fáng jiān dǎ sǎo gān jìng.",
+      "zh": "他们会把房间打扫干净。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Nà nǐ yě bù néng kàn diàn shì a.",
+      "zh": "那你也不能看电视啊。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "周明",
+      "p": "Xiān bǎ chá hé bēi zi fàng hǎo, rán hòu bǎ bīng xiāng lǐ de xī guā ná chū lai.",
+      "zh": "你让我做什么？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Nǐ ràng wǒ zuò shén me?",
+      "zh": "先把茶和杯子放好，然后把冰箱里的西瓜拿出来。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "周明",
+      "p": "Tài rè le, wǒ hái shì xiān bǎ kōng tiáo dǎ kāi ba.",
+      "zh": "太热了，我还是先把空调打开吧。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "同事",
+      "p": "Duì bu qǐ, wǒ gāng xǐ le ge zǎo, méi tīng jiàn. Yǒu shén me shì ma?",
+      "zh": "你在忙什么呢？刚才打你的手机你也不接。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "小刚",
+      "p": "Nǐ zài máng shén me ne? Gāng cái dǎ nǐ de shǒu jī nǐ yě bù jiē.",
+      "zh": "对不起，我刚洗了个澡，没听见。有什么事吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "同事",
+      "p": "Nǐ xiān děng yí xià, wǒ qù bǎ diàn shì guān le.",
+      "zh": "我想问问你公司里的一些事情。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "小刚",
+      "p": "Wǒ xiǎng wèn wen nǐ gōng sī lǐ de yì xiē shì qíng.",
+      "zh": "你先等一下，我去把电视关了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "同事",
+      "p": "rán hòu zài gěi wǒ huí diàn huà.",
+      "zh": "没关系，你先把电视节目看完吧，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "",
+      "p": "tóng shì: Méi guān xi, nǐ xiān bǎ diàn shì jié mù kàn wán ba,",
+      "zh": "然后再给我回电话。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小明家",
+      "spk": "同学",
+      "p": "Shì a, wài biān yě bù guā fēng, wǒ men zuò zài wài biān",
+      "zh": "今晚的月亮真漂亮，像白色的盘子一样。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小明家",
+      "spk": "小明",
+      "p": "Jīn wǎn de yuè liang zhēn piào liang, xiàng bái sè de pán zi yí yàng.",
+      "zh": "是啊，外边也不刮风，我们坐在外边",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小明家",
+      "spk": "",
+      "p": "tóng xué: Hǎo a, wǒ xiān bǎ zhuō yǐ bān chu qu, rán hòu nǐ bǎ shuǐ guǒ ná guò lai,",
+      "zh": "一边看月亮一边吃东西，怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小明家",
+      "spk": "同学",
+      "p": "Tài hǎo le! Jì dé gěi dǎ shān dǎ ge diàn huà, ràng tā mǎ shàng guò lai.",
+      "zh": "好啊，我先把桌椅搬出去，然后你把水果拿过来，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小明家",
+      "spk": "",
+      "p": "wǒ men tīng shū shu ā yí jiǎng jiang tā men nián qīng shí hou de gù shì.",
+      "zh": "我们听叔叔阿姨讲讲他们年轻时候的故事。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小明家",
+      "spk": "小明",
+      "p": "Bù yòng dǎ le, nǐ tīng wài bian de shēng yīn, yí dìng shì dà shān.",
+      "zh": "太好了！记得给大山打个电话，让他马上过来。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在小明家",
+      "spk": "同学",
+      "p": "yì biān kàn yuè liang yì biān chī dōng xi, zěn me yàng?",
+      "zh": "不用打了，你听外边的声音，一定是大山。",
+      "vi": ""
+    }
+  ]
+}

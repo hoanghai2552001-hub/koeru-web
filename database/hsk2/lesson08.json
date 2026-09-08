@@ -1,0 +1,269 @@
+{
+  "lesson": 8,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第8课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍"
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍"
+    },
+    {
+      "part": 3,
+      "topic": "在宾馆的前台"
+    },
+    {
+      "part": 3,
+      "topic": "在宾馆的前台"
+    },
+    {
+      "part": 4,
+      "topic": "在商店"
+    },
+    {
+      "part": 4,
+      "topic": "在商店"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "服务员",
+      "p": "fúwùyuán",
+      "pos": "",
+      "m": "nhân viên phục vụ",
+      "hv": "phục vụ viên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "白",
+      "p": "bái",
+      "pos": "",
+      "m": "bạch",
+      "hv": "bạch",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "再",
+      "p": "zài",
+      "pos": "",
+      "m": "nữa (biểu thị lại lần nữa, đôi khi chuyên chỉ lần thứ hai)",
+      "hv": "tái",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "让",
+      "p": "ràng",
+      "pos": "",
+      "m": "nhường",
+      "hv": "nhượng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "告诉",
+      "p": "gàosù",
+      "pos": "",
+      "m": "nói",
+      "hv": "cáo tố",
+      "ex_zh": "告诉我你的名字。",
+      "ex_p": "Gàosu wǒ nǐ de míngzi.",
+      "ex_vi": "Hãy nói tên bạn cho tôi biết.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "找",
+      "p": "zhǎo",
+      "pos": "",
+      "m": "tìm; kiếm; tìm kiếm",
+      "hv": "trảo.hoa.qua",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "事情",
+      "p": "shìqíng",
+      "pos": "",
+      "m": "sự tình; sự việc",
+      "hv": "sự tình",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "黑",
+      "p": "hēi",
+      "pos": "",
+      "m": "màu đen; đen",
+      "hv": "hắc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "贵",
+      "p": "guì",
+      "pos": "",
+      "m": "đắt; mắc; quý",
+      "hv": "quý",
+      "ex_zh": "这太贵了。",
+      "ex_p": "Zhè tài guì le.",
+      "ex_vi": "Cái này quá đắt.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "您",
+      "p": "nín",
+      "pos": "",
+      "m": "ngài; ông (đại từ nhân xưng, có ý kính trọng)",
+      "hv": "nâm.nẫn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "疑问句“……，好吗”",
+      "vi": "Câu nghi vấn “……,好吗”"
+    },
+    {
+      "zh": "副词“再”",
+      "vi": "Trạng từ “再”"
+    },
+    {
+      "zh": "兼语句",
+      "vi": "Câu quan trọng"
+    },
+    {
+      "zh": "动词的重叠",
+      "vi": "Lặp lại động từ"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Wǒ men jīn tiān xià wǔ qù kàn diàn yǐng ， hǎo ma ？",
+      "zh": "我们今天下午去看电影，好吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Jīn tiān xià wǔ wǒ méi yǒu shí jiān ， míng tiān xià wǔ zài qù ba。",
+      "zh": "今天下午我没有时间，明天下午再去吧。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Nǐ xiǎng kàn shén me diàn yǐng ？",
+      "zh": "你想看什么电影？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Ràng wǒ xiǎng xiang zài gào su nǐ 。",
+      "zh": "让我想想再告诉你。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍",
+      "spk": "A",
+      "p": "Wài biān tiān qì hěn hǎo ，wǒ men chū qù yùn dòng yùn dòng ba！",
+      "zh": "外边天气很好，我们出去运动运动吧！",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍",
+      "spk": "B",
+      "p": "Nǐ děng děng wǒ ， hǎo ma ？",
+      "zh": "你等等我，好吗？王老师让我给大卫打个电话。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍",
+      "spk": "A",
+      "p": "Wáng lǎo shī ràng wǒ gěi dà wèi dǎ ge diàn huà .",
+      "zh": "回来再打吧。找大卫有什么事情吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍",
+      "spk": "B",
+      "p": "Huí lái zài dǎ ba. Zhǎo dà wèi yǒu shén me shì qíng ma?",
+      "zh": "听说大卫病了，我想找时间去看看他。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在商店",
+      "spk": "A",
+      "p": "Nǐ kàn kan zhè jǐ jiàn yī fu zěn me yàng ？",
+      "zh": "你看看这几件衣服怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在商店",
+      "spk": "B",
+      "p": "Zhè jiàn bái de yǒu diǎnr cháng ，",
+      "zh": "这件白的有点儿长，那件黑的有点儿贵。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在商店",
+      "spk": "A",
+      "p": "Ràng wǒ zài kàn kan.",
+      "zh": "这件红的呢？这是今天新来的。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在商店",
+      "spk": "B",
+      "p": "Zhè jiàn hóng de ne ？ Zhè shì jīn tiān xīn lái de.",
+      "zh": "让我再看看。",
+      "vi": ""
+    }
+  ]
+}

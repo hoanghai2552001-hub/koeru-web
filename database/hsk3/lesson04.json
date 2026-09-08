@@ -1,0 +1,439 @@
+{
+  "lesson": 4,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第4课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口"
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口"
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆"
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "比赛",
+      "p": "bǐsài",
+      "pos": "",
+      "m": "thi đấu; cuộc thi",
+      "hv": "tỉ tái",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "照片",
+      "p": "zhàopiàn",
+      "pos": "",
+      "m": "tấm ảnh; bức ảnh; tấm hình, bức hình",
+      "hv": "chiếu phiến",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "年级",
+      "p": "niánjí",
+      "pos": "",
+      "m": "(d) lớp",
+      "hv": "niên cấp",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "又",
+      "p": "yòu",
+      "pos": "",
+      "m": "lại; vừa lại",
+      "hv": "hựu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "聪明",
+      "p": "cōngmíng",
+      "pos": "",
+      "m": "thông minh",
+      "hv": "thông minh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "热情",
+      "p": "rèqíng",
+      "pos": "",
+      "m": "(d)nhiệt tình",
+      "hv": "nhiệt tình",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "努力",
+      "p": "nǔlì",
+      "pos": "",
+      "m": "nỗ lực",
+      "hv": "nỗ lực",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "总是",
+      "p": "zǒngshì",
+      "pos": "",
+      "m": "luôn luôn; lúc nào cũng; bao giờ cũng",
+      "hv": "tổng thị",
+      "ex_zh": "他总是迟到。",
+      "ex_p": "Tā zǒngshì chídào.",
+      "ex_vi": "Anh ấy luôn luôn đến muộn.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "站",
+      "p": "zhàn",
+      "pos": "",
+      "m": "đứng",
+      "hv": "trạm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "超市",
+      "p": "chāoshì",
+      "pos": "",
+      "m": "siêu thị",
+      "hv": "siêu thị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "蛋糕",
+      "p": "dàn gāo",
+      "pos": "",
+      "m": "bánh ga tô",
+      "hv": "đản cao",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "年轻",
+      "p": "niánqīng",
+      "pos": "",
+      "m": "tuổi trẻ; thanh niên",
+      "hv": "niên khinh",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "认真",
+      "p": "rènzhēn",
+      "pos": "",
+      "m": "chăm chỉ",
+      "hv": "nhận chân",
+      "ex_zh": "他工作很认真。",
+      "ex_p": "Tā gōngzuò hěn rènzhēn.",
+      "ex_vi": "Anh ấy làm việc rất nghiêm túc.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "客人",
+      "p": "kèrén",
+      "pos": "",
+      "m": "khách mời",
+      "hv": "khách nhân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "被",
+      "p": "bèi",
+      "pos": "",
+      "m": "bị; được (dùng trong câu biểu thị sự bị động, chủ ngữ là vật (người) chịu tác động)",
+      "hv": "bị.bí.phi",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "饿",
+      "p": "è",
+      "pos": "",
+      "m": "đói; đói bụng; đói khát",
+      "hv": "ngã.ngạ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "又……又……",
+      "vi": ""
+    },
+    {
+      "zh": "动作的伴随",
+      "vi": ""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Zhè shì nǐ men bǐ sài de zhào piàn ma?",
+      "zh": "这是你们比赛的照片吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "马可",
+      "p": "shì, zhè shì wǒ men bǐ sài hòu zhào de.",
+      "zh": "是，这是我们比赛后照的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Zhào de bú cuò, nǐ men dōu shì yí ge nián jí de ma?",
+      "zh": "照得不错，你们都是一个年级的吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "马可",
+      "p": "Bú shì. Nà ge yòu gāo yòu piāo liang de nǚ háir shì èr nián jí de.",
+      "zh": "不是。那个又高又漂亮的女孩儿是二年级的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "Páng biān nà ge ná zhe shū xiào de rén shì shéi?",
+      "zh": "旁边那个拿着书笑的人是谁？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "马可",
+      "p": "Nà shì wǒ.",
+      "zh": "那是我！",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "小丽",
+      "p": "Nǐ jué de Xiǎo hóng zěn me yàng?",
+      "zh": "你觉得小红怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Tā yòu cōng ming yòu rè qíng, yě hěn nǔ lì.",
+      "zh": "她又聪明又热情，也很努力。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "小丽",
+      "p": "Wǒ kàn tā zǒng shì xiào zhe huí dá lǎo shī de wèn tí.",
+      "zh": "我看她总是笑着回答老师的问题。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Tā duì měi ge rén dōu xiào, yě cháng cháng duì wǒ xiào.",
+      "zh": "她对每个人都笑，也常常对我笑。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "小丽",
+      "p": "Nǐ shì bú shi xǐ huān tā a？",
+      "zh": "你是不是喜欢她啊？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "同学",
+      "p": "Xǐ huan tā de rén tài duō le, nǐ kàn nà xiē ná zhe",
+      "zh": "喜欢她的人太多了，你看那些拿着",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "",
+      "p": "xiān huā zhàn zài mén kǒu de, dōu shì děng tā de.",
+      "zh": "鲜花站在门口的，都是等她的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口",
+      "spk": "小刚",
+      "p": "Wǒ yǒu diǎnr è le,",
+      "zh": "我有点儿饿了，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口",
+      "spk": "",
+      "p": "wǒ men jìn chāo shì mǎi diǎnr dōng xi ba.",
+      "zh": "我们进超市买点儿东西吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口",
+      "spk": "小丽",
+      "p": "Hǎo a, zhè jiā chāo shì de dàn gāo yòu pián yi yòu hǎo chī,",
+      "zh": "好啊，这家超市的蛋糕又便宜又好吃，一块只要2.99元。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口",
+      "spk": "小刚",
+      "p": "yí kuài zhǐ yào èr diǎn jiǔ jiǔ yuán.",
+      "zh": "我们买两块，回家吃着蛋糕看电视，怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口",
+      "spk": "小丽",
+      "p": "Wǒ men mǎi liǎng kuài, huí jiā chī zhe dàn gāo kàn diàn shì,zěn me yàng?",
+      "zh": "好啊，我再去买一些喝的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在超市门口",
+      "spk": "小刚",
+      "p": "Hǎo a, wǒ zài qù mǎi yì xiē hē de.",
+      "zh": "喝着咖啡吃蛋糕，太好了！",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆",
+      "spk": "经理",
+      "p": "Nín hǎo! Nín zhǎo shéi？",
+      "zh": "您好！您找谁？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆",
+      "spk": "客人",
+      "p": "Nǐ men zhèr shì bu shì yǒu yí ge yòu nián qīng yòu piào liang de fú wù yuán?",
+      "zh": "你们这儿是不是有一个又年轻又漂亮的服务员？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆",
+      "spk": "经理",
+      "p": "Wǒ men zhèr nián qīng、piào liang de fú wù yuán yǒu hěn duō.",
+      "zh": "我们这儿年轻、漂亮的服务员有很多。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆",
+      "spk": "客人",
+      "p": "Tā gōng zuò yòu rèn zhēn yòu rè qíng.",
+      "zh": "她工作又认真又热情。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆",
+      "spk": "经理",
+      "p": "Nín néng zài shuō shuo ma？",
+      "zh": "您能再说说吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆",
+      "spk": "客人",
+      "p": "Tā zǒng shì xiào zhe gēn kè rén shuō huà.",
+      "zh": "她总是笑着跟客人说话。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在饭馆",
+      "spk": "经理",
+      "p": "À, wǒ zhī dào le, nǐ shuō de shì Lǐ Xiǎo měi ba?",
+      "zh": "啊，我知道了，你说的是李小美吧？",
+      "vi": ""
+    }
+  ]
+}

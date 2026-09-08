@@ -1,0 +1,161 @@
+{
+  "lesson": 14,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第14课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在办公室"
+    },
+    {
+      "part": 2,
+      "topic": "在办公室"
+    },
+    {
+      "part": 3,
+      "topic": "在房间"
+    },
+    {
+      "part": 3,
+      "topic": "在房间"
+    },
+    {
+      "part": 4,
+      "topic": "在商店"
+    },
+    {
+      "part": 4,
+      "topic": "在商店"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "晴",
+      "p": "qíng",
+      "pos": "",
+      "m": "(trời) nắng,hửng",
+      "hv": "tình",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "但是",
+      "p": "dànshì",
+      "pos": "",
+      "m": "(l)nhưng",
+      "hv": "đãn thị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "动态助词“过”",
+      "vi": "Hạt cấu trúc “过”"
+    },
+    {
+      "zh": "：“虽然……，但是……”",
+      "vi": "Cặp liên từ \"虽然……，但是……”"
+    },
+    {
+      "zh": "动量补语“往”",
+      "vi": "Phần bù của tần số “次”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Nǐ kàn guo nà ge diàn yǐng méi yǒu？",
+      "zh": "你看过那个电影没有？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Méi kàn guo, tīng shuō hěn yǒu yì si.",
+      "zh": "没看过，听说很有意思。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Nà wǒ men xià ge xīng qī yì qǐ qù kàn ba？",
+      "zh": "那我们下个星期一起去看吧？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Kě yǐ, dàn shì wǒ nǚ péng you yě xiǎng qù.",
+      "zh": "可以，但是我女朋友也想去。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Tīng shuō nǐ qù guo Zhōng guó, hái xiǎng qù ma？",
+      "zh": "听说你去过中国，还想去吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Wǒ suī rán qù guo hǎo jī cì,",
+      "zh": "我虽然去过好几次，但是还想再去玩儿玩儿。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "dàn shì hái xiǎng zài qù wánr wánr.",
+      "zh": "那我们一起去吧。B：好啊，到时候我给你打电话。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在商店",
+      "spk": "A",
+      "p": "Nǐ zài zhè ge shāng diàn mǎi guo dōng xi méi yǒu？",
+      "zh": "你在这个商店买过东西没有？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在商店",
+      "spk": "B",
+      "p": "Mǎi guo yí cì,zhèr de dōng xi hái kě yǐ,jiù shì bù pián yi.",
+      "zh": "买过一次，这儿的东西还可以，就是不便宜。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在商店",
+      "spk": "A",
+      "p": "Liǎng bǎi kuài hái kě yǐ, xǐ huān jiù mǎi ba.",
+      "zh": "我喜欢这件衣服，但是觉得有点儿贵。B：两百块还可以，喜欢就买吧。",
+      "vi": ""
+    }
+  ]
+}

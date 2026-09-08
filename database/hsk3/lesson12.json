@@ -1,0 +1,366 @@
+{
+  "lesson": 12,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第12课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在家"
+    },
+    {
+      "part": 3,
+      "topic": "在机场"
+    },
+    {
+      "part": 3,
+      "topic": "在机场"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "太阳",
+      "p": "tàiyáng",
+      "pos": "",
+      "m": "mặt trời",
+      "hv": "thái dương",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "西",
+      "p": "xī",
+      "pos": "",
+      "m": "phương tây; phía tây; hướng tây",
+      "hv": "tây.tê",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "生气",
+      "p": "shēngqì",
+      "pos": "",
+      "m": "tức giận; giận; không vui",
+      "hv": "sinh khí",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "行李箱",
+      "p": "xínglǐ xiāng",
+      "pos": "",
+      "m": "thùng đựng hành lý",
+      "hv": "hành lí tương",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "自己",
+      "p": "zìjǐ",
+      "pos": "",
+      "m": "(đt)tự mình",
+      "hv": "tự kỉ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "包",
+      "p": "bāo",
+      "pos": "",
+      "m": "bao; gói; túi; bọc",
+      "hv": "bao",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "发现",
+      "p": "fāxiàn",
+      "pos": "",
+      "m": "phát hiện; tìm ra; tìm tòi",
+      "hv": "phát hiện",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "护照",
+      "p": "hùzhào",
+      "pos": "",
+      "m": "hộ chiếu",
+      "hv": "hộ chiếu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "司机",
+      "p": "sījī",
+      "pos": "",
+      "m": "tài xế; người lái xe",
+      "hv": "ty cơ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "画",
+      "p": "huà",
+      "pos": "",
+      "m": "vẽ; hoạ",
+      "hv": "hoạ.hoạch",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "需要",
+      "p": "xūyào",
+      "pos": "",
+      "m": "sự đòi hỏi; yêu cầu",
+      "hv": "nhu yếu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "黑板",
+      "p": "hēibǎn",
+      "pos": "",
+      "m": "(d)bảng đen",
+      "hv": "hắc bản",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "铅笔",
+      "p": "qiānbǐ",
+      "pos": "",
+      "m": "bút chì",
+      "hv": "duyên bút",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“才”和“就”",
+      "vi": "So sánh “才” và “就”"
+    },
+    {
+      "zh": "把字句2：A把B+动词+在/到/给……",
+      "vi": "Câu Ba-2: A把B+动词+在/到/给…"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Zěn me le？",
+      "zh": "今天太阳从西边出来了吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Jīn tiān tài yáng cóng xī bian chū lai le ma？",
+      "zh": "怎么了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Wǒ míng tiān bā diǎn jiù yào dào gōng sī.",
+      "zh": "你怎么这么早就要睡觉了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎo lì: Nǐ zěn me zhè me zǎo jiù yào shuì jiào le？",
+      "zh": "以前都要12点以后才睡觉。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Jīng lǐ shēng qì le, tā gào su wǒ, míng tiān bā diǎn bú dào,",
+      "zh": "我明天8点就要到公司。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Yǒu shì ma?",
+      "zh": "有事吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Yǐ qián dōu yào shí’èr diǎn yǐ hòu cái shuì jiào.",
+      "zh": "经理生气了，他告诉我，明天8点不到，",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "yǐ hòu jiù bié lái le.",
+      "zh": "以后就别来了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Nà wǒ bāng nǐ bǎ yī fu fàng dào xíng lǐ xiāng lǐ ba. Shén me shí hou huí lai?",
+      "zh": "我要跟周经理去外地办事，明天的飞机。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Wǒ yào gēn Zhōu jīng lǐ qù wài dì bàn shì, míng tiān de fēi jī.",
+      "zh": "那我帮你把衣服放到行李箱里吧。什么时候回来？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Á？Yí ge xīng qī yǐ hòu cái huí lai?",
+      "zh": "一个星期就回来。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Yí ge xīng qī jiù huí lai.",
+      "zh": "啊？一个星期以后才回来？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Hǎo ba. Wǒ yǐ jīng bǎ wǒ de zhào piàn fàng zài nǐ de bāo li le.",
+      "zh": "你要自己照顾好自己，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎo gāng: Nǐ yào zì jǐ zhào gù hǎo zì jǐ,",
+      "zh": "我已经给你准备好吃的和喝的了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "wǒ yǐ jīng gěi nǐ zhǔn bèi hǎo chī de hé hē de le.",
+      "zh": "好吧。我已经把我的照片放在你的包里了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在机场",
+      "spk": "周明",
+      "p": "Nǐ zěn me cái lái?",
+      "zh": "你怎么才来？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在机场",
+      "spk": "小刚",
+      "p": "Duì bu qǐ, Zhōu jīng lǐ, lái jī cháng de lù shàng",
+      "zh": "对不起，周经理，来机场的路上",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在机场",
+      "spk": "",
+      "p": "Xiǎo gāng: Nín yǒu qián ma？Sī jī bǎ wǒ sòng dào jī cháng de shí hou,",
+      "zh": "我才发现忘带护照了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在机场",
+      "spk": "周明",
+      "p": "Kuài diǎn ba, fēi jī jiù yào qǐ fēi le.",
+      "zh": "快点吧，飞机就要起飞了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在机场",
+      "spk": "小刚",
+      "p": "Wǒ kàn nǐ hái shì bǎ zhòng yào de dōng xi fàng zài wǒ zhèr ba.",
+      "zh": "您有钱吗？司机把我送到机场的时候，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在机场",
+      "spk": "",
+      "p": "wǒ cái fā xiàn wàng jì dài qián bāo le.",
+      "zh": "我才发现忘记带钱包了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在机场",
+      "spk": "周明",
+      "p": "wǒ cái fā xiàn wàng dài hù zhào le.",
+      "zh": "我看你还是把重要的东西放在我这儿吧。",
+      "vi": ""
+    }
+  ]
+}

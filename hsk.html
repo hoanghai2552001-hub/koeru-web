@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>KOERU — HSK 标准教程 1</title>
+<title>KOERU — HSK 标准教程 1·2·3</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -171,6 +171,14 @@ td.pos{color:var(--muted);font-size:.75rem;white-space:nowrap}
 .ws-mark.ok{color:var(--ok)} .ws-mark.bad{color:var(--bad)}
 .pct-ok{color:var(--ok);font-weight:800}
 .ws-send-status{font-size:.82rem;color:var(--muted)}
+/* ── Chuyển cấp HSK1/2/3 (cùng khuôn với minna.html) ── */
+.level-switch{display:flex;gap:10px;margin:14px 0 4px}
+.level-switch button{flex:1;max-width:180px;background:var(--card);border:1.5px solid var(--line);
+  border-radius:var(--radius-md);padding:12px 14px;color:var(--muted);font-weight:800;font-size:1rem;
+  cursor:pointer;font-family:inherit;min-height:52px}
+.level-switch button small{display:block;font-weight:600;font-size:.68rem;margin-top:2px}
+.level-switch button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.5)}
+.dlg-spk{flex:none;font-size:.72rem;font-weight:800;color:var(--accent);min-width:52px;padding-top:3px}
 .theme-toggle{position:fixed;top:14px;left:14px;z-index:5;background:var(--card2);
   border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:var(--text);
   font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit;line-height:1}
@@ -194,9 +202,14 @@ body.no-pinyin .py-hide{visibility:hidden}
 <div class="wrap">
 
   <div id="home">
-    <span class="badge">HSK 标准教程 1</span>
-    <h1>15 bài · Từ vựng &amp; Mẫu câu</h1>
-    <p class="sub">Ôn tập và kiểm tra bài về nhà theo giáo trình HSK 标准教程 1.
+    <span class="badge" id="homeBadge">HSK 标准教程 1</span>
+    <div class="level-switch">
+      <button data-lv="1">HSK 1<small>15 bài</small></button>
+      <button data-lv="2">HSK 2<small>15 bài</small></button>
+      <button data-lv="3">HSK 3<small>20 bài</small></button>
+    </div>
+    <h1 id="homeTitle">15 bài · Từ vựng &amp; Mẫu câu</h1>
+    <p class="sub">Ôn tập và kiểm tra bài về nhà theo giáo trình HSK 标准教程.
        Mỗi từ có chữ Hán, pinyin, Hán Việt, nghĩa và câu ví dụ.</p>
     <div class="card" id="progressSummary"></div>
     <button class="btn btn-main" id="btnWorksheet">📝 Ôn tập nhiều bài · Phiếu kiểm tra từ vựng</button>
@@ -243,7 +256,9 @@ body.no-pinyin .py-hide{visibility:hidden}
 <script src="js/zh-text.js?v=0a8b99a2"></script>
 <script src="js/koeru-worksheet.js?v=f829b795"></script>
 <script src="js/speak-practice.js?v=465ee259"></script>
-<script src="hsk1-data.js?v=7b514006"></script>
+<script src="hsk1-data.js?v=77021003"></script>
+<script src="hsk2-data.js?v=c034d965"></script>
+<script src="hsk3-data.js?v=39c57adb"></script>
 <script>
 /* ═══════════════ KOERU · HSK 1 ═══════════════ */
 var qs = function(id){ return document.getElementById(id); };
@@ -252,11 +267,22 @@ function load(k, d){ try{ var v = localStorage.getItem(k); return v ? JSON.parse
 
 var ZH = window.ZHText, WS = window.KoeruWorksheet;
 var esc = ZH.esc;
-var PREFIX = 'hsk1_';
-function K(s){ return PREFIX + s; }
 
-var DATA = window.HSK1_LESSONS || [];
-var TOTAL = 15;
+var LEVELS = {
+  1: { data: window.HSK1_LESSONS || [], prefix: 'hsk1_', badge: 'HSK 标准教程 1', lessons: 15 },
+  2: { data: window.HSK2_LESSONS || [], prefix: 'hsk2_', badge: 'HSK 标准教程 2', lessons: 15 },
+  3: { data: window.HSK3_LESSONS || [], prefix: 'hsk3_', badge: 'HSK 标准教程 3', lessons: 20 }
+};
+var curLevel = (function(){
+  var m = location.search.match(/[?&]level=([123])/);
+  var v = m ? +m[1] : load('hsk_level', 1);
+  return LEVELS[v] ? v : 1;
+})();
+var LV = LEVELS[curLevel];
+function K(s){ return LV.prefix + s; }
+
+var DATA = LV.data;
+var TOTAL = LV.lessons;
 var AUDIO_DIR = 'audio/hsk/';   // tools/gen_hsk_audio.py sinh ra <hanzi>.mp3
 
 /* ─── Giao diện sáng/tối + bật tắt pinyin ─── */
@@ -319,6 +345,32 @@ function playBtnHtml(hanzi){
 function bindPlay(root){
   root.querySelectorAll('.play').forEach(function(b){
     b.onclick = function(e){ e.stopPropagation(); playAudio(b, b.dataset.zh); };
+  });
+}
+
+/* ─── Chuyển cấp HSK1 / HSK2 / HSK3 ─── */
+function setLevel(lv){
+  if(!LEVELS[lv]) return;
+  curLevel = lv;
+  LV = LEVELS[lv];
+  DATA = LV.data;
+  TOTAL = LV.lessons;
+  store('hsk_level', lv);
+  // Trạng thái phụ thuộc cấp — đặt lại để không mang dữ liệu cấp cũ sang
+  wsSelected = load(K('ws_sel'), [1]);
+  wsToggles = load(K('ws_tog'), { hint: true, fillPinyin: true, fillMeaning: false, fillHanzi: false });
+  flashIdx = 0; toneIdx = 0; toneScore = { ok: 0, n: 0 };
+  qs('homeBadge').textContent = LV.badge;
+  qs('homeTitle').textContent = TOTAL + ' bài · Từ vựng & Mẫu câu';
+  qs('searchBox').value = '';
+  qs('searchResult').classList.add('hidden');
+  renderLevelSwitch();
+  renderHome();
+}
+function renderLevelSwitch(){
+  document.querySelectorAll('.level-switch button').forEach(function(b){
+    b.classList.toggle('on', +b.dataset.lv === curLevel);
+    b.onclick = function(){ setLevel(+b.dataset.lv); };
   });
 }
 
@@ -559,9 +611,10 @@ function renderDialogue(l, box){
       lastPart = d.part;
     }
     html += '<div class="dlg-line">' + playBtnHtml(d.zh) +
+      (d.spk ? '<span class="dlg-spk">' + esc(d.spk) + '</span>' : '') +
       '<div class="txt"><div class="zh">' + esc(d.zh) + '</div>' +
       '<div class="py py-hide">' + esc(d.p) + '</div>' +
-      '<div class="vi">' + esc(d.vi) + '</div></div></div>';
+      (d.vi ? '<div class="vi">' + esc(d.vi) + '</div>' : '') + '</div></div>';
   });
   box.innerHTML = html +
     '<button class="btn btn-ghost" id="btnSpeakDlg">🎤 Luyện nói hội thoại</button>';
@@ -780,7 +833,7 @@ function gradeWorksheet(){
   var name = (qs('wsStudentName').value || '').trim();
   store('koeru_student_name', name);
   WS.sendWithStatus({
-    subject: 'HSK', name: name, level: 'HSK1',
+    subject: 'HSK', name: name, level: 'HSK' + curLevel,
     lessons: wsSelected.slice(), correct: correct, total: total, pct: pct, details: details
   }, qs('wsSummary'));
 }
@@ -803,8 +856,12 @@ function renderWsHistory(){
 }
 
 /* ─── Khởi động ─── */
+renderLevelSwitch();
+qs('homeBadge').textContent = LV.badge;
+qs('homeTitle').textContent = TOTAL + ' bài · Từ vựng & Mẫu câu';
 if(!DATA.length){
-  qs('lessonGrid').innerHTML = '<div class="warn">Chưa có dữ liệu. Chạy <code>python tools/gen_hsk_data.py</code> để sinh <code>hsk1-data.js</code>.</div>';
+  qs('lessonGrid').innerHTML = '<div class="warn">Chưa có dữ liệu cho HSK' + curLevel +
+    '. Chạy <code>python tools/extract_hsk_source.py</code> rồi <code>python tools/gen_hsk_data.py</code>.</div>';
 } else {
   renderHome();
 }

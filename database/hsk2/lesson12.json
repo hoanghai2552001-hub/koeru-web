@@ -1,0 +1,233 @@
+{
+  "lesson": 12,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第12课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在教室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 1,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在朋友家"
+    },
+    {
+      "part": 2,
+      "topic": "在朋友家"
+    },
+    {
+      "part": 3,
+      "topic": "在家门口"
+    },
+    {
+      "part": 3,
+      "topic": "在家门口"
+    },
+    {
+      "part": 4,
+      "topic": "在家里"
+    },
+    {
+      "part": 4,
+      "topic": "在家里"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "妻子",
+      "p": "qīzi",
+      "pos": "",
+      "m": "vợ, bà xã",
+      "hv": "thê tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "得",
+      "p": "de",
+      "pos": "",
+      "m": "đắc",
+      "hv": "đắc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "雪",
+      "p": "xuě",
+      "pos": "",
+      "m": "tuyết",
+      "hv": "tuyết",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "穿",
+      "p": "chuān",
+      "pos": "",
+      "m": "mặc",
+      "hv": "xuyên.xuyến",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "近",
+      "p": "jìn",
+      "pos": "",
+      "m": "gần; bên; cận; kề; kế",
+      "hv": "cận.cấn.ký",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "弟弟",
+      "p": "dìdì",
+      "pos": "",
+      "m": "(d)em trai",
+      "hv": "đệ đệ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "状态补语",
+      "vi": "Bổ sung bằng cấp"
+    },
+    {
+      "zh": "：“比”字句（2）",
+      "vi": "Câu “比”（2）"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Nǐ měi tiān zǎo shàng jǐ diǎn qǐ chuáng？",
+      "zh": "你每天早上几点起床？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Liù diǎn duō.",
+      "zh": "六点多。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "A",
+      "p": "Nǐ bǐ wǒ zǎo qǐ yí gè xiǎo shí.",
+      "zh": "你比我早起一个小时。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在教室",
+      "spk": "B",
+      "p": "Wǒ shuì de yě zǎo, wǒ měi tiān wǎn shàng shí diǎn jiù shuì jiào.",
+      "zh": "我睡得也早，我每天晚上十点就睡觉。早睡早起身体好。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在朋友家",
+      "spk": "A",
+      "p": "Zài lái diǎnr mǐ fàn ba, nǐ chī de tài shǎo le.",
+      "zh": "再来点儿米饭吧，你吃得太少了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在朋友家",
+      "spk": "B",
+      "p": "Bù shǎo le, jīn tiān chī de hěn hǎo, tài xiè xie nǐ le.",
+      "zh": "不少了，今天吃得很好，太谢谢你了。A：你做饭做得怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在朋友家",
+      "spk": "B",
+      "p": "Nǐ zuò fàn zuò de zěn me yàng？",
+      "zh": "不怎么样，我妻子比我做得好。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家门口",
+      "spk": "A",
+      "p": "Xià xuě le, jīn tiān zhēn lěng.",
+      "zh": "下雪了，今天真冷。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家门口",
+      "spk": "B",
+      "p": "Yǒu líng xià shí dù ba？",
+      "zh": "有零下10度吧？A：是啊，你穿得太少了，我们进房间吧。B：好吧。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nǐ zài máng shén me ne？",
+      "zh": "你在忙什么呢？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Wǒ dì di ràng wǒ bāng tā zhǎo ge fáng zi,",
+      "zh": "我弟弟让我帮他找个房子，",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "",
+      "p": "Shì a, tā yě xī wàng néng zhù de jìn yī diǎr.",
+      "zh": "现在他家离公司有点儿远。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Zhù de yuǎn zhēn de hěn lèi！",
+      "zh": "住得远真的很累！",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "xiàn zài tā jiā lí gōng sī yǒu diǎnr yuǎn.",
+      "zh": "是啊，他也希望能住得近一点儿。",
+      "vi": ""
+    }
+  ]
+}

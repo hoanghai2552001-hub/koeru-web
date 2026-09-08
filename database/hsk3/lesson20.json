@@ -1,0 +1,336 @@
+{
+  "lesson": 20,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第20课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在休息室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在休息室"
+    },
+    {
+      "part": 1,
+      "topic": "在休息室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆"
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆"
+    },
+    {
+      "part": 4,
+      "topic": "在小明家"
+    },
+    {
+      "part": 4,
+      "topic": "在小明家"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "难过",
+      "p": "nánguò",
+      "pos": "",
+      "m": "buồn",
+      "hv": "nan quá",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "照相机",
+      "p": "zhào xiàng jī",
+      "pos": "",
+      "m": "máy ảnh",
+      "hv": "chiếu tướng cơ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "关心",
+      "p": "guānxīn",
+      "pos": "",
+      "m": "quan tâm; lo lắng; trông nom; chú ý (người hoặc sự vật)",
+      "hv": "quan tâm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "碗",
+      "p": "wǎn",
+      "pos": "",
+      "m": "bát",
+      "hv": "oản.uyển",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "成绩",
+      "p": "chéng jī",
+      "pos": "",
+      "m": "kết quả học tập",
+      "hv": "thành tích",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "解决",
+      "p": "jiějué",
+      "pos": "",
+      "m": "(đ/d) giải quyết",
+      "hv": "giải quyết",
+      "ex_zh": "一起来解决问题。",
+      "ex_p": "Yīqǐ lái jiějué wèntí.",
+      "ex_vi": "Cùng nhau giải quyết vấn đề.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "分",
+      "p": "fēn",
+      "pos": "",
+      "m": "xu",
+      "hv": "phân.phận.phần",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "多么",
+      "p": "duōme",
+      "pos": "",
+      "m": "bao nhiêu; bao xa (dùng trong câu hỏi)",
+      "hv": "đa ma",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "脚",
+      "p": "jué",
+      "pos": "",
+      "m": "vai diễn",
+      "hv": "cước",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "相同",
+      "p": "xiāngtóng",
+      "pos": "",
+      "m": "tương đồng; giống nhau; như nhau",
+      "hv": "tương đồng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "虽然",
+      "p": "suīrán",
+      "pos": "",
+      "m": "tuy rằng; mặc dù; tuy là",
+      "hv": "tuy nhiên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“被”字句",
+      "vi": "Cấu trúc “越A, 越B”"
+    },
+    {
+      "zh": "只有……才",
+      "vi": "Câu so sánh 1: AA giống B (+Tính từ)"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "nǐ zài zhǎo zhǎo 。 Shì bú shì méi dài lái ？",
+      "zh": "我的照相机被谁拿走了？怎么找不到了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "wǒ de zhào xiàng jī bèi shuí ná zǒu le ？zěn me zhǎo bú dào le ？",
+      "zh": "你再找找。是不是没带来？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "bié nán guò ， zài mǎi yí gè ba ， gōng sī dōng mén wài bú jiù yǒu",
+      "zh": "我找了，没找到啊。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "wǒ zhǎo le ， méi zhǎo dào a 。",
+      "zh": "别难过，再买一个吧，公司东门外不就有",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "",
+      "p": "Xiǎo lì ：dàn shì wǒ zhè gè yuè xìnyòngkǎ lǐ de qián yǐ jīng huā de chàbùduō le .",
+      "zh": "一个大商场吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "yí gè dà shāng chǎng ma ？",
+      "zh": "但是我这个月信用卡里的钱已经花得差不多了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "小明",
+      "p": "wǒ de nán péng yǒu xǐ huān kàn zú qiú bǐ sài ， wǒ bèi tā yǐng xiǎng de .",
+      "zh": "你怎么突然关心起体育来了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "朋友",
+      "p": "nǐ zěn me tū rán guān xīn qǐ tǐ yù lái le ？",
+      "zh": "我的男朋友喜欢看足球比赛，我被他影响的。小明：看来只有爱，才能让人有变化。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "朋友",
+      "p": "shì a ， wéi le hé tā de ài hǎo yí yàng ， wǒ tiān tiān kàn qiú sài 。",
+      "zh": "是啊，为了和他的爱好一样，我天天看球赛。小明：除了足球，他还影响你什么了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "spk": "朋友",
+      "p": "kàn lái zhǐ yǒu ài ， cái néng ràng rén yǒu biàn huà 。",
+      "zh": "我最近天天上网玩儿游戏，我的成绩差极了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "朋友",
+      "p": "Tā hé nǐ zhǎng de zhēn xiàng .",
+      "zh": "那个拿着碗吃饭的人是你哥哥吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "",
+      "p": "Péng yǒu: nà gè ná zhe wǎn chī fàn de rén shì nǐ gē ge ma ？",
+      "zh": "他和你长得真像。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "大卫",
+      "p": "zhǐ yǒu nǐ men de bà ba mā ma cái néng fēn chū lái nǎ gè shì gē ge ,",
+      "zh": "我们经常被别人认错。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "朋友",
+      "p": "wǒ men jīng cháng bèi bié rén rèn cuò .",
+      "zh": "只有你们的爸爸妈妈才能分出来哪个是哥哥，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "",
+      "p": "Péng yǒu: nǐ men liǎng gè chú le zhǎng de xiàng,hái yǒu shén me xiāng tóng de dì fāng ？",
+      "zh": "哪个是弟弟吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "大卫",
+      "p": "chú le fù mǔ yǐ wài , hái yǒu wǒ men zì jǐ yě néng a.",
+      "zh": "除了父母以外，还有我们自己也能啊。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "朋友",
+      "p": "wǒ men zhù zài tóng yí gè lóu,tóng yí gè fáng jiān...",
+      "zh": "你们两个除了长得像，还有什么相同的地方？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在饭馆",
+      "spk": "大卫",
+      "p": "nǎ gè shì dì di ba.",
+      "zh": "我们住在同一个楼、同一个房间......",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "",
+      "p": "Qí shí, bù tóng de wèn tí yǒu bù tóng de jiě jué bàn fǎ.Yǒu xiē wèn tí kàn shàng",
+      "zh": "年轻人遇到难题，常常很着急，不知道怎么办。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在小明家",
+      "spk": "",
+      "p": "Nián qīng rén yù dào nán tí, cháng cháng hěn zháo jí ,bù zhī dào zěn me bàn.",
+      "zh": "其实，不同的问题有不同的解决办法。有些问题看上去很难，但是做起来非常简单，所以得试着做做。有些问题看上去虽然简单，但是解决起来难极了。所以只有真正做事情的时候，才能了解有多难。不过，我们一定要相信：多么难的问题，都会被解决的。",
+      "vi": ""
+    }
+  ]
+}

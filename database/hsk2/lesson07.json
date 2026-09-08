@@ -1,0 +1,327 @@
+{
+  "lesson": 7,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第7课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家里",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家里"
+    },
+    {
+      "part": 1,
+      "topic": "在家里"
+    },
+    {
+      "part": 2,
+      "topic": "去机场的路上"
+    },
+    {
+      "part": 2,
+      "topic": "去机场的路上"
+    },
+    {
+      "part": 3,
+      "topic": "在健身房"
+    },
+    {
+      "part": 3,
+      "topic": "在健身房"
+    },
+    {
+      "part": 4,
+      "topic": "在路上"
+    },
+    {
+      "part": 4,
+      "topic": "在路上"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "教室",
+      "p": "jiào shì",
+      "pos": "",
+      "m": "phòng học",
+      "hv": "giáo thất",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "远",
+      "p": "yuǎn",
+      "pos": "",
+      "m": "xa; viễn",
+      "hv": "viễn.viến",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "路",
+      "p": "lù",
+      "pos": "",
+      "m": "đường xá; đường; đường lộ",
+      "hv": "lộ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "机场",
+      "p": "jīchǎng",
+      "pos": "",
+      "m": "(d)sân bay",
+      "hv": "cơ trường",
+      "ex_zh": "我去机场接朋友。",
+      "ex_p": "Wǒ qù jīchǎng jiē péngyǒu.",
+      "ex_vi": "Tôi đi sân bay đón bạn.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "离",
+      "p": "lí",
+      "pos": "",
+      "m": "xa rời; xa cách",
+      "hv": "ly.li.lệ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "公司",
+      "p": "gōngsī",
+      "pos": "",
+      "m": "công ty",
+      "hv": "công ti",
+      "ex_zh": "我在一家公司工作。",
+      "ex_p": "Wǒ zài yī jiā gōngsī gōngzuò.",
+      "ex_vi": "Tôi làm việc ở một công ty.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "公共汽车",
+      "p": "gōnggòng qìchē",
+      "pos": "",
+      "m": "xe buýt",
+      "hv": "công cộng khí xa",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "小时",
+      "p": "xiǎoshí",
+      "pos": "",
+      "m": "(d)giờ",
+      "hv": "tiểu thì",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "到",
+      "p": "dào",
+      "pos": "",
+      "m": "đến; tới",
+      "hv": "đáo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "快",
+      "p": "kuài",
+      "pos": "",
+      "m": "nhanh; tốc hành",
+      "hv": "khoái",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "慢",
+      "p": "màn",
+      "pos": "",
+      "m": "chậm; chậm chạp",
+      "hv": "mạn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "走",
+      "p": "zǒu",
+      "pos": "",
+      "m": "đi",
+      "hv": "tẩu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "语气副词“还”(2)",
+      "vi": "Trạng từ khiếm khuyết “还”(2)"
+    },
+    {
+      "zh": "时间副词“就”",
+      "vi": "Trạng từ chỉ thời gian “就”"
+    },
+    {
+      "zh": "语气助词“呢”",
+      "vi": "Từ phương thức “呢”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Dà wèi huí lái le ma ？",
+      "zh": "大卫回来了吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Méi yǒu ， tā hái zài jiào shì xué xí ne 。",
+      "zh": "没有，他还在教室学习呢。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Yǐ jīng jiǔ diǎn duō le ， tā zěn me hái zài xué xí ？",
+      "zh": "已经9点多了，他怎么还在学习？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Míng tiān yǒu kǎo shì ， tā shuō jīn tiān yào hǎo hǎo zhǔn bèi 。",
+      "zh": "明天有考试，他说今天要好好准备。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "去机场的路上",
+      "spk": "A",
+      "p": "Nǐ xiàn zài zài nǎr ne ?",
+      "zh": "你现在在哪儿呢？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "去机场的路上",
+      "spk": "B",
+      "p": "Zài qù jī chǎng de lù shàng 。 nǐ yǐ jīng dào le ma ？",
+      "zh": "在去机场的路上。你已经到了吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "去机场的路上",
+      "spk": "A",
+      "p": "Wǒ xià fēi jī le 。Nǐ hái yǒu duō cháng shí jiān néng dào zhèr ？",
+      "zh": "我下飞机了。你还有多长时间能到这儿？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "去机场的路上",
+      "spk": "B",
+      "p": "èr shí fēn zhōng jiù dào 。",
+      "zh": "二十分钟就到。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "A",
+      "p": "Nǐ jiā lí gōng sī yuǎn ma ？",
+      "zh": "你家离公司远吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "B",
+      "p": "Hěn yuǎn ， zuò gōng gòng qì chē yào yí gè duō xiǎo shí ne ！",
+      "zh": "很远，坐公共汽车要一个多小时呢！",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "A",
+      "p": "Zuò gōng gòng qì chē tài màn le ， nǐ zěn me bù kāi chē ？",
+      "zh": "坐公共汽车太慢了，你怎么不开车？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "B",
+      "p": "Kāi chē yě bú kuài ， lù shàng chē tài duō le ！",
+      "zh": "开车也不快，路上车太多了！",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "A",
+      "p": "Jīn tiān wǎn shang wǒ men yì qǐ chī fàn ba， gěi nǐ guò shēng rì 。",
+      "zh": "今天晚上我们一起吃饭吧，给你过生日。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "B",
+      "p": "Jīn tiān ？ lí wǒ de shēng rì hái yǒu yí gè duō xīng qī ne！",
+      "zh": "今天？离我的生日还有一个多星期呢！",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "A",
+      "p": "Xià ge xīng qī wǒ yào qù Běi Jīng ， jīn tiān guò ba 。",
+      "zh": "下个星期我要去北京，今天过吧。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "B",
+      "p": "Hǎo ba ， lí zhèr bù yuǎn yǒu yí ge zhōng guó fàn guǎn ，",
+      "zh": "好吧，离这儿不远有一个中国饭馆，",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在路上",
+      "spk": "",
+      "p": "zǒu jī fēn zhōng jiù dào le 。",
+      "zh": "走几分钟就到了。",
+      "vi": ""
+    }
+  ]
+}

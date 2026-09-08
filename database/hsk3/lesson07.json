@@ -1,0 +1,365 @@
+{
+  "lesson": 7,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第7课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在办公室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在办公室"
+    },
+    {
+      "part": 1,
+      "topic": "在办公室"
+    },
+    {
+      "part": 2,
+      "topic": "在休息室"
+    },
+    {
+      "part": 2,
+      "topic": "在休息室"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    },
+    {
+      "part": 3,
+      "topic": "在休息室"
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口"
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "同事",
+      "p": "tóngshì",
+      "pos": "",
+      "m": "cộng sự",
+      "hv": "đồng sự",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "以前",
+      "p": "yǐqián",
+      "pos": "",
+      "m": "trước đây; trước kia; ngày trước",
+      "hv": "dĩ tiền",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "银行",
+      "p": "yínháng",
+      "pos": "",
+      "m": "ngân hàng",
+      "hv": "ngân hàng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "久",
+      "p": "jiǔ",
+      "pos": "",
+      "m": "lâu dài; lâu",
+      "hv": "cửu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "结婚",
+      "p": "jiéhūn",
+      "pos": "",
+      "m": "(đtân)kết hôn",
+      "hv": "kết hôn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "迟到",
+      "p": "chídào",
+      "pos": "",
+      "m": "muộn; đến trễ; đến muộn",
+      "hv": "trì đáo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "接",
+      "p": "jiē",
+      "pos": "",
+      "m": "tiếp cận; tiếp xúc; cận bên; sát bên; gần; cạnh; giáp nhau",
+      "hv": "tiếp",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "刻",
+      "p": "kè",
+      "pos": "",
+      "m": "khắc; chạm trổ",
+      "hv": "khắc.hặc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "以后",
+      "p": "yǐhòu",
+      "pos": "",
+      "m": "(d) sau",
+      "hv": "dĩ hậu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "兴趣",
+      "p": "xìngqù",
+      "pos": "",
+      "m": "mối quan tâm",
+      "hv": "hứng thú",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "时段的表达",
+      "vi": "Để diễn tả một khoảng thời gian"
+    },
+    {
+      "zh": "表达兴趣",
+      "vi": "Thể hiện sự quan tâm"
+    },
+    {
+      "zh": "用“半”“刻”“差”表示时间",
+      "vi": "Để biểu thị thời gian bằng cách sử dụng “半”“刻”hoặc“差”"
+    },
+    {
+      "zh": "用“半”“刻”“差”表示时间",
+      "vi": "Để biểu thị thời gian bằng cách sử dụng “半”“刻”hoặc“差”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "同事",
+      "p": "Nà shì Xiǎo lì.",
+      "zh": "这个漂亮的新同事是谁？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "小刚",
+      "p": "Zhè ge piào liang de xīn tóng shì shì shéi?",
+      "zh": "那是小丽。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "同事",
+      "p": "Bù, tā zài Běi jīng gōng zuò sān nián le.",
+      "zh": "她刚来北京吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "小刚",
+      "p": "Tā gāng lái Běi jīng ma?",
+      "zh": "不，她在北京工作三年了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "同事",
+      "p": "Tā zài yín háng gōng zuò le liǎng nián yǐ hòu lái de wǒ men gōng sī.",
+      "zh": "以前她在哪儿工作？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "小刚",
+      "p": "Yǐ qián tā zài nǎr gōng zuò?",
+      "zh": "她在银行工作了两年以后来的我们公司。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Wǒ men qù chàng gē le.",
+      "zh": "周末你跟小丽去哪儿玩儿了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Zhōu mò nǐ gēn Xiǎo lì qù nǎr wánr le?",
+      "zh": "我们去唱歌了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Wǒ men chàng le liǎng ge xiǎo shí gē, wǎn shang hái qù tīng yīn yuè huì le.",
+      "zh": "你们唱了多久？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Nǐ men chàng le duō jiǔ?",
+      "zh": "我们唱了两个小时歌，晚上还去听音乐会了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Tā duì yīn yuè gǎn xìng qù ， wǒ duì tā gèng gǎn xìng qù.",
+      "zh": "你们都对音乐感兴趣吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Nǐ men dōu duì yīn yuè gǎn xìng qù ma?",
+      "zh": "她对音乐感兴趣，我对她更感兴趣。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Shén me? Jié hūn?",
+      "zh": "我跟小丽下个月结婚，到时候欢迎你来。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Wǒ gēn Xiǎo lì xià ge yuè jié hūn, dào shí hou huān yíng nǐ lái.",
+      "zh": "什么？结婚？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Duì a, tū rán ma?",
+      "zh": "对啊，突然吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Nǐ gēn tā jié hūn, nà wǒ zěn me bàn a?",
+      "zh": "你们不是刚认识吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Nǐ men bú shì gāng rèn shi ma?",
+      "zh": "我跟她认识都五年了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在休息室",
+      "spk": "同事",
+      "p": "Wǒ gēn tā rèn shi dōu wǔ nián le.",
+      "zh": "你跟她结婚，那我怎么办啊？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口",
+      "spk": "小丽",
+      "p": "Nǐ kàn kan shǒu biǎo, zěn me chí dào le？",
+      "zh": "你看看手表，怎么迟到了？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口",
+      "spk": "小刚",
+      "p": "Méi chí dào a.",
+      "zh": "没迟到啊。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口",
+      "spk": "小丽",
+      "p": "Yǐ jīng chà yí kè bā diǎn le！ Wǒ dōu zài zhèr zuò le bàn ge xiǎo shí le.",
+      "zh": "你不是说七点半来接我吗？你迟到了一刻钟。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口",
+      "spk": "小刚",
+      "p": "Nǐ bú shì shuō qī diǎn bàn lái jiē wǒ ma？ Nǐ chí dào le yí kè zhōng.",
+      "zh": "现在不是七点半吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口",
+      "spk": "小丽",
+      "p": "Xiàn zài bú shì qī diǎn bàn ma？",
+      "zh": "已经差一刻八点了！我都在这儿坐了半个小时了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在公司门口",
+      "spk": "小刚",
+      "p": "Bú shì wǒ chí dào le, shì nǐ de biǎo kuài le yí kè zhōng.",
+      "zh": "不是我迟到了，是你的表快了一刻钟。",
+      "vi": ""
+    }
+  ]
+}

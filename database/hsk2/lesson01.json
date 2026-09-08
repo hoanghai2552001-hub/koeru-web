@@ -1,0 +1,373 @@
+{
+  "lesson": 1,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第1课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在学校",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "看照片"
+    },
+    {
+      "part": 2,
+      "topic": "看照片"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 4,
+      "topic": "在家里"
+    },
+    {
+      "part": 4,
+      "topic": "在家里"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "旅游",
+      "p": "lǚyóu",
+      "pos": "",
+      "m": "du ngoạn; du lịch",
+      "hv": "lữ du",
+      "ex_zh": "我喜欢旅游。",
+      "ex_p": "Wǒ xǐhuān lǚyóu.",
+      "ex_vi": "Tôi thích du lịch.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "运动",
+      "p": "yùndòng",
+      "pos": "",
+      "m": "(đ/d)vận động",
+      "hv": "vận động",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "最",
+      "p": "zuì",
+      "pos": "",
+      "m": "nhất",
+      "hv": "tối",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "觉得",
+      "p": "juédé",
+      "pos": "",
+      "m": "(đ)cảm thấy",
+      "hv": "giác đắc",
+      "ex_zh": "我觉得很累。",
+      "ex_p": "Wǒ juéde hěn lèi.",
+      "ex_vi": "Tôi cảm thấy rất mệt.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "也",
+      "p": "yě",
+      "pos": "",
+      "m": "cũng (biểu thị như nhau)",
+      "hv": "dã",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "药",
+      "p": "yào",
+      "pos": "",
+      "m": "đánh bả (dùng thuốc độc tiêu diệt)",
+      "hv": "dược.điếu.ước",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "一起",
+      "p": "yīqǐ",
+      "pos": "",
+      "m": "cùng nơi; cùng một chỗ",
+      "hv": "nhất khởi",
+      "ex_zh": "我们一起去吧。",
+      "ex_p": "Wǒmen yīqǐ qù ba.",
+      "ex_vi": "Chúng mình cùng nhau đi nhé.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "新",
+      "p": "xīn",
+      "pos": "",
+      "m": "mới",
+      "hv": "tân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "它",
+      "p": "tā",
+      "pos": "",
+      "m": "nó; cái đó; điều đó; việc ấy (đại từ chỉ sự vật, số ít.)",
+      "hv": "đà.xà.tha",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "回答",
+      "p": "huídá",
+      "pos": "",
+      "m": "trả lời",
+      "hv": "hồi đáp",
+      "ex_zh": "请回答我的问题。",
+      "ex_p": "Qǐng huídá wǒ de wèntí.",
+      "ex_vi": "Xin hãy trả lời câu hỏi của tôi.",
+      "_src": "hanzi"
+    },
+    {
+      "h": "眼睛",
+      "p": "yǎn jing eyes",
+      "pos": "",
+      "m": "đôi mắt",
+      "hv": "nhãn tình",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "为",
+      "p": "wéi",
+      "pos": "",
+      "m": "làm (gì) (trợ từ kết hợp với ''何'' biểu thị nghi vấn)",
+      "hv": "vi.vị.vy",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "进",
+      "p": "jìn",
+      "pos": "",
+      "m": "tiến",
+      "hv": "tiến.tấn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "踢",
+      "p": "tī",
+      "pos": "",
+      "m": "đá",
+      "hv": "thích",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "助动词“要”",
+      "vi": "Động từ phụ \"要\""
+    },
+    {
+      "zh": "程度副词“最”",
+      "vi": "Trạng từ mức độ \"最\""
+    },
+    {
+      "zh": "概数的表达“几”“多”",
+      "vi": "Biểu thức của số gần đúng \"几\" và \"多\""
+    },
+    {
+      "zh": "概数的表达“几”“多”",
+      "vi": "Biểu thức của số gần đúng \"几\" và \"多\""
+    },
+    {
+      "zh": "概数的表达“几”“多”",
+      "vi": ""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Wǒ yào qù Běi Jīng lǚ yóu，nǐ jué de shén me shí",
+      "zh": "我要去北京旅游，你觉得什么时候去最好？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "B",
+      "p": "hou qù zuì hǎo ？",
+      "zh": "九月去北京旅游最好。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Jiǔ yuè qù Běi Jīng lǚ yóu zuì hǎo 。",
+      "zh": "为什么？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "B",
+      "p": "Wèi shén me ？",
+      "zh": "九月的北京天气不冷也不热。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看照片",
+      "spk": "A",
+      "p": "Nǐ xǐ huān shén me yùn dòng ？",
+      "zh": "你喜欢什么运动？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看照片",
+      "spk": "B",
+      "p": "Wǒ zuì xǐ huān tī zú qiú 。",
+      "zh": "我最喜欢踢足球。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看照片",
+      "spk": "A",
+      "p": "Xià qù wǒ men yì qǐ qù tī zú qiú ba 。",
+      "zh": "下去我们一起去踢足球吧。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看照片",
+      "spk": "B",
+      "p": "Hǎo ā！",
+      "zh": "好啊！",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Wǒ men yào bú yào mǎi jǐ gè xīn de yǐ zǐ ？",
+      "zh": "我们要不要买几个新的椅子？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Hǎo ā ，shén me shí hou qù mǎi ？",
+      "zh": "好啊，什么时候去买？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Míng tiān xià wǔ zěn me yàng ？",
+      "zh": "明天下午怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "",
+      "p": "Nǐ míng tiān xià wǔ jǐ diǎn néng huí lai ？",
+      "zh": "你明天下午几点能回来？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Sān diǎn duō 。",
+      "zh": "三点多。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Zhuō zi xià miàn yǒu gè māo 。",
+      "zh": "桌子下面有个猫。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Nà shì wǒ de māo ，tā jiào huā huā 。",
+      "zh": "那是我的猫，它叫花花。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Tā hěn piào liang 。",
+      "zh": "它很漂亮。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "shì ā ，wǒ jué de tā de yǎn jīng zuì piào liang 。",
+      "zh": "是啊，我觉得它的眼睛最漂亮。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Tā duō dà le ？",
+      "zh": "它多大了？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Liù gè yuè 。",
+      "zh": "六个月。",
+      "vi": ""
+    }
+  ]
+}

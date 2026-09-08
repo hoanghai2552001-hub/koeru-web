@@ -1,0 +1,437 @@
+{
+  "lesson": 2,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第2课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "下山的路上",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "下山的路上"
+    },
+    {
+      "part": 1,
+      "topic": "下山的路上"
+    },
+    {
+      "part": 2,
+      "topic": "在打电话"
+    },
+    {
+      "part": 2,
+      "topic": "在打电话"
+    },
+    {
+      "part": 3,
+      "topic": "在楼门口送朋友"
+    },
+    {
+      "part": 3,
+      "topic": "在楼门口送朋友"
+    },
+    {
+      "part": 4,
+      "topic": "在家"
+    },
+    {
+      "part": 4,
+      "topic": "在家"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "腿",
+      "p": "tuǐ",
+      "pos": "",
+      "m": "đùi, chân",
+      "hv": "thối.thoái",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "角",
+      "p": "jiǎo",
+      "pos": "",
+      "m": "hào",
+      "hv": "giác",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "疼",
+      "p": "téng",
+      "pos": "",
+      "m": "đau; buốt; nhức",
+      "hv": "đông",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "胖",
+      "p": "pàng",
+      "pos": "",
+      "m": "mập; béo (thân thể người)",
+      "hv": "phán.bàn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "瘦",
+      "p": "shòu",
+      "pos": "",
+      "m": "gầy; còm",
+      "hv": "sấu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "楼",
+      "p": "lóu",
+      "pos": "",
+      "m": "lầu; gác; nhà lầu",
+      "hv": "lâu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "树",
+      "p": "shù",
+      "pos": "",
+      "m": "cây",
+      "hv": "thụ.thọ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "南",
+      "p": "nán",
+      "pos": "",
+      "m": "nam",
+      "hv": "na.nam",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "使",
+      "p": "shǐ",
+      "pos": "",
+      "m": "sai bảo; sai khiến",
+      "hv": "sứ.sử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "半",
+      "p": "bàn",
+      "pos": "",
+      "m": "một nửa; rưỡi",
+      "hv": "bán",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "位",
+      "p": "wèi",
+      "pos": "",
+      "m": "vị (lượng từ chỉ người, tỏ ý tôn kính)",
+      "hv": "vị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "为什么",
+      "p": "wèishéme",
+      "pos": "",
+      "m": "vì sao,tại sao",
+      "hv": "vi thập ma",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "容易",
+      "p": "róngyì",
+      "pos": "",
+      "m": "(t)dễ",
+      "hv": "dong dị; dung dị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "经理",
+      "p": "jīnglǐ",
+      "pos": "",
+      "m": "quản lý, quản đốc, giám đốc",
+      "hv": "kinh lí",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "办公室",
+      "p": "bà ngōng shì",
+      "pos": "",
+      "m": "văn phòng",
+      "hv": "biện công thất",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "伞",
+      "p": "sǎn cái",
+      "pos": "",
+      "m": "ô,cái dù",
+      "hv": "tán.tản",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "其实",
+      "p": "qíshí",
+      "pos": "",
+      "m": "kỳ thực; thực ra",
+      "hv": "kỳ thực",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "难",
+      "p": "nán",
+      "pos": "",
+      "m": "khó; khó khăn; gay go",
+      "hv": "nan.nạn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "简单趋向补语",
+      "vi": "Bổ sung xu hướng đơn giản"
+    },
+    {
+      "zh": "两个动作连续发生",
+      "vi": "Sự xảy ra liên tiếp của hai hành động"
+    },
+    {
+      "zh": "能……吗？",
+      "vi": "Câu hỏi tu từ"
+    },
+    {
+      "zh": "能……吗？",
+      "vi": "Câu hỏi tu từ"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "下山的路上",
+      "spk": "小丽",
+      "p": "Xiū xi yī xià ba 。",
+      "zh": "休息一下吧。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "下山的路上",
+      "spk": "小刚",
+      "p": "Zěn me le ？",
+      "zh": "怎么了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "下山的路上",
+      "spk": "小丽",
+      "p": "Wǒ xiàn zài tuǐ yě téng ， jiǎo yě téng 。",
+      "zh": "我现在腿也疼，脚也疼。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "下山的路上",
+      "spk": "小刚",
+      "p": "Hǎo ， nà biān shù duō ， wǒ men guò qù zuò yī xià bā 。",
+      "zh": "好，那边树多，我们过去坐一下吧。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "下山的路上",
+      "spk": "小丽",
+      "p": "Shàng lái de shí hou wǒ zěn me méi jué de zhè me lèi ？",
+      "zh": "上来的时候我怎么没觉得这么累？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "下山的路上",
+      "spk": "小刚",
+      "p": "Shàng shān róng yì xià shān nán ， nǐ bù zhī dào ？",
+      "zh": "上山容易下山难，你不知道？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "周太太",
+      "p": "Wèi ， nǐ hǎo ， qǐng wèn Zhōu míng zài ma ？",
+      "zh": "喂，你好，请问周明在吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "秘   书",
+      "p": "Zhōu jīng lǐ chū qù le ， bú zài bàn gōng shì 。",
+      "zh": "周经理出去了，不在办公室。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "周太太",
+      "p": "Tā qù nǎr le ？ shén me shí hou huí lai ？",
+      "zh": "他去哪儿了？什么时候回来？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "秘   书",
+      "p": "Tā chū qù bàn shì le ， xià wǔ huí lai 。",
+      "zh": "他出去办事了，下午回来。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "周太太",
+      "p": "huí lai le jiù ràng tā gěi wǒ dǎ ge diàn huà 。",
+      "zh": "回来了就让他给我打个电话。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在打电话",
+      "spk": "秘   书",
+      "p": "Hǎo de ， tā dào le bàn gōng shì wǒ jiù gào sù tā 。",
+      "zh": "好的，他到了办公室我就告诉他。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在楼门口送朋友",
+      "spk": "小刚",
+      "p": "Yǔ xià dé zhēn dà 。 Nǐ zěn me huí qù ？ wǒ sòng nǐ ba 。",
+      "zh": "雨下得真大。你怎么回去？我送你吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在楼门口送朋友",
+      "spk": "小丽",
+      "p": "Méi shì ， wǒ chū qù jiào liàng chū zū chē jiù xíng le 。",
+      "zh": "没事，我出去叫辆出租车就行了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在楼门口送朋友",
+      "spk": "小刚",
+      "p": "Nà nǐ děng děng ， wǒ shàng lóu qù gěi nǐ ná bǎ sǎn 。",
+      "zh": "那你等等，我上楼去给你拿把伞。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在楼门口送朋友",
+      "spk": "小丽",
+      "p": "Hǎo de 。 Wǒ gēn nǐ yì qǐ shàng qù bā 。",
+      "zh": "好的。我跟你一起上去吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在楼门口送朋友",
+      "spk": "小刚",
+      "p": "Nǐ zài zhèr děng ba ， wǒ ná le sǎn jiù xià lái 。",
+      "zh": "你在这儿等吧，我拿了伞就下来。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Nǐ kàn , wǒ zhè me pàn , zěn me bàn ？",
+      "zh": "你看，我这么胖，怎么办？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家",
+      "spk": "周    明",
+      "p": "Nǐ měi tiān wǎn shang chī le fàn jiù shuì jiào ， yě bù chū qù zǒu zǒu ，",
+      "zh": "你每天晚上吃了饭就睡觉，也不出去走走，能不胖吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "néng bú pàng ma ？",
+      "zh": "其实我每天都运动。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家",
+      "spk": "周    明",
+      "p": "Qí shí wǒ měi tiān dōu yùn dòng 。",
+      "zh": "但是你一点儿也没瘦！你做什么运动了？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家",
+      "spk": "周太太",
+      "p": "Dàn shì nǐ yì diǎnr yě méi shòu ！ Nǐ zuò shén me yùn dòng le ？",
+      "zh": "做饭啊。",
+      "vi": ""
+    }
+  ]
+}

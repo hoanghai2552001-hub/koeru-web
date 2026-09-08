@@ -1,0 +1,282 @@
+{
+  "lesson": 10,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第10课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家里",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家里"
+    },
+    {
+      "part": 1,
+      "topic": "在家里"
+    },
+    {
+      "part": 2,
+      "topic": "在医院"
+    },
+    {
+      "part": 2,
+      "topic": "在医院"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 3,
+      "topic": "在家里"
+    },
+    {
+      "part": 4,
+      "topic": "在家里"
+    },
+    {
+      "part": 4,
+      "topic": "在家里"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "课",
+      "p": "kè",
+      "pos": "",
+      "m": "giờ lên lớp; giờ học",
+      "hv": "khoá",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "帮助",
+      "p": "bāngzhù",
+      "pos": "",
+      "m": "giúp đỡ",
+      "hv": "bang trợ",
+      "ex_zh": "请帮助我。",
+      "ex_p": "Qǐng bāngzhù wǒ.",
+      "ex_vi": "Xin hãy giúp tôi.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "别",
+      "p": "bié",
+      "pos": "",
+      "m": "đừng; không được; chớ (biểu thị cấm đoán hoặc can ngăn)",
+      "hv": "biệt",
+      "ex_zh": "别说话！",
+      "ex_p": "Bié shuōhuà!",
+      "ex_vi": "Đừng nói chuyện!",
+      "_src": "pinyin"
+    },
+    {
+      "h": "哥哥",
+      "p": "gē gē",
+      "pos": "",
+      "m": "anh trai",
+      "hv": "ca ca",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "鸡蛋",
+      "p": "jī dàn",
+      "pos": "",
+      "m": "trứng gà",
+      "hv": "kê đản",
+      "ex_zh": "我每天吃一个鸡蛋。",
+      "ex_p": "Wǒ měitiān chī yī gè jīdàn.",
+      "ex_vi": "Tôi ăn một quả trứng mỗi ngày.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "西瓜",
+      "p": "xīguā",
+      "pos": "",
+      "m": "dưa hấu",
+      "hv": "tây qua",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "正在",
+      "p": "zhèngzài",
+      "pos": "",
+      "m": "đang; đương (phó từ biểu thị hành động đang tiến hành hoặc động tác đang tiếp diễn.)",
+      "hv": "chính tại",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "手机",
+      "p": "shǒu jī",
+      "pos": "",
+      "m": "điện thoại di động",
+      "hv": "thủ cơ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "洗",
+      "p": "xǐ",
+      "pos": "",
+      "m": "rửa",
+      "hv": "tẩy.tiển",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "祈使句：不要……了；别……了",
+      "vi": "Câu mệnh lệnh“不要……了/别……了”"
+    },
+    {
+      "zh": "介词“对”",
+      "vi": "Giới từ “对”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Bú yào kàn diàn shì le, míng tiān shàng wǔ hái yǒu Hàn yǔ kè ne.",
+      "zh": "不要看电视了，明天上午还有汉语课呢。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Kàn diàn shì duì xué xí Hàn yǔ yǒu bāng zhù.",
+      "zh": "看电视对学习汉语有帮助。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Míng tiān de kè nǐ dōu zhǔn bèi hǎo le ma?",
+      "zh": "明天的课你都准备好了吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Dōu zhǔn bèi hǎo le.",
+      "zh": "都准备好了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在医院",
+      "spk": "A",
+      "p": "Bié kàn bào zhǐ le, yī shēng shuō nǐ yào duō xiū xi.",
+      "zh": "别看报纸了，医生说你要多休息。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在医院",
+      "spk": "B",
+      "p": "Hǎo, bú kàn le. Gěi wǒ yì bēi chá ba.",
+      "zh": "好，不看了。给我一杯茶吧。A：医生说吃药后两个小时不要喝茶。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在医院",
+      "spk": "B",
+      "p": "Yī shēng shuō chī yào hòu liǎng gè xiǎo shí bú yào hē chá.",
+      "zh": "医生还说什么了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在医院",
+      "spk": "A",
+      "p": "Yī shēng hái shuō shén me le?",
+      "zh": "医生让你听我的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nǐ zěn me mǎi le zhè me duō dōng xi a？",
+      "zh": "你怎么买了这么多东西啊？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Gē ge jīn tiān zhōng wǔ huí lái chī fàn.",
+      "zh": "哥哥今天中午回来吃饭。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "xī guā …… Zhēn bù shǎo！ mā ma ne？",
+      "zh": "我看看买什么了。羊肉、鸡蛋、面条、西瓜……真不少！妈妈呢？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Wǒ kàn kan mǎi shén me le. Yáng ròu、jī dàn、 miàn tiáo、",
+      "zh": "正在准备午饭呢！",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nǐ zài zhǎo shén me？",
+      "zh": "你在找什么？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "B",
+      "p": "Nǐ kàn jiàn wǒ de shǒu jī le ma? Bái sè de.",
+      "zh": "你看见我的手机了吗？白色的。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nà jiàn yī fu wǒ bāng nǐ xǐ le, zài wài bian ne.",
+      "zh": "别找了，手机在桌子上呢，电脑旁边。B：你看见我的衣服了吗？红色的那件。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在家里",
+      "spk": "A",
+      "p": "Nǐ kàn jiàn wǒ de yī fu le ma? Hóng sè de nà jiàn.",
+      "zh": "那件衣服我帮你洗了，在外边呢。",
+      "vi": ""
+    }
+  ]
+}

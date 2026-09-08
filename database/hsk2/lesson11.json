@@ -1,0 +1,259 @@
+{
+  "lesson": 11,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第11课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在歌厅",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在歌厅"
+    },
+    {
+      "part": 1,
+      "topic": "在歌厅"
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍"
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍"
+    },
+    {
+      "part": 3,
+      "topic": "在商店"
+    },
+    {
+      "part": 3,
+      "topic": "在商店"
+    },
+    {
+      "part": 4,
+      "topic": "在学校"
+    },
+    {
+      "part": 4,
+      "topic": "在学校"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "孩子",
+      "p": "háizi",
+      "pos": "",
+      "m": "trẻ con",
+      "hv": "hài tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "右边",
+      "p": "yòubiān",
+      "pos": "",
+      "m": "bên phải",
+      "hv": "hữu biên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "可能",
+      "p": "kěnéng",
+      "pos": "",
+      "m": "khả thi; có thể; thực hiện được; làm được",
+      "hv": "khả năng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "便宜",
+      "p": "piányi",
+      "pos": "",
+      "m": "rẻ; hời",
+      "hv": "tiện nghi",
+      "ex_zh": "这件衣服很便宜。",
+      "ex_p": "Zhè jiàn yīfu hěn piányí.",
+      "ex_vi": "Cái áo này rất rẻ.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "姓",
+      "p": "xìng",
+      "pos": "",
+      "m": "họ",
+      "hv": "tính",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "去年",
+      "p": "qùnián",
+      "pos": "",
+      "m": "năm ngoái; năm qua; năm rồi",
+      "hv": "khứ niên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "比",
+      "p": "bǐ",
+      "pos": "",
+      "m": "gần đây",
+      "hv": "bí.bỉ.bì.tỉ.tỷ.tỵ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "卖",
+      "p": "mài",
+      "pos": "",
+      "m": "bán,món (thức ăn)",
+      "hv": "mại",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "动词结构做定语",
+      "vi": "Một động từ (Cụm từ) được sử dụng làm công cụ sửa đổi thuộc tính"
+    },
+    {
+      "zh": "：“比”字句（1）",
+      "vi": "Câu “比”（1）"
+    },
+    {
+      "zh": "助动词“可能”",
+      "vi": "Trợ động từ “可能”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在歌厅",
+      "spk": "A",
+      "p": "Wáng fāng，zuó tiān hé nǐ yì qǐ chàng gē de rén shì sheí？",
+      "zh": "王方，昨天和你一起唱歌的人是谁？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在歌厅",
+      "spk": "B",
+      "p": "Yí ge péng you.",
+      "zh": "一个朋友。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在歌厅",
+      "spk": "A",
+      "p": "Shén me péng you？ Shì bu shì nán péng you？",
+      "zh": "什么朋友？是不是男朋友？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在歌厅",
+      "spk": "B",
+      "p": "Bú shì bú shì，wǒ tóng xué jiè shào de，zuó tiān dì yī cì jiàn.",
+      "zh": "不是不是，我同学介绍的，昨天第一次见。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍",
+      "spk": "A",
+      "p": "Zuǒ bian zhè ge kàn bào zhǐ de nǚ hái zi shì nǐ jiě jie ma？",
+      "zh": "左边这个看报纸的女孩子是你姐姐吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍",
+      "spk": "B",
+      "p": "Shì, yòu bian xiě zì de nà ge rén shì wǒ gē ge.",
+      "zh": "是，右边写字的那个人是我哥哥。A：你哥哥多大？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在宿舍",
+      "spk": "B",
+      "p": "Nǐ gē ge duō dà？",
+      "zh": "25岁，他比我大三岁。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店",
+      "spk": "A",
+      "p": "Jīn tiān de xī guā zěn me mài？",
+      "zh": "今天的西瓜怎么卖？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店",
+      "spk": "B",
+      "p": "Sān kuài wǔ yì jīn.",
+      "zh": "三块五一斤。A：比昨天便宜。B：是，苹果也比昨天便宜一些。您来点儿吧。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Qián bian shuō huà de nà ge rén jiù shì wǒ de Hàn yǔ lǎo shī.",
+      "zh": "前边说话的那个人就是我的汉语老师。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在学校",
+      "spk": "",
+      "p": "Nǐ kě néng bú rèn shí tā.",
+      "zh": "：你可能不认识她。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在学校",
+      "spk": "B",
+      "p": "Tā bǐ wǒ men lǎo shī xiǎo liǎng suì.",
+      "zh": "是新来的汉语老师吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Shì qù nián lái de, tā xìng wáng， èr shí bā suì.",
+      "zh": "是去年来的，她姓王，28岁。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在学校",
+      "spk": "B",
+      "p": "Shì xīn lái de Hàn yǔ lǎo shī ma?",
+      "zh": "她比我们老师小两岁。",
+      "vi": ""
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "lesson": 16,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第16课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在公司",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在公司"
+    },
+    {
+      "part": 1,
+      "topic": "在公司"
+    },
+    {
+      "part": 2,
+      "topic": "在同事家"
+    },
+    {
+      "part": 2,
+      "topic": "在同事家"
+    },
+    {
+      "part": 3,
+      "topic": "在公司"
+    },
+    {
+      "part": 3,
+      "topic": "在公司"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "城市",
+      "p": "chéngshì",
+      "pos": "",
+      "m": "thành thị; đô thị; thành phố",
+      "hv": "thành thị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "如果",
+      "p": "rúguǒ",
+      "pos": "",
+      "m": "nếu như",
+      "hv": "như quả",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "认为",
+      "p": "rènwéi",
+      "pos": "",
+      "m": "cho rằng; cho là",
+      "hv": "nhận vi",
+      "ex_zh": "我认为这是对的。",
+      "ex_p": "Wǒ rènwéi zhè shì duì de.",
+      "ex_vi": "Tôi cho rằng điều này là đúng.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "帽子",
+      "p": "màozi",
+      "pos": "",
+      "m": "mũ; nón",
+      "hv": "mạo tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "米",
+      "p": "mǐ",
+      "pos": "",
+      "m": "mét",
+      "hv": "mễ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "鼻子",
+      "p": "bízi",
+      "pos": "",
+      "m": "mũi",
+      "hv": "tị tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "头发",
+      "p": "tóufǎ",
+      "pos": "",
+      "m": "tóc",
+      "hv": "đầu phát",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "检查",
+      "p": "jiǎnchá",
+      "pos": "",
+      "m": "kiểm tra; kiểm soát; khám",
+      "hv": "kiểm tra",
+      "ex_zh": "医生检查了我的身体。",
+      "ex_p": "Yīshēng jiǎnchá le wǒ de shēntǐ.",
+      "ex_vi": "Bác sĩ đã kiểm tra sức khỏe của tôi.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "关系",
+      "p": "guānxì",
+      "pos": "",
+      "m": "mối quan hệ",
+      "hv": "quan hệ",
+      "ex_zh": "我们关系很好。",
+      "ex_p": "Wǒmen guānxi hěn hǎo.",
+      "ex_vi": "Mối quan hệ của chúng tôi rất tốt.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "别人",
+      "p": "biérén",
+      "pos": "",
+      "m": "người khác; kẻ khác; người ta",
+      "hv": "biệt nhân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "词语",
+      "p": "cíyǔ",
+      "pos": "",
+      "m": "từ ngữ; cách diễn đạt",
+      "hv": "từ ngữ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "鞋",
+      "p": "xié",
+      "pos": "",
+      "m": "giầy",
+      "hv": "hài",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "如果……（的话），（主语）就……",
+      "vi": "Cấu trúc \"如果……（的话), (S)就……\""
+    },
+    {
+      "zh": "复杂的状态补语",
+      "vi": "Sự bổ sung phức tạp của trạng thái"
+    },
+    {
+      "zh": "单音节形容词重叠",
+      "vi": "Sự lặp lại của tính từ đơn âm tiết"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Nà nín xiàn zài wèi shén me bú qù?",
+      "zh": "我不喜欢一直住在同一个城市，",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Xiǎo Lì: Wǒ bù xǐ huan yì zhí zhù zài tóng yí ge chéng shì,",
+      "zh": "想去其他城市看一看。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "周明",
+      "p": "Wǒ nián qīng de shí hou yě zhè me xiǎng, dàn shì nà shí hou",
+      "zh": "我年轻的时候也这么想，但是那时候，",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "",
+      "p": "méi yǒu qián, rú guǒ yǒu qián, jiù qù le.",
+      "zh": "没有钱如果有钱，就去了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Wǒ rèn wéi xiàn zài nín yǒu shí jiān yě bú huì chū qu wánr.",
+      "zh": "那您现在为什么不去？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "周明",
+      "p": "Xiàn zài qián bú shì wèn tí le, zhǔ yào shì méi yǒu shí jiān.",
+      "zh": "现在钱不是问题了，主要是没有时间。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "小丽",
+      "p": "Nǐ shuō de duì, wǒ xiàn zài lèi de xià le bān jiù xiǎng shuì jiào.",
+      "zh": "我认为现在您有时间也不会出去玩儿。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在公司",
+      "spk": "周明",
+      "p": "xiǎng qù qí tā chéngshì kàn yi kàn.",
+      "zh": "你说得对，我现在累得下了班就想睡觉。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在同事家",
+      "spk": "同事",
+      "p": "Bié kè qi, nǐ nǚ’ér zhǎng de bái bái de, pàng pàng de,",
+      "zh": "谢谢你们来看我女儿。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在同事家",
+      "spk": "",
+      "p": "tóng shì: Xiè xiè nǐ men lái kàn wǒ nǚ’ér.",
+      "zh": "你送的小皮鞋和小帽子真漂亮！",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在同事家",
+      "spk": "小丽",
+      "p": "Kuài yì mǐ le, èr shí wǔ gōng jīn.",
+      "zh": "别客气，你女儿长得白白的、胖胖的，",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在同事家",
+      "spk": "",
+      "p": "Xiǎo lì: Nǐ kàn tā bí zi xiǎo xiǎo de, tóu fa hēi hēi de, zhǎng de xiàng shéi?",
+      "zh": "真可爱！现在多高了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在同事家",
+      "spk": "同事",
+      "p": "Xiàng tā bà ba, gāng chū shēng shí tā bà ba gāo xìng de yí ge wǎn shang dōu méi shuì zháo.",
+      "zh": "快1米了，25公斤。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在同事家",
+      "spk": "小丽",
+      "p": "Nǐ sòng de xiǎo pí xié hé xiǎo mào zi zhēn piào liang!",
+      "zh": "你看她鼻子小小的，头发黑黑的，长得像谁？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在同事家",
+      "spk": "同事",
+      "p": "zhēn kě’ài! Xiàn zài duō gāo le?",
+      "zh": "像她爸爸，刚出生时她爸爸高兴得一个晚上都没睡着。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "小刚",
+      "p": "Wǒ de yá hái shì hěn téng.",
+      "zh": "我的牙还是很疼。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "同事",
+      "p": "Jiǎn chá hǎo jǐ cì le, dàn shì méi shén me yòng.",
+      "zh": "如果不舒服，就去医院检查一下吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "小刚",
+      "p": "Dài fu zěn me shuō de?",
+      "zh": "检查好几次了，但是没什么用。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "同事",
+      "p": "Měi cì yī shēng dōu gào sù wǒ, huí jiā hǎo hāor shuā yá.",
+      "zh": "大夫怎么说的？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "小刚",
+      "p": "Rú guǒ bù shū fu, jiù qù yī yuàn jiǎn chá yí xià ba.",
+      "zh": "每次医生都告诉我，回家好好儿刷牙。",
+      "vi": ""
+    }
+  ]
+}

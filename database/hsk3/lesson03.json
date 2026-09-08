@@ -1,0 +1,465 @@
+{
+  "lesson": 3,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第3课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在小丽家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在小丽家"
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家"
+    },
+    {
+      "part": 2,
+      "topic": "在商场"
+    },
+    {
+      "part": 2,
+      "topic": "在商场"
+    },
+    {
+      "part": 3,
+      "topic": "在水果店"
+    },
+    {
+      "part": 3,
+      "topic": "在水果店"
+    },
+    {
+      "part": 4,
+      "topic": "在休息室"
+    },
+    {
+      "part": 4,
+      "topic": "在休息室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "还是",
+      "p": "háishì",
+      "pos": "",
+      "m": "(p/l)vẫn là, hay là",
+      "hv": "hoàn thị",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "只",
+      "p": "zhī",
+      "pos": "",
+      "m": "đơn độc; lẻ loi; cô đơn; một mình; hiu quạnh",
+      "hv": "chỉ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "条",
+      "p": "tiáo",
+      "pos": "",
+      "m": "sợi; cái; con (dùng cho đồ vật mảnh mà dài)",
+      "hv": "điều.thiêu.điêu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "或者",
+      "p": "huòzhě",
+      "pos": "",
+      "m": "có lẽ; có thể; chắc là",
+      "hv": "hoặc giả",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "舒服",
+      "p": "shūfu",
+      "pos": "",
+      "m": "thoải mái; khoan khoái",
+      "hv": "thư phục",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "记得",
+      "p": "jìdé",
+      "pos": "",
+      "m": "nhớ; nhớ lại; còn nhớ; nhớ được",
+      "hv": "ký đắc",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "爬山",
+      "p": "páshān",
+      "pos": "",
+      "m": "leo núi",
+      "hv": "ba san",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "裤子",
+      "p": "kùzi",
+      "pos": "",
+      "m": "quần; cái quần",
+      "hv": "khố tử",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "小心",
+      "p": "xiǎoxīn",
+      "pos": "",
+      "m": "(t)cẩn thận",
+      "hv": "tiểu tâm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "甜",
+      "p": "tián",
+      "pos": "",
+      "m": "ngọt",
+      "hv": "điềm",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "衬衫",
+      "p": "chènshān",
+      "pos": "",
+      "m": "áo sơ-mi; chemise",
+      "hv": "sấn sam",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "新鲜",
+      "p": "xīnxiān",
+      "pos": "",
+      "m": "tươi mới",
+      "hv": "tân tiên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "放",
+      "p": "fàng",
+      "pos": "",
+      "m": "tha; thả; tháo; phóng thích",
+      "hv": "phóng.phỏng.phương",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "花",
+      "p": "huā",
+      "pos": "",
+      "m": "hoa",
+      "hv": "hoa",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "差",
+      "p": "cī",
+      "pos": "",
+      "m": "kém,so le",
+      "hv": "sai.si.sái.ta.tha.soa",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "字典",
+      "p": "zìdiǎn",
+      "pos": "",
+      "m": "từ điển",
+      "hv": "tự điển",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "绿",
+      "p": "lù",
+      "pos": "",
+      "m": "lục Lâm (vốn là tên núi Đại Đồng ở Hồ Bắc, từng là căn cứ của nghĩa quân Vương Khuông, Vương Phượng thời Hán, sau chỉ những người ở rừng núi để cướp bóc hoặc để chống quan lại)",
+      "hv": "lục",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "云",
+      "p": "yún",
+      "pos": "",
+      "m": "nói",
+      "hv": "vân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“还是”和“或者”",
+      "vi": "So sánh “还是”và“或者”"
+    },
+    {
+      "zh": "存在的表达",
+      "vi": "Biểu hiện của sự tồn tại"
+    },
+    {
+      "zh": "“会”表示可能",
+      "vi": "“会” Chỉ ra khả năng"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小刚",
+      "p": "Míng tiān shì qíng tiān hái shi yīn tiān ？",
+      "zh": "明天是晴天还是阴天？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "Yīn tiān, diàn shì shàng shuō duō yún. Zěn me le? Yǒu shì?",
+      "zh": "阴天，电视上说多云。怎么了？有事？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小刚",
+      "p": "Méi shì, wǒ men míng tiān yào qù pá shān.",
+      "zh": "没事，我们明天要去爬山。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "Pá shān de shí hou yào xiǎo xīn diǎnr.",
+      "zh": "爬山的时候要小心点儿。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小刚",
+      "p": "Hǎo, nǐ yě qù ma?",
+      "zh": "好，你也去吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在小丽家",
+      "spk": "小丽",
+      "p": "Wǒ bú qù, wǒ yǒu shì.",
+      "zh": "我不去，我有事。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商场",
+      "spk": "周太太",
+      "p": "Nǐ jué de zhè tiáo kù zi zěn me yàng?",
+      "zh": "你觉得这条裤子怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商场",
+      "spk": "周   明",
+      "p": "Wǒ jì de nǐ yǐ jīng yǒu liǎng tiáo zhè yàng de kù zi le.",
+      "zh": "我记得你已经有两条这样的裤子了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商场",
+      "spk": "周太太",
+      "p": "Nà wǒ men zài kàn kan bié de.",
+      "zh": "那我们再看看别的。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商场",
+      "spk": "周   明",
+      "p": "Zhè jiàn chèn shān zěn me yàng?",
+      "zh": "这件衬衫怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商场",
+      "spk": "周太太",
+      "p": "Hái bú cuò, duō shao qián ？",
+      "zh": "还不错，多少钱？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商场",
+      "spk": "周明",
+      "p": "Zhè shàng mian xiě zhe sān bǎi èr shí yuán.",
+      "zh": "这上面写着320元。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在商场",
+      "spk": "周太太",
+      "p": "Mǎi yí jiàn.",
+      "zh": "买一件。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在水果店",
+      "spk": "周太太",
+      "p": "zhè xiē shuǐ guǒ zhēn xīn xiān,",
+      "zh": "这些水果真新鲜，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在水果店",
+      "spk": "",
+      "p": "wǒ men mǎi xī guā hái shi píng guǒ ？",
+      "zh": "我们买西瓜还是苹果？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在水果店",
+      "spk": "周   明",
+      "p": "Xī guā ba. Nǐ kàn, zhè shàng mian",
+      "zh": "西瓜吧。你看，这上面",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在水果店",
+      "spk": "",
+      "p": "xiě zhe “ xī guā bù tián bú yào qián ”.",
+      "zh": "写着“西瓜不甜不要钱”。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在水果店",
+      "spk": "周太太",
+      "p": "Nà wǒ men mǎi yí ge dà diǎnr de ba.",
+      "zh": "那我们买一个大点儿的吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在水果店",
+      "spk": "周   明",
+      "p": "Zài mǎi jǐ ge píng guǒ.",
+      "zh": "再买几个苹果。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在水果店",
+      "spk": "周太太",
+      "p": "Hǎo a, jīn tiān wǎn shang zhǐ chī shuǐ guǒ bù chī fàn!",
+      "zh": "好啊，今天晚上只吃水果不吃饭！",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "Zhuō zi shang fàng zhe hěn duō yǐn liào, nǐ hē shén me？",
+      "zh": "桌子上放着很多饮料，你喝什么？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Chá huò zhě kā fēi dōu kě yǐ. Nǐ ne? Nǐ hē shén me?",
+      "zh": "茶或者咖啡都可以。你呢？你喝什么？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "Wǒ hē chá, chá shì wǒ de zuì ài. Tiān lěng le huò zhě",
+      "zh": "我喝茶，茶是我的最爱。天冷了或者",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在休息室",
+      "spk": "",
+      "p": "gōng zuò lèi le de shí hou, hē bēi rè chá huì hěn shū fu.",
+      "zh": "工作累了的时候，喝杯热茶会很舒服。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在休息室",
+      "spk": "小刚",
+      "p": "Nǐ xǐ huan hē shén me chá ？",
+      "zh": "你喜欢喝什么茶？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在休息室",
+      "spk": "小丽",
+      "p": "Huā chá 、 lǜ chá 、 hóng chá, wǒ dōu xǐ huān.",
+      "zh": "花茶、绿茶、红茶，我都喜欢。",
+      "vi": ""
+    }
+  ]
+}

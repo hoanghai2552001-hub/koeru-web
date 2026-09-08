@@ -1,0 +1,338 @@
+{
+  "lesson": 6,
+  "level": "HSK2",
+  "source": "HSK标准教程2 第6课 (PPTX) + danh sách từ vựng HSK2",
+  "status": "REVIEW_REQUIRED",
+  "title": "在学校",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "在饭馆"
+    },
+    {
+      "part": 2,
+      "topic": "在饭馆"
+    },
+    {
+      "part": 3,
+      "topic": "在健身房"
+    },
+    {
+      "part": 3,
+      "topic": "在健身房"
+    },
+    {
+      "part": 4,
+      "topic": "在办公室"
+    },
+    {
+      "part": 4,
+      "topic": "在办公室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "门",
+      "p": "mén",
+      "pos": "",
+      "m": "cỗ pháo",
+      "hv": "môn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "外",
+      "p": "wài",
+      "pos": "",
+      "m": "ngoài; ở ngoài; bên ngoài",
+      "hv": "ngoại",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "自行车",
+      "p": "zì xíng chē",
+      "pos": "",
+      "m": "xe đạp",
+      "hv": "tự hành xa",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "羊肉",
+      "p": "yáng ròu",
+      "pos": "",
+      "m": "thịt dê",
+      "hv": "dương nhục",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "好吃",
+      "p": "hǎochī",
+      "pos": "",
+      "m": "ngon",
+      "hv": "hiếu cật",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "打篮球",
+      "p": "dǎ lánqiú",
+      "pos": "",
+      "m": "đánh bóng rổ",
+      "hv": "đả lam cầu",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "因为",
+      "p": "yīnwèi",
+      "pos": "",
+      "m": "because",
+      "hv": "nhân vị",
+      "ex_zh": "因为下雨，所以没去。",
+      "ex_p": "Yīnwèi xià yǔ, suǒyǐ méi qù.",
+      "ex_vi": "Vì trời mưa nên không đi.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "所以",
+      "p": "suǒyǐ",
+      "pos": "",
+      "m": "liên từ, biểu thị quan hệ nhân quả",
+      "hv": "sở dĩ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "游泳",
+      "p": "yóu yǒng",
+      "pos": "",
+      "m": "bơi lội",
+      "hv": "du vịnh",
+      "ex_zh": "我每天游泳。",
+      "ex_p": "Wǒ měitiān yóuyǒng.",
+      "ex_vi": "Tôi bơi mỗi ngày.",
+      "_src": "pinyin"
+    },
+    {
+      "h": "公斤",
+      "p": "gōngjīn",
+      "pos": "",
+      "m": "(d)kilô",
+      "hv": "công cân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "姐姐",
+      "p": "jiějiě",
+      "pos": "",
+      "m": "(d)chi",
+      "hv": "thư thư",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "百",
+      "p": "bǎi",
+      "pos": "",
+      "m": "trăm",
+      "hv": "bá.bách.mạch",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "玩",
+      "p": "wán",
+      "pos": "",
+      "m": "đùa; chơi đùa",
+      "hv": "ngoạn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "疑问代词“怎么”",
+      "vi": "Đại từ nghi vấn"
+    },
+    {
+      "zh": "量词的重叠",
+      "vi": "Lặp lại các từ đo lường"
+    },
+    {
+      "zh": "关联词“因为……，所以……”",
+      "vi": "Cặp liên từ \"因为……，所以……\""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Nǐ zhī dào xiǎo wáng jīn tiān shén me shí hou lái xué xiào ma ？",
+      "zh": "你知道小王今天什么时候来学校吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "B",
+      "p": "Tā yǐ jīng lái le 。",
+      "zh": "他已经来了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "A",
+      "p": "Nǐ zěn me zhī dào tā lái le ？",
+      "zh": "你怎么知道他来了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "B",
+      "p": "Wǒ zài mén wài kàn jiàn tā de zì xíng chē le 。",
+      "zh": "我在门外看见他的自行车了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭馆",
+      "spk": "A",
+      "p": "Jīn tiān de yáng ròu hěn hǎo chī ，nǐ zěn me bù chī le ?",
+      "zh": "今天的羊肉很好吃，你怎么不吃了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭馆",
+      "spk": "B",
+      "p": "Zhè ge xīng qī tiān tiān chī yáng ròu ，bù xiǎng chī le 。",
+      "zh": "这个星期天天吃羊肉，不想吃了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭馆",
+      "spk": "A",
+      "p": "Nà nǐ hái xiǎng chī shén me ？",
+      "zh": "那你还想吃什么？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭馆",
+      "spk": "B",
+      "p": "Lái yì diǎn miàn tiáo ba 。",
+      "zh": "来一点面条吧。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "A",
+      "p": "Zuó tiān nǐ men zěn me dōu méi qù dǎ lán qiú ？",
+      "zh": "昨天你们怎么都没去打篮球？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "B",
+      "p": "yīn wèi zuó tiān xià yǔ ，suǒ yǐ wǒ men dōu méi qù 。",
+      "zh": "因为昨天下雨，所以我们都没去。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Wǒ qù yóu yǒng le 。",
+      "zh": "我去游泳了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "A",
+      "p": "Nǐ jīng cháng yóu yǒng ma ？",
+      "zh": "你经常游泳吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在健身房",
+      "spk": "B",
+      "p": "Zhè ge yuè wǒ tiān tiān yóu yǒng ，wǒ xiàn zài qī shí gōng jīn le 。",
+      "zh": "这个月我天天游泳，我现在七十公斤了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Zhè liǎng tiān zěn me méi kàn jiàn xiǎo zhāng ？",
+      "zh": "这两天怎么没看见小张？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Tā qù běi jīng le 。",
+      "zh": "他去北京了。",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "A",
+      "p": "Qù běi jīng le ，shì qù lǚ yóu ma ？",
+      "zh": "去北京了，是去旅游吗？",
+      "vi": ""
+    },
+    {
+      "part": 4,
+      "topic": "在办公室",
+      "spk": "B",
+      "p": "Bú shì ，tīng shuō shì qù kàn tā jiě jie 。",
+      "zh": "不是，听说是去看他姐姐。",
+      "vi": ""
+    }
+  ]
+}

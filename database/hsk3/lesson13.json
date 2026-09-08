@@ -1,0 +1,393 @@
+{
+  "lesson": 13,
+  "level": "HSK3",
+  "source": "HSK标准教程3 第13课 (PPTX) + danh sách từ vựng HSK3",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在家"
+    },
+    {
+      "part": 3,
+      "topic": "在打电话"
+    },
+    {
+      "part": 3,
+      "topic": "打电话"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "终于",
+      "p": "zhōngyú",
+      "pos": "",
+      "m": "cuối cùng",
+      "hv": "chung ư",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "爷爷",
+      "p": "yéye",
+      "pos": "",
+      "m": "ông nội",
+      "hv": "gia gia",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "奶奶",
+      "p": "nǎi nai",
+      "pos": "",
+      "m": "bà nội",
+      "hv": "nãi nãi",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "礼物",
+      "p": "lǐwù",
+      "pos": "",
+      "m": "lễ vật; quà biếu; quà tặng; tặng phẩm",
+      "hv": "lễ vật",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "遇到",
+      "p": "yù dào",
+      "pos": "",
+      "m": "gặp phải",
+      "hv": "ngộ đáo",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "一边",
+      "p": "yībiān",
+      "pos": "",
+      "m": "vừa",
+      "hv": "nhất biên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "过去",
+      "p": "guòqù",
+      "pos": "",
+      "m": "đã qua; quá khứ; trước đây",
+      "hv": "quá khứ",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "一般",
+      "p": "yībān",
+      "pos": "",
+      "m": "giống nhau; như nhau",
+      "hv": "nhất bàn",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "愿意",
+      "p": "yuànyì",
+      "pos": "",
+      "m": "nguyện ý",
+      "hv": "nguyện ý",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "应该",
+      "p": "yīnggāi",
+      "pos": "",
+      "m": "nên; cần phải; phải, có lẽ, chắc",
+      "hv": "ưng cai",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "校长",
+      "p": "xiàozhǎng",
+      "pos": "",
+      "m": "(d)hiệu trưởng",
+      "hv": "hiệu trưởng",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "坏",
+      "p": "huài",
+      "pos": "",
+      "m": "hỏng,xấu",
+      "hv": "hoại.bùi.phôi.khôi.hoài.nhưỡng.bôi",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "经常",
+      "p": "jīngcháng",
+      "pos": "",
+      "m": "bình thường; hàng ngày; như thường lệ",
+      "hv": "kinh thường",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "像",
+      "p": "xiàng",
+      "pos": "",
+      "m": "tượng; ảnh",
+      "hv": "tượng.tương",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "复合趋向补语",
+      "vi": ""
+    },
+    {
+      "zh": "一边……一边……",
+      "vi": ""
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Dōu shì cóng nà bian de shāng diàn mǎi hui lai de.",
+      "zh": "你终于回来了！从哪儿买回来",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎo lì: Nǐ zhōng yú huí lái le! Cóng nǎr mǎi hui lai",
+      "zh": "这么多东西啊？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Zhè shì gěi yé ye de lǐ wù, míng tiān wǒ men yì qǐ",
+      "zh": "都是从那边的商店买回来的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Zěn me hái mǎi hóng jiǔ hui lai le? Shéi hē a?",
+      "zh": "怎么还买红酒回来了？谁喝啊？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Wǒ bú shì yǐ jīng huí lai le ma?",
+      "zh": "这是给爷爷的礼物，明天我们一起",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎo lì: Nà wǒ de lǐ wù ne? Kuài ná chu lai ràng wǒ kàn kan.",
+      "zh": "送过去，看看爷爷奶奶。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "zhè me duō dōng xi a?",
+      "zh": "那我的礼物呢？快拿出来让我看看。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "sòng guo qu, kàn kan yé ye nǎi nai.",
+      "zh": "我不是已经回来了吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Tā shì wǒ jīn tiān zài lù shang yù dào de yí ge lǎo tóng xué.",
+      "zh": "我今天看见你和一个女的",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎo lì: Wǒ jīn tiān kàn jiàn nǐ hé yí ge nǚ de",
+      "zh": "进了咖啡店，她是谁啊？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Shì a, yì biān hē kā fēi yì biān shuō le xiē guò qù de shì.",
+      "zh": "她是我今天在路上遇到的一个老同学。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Nǐ men jiù yì qǐ qù hē kā fēi le?",
+      "zh": "你们就一起去喝咖啡了？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "Bú shì. Méi yǒu gōng gòng qì chē le, wǒ shì zǒu hui lai de.",
+      "zh": "是啊，一边喝咖啡一边说了些过去的事。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小丽",
+      "p": "Nǐ huí lái dé zhè me wǎn, shì shuō le hěn duō guò qù de shì ma?",
+      "zh": "你回来得这么晚，是说了很多过去的事吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "小刚",
+      "p": "jìn le kā fēi diàn, tā shì shéi a?",
+      "zh": "不是。没有公共汽车了，我是走回来的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "同事",
+      "p": "Xiǎo lì， zhōu mò nǐ yì bān gēn Xiǎo gāng chū qu kàn diàn yǐng ma?",
+      "zh": "小丽，周末你一般跟小刚出去看电影吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "小丽",
+      "p": "Yǒu tā zài, wǒ de shēng huó yǐ jīng hěn yǒu yì si le.",
+      "zh": "我很少去电影院看电影，",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Xiǎo li: Wǒ hěn shǎo qù diàn yǐng yuàn kàn diàn yǐng,",
+      "zh": "我更愿意在家看电视。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "同事",
+      "p": "Nǐ yīng gāi duō chū qu zǒu zou, zhè yàng nǐ men",
+      "zh": "看电视有什么意思啊？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "小丽",
+      "p": "Kàn diàn shì yǒu shén me yì si a?",
+      "zh": "可以一边吃一边看，坐久了",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Xiǎo li: Kě yǐ yì biān chī yì biān kàn, zuò jiǔ le",
+      "zh": "还可以站起来休息一会儿。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "同事",
+      "p": "hái kě yǐ zhàn qi lai xiū xi yí huìr",
+      "zh": "你应该多出去走走，这样你们",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "",
+      "p": "wǒ gèng yuàn yì zài jiā kàn diàn shì.",
+      "zh": "的生活会更有意思。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "小丽",
+      "p": "de shēng huó huì gēng yǒu yì si.",
+      "zh": "有他在，我的生活已经很有意思了。",
+      "vi": ""
+    }
+  ]
+}
