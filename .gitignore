@@ -127,3 +127,6 @@ kanji-map-data.js
 # ── Logs (tự sinh) ──
 *.log
 tools/watch_log.txt
+
+# Giáo trình gốc HSK (nguồn cho tools/extract_hsk_source.py) — 4.7 GB, KHÔNG commit
+Tiếng Trung/

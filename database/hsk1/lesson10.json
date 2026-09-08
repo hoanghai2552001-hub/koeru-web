@@ -1,0 +1,177 @@
+{
+  "lesson": 10,
+  "source": "HSK标准教程1 第10课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在办公室",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在办公室"
+    },
+    {
+      "part": 2,
+      "topic": "在健身房"
+    },
+    {
+      "part": 3,
+      "topic": "在图书馆"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "前面",
+      "p": "qiánmiàn",
+      "pos": "Danh từ, Động từ, Phương vị từ",
+      "m": "Phía trước",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "上",
+      "p": "shàng",
+      "pos": "Danh từ, Động từ, Phương vị từ",
+      "m": "Phía trên",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "本",
+      "p": "běn",
+      "pos": "Lượng từ",
+      "m": "Cuốn, quyển",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "里",
+      "p": "lǐ",
+      "pos": "Danh từ, Phương vị từ",
+      "m": "Mét; Bên trong; Họ: Lí",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "和",
+      "p": "hé",
+      "pos": "Danh từ, Liên từ",
+      "m": "Và; Hòa",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "桌子",
+      "p": "zhuōzi",
+      "pos": "Danh từ",
+      "m": "Cái bàn",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "这(这儿)",
+      "p": "zhè (zhèr) Zhèi (dùng với văn nói)",
+      "pos": "Đại từ",
+      "m": "Ở đây",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "能",
+      "p": "néng",
+      "pos": "Động từ, Danh từ",
+      "m": "Có thế; Năng (lượng, lực)",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "后面",
+      "p": "hòumiàn",
+      "pos": "Danh từ, Phương vị từ",
+      "m": "Phía sau",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "我们",
+      "p": "wǒmen",
+      "pos": "Đại từ",
+      "m": "Chúng tôi",
+      "hv": "ngã môn",
+      "ex_zh": "我们是朋友",
+      "ex_p": "Wǒmen shì péngyǒu",
+      "ex_vi": "Chúng tôi là bạn bè",
+      "_src": "pinyin"
+    },
+    {
+      "h": "杯子",
+      "p": "bēizi",
+      "pos": "Danh từ",
+      "m": "Cốc uống",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "下",
+      "p": "xià",
+      "pos": "Danh từ, Động từ, Phương vị từ",
+      "m": "Phía dưới",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“有”字句：表示存在",
+      "vi": "Câu “有”:biểu thị sự tồn tại"
+    },
+    {
+      "zh": "“有”字句：表示存在",
+      "vi": "Câu “有”:biểu thị sự tồn tại"
+    },
+    {
+      "zh": "连词“和”",
+      "vi": "Liên từ “和”"
+    },
+    {
+      "zh": "能愿动词“能”",
+      "vi": "Động từ khiếm khuyết"
+    },
+    {
+      "zh": "用“请”的祈使句",
+      "vi": "Câu mệnh lệnh có “请”"
+    }
+  ],
+  "dialogue": []
+}

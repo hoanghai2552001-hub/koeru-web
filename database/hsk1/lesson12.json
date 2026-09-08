@@ -1,0 +1,159 @@
+{
+  "lesson": 12,
+  "source": "HSK标准教程1 第12课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在路上",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在路上"
+    },
+    {
+      "part": 2,
+      "topic": "在健身房"
+    },
+    {
+      "part": 3,
+      "topic": "在病房"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "下雨",
+      "p": "xià yǔ",
+      "pos": "Động từ",
+      "m": "Đổ mưa",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "冷",
+      "p": "lěng",
+      "pos": "Tính từ",
+      "m": "Lạnh",
+      "hv": "lãnh",
+      "ex_zh": "今天很冷",
+      "ex_p": "Jīntiān hěn lěng",
+      "ex_vi": "Hôm nay rất lạnh",
+      "_src": "pinyin"
+    },
+    {
+      "h": "天气",
+      "p": "tiānqi",
+      "pos": "Danh từ",
+      "m": "Thời tiết",
+      "hv": "thiên khí",
+      "ex_zh": "今天天气好",
+      "ex_p": "Jīntiān tiānqì hǎo",
+      "ex_vi": "Hôm nay thời tiết đẹp",
+      "_src": "pinyin"
+    },
+    {
+      "h": "怎么样",
+      "p": "zěnmeyàng",
+      "pos": "Đại từ",
+      "m": "Sao vậy, như thế nào",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "热",
+      "p": "rè",
+      "pos": "Tính từ",
+      "m": "Nóng",
+      "hv": "nhiệt",
+      "ex_zh": "天气很热",
+      "ex_p": "Tiānqì hěn rè",
+      "ex_vi": "Thời tiết rất nóng",
+      "_src": "pinyin"
+    },
+    {
+      "h": "水果",
+      "p": "shuǐguǒ",
+      "pos": "Danh từ",
+      "m": "Hoa quả",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "小姐",
+      "p": "xiǎojiě",
+      "pos": "Danh từ",
+      "m": "Quý cô; Tiểu thư",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "来",
+      "p": "lái",
+      "pos": "Động từ",
+      "m": "Đến",
+      "hv": "lai",
+      "ex_zh": "来吧",
+      "ex_p": "Lái ba",
+      "ex_vi": "Đến đây đi",
+      "_src": "pinyin"
+    },
+    {
+      "h": "些",
+      "p": "xiē",
+      "pos": "Lượng từ, Danh từ",
+      "m": "Một ít/ vài; …. Một chút",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "太",
+      "p": "tài",
+      "pos": "Danh từ, Trạng từ",
+      "m": "Cao, to, lớn; Quá",
+      "hv": "thái",
+      "ex_zh": "太好了！",
+      "ex_p": "Tài hǎo le!",
+      "ex_vi": "Tuyệt vời quá!",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "疑问代词“怎么样”",
+      "vi": "Đại từ nghi vấn“怎么样”"
+    },
+    {
+      "zh": "主语谓语句",
+      "vi": "Các câu có cụm từ chủ ngữ-vị ngữ làm vị ngữ"
+    },
+    {
+      "zh": "程度副词“太”",
+      "vi": "Trạng từ“太”"
+    },
+    {
+      "zh": "能愿动词“会”（2）",
+      "vi": "Động từ khiếm khuyết“会”（2）"
+    },
+    {
+      "zh": "能愿动词“会”（2）",
+      "vi": "Động từ khiếm khuyết“会”（2）"
+    },
+    {
+      "zh": "能愿动词“会”（2）",
+      "vi": "Động từ khiếm khuyết“会”（2）"
+    }
+  ],
+  "dialogue": []
+}

@@ -1,0 +1,202 @@
+{
+  "lesson": 4,
+  "source": "HSK标准教程1 第4课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在学校",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "在图书馆"
+    },
+    {
+      "part": 3,
+      "topic": "看照片"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "呢",
+      "p": "ne",
+      "pos": "Trợ từ ngữ khí",
+      "m": "Thế, nhỉ, vậy, mà, nhé",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "他",
+      "p": "tā",
+      "pos": "Đại từ",
+      "m": "Anh",
+      "hv": "tha",
+      "ex_zh": "他是老师",
+      "ex_p": "Tā shì lǎoshī",
+      "ex_vi": "Anh ấy là giáo viên",
+      "_src": "pinyin"
+    },
+    {
+      "h": "同学",
+      "p": "tóngxué",
+      "pos": "Danh từ",
+      "m": "Bạn học",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "朋友",
+      "p": "péngyou",
+      "pos": "Danh từ",
+      "m": "Bạn bè",
+      "hv": "bằng hữu",
+      "ex_zh": "好朋友",
+      "ex_p": "Hǎo péngyǒu",
+      "ex_vi": "Bạn tốt",
+      "_src": "pinyin"
+    },
+    {
+      "h": "汉语",
+      "p": "hànyǔ",
+      "pos": "Danh từ",
+      "m": "Tiếng Hán",
+      "hv": "Hán ngữ",
+      "ex_zh": "学汉语",
+      "ex_p": "Xué Hànyǔ",
+      "ex_vi": "Học tiếng Trung",
+      "_src": "pinyin"
+    },
+    {
+      "h": "哪(哪儿)",
+      "p": "nǎ (nǎr)",
+      "pos": "Danh từ, Liên từ",
+      "m": "Ở đâu",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "的",
+      "p": "de",
+      "pos": "Trợ từ, Danh từ",
+      "m": "Cái gì đó, vật gì đó, việc gì đó của ai đó, cgi đó…..",
+      "hv": "đích",
+      "ex_zh": "我的书",
+      "ex_p": "Wǒ de shū",
+      "ex_vi": "Sách của tôi",
+      "_src": "pinyin"
+    },
+    {
+      "h": "七",
+      "p": "qī",
+      "pos": "Số từ",
+      "m": "Số 7",
+      "hv": "thất",
+      "ex_zh": "七天",
+      "ex_p": "Qī tiān",
+      "ex_vi": "Bảy ngày",
+      "_src": "pinyin"
+    },
+    {
+      "h": "九",
+      "p": "jiǔ",
+      "pos": "Số từ",
+      "m": "Số 9",
+      "hv": "cửu",
+      "ex_zh": "九点",
+      "ex_p": "Jiǔ diǎn",
+      "ex_vi": "Chín giờ",
+      "_src": "pinyin"
+    },
+    {
+      "h": "看",
+      "p": "kàn",
+      "pos": "Động từ",
+      "m": "Xem; Nhìn",
+      "hv": "khán",
+      "ex_zh": "看书",
+      "ex_p": "Kàn shū",
+      "ex_vi": "Đọc sách",
+      "_src": "hanzi"
+    },
+    {
+      "h": "谁",
+      "p": "shéi shúi",
+      "pos": "Đại từ",
+      "m": "Ai",
+      "hv": "thuỳ",
+      "ex_zh": "他是谁？",
+      "ex_p": "Tā shì shéi?",
+      "ex_vi": "Anh ấy là ai?",
+      "_src": "hanzi"
+    },
+    {
+      "h": "她",
+      "p": "tā",
+      "pos": "Đại từ",
+      "m": "Cô",
+      "hv": "tha (nữ)",
+      "ex_zh": "她很漂亮",
+      "ex_p": "Tā hěn piàoliang",
+      "ex_vi": "Cô ấy rất đẹp",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "疑问代词“谁”",
+      "vi": "Đại từ nghi vấn“谁”"
+    },
+    {
+      "zh": "疑问代词“哪”",
+      "vi": ""
+    },
+    {
+      "zh": "结构助词“的”",
+      "vi": "Hạt cấu trúc“的”"
+    },
+    {
+      "zh": "疑问助词“呢”",
+      "vi": "Hạt nghi vấn“呢”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在学校",
+      "p": "tā shì shuí",
+      "zh": "她是谁？",
+      "vi": "Cô ấy là ai?"
+    },
+    {
+      "part": 2,
+      "topic": "在图书馆",
+      "p": "nǐ shì nǎ guó rén",
+      "zh": "你是哪国人？",
+      "vi": "Bạn đến từ đâu?"
+    },
+    {
+      "part": 2,
+      "topic": "在图书馆",
+      "p": "wǒ shì měi guó rén, nǐ ne",
+      "zh": "我是美国人，你呢？",
+      "vi": "Tôi đến từ Mỹ, còn bạn?"
+    },
+    {
+      "part": 2,
+      "topic": "在图书馆",
+      "p": "wǒ shì zhōng guó rén",
+      "zh": "我是中国人。",
+      "vi": "Tôi đến từ Trung Quốc."
+    }
+  ]
+}

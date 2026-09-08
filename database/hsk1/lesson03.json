@@ -1,0 +1,216 @@
+{
+  "lesson": 3,
+  "source": "HSK标准教程1 第3课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在学校",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "在教室"
+    },
+    {
+      "part": 3,
+      "topic": "在学校"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "叫",
+      "p": "jiào",
+      "pos": "Động từ",
+      "m": "Gọi",
+      "hv": "khiếu",
+      "ex_zh": "你叫什么名字？",
+      "ex_p": "Nǐ jiào shénme míngzi?",
+      "ex_vi": "Bạn tên là gì?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "是",
+      "p": "shì",
+      "pos": "Danh từ, Động từ, Đại từ",
+      "m": "Là; Đúng, chính xác; Phải, vâng; Như vậy, vậy; Họ/ đệm : Thị",
+      "hv": "thị",
+      "ex_zh": "我是学生",
+      "ex_p": "Wǒ shì xuésheng",
+      "ex_vi": "Tôi là học sinh",
+      "_src": "pinyin"
+    },
+    {
+      "h": "我",
+      "p": "wǒ",
+      "pos": "Đại từ",
+      "m": "Tôi",
+      "hv": "ngã",
+      "ex_zh": "我是学生",
+      "ex_p": "Wǒ shì xuésheng",
+      "ex_vi": "Tôi là học sinh",
+      "_src": "pinyin"
+    },
+    {
+      "h": "老师",
+      "p": "lǎoshī",
+      "pos": "Danh từ",
+      "m": "Giáo viên; Thầy giáo, cô giáo",
+      "hv": "lão sư",
+      "ex_zh": "老师好！",
+      "ex_p": "Lǎoshī hǎo!",
+      "ex_vi": "Chào thầy/cô!",
+      "_src": "pinyin"
+    },
+    {
+      "h": "什么",
+      "p": "shénme",
+      "pos": "Đại từ",
+      "m": "Cái gì ?",
+      "hv": "thập ma",
+      "ex_zh": "这是什么？",
+      "ex_p": "Zhè shì shénme?",
+      "ex_vi": "Đây là gì?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "名字",
+      "p": "míngzi",
+      "pos": "Danh từ",
+      "m": "Tên",
+      "hv": "danh tự",
+      "ex_zh": "你叫什么名字？",
+      "ex_p": "Nǐ jiào shénme míngzi?",
+      "ex_vi": "Bạn tên là gì?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "人",
+      "p": "rén",
+      "pos": "Danh từ",
+      "m": "Người",
+      "hv": "nhân",
+      "ex_zh": "中国人",
+      "ex_p": "Zhōngguó rén",
+      "ex_vi": "Người Trung Quốc",
+      "_src": "pinyin"
+    },
+    {
+      "h": "吗",
+      "p": "ma",
+      "pos": "Trợ từ ngữ khí",
+      "m": "Ừ; À; Chưa",
+      "hv": "mạ",
+      "ex_zh": "好吗？",
+      "ex_p": "Hǎo ma?",
+      "ex_vi": "Ổn không?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "学生",
+      "p": "xuésheng",
+      "pos": "Danh từ",
+      "m": "Học sinh",
+      "hv": "học sinh",
+      "ex_zh": "我是学生",
+      "ex_p": "Wǒ shì xuésheng",
+      "ex_vi": "Tôi là học sinh",
+      "_src": "pinyin"
+    },
+    {
+      "h": "中国",
+      "p": "Zhōngguó",
+      "pos": "Danh từ",
+      "m": "Trung Quốc (tên tắt)",
+      "hv": "Trung Quốc",
+      "ex_zh": "我来自中国",
+      "ex_p": "Wǒ láizì Zhōngguó",
+      "ex_vi": "Tôi đến từ Trung Quốc",
+      "_src": "pinyin"
+    },
+    {
+      "h": "月",
+      "p": "yuè",
+      "pos": "Danh từ",
+      "m": "Tháng; Nguyệt; Mặt trăng",
+      "hv": "nguyệt",
+      "ex_zh": "一月",
+      "ex_p": "Yī yuè",
+      "ex_vi": "Tháng Một",
+      "_src": "pinyin"
+    },
+    {
+      "h": "学校",
+      "p": "xuéxiào",
+      "pos": "Danh từ",
+      "m": "Trường học",
+      "hv": "học hiệu",
+      "ex_zh": "去学校",
+      "ex_p": "Qù xuéxiào",
+      "ex_vi": "Đi học",
+      "_src": "hanzi"
+    },
+    {
+      "h": "做",
+      "p": "zuò",
+      "pos": "Động từ",
+      "m": "Làm",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "疑问代词“什么”",
+      "vi": "Đại từ nghi vấn “什么”"
+    },
+    {
+      "zh": "“是”字句",
+      "vi": "Câu “是”"
+    },
+    {
+      "zh": "用“吗”的疑问句",
+      "vi": "Câu nghi vấn có “吗”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在学校",
+      "p": "nǐ jiào shén me míng zi",
+      "zh": "你叫什么名字？",
+      "vi": "Bạn tên là gì?"
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "p": "wǒ jiào lǐ yuè",
+      "zh": "我叫李月！",
+      "vi": "Tên tôi là Li Yue"
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "p": "wǒ bú shì lǎo shī, wǒ shì xué sheng",
+      "zh": "我不是老师，我是学生。",
+      "vi": "Tôi không phải là giáo viên mà là một học sinh."
+    },
+    {
+      "part": 2,
+      "topic": "在教室",
+      "p": "nǐ shì lǎo shī ma",
+      "zh": "你是老师吗？",
+      "vi": "Bạn là giáo viên?"
+    },
+    {
+      "part": 3,
+      "topic": "在学校",
+      "p": "nǐ shì zhōng guó rén ma",
+      "zh": "你是中国人吗？",
+      "vi": "Bạn là người Trung Quốc à?"
+    }
+  ]
+}

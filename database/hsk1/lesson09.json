@@ -1,0 +1,129 @@
+{
+  "lesson": 9,
+  "source": "HSK标准教程1 第9课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在家",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在家"
+    },
+    {
+      "part": 2,
+      "topic": "在车站"
+    },
+    {
+      "part": 3,
+      "topic": "打电话"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "在",
+      "p": "zài",
+      "pos": "Động từ, Danh từ, Giới từ",
+      "m": "Tại; Có mặt",
+      "hv": "tại",
+      "ex_zh": "我在家",
+      "ex_p": "Wǒ zài jiā",
+      "ex_vi": "Tôi ở nhà",
+      "_src": "pinyin"
+    },
+    {
+      "h": "医院",
+      "p": "yīyuàn",
+      "pos": "Danh từ",
+      "m": "Bệnh viện",
+      "hv": "y viện",
+      "ex_zh": "去医院",
+      "ex_p": "Qù yīyuàn",
+      "ex_vi": "Đi bệnh viện",
+      "_src": "pinyin"
+    },
+    {
+      "h": "工作",
+      "p": "gōngzuò",
+      "pos": "Danh từ, Động từ",
+      "m": "Công việc; Làm việc",
+      "hv": "công tác",
+      "ex_zh": "你工作吗？",
+      "ex_p": "Nǐ gōngzuò ma?",
+      "ex_vi": "Bạn đi làm không?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "那(那儿)",
+      "p": "nà (nàr)",
+      "pos": "Danh từ, Liên từ, Đại từ",
+      "m": "Ở kia; Họ: Na",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "儿子",
+      "p": "érzi",
+      "pos": "Danh từ, Đại từ",
+      "m": "Con cái",
+      "hv": "nhi tử",
+      "ex_zh": "我的儿子",
+      "ex_p": "Wǒ de érzi",
+      "ex_vi": "Con trai tôi",
+      "_src": "pinyin"
+    },
+    {
+      "h": "椅子",
+      "p": "yǐzi",
+      "pos": "Danh từ",
+      "m": "Cái ghế",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "医生",
+      "p": "yīshēng",
+      "pos": "Danh từ",
+      "m": "Bác sĩ",
+      "hv": "y sinh",
+      "ex_zh": "他是医生",
+      "ex_p": "Tā shì yīshēng",
+      "ex_vi": "Anh ấy là bác sĩ",
+      "_src": "pinyin"
+    },
+    {
+      "h": "电脑",
+      "p": "diànnǎo",
+      "pos": "Danh từ",
+      "m": "Máy vi tính",
+      "hv": "điện não",
+      "ex_zh": "用电脑",
+      "ex_p": "Yòng diànnǎo",
+      "ex_vi": "Dùng máy tính",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "动词“在”",
+      "vi": "Động từ “在”"
+    },
+    {
+      "zh": "疑问代词“哪儿”",
+      "vi": "Đại từ nghi vấn “哪儿”"
+    },
+    {
+      "zh": "介词“在”",
+      "vi": "Giới từ “在”"
+    },
+    {
+      "zh": "疑问助词“呢”（2）",
+      "vi": "Trợ từ nghi vấn “呢”（2）"
+    }
+  ],
+  "dialogue": []
+}

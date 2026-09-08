@@ -1,0 +1,153 @@
+{
+  "lesson": 13,
+  "source": "HSK标准教程1 第13课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "打电话",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "打电话"
+    },
+    {
+      "part": 2,
+      "topic": "在咖啡馆儿"
+    },
+    {
+      "part": 3,
+      "topic": "在学校办公室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "电视",
+      "p": "diànshì",
+      "pos": "Danh từ",
+      "m": "Ti vi, vô tuyến",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "打电话",
+      "p": "dǎ diànhuà",
+      "pos": "Động từ",
+      "m": "Gọi điện thoại",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "喜欢",
+      "p": "xǐhuan",
+      "pos": "Động từ",
+      "m": "Thích",
+      "hv": "hỉ hoan",
+      "ex_zh": "我喜欢猫",
+      "ex_p": "Wǒ xǐhuān māo",
+      "ex_vi": "Tôi thích mèo",
+      "_src": "pinyin"
+    },
+    {
+      "h": "睡觉",
+      "p": "shuìjiào",
+      "pos": "Động từ",
+      "m": "Ngủ",
+      "hv": "thụy giác",
+      "ex_zh": "几点睡觉？",
+      "ex_p": "Jǐ diǎn shuìjiào?",
+      "ex_vi": "Mấy giờ đi ngủ?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "喂",
+      "p": "wèi",
+      "pos": "Từ cảm thán",
+      "m": "Alo; Này",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "上午",
+      "p": "shàngwǔ",
+      "pos": "Từ chỉ thời gian",
+      "m": "Buổi trưa",
+      "hv": "thượng ngọ",
+      "ex_zh": "上午十点",
+      "ex_p": "Shàngwǔ shí diǎn",
+      "ex_vi": "10 giờ sáng",
+      "_src": "pinyin"
+    },
+    {
+      "h": "学习",
+      "p": "xuéxí",
+      "pos": "Động từ",
+      "m": "Học tập",
+      "hv": "học tập",
+      "ex_zh": "学习汉语",
+      "ex_p": "Xuéxí Hànyǔ",
+      "ex_vi": "Học tiếng Trung",
+      "_src": "pinyin"
+    },
+    {
+      "h": "日",
+      "p": "rì",
+      "pos": "Danh từ",
+      "m": "Ngày; Nhật : mặt trời, thái dương",
+      "hv": "nhật",
+      "ex_zh": "三月八日",
+      "ex_p": "Sān yuè bā rì",
+      "ex_vi": "Ngày 8/3",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "叹词“喂”",
+      "vi": "Thán từ“喂”"
+    },
+    {
+      "zh": "叹词“喂”",
+      "vi": "Thán từ“喂”"
+    },
+    {
+      "zh": "叹词“喂”",
+      "vi": "Thán từ“喂”"
+    },
+    {
+      "zh": "“在……呢”表示动作正在进行",
+      "vi": "“在……呢”Dùng để biểu thị một hành động đang diễn ra"
+    },
+    {
+      "zh": "“在……呢”表示动作正在进行",
+      "vi": "“在……呢”Dùng để biểu thị một hành động đang diễn ra"
+    },
+    {
+      "zh": "电话号码的表达",
+      "vi": "Biểu thức số điện thoại"
+    },
+    {
+      "zh": "电话号码的表达",
+      "vi": "Biểu thức số điện thoại"
+    },
+    {
+      "zh": "语气助词“吧”",
+      "vi": "Trợ từ phương thức “吧”"
+    },
+    {
+      "zh": "语气助词“吧”",
+      "vi": "Trợ từ phương thức “吧”"
+    },
+    {
+      "zh": "语气助词“吧”",
+      "vi": "Trợ từ phương thức “吧”"
+    }
+  ],
+  "dialogue": []
+}

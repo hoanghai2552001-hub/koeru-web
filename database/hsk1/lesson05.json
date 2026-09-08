@@ -1,0 +1,191 @@
+{
+  "lesson": 5,
+  "source": "HSK标准教程1 第5课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在学校",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "在办公室"
+    },
+    {
+      "part": 3,
+      "topic": "在办公室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "了",
+      "p": "le",
+      "pos": "Trợ từ ngữ khí",
+      "m": "Đã, rồi",
+      "hv": "liễu",
+      "ex_zh": "吃了",
+      "ex_p": "Chī le",
+      "ex_vi": "Ăn rồi",
+      "_src": "pinyin"
+    },
+    {
+      "h": "家",
+      "p": "jiā",
+      "pos": "Danh từ",
+      "m": "Nhà; Gia (đình)",
+      "hv": "gia",
+      "ex_zh": "回家",
+      "ex_p": "Huí jiā",
+      "ex_vi": "Về nhà",
+      "_src": "pinyin"
+    },
+    {
+      "h": "女儿",
+      "p": "nǚér",
+      "pos": "Danh từ",
+      "m": "Con gái",
+      "hv": "nữ nhi",
+      "ex_zh": "她的女儿",
+      "ex_p": "Tā de nǚ'ér",
+      "ex_vi": "Con gái của cô ấy",
+      "_src": "pinyin"
+    },
+    {
+      "h": "多",
+      "p": "duō",
+      "pos": "Động từ",
+      "m": "Nhiều, thừa; Quá",
+      "hv": "đa",
+      "ex_zh": "很多人",
+      "ex_p": "Hěn duō rén",
+      "ex_vi": "Rất nhiều người",
+      "_src": "pinyin"
+    },
+    {
+      "h": "大",
+      "p": "dà",
+      "pos": "Tính tự, Danh từ",
+      "m": "To, lớn",
+      "hv": "đại",
+      "ex_zh": "大学",
+      "ex_p": "Dàxué",
+      "ex_vi": "Đại học",
+      "_src": "pinyin"
+    },
+    {
+      "h": "有",
+      "p": "yǒu",
+      "pos": "Danh từ, Động từ",
+      "m": "Có",
+      "hv": "hữu",
+      "ex_zh": "我有猫",
+      "ex_p": "Wǒ yǒu māo",
+      "ex_vi": "Tôi có mèo",
+      "_src": "pinyin"
+    },
+    {
+      "h": "岁",
+      "p": "suì",
+      "pos": "Danh từ",
+      "m": "Tuổi",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "读",
+      "p": "dú",
+      "pos": "Động từ",
+      "m": "Đọc",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "狗",
+      "p": "gǒu",
+      "pos": "Danh từ",
+      "m": "Chó",
+      "hv": "cẩu",
+      "ex_zh": "大狗",
+      "ex_p": "Dà gǒu",
+      "ex_vi": "Chó lớn",
+      "_src": "pinyin"
+    },
+    {
+      "h": "字",
+      "p": "zì",
+      "pos": "Danh từ",
+      "m": "Tự; Chữ",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "饭馆",
+      "p": "fàngguǎn",
+      "pos": "Danh từ",
+      "m": "Cửa hàng ăn",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "疑问代词“几”",
+      "vi": "Đại từ nghi vấn “几”"
+    },
+    {
+      "zh": "百以内的数字",
+      "vi": "Số dưới 100"
+    },
+    {
+      "zh": "“了”表变化",
+      "vi": "“了”Biểu thị sự thay đổi"
+    },
+    {
+      "zh": "“多+大”表示疑问",
+      "vi": "Cụm từ nghi vấn “多+大”"
+    }
+  ],
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在学校",
+      "p": "nǐ jiā yǒu jǐ kǒu rén",
+      "zh": "你家有几口人？",
+      "vi": "Có bao nhiêu người trong gia đình bạn?"
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "p": "wǒ jiā yǒu sān kǒu rén",
+      "zh": "我家有三人。",
+      "vi": "Có 3 người trong gia đình"
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "p": "Nǐ nǚ ér jǐ suì le",
+      "zh": "你女儿几岁了?",
+      "vi": "Tuổi của con gái bạn là bao nhiêu?"
+    },
+    {
+      "part": 2,
+      "topic": "在办公室",
+      "p": "Tā jīn nián sì suì le",
+      "zh": "她今年四岁了。",
+      "vi": "Cô ấy 4 tuổi."
+    }
+  ]
+}

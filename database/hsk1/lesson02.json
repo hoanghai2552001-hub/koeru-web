@@ -1,0 +1,154 @@
+{
+  "lesson": 2,
+  "source": "HSK标准教程1 第2课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "",
+  "topics": [],
+  "vocab": [
+    {
+      "h": "三",
+      "p": "sān",
+      "pos": "Số từ",
+      "m": "Số 3",
+      "hv": "tam",
+      "ex_zh": "三个人",
+      "ex_p": "Sān gè rén",
+      "ex_vi": "Ba người",
+      "_src": "pinyin"
+    },
+    {
+      "h": "八",
+      "p": "bā",
+      "pos": "Số từ",
+      "m": "Số 8",
+      "hv": "bát",
+      "ex_zh": "八月",
+      "ex_p": "Bā yuè",
+      "ex_vi": "Tháng Tám",
+      "_src": "pinyin"
+    },
+    {
+      "h": "零",
+      "p": "líng",
+      "pos": "Số từ",
+      "m": "Số 0",
+      "hv": "linh",
+      "ex_zh": "零度",
+      "ex_p": "Líng dù",
+      "ex_vi": "Không độ",
+      "_src": "pinyin"
+    },
+    {
+      "h": "菜",
+      "p": "cài",
+      "pos": "Danh từ, Lượng từ",
+      "m": "Món (ăn)",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "妈妈",
+      "p": "māma",
+      "pos": "Danh từ",
+      "m": "Mẹ, má",
+      "hv": "ma ma",
+      "ex_zh": "妈妈在家",
+      "ex_p": "Māma zài jiā",
+      "ex_vi": "Mẹ ở nhà",
+      "_src": "pinyin"
+    },
+    {
+      "h": "爸爸",
+      "p": "bàba",
+      "pos": "",
+      "m": "Bố, ba",
+      "hv": "ba ba",
+      "ex_zh": "爸爸很忙",
+      "ex_p": "Bàba hěn máng",
+      "ex_vi": "Bố rất bận",
+      "_src": "pinyin"
+    },
+    {
+      "h": "水",
+      "p": "shuǐ",
+      "pos": "Danh từ",
+      "m": "Nước",
+      "hv": "thủy",
+      "ex_zh": "喝水",
+      "ex_p": "Hē shuǐ",
+      "ex_vi": "Uống nước",
+      "_src": "pinyin"
+    },
+    {
+      "h": "谢谢",
+      "p": "xièxie",
+      "pos": "Động từ",
+      "m": "Cảm ơn",
+      "hv": "tạ tạ",
+      "ex_zh": "谢谢你",
+      "ex_p": "Xièxie nǐ",
+      "ex_vi": "Cảm ơn bạn",
+      "_src": "pinyin"
+    },
+    {
+      "h": "不客气",
+      "p": "bú kèqi",
+      "pos": "",
+      "m": "Đừng khách khí, đừng ngại",
+      "hv": "bất khách khí",
+      "ex_zh": "不客气！",
+      "ex_p": "Bù kèqi!",
+      "ex_vi": "Không có gì!",
+      "_src": "pinyin"
+    },
+    {
+      "h": "再见",
+      "p": "zàijiàn",
+      "pos": "Động từ",
+      "m": "Hẹn gặp lại",
+      "hv": "tái kiến",
+      "ex_zh": "明天再见",
+      "ex_p": "Míngtiān zàijiàn",
+      "ex_vi": "Hẹn gặp lại ngày mai",
+      "_src": "pinyin"
+    },
+    {
+      "h": "小",
+      "p": "xiǎo",
+      "pos": "Tính từ, Danh từ",
+      "m": "Bé, nhỏ; …. Bé; (VD: vợ bé：小老婆); Tiểu",
+      "hv": "tiểu",
+      "ex_zh": "小猫",
+      "ex_p": "Xiǎo māo",
+      "ex_vi": "Mèo nhỏ",
+      "_src": "pinyin"
+    },
+    {
+      "h": "不",
+      "p": "bù",
+      "pos": "Danh từ, Trạng ngữ",
+      "m": "Không",
+      "hv": "bất",
+      "ex_zh": "不好",
+      "ex_p": "Bù hǎo",
+      "ex_vi": "Không tốt",
+      "_src": "pinyin"
+    },
+    {
+      "h": "四",
+      "p": "sì",
+      "pos": "Số từ",
+      "m": "Số 4",
+      "hv": "tứ",
+      "ex_zh": "四月",
+      "ex_p": "Sì yuè",
+      "ex_vi": "Tháng Tư",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [],
+  "dialogue": []
+}

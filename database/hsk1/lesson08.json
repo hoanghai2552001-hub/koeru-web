@@ -1,0 +1,173 @@
+{
+  "lesson": 8,
+  "source": "HSK标准教程1 第8课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在饭馆",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在饭馆"
+    },
+    {
+      "part": 2,
+      "topic": "在客厅"
+    },
+    {
+      "part": 3,
+      "topic": "在商店"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "明天",
+      "p": "míngtiān",
+      "pos": "Từ chỉ thời gian",
+      "m": "Ngày mai",
+      "hv": "minh thiên",
+      "ex_zh": "明天见",
+      "ex_p": "Míngtiān jiàn",
+      "ex_vi": "Hẹn gặp ngày mai",
+      "_src": "pinyin"
+    },
+    {
+      "h": "茶",
+      "p": "chá",
+      "pos": "Danh từ",
+      "m": "Trà",
+      "hv": "trà",
+      "ex_zh": "喝茶",
+      "ex_p": "Hē chá",
+      "ex_vi": "Uống trà",
+      "_src": "hanzi"
+    },
+    {
+      "h": "多少",
+      "p": "duōshao",
+      "pos": "Đại từ, Chỉ số lượng",
+      "m": "Bao nhiêu",
+      "hv": "đa thiểu",
+      "ex_zh": "多少钱？",
+      "ex_p": "Duōshao qián?",
+      "ex_vi": "Bao nhiêu tiền?",
+      "_src": "hanzi"
+    },
+    {
+      "h": "喝",
+      "p": "hē",
+      "pos": "Động từ",
+      "m": "Uống",
+      "hv": "hát",
+      "ex_zh": "喝水",
+      "ex_p": "Hē shuǐ",
+      "ex_vi": "Uống nước",
+      "_src": "hanzi"
+    },
+    {
+      "h": "块",
+      "p": "kuài",
+      "pos": "Danh từ, Lượng từ",
+      "m": "Đồng; Khoảnh; Miếng",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "买",
+      "p": "mǎi",
+      "pos": "Động từ",
+      "m": "Mua",
+      "hv": "mãi",
+      "ex_zh": "买东西",
+      "ex_p": "Mǎi dōngxi",
+      "ex_vi": "Mua đồ",
+      "_src": "hanzi"
+    },
+    {
+      "h": "米饭",
+      "p": "mǐfàn",
+      "pos": "Danh từ",
+      "m": "Cơm",
+      "hv": "mễ phạn",
+      "ex_zh": "我要米饭",
+      "ex_p": "Wǒ yào mǐfàn",
+      "ex_vi": "Tôi muốn cơm",
+      "_src": "hanzi"
+    },
+    {
+      "h": "请",
+      "p": "qǐng",
+      "pos": "Động từ",
+      "m": "Mời",
+      "hv": "thỉnh",
+      "ex_zh": "请进",
+      "ex_p": "Qǐng jìn",
+      "ex_vi": "Xin mời vào",
+      "_src": "hanzi"
+    },
+    {
+      "h": "商店",
+      "p": "shāngdiàn",
+      "pos": "Danh từ",
+      "m": "Cửa hàng/ tiệm",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    },
+    {
+      "h": "下午",
+      "p": "xiàwǔ",
+      "pos": "Từ chỉ thời gian",
+      "m": "Buổi chiều",
+      "hv": "hạ ngọ",
+      "ex_zh": "下午三点",
+      "ex_p": "Xiàwǔ sān diǎn",
+      "ex_vi": "3 giờ chiều",
+      "_src": "hanzi"
+    },
+    {
+      "h": "想",
+      "p": "xiǎng",
+      "pos": "Động từ",
+      "m": "Muốn; Nhớ; Nghĩ rằng",
+      "hv": "tưởng",
+      "ex_zh": "我想去",
+      "ex_p": "Wǒ xiǎng qù",
+      "ex_vi": "Tôi muốn đi",
+      "_src": "hanzi"
+    },
+    {
+      "h": "昨天",
+      "p": "zuótiān",
+      "pos": "Từ chỉ thời gian",
+      "m": "Hôm qua",
+      "hv": "tạc thiên",
+      "ex_zh": "昨天很冷",
+      "ex_p": "Zuótiān hěn lěng",
+      "ex_vi": "Hôm qua rất lạnh",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "能愿动词“想”",
+      "vi": "Động từ khiếm khuyết “想”"
+    },
+    {
+      "zh": "疑问代词“多少”",
+      "vi": "Đại từ nghi vấn"
+    },
+    {
+      "zh": "量词“个”“口”",
+      "vi": "Các từ đo lường “个” và “口”"
+    },
+    {
+      "zh": "钱数的表达",
+      "vi": "Biểu hiện của số tiền"
+    }
+  ],
+  "dialogue": []
+}

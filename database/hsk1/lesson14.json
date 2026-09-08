@@ -1,0 +1,171 @@
+{
+  "lesson": 14,
+  "source": "HSK标准教程1 第14课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在宿舍",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在宿舍"
+    },
+    {
+      "part": 2,
+      "topic": "在公司"
+    },
+    {
+      "part": 3,
+      "topic": "在商店门口"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "先生",
+      "p": "xiānsheng",
+      "pos": "Danh từ",
+      "m": "Quý ông",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "开",
+      "p": "kāi",
+      "pos": "Động từ",
+      "m": "Mở",
+      "hv": "khai",
+      "ex_zh": "开门",
+      "ex_p": "Kāi mén",
+      "ex_vi": "Mở cửa",
+      "_src": "pinyin"
+    },
+    {
+      "h": "看见",
+      "p": "kànjiàn",
+      "pos": "Động từ",
+      "m": "Nhìn thấy",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "苹果",
+      "p": "píngguǒ",
+      "pos": "Danh từ",
+      "m": "Quả táo",
+      "hv": "bình quả",
+      "ex_zh": "一个苹果",
+      "ex_p": "Yī gè píngguǒ",
+      "ex_vi": "Một quả táo",
+      "_src": "pinyin"
+    },
+    {
+      "h": "东西",
+      "p": "dōngxi",
+      "pos": "Danh từ",
+      "m": "Đồ vật; Đông Tây",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "少",
+      "p": "shǎo",
+      "pos": "Động từ, Danh từ, Đại từ",
+      "m": "Ít, thiếu; Thiếu (niên); Trẻ; Họ: Thiếu",
+      "hv": "thiểu",
+      "ex_zh": "人很少",
+      "ex_p": "Rén hěn shǎo",
+      "ex_vi": "Người rất ít",
+      "_src": "pinyin"
+    },
+    {
+      "h": "分钟",
+      "p": "fēnzhōng",
+      "pos": "Từ chỉ thời gian",
+      "m": "Phút",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "漂亮",
+      "p": "piàoliang",
+      "pos": "Tính từ",
+      "m": "Xinh đẹp",
+      "hv": "phiêu lượng",
+      "ex_zh": "她很漂亮",
+      "ex_p": "Tā hěn piàoliang",
+      "ex_vi": "Cô ấy rất đẹp",
+      "_src": "pinyin"
+    },
+    {
+      "h": "衣服",
+      "p": "yīfu",
+      "pos": "Danh từ",
+      "m": "Quần áo; Trang/ Y phục",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "都",
+      "p": "dōu",
+      "pos": "Trạng từ",
+      "m": "Đều",
+      "hv": "đô",
+      "ex_zh": "都好",
+      "ex_p": "Dōu hǎo",
+      "ex_vi": "Đều tốt cả",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“了”表发生或完成",
+      "vi": "\"了\" có nghĩa là sự xuất hiện hoặc hoàn thành"
+    },
+    {
+      "zh": "“了”表发生或完成",
+      "vi": "\"了\" có nghĩa là sự xuất hiện hoặc hoàn thành"
+    },
+    {
+      "zh": "“了”表发生或完成",
+      "vi": "\"了\" có nghĩa là sự xuất hiện hoặc hoàn thành"
+    },
+    {
+      "zh": "名词“后”",
+      "vi": "Danh từ “后”"
+    },
+    {
+      "zh": "名词“后”",
+      "vi": "Danh từ “后”"
+    },
+    {
+      "zh": "名词“后”",
+      "vi": "Danh từ “后”"
+    },
+    {
+      "zh": "语气助词“啊”",
+      "vi": "Hạt phương thức “啊”"
+    },
+    {
+      "zh": "语气助词“啊”",
+      "vi": "Hạt phương thức “啊”"
+    },
+    {
+      "zh": "副词“都”",
+      "vi": "Trạng từ “都”"
+    }
+  ],
+  "dialogue": []
+}

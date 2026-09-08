@@ -1,0 +1,103 @@
+{
+  "lesson": 6,
+  "source": "HSK标准教程1 第6课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在学校",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在学校"
+    },
+    {
+      "part": 2,
+      "topic": "在厨房"
+    },
+    {
+      "part": 3,
+      "topic": "在办公室"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "会",
+      "p": "huì",
+      "pos": "Động từ, Danh từ",
+      "m": "Sẽ; Hội (họp); Gặp mặt",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "很",
+      "p": "hěn",
+      "pos": "Trạng từ",
+      "m": "Rất",
+      "hv": "ngận",
+      "ex_zh": "很好",
+      "ex_p": "Hěn hǎo",
+      "ex_vi": "Rất tốt",
+      "_src": "pinyin"
+    },
+    {
+      "h": "怎么",
+      "p": "zěnme",
+      "pos": "Đại từ",
+      "m": "Thế nào, làm sao; Thế; Lắm",
+      "hv": "chẩm ma",
+      "ex_zh": "怎么去？",
+      "ex_p": "Zěnme qù?",
+      "ex_vi": "Đi thế nào?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "坐",
+      "p": "zuò",
+      "pos": "Động từ",
+      "m": "Ngồi; Đi, đáp ..(phương tiện)...",
+      "hv": "tọa",
+      "ex_zh": "请坐",
+      "ex_p": "Qǐng zuò",
+      "ex_vi": "Mời ngồi",
+      "_src": "pinyin"
+    },
+    {
+      "h": "写",
+      "p": "xiě",
+      "pos": "Động từ",
+      "m": "Viết",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "吃",
+      "p": "chī",
+      "pos": "Động từ",
+      "m": "Ăn",
+      "hv": "ngật",
+      "ex_zh": "吃饭",
+      "ex_p": "Chī fàn",
+      "ex_vi": "Ăn cơm",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "能愿动词“会”（1）",
+      "vi": "Động từ khiếm khuyết (1)"
+    },
+    {
+      "zh": "形容词谓语句",
+      "vi": "Các câu có vị ngữ tính từ"
+    },
+    {
+      "zh": "疑问代词“怎么”",
+      "vi": "Đại từ nghi vấn“怎么”"
+    }
+  ],
+  "dialogue": []
+}

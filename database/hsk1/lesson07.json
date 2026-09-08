@@ -1,0 +1,70 @@
+{
+  "lesson": 7,
+  "source": "HSK标准教程1 第7课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在银行",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在银行"
+    },
+    {
+      "part": 2,
+      "topic": "看日历"
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡馆儿"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "今天",
+      "p": "jīntiān",
+      "pos": "Từ chỉ thời gian",
+      "m": "Hôm nay",
+      "hv": "kim thiên",
+      "ex_zh": "今天天气好",
+      "ex_p": "Jīntiān tiānqì hǎo",
+      "ex_vi": "Hôm nay thời tiết đẹp",
+      "_src": "hanzi"
+    },
+    {
+      "h": "去",
+      "p": "qù",
+      "pos": "Động từ",
+      "m": "Đi",
+      "hv": "khứ",
+      "ex_zh": "去学校",
+      "ex_p": "Qù xuéxiào",
+      "ex_vi": "Đi học",
+      "_src": "hanzi"
+    },
+    {
+      "h": "星期",
+      "p": "xīngqī",
+      "pos": "Danh từ",
+      "m": "Thứ ….; Chủ nhật (tên gọi tắt)",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "日期的表达（1）",
+      "vi": "Biểu hiện của một ngày tháng(1)"
+    },
+    {
+      "zh": "名词谓语句",
+      "vi": ""
+    },
+    {
+      "zh": "连动句（1）",
+      "vi": ""
+    }
+  ],
+  "dialogue": []
+}

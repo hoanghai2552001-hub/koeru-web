@@ -1,0 +1,154 @@
+{
+  "lesson": 1,
+  "source": "HSK标准教程1 第1课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "",
+  "topics": [],
+  "vocab": [
+    {
+      "h": "好",
+      "p": "hǎo",
+      "pos": "Danh từ, Động từ, Trạng từ",
+      "m": "Tốt, Ok; Yêu thích",
+      "hv": "hảo",
+      "ex_zh": "好的",
+      "ex_p": "Hǎo de",
+      "ex_vi": "Được rồi",
+      "_src": "pinyin"
+    },
+    {
+      "h": "你",
+      "p": "nǐ",
+      "pos": "Đại từ",
+      "m": "Bạn",
+      "hv": "nhĩ",
+      "ex_zh": "你好",
+      "ex_p": "Nǐ hǎo",
+      "ex_vi": "Xin chào",
+      "_src": "pinyin"
+    },
+    {
+      "h": "二",
+      "p": "èr",
+      "pos": "Sô từ",
+      "m": "Số 2",
+      "hv": "nhị",
+      "ex_zh": "二十",
+      "ex_p": "Èrshí",
+      "ex_vi": "Hai mươi",
+      "_src": "pinyin"
+    },
+    {
+      "h": "爱",
+      "p": "ài",
+      "pos": "Động từ",
+      "m": "Yêu",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "一",
+      "p": "yī",
+      "pos": "Số từ",
+      "m": "Số 1",
+      "hv": "nhất",
+      "ex_zh": "一个苹果",
+      "ex_p": "Yī gè píngguǒ",
+      "ex_vi": "Một quả táo",
+      "_src": "pinyin"
+    },
+    {
+      "h": "猫",
+      "p": "māo",
+      "pos": "Danh từ",
+      "m": "Mèo",
+      "hv": "miêu",
+      "ex_zh": "小猫",
+      "ex_p": "Xiǎo māo",
+      "ex_vi": "Mèo nhỏ",
+      "_src": "pinyin"
+    },
+    {
+      "h": "几",
+      "p": "jǐ",
+      "pos": "Trạng từ, Số từ",
+      "m": "Mấy; Vài",
+      "hv": "kỉ",
+      "ex_zh": "几点了？",
+      "ex_p": "Jǐ diǎn le?",
+      "ex_vi": "Mấy giờ rồi?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "飞机",
+      "p": "fēijī",
+      "pos": "Danh từ",
+      "m": "Máy bay",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "个",
+      "p": "gè",
+      "pos": "Lượng từ",
+      "m": "Cái",
+      "hv": "cá",
+      "ex_zh": "三个人",
+      "ex_p": "Sān gè rén",
+      "ex_vi": "Ba người",
+      "_src": "hanzi"
+    },
+    {
+      "h": "六",
+      "p": "liù",
+      "pos": "Số từ",
+      "m": "Số 6",
+      "hv": "lục",
+      "ex_zh": "六月",
+      "ex_p": "Liù yuè",
+      "ex_vi": "Tháng Sáu",
+      "_src": "hanzi"
+    },
+    {
+      "h": "没",
+      "p": "méi mò",
+      "pos": "Động từ",
+      "m": "Chưa; Không ….(sở hữu,lí do) ….; Chìm, lặn; = với chết",
+      "hv": "một",
+      "ex_zh": "没有",
+      "ex_p": "Méiyǒu",
+      "ex_vi": "Không có",
+      "_src": "hanzi"
+    },
+    {
+      "h": "十",
+      "p": "shí",
+      "pos": "Số từ",
+      "m": "Số 10",
+      "hv": "thập",
+      "ex_zh": "十块钱",
+      "ex_p": "Shí kuài qián",
+      "ex_vi": "Mười tệ",
+      "_src": "hanzi"
+    },
+    {
+      "h": "书",
+      "p": "shū",
+      "pos": "Danh từ",
+      "m": "Sách",
+      "hv": "thư",
+      "ex_zh": "看书",
+      "ex_p": "Kàn shū",
+      "ex_vi": "Đọc sách",
+      "_src": "hanzi"
+    }
+  ],
+  "grammar": [],
+  "dialogue": []
+}

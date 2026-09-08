@@ -1,0 +1,100 @@
+{
+  "lesson": 15,
+  "source": "HSK标准教程1 第15课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在餐桌旁",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在餐桌旁"
+    },
+    {
+      "part": 2,
+      "topic": "在饭店门口"
+    },
+    {
+      "part": 3,
+      "topic": "在公司"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "认识",
+      "p": "rènshi",
+      "pos": "Động từ",
+      "m": "Nhận biết; Quen",
+      "hv": "nhận thức",
+      "ex_zh": "很高兴认识你",
+      "ex_p": "Hěn gāoxìng rènshi nǐ",
+      "ex_vi": "Rất vui được biết bạn",
+      "_src": "pinyin"
+    },
+    {
+      "h": "出租车",
+      "p": "chūzūchē",
+      "pos": "Danh từ",
+      "m": "Xe thuê",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "年",
+      "p": "nián",
+      "pos": "Danh từ",
+      "m": "Năm; Niên",
+      "hv": "niên",
+      "ex_zh": "今年",
+      "ex_p": "Jīnnián",
+      "ex_vi": "Năm nay",
+      "_src": "pinyin"
+    },
+    {
+      "h": "高兴",
+      "p": "gāoxìng",
+      "pos": "Tính từ",
+      "m": "Vui vẻ, hào hứng",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "听",
+      "p": "tīng",
+      "pos": "Động từ",
+      "m": "Nghe",
+      "hv": "thính",
+      "ex_zh": "听音乐",
+      "ex_p": "Tīng yīnyuè",
+      "ex_vi": "Nghe nhạc",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "“是……的”句",
+      "vi": "“Cấu trúc\" là...\""
+    },
+    {
+      "zh": "“是……的”句",
+      "vi": "“Cấu trúc\" là...\""
+    },
+    {
+      "zh": "“是……的”句",
+      "vi": "“Cấu trúc\" là...\""
+    },
+    {
+      "zh": "日期的表达（2）",
+      "vi": "Biểu thức ngày tháng (2)"
+    },
+    {
+      "zh": "日期的表达（2）",
+      "vi": "Biểu thức ngày tháng (2)"
+    }
+  ],
+  "dialogue": []
+}

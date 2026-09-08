@@ -2,17 +2,31 @@
 (function(){
   var _state = null;
 
-  function esc(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
-  function rubyfy(s){ return esc(s).replace(/([一-鿿々]+)\[([ぁ-ゖー]+)\]/g,'<ruby>$1<rt>$2</rt></ruby>'); }
-  function jpReading(s){ return (s || '').replace(/[一-鿿々]+\[([ぁ-ゖー]+)\]/g, '$1').replace(/\[[ぁ-ゖー]+\]/g,''); }
+  // esc là chung cho mọi ngôn ngữ; lấy từ JPText nếu có, không thì ZHText, không nữa thì tự làm.
+  // (Trang tiếng Trung chỉ nạp js/zh-text.js, không nạp js/jp-text.js.)
+  var _txt = window.JPText || window.ZHText || null;
+  var esc = (_txt && _txt.esc) || function(s){
+    var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML;
+  };
+
+  // Ngôn ngữ hiện hành. Mặc định tiếng Nhật — bản tiếng Trung truyền opts.lang='zh-CN'
+  // kèm opts.textApi=window.ZHText khi gọi open().
+  var DEFAULT_LANG = 'ja-JP';
+  function curLang(){ return (_state && _state.opts && _state.opts.lang) || DEFAULT_LANG; }
+  function curTextApi(){ return (_state && _state.opts && _state.opts.textApi) || window.JPText || window.ZHText; }
 
   var SAVE_KEY = 'koeru_sp_saved';
-  function loadSaved(){ try { return JSON.parse(localStorage.getItem(SAVE_KEY)) || []; } catch(e){ return []; } }
-  function storeSaved(list){ localStorage.setItem(SAVE_KEY, JSON.stringify(list)); }
+  var _savedCache = null; // cache trong bộ nhớ, chỉ đọc lại localStorage khi chưa load lần nào
+  function loadSaved(){
+    if(_savedCache) return _savedCache;
+    try { _savedCache = JSON.parse(localStorage.getItem(SAVE_KEY)) || []; } catch(e){ _savedCache = []; }
+    return _savedCache;
+  }
+  function storeSaved(list){ _savedCache = list; localStorage.setItem(SAVE_KEY, JSON.stringify(list)); }
   function itemKey(item){ return (item.jp || item.word || '') + '|' + (item.meaning || ''); }
   function isSaved(item){ return loadSaved().some(function(s){ return itemKey(s) === itemKey(item); }); }
   function toggleSaved(item){
-    var list = loadSaved();
+    var list = loadSaved().slice();
     var k = itemKey(item);
     var idx = list.findIndex(function(s){ return itemKey(s) === k; });
     if(idx >= 0){ list.splice(idx, 1); } else { list.push(item); }
@@ -90,16 +104,23 @@
   function speakJP(text, done){
     if(!window.speechSynthesis){ if(done) done(); return; }
     window.speechSynthesis.cancel();
+    var lang = curLang();
     var u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
+    u.lang = lang;
+    // Giọng zh có nhiều biến thể (zh-CN, zh_CN, cmn-Hans-CN) nên so khớp theo tiền tố
+    var pref = lang.split('-')[0];
+    var pick = function(vs){
+      return vs.filter(function(v){ return v.lang === lang; })[0]
+          || vs.filter(function(v){ return (v.lang || '').replace('_', '-').indexOf(pref) === 0; })[0];
+    };
     var voices = window.speechSynthesis.getVoices();
-    var jp = voices.filter(function(v){ return v.lang === 'ja-JP'; });
-    if(jp.length) u.voice = jp[0];
+    var v0 = pick(voices);
+    if(v0) u.voice = v0;
     if(done) u.onend = done;
     if(!voices.length){
       window.speechSynthesis.onvoiceschanged = function(){
-        var vs = window.speechSynthesis.getVoices().filter(function(v){ return v.lang === 'ja-JP'; });
-        if(vs.length) u.voice = vs[0];
+        var v1 = pick(window.speechSynthesis.getVoices());
+        if(v1) u.voice = v1;
         window.speechSynthesis.speak(u);
       };
     } else {
@@ -107,7 +128,11 @@
     }
   }
 
-  function fallbackText(item){ return item.jp ? jpReading(item.jp) : item.word; }
+  function fallbackText(item){
+    var api = curTextApi();
+    var read = api && (api.jpReading || api.zhReading);
+    return item.jp ? (read ? read(item.jp) : item.jp) : item.word;
+  }
 
   function playSample(){
     var item = _state.items[_state.idx];
@@ -153,7 +178,11 @@
       return;
     }
     setMsg('');
+    var recIdx = _state.idx;
     navigator.mediaDevices.getUserMedia({ audio:true }).then(function(stream){
+      // stale check: overlay đã đóng (_state null) hoặc đã chuyển sang từ/câu khác
+      // trước khi ghi xong — nếu vậy chỉ giải phóng mic, không đụng vào UI/state nữa
+      if(!_state || _state.idx !== recIdx){ stream.getTracks().forEach(function(t){ t.stop(); }); return; }
       _state.stream = stream;
       var opts = {};
       if(window.MediaRecorder.isTypeSupported && window.MediaRecorder.isTypeSupported('audio/webm')){
@@ -166,7 +195,10 @@
       _state.chunks = [];
       rec.ondataavailable = function(e){ if(e.data && e.data.size) _state.chunks.push(e.data); };
       rec.onstop = function(){
-        stopStream();
+        stream.getTracks().forEach(function(t){ t.stop(); });
+        var stale = !_state || _state.recorder !== rec || _state.idx !== recIdx;
+        if(stale) return;
+        _state.stream = null;
         if(_state.recordedUrl) URL.revokeObjectURL(_state.recordedUrl);
         var blob = new Blob(_state.chunks, { type: rec.mimeType || 'audio/webm' });
         _state.recordedUrl = URL.createObjectURL(blob);
@@ -193,6 +225,7 @@
     document.getElementById('spProgress').textContent = (_state.idx + 1) + '/' + _state.items.length +
       (_state.opts.title ? ' · ' + _state.opts.title : '');
     var isSentence = !!item.jp;
+    var rubyfy = (curTextApi() || window.JPText).rubyfy;
     var jpHtml = isSentence ? rubyfy(item.jp) :
       (item.reading ? '<ruby>' + esc(item.word) + '<rt>' + esc(item.reading) + '</rt></ruby>' : esc(item.word));
     document.getElementById('spWord').innerHTML =

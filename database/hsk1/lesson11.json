@@ -1,0 +1,163 @@
+{
+  "lesson": 11,
+  "source": "HSK标准教程1 第11课 (PPTX) + 150 Từ vựng HSK 1.docx",
+  "status": "REVIEW_REQUIRED",
+  "title": "在图书馆",
+  "topics": [
+    {
+      "part": 1,
+      "topic": "在图书馆"
+    },
+    {
+      "part": 2,
+      "topic": "在家"
+    },
+    {
+      "part": 3,
+      "topic": "在家"
+    }
+  ],
+  "vocab": [
+    {
+      "h": "现在",
+      "p": "xiànzài",
+      "pos": "Từ chỉ thời gian",
+      "m": "Hiện tại; Hiện nay",
+      "hv": "hiện tại",
+      "ex_zh": "现在几点？",
+      "ex_p": "Xiànzài jǐ diǎn?",
+      "ex_vi": "Bây giờ mấy giờ?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "住",
+      "p": "zhu",
+      "pos": "Động từ",
+      "m": "Ở tại, sống tại",
+      "hv": "trú",
+      "ex_zh": "你住哪儿？",
+      "ex_p": "Nǐ zhù nǎr?",
+      "ex_vi": "Bạn ở đâu?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "点",
+      "p": "diǎn",
+      "pos": "Động từ",
+      "m": "Giờ; Chấm",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "北京",
+      "p": "běijīng",
+      "pos": "Tên riêng",
+      "m": "Bắc Kinh",
+      "hv": "Bắc Kinh",
+      "ex_zh": "北京很大",
+      "ex_p": "Běijīng hěn dà",
+      "ex_vi": "Bắc Kinh rất rộng",
+      "_src": "pinyin"
+    },
+    {
+      "h": "钱",
+      "p": "qián",
+      "pos": "Danh từ",
+      "m": "Tiền",
+      "hv": "tiền",
+      "ex_zh": "多少钱？",
+      "ex_p": "Duōshao qián?",
+      "ex_vi": "Bao nhiêu tiền?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "中午",
+      "p": "zhōngwǔ",
+      "pos": "Từ chỉ thời gian",
+      "m": "Buổi trưa",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "回",
+      "p": "huí",
+      "pos": "Động từ",
+      "m": "Quay lại, trở về; (dân tộc) Hồi",
+      "hv": "hồi",
+      "ex_zh": "回家",
+      "ex_p": "Huí jiā",
+      "ex_vi": "Về nhà",
+      "_src": "pinyin"
+    },
+    {
+      "h": "电影",
+      "p": "diànyǐng",
+      "pos": "Danh từ",
+      "m": "Phim điện ảnh",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "pinyin"
+    },
+    {
+      "h": "时候",
+      "p": "shíhou",
+      "pos": "Danh từ",
+      "m": "Lúc nào; Khoảng thời gian",
+      "hv": "thời hầu",
+      "ex_zh": "什么时候？",
+      "ex_p": "Shénme shíhou?",
+      "ex_vi": "Khi nào?",
+      "_src": "pinyin"
+    },
+    {
+      "h": "五",
+      "p": "wǔ",
+      "pos": "Số từ",
+      "m": "Số 5",
+      "hv": "ngũ",
+      "ex_zh": "五岁",
+      "ex_p": "Wǔ suì",
+      "ex_vi": "Năm tuổi",
+      "_src": "pinyin"
+    }
+  ],
+  "grammar": [
+    {
+      "zh": "时间的表达",
+      "vi": "Biểu hiện thời gian"
+    },
+    {
+      "zh": "时间的表达",
+      "vi": "Biểu hiện thời gian"
+    },
+    {
+      "zh": "时间词做状语",
+      "vi": "Thời gian Từ được sử dụng làm trạng từ"
+    },
+    {
+      "zh": "时间词做状语",
+      "vi": ""
+    },
+    {
+      "zh": "名词“前”",
+      "vi": "Danh từ “ngôi nhà”"
+    },
+    {
+      "zh": "名词“前”",
+      "vi": "Danh từ “ngôi nhà”"
+    },
+    {
+      "zh": "名词“前”",
+      "vi": "Danh từ “ngôi nhà”"
+    }
+  ],
+  "dialogue": []
+}
