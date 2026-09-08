@@ -104,6 +104,22 @@ td.pos{color:var(--muted);font-size:.75rem;white-space:nowrap}
 .flash-nav{display:flex;gap:10px;margin-top:14px}
 .flash-nav .btn{flex:1;margin-top:0}
 
+/* ── Mức thuộc (SM-2) ── */
+.mdots{font-size:.62rem;letter-spacing:1px;white-space:nowrap}
+.mdots.m-lo{color:var(--muted)}
+.mdots.m-mid{color:var(--gold)}
+.mdots.m-hi{color:var(--ok)}
+.flash-judge{display:flex;gap:10px;margin-top:12px}
+.flash-judge button{flex:1;border-radius:12px;padding:13px;font-weight:800;font-size:.92rem;
+  cursor:pointer;font-family:inherit;min-height:48px;border:1.5px solid var(--line);background:var(--card2);color:var(--text)}
+.flash-judge .j-no{border-color:rgba(232,90,106,.5);color:var(--bad)}
+.flash-judge .j-yes{border-color:rgba(90,200,138,.5);color:var(--ok)}
+.review-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.review-bar .btn{margin-top:0;width:auto;flex:1;min-width:150px}
+.due-pill{display:inline-block;background:rgba(245,200,66,.15);color:var(--gold);
+  border:1px solid rgba(245,200,66,.4);border-radius:999px;padding:2px 9px;font-size:.7rem;font-weight:800}
+.lesson-card .mini{position:absolute;top:10px;right:10px;font-size:.6rem;letter-spacing:1px}
+
 /* ── Thanh điệu ── */
 .tone-q{text-align:center;padding:26px 12px;background:var(--card2);border-radius:var(--radius-lg);margin-bottom:14px}
 .tone-q .zh{font-size:2.6rem;font-weight:600}
@@ -212,6 +228,10 @@ body.no-pinyin .py-hide{visibility:hidden}
     <p class="sub">Ôn tập và kiểm tra bài về nhà theo giáo trình HSK 标准教程.
        Mỗi từ có chữ Hán, pinyin, Hán Việt, nghĩa và câu ví dụ.</p>
     <div class="card" id="progressSummary"></div>
+    <div class="review-bar">
+      <button class="btn btn-main" id="btnDue">🔁 Ôn từ đến hạn</button>
+      <button class="btn btn-ghost" id="btnWeak">◐ Ôn từ chưa vững</button>
+    </div>
     <button class="btn btn-main" id="btnWorksheet">📝 Ôn tập nhiều bài · Phiếu kiểm tra từ vựng</button>
     <button class="btn btn-ghost" id="btnSpeakSaved">📌 Từ đã lưu khi luyện nói</button>
     <input class="search" id="searchBox" placeholder="🔍 Tra nhanh (chữ Hán / pinyin / nghĩa Việt)…">
@@ -253,6 +273,7 @@ body.no-pinyin .py-hide{visibility:hidden}
 
 </div>
 
+<script src="js/koeru-mastery.js?v=4122d33f"></script>
 <script src="js/zh-text.js?v=0a8b99a2"></script>
 <script src="js/koeru-worksheet.js?v=f829b795"></script>
 <script src="js/speak-practice.js?v=465ee259"></script>
@@ -284,6 +305,43 @@ function K(s){ return LV.prefix + s; }
 var DATA = LV.data;
 var TOTAL = LV.lessons;
 var AUDIO_DIR = 'audio/hsk/';   // tools/gen_hsk_audio.py sinh ra <hanzi>.mp3
+
+/* ─── Lặp lại ngắt quãng (SM-2) — dùng chung engine js/koeru-mastery.js ───
+   QUAN TRỌNG: phải thêm tiền tố 'zh:' vào khoá. Store koeru_mastery_v2 dùng
+   chung với phần Hán tự tiếng Nhật, mà 128 chữ trùng nhau (人, 手, 山, 上…).
+   Không tách thì học 人 bên tiếng Nhật sẽ bị tính là đã thuộc bên tiếng Trung. */
+var SRS = window.koeruMastery || null;
+function mKey(h){ return 'zh:' + h; }
+function mRecord(h, ok){ if(SRS) SRS.record(mKey(h), !!ok, 'hsk'); }
+function mLevel(h){ return SRS ? SRS.getMasteryLevel(mKey(h)) : 0; }
+function mIsDue(h){ return SRS ? SRS.isDue(mKey(h)) : false; }
+// "Đã gặp" = có bản ghi trong store. KHÔNG dùng mastery > 0: từ trả lời SAI có
+// mastery 0 nhưng chính là từ cần ôn nhất — dùng mastery sẽ loại đúng nó ra.
+function mSeen(h){ return SRS ? SRS.getNextReview(mKey(h)) !== null : false; }
+
+// ●○○○○ — hiện mức thuộc 0-5 cho gọn trong bảng
+function mDots(h){
+  var n = mLevel(h);
+  var s = '';
+  for(var i = 0; i < 5; i++) s += (i < n ? '●' : '○');
+  var cls = n >= 4 ? 'm-hi' : (n >= 2 ? 'm-mid' : 'm-lo');
+  return '<span class="mdots ' + cls + '" title="Mức thuộc ' + n + '/5">' + s + '</span>';
+}
+
+// Toàn bộ từ của cấp hiện tại, kèm số bài — dùng cho chế độ ôn tập
+function allWords(){
+  var out = [];
+  DATA.forEach(function(l){
+    l.vocab.forEach(function(v){ out.push({ v: v, lesson: l.lesson, kanji: mKey(v.h) }); });
+  });
+  return out;
+}
+function dueWords(){ return SRS ? SRS.getDueCards(allWords()) : []; }
+function weakWords(){
+  // Chưa thuộc hẳn: mức < 4, đã từng gặp — ưu tiên mức thấp nhất trước
+  return allWords().filter(function(x){ return mSeen(x.v.h) && mLevel(x.v.h) < 4; })
+    .sort(function(a, b){ return mLevel(a.v.h) - mLevel(b.v.h); });
+}
 
 /* ─── Giao diện sáng/tối + bật tắt pinyin ─── */
 var btnTheme = qs('btnTheme');
@@ -385,6 +443,12 @@ function renderHome(){
       '<b>Bài ' + l.lesson + '</b>' +
       '<span class="zh">' + esc(l.title || '—') + '</span>' +
       '<span class="st">' + l.vocab.length + ' từ · ' + l.grammar.length + ' mẫu câu</span>' +
+      (function(){
+        var hi = l.vocab.filter(function(v){ return mLevel(v.h) >= 4; }).length;
+        var due = l.vocab.filter(function(v){ return mIsDue(v.h); }).length;
+        if(due) return '<span class="mini due-pill">' + due + ' ôn</span>';
+        return hi ? '<span class="mini mdots m-hi">' + hi + '/' + l.vocab.length + '</span>' : '';
+      })() +
       '</button>';
   }).join('');
   g.querySelectorAll('.lesson-card').forEach(function(b){
@@ -396,9 +460,16 @@ function renderProgress(){
   var totalWords = DATA.reduce(function(s, l){ return s + l.vocab.length; }, 0);
   var hist = WS.getHistory(K('ws_hist'));
   var last = hist.length ? hist[hist.length - 1] : null;
+  var all = allWords();
+  var seen = all.filter(function(x){ return mSeen(x.v.h); }).length;
+  var solid = all.filter(function(x){ return mLevel(x.v.h) >= 4; }).length;
+  var due = dueWords().length;
   qs('progressSummary').innerHTML =
     '<div style="font-size:.9rem;line-height:1.8">' +
       '<b>' + TOTAL + '</b> bài · <b>' + totalWords + '</b> từ vựng' +
+      '<br>Đã học <b style="color:var(--gold)">' + seen + '</b> · ' +
+      'đã vững <b style="color:var(--ok)">' + solid + '</b>' +
+      (due ? ' · <span class="due-pill">' + due + ' từ đến hạn ôn</span>' : '') +
       (last ? '<br>Lần kiểm tra gần nhất: <span class="pct-ok">' + last.correct + '/' + last.total +
               '</span> (' + last.pct + '%) — ' + WS.formatDate(last.date) : '') +
     '</div>';
@@ -431,6 +502,37 @@ qs('searchBox').oninput = function(){
   (hits.length > 40 ? '<span class="sub">… và ' + (hits.length - 40) + ' từ nữa</span>' : '');
   bindPlay(box);
 };
+
+/* ─── Chế độ ôn tập: deck gộp mọi bài của cấp hiện tại ─── */
+function openReview(kind){
+  var items = kind === 'due' ? dueWords() : weakWords();
+  if(!items.length){
+    alert(kind === 'due'
+      ? 'Chưa có từ nào đến hạn ôn. Học vài bài rồi quay lại — hệ thống sẽ tự hẹn ngày ôn cho từng từ.'
+      : 'Chưa có từ nào cần củng cố. Làm flashcard hoặc bài kiểm tra để hệ thống biết bạn yếu từ nào.');
+    return;
+  }
+  // Dùng lại đúng khung xem bài, chỉ thay danh sách từ
+  curLesson = {
+    lesson: 0,
+    title: kind === 'due' ? 'Ôn từ đến hạn' : 'Ôn từ chưa vững',
+    vocab: items.map(function(x){ return x.v; }),
+    grammar: [], dialogue: [], topics: []
+  };
+  flashIdx = 0; toneIdx = 0; toneScore = { ok: 0, n: 0 };
+  qs('home').classList.add('hidden');
+  qs('worksheet').classList.add('hidden');
+  qs('detail').classList.remove('hidden');
+  qs('dBadge').textContent = kind === 'due' ? 'ĐẾN HẠN ÔN' : 'CHƯA VỮNG';
+  qs('dTitle').textContent = curLesson.title + ' · ' + items.length + ' từ';
+  // Mở thẳng Flashcard — ôn tập thì lật thẻ hợp lý hơn xem bảng
+  curTab = 'flash';
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('on', t.dataset.tab === 'flash'); });
+  renderTab();
+  window.scrollTo(0, 0);
+}
+qs('btnDue').onclick = function(){ openReview('due'); };
+qs('btnWeak').onclick = function(){ openReview('weak'); };
 
 /* ─── Chi tiết bài ─── */
 var curLesson = null, curTab = 'vocab';
@@ -484,12 +586,14 @@ function renderVocab(l, box){
       '<td class="hv">' + esc(v.hv || '—') + '</td>' +
       '<td class="vn">' + esc(v.m) + ex + '</td>' +
       '<td class="pos">' + esc(v.pos || '') + '</td>' +
+      '<td class="pos">' + mDots(v.h) + '</td>' +
     '</tr>';
   }).join('');
   box.innerHTML =
     '<button class="btn btn-ghost" id="btnSpeakLesson">🎤 Luyện nói ' + l.vocab.length + ' từ của bài này</button>' +
     '<div class="tbl-scroll"><table><thead><tr>' +
-      '<th>Chữ Hán</th><th>Pinyin</th><th class="hv-th">Hán Việt</th><th>Nghĩa &amp; ví dụ</th><th>Từ loại</th>' +
+      '<th>Chữ Hán</th><th>Pinyin</th><th class="hv-th">Hán Việt</th><th>Nghĩa &amp; ví dụ</th>' +
+      '<th>Từ loại</th><th>Thuộc</th>' +
     '</tr></thead><tbody>' + rows + '</tbody></table></div>';
   bindPlay(box);
   qs('btnSpeakLesson').onclick = function(){ openSpeak(l.vocab, 'Bài ' + l.lesson); };
@@ -503,14 +607,17 @@ function openSpeak(vocab, title){
 }
 qs('btnSpeakSaved').onclick = function(){ SpeakPractice.openSaved({ lang: 'zh-CN', textApi: ZH }); };
 
-/* Tab 2 — Flashcard */
+/* Tab 2 — Flashcard. Lật xong tự đánh giá "chưa thuộc / đã thuộc" —
+   đây là tín hiệu tự nhiên nhất để nuôi SM-2. */
 var flashIdx = 0;
-function renderFlash(l, box){
-  if(!l.vocab.length){ box.innerHTML = '<span class="sub">Bài này chưa có từ vựng.</span>'; return; }
-  if(flashIdx >= l.vocab.length) flashIdx = 0;
-  var v = l.vocab[flashIdx];
+function renderFlash(l, box, pool){
+  pool = pool || l.vocab;
+  if(!pool.length){ box.innerHTML = '<span class="sub">Bài này chưa có từ vựng.</span>'; return; }
+  if(flashIdx >= pool.length) flashIdx = 0;
+  var v = pool[flashIdx];
   box.innerHTML =
-    '<div class="flash-bar"><span class="flash-count">' + (flashIdx + 1) + ' / ' + l.vocab.length + '</span>' +
+    '<div class="flash-bar"><span class="flash-count">' + (flashIdx + 1) + ' / ' + pool.length +
+      ' · ' + mDots(v.h) + '</span>' +
       '<button class="play" data-zh="' + esc(v.h) + '">🔊 Nghe</button></div>' +
     '<div class="flash-card" id="fcard">' +
       '<div class="front">' + esc(v.h) + '</div>' +
@@ -520,11 +627,22 @@ function renderFlash(l, box){
       '</div>' +
       '<div class="tap">bấm để lật</div>' +
     '</div>' +
+    '<div class="flash-judge hidden" id="fJudge">' +
+      '<button class="j-no" data-ok="0">✗ Chưa thuộc</button>' +
+      '<button class="j-yes" data-ok="1">✓ Đã thuộc</button></div>' +
     '<div class="flash-nav"><button class="btn btn-ghost" id="fPrev">◀ Trước</button>' +
       '<button class="btn btn-ghost" id="fNext">Tiếp ▶</button></div>';
-  qs('fcard').onclick = function(){ this.classList.toggle('flipped'); };
-  qs('fPrev').onclick = function(){ flashIdx = (flashIdx - 1 + l.vocab.length) % l.vocab.length; renderFlash(l, box); };
-  qs('fNext').onclick = function(){ flashIdx = (flashIdx + 1) % l.vocab.length; renderFlash(l, box); };
+  var next = function(){ flashIdx = (flashIdx + 1) % pool.length; renderFlash(l, box, pool); };
+  qs('fcard').onclick = function(){
+    this.classList.toggle('flipped');
+    // Chỉ hỏi "thuộc chưa" SAU khi đã xem đáp án
+    qs('fJudge').classList.toggle('hidden', !this.classList.contains('flipped'));
+  };
+  box.querySelectorAll('.flash-judge button').forEach(function(b){
+    b.onclick = function(){ mRecord(v.h, b.dataset.ok === '1'); next(); };
+  });
+  qs('fPrev').onclick = function(){ flashIdx = (flashIdx - 1 + pool.length) % pool.length; renderFlash(l, box, pool); };
+  qs('fNext').onclick = next;
   bindPlay(box);
 }
 
@@ -558,6 +676,7 @@ function renderTone(l, box){
       box.dataset.answered = '1';
       toneScore.n++;
       var picked = +b.dataset.n;
+      mRecord(v.h, picked === answer);
       if(picked === answer){ toneScore.ok++; b.classList.add('right'); }
       else{
         b.classList.add('wrong');
@@ -674,6 +793,7 @@ function renderQuiz(l, box){
       if(box.dataset.answered) return;
       box.dataset.answered = '1';
       var ok = b.dataset.h === v.h;
+      mRecord(v.h, ok);
       if(ok) quiz.ok++;
       b.classList.add(ok ? 'right' : 'wrong');
       if(!ok) box.querySelectorAll('.opt').forEach(function(x){ if(x.dataset.h === v.h) x.classList.add('right'); });
@@ -814,6 +934,7 @@ function gradeWorksheet(){
     if(wsToggles.fillPinyin) ok = ok && !!inP.value.trim() && ZH.plainPinyin(inP.value) === ZH.plainPinyin(p);
     if(wsToggles.fillMeaning) ok = ok && WS.meaningMatch(inM.value, m);
     total++;
+    mRecord(h, ok);
     if(ok) correct++;
     details.push({
       word: h, pinyin: p, correctMeaning: m,
