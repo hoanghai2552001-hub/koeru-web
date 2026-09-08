@@ -1,0 +1,26 @@
+{
+  "_note": [
+    "Đính chính các lỗi nằm trong CHÍNH FILE NGUỒN (docx/xlsx trong Tiếng Trung/*.zip).",
+    "Sửa tay vào database/hsk<N>/*.json sẽ mất khi chạy lại extract_hsk_source.py,",
+    "nên phải ghi ở đây. Extractor đọc file này và áp dụng ở bước cuối.",
+    "",
+    "Khoá là chữ Hán. Chỉ ghi trường cần sửa (m = nghĩa, p = pinyin, hv = Hán Việt, pos = từ loại).",
+    "Mỗi mục nên kèm 'why' để lần sau biết vì sao sửa."
+  ],
+
+  "HSK1": {
+    "上午": {
+      "m": "Buổi sáng",
+      "why": "docx nguồn ghi 'Buổi trưa' — sai, 中午 mới là buổi trưa"
+    }
+  },
+
+  "HSK2": {
+    "因为": {
+      "m": "bởi vì; vì",
+      "why": "bản '(9 cấp)' để nguyên tiếng Anh 'because' — vi phạm QA-1 (không để tiếng Anh thô)"
+    }
+  },
+
+  "HSK3": {}
+}

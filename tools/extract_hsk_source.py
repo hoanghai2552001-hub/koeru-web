@@ -27,6 +27,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.join(ROOT, "Tiếng Trung")
+CORRECTIONS = os.path.join(ROOT, "database", "hsk_corrections.json")
 
 USAGE = ("Cách dùng:\n"
          "  python tools/extract_hsk_source.py [hsk1|hsk2|hsk3] [--dry-run]\n"
@@ -421,6 +422,30 @@ def build_level(lv, dry):
         for w in master:
             if w["h"] not in assigned and any(v in text for v in variants(w)):
                 take(n, w, "hanzi")
+
+    # Đính chính lỗi nằm trong chính file nguồn (xem database/hsk_corrections.json).
+    # Phải làm ở đây chứ không sửa tay vào JSON, vì chạy lại script sẽ ghi đè.
+    fixes = {}
+    if os.path.isfile(CORRECTIONS):
+        fixes = json.load(io.open(CORRECTIONS, encoding="utf-8")).get("HSK%d" % lv, {})
+    applied, stale = 0, []
+    for h, patch in fixes.items():
+        found = False
+        for n in lessons:
+            for v in lessons[n]["vocab"]:
+                if v["h"] == h:
+                    found = True
+                    for k, val in patch.items():
+                        if k != "why":
+                            v[k] = val
+                    applied += 1
+        if not found:
+            stale.append(h)
+    if applied:
+        print("Đã áp dụng %d đính chính từ database/hsk_corrections.json" % applied)
+    if stale:
+        print("⚠ Đính chính cho từ không còn trong dữ liệu (nên xoá khỏi file): %s"
+              % " ".join(stale))
 
     for n in decks:
         lessons[n]["dialogue"] = decks[n][2]
