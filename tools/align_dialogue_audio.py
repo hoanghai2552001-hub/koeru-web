@@ -320,7 +320,8 @@ def _has_module(name):
 
 
 def parse_args(argv):
-    """[n4|n5] [lessonN] — cùng convention với gen_vocab_audio.py / gen_dialogue_audio.py."""
+    """[n4|n5] [lessonN] — script này nhận thêm dạng số trần ("3" = lesson3),
+    khác gen_vocab_audio.py / gen_dialogue_audio.py vốn chỉ nhận "lesson3"."""
     level, lesson = None, None
     for a in argv:
         al = a.lower()

@@ -95,11 +95,16 @@ def main():
 
     level_filter = None
     lesson_filter = None
+    usage = ("Cách dùng: python tools/gen_vocab_audio.py [n4|n5] [lessonN]\n"
+             "  bỏ trống bộ lọc = sinh cho TẤT CẢ các bài của cả N4 lẫn N5")
     for arg in args:
         if arg in ("n4", "n5"):
             level_filter = arg
-        elif arg.startswith("lesson"):
-            lesson_filter = int(arg.replace("lesson", ""))
+        elif re.fullmatch(r"lesson\d+", arg):
+            lesson_filter = int(arg[len("lesson"):])
+        else:
+            # Không đoán bừa: gõ "n5 3" mà vẫn chạy hết N4+N5 là đốt quota TTS
+            sys.exit("Không hiểu tham số: %r\n\n%s" % (arg, usage))
 
     words = load_words(level_filter, lesson_filter)
     if not words:

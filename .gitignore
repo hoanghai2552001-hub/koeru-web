@@ -130,3 +130,9 @@ tools/watch_log.txt
 
 # Giáo trình gốc HSK (nguồn cho tools/extract_hsk_source.py) — 4.7 GB, KHÔNG commit
 Tiếng Trung/
+
+# Audio giáo trình HSK bóc ra chờ duyệt (tools/extract_hsk_audio.py)
+audio/_hsk_aligned/
+
+# Audio hội thoại Minna cắt từ CD chờ duyệt (tools/align_dialogue_audio.py)
+audio/_aligned/

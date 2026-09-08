@@ -125,6 +125,14 @@ python tools/gen_dialogue_audio.py n5 lesson3   # TTS hội thoại (mặc đị
 python tools/align_dialogue_audio.py n5 lesson3 # Cắt từ CD gốc (cần GOOGLE_STT_API_KEY + MINNA_CD_DIR)
 python tools/verify_dialogue_cuts.py n5 lesson3 # Soát audio đã cắt (thêm --staging để soát audio/_aligned/)
 
+# Tiếng Trung — HSK 标准教程 1 (hsk.html)
+python tools/extract_hsk_source.py --dry-run   # Bóc từ vựng/hội thoại/mẫu câu từ Tiếng Trung/HSK1.zip
+python tools/extract_hsk_source.py             # → database/hsk1/*.json (status REVIEW_REQUIRED)
+python tools/gen_hsk_data.py                   # database/hsk1/ → hsk1-data.js
+python tools/gen_hsk_audio.py lesson3 --dry-run # Xem sẽ gọi API bao nhiêu lần trước khi tốn quota
+python tools/gen_hsk_audio.py lesson3          # TTS cmn-CN → audio/hsk/ (cần GOOGLE_TTS_API_KEY)
+python tools/extract_hsk_audio.py --dry-run    # Audio gốc giáo trình → audio/_hsk_aligned/ (staging)
+
 # Data Minna (xem skill minna-lesson) — sửa database/ rồi chạy generator tương ứng
 python tools/gen_minna_n5_data.py     # database/n5/ + N5_grammar_summary.md → minna-n5-data.js
 python tools/gen_minna_n4_data.py     # database/n4/ + N4_grammar_summary.md → minna-n4-data.js
