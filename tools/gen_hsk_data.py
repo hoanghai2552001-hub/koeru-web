@@ -32,7 +32,10 @@ def build(lv):
         lessons[d["lesson"]] = d
 
     data = []
-    for n in range(1, total_lessons + 1):
+    # Bài 0 = từ có trong danh sách HSK nhưng giáo trình không dạy. Chỉ xuất khi
+    # thực sự có từ, và đặt ở CUỐI để không chen vào trước bài 1 trên giao diện.
+    order = list(range(1, total_lessons + 1)) + ([0] if lessons.get(0, {}).get("vocab") else [])
+    for n in order:
         d = lessons.get(n, {})
         vocab = []
         for v in d.get("vocab", []):

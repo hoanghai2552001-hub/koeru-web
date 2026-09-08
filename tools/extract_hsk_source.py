@@ -463,9 +463,22 @@ def build_level(lv, dry):
     total = sum(len(lessons[n]["vocab"]) for n in lessons)
     print("\nĐã gán: %d / %d từ" % (total, len(master)))
 
+    # Từ có trong danh sách HSK chính thức nhưng giáo trình không dạy (không thấy
+    # cả hanzi lẫn pinyin ở bài nào). Gán bừa vào một bài là sai lệch giáo án, nên
+    # gom vào "bài 0" — học sinh vẫn học được, giao diện hiện thành mục riêng.
     left = [w for w in master if w["h"] not in assigned]
     if left:
-        print("⚠ %d từ CHƯA gán được vào bài nào — cần điền tay:" % len(left))
+        lessons[0] = {"vocab": [], "dialogue": [], "grammar": [], "topics": []}
+        for w in left:
+            e = extra.get(w["h"], {})
+            lessons[0]["vocab"].append({
+                "h": w["h"], "p": w["p"], "pos": w["pos"], "m": w["m"],
+                "hv": w.get("hv") or e.get("hv", ""),
+                "ex_zh": e.get("ex_zh", ""), "ex_p": e.get("ex_p", ""), "ex_vi": e.get("ex_vi", ""),
+                "_src": "ngoài bài",
+            })
+        print("ℹ %d từ có trong danh sách HSK nhưng giáo trình không dạy" % len(left))
+        print("  → gom vào bài 0 \"Từ ngoài giáo trình\", KHÔNG gán bừa vào bài nào:")
         for w in left[:30]:
             print("   %-10s %-14s %s" % (w["h"], w["p"], w["m"][:40]))
         if len(left) > 30:
@@ -498,6 +511,9 @@ def build_level(lv, dry):
     os.makedirs(out_dir, exist_ok=True)
     for n in sorted(lessons):
         L = lessons[n]
+        L.setdefault("dialogue", [])
+        L.setdefault("grammar", [])
+        L.setdefault("topics", [])
         for v in L["vocab"]:
             # Giữ nguồn gán để giáo viên soát có trọng tâm:
             #   "pinyin" = lấy từ danh sách 生词 của đúng bài (đáng tin)
@@ -506,9 +522,11 @@ def build_level(lv, dry):
         doc = {
             "lesson": n,
             "level": "HSK%d" % lv,
-            "source": "HSK标准教程%d 第%d课 (PPTX) + danh sách từ vựng HSK%d" % (lv, n, lv),
+            "source": ("Danh sách từ vựng HSK%d — giáo trình không dạy các từ này" % lv) if n == 0
+                      else ("HSK标准教程%d 第%d课 (PPTX) + danh sách từ vựng HSK%d" % (lv, n, lv)),
             "status": "REVIEW_REQUIRED",
-            "title": L["topics"][0]["topic"] if L["topics"] else "",
+            "title": "Từ ngoài giáo trình" if n == 0
+                     else (L["topics"][0]["topic"] if L["topics"] else ""),
             "topics": L["topics"],
             "vocab": L["vocab"],
             "grammar": L["grammar"],

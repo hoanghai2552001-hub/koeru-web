@@ -1,0 +1,56 @@
+{
+  "lesson": 0,
+  "level": "HSK2",
+  "source": "Danh sách từ vựng HSK2 — giáo trình không dạy các từ này",
+  "status": "REVIEW_REQUIRED",
+  "title": "Từ ngoài giáo trình",
+  "topics": [],
+  "vocab": [
+    {
+      "h": "元",
+      "p": "yuán",
+      "pos": "",
+      "m": "đồng (tệ)",
+      "hv": "nguyên",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "ngoài bài"
+    },
+    {
+      "h": "船",
+      "p": "chuán",
+      "pos": "",
+      "m": "thuyền; đò; ghe; mành; tàu thuỷ",
+      "hv": "thuyền",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "ngoài bài"
+    },
+    {
+      "h": "男人",
+      "p": "nánren",
+      "pos": "",
+      "m": "trượng phu; chồng",
+      "hv": "nam nhân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "ngoài bài"
+    },
+    {
+      "h": "女人",
+      "p": "nǚrén",
+      "pos": "",
+      "m": "phụ nữ; đàn bà",
+      "hv": "nữ nhân",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "ngoài bài"
+    }
+  ],
+  "grammar": [],
+  "dialogue": []
+}

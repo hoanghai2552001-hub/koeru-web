@@ -277,9 +277,9 @@ body.no-pinyin .py-hide{visibility:hidden}
 <script src="js/zh-text.js?v=0a8b99a2"></script>
 <script src="js/koeru-worksheet.js?v=f829b795"></script>
 <script src="js/speak-practice.js?v=465ee259"></script>
-<script src="hsk1-data.js?v=d0f0e1a8"></script>
-<script src="hsk2-data.js?v=f3f0df9a"></script>
-<script src="hsk3-data.js?v=39c57adb"></script>
+<script src="hsk1-data.js?v=f527e1c8"></script>
+<script src="hsk2-data.js?v=897c1976"></script>
+<script src="hsk3-data.js?v=3966d730"></script>
 <script>
 /* ═══════════════ KOERU · HSK 1 ═══════════════ */
 var qs = function(id){ return document.getElementById(id); };
@@ -433,6 +433,10 @@ function renderLevelSwitch(){
 }
 
 /* ─── Trang chủ ─── */
+// Bài 0 = từ có trong danh sách HSK nhưng giáo trình không dạy
+function lessonName(n){ return n === 0 ? 'Từ ngoài giáo trình' : ('Bài ' + n); }
+function lessonShort(n){ return n === 0 ? 'Ngoài bài' : ('Bài ' + n); }
+
 function lessonOf(n){
   return DATA.filter(function(l){ return l.lesson === n; })[0] || { lesson: n, vocab: [], grammar: [], dialogue: [], topics: [] };
 }
@@ -440,9 +444,10 @@ function renderHome(){
   var g = qs('lessonGrid');
   g.innerHTML = DATA.map(function(l){
     return '<button class="lesson-card" data-l="' + l.lesson + '">' +
-      '<b>Bài ' + l.lesson + '</b>' +
-      '<span class="zh">' + esc(l.title || '—') + '</span>' +
-      '<span class="st">' + l.vocab.length + ' từ · ' + l.grammar.length + ' mẫu câu</span>' +
+      '<b>' + lessonName(l.lesson) + '</b>' +
+      '<span class="zh">' + (l.lesson === 0 ? '' : esc(l.title || '—')) + '</span>' +
+      '<span class="st">' + l.vocab.length + ' từ' +
+        (l.lesson === 0 ? ' · không thuộc bài nào' : ' · ' + l.grammar.length + ' mẫu câu') + '</span>' +
       (function(){
         var hi = l.vocab.filter(function(v){ return mLevel(v.h) >= 4; }).length;
         var due = l.vocab.filter(function(v){ return mIsDue(v.h); }).length;
@@ -543,8 +548,9 @@ function openLesson(n){
   qs('home').classList.add('hidden');
   qs('worksheet').classList.add('hidden');
   qs('detail').classList.remove('hidden');
-  qs('dBadge').textContent = 'BÀI ' + n;
-  qs('dTitle').textContent = curLesson.title ? (curLesson.title + ' · Bài ' + n) : ('Bài ' + n);
+  qs('dBadge').textContent = n === 0 ? 'NGOÀI GIÁO TRÌNH' : ('BÀI ' + n);
+  qs('dTitle').textContent = n === 0 ? 'Từ ngoài giáo trình'
+    : (curLesson.title ? (curLesson.title + ' · Bài ' + n) : ('Bài ' + n));
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('on', t.dataset.tab === 'vocab'); });
   renderTab();
   window.scrollTo(0, 0);
@@ -596,7 +602,7 @@ function renderVocab(l, box){
       '<th>Từ loại</th><th>Thuộc</th>' +
     '</tr></thead><tbody>' + rows + '</tbody></table></div>';
   bindPlay(box);
-  qs('btnSpeakLesson').onclick = function(){ openSpeak(l.vocab, 'Bài ' + l.lesson); };
+  qs('btnSpeakLesson').onclick = function(){ openSpeak(l.vocab, lessonName(l.lesson)); };
 }
 
 function openSpeak(vocab, title){
@@ -830,7 +836,7 @@ function renderWsHub(){
   var html = '<div class="ws-lesson-grid">' + DATA.map(function(l){
     var on = wsSelected.indexOf(l.lesson) >= 0;
     return '<label class="ws-lesson-chk' + (on ? ' on' : '') + '">' +
-      '<input type="checkbox" data-l="' + l.lesson + '"' + (on ? ' checked' : '') + '> Bài ' + l.lesson +
+      '<input type="checkbox" data-l="' + l.lesson + '"' + (on ? ' checked' : '') + '> ' + lessonShort(l.lesson) +
       '</label>';
   }).join('') + '</div>' +
   '<div class="ws-bulk"><button class="btn btn-ghost" id="wsAll">Chọn tất cả</button>' +

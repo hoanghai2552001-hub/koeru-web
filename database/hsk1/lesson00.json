@@ -1,0 +1,56 @@
+{
+  "lesson": 0,
+  "level": "HSK1",
+  "source": "Danh sách từ vựng HSK1 — giáo trình không dạy các từ này",
+  "status": "REVIEW_REQUIRED",
+  "title": "Từ ngoài giáo trình",
+  "topics": [],
+  "vocab": [
+    {
+      "h": "对不起",
+      "p": "duìbuqǐ",
+      "pos": "Động từ",
+      "m": "Xin lỗi",
+      "hv": "đối bất khởi",
+      "ex_zh": "对不起！",
+      "ex_p": "Duìbuqǐ!",
+      "ex_vi": "Xin lỗi!",
+      "_src": "ngoài bài"
+    },
+    {
+      "h": "火车站",
+      "p": "huǒchēzhàn",
+      "pos": "Danh từ",
+      "m": "Bến tàu hỏa",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "ngoài bài"
+    },
+    {
+      "h": "没关系",
+      "p": "méi guānxi",
+      "pos": "Động từ",
+      "m": "Không liên quan; Không sao; Đừng ngại",
+      "hv": "một quan hệ",
+      "ex_zh": "没关系！",
+      "ex_p": "Méiguānxi!",
+      "ex_vi": "Không sao!",
+      "_src": "ngoài bài"
+    },
+    {
+      "h": "说话",
+      "p": "shuōhuà",
+      "pos": "Động từ",
+      "m": "Nói chuyện",
+      "hv": "",
+      "ex_zh": "",
+      "ex_p": "",
+      "ex_vi": "",
+      "_src": "ngoài bài"
+    }
+  ],
+  "grammar": [],
+  "dialogue": []
+}
