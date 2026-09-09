@@ -120,6 +120,15 @@ td.pos{color:var(--muted);font-size:.75rem;white-space:nowrap}
   border:1px solid rgba(245,200,66,.4);border-radius:999px;padding:2px 9px;font-size:.7rem;font-weight:800}
 .lesson-card .mini{position:absolute;top:10px;right:10px;font-size:.6rem;letter-spacing:1px}
 
+/* ── Tập viết (Hanzi Writer) ── */
+.hw-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;
+  background:var(--card2);border-radius:var(--radius-lg);padding:18px 12px}
+#hwTarget{touch-action:none}   /* để vẽ bằng ngón tay không bị cuộn trang */
+.hw-hint{color:var(--muted);font-size:.82rem;text-align:center;min-height:2.4em;line-height:1.5}
+.hw-tools{display:flex;gap:10px;margin-top:12px}
+.hw-tools .btn{flex:1;margin-top:0}
+.hw-tools .btn:disabled{opacity:.45;cursor:default}
+
 /* ── Thanh điệu ── */
 .tone-q{text-align:center;padding:26px 12px;background:var(--card2);border-radius:var(--radius-lg);margin-bottom:14px}
 .tone-q .zh{font-size:2.6rem;font-weight:600}
@@ -249,6 +258,7 @@ body.no-pinyin .py-hide{visibility:hidden}
       <button class="tab" data-tab="tone">Thanh điệu</button>
       <button class="tab" data-tab="grammar">Mẫu câu</button>
       <button class="tab" data-tab="dialogue">Hội thoại</button>
+      <button class="tab" data-tab="write">Tập viết</button>
       <button class="tab" data-tab="quiz">Kiểm tra</button>
     </div>
     <div class="card" id="tabContent"></div>
@@ -273,6 +283,8 @@ body.no-pinyin .py-hide{visibility:hidden}
 
 </div>
 
+<!-- Hanzi Writer (MIT) — nét chữ giản thể, dữ liệu Make Me a Hanzi tải lẻ từng chữ qua CDN -->
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 <script src="js/koeru-mastery.js?v=4122d33f"></script>
 <script src="js/zh-text.js?v=0a8b99a2"></script>
 <script src="js/koeru-worksheet.js?v=f829b795"></script>
@@ -575,6 +587,7 @@ function renderTab(){
   else if(curTab === 'tone') renderTone(l, box);
   else if(curTab === 'grammar') renderGrammar(l, box);
   else if(curTab === 'dialogue') renderDialogue(l, box);
+  else if(curTab === 'write') renderWrite(l, box);
   else if(curTab === 'quiz') renderQuizStart(l, box);
 }
 
@@ -749,6 +762,85 @@ function renderDialogue(l, box){
       return { jp: d.zh, meaning: d.vi, mp3: AUDIO_DIR + encodeURIComponent(d.zh) + '.mp3' };
     }), { title: 'Hội thoại bài ' + l.lesson, lang: 'zh-CN', textApi: ZH });
   };
+}
+
+/* Tab — Tập viết (Hanzi Writer)
+   Dữ liệu nét lấy lẻ từng chữ từ CDN nên không phải nhúng 9000 chữ vào repo.
+   LƯU Ý: đây là nét chữ GIẢN THỂ, khác js/kanji-stroke.js vốn dùng KanjiVG
+   (nét Nhật) — nhiều chữ như 骨, 直, 别 viết khác nhau giữa hai hệ. */
+var writeIdx = 0, _hw = null;
+
+function lessonChars(l){
+  // Tách chữ Hán riêng lẻ theo thứ tự xuất hiện, bỏ trùng
+  var seen = {}, out = [];
+  l.vocab.forEach(function(v){
+    (v.h.match(/[一-鿿]/g) || []).forEach(function(c){
+      if(!seen[c]){ seen[c] = 1; out.push({ ch: c, word: v }); }
+    });
+  });
+  return out;
+}
+
+function renderWrite(l, box){
+  var chars = lessonChars(l);
+  if(!chars.length){ box.innerHTML = '<span class="sub">Bài này chưa có chữ Hán.</span>'; return; }
+  if(writeIdx >= chars.length) writeIdx = 0;
+  var it = chars[writeIdx], v = it.word;
+
+  box.innerHTML =
+    '<div class="flash-bar">' +
+      '<span class="flash-count">' + (writeIdx + 1) + ' / ' + chars.length +
+        ' · trong từ <b style="color:var(--gold)">' + esc(v.h) + '</b> ' + esc(v.p) + '</span>' +
+      '<button class="play" data-zh="' + esc(v.h) + '">🔊 Nghe</button>' +
+    '</div>' +
+    '<div class="hw-wrap"><div id="hwTarget"></div>' +
+      '<div class="hw-hint" id="hwHint">Bấm “Xem mẫu” để nhìn thứ tự nét, rồi “Tự viết” để luyện.</div>' +
+    '</div>' +
+    '<div class="hw-tools">' +
+      '<button class="btn btn-ghost" id="hwPlay">▶ Xem mẫu</button>' +
+      '<button class="btn btn-main" id="hwQuiz">✍ Tự viết</button>' +
+    '</div>' +
+    '<div class="flash-nav">' +
+      '<button class="btn btn-ghost" id="wPrev">◀ Chữ trước</button>' +
+      '<button class="btn btn-ghost" id="wNext">Chữ sau ▶</button>' +
+    '</div>';
+  bindPlay(box);
+
+  var hint = qs('hwHint');
+  var css = getComputedStyle(document.body);
+  _hw = HanziWriter.create('hwTarget', it.ch, {
+    width: 220, height: 220, padding: 8,
+    strokeColor: css.getPropertyValue('--accent').trim() || '#e8845a',
+    outlineColor: css.getPropertyValue('--line-strong').trim() || 'rgba(255,255,255,.18)',
+    drawingColor: css.getPropertyValue('--gold').trim() || '#f5c842',
+    showOutline: true, delayBetweenLoops: 1400,
+    onLoadCharDataError: function(){
+      // Chữ hiếm không có trong bộ dữ liệu — báo rõ thay vì để khung trắng
+      qs('hwTarget').innerHTML = '<div style="font-size:4rem;padding:36px">' + esc(it.ch) + '</div>';
+      hint.innerHTML = '<span style="color:var(--gold)">Chữ này chưa có dữ liệu nét — vẫn học được nghĩa và âm.</span>';
+      qs('hwPlay').disabled = true; qs('hwQuiz').disabled = true;
+    }
+  });
+
+  qs('hwPlay').onclick = function(){ hint.textContent = 'Đang chạy mẫu…'; _hw.animateCharacter({
+    onComplete: function(){ hint.textContent = 'Xong. Bấm “Tự viết” để thử.'; } }); };
+
+  qs('hwQuiz').onclick = function(){
+    hint.textContent = 'Viết theo đúng thứ tự nét. Sai 3 lần sẽ hiện gợi ý.';
+    _hw.quiz({
+      showHintAfterMisses: 3,
+      onMistake: function(d){ hint.textContent = 'Chưa đúng nét ' + d.strokeNum + ' — thử lại.'; },
+      onComplete: function(d){
+        // Không sai nét nào = viết được -> tính là thuộc; có sai -> cần ôn lại
+        mRecord(v.h, d.totalMistakes === 0);
+        hint.innerHTML = d.totalMistakes === 0
+          ? '<span style="color:var(--ok)">✓ Đúng hết, không sai nét nào.</span>'
+          : '<span style="color:var(--gold)">Xong — sai ' + d.totalMistakes + ' nét. Nên viết lại.</span>';
+      }
+    });
+  };
+  qs('wPrev').onclick = function(){ writeIdx = (writeIdx - 1 + chars.length) % chars.length; renderWrite(l, box); };
+  qs('wNext').onclick = function(){ writeIdx = (writeIdx + 1) % chars.length; renderWrite(l, box); };
 }
 
 /* Tab 6 — Kiểm tra */
