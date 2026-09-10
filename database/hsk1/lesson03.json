@@ -217,6 +217,14 @@
       "p": "nǐ shì zhōng guó rén ma",
       "zh": "你是中国人吗？",
       "vi": "Bạn là người Trung Quốc à?"
+    },
+    {
+      "part": 3,
+      "topic": "在学校",
+      "spk": "",
+      "p": "Wǒ bú shì zhōng guó rén, wǒ shì měi guó rén",
+      "zh": "我不是中国人，我是美国人。",
+      "vi": "Tôi không phải là người Trung Quốc mà là người Mỹ."
     }
   ]
 }

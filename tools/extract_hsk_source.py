@@ -335,6 +335,19 @@ def parse_lesson_pptx(zf, suffix):
                         "zh": norm_punct(re.sub(r"\s+", "", lines[1])),
                         "vi": lines[2],
                     })
+                # Biến thể: 2 dòng — pinyin dính liền hanzi ở dòng 1,
+                # tiếng Việt ở dòng 2 (HSK1 bài 3, lượt thoại cuối).
+                elif len(lines) == 2 and not HAN_RE.search(lines[1]):
+                    m = HAN_RE.search(lines[0])
+                    if m and m.start() > 0 and is_pinyin_line(lines[0][:m.start()]):
+                        got = True
+                        dialogue.append({
+                            "part": part, "topic": topic, "spk": "",
+                            "p": re.sub(r"\s+", " ",
+                                       lines[0][:m.start()].replace("ɡ", "g")).strip(),
+                            "zh": norm_punct(re.sub(r"\s+", "", lines[0][m.start():])),
+                            "vi": lines[1],
+                        })
 
             # Dạng B (HSK2/HSK3): CẢ đoạn thoại tiếng Trung nằm trong 1 shape,
             # pinyin tách thành từng shape riêng theo đúng thứ tự dòng.
