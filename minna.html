@@ -193,9 +193,9 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
   padding:8px 14px;color:var(--muted);font-weight:700;font-size:.8rem;cursor:pointer;font-family:inherit;min-height:44px}
 .mode-toggle button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
 .vocab-flash-grid{display:flex;flex-wrap:wrap;gap:10px}
-.flash-card{width:140px;height:88px;background:var(--card2);border:1.5px solid var(--line);
+.flash-card{width:140px;min-height:88px;height:auto;background:var(--card2);border:1.5px solid var(--line);
   border-radius:var(--radius-md);cursor:pointer;font-family:inherit;color:var(--text);
-  display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;
   position:relative;transition:border-color .15s,transform .1s}
 .flash-card:hover{border-color:var(--accent);transform:translateY(-2px)}
 .flash-card .front{font-size:1.15rem}
@@ -203,6 +203,8 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
 .flash-card.flipped .front{display:none}
 .flash-card.flipped .back{display:block}
 .flash-card .tap{position:absolute;bottom:6px;right:8px;font-size:.6rem;color:var(--muted)}
+.flash-img{display:block;margin:0 auto 6px;max-height:44px;max-width:100%;object-fit:contain;border-radius:6px}
+.flash-one-card .flash-img{max-height:150px}
 /* Flashcard chế độ 1 thẻ (port từ N4) */
 .flash-one-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px;flex-wrap:wrap}
 .flash-one-order{display:flex;gap:8px}
@@ -211,7 +213,7 @@ tr.vgroup td{padding:12px 8px 4px;font-size:.72rem;font-weight:700;color:var(--a
 .flash-one-order button.on{background:rgba(232,132,90,.15);color:var(--accent);border-color:rgba(232,132,90,.4)}
 .flash-one-count{color:var(--muted);font-size:.8rem}
 .flash-one-card{background:var(--card2);border:1.5px solid var(--line);border-radius:var(--radius-lg);
-  min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:180px;height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:28px 20px;cursor:pointer;gap:10px}
 .flash-one-card .front{font-size:1.7rem}
 .flash-one-card .back{display:none;color:var(--muted);font-size:1rem}
@@ -421,16 +423,18 @@ table.ws-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88
   </div>
 </div>
 
-<script src="js/kanji-data-n5.js?v=20260721f"></script>
-<script src="js/kanji-data-n4.js?v=20260721f"></script>
-<script src="js/kanji-data-n3.js?v=20260721f"></script>
-<script src="js/kanji-data-n2.js?v=20260721f"></script>
-<script src="js/kanji-stroke.js?v=20260718"></script>
-<script src="minna-n5-data.js?v=20260719"></script>
-<script src="minna-n4-data.js?v=20260812"></script>
-<script src="minna-grammar-data.js?v=20260719"></script>
-<script src="minna-dialogue-data.js?v=20260819"></script>
-<script src="js/speak-practice.js?v=20260819"></script>
+<script src="js/kanji-data-n5.js?v=82d0d6e4"></script>
+<script src="js/kanji-data-n4.js?v=daa0572a"></script>
+<script src="js/kanji-data-n3.js?v=8c537552"></script>
+<script src="js/kanji-data-n2.js?v=4846efe1"></script>
+<script src="js/kanji-stroke.js?v=72751419"></script>
+<script src="minna-n5-data.js?v=04d29f29"></script>
+<script src="minna-vocab-img.js?v=9a96ceba"></script>
+<script src="minna-n4-data.js?v=9d38bbbc"></script>
+<script src="minna-grammar-data.js?v=e288b057"></script>
+<script src="minna-dialogue-data.js?v=b7ae8bb4"></script>
+<script src="js/jp-text.js?v=b7088156"></script>
+<script src="js/speak-practice.js?v=465ee259"></script>
 <script>
 (function(){
 'use strict';
@@ -790,6 +794,12 @@ function renderVocab(l){
   if(curVocabMode === 'flashone') bindFlashOne(l);
 }
 
+// Ảnh minh hoạ mặt sau thẻ (nếu có trong VOCAB_IMG, sinh bởi tools/export_vocab_images.py)
+function flashImg(v){
+  var p = (typeof VOCAB_IMG !== 'undefined') && VOCAB_IMG[v.w];
+  return p ? '<img class="flash-img" src="' + p + '" alt="" loading="lazy">' : '';
+}
+
 // Front thẻ flashcard: furigana đã align, fallback ruby toàn cụm (dùng chung 2 mode flash)
 function flashFront(v){
   var w = stripGroupMark(v.w);
@@ -816,7 +826,7 @@ function renderFlashOne(l){
         '<button data-order="random" class="' + (flashOne.order==='random'?'on':'') + '">Ngẫu nhiên</button>' +
       '</div></div>' +
     '<div class="flash-one-card" id="foCard"><span class="front">' + flashFront(v) + '</span>' +
-      '<span class="back">' + esc(v.m) + (g ? '<br><b style="color:var(--accent)">Nhóm ' + g + '</b>' : '') +
+      '<span class="back">' + flashImg(v) + esc(v.m) + (g ? '<br><b style="color:var(--accent)">Nhóm ' + g + '</b>' : '') +
       '</span><span class="tap">chạm để xem nghĩa</span></div>' +
     '<div class="flash-one-nav">' +
       '<button class="btn btn-ghost" id="foPrev">← Lùi lại</button>' +
@@ -876,7 +886,7 @@ function renderFlashGrid(l){
   l.vocab.forEach(function(v){
     var g = verbGroup(v.w);
     h += '<div class="flash-card"><span class="front">' + flashFront(v) + '</span>' +
-      '<span class="back">' + esc(v.m) + (g ? '<br><b style="color:var(--accent)">Nhóm ' + g + '</b>' : '') +
+      '<span class="back">' + flashImg(v) + esc(v.m) + (g ? '<br><b style="color:var(--accent)">Nhóm ' + g + '</b>' : '') +
       '</span><span class="tap">chạm</span></div>';
   });
   return h + '</div>';
