@@ -289,7 +289,7 @@ body.no-pinyin .py-hide{visibility:hidden}
 <script src="js/zh-text.js?v=0a8b99a2"></script>
 <script src="js/koeru-worksheet.js?v=f829b795"></script>
 <script src="js/speak-practice.js?v=465ee259"></script>
-<script src="hsk1-data.js?v=f527e1c8"></script>
+<script src="hsk1-data.js?v=ba4ed12d"></script>
 <script src="hsk2-data.js?v=897c1976"></script>
 <script src="hsk3-data.js?v=3966d730"></script>
 <script>
@@ -738,7 +738,7 @@ function renderGrammar(l, box){
 function renderDialogue(l, box){
   if(!l.dialogue.length){
     var topics = (l.topics || []).map(function(t){ return 'Đoạn ' + t.part + ': ' + t.topic; }).join(' · ');
-    box.innerHTML = '<div class="warn">Bài này chưa có lời thoại dạng chữ — trong giáo trình gốc phần 课文 là ảnh nên chưa bóc được.' +
+    box.innerHTML = '<div class="warn">Bài này không có phần 课文 trong giáo trình.' +
       (topics ? '<br>Các đoạn của bài: ' + esc(topics) : '') + '</div>';
     return;
   }

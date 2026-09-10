@@ -168,5 +168,102 @@
       "vi": "Trạng từ “都”"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在宿舍",
+      "spk": "",
+      "p": "Zuótiān shàngwǔ nǐ qù nǎr le.",
+      "zh": "昨天上午你去哪儿了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在宿舍",
+      "spk": "",
+      "p": "Wǒ qù shāngdiàn mǎi dōngxi le.",
+      "zh": "我去商店买东西了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在宿舍",
+      "spk": "",
+      "p": "Nǐ mǎi shénme le.",
+      "zh": "你买什么了？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在宿舍",
+      "spk": "",
+      "p": "Wǒ mǎi le yìdiǎnr píngguǒ.",
+      "zh": "我买了一点儿苹果。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Nǐ kànjiàn Zhāng xiānsheng le mɑ?",
+      "zh": "你看见张先生了吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Kànjiàn le ,tā qù xué kāi chē le.",
+      "zh": "看见了，他去学开车了。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Tā shénme shíhou néng huílai?",
+      "zh": "他什么时候能回来？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Sìshí fēnzhōng hòu huíai.40",
+      "zh": "分钟后回来。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店门口",
+      "spk": "",
+      "p": "Wáng fāng de yīfu tài piāoliang le!",
+      "zh": "王方的衣服太漂亮了！",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店门口",
+      "spk": "",
+      "p": "Shì ā, tā mǎi le bù shǎo yīfu.",
+      "zh": "是啊，她买了不少衣服。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店门口",
+      "spk": "",
+      "p": "Nǐ mǎi shénme le?",
+      "zh": "你买什么了？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店门口",
+      "spk": "",
+      "p": "Wǒ méi mǎi, zhèxiē dōu shì Wáng Fāng de dōngxi.",
+      "zh": "我没买，这些都是王方的东西。",
+      "vi": ""
+    }
+  ]
 }

@@ -273,6 +273,21 @@ def parse_lesson_pptx(zf, suffix):
     gom pinyin từ MỌI slide rồi lấy chính danh sách từ làm bộ lọc.
     """
     from pptx import Presentation
+    from pptx.enum.shapes import MSO_SHAPE_TYPE
+
+    def walk(shapes):
+        """Duyệt cả shape nằm trong group — slide.shapes KHÔNG tự đệ quy,
+        mà slide 课文 của HSK1 bài 6-15 gói từng lượt thoại trong group."""
+        for sh in shapes:
+            try:
+                grouped = sh.shape_type == MSO_SHAPE_TYPE.GROUP
+            except Exception:
+                grouped = False
+            if grouped:
+                for x in walk(sh.shapes):
+                    yield x
+            else:
+                yield sh
 
     prs = Presentation(io.BytesIO(zf.read(member(zf, suffix))))
     cands, raw, dialogue, grammar, topics = [], [], [], [], []
@@ -280,6 +295,11 @@ def parse_lesson_pptx(zf, suffix):
     for slide in prs.slides:
         texts = [sh.text_frame.text for sh in slide.shapes
                  if sh.has_text_frame and sh.text_frame.text.strip()]
+        # Chỉ nhánh C dùng bản đệ quy: gom thêm shape nằm trong group.
+        # KHÔNG dùng cho phần còn lại — với HSK2/3 nó kéo theo câu hỏi bài tập
+        # và làm pinyin lệch hàng.
+        texts_deep = [sh.text_frame.text for sh in walk(slide.shapes)
+                      if sh.has_text_frame and sh.text_frame.text.strip()]
         blob = "\n".join(texts)
         raw.append(blob)
 
@@ -345,6 +365,32 @@ def parse_lesson_pptx(zf, suffix):
                         "zh": norm_punct(re.sub(r"\s+", "", body)),
                         "vi": "",             # giáo trình không in bản dịch từng câu
                     })
+
+            # Dạng C (HSK1 bài 6-15): pinyin đi cặp với hanzi, KHÔNG có dòng
+            # tiếng Việt. Hai biến thể nằm lẫn nhau trong cùng một slide:
+            #   C1 — shape 2 dòng:  ["Bēizi zài nǎr?", "杯子在哪儿？"]
+            #   C2 — shape 1 dòng, pinyin dính liền hanzi:
+            #        "Qǐnɡwèn,jīntiān jǐ hào?请问，今天几号？"
+            if not got:
+                for t in texts_deep:
+                    lines = [l.strip() for l in t.split("\n") if l.strip()]
+                    py = zh = ""
+                    if (len(lines) == 2 and is_pinyin_line(lines[0])
+                            and HAN_RE.search(lines[1])):
+                        py, zh = lines[0], lines[1]
+                    elif len(lines) == 1:
+                        # Cắt tại hanzi đầu tiên; start()==0 loại tiêu đề "课文 1：…"
+                        m = HAN_RE.search(lines[0])
+                        if m and m.start() > 0 and is_pinyin_line(lines[0][:m.start()]):
+                            py, zh = lines[0][:m.start()], lines[0][m.start():]
+                    if zh:
+                        got = True
+                        dialogue.append({
+                            "part": part, "topic": topic, "spk": "",
+                            "p": re.sub(r"\s+", " ", py.replace("ɡ", "g")).strip(),
+                            "zh": norm_punct(re.sub(r"\s+", "", zh)),
+                            "vi": "",
+                        })
 
         mg = re.search(r"语言点\s*(\d+)\s*[：:]\s*(.+)", blob)
         if mg:

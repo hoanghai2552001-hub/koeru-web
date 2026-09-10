@@ -170,5 +170,102 @@
       "vi": "Biểu hiện của số tiền"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在饭馆",
+      "spk": "",
+      "p": "Nǐ xiǎng hē shénme?",
+      "zh": "你想喝什么？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在饭馆",
+      "spk": "",
+      "p": "Wǒ xiǎng hē chá.",
+      "zh": "我想喝茶。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在饭馆",
+      "spk": "",
+      "p": "Nǐ xiǎng chī shénme?",
+      "zh": "你想吃什么？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在饭馆",
+      "spk": "",
+      "p": "Wǒ xiǎng chī mǐfàn.",
+      "zh": "我想吃米饭。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在客厅",
+      "spk": "",
+      "p": "Xiàwǔ nǐ xiǎng qù zuò shénme?",
+      "zh": "下午你想去做什么？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在客厅",
+      "spk": "",
+      "p": "Xiàwǔ wǒ xiǎng qù shāngdiàn.",
+      "zh": "下午我想去商店。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在客厅",
+      "spk": "",
+      "p": "Nǐ xiǎng mǎi shénme?",
+      "zh": "你想买什么？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在客厅",
+      "spk": "",
+      "p": "Wǒ xiǎng mǎi yí ge bēizi.",
+      "zh": "我想买一个杯子。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店",
+      "spk": "",
+      "p": "Nǐhǎo! Zhège bēizi duōshao qián?",
+      "zh": "你好！这个杯子多少钱？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店",
+      "spk": "",
+      "p": "èrshíbā kuài",
+      "zh": "28块。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店",
+      "spk": "",
+      "p": "Nàge bēizi duōshao qián?",
+      "zh": "那个杯子多少钱？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在商店",
+      "spk": "",
+      "p": "Nàge bēizi shíbā kuài qián.",
+      "zh": "那个杯18块钱。",
+      "vi": ""
+    }
+  ]
 }

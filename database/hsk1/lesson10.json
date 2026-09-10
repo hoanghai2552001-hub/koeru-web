@@ -174,5 +174,102 @@
       "vi": "Câu mệnh lệnh có “请”"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Zhuōzi shang yǒu shénme?",
+      "zh": "桌子上有什么？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Zhuōzi shang yǒu yí ge diànnǎo hé yì běn shū.",
+      "zh": "桌子上有一个电脑和一本书。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Bēizi zài nǎr?",
+      "zh": "杯子在哪儿？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Bēizi zài zhuōzi li.",
+      "zh": "杯子在桌子里。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Qiánmiɑn nà ge rén jiào shénme míngzi?",
+      "zh": "前面那个人叫什么名字？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Tā jiào Wáng Fāng,zài yīyuàn gōngzuò.",
+      "zh": "她叫王方，在医院工作。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Hòumiɑn nà ge rén ne? Tā jiào shénme míngzi?",
+      "zh": "后面那个人呢？他叫什么名字？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Tā jiào Xiè Péng, zài shāngdiàn gōngzuò.",
+      "zh": "他叫谢鹏，在商店工作。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Zhèr yǒu rén mɑ?",
+      "zh": "这儿有人吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Méi yǒu.",
+      "zh": "没有。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Wǒ néng zuò zài zhèr mɑ?",
+      "zh": "我能坐在这儿吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Qǐng zuò.",
+      "zh": "请坐。",
+      "vi": ""
+    }
+  ]
 }

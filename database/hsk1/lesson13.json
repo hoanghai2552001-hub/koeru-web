@@ -150,5 +150,102 @@
       "vi": "Trợ từ phương thức “吧”"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Wèi, nǐ zài zuò shénme ne?",
+      "zh": "喂你在做什么呢？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Wǒ zài kàn shū ne.",
+      "zh": "我在看书呢。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Dàwèi yě zài kàn shū mɑ?",
+      "zh": "大卫也在看书吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Tā méi kàn shū, tā zài xué zuò Zhōngguó cài ne.",
+      "zh": "他没看书，他在学做中国菜呢。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Zuótiān shàngwǔ nǐ zài zuò shénme ne?",
+      "zh": "昨天上午你在做什么呢？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Wǒ zài shuìjiào ne. Nǐ ne?",
+      "zh": "我在睡觉呢。你呢？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Wǒ zài jiā kàn diànshì ne. Nǐ xǐhuɑn kàn diànshì mɑ?",
+      "zh": "我在家看电视呢。你喜欢看电视吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Wǒ bù xǐhuɑn kàn diànshì, wǒ xǐhuɑn kàn diànyǐng.",
+      "zh": "我不喜欢看电视，我喜欢看电影。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在学校办公室",
+      "spk": "",
+      "p": "Bā èr sān líng sì yāo wǔ wǔ, zhè shì Lǐ lǎoshī de diànhuà mɑ?82304155，",
+      "zh": "这是李老师的电话吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在学校办公室",
+      "spk": "",
+      "p": "Bú shì. Tā de diànhuà shì bā èr sān líng sì yāo wǔ liù.",
+      "zh": "不是。她的电话是82304156。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在学校办公室",
+      "spk": "",
+      "p": "Hǎo, wǒ xiànzài gěi tā dǎ diànhuà.",
+      "zh": "好，我现在给她打电话。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在学校办公室",
+      "spk": "",
+      "p": "Tā zài gōngzuò ne, nǐ xiàwǔ dǎ bɑ.",
+      "zh": "她在工作呢，你下午打吧。",
+      "vi": ""
+    }
+  ]
 }

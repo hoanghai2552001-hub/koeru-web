@@ -191,6 +191,38 @@
       "p": "Tā jīn nián sì suì le",
       "zh": "她今年四岁了。",
       "vi": "Cô ấy 4 tuổi."
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Lǐ lǎo shī duō dà le",
+      "zh": "李老师多大了？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Tā jīn nián wǔ shí suì le",
+      "zh": "她今年50岁了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Tā nǚ ér ne?",
+      "zh": "她女儿呢？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Tā nǚ ér jīn nián èr shí suì le",
+      "zh": "她女儿今年20岁了。",
+      "vi": ""
     }
   ]
 }

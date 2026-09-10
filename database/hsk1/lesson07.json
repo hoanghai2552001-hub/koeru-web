@@ -67,5 +67,102 @@
       "vi": ""
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在银行",
+      "spk": "",
+      "p": "Qǐngwèn,jīntiān jǐ hào?",
+      "zh": "请问，今天几号？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在银行",
+      "spk": "",
+      "p": "Jīntiān jiǔ yuè yī hào.",
+      "zh": "今天9月1号。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在银行",
+      "spk": "",
+      "p": "Jīntiān xīngqī jǐ?",
+      "zh": "今天星期几？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在银行",
+      "spk": "",
+      "p": "Xīngqī sān.",
+      "zh": "星期三。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看日历",
+      "spk": "",
+      "p": "Zuótiān shì jǐ yuè jǐ hào?",
+      "zh": "昨天是几月几号？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看日历",
+      "spk": "",
+      "p": "Zuótiān shì bā yuè sānshíyī hào, xīngqī èr.",
+      "zh": "昨天是8月31号，星期二。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看日历",
+      "spk": "",
+      "p": "Míngtiān ne?",
+      "zh": "明天呢？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "看日历",
+      "spk": "",
+      "p": "Míngtiān shì jiǔ yuè èr hào, xīngqī sì.",
+      "zh": "明天是9月2号，星期四。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Míngtiān xīngqī liù, nǐ qù xuéxiào mɑ?",
+      "zh": "明天星期六，你去学校吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Wǒ qù xuéxiào.",
+      "zh": "我去学校。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Nǐ qù xuéxiào zuò shénme?",
+      "zh": "你去学校做什么？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在咖啡馆儿",
+      "spk": "",
+      "p": "Wǒ qù xuéxiào kàn shū.",
+      "zh": "我去学校看书。",
+      "vi": ""
+    }
+  ]
 }

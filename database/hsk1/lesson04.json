@@ -202,6 +202,38 @@
       "p": "wǒ shì zhōng guó rén",
       "zh": "我是中国人。",
       "vi": "Tôi đến từ Trung Quốc."
+    },
+    {
+      "part": 3,
+      "topic": "看照片",
+      "spk": "",
+      "p": "tā shì shuí",
+      "zh": "他是谁？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "看照片",
+      "spk": "",
+      "p": "tā shì wǒ tóng xué",
+      "zh": "他是我同学。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "看照片",
+      "spk": "",
+      "p": "tā ne? tā shì nǐ tóng xué ma?",
+      "zh": "她呢？她是你同学吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "看照片",
+      "spk": "",
+      "p": "tā bú shì wǒ tóng xué, tā shì wǒ péng yǒu",
+      "zh": "她不是我同学，她是我朋友。",
+      "vi": ""
     }
   ]
 }

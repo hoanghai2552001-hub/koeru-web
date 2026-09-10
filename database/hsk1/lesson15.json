@@ -97,5 +97,102 @@
       "vi": "Biểu thức ngày tháng (2)"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在餐桌旁",
+      "spk": "",
+      "p": "Nǐ hé Lǐ xiǎojiě shì shénme shíhou rènshi de?",
+      "zh": "你和李小姐是什么时候认识的？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在餐桌旁",
+      "spk": "",
+      "p": "Wǒmen shì èr líng yī yī nián jiǔ yuè rènshi de.",
+      "zh": "我们是2011年9月认识的。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在餐桌旁",
+      "spk": "",
+      "p": "Nǐmen zài nǎr rènshi de?",
+      "zh": "你们在哪儿认识的？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在餐桌旁",
+      "spk": "",
+      "p": "Wǒmen shì zài xuéxiào rènshi de,tā shì wǒ dàxué tóngxué.",
+      "zh": "我们是在学校认识的，她是我大学同学。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭店门口",
+      "spk": "",
+      "p": "Nǐmen shì zěnme lái fàndiàn de?",
+      "zh": "你们是怎么来饭店的？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭店门口",
+      "spk": "",
+      "p": "Wǒmen shì zuò chūzūchē lái de.",
+      "zh": "我们是坐出租车来的。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭店门口",
+      "spk": "",
+      "p": "Lǐ xiānsheng ne?",
+      "zh": "李先生呢？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在饭店门口",
+      "spk": "",
+      "p": "Tā shì hé péngyou yìqǐ kāi chē lái de.",
+      "zh": "他是和朋友一起开车来的。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Hěn gāoxìng rènshi nín! Lǐ xiǎojiě.",
+      "zh": "很高兴认识您！李小姐。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Rènshi nǐ wǒ yě hěn gāoxìng!",
+      "zh": "认识你我也很高兴！",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Tīng Zhāng xiānsheng shuō, nín shì zuò fēijī lái Běijīng de?",
+      "zh": "听张先生说，您是坐飞机来北京的？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在公司",
+      "spk": "",
+      "p": "Shì de.",
+      "zh": "是的。",
+      "vi": ""
+    }
+  ]
 }

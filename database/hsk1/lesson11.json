@@ -160,5 +160,110 @@
       "vi": "Danh từ “ngôi nhà”"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Xiànzài jǐ diǎn?",
+      "zh": "现在几点？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Xiànzài shí diǎn shí fēn.",
+      "zh": "现在十点十分。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Zhōngwǔ jǐ diǎn chīfàn?",
+      "zh": "中午几点吃饭？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在图书馆",
+      "spk": "",
+      "p": "Shí'èr diǎn chīfàn.",
+      "zh": "十二点吃饭。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "",
+      "p": "Bàbɑ shénme shíhou huíjiā?",
+      "zh": "爸爸什么时候回家？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiàwǔ wǔ diǎn.",
+      "zh": "下午五点。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "",
+      "p": "Wǒmen shénme shíhou qù kàn diànyǐng?",
+      "zh": "我们什么时候去看电影？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在家",
+      "spk": "",
+      "p": "Liù diǎn sānshí fēn.",
+      "zh": "六点三十分。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "",
+      "p": "Wǒ xīngqī yī qù Běijīng.",
+      "zh": "我星期一去北京。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "",
+      "p": "Nǐ xiǎng zài Běijīng zhù jǐ tiān?",
+      "zh": "你想在北京住几天？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "",
+      "p": "Zhù sān tiān.",
+      "zh": "住三天。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xīngqī wǔ qián néng huíjiā mɑ? .",
+      "zh": "星期五前能回家吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在家",
+      "spk": "",
+      "p": "Néng.",
+      "zh": "能。",
+      "vi": ""
+    }
+  ]
 }

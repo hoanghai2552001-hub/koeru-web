@@ -156,5 +156,102 @@
       "vi": "Động từ khiếm khuyết“会”（2）"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在路上",
+      "spk": "",
+      "p": "Zuótiān Běijīng de tiānqì zěnmeyàng?",
+      "zh": "昨天北京的天气怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在路上",
+      "spk": "",
+      "p": "Tài rè le.",
+      "zh": "太热了。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在路上",
+      "spk": "",
+      "p": "Míngtiān ne? Míngtiān tiānqì zěnmeyàng?",
+      "zh": "明天呢？明天天气怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在路上",
+      "spk": "",
+      "p": "Míngtiān tiānqì hěn hǎo, bù lěng bú rè.",
+      "zh": "明天天气很好，不冷不热。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Jīntiān huì xià yǔ mɑ?",
+      "zh": "今天会下雨吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Jīntiān bú huì xià yǔ.",
+      "zh": "今天不会下雨。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Wáng xiǎojiě jīntiān huì lái mɑ?",
+      "zh": "王小姐今天会来吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在健身房",
+      "spk": "",
+      "p": "Bú huì lái, tiānqì tài lěng le.",
+      "zh": "不会来，天气太冷了。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在病房",
+      "spk": "",
+      "p": "Nǐ shēntǐ zěnmeyàng?",
+      "zh": "你身体怎么样？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在病房",
+      "spk": "",
+      "p": "Wǒ shēntǐ bú tài hǎo. Tiānqì tài rè le, bú ài chīfàn.",
+      "zh": "我身体不太好。天气太热了，不爱吃饭。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在病房",
+      "spk": "",
+      "p": "Nǐ duō chī xiē shuǐguǒ, duō hē shuǐ.",
+      "zh": "你多吃些水果，多喝水。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在病房",
+      "spk": "",
+      "p": "Xièxie nǐ, yīshēng.",
+      "zh": "谢谢你，医生。",
+      "vi": ""
+    }
+  ]
 }

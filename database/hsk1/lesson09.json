@@ -126,5 +126,102 @@
       "vi": "Trợ từ nghi vấn “呢”（2）"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎomāo zài nǎr?",
+      "zh": "小猫在哪儿？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎomāo zài nàr.",
+      "zh": "小猫在那儿。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎogǒu zài nǎr?",
+      "zh": "小狗在哪儿？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在家",
+      "spk": "",
+      "p": "Xiǎogǒu zài yǐzi xiàmiàn.",
+      "zh": "小狗在椅子下面。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在车站",
+      "spk": "",
+      "p": "Nǐ zài nǎr gōngzuò?",
+      "zh": "你在哪儿工作？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在车站",
+      "spk": "",
+      "p": "Wǒ zài xuéxiào gōngzuò.",
+      "zh": "我在学校工作。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在车站",
+      "spk": "",
+      "p": "Nǐ érzi zài nǎr gōngzuò?",
+      "zh": "你儿子在哪儿工作？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在车站",
+      "spk": "",
+      "p": "Wǒ érzi zài yīyuàn gōngzuò,tā shì yīshēng.",
+      "zh": "我儿子在医院工作，他是医生。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Nǐ bàbɑ zài jiā mɑ?",
+      "zh": "你爸爸在家吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Bú zài jiā.",
+      "zh": "不在家。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Tā zài nǎr ne?",
+      "zh": "他在哪儿呢？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "打电话",
+      "spk": "",
+      "p": "Tā zài yīyuàn.",
+      "zh": "他在医院。",
+      "vi": ""
+    }
+  ]
 }

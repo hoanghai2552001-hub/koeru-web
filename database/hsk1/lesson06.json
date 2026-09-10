@@ -100,5 +100,102 @@
       "vi": "Đại từ nghi vấn“怎么”"
     }
   ],
-  "dialogue": []
+  "dialogue": [
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "",
+      "p": "Nǐ huì shuō Hànyǔ mɑ?",
+      "zh": "你会说汉语吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "",
+      "p": "Wǒ huì shuō Hànyǔ.",
+      "zh": "我会说汉语。",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "",
+      "p": "Nǐ māmɑ huì shuō Hànyǔ mɑ?",
+      "zh": "你妈妈会说汉语吗？",
+      "vi": ""
+    },
+    {
+      "part": 1,
+      "topic": "在学校",
+      "spk": "",
+      "p": "Tā bú huì shuō.",
+      "zh": "她不会说。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在厨房",
+      "spk": "",
+      "p": "Zhōngguó cài hǎo chī mɑ?",
+      "zh": "中国菜好吃吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在厨房",
+      "spk": "",
+      "p": "Zhōngguó cài hěn hǎo chī.",
+      "zh": "中国菜很好吃。",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在厨房",
+      "spk": "",
+      "p": "Nǐ huì zuò Zhōngguó cài mɑ?",
+      "zh": "你会做中国菜吗？",
+      "vi": ""
+    },
+    {
+      "part": 2,
+      "topic": "在厨房",
+      "spk": "",
+      "p": "Wǒ bú huì zuò.",
+      "zh": "我不会做。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Nǐ huì xiě Hànzì mɑ?",
+      "zh": "你会写汉字吗？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Wǒ huì xiě.",
+      "zh": "我会写。",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Zhège zì zěnme xiě?",
+      "zh": "这个字怎么写？",
+      "vi": ""
+    },
+    {
+      "part": 3,
+      "topic": "在办公室",
+      "spk": "",
+      "p": "Duìbùqǐ, zhège zì wǒ huì dú, bú huì xiě.",
+      "zh": "对不起，这个字我会读，不会写。",
+      "vi": ""
+    }
+  ]
 }
