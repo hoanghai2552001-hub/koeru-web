@@ -1618,16 +1618,16 @@ function renderWorksheetTable(){
 function wsNormKana(s){ return (s || '').trim().replace(/[\s　]/g, ''); }
 function wsNormMeaning(s){ return (s || '').trim().toLowerCase(); }
 
-// URL Web App Google Apps Script nhận kết quả (rỗng = chưa bật, không gửi gì)
+// URL Web App Google Apps Script nhận kết quả
 var RESULTS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyQ6-8R83K5begoutA_uWEN7-eE8DRBqc9jG7mTnm_WOGOpWjgieMtFSFjm5rpJEGAb7g/exec';
 
 function sendResultToTeacher(payload){
-  if(!RESULTS_ENDPOINT) return;
-  fetch(RESULTS_ENDPOINT, {
+  if(!RESULTS_ENDPOINT) return Promise.resolve(false);
+  return fetch(RESULTS_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(payload)
-  }).catch(function(){});
+  }).then(function(){ return true; }).catch(function(){ return false; });
 }
 
 function gradeWorksheet(){
@@ -1675,7 +1675,15 @@ function gradeWorksheet(){
 
   var name = (qs('wsStudentName').value || '').trim();
   store('koeru_student_name', name);
-  sendResultToTeacher({ name: name, level: curLevel, lessons: wsSelected.slice(), correct: correct, total: total, pct: pct, details: details });
+  var sendStatusEl = document.createElement('span');
+  sendStatusEl.className = 'ws-send-status';
+  sendStatusEl.textContent = ' · Đang gửi cho giáo viên…';
+  qs('wsSummary').appendChild(sendStatusEl);
+  sendResultToTeacher({ name: name, level: curLevel, lessons: wsSelected.slice(), correct: correct, total: total, pct: pct, details: details })
+    .then(function(ok){
+      sendStatusEl.textContent = ok ? ' · ✓ Đã gửi cho giáo viên' : ' · ✗ Gửi thất bại (kiểm tra mạng, giáo viên sẽ không thấy kết quả này)';
+      sendStatusEl.style.color = ok ? 'var(--gold)' : '#e05252';
+    });
 }
 
 qs('btnWorksheet').onclick = openWorksheetHub;
