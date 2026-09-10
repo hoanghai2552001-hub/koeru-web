@@ -66,12 +66,10 @@ h1{font-size:1.3rem;margin:0 0 4px}
   <p class="note">Nội dung viết lại dựa trên cách dùng từ/kính ngữ chuẩn tham khảo từ sách hội thoại tiếp khách tiếng Nhật, không sao chép nguyên văn.<br>
   <span id="progressNote"></span></p>
 </div>
-<script src="js/speak-practice.js?v=20260819"></script>
+<script src="js/jp-text.js?v=b7088156"></script>
+<script src="js/speak-practice.js?v=465ee259"></script>
 <script>
-// "漢字[かな]" -> <ruby>; đồng bộ quy ước với rubyfy() trong minna.html
-function esc(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
-function rubyfy(s){ return esc(s).replace(/([一-鿿々]+)\[([ぁ-ゖー]+)\]/g,'<ruby>$1<rt>$2</rt></ruby>'); }
-function stripRuby(s){ return (s || '').replace(/\[[ぁ-ゖー]+\]/g,''); }
+var esc = window.JPText.esc, rubyfy = window.JPText.rubyfy;
 
 var TOPICS = [
 {
@@ -238,15 +236,15 @@ var TOPICS = [
 }
 ];
 
-function renderVocGrid(elId, vocab){
-  document.getElementById(elId).innerHTML = vocab.map(function(v){
+function vocGridHtml(vocab){
+  return vocab.map(function(v){
     var jp = v.r ? '<ruby>' + esc(v.w) + '<rt>' + esc(v.r) + '</rt></ruby>' : esc(v.w);
     return '<div class="voc-item">' + jp + ' <div class="m">' + esc(v.m) + '</div></div>';
   }).join('');
 }
 
 function renderTopic(t){
-  var vocGridId = 'vocGrid' + t.id, speakBtnId = 'btnSpeakVocab' + t.id;
+  var speakBtnId = 'btnSpeakVocab' + t.id;
   var h = '<section id="topic' + t.id + '" class="topic">' +
     '<div class="badge">🏨 Business Japanese — Giai đoạn 1 · ' + esc(t.stage) + '</div>' +
     '<h1>Chủ đề ' + t.id + ': ' + esc(t.title) + '</h1>' +
@@ -254,7 +252,7 @@ function renderTopic(t){
 
     '<div class="sec"><h2><span class="num">1</span>Từ vựng cần dùng</h2>' +
     '<button class="btn-speak" id="' + speakBtnId + '" type="button">🎤 Luyện nói từ vựng</button>' +
-    '<div class="voc-grid" id="' + vocGridId + '"></div></div>' +
+    '<div class="voc-grid">' + vocGridHtml(t.vocab) + '</div></div>' +
 
     '<div class="sec"><h2><span class="num">2</span>Câu phản xạ bắt buộc</h2><ul class="phrase-list">' +
     t.phrases.map(function(p){
@@ -290,7 +288,6 @@ document.getElementById('topicNav').innerHTML = TOPICS.map(function(t){
 document.getElementById('topics').innerHTML = TOPICS.map(renderTopic).join('');
 
 TOPICS.forEach(function(t){
-  renderVocGrid('vocGrid' + t.id, t.vocab);
   document.getElementById('btnSpeakVocab' + t.id).onclick = function(){
     SpeakPractice.open(t.vocab.map(function(v){
       var key = v.r || v.w;
