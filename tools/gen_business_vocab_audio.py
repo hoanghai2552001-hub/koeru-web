@@ -7,9 +7,13 @@ Chạy:
 """
 import base64
 import os
+import sys
 import time
 
 import requests
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from gen_vocab_audio import tts_text, vocab_kana  # noqa: E402 — dùng chung logic chuẩn hoá với N4/N5
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(ROOT, "audio", "vocab-business")
@@ -79,13 +83,16 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     done = skipped = failed = 0
     for v in VOCAB:
-        key = v["r"] or v["w"]
+        # business vocab dùng schema {w: kanji/katakana, r: reading} khác N4/N5 (w đã là kana sẵn),
+        # nên ưu tiên r làm key/text gốc rồi mới chạy qua vocab_kana()/tts_text() dùng chung
+        key_raw = v["r"] or v["w"]
+        key = vocab_kana(key_raw)
         out_path = os.path.join(OUT_DIR, f"{key}.mp3")
         if os.path.exists(out_path):
             skipped += 1
             continue
         try:
-            audio = synthesize_google(v["w"])
+            audio = synthesize_google(tts_text(key_raw))
             with open(out_path, "wb") as f:
                 f.write(audio)
             print(f"  OK  {key}")
