@@ -1429,7 +1429,7 @@ function wsPool(){
 function speakPracticeItems(pool){
   return pool.map(function(v){
     var k = vocabKana(v.w);
-    return { word: v.k || stripGroupMark(v.w), reading: v.k ? k : '', meaning: v.m, mp3: 'audio/vocab/' + k + '.mp3' };
+    return { word: v.k || stripGroupMark(v.w), reading: v.k ? k : '', meaning: v.m, mp3: 'audio/vocab/' + encodeURIComponent(k) + '.mp3' };
   });
 }
 
