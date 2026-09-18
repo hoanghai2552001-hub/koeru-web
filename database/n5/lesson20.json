@@ -3,29 +3,315 @@
   "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.124-125 (PDF trang 143-144)",
   "status": "REVIEW_REQUIRED",
   "vocab": [
-    {"w": "いりますⅠ [ビザが～]", "k": "要ります", "m": "cần [thị thực/visa]"},
-    {"w": "しらべますⅡ", "k": "調べます", "m": "tìm hiểu, kiểm tra, điều tra"},
-    {"w": "しゅうりしますⅢ", "k": "修理します", "m": "sửa chữa, tu sửa"},
-    {"w": "ぼく", "k": "僕", "m": "tôi, tớ (cách xưng thân mật của わたし được dùng bởi nam giới)"},
-    {"w": "きみ", "k": "君", "m": "cậu, bạn (cách nói thân mật của あなた được dùng cho người ngang hàng hoặc ít tuổi hơn)"},
-    {"w": "～くん", "k": "～君", "m": "anh ~, cậu ~ (cách nói thân mật của ～さん được dùng cho người ngang hàng hoặc ít tuổi hơn; thường được dùng sau tên bé trai)"},
-    {"w": "うん", "k": "", "m": "ừ (cách nói thân mật của はい)"},
-    {"w": "ううん", "k": "", "m": "không (cách nói thân mật của いいえ)"},
-    {"w": "ことば", "k": "", "m": "từ, tiếng"},
-    {"w": "きもの", "k": "着物", "m": "kimono (trang phục truyền thống của Nhật Bản)"},
-    {"w": "ビザ", "k": "", "m": "thị thực, visa"},
-    {"w": "はじめ", "k": "初め", "m": "ban đầu, đầu tiên"},
-    {"w": "おわり", "k": "終わり", "m": "kết thúc, hết phim"},
-    {"w": "こっち", "k": "", "m": "phía này, chỗ này (cách nói thân mật của こちら)"},
-    {"w": "そっち", "k": "", "m": "phía đó, chỗ đó (cách nói thân mật của そちら)"},
-    {"w": "あっち", "k": "", "m": "phía kia, chỗ kia (cách nói thân mật của あちら)"},
-    {"w": "どっち", "k": "", "m": "cái nào (giữa hai cái), phía nào, đâu (cách nói thân mật của どちら)"},
-    {"w": "みんなで", "k": "", "m": "mọi người cùng"},
-    {"w": "～けど", "k": "", "m": "~, nhưng (cách nói thân mật của が)"},
-    {"w": "おなかが いっぱいです", "k": "", "m": "(Tôi) no rồi"}
+    {
+      "w": "いりますⅠ [ビザが～]",
+      "k": "要ります",
+      "m": "cần [thị thực/visa]",
+      "examples": [
+        {
+          "jp": "海外[かいがい]出張[しゅっちょう]には ビザが 要[い]ります。",
+          "vn": "Đi công tác nước ngoài cần có visa."
+        },
+        {
+          "jp": "この 手続[てつづ]きには 何[なに]が 要[い]りますか。",
+          "vn": "Thủ tục này cần những gì vậy?"
+        }
+      ]
+    },
+    {
+      "w": "しらべますⅡ",
+      "k": "調べます",
+      "m": "tìm hiểu, kiểm tra, điều tra",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]に ついて 調[しら]べました。",
+          "vn": "Tôi đã tìm hiểu về đối tác."
+        },
+        {
+          "jp": "この 会社[かいしゃ]の 情報[じょうほう]を 調[しら]べて ください。",
+          "vn": "Hãy tìm hiểu thông tin về công ty này giúp tôi."
+        }
+      ]
+    },
+    {
+      "w": "しゅうりしますⅢ",
+      "k": "修理します",
+      "m": "sửa chữa, tu sửa",
+      "examples": [
+        {
+          "jp": "コピー機[き]を 修理[しゅうり]します。",
+          "vn": "Tôi sẽ sửa máy photocopy."
+        },
+        {
+          "jp": "壊[こわ]れた パソコンを 修理[しゅうり]して もらいました。",
+          "vn": "Tôi đã nhờ sửa giúp máy tính bị hỏng."
+        }
+      ]
+    },
+    {
+      "w": "ぼく",
+      "k": "僕",
+      "m": "tôi, tớ (cách xưng thân mật của わたし được dùng bởi nam giới)",
+      "examples": [
+        {
+          "jp": "僕[ぼく]は 新[あたら]しい 社員[しゃいん]です。",
+          "vn": "Tôi là nhân viên mới."
+        },
+        {
+          "jp": "僕[ぼく]も その プロジェクトに 参加[さんか]した。",
+          "vn": "Tớ cũng đã tham gia dự án đó."
+        }
+      ]
+    },
+    {
+      "w": "きみ",
+      "k": "君",
+      "m": "cậu, bạn (cách nói thân mật của あなた được dùng cho người ngang hàng hoặc ít tuổi hơn)",
+      "examples": [
+        {
+          "jp": "君[きみ]の 意見[いけん]を 聞[き]きたい。",
+          "vn": "Tớ muốn nghe ý kiến của cậu."
+        },
+        {
+          "jp": "君[きみ]は どう 思[おも]う？",
+          "vn": "Cậu nghĩ sao?"
+        }
+      ]
+    },
+    {
+      "w": "～くん",
+      "k": "～君",
+      "m": "anh ~, cậu ~ (cách nói thân mật của ～さん được dùng cho người ngang hàng hoặc ít tuổi hơn; thường được dùng sau tên bé trai)",
+      "examples": [
+        {
+          "jp": "田中[たなか]君[くん]、この 資料[しりょう]を 見[み]て。",
+          "vn": "Tanaka này, xem cái tài liệu này với."
+        },
+        {
+          "jp": "山田[やまだ]君[くん]も 来[く]る？",
+          "vn": "Yamada cũng đến chứ?"
+        }
+      ]
+    },
+    {
+      "w": "うん",
+      "k": "",
+      "m": "ừ (cách nói thân mật của はい)",
+      "examples": [
+        {
+          "jp": "うん、わかった。",
+          "vn": "Ừ, tớ hiểu rồi."
+        },
+        {
+          "jp": "会議[かいぎ]に 行[い]く？うん、行[い]くよ。",
+          "vn": "Cậu đi họp không? Ừ, tớ đi."
+        }
+      ]
+    },
+    {
+      "w": "ううん",
+      "k": "",
+      "m": "không (cách nói thân mật của いいえ)",
+      "examples": [
+        {
+          "jp": "資料[しりょう]、もう できた？ううん、まだ。",
+          "vn": "Tài liệu xong chưa? Không, vẫn chưa."
+        },
+        {
+          "jp": "疲[つか]れた？ううん、大丈夫[だいじょうぶ]。",
+          "vn": "Cậu mệt à? Không, tớ ổn."
+        }
+      ]
+    },
+    {
+      "w": "ことば",
+      "k": "",
+      "m": "từ, tiếng",
+      "examples": [
+        {
+          "jp": "この 言葉[ことば]の 意味[いみ]が わからない。",
+          "vn": "Tớ không hiểu nghĩa của từ này."
+        },
+        {
+          "jp": "ビジネスで 使[つか]う 言葉[ことば]を 覚[おぼ]えたい。",
+          "vn": "Tôi muốn học những từ dùng trong công việc."
+        }
+      ]
+    },
+    {
+      "w": "きもの",
+      "k": "着物",
+      "m": "kimono (trang phục truyền thống của Nhật Bản)",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]は パーティーで 着物[きもの]を 着[き]た。",
+          "vn": "Đồng nghiệp tôi đã mặc kimono ở bữa tiệc."
+        },
+        {
+          "jp": "着物[きもの]は 高[たか]いですか。",
+          "vn": "Kimono có đắt không?"
+        }
+      ]
+    },
+    {
+      "w": "ビザ",
+      "k": "",
+      "m": "thị thực, visa",
+      "examples": [
+        {
+          "jp": "ビザの 手続[てつづ]きを した。",
+          "vn": "Tôi đã làm thủ tục visa."
+        },
+        {
+          "jp": "ビザは もう 取[と]った？",
+          "vn": "Visa xin xong chưa?"
+        }
+      ]
+    },
+    {
+      "w": "はじめ",
+      "k": "初め",
+      "m": "ban đầu, đầu tiên",
+      "examples": [
+        {
+          "jp": "初[はじ]めは 難[むずか]しかったけど、今[いま]は 大丈夫[だいじょうぶ]。",
+          "vn": "Ban đầu thì khó nhưng bây giờ ổn rồi."
+        },
+        {
+          "jp": "会議[かいぎ]の 初[はじ]めに 自己紹介[じこしょうかい]を した。",
+          "vn": "Đầu cuộc họp tôi đã tự giới thiệu."
+        }
+      ]
+    },
+    {
+      "w": "おわり",
+      "k": "終わり",
+      "m": "kết thúc, hết phim",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]の 終[お]わりに 質問[しつもん]した。",
+          "vn": "Cuối cuộc họp tôi đã hỏi câu hỏi."
+        },
+        {
+          "jp": "プロジェクトも もうすぐ 終[お]わりだ。",
+          "vn": "Dự án cũng sắp kết thúc rồi."
+        }
+      ]
+    },
+    {
+      "w": "こっち",
+      "k": "",
+      "m": "phía này, chỗ này (cách nói thân mật của こちら)",
+      "examples": [
+        {
+          "jp": "こっちの 資料[しりょう]の ほうが いいと 思[おも]う。",
+          "vn": "Tớ nghĩ tài liệu bên này tốt hơn."
+        },
+        {
+          "jp": "こっちへ 来[き]て。",
+          "vn": "Lại đây đi."
+        }
+      ]
+    },
+    {
+      "w": "そっち",
+      "k": "",
+      "m": "phía đó, chỗ đó (cách nói thân mật của そちら)",
+      "examples": [
+        {
+          "jp": "そっちの 会議室[かいぎしつ]は 空[あ]いてる？",
+          "vn": "Phòng họp bên đó có trống không?"
+        },
+        {
+          "jp": "そっちの プランで いいよ。",
+          "vn": "Kế hoạch bên đó được đấy."
+        }
+      ]
+    },
+    {
+      "w": "あっち",
+      "k": "",
+      "m": "phía kia, chỗ kia (cách nói thân mật của あちら)",
+      "examples": [
+        {
+          "jp": "あっちの 部屋[へや]で 話[はな]そう。",
+          "vn": "Nói chuyện ở phòng đằng kia đi."
+        },
+        {
+          "jp": "会議室[かいぎしつ]は あっちだよ。",
+          "vn": "Phòng họp ở đằng kia đấy."
+        }
+      ]
+    },
+    {
+      "w": "どっち",
+      "k": "",
+      "m": "cái nào (giữa hai cái), phía nào, đâu (cách nói thân mật của どちら)",
+      "examples": [
+        {
+          "jp": "A案[あん]と B案[あん]、どっちが いいと 思[おも]う？",
+          "vn": "Cậu thấy phương án A hay B tốt hơn?"
+        },
+        {
+          "jp": "どっちに 行[い]く？",
+          "vn": "Đi phía nào vậy?"
+        }
+      ]
+    },
+    {
+      "w": "みんなで",
+      "k": "",
+      "m": "mọi người cùng",
+      "examples": [
+        {
+          "jp": "みんなで 昼[ひる]ご飯[はん]を 食[た]べよう。",
+          "vn": "Mọi người cùng ăn cơm trưa đi."
+        },
+        {
+          "jp": "みんなで 頑張[がんば]ろう。",
+          "vn": "Mọi người cùng cố gắng nào."
+        }
+      ]
+    },
+    {
+      "w": "～けど",
+      "k": "",
+      "m": "~, nhưng (cách nói thân mật của が)",
+      "examples": [
+        {
+          "jp": "忙[いそが]しいけど、大丈夫[だいじょうぶ]。",
+          "vn": "Bận nhưng mà tớ ổn."
+        },
+        {
+          "jp": "難[むずか]しいけど、面白[おもしろ]い。",
+          "vn": "Khó nhưng mà thú vị."
+        }
+      ]
+    },
+    {
+      "w": "おなかが いっぱいです",
+      "k": "",
+      "m": "(Tôi) no rồi",
+      "examples": [
+        {
+          "jp": "たくさん 食[た]べて、おなかが いっぱいです。",
+          "vn": "Tôi đã ăn nhiều nên no rồi."
+        },
+        {
+          "jp": "もう おなかが いっぱいだから、これ 食[た]べられない。",
+          "vn": "Tớ no rồi nên không ăn được cái này nữa."
+        }
+      ]
+    }
   ],
   "expressions": [
-    {"w": "よかったら", "m": "nếu anh/chị thích thì"},
-    {"w": "いろいろ", "m": "nhiều thứ"}
+    {
+      "w": "よかったら",
+      "m": "nếu anh/chị thích thì"
+    },
+    {
+      "w": "いろいろ",
+      "m": "nhiều thứ"
+    }
   ]
 }

@@ -6,157 +6,467 @@
     {
       "w": "にげますⅡ",
       "k": "逃げます",
-      "m": "chạy trốn, bỏ chạy"
+      "m": "chạy trốn, bỏ chạy",
+      "examples": [
+        {
+          "jp": "火事[かじ]です！早[はや]く 逃[に]げろ！",
+          "vn": "Cháy rồi! Chạy mau!"
+        },
+        {
+          "jp": "犬[いぬ]が 怖[こわ]くて 逃[に]げて しまいました。",
+          "vn": "Tôi sợ chó nên đã bỏ chạy."
+        }
+      ]
     },
     {
       "w": "さわぎますⅠ",
       "k": "騒ぎます",
-      "m": "làm ồn, làm rùm beng"
+      "m": "làm ồn, làm rùm beng",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]で 騒[さわ]ぐな。",
+          "vn": "Đừng làm ồn trong phòng họp."
+        },
+        {
+          "jp": "子供[こども]たちが 廊下[ろうか]で 騒[さわ]いで います。",
+          "vn": "Bọn trẻ đang làm ồn ở hành lang."
+        }
+      ]
     },
     {
       "w": "あきらめますⅡ",
       "k": "",
-      "m": "từ bỏ, đầu hàng"
+      "m": "từ bỏ, đầu hàng",
+      "examples": [
+        {
+          "jp": "あきらめるな。もう少[すこ]しで できるよ。",
+          "vn": "Đừng bỏ cuộc. Sắp làm được rồi đấy."
+        },
+        {
+          "jp": "彼[かれ]は 契約[けいやく]を あきらめたそうです。",
+          "vn": "Nghe nói anh ấy đã từ bỏ hợp đồng."
+        }
+      ]
     },
     {
       "w": "なげますⅡ",
       "k": "投げます",
-      "m": "ném"
+      "m": "ném",
+      "examples": [
+        {
+          "jp": "ボールを こっちに 投[な]げて。",
+          "vn": "Ném quả bóng qua đây đi."
+        },
+        {
+          "jp": "ゴミを 道[みち]に 投[な]げるな。",
+          "vn": "Đừng vứt rác ra đường."
+        }
+      ]
     },
     {
       "w": "まもりますⅠ",
       "k": "守ります",
-      "m": "bảo vệ, tuân thủ, giữ"
+      "m": "bảo vệ, tuân thủ, giữ",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]の 規則[きそく]は 必[かなら]ず 守[まも]って ください。",
+          "vn": "Hãy tuân thủ nghiêm túc quy tắc của công ty."
+        },
+        {
+          "jp": "約束[やくそく]の 時間[じかん]を 守[まも]りましょう。",
+          "vn": "Hãy giữ đúng giờ hẹn."
+        }
+      ]
     },
     {
       "w": "あげますⅡ",
       "k": "上げます",
-      "m": "nâng, nâng lên, tăng lên"
+      "m": "nâng, nâng lên, tăng lên",
+      "examples": [
+        {
+          "jp": "もう少[すこ]し 声[こえ]を 上[あ]げて 話[はな]して ください。",
+          "vn": "Hãy nói to hơn một chút."
+        },
+        {
+          "jp": "来月[らいげつ]から 価格[かかく]を 上[あ]げる 予定[よてい]です。",
+          "vn": "Từ tháng sau chúng tôi dự định tăng giá."
+        }
+      ]
     },
     {
       "w": "さげますⅡ",
       "k": "下げます",
-      "m": "hạ, hạ xuống, giảm xuống"
+      "m": "hạ, hạ xuống, giảm xuống",
+      "examples": [
+        {
+          "jp": "エアコンの 温度[おんど]を 少[すこ]し 下[さ]げて ください。",
+          "vn": "Hãy hạ nhiệt độ máy lạnh xuống một chút."
+        },
+        {
+          "jp": "この 商品[しょうひん]は 値段[ねだん]を 下[さ]げたそうです。",
+          "vn": "Nghe nói sản phẩm này đã giảm giá."
+        }
+      ]
     },
     {
       "w": "つたえますⅡ",
       "k": "伝えます",
-      "m": "truyền, truyền đạt"
+      "m": "truyền, truyền đạt",
+      "examples": [
+        {
+          "jp": "部長[ぶちょう]に よろしく お伝[つた]え ください。",
+          "vn": "Nhờ anh/chị gửi lời hỏi thăm đến trưởng phòng giúp tôi."
+        },
+        {
+          "jp": "会議[かいぎ]の 内容[ないよう]を チームに 伝[つた]えました。",
+          "vn": "Tôi đã truyền đạt nội dung cuộc họp cho cả nhóm."
+        }
+      ]
     },
     {
       "w": "ちゅういしますⅢ [くるまに～]",
       "k": "注意します [車に～]",
-      "m": "chú ý [ô tô]"
+      "m": "chú ý [ô tô]",
+      "examples": [
+        {
+          "jp": "駐車場[ちゅうしゃじょう]では 車[くるま]に 注意[ちゅうい]して ください。",
+          "vn": "Hãy chú ý xe cộ ở bãi đỗ xe."
+        },
+        {
+          "jp": "自転車[じてんしゃ]に 気[き]を つけるように 注意[ちゅうい]されました。",
+          "vn": "Tôi đã bị nhắc chú ý xe đạp."
+        }
+      ]
     },
     {
       "w": "はずしますⅠ [せきを～]",
       "k": "外します [席を～]",
-      "m": "rời, không có ở [chỗ ngồi]"
+      "m": "rời, không có ở [chỗ ngồi]",
+      "examples": [
+        {
+          "jp": "田中[たなか]は ただいま 席[せき]を 外[はず]して います。",
+          "vn": "Anh Tanaka hiện đang không có ở chỗ ngồi."
+        },
+        {
+          "jp": "少[すこ]し 席[せき]を 外[はず]しても いいですか。",
+          "vn": "Tôi rời chỗ một chút được không ạ?"
+        }
+      ]
     },
     {
       "w": "だめ[な]",
       "k": "",
-      "m": "hỏng, không được, không thể"
+      "m": "hỏng, không được, không thể",
+      "examples": [
+        {
+          "jp": "この コピー機[き]は もう だめですね。",
+          "vn": "Cái máy photocopy này hỏng rồi nhỉ."
+        },
+        {
+          "jp": "遅刻[ちこく]は 絶対[ぜったい]に だめですよ。",
+          "vn": "Tuyệt đối không được đi trễ."
+        }
+      ]
     },
     {
       "w": "せき",
       "k": "席",
-      "m": "chỗ ngồi, ghế"
+      "m": "chỗ ngồi, ghế",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]の 席[せき]は 決[き]まって いますか。",
+          "vn": "Chỗ ngồi trong phòng họp đã được quyết định chưa?"
+        },
+        {
+          "jp": "彼[かれ]の 席[せき]は 窓[まど]側[がわ]です。",
+          "vn": "Chỗ ngồi của anh ấy ở phía cửa sổ."
+        }
+      ]
     },
     {
       "w": "ファイト",
       "k": "",
-      "m": "\"quyết chiến\", \"cố lên\""
+      "m": "\"quyết chiến\", \"cố lên\"",
+      "examples": [
+        {
+          "jp": "明日[あした]の プレゼン、ファイト！",
+          "vn": "Cố lên nhé buổi thuyết trình ngày mai!"
+        },
+        {
+          "jp": "試合[しあい]の 前[まえ]、みんなで「ファイト！」と 言[い]いました。",
+          "vn": "Trước trận đấu, mọi người cùng hô \"Cố lên!\"."
+        }
+      ]
     },
     {
       "w": "マーク",
       "k": "",
-      "m": "ký hiệu (mark)"
+      "m": "ký hiệu (mark)",
+      "examples": [
+        {
+          "jp": "重要[じゅうよう]な 部分[ぶぶん]に マークを つけて おきました。",
+          "vn": "Tôi đã đánh dấu sẵn phần quan trọng."
+        },
+        {
+          "jp": "この マークは 何[なに]を 意味[いみ]して いますか。",
+          "vn": "Ký hiệu này có nghĩa là gì vậy?"
+        }
+      ]
     },
     {
       "w": "ボール",
       "k": "",
-      "m": "quả bóng"
+      "m": "quả bóng",
+      "examples": [
+        {
+          "jp": "子供[こども]が 公園[こうえん]で ボールで 遊[あそ]んで います。",
+          "vn": "Bọn trẻ đang chơi bóng ở công viên."
+        },
+        {
+          "jp": "ボールを 投[な]げないで ください。",
+          "vn": "Xin đừng ném bóng."
+        }
+      ]
     },
     {
       "w": "せんたくき",
       "k": "洗濯機",
-      "m": "máy giặt"
+      "m": "máy giặt",
+      "examples": [
+        {
+          "jp": "洗濯機[せんたくき]が 壊[こわ]れて しまいました。",
+          "vn": "Máy giặt bị hỏng mất rồi."
+        },
+        {
+          "jp": "新[あたら]しい 洗濯機[せんたくき]を 買[か]う つもりです。",
+          "vn": "Tôi định mua máy giặt mới."
+        }
+      ]
     },
     {
       "w": "～き",
       "k": "～機",
-      "m": "máy ~"
+      "m": "máy ~",
+      "examples": [
+        {
+          "jp": "コピー機[き]の 使[つか]い方[かた]を 教[おし]えて ください。",
+          "vn": "Hãy chỉ tôi cách dùng máy photocopy."
+        },
+        {
+          "jp": "この 機械[きかい]は 使用[しよう]禁止[きんし]です。",
+          "vn": "Máy này đang bị cấm sử dụng."
+        }
+      ]
     },
     {
       "w": "きそく",
       "k": "規則",
-      "m": "quy tắc, kỷ luật"
+      "m": "quy tắc, kỷ luật",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]の 規則[きそく]を よく 読[よ]んで ください。",
+          "vn": "Hãy đọc kỹ quy định của công ty."
+        },
+        {
+          "jp": "この 規則[きそく]は 守[まも]らなければ なりません。",
+          "vn": "Quy tắc này bắt buộc phải tuân thủ."
+        }
+      ]
     },
     {
       "w": "しようきんし",
       "k": "使用禁止",
-      "m": "cấm sử dụng"
+      "m": "cấm sử dụng",
+      "examples": [
+        {
+          "jp": "会議中[かいぎちゅう]は 携帯[けいたい]の 使用[しよう]禁止[きんし]です。",
+          "vn": "Trong lúc họp thì cấm sử dụng điện thoại di động."
+        },
+        {
+          "jp": "このエリアは 使用[しよう]禁止[きんし]と 書[か]いて あります。",
+          "vn": "Khu vực này có ghi là cấm sử dụng."
+        }
+      ]
     },
     {
       "w": "たちいりきんし",
       "k": "立入禁止",
-      "m": "cấm vào"
+      "m": "cấm vào",
+      "examples": [
+        {
+          "jp": "工事現場[こうじげんば]は 立[た]ち入[い]り禁止[きんし]です。",
+          "vn": "Công trường đang cấm vào."
+        },
+        {
+          "jp": "「立[た]ち入[い]り禁止[きんし]」と 書[か]いて あるので、入[はい]るな。",
+          "vn": "Có ghi \"Cấm vào\" nên đừng vào đấy."
+        }
+      ]
     },
     {
       "w": "いりぐち",
       "k": "入口",
-      "m": "cửa vào"
+      "m": "cửa vào",
+      "examples": [
+        {
+          "jp": "入口[いりぐち]で お客様[きゃくさま]を お迎[むか]えします。",
+          "vn": "Chúng tôi đón khách ở cửa vào."
+        },
+        {
+          "jp": "入口[いりぐち]は あちらです。",
+          "vn": "Cửa vào ở đằng kia."
+        }
+      ]
     },
     {
       "w": "でぐち",
       "k": "出口",
-      "m": "cửa ra"
+      "m": "cửa ra",
+      "examples": [
+        {
+          "jp": "出口[でぐち]は こちらでは ありません。",
+          "vn": "Cửa ra không phải ở đây."
+        },
+        {
+          "jp": "出口[でぐち]の 前[まえ]で 待[ま]って います。",
+          "vn": "Tôi đang đợi trước cửa ra."
+        }
+      ]
     },
     {
       "w": "ひじょうぐち",
       "k": "非常口",
-      "m": "cửa thoát hiểm"
+      "m": "cửa thoát hiểm",
+      "examples": [
+        {
+          "jp": "非常口[ひじょうぐち]の 場所[ばしょ]を 確認[かくにん]して おいて ください。",
+          "vn": "Hãy kiểm tra sẵn vị trí cửa thoát hiểm giúp tôi."
+        },
+        {
+          "jp": "非常口[ひじょうぐち]の 前[まえ]に 物[もの]を 置[お]くな。",
+          "vn": "Đừng để đồ trước cửa thoát hiểm."
+        }
+      ]
     },
     {
       "w": "むりょう",
       "k": "無料",
-      "m": "miễn phí"
+      "m": "miễn phí",
+      "examples": [
+        {
+          "jp": "この セミナーは 無料[むりょう]です。",
+          "vn": "Buổi hội thảo này miễn phí."
+        },
+        {
+          "jp": "会員[かいいん]なら 駐車場[ちゅうしゃじょう]は 無料[むりょう]だそうです。",
+          "vn": "Nghe nói nếu là thành viên thì bãi đỗ xe miễn phí."
+        }
+      ]
     },
     {
       "w": "ほんじつきゅうぎょう",
       "k": "本日休業",
-      "m": "hôm nay đóng cửa, hôm nay nghỉ"
+      "m": "hôm nay đóng cửa, hôm nay nghỉ",
+      "examples": [
+        {
+          "jp": "本日[ほんじつ]休業[きゅうぎょう]と 書[か]いて あります。",
+          "vn": "Có ghi là hôm nay nghỉ."
+        },
+        {
+          "jp": "台風[たいふう]の ため、本日[ほんじつ]休業[きゅうぎょう]です。",
+          "vn": "Vì bão nên hôm nay đóng cửa."
+        }
+      ]
     },
     {
       "w": "えいぎょうちゅう",
       "k": "営業中",
-      "m": "đang mở cửa"
+      "m": "đang mở cửa",
+      "examples": [
+        {
+          "jp": "この 店[みせ]は 今[いま] 営業中[えいぎょうちゅう]です。",
+          "vn": "Cửa hàng này hiện đang mở cửa."
+        },
+        {
+          "jp": "営業中[えいぎょうちゅう]の 札[ふだ]が かかって います。",
+          "vn": "Biển \"đang mở cửa\" đang được treo."
+        }
+      ]
     },
     {
       "w": "しようちゅう",
       "k": "使用中",
-      "m": "đang sử dụng"
+      "m": "đang sử dụng",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]は ただいま 使用中[しようちゅう]です。",
+          "vn": "Phòng họp hiện đang được sử dụng."
+        },
+        {
+          "jp": "使用中[しようちゅう]の 札[ふだ]を ドアに かけて ください。",
+          "vn": "Hãy treo biển \"đang sử dụng\" lên cửa giúp tôi."
+        }
+      ]
     },
     {
       "w": "～ちゅう",
       "k": "～中",
-      "m": "đang ~"
+      "m": "đang ~",
+      "examples": [
+        {
+          "jp": "田中[たなか]は 今[いま] 電話中[でんわちゅう]です。",
+          "vn": "Anh Tanaka hiện đang gọi điện thoại."
+        },
+        {
+          "jp": "会議中[かいぎちゅう]は 静[しず]かに して ください。",
+          "vn": "Trong lúc họp xin hãy giữ yên lặng."
+        }
+      ]
     },
     {
       "w": "どういう ～",
       "k": "",
-      "m": "~ gì, ~ thế nào"
+      "m": "~ gì, ~ thế nào",
+      "examples": [
+        {
+          "jp": "この マークは どういう 意味[いみ]ですか。",
+          "vn": "Ký hiệu này nghĩa là gì vậy?"
+        },
+        {
+          "jp": "それは どういう ことですか。",
+          "vn": "Điều đó là như thế nào vậy?"
+        }
+      ]
     },
     {
       "w": "もう",
       "k": "",
-      "m": "không ~ nữa"
+      "m": "không ~ nữa",
+      "examples": [
+        {
+          "jp": "もう 遅刻[ちこく]しないで くださいね。",
+          "vn": "Đừng đi trễ nữa nhé."
+        },
+        {
+          "jp": "もう 心配[しんぱい]しなくても 大丈夫[だいじょうぶ]です。",
+          "vn": "Không cần lo lắng nữa cũng được rồi."
+        }
+      ]
     },
     {
       "w": "あと ～",
       "k": "",
-      "m": "còn ~"
+      "m": "còn ~",
+      "examples": [
+        {
+          "jp": "あと 10分[じゅっぷん]で 会議[かいぎ]が 始[はじ]まります。",
+          "vn": "Còn 10 phút nữa là cuộc họp bắt đầu."
+        },
+        {
+          "jp": "あと 少[すこ]しで 終[お]わります。",
+          "vn": "Còn một chút nữa là xong."
+        }
+      ]
     }
   ],
   "expressions": [

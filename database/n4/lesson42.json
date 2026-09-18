@@ -6,207 +6,617 @@
     {
       "w": "つつみますⅠ",
       "k": "包みます",
-      "m": "bọc, gói"
+      "m": "bọc, gói",
+      "examples": [
+        {
+          "jp": "お客様[きゃくさま]の プレゼントを きれいに 包[つつ]みました。",
+          "vn": "Tôi đã gói quà cho khách hàng thật đẹp."
+        },
+        {
+          "jp": "壊[こわ]れやすい 製品[せいひん]は 厚[あつ]い 紙[かみ]で 包[つつ]みます。",
+          "vn": "Sản phẩm dễ vỡ thì được bọc bằng giấy dày."
+        }
+      ]
     },
     {
       "w": "わかしますⅠ",
       "k": "沸かします",
-      "m": "đun sôi"
+      "m": "đun sôi",
+      "examples": [
+        {
+          "jp": "お茶[ちゃ]を 出[だ]す ために お湯[ゆ]を 沸[わ]かしました。",
+          "vn": "Tôi đã đun nước sôi để pha trà mời khách."
+        },
+        {
+          "jp": "会議[かいぎ]の 前[まえ]に お湯[ゆ]を 沸[わ]かして おきました。",
+          "vn": "Trước cuộc họp tôi đã đun sẵn nước sôi."
+        }
+      ]
     },
     {
       "w": "まぜますⅡ",
       "k": "混ぜます",
-      "m": "trộn, khuấy"
+      "m": "trộn, khuấy",
+      "examples": [
+        {
+          "jp": "コーヒーに ミルクを 混[ま]ぜました。",
+          "vn": "Tôi đã cho sữa vào khuấy với cà phê."
+        },
+        {
+          "jp": "資料[しりょう]を 混[ま]ぜないで、種類[しゅるい]別[べつ]に 分[わ]けて ください。",
+          "vn": "Đừng trộn lẫn tài liệu, hãy phân loại ra giúp tôi."
+        }
+      ]
     },
     {
       "w": "けいさんしますⅢ",
       "k": "計算します",
-      "m": "tính toán, làm tính"
+      "m": "tính toán, làm tính",
+      "examples": [
+        {
+          "jp": "予算[よさん]を 計算[けいさん]する ために、電卓[でんたく]を 使[つか]いました。",
+          "vn": "Tôi đã dùng máy tính để tính toán ngân sách."
+        },
+        {
+          "jp": "コストを 計算[けいさん]したら、予定[よてい]より 高[たか]かったです。",
+          "vn": "Sau khi tính toán chi phí thì cao hơn dự kiến."
+        }
+      ]
     },
     {
       "w": "あつい",
       "k": "厚い",
-      "m": "dày"
+      "m": "dày",
+      "examples": [
+        {
+          "jp": "この 契約書[けいやくしょ]は 厚[あつ]くて、読[よ]むのに 時間[じかん]が かかります。",
+          "vn": "Bản hợp đồng này dày nên đọc mất nhiều thời gian."
+        },
+        {
+          "jp": "冬[ふゆ]は 厚[あつ]い コートを 着[き]て 出勤[しゅっきん]します。",
+          "vn": "Mùa đông tôi mặc áo khoác dày để đi làm."
+        }
+      ]
     },
     {
       "w": "うすい",
       "k": "薄い",
-      "m": "mỏng"
+      "m": "mỏng",
+      "examples": [
+        {
+          "jp": "薄[うす]い ファイルに 資料[しりょう]を まとめました。",
+          "vn": "Tôi đã gom tài liệu vào một cái kẹp mỏng."
+        },
+        {
+          "jp": "このノートパソコンは 薄[うす]くて 持[も]ち運[はこ]びやすいです。",
+          "vn": "Cái laptop này mỏng nên dễ mang theo."
+        }
+      ]
     },
     {
       "w": "べんごし",
       "k": "弁護士",
-      "m": "luật sư"
+      "m": "luật sư",
+      "examples": [
+        {
+          "jp": "契約[けいやく]の 内容[ないよう]を 確認[かくにん]する ために 弁護士[べんごし]に 相談[そうだん]しました。",
+          "vn": "Tôi đã tư vấn luật sư để kiểm tra nội dung hợp đồng."
+        },
+        {
+          "jp": "弁護士[べんごし]から 法律[ほうりつ]に ついて 説明[せつめい]を 受[う]けました。",
+          "vn": "Tôi đã được luật sư giải thích về pháp luật."
+        }
+      ]
     },
     {
       "w": "おんがくか",
       "k": "音楽家",
-      "m": "nhạc sĩ"
+      "m": "nhạc sĩ",
+      "examples": [
+        {
+          "jp": "彼[かれ]は 有名[ゆうめい]な 音楽家[おんがくか]です。",
+          "vn": "Anh ấy là một nhạc sĩ nổi tiếng."
+        },
+        {
+          "jp": "この 曲[きょく]は 有名[ゆうめい]な 音楽家[おんがくか]が 作[つく]りました。",
+          "vn": "Bản nhạc này do một nhạc sĩ nổi tiếng sáng tác."
+        }
+      ]
     },
     {
       "w": "こどもたち",
       "k": "子どもたち",
-      "m": "trẻ em, trẻ con, bọn trẻ"
+      "m": "trẻ em, trẻ con, bọn trẻ",
+      "examples": [
+        {
+          "jp": "子供[こども]たちの 教育[きょういく]の ために 貯金[ちょきん]して います。",
+          "vn": "Tôi tiết kiệm tiền vì việc học hành của con cái."
+        },
+        {
+          "jp": "地域[ちいき]の 子供[こども]たちに ボランティアを して います。",
+          "vn": "Tôi làm tình nguyện cho trẻ em trong khu vực."
+        }
+      ]
     },
     {
       "w": "ふたり",
       "k": "二人",
-      "m": "hai người, cặp, đôi"
+      "m": "hai người, cặp, đôi",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]には 二人[ふたり]だけ 出席[しゅっせき]しました。",
+          "vn": "Chỉ có hai người tham dự cuộc họp."
+        },
+        {
+          "jp": "契約[けいやく]の ために 二人[ふたり]で 訪問[ほうもん]しました。",
+          "vn": "Chúng tôi hai người đã đến thăm để bàn về hợp đồng."
+        }
+      ]
     },
     {
       "w": "きょういく",
       "k": "教育",
-      "m": "giáo dục, việc học hành"
+      "m": "giáo dục, việc học hành",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]は 社員[しゃいん]の 教育[きょういく]に 力[ちから]を 入[い]れて います。",
+          "vn": "Công ty đang chú trọng vào việc đào tạo nhân viên."
+        },
+        {
+          "jp": "教育[きょういく]の ために、海外[かいがい]の 大学[だいがく]で 学[まな]びました。",
+          "vn": "Vì việc học hành nên tôi đã học ở trường đại học nước ngoài."
+        }
+      ]
     },
     {
       "w": "れきし",
       "k": "歴史",
-      "m": "lịch sử"
+      "m": "lịch sử",
+      "examples": [
+        {
+          "jp": "この 会社[かいしゃ]は 長[なが]い 歴史[れきし]が あります。",
+          "vn": "Công ty này có lịch sử lâu đời."
+        },
+        {
+          "jp": "会社[かいしゃ]の 歴史[れきし]に ついて 調[しら]べました。",
+          "vn": "Tôi đã tìm hiểu về lịch sử công ty."
+        }
+      ]
     },
     {
       "w": "ぶんか",
       "k": "文化",
-      "m": "văn hóa"
+      "m": "văn hóa",
+      "examples": [
+        {
+          "jp": "海外[かいがい]支店[してん]の 文化[ぶんか]を 理解[りかい]する ために 研修[けんしゅう]を 受[う]けました。",
+          "vn": "Tôi đã tham gia khóa đào tạo để hiểu văn hóa của chi nhánh nước ngoài."
+        },
+        {
+          "jp": "日本[にほん]の 会社[かいしゃ]の 文化[ぶんか]は 独特[どくとく]です。",
+          "vn": "Văn hóa công ty Nhật khá đặc trưng."
+        }
+      ]
     },
     {
       "w": "しゃかい",
       "k": "社会",
-      "m": "xã hội"
+      "m": "xã hội",
+      "examples": [
+        {
+          "jp": "この プロジェクトは 社会[しゃかい]の ために 役立[やくだ]ちます。",
+          "vn": "Dự án này có ích cho xã hội."
+        },
+        {
+          "jp": "社会[しゃかい]の 変化[へんか]に 合[あ]わせて 事業[じぎょう]を 変[か]えます。",
+          "vn": "Chúng tôi thay đổi việc kinh doanh theo sự biến đổi của xã hội."
+        }
+      ]
     },
     {
       "w": "ほうりつ",
       "k": "法律",
-      "m": "pháp luật"
+      "m": "pháp luật",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 法律[ほうりつ]に ついて 勉強[べんきょう]しました。",
+          "vn": "Tôi đã học về luật mới."
+        },
+        {
+          "jp": "この 契約[けいやく]は 法律[ほうりつ]に 基[もと]づいて います。",
+          "vn": "Hợp đồng này dựa trên pháp luật."
+        }
+      ]
     },
     {
       "w": "せんそう",
       "k": "戦争",
-      "m": "chiến tranh"
+      "m": "chiến tranh",
+      "examples": [
+        {
+          "jp": "戦争[せんそう]の 歴史[れきし]に ついて 学[まな]びました。",
+          "vn": "Tôi đã học về lịch sử chiến tranh."
+        },
+        {
+          "jp": "戦争[せんそう]の ない 世界[せかい]を 願[ねが]って います。",
+          "vn": "Tôi mong ước một thế giới không có chiến tranh."
+        }
+      ]
     },
     {
       "w": "へいわ",
       "k": "平和",
-      "m": "hòa bình"
+      "m": "hòa bình",
+      "examples": [
+        {
+          "jp": "平和[へいわ]の ために できる ことを 考[かんが]えました。",
+          "vn": "Tôi đã suy nghĩ về những điều có thể làm vì hòa bình."
+        },
+        {
+          "jp": "平和[へいわ]な 世界[せかい]を 願[ねが]って います。",
+          "vn": "Tôi mong ước một thế giới hòa bình."
+        }
+      ]
     },
     {
       "w": "もくてき",
       "k": "目的",
-      "m": "mục đích"
+      "m": "mục đích",
+      "examples": [
+        {
+          "jp": "この 出張[しゅっちょう]の 目的[もくてき]は 契約[けいやく]です。",
+          "vn": "Mục đích của chuyến công tác này là ký hợp đồng."
+        },
+        {
+          "jp": "会議[かいぎ]の 目的[もくてき]を もう一度[いちど] 確認[かくにん]しましょう。",
+          "vn": "Chúng ta xác nhận lại mục đích cuộc họp lần nữa nhé."
+        }
+      ]
     },
     {
       "w": "あんぜん",
       "k": "安全",
-      "m": "an toàn"
+      "m": "an toàn",
+      "examples": [
+        {
+          "jp": "社員[しゃいん]の 安全[あんぜん]の ために ルールを 作[つく]りました。",
+          "vn": "Chúng tôi đã đặt ra quy định vì sự an toàn của nhân viên."
+        },
+        {
+          "jp": "この 機械[きかい]は 安全[あんぜん]に 使[つか]えます。",
+          "vn": "Chiếc máy này sử dụng an toàn."
+        }
+      ]
     },
     {
       "w": "ろんぶん",
       "k": "論文",
-      "m": "luận văn, bài báo học thuật"
+      "m": "luận văn, bài báo học thuật",
+      "examples": [
+        {
+          "jp": "論文[ろんぶん]を 書[か]く ために、資料[しりょう]を 集[あつ]めて います。",
+          "vn": "Tôi đang thu thập tài liệu để viết luận văn."
+        },
+        {
+          "jp": "この 論文[ろんぶん]は とても 参考[さんこう]に なりました。",
+          "vn": "Bài báo học thuật này rất hữu ích để tham khảo."
+        }
+      ]
     },
     {
       "w": "かんけい",
       "k": "関係",
-      "m": "quan hệ"
+      "m": "quan hệ",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]と いい 関係[かんけい]を 作[つく]る ために 努力[どりょく]して います。",
+          "vn": "Tôi đang nỗ lực để xây dựng mối quan hệ tốt với đối tác."
+        },
+        {
+          "jp": "この 問題[もんだい]は 予算[よさん]と 関係[かんけい]が あります。",
+          "vn": "Vấn đề này có liên quan đến ngân sách."
+        }
+      ]
     },
     {
       "w": "ミキサー",
       "k": "",
-      "m": "máy trộn (mixer)"
+      "m": "máy trộn (mixer)",
+      "examples": [
+        {
+          "jp": "スムージーを 作[つく]る ために ミキサーを 買[か]いました。",
+          "vn": "Tôi đã mua máy xay để làm sinh tố."
+        },
+        {
+          "jp": "ミキサーで 材料[ざいりょう]を 混[ま]ぜます。",
+          "vn": "Tôi dùng máy xay để trộn nguyên liệu."
+        }
+      ]
     },
     {
       "w": "やかん",
       "k": "",
-      "m": "cái ấm nước"
+      "m": "cái ấm nước",
+      "examples": [
+        {
+          "jp": "お茶[ちゃ]を 入[い]れる ために やかんで お湯[ゆ]を 沸[わ]かします。",
+          "vn": "Tôi đun nước bằng ấm để pha trà."
+        },
+        {
+          "jp": "給湯室[きゅうとうしつ]に やかんが あります。",
+          "vn": "Trong phòng bếp nhỏ có một cái ấm nước."
+        }
+      ]
     },
     {
       "w": "せんぬき",
       "k": "栓抜き",
-      "m": "cái mở nắp chai"
+      "m": "cái mở nắp chai",
+      "examples": [
+        {
+          "jp": "ワインを 開[あ]ける ために 栓抜[せんぬ]きを 使[つか]いました。",
+          "vn": "Tôi đã dùng cái mở nắp chai để mở rượu vang."
+        },
+        {
+          "jp": "栓抜[せんぬ]きを 貸[か]して いただけませんか。",
+          "vn": "Anh/chị cho tôi mượn cái mở nắp chai được không ạ?"
+        }
+      ]
     },
     {
       "w": "かんきり",
       "k": "缶切り",
-      "m": "cái mở đồ hộp"
+      "m": "cái mở đồ hộp",
+      "examples": [
+        {
+          "jp": "缶詰[かんづめ]を 開[あ]ける ために 缶切[かんき]りが 必要[ひつよう]です。",
+          "vn": "Cần có cái mở đồ hộp để mở lon đồ hộp."
+        },
+        {
+          "jp": "缶切[かんき]りが なくて 困[こま]りました。",
+          "vn": "Tôi khổ sở vì không có cái mở đồ hộp."
+        }
+      ]
     },
     {
       "w": "かんづめ",
       "k": "缶詰",
-      "m": "đồ hộp"
+      "m": "đồ hộp",
+      "examples": [
+        {
+          "jp": "非常時[ひじょうじ]の ために 缶詰[かんづめ]を 買[か]って おきました。",
+          "vn": "Tôi đã mua sẵn đồ hộp phòng khi khẩn cấp."
+        },
+        {
+          "jp": "会社[かいしゃ]の 防災[ぼうさい]用品[ようひん]に 缶詰[かんづめ]も 入[はい]って います。",
+          "vn": "Trong đồ dùng phòng chống thiên tai của công ty cũng có đồ hộp."
+        }
+      ]
     },
     {
       "w": "ふろしき",
       "k": "",
-      "m": "tấm vải để gói đồ"
+      "m": "tấm vải để gói đồ",
+      "examples": [
+        {
+          "jp": "プレゼントを 風呂敷[ふろしき]で 包[つつ]みました。",
+          "vn": "Tôi đã gói quà bằng tấm vải furoshiki."
+        },
+        {
+          "jp": "風呂敷[ふろしき]は 何[なに]を 包[つつ]むのにも 便利[べんり]です。",
+          "vn": "Vải furoshiki tiện dụng để gói bất cứ thứ gì."
+        }
+      ]
     },
     {
       "w": "そろばん",
       "k": "",
-      "m": "bàn tính"
+      "m": "bàn tính",
+      "examples": [
+        {
+          "jp": "計算[けいさん]する ために そろばんを 習[なら]いました。",
+          "vn": "Tôi đã học bàn tính để làm phép tính."
+        },
+        {
+          "jp": "祖父[そふ]は そろばんが 得意[とくい]です。",
+          "vn": "Ông tôi giỏi dùng bàn tính."
+        }
+      ]
     },
     {
       "w": "たいおんけい",
       "k": "体温計",
-      "m": "máy đo nhiệt độ cơ thể"
+      "m": "máy đo nhiệt độ cơ thể",
+      "examples": [
+        {
+          "jp": "熱[ねつ]を 測[はか]る ために 体温計[たいおんけい]を 使[つか]いました。",
+          "vn": "Tôi đã dùng nhiệt kế để đo sốt."
+        },
+        {
+          "jp": "会社[かいしゃ]の 受付[うけつけ]に 体温計[たいおんけい]が 置[お]いて あります。",
+          "vn": "Ở quầy lễ tân công ty có để sẵn nhiệt kế."
+        }
+      ]
     },
     {
       "w": "ざいりょう",
       "k": "材料",
-      "m": "nguyên liệu"
+      "m": "nguyên liệu",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 製品[せいひん]の 材料[ざいりょう]を 計算[けいさん]しました。",
+          "vn": "Tôi đã tính toán nguyên liệu cho sản phẩm mới."
+        },
+        {
+          "jp": "材料[ざいりょう]の 値段[ねだん]が 上[あ]がりました。",
+          "vn": "Giá nguyên liệu đã tăng lên."
+        }
+      ]
     },
     {
       "w": "いし",
       "k": "石",
-      "m": "hòn đá, đá"
+      "m": "hòn đá, đá",
+      "examples": [
+        {
+          "jp": "このビルは 硬[かた]い 石[いし]で 作[つく]られて います。",
+          "vn": "Tòa nhà này được làm từ đá cứng."
+        },
+        {
+          "jp": "庭[にわ]に きれいな 石[いし]を 並[なら]べました。",
+          "vn": "Tôi đã xếp những hòn đá đẹp trong sân."
+        }
+      ]
     },
     {
       "w": "ピラミッド",
       "k": "",
-      "m": "kim tự tháp"
+      "m": "kim tự tháp",
+      "examples": [
+        {
+          "jp": "エジプトの ピラミッドは 石[いし]で 作[つく]られて います。",
+          "vn": "Kim tự tháp Ai Cập được xây từ đá."
+        },
+        {
+          "jp": "いつか ピラミッドを 見[み]に 行[い]きたいです。",
+          "vn": "Một ngày nào đó tôi muốn đi xem kim tự tháp."
+        }
+      ]
     },
     {
       "w": "データ",
       "k": "",
-      "m": "số liệu, dữ liệu"
+      "m": "số liệu, dữ liệu",
+      "examples": [
+        {
+          "jp": "計算[けいさん]する ために データを 集[あつ]めました。",
+          "vn": "Tôi đã thu thập số liệu để tính toán."
+        },
+        {
+          "jp": "このデータは 論文[ろんぶん]に 使[つか]います。",
+          "vn": "Dữ liệu này sẽ được dùng cho luận văn."
+        }
+      ]
     },
     {
       "w": "ファイル",
       "k": "",
-      "m": "cái kẹp tài liệu (file)"
+      "m": "cái kẹp tài liệu (file)",
+      "examples": [
+        {
+          "jp": "資料[しりょう]を 分[わ]かりやすく する ために ファイルで 分類[ぶんるい]しました。",
+          "vn": "Tôi đã phân loại vào các file để tài liệu dễ hiểu hơn."
+        },
+        {
+          "jp": "契約書[けいやくしょ]は この ファイルに 入[はい]って います。",
+          "vn": "Hợp đồng nằm trong cái kẹp tài liệu này."
+        }
+      ]
     },
     {
       "w": "ある～",
       "k": "",
-      "m": "có ~, một ~"
+      "m": "có ~, một ~",
+      "examples": [
+        {
+          "jp": "ある 日[ひ]、突然[とつぜん] 大[おお]きな 契約[けいやく]の 話[はなし]が 来[き]ました。",
+          "vn": "Một ngày nọ, bỗng nhiên có một hợp đồng lớn tìm đến."
+        },
+        {
+          "jp": "ある 会社[かいしゃ]から 提携[ていけい]の 依頼[いらい]が ありました。",
+          "vn": "Có một công ty đã đề nghị hợp tác."
+        }
+      ]
     },
     {
       "w": "いっしょうけんめい",
       "k": "一生懸命",
-      "m": "hết sức, chăm chỉ"
+      "m": "hết sức, chăm chỉ",
+      "examples": [
+        {
+          "jp": "契約[けいやく]を 取[と]る ために 一生懸命[いっしょうけんめい] 頑張[がんば]りました。",
+          "vn": "Tôi đã cố gắng hết sức để ký được hợp đồng."
+        },
+        {
+          "jp": "彼[かれ]は 一生懸命[いっしょうけんめい] 働[はたら]く 人[ひと]です。",
+          "vn": "Anh ấy là người làm việc hết sức chăm chỉ."
+        }
+      ]
     },
     {
       "w": "なぜ",
       "k": "",
-      "m": "tại sao"
+      "m": "tại sao",
+      "examples": [
+        {
+          "jp": "なぜ この データが 必要[ひつよう]なのか 教[おし]えて ください。",
+          "vn": "Hãy cho tôi biết tại sao cần dữ liệu này."
+        },
+        {
+          "jp": "なぜ 失敗[しっぱい]したのか 原因[げんいん]を 調[しら]べました。",
+          "vn": "Tôi đã tìm hiểu nguyên nhân tại sao thất bại."
+        }
+      ]
     },
     {
       "w": "こくれん",
       "k": "国連",
-      "m": "Liên Hợp Quốc"
+      "m": "Liên Hợp Quốc",
+      "examples": [
+        {
+          "jp": "平和[へいわ]の ために 国連[こくれん]が 活動[かつどう]して います。",
+          "vn": "Liên Hợp Quốc đang hoạt động vì hòa bình."
+        },
+        {
+          "jp": "国連[こくれん]の 会議[かいぎ]に ついて ニュースで 見[み]ました。",
+          "vn": "Tôi đã xem tin về cuộc họp của Liên Hợp Quốc."
+        }
+      ]
     },
     {
       "w": "エリーゼの ために",
       "k": "",
-      "m": "Für Elise, tên một bản nhạc của Bít-thô-ven"
+      "m": "Für Elise, tên một bản nhạc của Bít-thô-ven",
+      "examples": [
+        {
+          "jp": "「エリーゼの ために」は とても 有名[ゆうめい]な 曲[きょく]です。",
+          "vn": "\"Für Elise\" là một bản nhạc rất nổi tiếng."
+        },
+        {
+          "jp": "娘[むすめ]は ピアノで「エリーゼの ために」を 弾[ひ]きました。",
+          "vn": "Con gái tôi đã đàn piano bài \"Für Elise\"."
+        }
+      ]
     },
     {
       "w": "ベートーベン",
       "k": "",
-      "m": "Bít-thô-ven (1770-1827), nhà soạn nhạc người Đức"
+      "m": "Bít-thô-ven (1770-1827), nhà soạn nhạc người Đức",
+      "examples": [
+        {
+          "jp": "ベートーベンの 曲[きょく]を 聞[き]くのが 好[す]きです。",
+          "vn": "Tôi thích nghe những bản nhạc của Beethoven."
+        },
+        {
+          "jp": "ベートーベンに ついて 調[しら]べました。",
+          "vn": "Tôi đã tìm hiểu về Beethoven."
+        }
+      ]
     },
     {
       "w": "ポーランド",
       "k": "",
-      "m": "Ba Lan"
+      "m": "Ba Lan",
+      "examples": [
+        {
+          "jp": "ポーランドの 会社[かいしゃ]と 取引[とりひき]を 始[はじ]めました。",
+          "vn": "Chúng tôi đã bắt đầu giao dịch với một công ty ở Ba Lan."
+        },
+        {
+          "jp": "ショパンは ポーランド出身[しゅっしん]です。",
+          "vn": "Chopin là người Ba Lan."
+        }
+      ]
     }
   ],
   "expressions": [

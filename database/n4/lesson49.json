@@ -6,112 +6,332 @@
     {
       "w": "つとめますⅡ [かいしゃに～]",
       "k": "勤めます [会社に～]",
-      "m": "làm việc ở [công ty]"
+      "m": "làm việc ở [công ty]",
+      "examples": [
+        {
+          "jp": "山田[やまだ]様[さま]は 貿易[ぼうえき]会社[がいしゃ]に お勤[つと]めに なって います。",
+          "vn": "Ngài Yamada đang làm việc ở một công ty thương mại."
+        },
+        {
+          "jp": "何[なん]年[ねん]ぐらい こちらの 会社[かいしゃ]に お勤[つと]めですか。",
+          "vn": "Ngài đã làm việc ở công ty này khoảng bao nhiêu năm rồi ạ?"
+        }
+      ]
     },
     {
       "w": "やすみますⅠ",
       "k": "休みます",
-      "m": "ngủ"
+      "m": "ngủ",
+      "examples": [
+        {
+          "jp": "昨夜[さくや]は よく お休[やす]みに なりましたか。",
+          "vn": "Đêm qua ngài đã ngủ ngon chưa ạ?"
+        },
+        {
+          "jp": "どうぞ ごゆっくり お休[やす]み ください。",
+          "vn": "Xin mời ngài nghỉ ngơi thoải mái ạ."
+        }
+      ]
     },
     {
       "w": "かけますⅡ [いすに～]",
       "k": "掛けます",
-      "m": "ngồi [ghế]"
+      "m": "ngồi [ghế]",
+      "examples": [
+        {
+          "jp": "どうぞ、こちらの 椅子[いす]に お掛[か]け ください。",
+          "vn": "Xin mời ngài ngồi vào ghế này ạ."
+        },
+        {
+          "jp": "社長[しゃちょう]は もう お掛[か]けに なって います。",
+          "vn": "Giám đốc đã ngồi vào ghế rồi ạ."
+        }
+      ]
     },
     {
       "w": "すごしますⅠ",
       "k": "過ごします",
-      "m": "tiêu thời gian, trải qua"
+      "m": "tiêu thời gian, trải qua",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ]は いかが お過[す]ごしに なりましたか。",
+          "vn": "Cuối tuần ngài đã trải qua như thế nào ạ?"
+        },
+        {
+          "jp": "どうぞ 楽[たの]しい 時間[じかん]を お過[す]ごし ください。",
+          "vn": "Kính chúc ngài có khoảng thời gian vui vẻ ạ."
+        }
+      ]
     },
     {
       "w": "よりますⅠ [ぎんこうに～]",
       "k": "寄ります [銀行に～]",
-      "m": "ghé qua [ngân hàng]"
+      "m": "ghé qua [ngân hàng]",
+      "examples": [
+        {
+          "jp": "お帰[かえ]りに 銀行[ぎんこう]に お寄[よ]りに なりますか。",
+          "vn": "Trên đường về ngài có ghé qua ngân hàng không ạ?"
+        },
+        {
+          "jp": "社長[しゃちょう]は 支店[してん]に お寄[よ]りに なってから 本社[ほんしゃ]に 戻[もど]られます。",
+          "vn": "Giám đốc sẽ ghé qua chi nhánh rồi mới về lại trụ sở chính ạ."
+        }
+      ]
     },
     {
       "w": "いらっしゃいますⅠ",
       "k": "",
-      "m": "ở, có, đi, đến (tôn kính ngữ của います, いきます và きます)"
+      "m": "ở, có, đi, đến (tôn kính ngữ của います, いきます và きます)",
+      "examples": [
+        {
+          "jp": "社長[しゃちょう]は 会議室[かいぎしつ]に いらっしゃいます。",
+          "vn": "Giám đốc đang có mặt ở phòng họp ạ."
+        },
+        {
+          "jp": "明日[あした]の パーティーに いらっしゃいますか。",
+          "vn": "Ngày mai ngài có đến dự tiệc không ạ?"
+        }
+      ]
     },
     {
       "w": "めしあがりますⅠ",
       "k": "召し上がります",
-      "m": "ăn, uống (tôn kính ngữ của たべます và のみます)"
+      "m": "ăn, uống (tôn kính ngữ của たべます và のみます)",
+      "examples": [
+        {
+          "jp": "どうぞ 温[あたた]かい うちに 召[め]し上[あ]がって ください。",
+          "vn": "Xin mời ngài dùng khi còn nóng ạ."
+        },
+        {
+          "jp": "お飲[の]み物[もの]は 何[なに]を 召[め]し上[あ]がりますか。",
+          "vn": "Ngài muốn dùng đồ uống gì ạ?"
+        }
+      ]
     },
     {
       "w": "おっしゃいますⅠ",
       "k": "",
-      "m": "nói (tôn kính ngữ của いいます)"
+      "m": "nói (tôn kính ngữ của いいます)",
+      "examples": [
+        {
+          "jp": "先[さき]ほど おっしゃった ことを もう一度[いちど] 確認[かくにん]させて ください。",
+          "vn": "Xin cho tôi xác nhận lại điều ngài vừa nói ban nãy ạ."
+        },
+        {
+          "jp": "お名前[なまえ]は 何[なん]と おっしゃいますか。",
+          "vn": "Xin cho hỏi quý danh của ngài là gì ạ?"
+        }
+      ]
     },
     {
       "w": "なさいますⅠ",
       "k": "",
-      "m": "làm (tôn kính ngữ của します)"
+      "m": "làm (tôn kính ngữ của します)",
+      "examples": [
+        {
+          "jp": "ご注文[ちゅうもん]は いかが なさいますか。",
+          "vn": "Ngài muốn gọi món gì ạ?"
+        },
+        {
+          "jp": "お仕事[しごと]は 何[なに]を なさって いますか。",
+          "vn": "Ngài đang làm công việc gì ạ?"
+        }
+      ]
     },
     {
       "w": "ごらんに なりますⅠ",
       "k": "ご覧に なります",
-      "m": "xem, nhìn (tôn kính ngữ của みます)"
+      "m": "xem, nhìn (tôn kính ngữ của みます)",
+      "examples": [
+        {
+          "jp": "こちらの 資料[しりょう]を ご覧[らん]に なって ください。",
+          "vn": "Xin mời ngài xem tài liệu này ạ."
+        },
+        {
+          "jp": "もう この レポートを ご覧[らん]に なりましたか。",
+          "vn": "Ngài đã xem báo cáo này chưa ạ?"
+        }
+      ]
     },
     {
       "w": "ごぞんじです",
       "k": "ご存じです",
-      "m": "biết (tôn kính ngữ của しって います)"
+      "m": "biết (tôn kính ngữ của しって います)",
+      "examples": [
+        {
+          "jp": "田中[たなか]様[さま]の ご連絡先[れんらくさき]を ご存[ぞん]じですか。",
+          "vn": "Ngài có biết thông tin liên hệ của ông Tanaka không ạ?"
+        },
+        {
+          "jp": "この件[けん]に ついて、部長[ぶちょう]は もう ご存[ぞん]じの ようです。",
+          "vn": "Về việc này, có vẻ trưởng phòng đã biết rồi ạ."
+        }
+      ]
     },
     {
       "w": "あいさつ",
       "k": "",
-      "m": "chào hỏi (～を します: chào hỏi)"
+      "m": "chào hỏi (～を します: chào hỏi)",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 社長[しゃちょう]が 全社員[ぜんしゃいん]に あいさつを なさいました。",
+          "vn": "Giám đốc mới đã chào hỏi toàn thể nhân viên."
+        },
+        {
+          "jp": "取引先[とりひきさき]の 方[かた]に あいさつに 伺[うかが]います。",
+          "vn": "Tôi sẽ đến chào hỏi phía đối tác ạ."
+        }
+      ]
     },
     {
       "w": "はいざら",
       "k": "灰皿",
-      "m": "cái gạt tàn"
+      "m": "cái gạt tàn",
+      "examples": [
+        {
+          "jp": "灰皿[はいざら]を お持[も]ち しましょうか。",
+          "vn": "Tôi mang gạt tàn đến cho ngài nhé?"
+        },
+        {
+          "jp": "会議室[かいぎしつ]には 灰皿[はいざら]は ございません。",
+          "vn": "Trong phòng họp không có gạt tàn ạ."
+        }
+      ]
     },
     {
       "w": "りょかん",
       "k": "旅館",
-      "m": "khách sạn kiểu Nhật"
+      "m": "khách sạn kiểu Nhật",
+      "examples": [
+        {
+          "jp": "出張[しゅっちょう]の とき、旅館[りょかん]に お泊[と]まりに なりましたか。",
+          "vn": "Lúc đi công tác ngài đã nghỉ ở khách sạn kiểu Nhật (旅館) à?"
+        },
+        {
+          "jp": "この 旅館[りょかん]は とても 有名[ゆうめい]だそうです。",
+          "vn": "Nghe nói khách sạn này rất nổi tiếng ạ."
+        }
+      ]
     },
     {
       "w": "かいじょう",
       "k": "会場",
-      "m": "hội trường, địa điểm tổ chức"
+      "m": "hội trường, địa điểm tổ chức",
+      "examples": [
+        {
+          "jp": "会場[かいじょう]までの 道[みち]を ご案内[あんない]します。",
+          "vn": "Tôi xin hướng dẫn đường đến hội trường ạ."
+        },
+        {
+          "jp": "会場[かいじょう]は もう 準備[じゅんび]できて いますか。",
+          "vn": "Hội trường đã chuẩn bị xong chưa ạ?"
+        }
+      ]
     },
     {
       "w": "バスてい",
       "k": "バス停",
-      "m": "bến xe buýt, điểm lên xuống xe buýt"
+      "m": "bến xe buýt, điểm lên xuống xe buýt",
+      "examples": [
+        {
+          "jp": "バス停[てい]は どちらに ございますか。",
+          "vn": "Bến xe buýt ở đâu ạ?"
+        },
+        {
+          "jp": "バス停[てい]まで お送[おく]りしましょうか。",
+          "vn": "Tôi đưa ngài đến bến xe buýt nhé?"
+        }
+      ]
     },
     {
       "w": "ぼうえき",
       "k": "貿易",
-      "m": "thương mại quốc tế, mậu dịch"
+      "m": "thương mại quốc tế, mậu dịch",
+      "examples": [
+        {
+          "jp": "貿易[ぼうえき]会社[がいしゃ]に お勤[つと]めだと おっしゃって いました。",
+          "vn": "Ngài đã nói là đang làm ở công ty thương mại quốc tế ạ."
+        },
+        {
+          "jp": "貿易[ぼうえき]に 関[かん]する ご質問[しつもん]は ございますか。",
+          "vn": "Ngài có câu hỏi nào liên quan đến thương mại không ạ?"
+        }
+      ]
     },
     {
       "w": "～さま",
       "k": "～様",
-      "m": "ngài ~, ông ~, bà ~ (tôn kính ngữ của ～さん)"
+      "m": "ngài ~, ông ~, bà ~ (tôn kính ngữ của ～さん)",
+      "examples": [
+        {
+          "jp": "田中[たなか]様[さま]、こちらへ どうぞ。",
+          "vn": "Kính mời ngài Tanaka đi lối này ạ."
+        },
+        {
+          "jp": "お客様[きゃくさま]、ご注文[ちゅうもん]は お決[き]まりですか。",
+          "vn": "Thưa quý khách, quý khách đã chọn xong món chưa ạ?"
+        }
+      ]
     },
     {
       "w": "かえりに",
       "k": "帰りに",
-      "m": "trên đường về"
+      "m": "trên đường về",
+      "examples": [
+        {
+          "jp": "お帰[かえ]りに 何[なに]か お飲[の]み物[もの]は いかがですか。",
+          "vn": "Trên đường về ngài có muốn dùng đồ uống gì không ạ?"
+        },
+        {
+          "jp": "会議[かいぎ]の 帰[かえ]りに 資料[しりょう]を お渡[わた]しします。",
+          "vn": "Trên đường ra về sau cuộc họp tôi sẽ đưa tài liệu cho ngài ạ."
+        }
+      ]
     },
     {
       "w": "たまに",
       "k": "",
-      "m": "thỉnh thoảng (tần suất nhỏ hơn ときどき)"
+      "m": "thỉnh thoảng (tần suất nhỏ hơn ときどき)",
+      "examples": [
+        {
+          "jp": "社長[しゃちょう]は たまに 現場[げんば]を ご覧[らん]に なります。",
+          "vn": "Giám đốc thỉnh thoảng đến xem hiện trường ạ."
+        },
+        {
+          "jp": "たまに 早[はや]く 帰[かえ]らせて いただいて います。",
+          "vn": "Thỉnh thoảng tôi được cho phép về sớm ạ."
+        }
+      ]
     },
     {
       "w": "ちっとも",
       "k": "",
-      "m": "chẳng ~ tí nào, không hề"
+      "m": "chẳng ~ tí nào, không hề",
+      "examples": [
+        {
+          "jp": "ちっとも 存[ぞん]じませんでした。申[もう]し訳[わけ]ございません。",
+          "vn": "Tôi hoàn toàn không hề biết chuyện đó. Thành thật xin lỗi ạ."
+        },
+        {
+          "jp": "この 件[けん]は ちっとも 進[すす]んで いない ようです。",
+          "vn": "Có vẻ việc này chẳng tiến triển tí nào ạ."
+        }
+      ]
     },
     {
       "w": "えんりょなく",
       "k": "遠慮なく",
-      "m": "không giữ ý, không làm khách"
+      "m": "không giữ ý, không làm khách",
+      "examples": [
+        {
+          "jp": "何[なに]か ございましたら、遠慮[えんりょ]なく おっしゃって ください。",
+          "vn": "Nếu có gì thì xin ngài đừng ngại cứ nói ạ."
+        },
+        {
+          "jp": "遠慮[えんりょ]なく 召[め]し上[あ]がって ください。",
+          "vn": "Xin mời ngài cứ tự nhiên dùng bữa ạ."
+        }
+      ]
     }
   ],
   "expressions": [

@@ -6,122 +6,362 @@
     {
       "w": "そだてますⅡ",
       "k": "育てます",
-      "m": "nuôi, trồng"
+      "m": "nuôi, trồng",
+      "examples": [
+        {
+          "jp": "子供[こども]を 育[そだ]てるのは 大変[たいへん]ですが、楽[たの]しいです。",
+          "vn": "Nuôi con thì vất vả nhưng vui."
+        },
+        {
+          "jp": "庭[にわ]で 野菜[やさい]を 育[そだ]てるのが 趣味[しゅみ]です。",
+          "vn": "Sở thích của tôi là trồng rau trong sân."
+        }
+      ]
     },
     {
       "w": "はこびますⅠ",
       "k": "運びます",
-      "m": "chở, vận chuyển"
+      "m": "chở, vận chuyển",
+      "examples": [
+        {
+          "jp": "重[おも]い 荷物[にもつ]を 運[はこ]ぶのは 大変[たいへん]です。",
+          "vn": "Vận chuyển hành lý nặng thì rất vất vả."
+        },
+        {
+          "jp": "机[つくえ]を 会議室[かいぎしつ]まで 運[はこ]ぶのを 手伝[てつだ]って ください。",
+          "vn": "Hãy giúp tôi chuyển cái bàn đến phòng họp."
+        }
+      ]
     },
     {
       "w": "なくなりますⅠ",
       "k": "亡くなります",
-      "m": "mất, qua đời (cách nói gián tiếp của しにます (Bài 39))"
+      "m": "mất, qua đời (cách nói gián tiếp của しにます (Bài 39))",
+      "examples": [
+        {
+          "jp": "祖父[そふ]が 先月[せんげつ] 亡[な]くなりました。",
+          "vn": "Ông tôi đã mất vào tháng trước."
+        },
+        {
+          "jp": "課長[かちょう]の お父様[とうさま]が 亡[な]くなったそうです。",
+          "vn": "Nghe nói bố của trưởng phòng đã qua đời."
+        }
+      ]
     },
     {
       "w": "にゅういんしますⅢ",
       "k": "入院します",
-      "m": "nhập viện"
+      "m": "nhập viện",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]が 病気[びょうき]で 入院[にゅういん]しました。",
+          "vn": "Đồng nghiệp tôi bị bệnh nên đã nhập viện."
+        },
+        {
+          "jp": "入院[にゅういん]して いる 間[あいだ]、仕事[しごと]は 休[やす]みました。",
+          "vn": "Trong thời gian nhập viện tôi đã nghỉ làm."
+        }
+      ]
     },
     {
       "w": "たいいんしますⅢ",
       "k": "退院します",
-      "m": "xuất viện"
+      "m": "xuất viện",
+      "examples": [
+        {
+          "jp": "来週[らいしゅう] 退院[たいいん]する 予定[よてい]です。",
+          "vn": "Tuần sau tôi dự kiến xuất viện."
+        },
+        {
+          "jp": "退院[たいいん]したら、すぐに 職場[しょくば]に 復帰[ふっき]します。",
+          "vn": "Xuất viện xong tôi sẽ quay lại công việc ngay."
+        }
+      ]
     },
     {
       "w": "いれますⅡ [でんげんを～]",
       "k": "入れます [電源を～]",
-      "m": "bật [công tắc điện, nguồn điện]"
+      "m": "bật [công tắc điện, nguồn điện]",
+      "examples": [
+        {
+          "jp": "パソコンの 電源[でんげん]を 入[い]れるのを 忘[わす]れました。",
+          "vn": "Tôi đã quên bật nguồn máy tính."
+        },
+        {
+          "jp": "会議[かいぎ]の 前[まえ]に プロジェクターの 電源[でんげん]を 入[い]れて おいて ください。",
+          "vn": "Hãy bật sẵn nguồn máy chiếu trước cuộc họp."
+        }
+      ]
     },
     {
       "w": "きりますⅠ [でんげんを～]",
       "k": "切ります [電源を～]",
-      "m": "tắt [công tắc điện, nguồn điện]"
+      "m": "tắt [công tắc điện, nguồn điện]",
+      "examples": [
+        {
+          "jp": "帰[かえ]る 前[まえ]に パソコンの 電源[でんげん]を 切[き]るのを 忘[わす]れないで ください。",
+          "vn": "Trước khi về đừng quên tắt nguồn máy tính."
+        },
+        {
+          "jp": "会議中[かいぎちゅう]は 携帯[けいたい]の 電源[でんげん]を 切[き]って ください。",
+          "vn": "Trong lúc họp xin hãy tắt nguồn điện thoại."
+        }
+      ]
     },
     {
       "w": "かけますⅡ [かぎを～]",
       "k": "掛けます",
-      "m": "khóa [chìa khóa]"
+      "m": "khóa [chìa khóa]",
+      "examples": [
+        {
+          "jp": "出[で]かける とき、鍵[かぎ]を 掛[か]けるのを 忘[わす]れないで ください。",
+          "vn": "Khi ra ngoài đừng quên khóa cửa."
+        },
+        {
+          "jp": "会議室[かいぎしつ]の ドアに 鍵[かぎ]を 掛[か]けました。",
+          "vn": "Tôi đã khóa cửa phòng họp."
+        }
+      ]
     },
     {
       "w": "きもちが いい",
       "k": "気持ちが いい",
-      "m": "dễ chịu, thư giãn"
+      "m": "dễ chịu, thư giãn",
+      "examples": [
+        {
+          "jp": "朝[あさ]、公園[こうえん]を 散歩[さんぽ]するのは 気持[きも]ちが いいです。",
+          "vn": "Buổi sáng đi dạo công viên thì thật dễ chịu."
+        },
+        {
+          "jp": "この 部屋[へや]は 風[かぜ]が 通[とお]って 気持[きも]ちが いいです。",
+          "vn": "Phòng này thoáng gió nên thấy dễ chịu."
+        }
+      ]
     },
     {
       "w": "きもちが わるい",
       "k": "気持ちが 悪い",
-      "m": "khó chịu"
+      "m": "khó chịu",
+      "examples": [
+        {
+          "jp": "満員[まんいん]電車[でんしゃ]は 気持[きも]ちが 悪[わる]いです。",
+          "vn": "Tàu điện đông đúc làm tôi thấy khó chịu."
+        },
+        {
+          "jp": "その 話[はなし]を 聞[き]いて 気持[きも]ちが 悪[わる]く なりました。",
+          "vn": "Nghe câu chuyện đó xong tôi thấy khó chịu."
+        }
+      ]
     },
     {
       "w": "おおきな ～",
       "k": "大きな ～",
-      "m": "~ to, ~ lớn"
+      "m": "~ to, ~ lớn",
+      "examples": [
+        {
+          "jp": "大[おお]きな 契約[けいやく]を 取[と]るのは 簡単[かんたん]では ありません。",
+          "vn": "Ký được hợp đồng lớn không phải chuyện đơn giản."
+        },
+        {
+          "jp": "大[おお]きな 声[こえ]で 話[はな]して ください。",
+          "vn": "Hãy nói to lên một chút."
+        }
+      ]
     },
     {
       "w": "ちいさな ～",
       "k": "小さな ～",
-      "m": "~ nhỏ, ~ bé"
+      "m": "~ nhỏ, ~ bé",
+      "examples": [
+        {
+          "jp": "小[ちい]さな ミスも 見[み]逃[のが]さない ように して います。",
+          "vn": "Tôi cố gắng không bỏ sót cả những lỗi nhỏ."
+        },
+        {
+          "jp": "小[ちい]さな 会社[かいしゃ]ですが、社員[しゃいん]は みんな 優[やさ]しいです。",
+          "vn": "Tuy là công ty nhỏ nhưng nhân viên ai cũng tốt bụng."
+        }
+      ]
     },
     {
       "w": "あかちゃん",
       "k": "赤ちゃん",
-      "m": "em bé"
+      "m": "em bé",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]の 奥[おく]さんが 赤[あか]ちゃんを 産[う]んだそうです。",
+          "vn": "Nghe nói vợ đồng nghiệp tôi vừa sinh em bé."
+        },
+        {
+          "jp": "赤[あか]ちゃんを 育[そだ]てるのは 大変[たいへん]です。",
+          "vn": "Nuôi em bé thì rất vất vả."
+        }
+      ]
     },
     {
       "w": "しょうがっこう",
       "k": "小学校",
-      "m": "trường tiểu học"
+      "m": "trường tiểu học",
+      "examples": [
+        {
+          "jp": "娘[むすめ]は 来年[らいねん] 小学校[しょうがっこう]に 入学[にゅうがく]します。",
+          "vn": "Con gái tôi sang năm vào học tiểu học."
+        },
+        {
+          "jp": "小学校[しょうがっこう]の 友達[ともだち]と 久[ひさ]しぶりに 会[あ]いました。",
+          "vn": "Tôi vừa gặp lại bạn thời tiểu học sau một thời gian dài."
+        }
+      ]
     },
     {
       "w": "ちゅうがっこう",
       "k": "中学校",
-      "m": "trường trung học cơ sở"
+      "m": "trường trung học cơ sở",
+      "examples": [
+        {
+          "jp": "息子[むすこ]は 中学校[ちゅうがっこう]に 通[かよ]って います。",
+          "vn": "Con trai tôi đang học trường trung học cơ sở."
+        },
+        {
+          "jp": "中学校[ちゅうがっこう]の 先生[せんせい]に なるのが 夢[ゆめ]でした。",
+          "vn": "Ước mơ của tôi từng là trở thành giáo viên trung học cơ sở."
+        }
+      ]
     },
     {
       "w": "えきまえ",
       "k": "駅前",
-      "m": "khu vực trước nhà ga"
+      "m": "khu vực trước nhà ga",
+      "examples": [
+        {
+          "jp": "駅前[えきまえ]で 待[ま]ち合[あ]わせしましょう。",
+          "vn": "Chúng ta hẹn gặp trước ga nhé."
+        },
+        {
+          "jp": "駅前[えきまえ]に 新[あたら]しい ビルが 建[た]ちました。",
+          "vn": "Trước ga vừa mọc lên một tòa nhà mới."
+        }
+      ]
     },
     {
       "w": "かいがん",
       "k": "海岸",
-      "m": "bờ biển"
+      "m": "bờ biển",
+      "examples": [
+        {
+          "jp": "休[やす]みの 日[ひ]に 海岸[かいがん]を 散歩[さんぽ]するのが 好[す]きです。",
+          "vn": "Tôi thích đi dạo bờ biển vào ngày nghỉ."
+        },
+        {
+          "jp": "会社[かいしゃ]の 保養所[ほようじょ]は 海岸[かいがん]の 近[ちか]くに あります。",
+          "vn": "Nhà nghỉ dưỡng của công ty nằm gần bờ biển."
+        }
+      ]
     },
     {
       "w": "うそ",
       "k": "",
-      "m": "nói dối, lời nói dối"
+      "m": "nói dối, lời nói dối",
+      "examples": [
+        {
+          "jp": "彼[かれ]は うそを つくのが 苦手[にがて]です。",
+          "vn": "Anh ấy không giỏi nói dối."
+        },
+        {
+          "jp": "その 報告[ほうこく]は うそだと 分[わ]かりました。",
+          "vn": "Tôi đã biết báo cáo đó là nói dối."
+        }
+      ]
     },
     {
       "w": "しょるい",
       "k": "書類",
-      "m": "giấy tờ, tài liệu"
+      "m": "giấy tờ, tài liệu",
+      "examples": [
+        {
+          "jp": "この 書類[しょるい]を コピーするのを 忘[わす]れました。",
+          "vn": "Tôi đã quên photo tài liệu này."
+        },
+        {
+          "jp": "書類[しょるい]は 明日[あした]までに 提出[ていしゅつ]して ください。",
+          "vn": "Hãy nộp tài liệu trước ngày mai."
+        }
+      ]
     },
     {
       "w": "でんげん",
       "k": "電源",
-      "m": "nguồn điện, công tắc điện"
+      "m": "nguồn điện, công tắc điện",
+      "examples": [
+        {
+          "jp": "帰[かえ]る 前[まえ]に 全[すべ]ての 電源[でんげん]を 切[き]るのを 忘[わす]れないで ください。",
+          "vn": "Trước khi về đừng quên tắt hết nguồn điện."
+        },
+        {
+          "jp": "電源[でんげん]が 入[はい]らないので、確認[かくにん]して ください。",
+          "vn": "Nguồn không bật được nên hãy kiểm tra giúp tôi."
+        }
+      ]
     },
     {
       "w": "～せい",
       "k": "～製",
-      "m": "sản xuất tại ~"
+      "m": "sản xuất tại ~",
+      "examples": [
+        {
+          "jp": "これは 日本[にほん]製[せい]の 製品[せいひん]です。",
+          "vn": "Đây là sản phẩm sản xuất tại Nhật Bản."
+        },
+        {
+          "jp": "ドイツ製[せい]の 機械[きかい]を 導入[どうにゅう]しました。",
+          "vn": "Chúng tôi đã đưa vào sử dụng máy sản xuất tại Đức."
+        }
+      ]
     },
     {
       "w": "[あ、] いけない。",
       "k": "",
-      "m": "Ôi, hỏng mất rồi./ Ôi, trời ơi."
+      "m": "Ôi, hỏng mất rồi./ Ôi, trời ơi.",
+      "examples": [
+        {
+          "jp": "あ、いけない。会議[かいぎ]の 資料[しりょう]を 忘[わす]れて しまいました。",
+          "vn": "Ôi, hỏng rồi. Tôi để quên tài liệu họp mất rồi."
+        },
+        {
+          "jp": "いけない、メールを 送[おく]るのを 忘[わす]れて いました。",
+          "vn": "Trời ơi, tôi đã quên gửi email mất rồi."
+        }
+      ]
     },
     {
       "w": "おさきに [しつれいします]。",
       "k": "お先に [失礼します]。",
-      "m": "Tôi xin phép về trước."
+      "m": "Tôi xin phép về trước.",
+      "examples": [
+        {
+          "jp": "お先[さき]に 失礼[しつれい]します。お疲[つか]れさまでした。",
+          "vn": "Tôi xin phép về trước. Mọi người vất vả rồi."
+        },
+        {
+          "jp": "今日[きょう]は 用事[ようじ]が あるので、お先[さき]に 失礼[しつれい]します。",
+          "vn": "Hôm nay tôi có việc nên xin phép về trước."
+        }
+      ]
     },
     {
       "w": "げんばくドーム",
       "k": "原爆ドーム",
-      "m": "Nhà Vòm Bom nguyên tử, một di tích ở Hiroshima tưởng niệm nạn nhân bom nguyên tử"
+      "m": "Nhà Vòm Bom nguyên tử, một di tích ở Hiroshima tưởng niệm nạn nhân bom nguyên tử",
+      "examples": [
+        {
+          "jp": "広島[ひろしま]に 行[い]ったら 原爆[げんばく]ドームを 見[み]たいです。",
+          "vn": "Nếu đến Hiroshima tôi muốn xem Nhà Vòm Bom nguyên tử."
+        },
+        {
+          "jp": "原爆[げんばく]ドームは 世界遺産[せかいいさん]に 登録[とうろく]されて います。",
+          "vn": "Nhà Vòm Bom nguyên tử được công nhận là di sản thế giới."
+        }
+      ]
     }
   ],
   "expressions": [

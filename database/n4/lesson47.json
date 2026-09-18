@@ -6,147 +6,437 @@
     {
       "w": "あつまりますⅠ [ひとが～]",
       "k": "集まります [人が～]",
-      "m": "tập trung, tập hợp [người ~]"
+      "m": "tập trung, tập hợp [người ~]",
+      "examples": [
+        {
+          "jp": "説明会[せつめいかい]に 大勢[おおぜい]の 人[ひと]が 集[あつ]まったそうです。",
+          "vn": "Nghe nói rất đông người đã tập trung tại buổi thuyết minh."
+        },
+        {
+          "jp": "会議室[かいぎしつ]に 社員[しゃいん]が 集[あつ]まって いる ようです。",
+          "vn": "Có vẻ nhân viên đang tập trung ở phòng họp."
+        }
+      ]
     },
     {
       "w": "わかれますⅡ [ひとが～]",
       "k": "別れます [人が～]",
-      "m": "chia, chia nhỏ, chia ra [người ~]"
+      "m": "chia, chia nhỏ, chia ra [người ~]",
+      "examples": [
+        {
+          "jp": "チームは 二[ふた]つに 別[わ]かれて 作業[さぎょう]する そうです。",
+          "vn": "Nghe nói đội sẽ chia làm hai để làm việc."
+        },
+        {
+          "jp": "会議[かいぎ]の あと、みんな バラバラに 別[わ]かれた ようです。",
+          "vn": "Có vẻ sau cuộc họp mọi người đã tách nhau ra."
+        }
+      ]
     },
     {
       "w": "ながいきしますⅢ",
       "k": "長生きします",
-      "m": "sống lâu"
+      "m": "sống lâu",
+      "examples": [
+        {
+          "jp": "野菜[やさい]を たくさん 食[た]べる 人[ひと]は 長生[ながい]きする そうです。",
+          "vn": "Nghe nói người ăn nhiều rau thì sống lâu."
+        },
+        {
+          "jp": "祖父[そふ]は 長生[ながい]きしそうな 元気[げんき]さです。",
+          "vn": "Ông tôi trông khỏe mạnh có vẻ như sẽ sống lâu."
+        }
+      ]
     },
     {
       "w": "しますⅢ [おと／こえが～]",
       "k": "[音／声が～]",
-      "m": "nghe thấy, có [âm thanh/tiếng]"
+      "m": "nghe thấy, có [âm thanh/tiếng]",
+      "examples": [
+        {
+          "jp": "隣[となり]の 部屋[へや]から 大[おお]きな 声[こえ]が します。",
+          "vn": "Có tiếng nói lớn phát ra từ phòng bên cạnh."
+        },
+        {
+          "jp": "機械[きかい]から 変[へん]な 音[おと]が するので、確認[かくにん]して ください。",
+          "vn": "Máy phát ra tiếng lạ nên hãy kiểm tra giúp tôi."
+        }
+      ]
     },
     {
       "w": "しますⅢ [あじが～]",
       "k": "[味が～]",
-      "m": "có [vị]"
+      "m": "có [vị]",
+      "examples": [
+        {
+          "jp": "この スープは 少[すこ]し 辛[から]い 味[あじ]が します。",
+          "vn": "Món súp này có vị hơi cay."
+        },
+        {
+          "jp": "何[なに]か 変[へん]な 味[あじ]が しますね。",
+          "vn": "Có vị gì đó lạ lạ nhỉ."
+        }
+      ]
     },
     {
       "w": "しますⅢ [においが～]",
       "k": "",
-      "m": "có [mùi]"
+      "m": "có [mùi]",
+      "examples": [
+        {
+          "jp": "給湯室[きゅうとうしつ]から コーヒーの いい においが します。",
+          "vn": "Từ phòng bếp nhỏ có mùi cà phê thơm phức."
+        },
+        {
+          "jp": "この 部屋[へや]、何[なに]か 変[へん]な においが しませんか。",
+          "vn": "Phòng này có mùi gì đó lạ, bạn có thấy không?"
+        }
+      ]
     },
     {
       "w": "さしますⅠ [かさを～]",
       "k": "[傘を～]",
-      "m": "che [ô]"
+      "m": "che [ô]",
+      "examples": [
+        {
+          "jp": "雨[あめ]が 降[ふ]って いるので、傘[かさ]を 差[さ]した ほうが いいですよ。",
+          "vn": "Trời đang mưa nên bạn nên che ô."
+        },
+        {
+          "jp": "天気予報[てんきよほう]に よると、今日[きょう]は 傘[かさ]を 差[さ]した ほうが いい そうです。",
+          "vn": "Theo dự báo thời tiết, nghe nói hôm nay nên mang ô."
+        }
+      ]
     },
     {
       "w": "ひどい",
       "k": "",
-      "m": "tồi tệ, xấu"
+      "m": "tồi tệ, xấu",
+      "examples": [
+        {
+          "jp": "台風[たいふう]に よる 被害[ひがい]は ひどかった そうです。",
+          "vn": "Nghe nói thiệt hại do bão rất nặng nề."
+        },
+        {
+          "jp": "今日[きょう]の 渋滞[じゅうたい]は ひどい ようです。",
+          "vn": "Có vẻ tắc đường hôm nay rất kinh khủng."
+        }
+      ]
     },
     {
       "w": "こわい",
       "k": "怖い",
-      "m": "sợ, khiếp"
+      "m": "sợ, khiếp",
+      "examples": [
+        {
+          "jp": "課長[かちょう]は 怒[おこ]ると 怖[こわ]い そうです。",
+          "vn": "Nghe nói trưởng phòng lúc giận thì rất đáng sợ."
+        },
+        {
+          "jp": "夜遅[よるおそ]く 一人[ひとり]で 帰[かえ]るのは 怖[こわ]いです。",
+          "vn": "Về nhà một mình lúc đêm khuya thì sợ lắm."
+        }
+      ]
     },
     {
       "w": "てんきよほう",
       "k": "天気予報",
-      "m": "dự báo thời tiết"
+      "m": "dự báo thời tiết",
+      "examples": [
+        {
+          "jp": "天気予報[てんきよほう]に よると、明日[あした]は 雨[あめ]だ そうです。",
+          "vn": "Theo dự báo thời tiết, nghe nói ngày mai trời mưa."
+        },
+        {
+          "jp": "天気予報[てんきよほう]を 見[み]てから 出[で]かけます。",
+          "vn": "Tôi sẽ xem dự báo thời tiết rồi mới ra ngoài."
+        }
+      ]
     },
     {
       "w": "はっぴょう",
       "k": "発表",
-      "m": "phát biểu, báo cáo"
+      "m": "phát biểu, báo cáo",
+      "examples": [
+        {
+          "jp": "来週[らいしゅう] 新[あたら]しい 製品[せいひん]の 発表[はっぴょう]が ある そうです。",
+          "vn": "Nghe nói tuần sau sẽ có buổi công bố sản phẩm mới."
+        },
+        {
+          "jp": "発表[はっぴょう]の 準備[じゅんび]で 忙[いそが]しい ようです。",
+          "vn": "Có vẻ anh ấy đang bận chuẩn bị cho buổi phát biểu."
+        }
+      ]
     },
     {
       "w": "じっけん",
       "k": "実験",
-      "m": "thực nghiệm, thí nghiệm"
+      "m": "thực nghiệm, thí nghiệm",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 材料[ざいりょう]の 実験[じっけん]が 成功[せいこう]した そうです。",
+          "vn": "Nghe nói thí nghiệm về nguyên liệu mới đã thành công."
+        },
+        {
+          "jp": "実験[じっけん]の 結果[けっか]は まだ 出[で]て いない ようです。",
+          "vn": "Có vẻ kết quả thí nghiệm vẫn chưa ra."
+        }
+      ]
     },
     {
       "w": "じんこう",
       "k": "人口",
-      "m": "dân số"
+      "m": "dân số",
+      "examples": [
+        {
+          "jp": "この 地域[ちいき]は 人口[じんこう]が 増[ふ]えて いる そうです。",
+          "vn": "Nghe nói dân số khu vực này đang tăng lên."
+        },
+        {
+          "jp": "人口[じんこう]の データを 分析[ぶんせき]して います。",
+          "vn": "Tôi đang phân tích dữ liệu dân số."
+        }
+      ]
     },
     {
       "w": "におい",
       "k": "",
-      "m": "mùi"
+      "m": "mùi",
+      "examples": [
+        {
+          "jp": "会議室[かいぎしつ]から いい においが します。",
+          "vn": "Từ phòng họp có mùi thơm."
+        },
+        {
+          "jp": "何[なに]か 焦[こ]げた においが しませんか。",
+          "vn": "Có mùi khét gì đó, bạn có ngửi thấy không?"
+        }
+      ]
     },
     {
       "w": "かがく",
       "k": "科学",
-      "m": "khoa học"
+      "m": "khoa học",
+      "examples": [
+        {
+          "jp": "彼[かれ]は 科学[かがく]に 詳[くわ]しい そうです。",
+          "vn": "Nghe nói anh ấy am hiểu về khoa học."
+        },
+        {
+          "jp": "科学[かがく]の 力[ちから]で 問題[もんだい]を 解決[かいけつ]しました。",
+          "vn": "Chúng tôi đã giải quyết vấn đề bằng sức mạnh khoa học."
+        }
+      ]
     },
     {
       "w": "いがく",
       "k": "医学",
-      "m": "y học"
+      "m": "y học",
+      "examples": [
+        {
+          "jp": "彼女[かのじょ]は 医学[いがく]を 勉強[べんきょう]して いる そうです。",
+          "vn": "Nghe nói cô ấy đang học y."
+        },
+        {
+          "jp": "医学[いがく]の 進歩[しんぽ]は 早[はや]い ようです。",
+          "vn": "Có vẻ sự tiến bộ của y học rất nhanh."
+        }
+      ]
     },
     {
       "w": "ぶんがく",
       "k": "文学",
-      "m": "văn học"
+      "m": "văn học",
+      "examples": [
+        {
+          "jp": "彼[かれ]は 文学[ぶんがく]に 興味[きょうみ]が ある そうです。",
+          "vn": "Nghe nói anh ấy có hứng thú với văn học."
+        },
+        {
+          "jp": "この 作家[さっか]は 文学[ぶんがく]賞[しょう]を 取[と]った ようです。",
+          "vn": "Có vẻ tác giả này đã đoạt giải văn học."
+        }
+      ]
     },
     {
       "w": "パトカー",
       "k": "",
-      "m": "xe ô-tô cảnh sát"
+      "m": "xe ô-tô cảnh sát",
+      "examples": [
+        {
+          "jp": "会社[かいしゃ]の 前[まえ]に パトカーが 止[と]まって いる ようです。",
+          "vn": "Có vẻ xe cảnh sát đang đỗ trước công ty."
+        },
+        {
+          "jp": "事故[じこ]で パトカーが 何台[なんだい]も 来[き]た そうです。",
+          "vn": "Nghe nói vì tai nạn nên có rất nhiều xe cảnh sát đến."
+        }
+      ]
     },
     {
       "w": "きゅうきゅうしゃ",
       "k": "救急車",
-      "m": "xe cấp cứu"
+      "m": "xe cấp cứu",
+      "examples": [
+        {
+          "jp": "工場[こうじょう]で 事故[じこ]が あって、救急車[きゅうきゅうしゃ]が 来[き]た そうです。",
+          "vn": "Nghe nói có tai nạn ở nhà máy nên xe cấp cứu đã đến."
+        },
+        {
+          "jp": "救急車[きゅうきゅうしゃ]の サイレンの 音[おと]が します。",
+          "vn": "Có tiếng còi xe cấp cứu."
+        }
+      ]
     },
     {
       "w": "さんせい",
       "k": "賛成",
-      "m": "tán thành, đồng ý"
+      "m": "tán thành, đồng ý",
+      "examples": [
+        {
+          "jp": "その 案[あん]には みんな 賛成[さんせい]の ようです。",
+          "vn": "Có vẻ ai cũng tán thành phương án đó."
+        },
+        {
+          "jp": "私[わたし]も その 意見[いけん]に 賛成[さんせい]です。",
+          "vn": "Tôi cũng tán thành ý kiến đó."
+        }
+      ]
     },
     {
       "w": "はんたい",
       "k": "反対",
-      "m": "phản đối"
+      "m": "phản đối",
+      "examples": [
+        {
+          "jp": "その 計画[けいかく]には 部長[ぶちょう]が 反対[はんたい]した そうです。",
+          "vn": "Nghe nói trưởng phòng đã phản đối kế hoạch đó."
+        },
+        {
+          "jp": "彼[かれ]は 反対[はんたい]の 意見[いけん]を 言[い]う ようです。",
+          "vn": "Có vẻ anh ấy sẽ đưa ra ý kiến phản đối."
+        }
+      ]
     },
     {
       "w": "だんせい",
       "k": "男性",
-      "m": "nam giới, nam"
+      "m": "nam giới, nam",
+      "examples": [
+        {
+          "jp": "この 商品[しょうひん]は 男性[だんせい]に 人気[にんき]が ある そうです。",
+          "vn": "Nghe nói sản phẩm này được nam giới ưa chuộng."
+        },
+        {
+          "jp": "男性[だんせい]の 社員[しゃいん]が 増[ふ]えた ようです。",
+          "vn": "Có vẻ số nhân viên nam đã tăng lên."
+        }
+      ]
     },
     {
       "w": "じょせい",
       "k": "女性",
-      "m": "nữ giới, nữ"
+      "m": "nữ giới, nữ",
+      "examples": [
+        {
+          "jp": "この ブランドは 女性[じょせい]に 人気[にんき]が ある そうです。",
+          "vn": "Nghe nói thương hiệu này được nữ giới ưa chuộng."
+        },
+        {
+          "jp": "女性[じょせい]の 管理職[かんりしょく]が 増[ふ]えて いる ようです。",
+          "vn": "Có vẻ số quản lý nữ đang tăng lên."
+        }
+      ]
     },
     {
       "w": "どうも",
       "k": "",
-      "m": "có vẻ như là, có lẽ là"
+      "m": "có vẻ như là, có lẽ là",
+      "examples": [
+        {
+          "jp": "どうも 会議[かいぎ]の 時間[じかん]が 変[か]わった ようです。",
+          "vn": "Có vẻ như thời gian họp đã bị đổi."
+        },
+        {
+          "jp": "どうも 風邪[かぜ]を ひいた ようです。",
+          "vn": "Có vẻ như tôi bị cảm rồi."
+        }
+      ]
     },
     {
       "w": "～に よると",
       "k": "",
-      "m": "theo ~ thì, căn cứ vào ~ thì"
+      "m": "theo ~ thì, căn cứ vào ~ thì",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に よると、部長[ぶちょう]は 来週[らいしゅう] 出張[しゅっちょう]する そうです。",
+          "vn": "Theo lời đồng nghiệp, nghe nói trưởng phòng tuần sau sẽ đi công tác."
+        },
+        {
+          "jp": "ニュースに よると、株価[かぶか]が 上[あ]がって いる そうです。",
+          "vn": "Theo tin tức, nghe nói giá cổ phiếu đang tăng."
+        }
+      ]
     },
     {
       "w": "バリ [とう]",
       "k": "バリ [島]",
-      "m": "[đảo] Bali (ở Indonesia)"
+      "m": "[đảo] Bali (ở Indonesia)",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に よると、バリ島[とう]は とても きれいだ そうです。",
+          "vn": "Theo lời đồng nghiệp, nghe nói đảo Bali rất đẹp."
+        },
+        {
+          "jp": "夏休[なつやす]みに バリ島[とう]へ 旅行[りょこう]に 行[い]く つもりです。",
+          "vn": "Kỳ nghỉ hè tôi định đi du lịch đảo Bali."
+        }
+      ]
     },
     {
       "w": "イラン",
       "k": "",
-      "m": "Iran"
+      "m": "Iran",
+      "examples": [
+        {
+          "jp": "イランとの 取引[とりひき]が 増[ふ]えて いる そうです。",
+          "vn": "Nghe nói giao dịch với Iran đang tăng lên."
+        },
+        {
+          "jp": "イランの 市場[しじょう]に ついて 調[しら]べて います。",
+          "vn": "Tôi đang tìm hiểu về thị trường Iran."
+        }
+      ]
     },
     {
       "w": "カリフォルニア",
       "k": "",
-      "m": "California (ở Mỹ)"
+      "m": "California (ở Mỹ)",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]は カリフォルニアに 出張[しゅっちょう]する そうです。",
+          "vn": "Nghe nói đồng nghiệp sẽ đi công tác California."
+        },
+        {
+          "jp": "カリフォルニアの 支社[ししゃ]と オンライン会議[かいぎ]を しました。",
+          "vn": "Tôi đã họp online với chi nhánh California."
+        }
+      ]
     },
     {
       "w": "グアム",
       "k": "",
-      "m": "Guam"
+      "m": "Guam",
+      "examples": [
+        {
+          "jp": "グアムは リゾート地[ち]として 人気[にんき]が ある そうです。",
+          "vn": "Nghe nói Guam được ưa chuộng như một điểm nghỉ dưỡng."
+        },
+        {
+          "jp": "冬休[ふゆやす]みに グアムへ 行[い]く 予定[よてい]です。",
+          "vn": "Kỳ nghỉ đông tôi dự định đi Guam."
+        }
+      ]
     }
   ],
   "expressions": [

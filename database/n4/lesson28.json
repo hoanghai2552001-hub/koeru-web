@@ -3,46 +3,206 @@
   "source": "Minna no Nihongo II - Bản dịch và giải thích ngữ pháp (Sơ cấp 2), tr.39-40",
   "status": "REVIEW_REQUIRED",
   "vocab": [
-    {"w": "うれます [パンが～]", "k": "売れます [パンが～]", "m": "bán chạy, được bán [bánh mì ~]"},
-    {"w": "おどります", "k": "踊ります", "m": "nhảy, khiêu vũ"},
-    {"w": "かみます", "k": "", "m": "nhai"},
-    {"w": "えらびます", "k": "選びます", "m": "chọn"},
-    {"w": "ちがいます", "k": "違います", "m": "khác"},
-    {"w": "かよいます [だいがくに～]", "k": "通います [大学に～]", "m": "đi đi về về [trường đại học]"},
-    {"w": "メモします", "k": "", "m": "ghi chép"},
-    {"w": "まじめ[な]", "k": "", "m": "nghiêm túc, nghiêm chỉnh"},
-    {"w": "ねっしん[な]", "k": "熱心[な]", "m": "nhiệt tâm, nhiệt tình, hết lòng"},
-    {"w": "やさしい", "k": "優しい", "m": "dịu dàng, hiền lành, tốt bụng"},
-    {"w": "えらい", "k": "偉い", "m": "vĩ đại, đáng kính, đáng khâm phục"},
-    {"w": "ちょうどいい", "k": "", "m": "vừa đủ, vừa đúng"},
-    {"w": "しゅうかん", "k": "習慣", "m": "tập quán"},
-    {"w": "けいけん", "k": "経験", "m": "kinh nghiệm"},
-    {"w": "ちから", "k": "力", "m": "sức lực, năng lực"},
-    {"w": "にんき", "k": "人気", "m": "sự hâm mộ ([がくせいに] ～があります: được [sinh viên] hâm mộ)"},
-    {"w": "かたち", "k": "形", "m": "hình, hình dạng"},
-    {"w": "いろ", "k": "色", "m": "màu"},
-    {"w": "あじ", "k": "味", "m": "vị"},
-    {"w": "ガム", "k": "", "m": "kẹo cao su"},
-    {"w": "しなもの", "k": "品物", "m": "hàng hóa, mặt hàng"},
-    {"w": "ねだん", "k": "値段", "m": "giá"},
-    {"w": "きゅうりょう", "k": "給料", "m": "lương"},
-    {"w": "ボーナス", "k": "", "m": "thưởng"},
-    {"w": "ばんぐみ", "k": "番組", "m": "chương trình (phát thanh, truyền hình)"},
-    {"w": "ドラマ", "k": "", "m": "kịch, phim truyền hình"},
-    {"w": "しょうせつ", "k": "小説", "m": "tiểu thuyết"},
-    {"w": "しょうせつか", "k": "小説家", "m": "tiểu thuyết gia, nhà văn"},
-    {"w": "かしゅ", "k": "歌手", "m": "ca sĩ"},
-    {"w": "かんりにん", "k": "管理人", "m": "người quản lý"},
-    {"w": "むすこ", "k": "息子", "m": "con trai (dùng cho mình)"},
-    {"w": "むすこさん", "k": "息子さん", "m": "con trai (dùng cho người khác)"},
-    {"w": "むすめ", "k": "娘", "m": "con gái (dùng cho mình)"},
-    {"w": "むすめさん", "k": "娘さん", "m": "con gái (dùng cho người khác)"},
-    {"w": "じぶん", "k": "自分", "m": "bản thân, mình"},
-    {"w": "しょうらい", "k": "将来", "m": "tương lai"},
-    {"w": "しばらく", "k": "", "m": "một khoảng thời gian ngắn, một lúc, một lát"},
-    {"w": "たいてい", "k": "", "m": "thường, thông thường"},
-    {"w": "それに", "k": "", "m": "thêm nữa là, thêm vào đó là"},
-    {"w": "それで", "k": "", "m": "vì vậy, do đó"}
+    {"w": "うれます [パンが～]", "k": "売れます [パンが～]", "m": "bán chạy, được bán [bánh mì ~]",
+     "examples": [
+       {"jp": "この 新[あたら]しい 商品[しょうひん]は とても 売[う]れて いますね。", "vn": "Sản phẩm mới này đang bán chạy lắm nhỉ."},
+       {"jp": "夏[なつ]は アイスクリームが よく 売[う]れます。", "vn": "Mùa hè kem bán chạy lắm."}
+     ]},
+    {"w": "おどります", "k": "踊ります", "m": "nhảy, khiêu vũ",
+     "examples": [
+       {"jp": "週末[しゅうまつ]、友達[ともだち]と クラブで 踊[おど]りました。", "vn": "Cuối tuần tôi đã đi nhảy ở club với bạn."},
+       {"jp": "娘[むすめ]は 音楽[おんがく]を 聞[き]きながら 踊[おど]るのが 好[す]きです。", "vn": "Con gái tôi thích vừa nghe nhạc vừa nhảy."}
+     ]},
+    {"w": "かみます", "k": "", "m": "nhai",
+     "examples": [
+       {"jp": "食[た]べ物[もの]は よく 噛[か]んで 食[た]べた 方[ほう]が いいですよ。", "vn": "Đồ ăn thì nên nhai kỹ trước khi nuốt."},
+       {"jp": "会議中[かいぎちゅう]に ガムを 噛[か]むのは やめた 方[ほう]が いいです。", "vn": "Trong lúc họp thì không nên nhai kẹo cao su."}
+     ]},
+    {"w": "えらびます", "k": "選びます", "m": "chọn",
+     "examples": [
+       {"jp": "誕生日[たんじょうび]の プレゼントは まだ 選[えら]んで いません。", "vn": "Quà sinh nhật tôi vẫn chưa chọn được."},
+       {"jp": "この 案[あん]の 中[なか]から 一[ひと]つ 選[えら]んで ください。", "vn": "Anh/chị hãy chọn một phương án trong số này."}
+     ]},
+    {"w": "ちがいます", "k": "違います", "m": "khác",
+     "examples": [
+       {"jp": "私[わたし]の 意見[いけん]は 部長[ぶちょう]と 違[ちが]います。", "vn": "Ý kiến của tôi khác với trưởng phòng."},
+       {"jp": "この 二[ふた]つの デザインは 色[いろ]が 違[ちが]うだけです。", "vn": "Hai mẫu thiết kế này chỉ khác nhau ở màu sắc thôi."}
+     ]},
+    {"w": "かよいます [だいがくに～]", "k": "通います [大学に～]", "m": "đi đi về về [trường đại học]",
+     "examples": [
+       {"jp": "毎日[まいにち] 電車[でんしゃ]で 会社[かいしゃ]に 通[かよ]って います。", "vn": "Hàng ngày tôi đi làm bằng tàu điện."},
+       {"jp": "娘[むすめ]は 今[いま] 駅前[えきまえ]の 塾[じゅく]に 通[かよ]って います。", "vn": "Con gái tôi hiện đang học thêm ở lớp gần ga."}
+     ]},
+    {"w": "メモします", "k": "", "m": "ghi chép",
+     "examples": [
+       {"jp": "会議[かいぎ]の 内容[ないよう]を メモして おきました。", "vn": "Tôi đã ghi chép lại nội dung cuộc họp rồi."},
+       {"jp": "電話番号[でんわばんごう]を メモするので、ちょっと 待[ま]って ください。", "vn": "Cho tôi ghi lại số điện thoại một chút."}
+     ]},
+    {"w": "まじめ[な]", "k": "", "m": "nghiêm túc, nghiêm chỉnh",
+     "examples": [
+       {"jp": "田中[たなか]さんは まじめな 社員[しゃいん]で、いつも 期限[きげん]を 守[まも]ります。", "vn": "Anh Tanaka là nhân viên nghiêm túc, lúc nào cũng đúng hạn."},
+       {"jp": "弟[おとうと]は 昔[むかし]から まじめな 性格[せいかく]です。", "vn": "Em trai tôi từ trước đến giờ tính cách vẫn nghiêm túc."}
+     ]},
+    {"w": "ねっしん[な]", "k": "熱心[な]", "m": "nhiệt tâm, nhiệt tình, hết lòng",
+     "examples": [
+       {"jp": "課長[かちょう]は 部下[ぶか]の 教育[きょういく]に とても 熱心[ねっしん]です。", "vn": "Trưởng phòng rất nhiệt tình trong việc đào tạo nhân viên."},
+       {"jp": "彼[かれ]は 熱心[ねっしん]に 日本語[にほんご]を 勉強[べんきょう]して います。", "vn": "Anh ấy học tiếng Nhật rất chăm chỉ, nhiệt tình."}
+     ]},
+    {"w": "やさしい", "k": "優しい", "m": "dịu dàng, hiền lành, tốt bụng",
+     "examples": [
+       {"jp": "新[あたら]しい 先輩[せんぱい]は とても 優[やさ]しくて、いろいろ 教[おし]えて くれます。", "vn": "Sếp mới rất tốt bụng, chỉ dạy tôi nhiều thứ."},
+       {"jp": "母[はは]は 誰[だれ]に でも 優[やさ]しい 人[ひと]です。", "vn": "Mẹ tôi là người tốt bụng với tất cả mọi người."}
+     ]},
+    {"w": "えらい", "k": "偉い", "m": "vĩ đại, đáng kính, đáng khâm phục",
+     "examples": [
+       {"jp": "毎朝[まいあさ] 早[はや]く 起[お]きて 勉強[べんきょう]するなんて、偉[えら]いですね。", "vn": "Sáng nào cũng dậy sớm học bài, giỏi quá nhỉ."},
+       {"jp": "部長[ぶちょう]は 偉[えら]い 人[ひと]ですが、いつも 気軽[きがる]に 話[はな]しかけて くれます。", "vn": "Trưởng phòng là người có địa vị cao nhưng lúc nào cũng thân thiện bắt chuyện với mọi người."}
+     ]},
+    {"w": "ちょうどいい", "k": "", "m": "vừa đủ, vừa đúng",
+     "examples": [
+       {"jp": "このサイズ、私[わたし]に ちょうど いいですね。", "vn": "Size này vừa đúng với tôi luôn."},
+       {"jp": "この 予算[よさん]は 今回[こんかい]の プロジェクトに ちょうど いいです。", "vn": "Ngân sách này vừa đủ cho dự án lần này."}
+     ]},
+    {"w": "しゅうかん", "k": "習慣", "m": "tập quán",
+     "examples": [
+       {"jp": "会社[かいしゃ]に よって 習慣[しゅうかん]が 違[ちが]います。", "vn": "Tùy công ty mà tập quán làm việc khác nhau."},
+       {"jp": "朝[あさ] コーヒーを 飲[の]む 習慣[しゅうかん]が あります。", "vn": "Tôi có thói quen uống cà phê vào buổi sáng."}
+     ]},
+    {"w": "けいけん", "k": "経験", "m": "kinh nghiệm",
+     "examples": [
+       {"jp": "営業[えいぎょう]の 経験[けいけん]が ある 方[かた]を 探[さが]して います。", "vn": "Chúng tôi đang tìm người có kinh nghiệm kinh doanh/bán hàng."},
+       {"jp": "海外[かいがい]で 働[はたら]いた 経験[けいけん]は ありません。", "vn": "Tôi chưa có kinh nghiệm làm việc ở nước ngoài."}
+     ]},
+    {"w": "ちから", "k": "力", "m": "sức lực, năng lực",
+     "examples": [
+       {"jp": "このプロジェクトは チームの 力[ちから]で 成功[せいこう]しました。", "vn": "Dự án này thành công là nhờ sức mạnh của cả đội."},
+       {"jp": "もっと 英語[えいご]の 力[ちから]を つけたいです。", "vn": "Tôi muốn nâng cao khả năng tiếng Anh hơn nữa."}
+     ]},
+    {"w": "にんき", "k": "人気", "m": "sự hâm mộ ([がくせいに] ～があります: được [sinh viên] hâm mộ)",
+     "examples": [
+       {"jp": "この 商品[しょうひん]は 若[わか]い 人[ひと]に 人気[にんき]が あります。", "vn": "Sản phẩm này được giới trẻ ưa chuộng."},
+       {"jp": "田中[たなか]先生[せんせい]は 学生[がくせい]に とても 人気[にんき]が あります。", "vn": "Thầy Tanaka rất được học sinh yêu mến."}
+     ]},
+    {"w": "かたち", "k": "形", "m": "hình, hình dạng",
+     "examples": [
+       {"jp": "資料[しりょう]の 形[かたち]を 少[すこ]し 変[か]えた 方[ほう]が いいと 思[おも]います。", "vn": "Tôi nghĩ nên đổi hình thức tài liệu một chút."},
+       {"jp": "このケーキ、ハートの 形[かたち]を して いますね。", "vn": "Bánh này có hình trái tim nhỉ."}
+     ]},
+    {"w": "いろ", "k": "色", "m": "màu",
+     "examples": [
+       {"jp": "名刺[めいし]は どんな 色[いろ]が よろしいですか。", "vn": "Anh/chị muốn danh thiếp màu gì ạ?"},
+       {"jp": "この 服[ふく]、赤[あか]と 青[あお]、どちらの 色[いろ]が いいと 思[おも]いますか。", "vn": "Cái áo này bạn thấy màu đỏ hay xanh đẹp hơn?"}
+     ]},
+    {"w": "あじ", "k": "味", "m": "vị",
+     "examples": [
+       {"jp": "新[あたら]しい 商品[しょうひん]の 味[あじ]を みんなで 確認[かくにん]しましょう。", "vn": "Mọi người cùng kiểm tra hương vị sản phẩm mới nhé."},
+       {"jp": "この スープ、ちょっと 味[あじ]が 薄[うす]いですね。", "vn": "Món súp này vị hơi nhạt nhỉ."}
+     ]},
+    {"w": "ガム", "k": "", "m": "kẹo cao su",
+     "examples": [
+       {"jp": "眠[ねむ]い ときは ガムを 噛[か]みながら 仕事[しごと]します。", "vn": "Lúc buồn ngủ tôi vừa nhai kẹo cao su vừa làm việc."},
+       {"jp": "娘[むすめ]は いつも バッグに ガムを 入[い]れて います。", "vn": "Con gái tôi lúc nào cũng để kẹo cao su trong túi."}
+     ]},
+    {"w": "しなもの", "k": "品物", "m": "hàng hóa, mặt hàng",
+     "examples": [
+       {"jp": "倉庫[そうこ]の 品物[しなもの]を 全部[ぜんぶ] 確認[かくにん]しました。", "vn": "Tôi đã kiểm tra toàn bộ hàng hóa trong kho."},
+       {"jp": "この 店[みせ]は 品物[しなもの]が 豊[ゆた]かで 人気[にんき]が あります。", "vn": "Cửa hàng này hàng hóa phong phú nên rất đông khách."}
+     ]},
+    {"w": "ねだん", "k": "値段", "m": "giá",
+     "examples": [
+       {"jp": "この 商品[しょうひん]は 値段[ねだん]の 割[わり]に 品質[ひんしつ]が いいです。", "vn": "Sản phẩm này giá cả hợp lý mà chất lượng tốt."},
+       {"jp": "すみません、この 靴[くつ]の 値段[ねだん]を 教[おし]えて ください。", "vn": "Xin lỗi, cho tôi hỏi giá đôi giày này với."}
+     ]},
+    {"w": "きゅうりょう", "k": "給料", "m": "lương",
+     "examples": [
+       {"jp": "来月[らいげつ]から 給料[きゅうりょう]が 少[すこ]し 上[あ]がります。", "vn": "Từ tháng sau lương sẽ tăng một chút."},
+       {"jp": "今月[こんげつ]の 給料[きゅうりょう]で 新[あたら]しい パソコンを 買[か]おうと 思[おも]って います。", "vn": "Tôi định dùng lương tháng này để mua máy tính mới."}
+     ]},
+    {"w": "ボーナス", "k": "", "m": "thưởng",
+     "examples": [
+       {"jp": "今年[ことし]の 冬[ふゆ]の ボーナスは 例年[れいねん]より 多[おお]かったです。", "vn": "Thưởng cuối năm nay nhiều hơn mọi năm."},
+       {"jp": "ボーナスが 出[で]たら、旅行[りょこう]に 行[い]きたいです。", "vn": "Nếu có tiền thưởng, tôi muốn đi du lịch."}
+     ]},
+    {"w": "ばんぐみ", "k": "番組", "m": "chương trình (phát thanh, truyền hình)",
+     "examples": [
+       {"jp": "夕食[ゆうしょく]を 食[た]べながら テレビの 番組[ばんぐみ]を 見[み]ます。", "vn": "Tôi vừa ăn tối vừa xem chương trình tivi."},
+       {"jp": "この 番組[ばんぐみ]は 毎週[まいしゅう] 土曜日[どようび]に あります。", "vn": "Chương trình này phát vào thứ bảy hàng tuần."}
+     ]},
+    {"w": "ドラマ", "k": "", "m": "kịch, phim truyền hình",
+     "examples": [
+       {"jp": "最近[さいきん]、韓国[かんこく]の ドラマに はまって います。", "vn": "Dạo này tôi đang mê phim truyền hình Hàn Quốc."},
+       {"jp": "このドラマ、最終回[さいしゅうかい]が とても 感動的[かんどうてき]でした。", "vn": "Phim này tập cuối cảm động lắm."}
+     ]},
+    {"w": "しょうせつ", "k": "小説", "m": "tiểu thuyết",
+     "examples": [
+       {"jp": "寝[ね]る 前[まえ]に 小説[しょうせつ]を 読[よ]むのが 好[す]きです。", "vn": "Tôi thích đọc tiểu thuyết trước khi ngủ."},
+       {"jp": "この 小説[しょうせつ]は 映画化[えいがか]される そうです。", "vn": "Nghe nói tiểu thuyết này sắp được dựng thành phim."}
+     ]},
+    {"w": "しょうせつか", "k": "小説家", "m": "tiểu thuyết gia, nhà văn",
+     "examples": [
+       {"jp": "将来[しょうらい]、小説家[しょうせつか]に なりたいです。", "vn": "Trong tương lai tôi muốn trở thành nhà văn."},
+       {"jp": "あの 小説家[しょうせつか]の 本[ほん]は いつも 面白[おもしろ]いです。", "vn": "Sách của nhà văn đó lúc nào cũng hay."}
+     ]},
+    {"w": "かしゅ", "k": "歌手", "m": "ca sĩ",
+     "examples": [
+       {"jp": "娘[むすめ]は 将来[しょうらい] 歌手[かしゅ]に なりたいと 言[い]って います。", "vn": "Con gái tôi nói tương lai muốn trở thành ca sĩ."},
+       {"jp": "この 歌手[かしゅ]は 若[わか]い 人[ひと]に 人気[にんき]が あります。", "vn": "Ca sĩ này được giới trẻ yêu thích."}
+     ]},
+    {"w": "かんりにん", "k": "管理人", "m": "người quản lý",
+     "examples": [
+       {"jp": "エレベーターが 故障[こしょう]したので、管理人[かんりにん]さんに 連絡[れんらく]しました。", "vn": "Vì thang máy bị hỏng nên tôi đã liên lạc với người quản lý."},
+       {"jp": "アパートの 管理人[かんりにん]さんは とても 親切[しんせつ]です。", "vn": "Người quản lý chung cư rất tốt bụng."}
+     ]},
+    {"w": "むすこ", "k": "息子", "m": "con trai (dùng cho mình)",
+     "examples": [
+       {"jp": "息子[むすこ]は 今[いま] 大学[だいがく]に 通[かよ]って います。", "vn": "Con trai tôi hiện đang học đại học."},
+       {"jp": "息子[むすこ]と 一緒[いっしょ]に サッカーの 試合[しあい]を 見[み]に 行[い]きました。", "vn": "Tôi đã đi xem trận bóng đá cùng con trai."}
+     ]},
+    {"w": "むすこさん", "k": "息子さん", "m": "con trai (dùng cho người khác)",
+     "examples": [
+       {"jp": "山田[やまだ]さんの 息子[むすこ]さんは 今[いま] 何歳[なんさい]ですか。", "vn": "Con trai anh Yamada năm nay bao nhiêu tuổi vậy?"},
+       {"jp": "息子[むすこ]さんは とても 優[やさ]しい 方[かた]ですね。", "vn": "Con trai anh/chị hiền lành thật đấy."}
+     ]},
+    {"w": "むすめ", "k": "娘", "m": "con gái (dùng cho mình)",
+     "examples": [
+       {"jp": "娘[むすめ]は 来年[らいねん] 高校[こうこう]を 卒業[そつぎょう]します。", "vn": "Con gái tôi năm sau tốt nghiệp cấp 3."},
+       {"jp": "娘[むすめ]と 一緒[いっしょ]に 買[か]い物[もの]に 行[い]きました。", "vn": "Tôi đã đi mua sắm cùng con gái."}
+     ]},
+    {"w": "むすめさん", "k": "娘さん", "m": "con gái (dùng cho người khác)",
+     "examples": [
+       {"jp": "田中[たなか]さんの 娘[むすめ]さんは とても きれいですね。", "vn": "Con gái chị Tanaka xinh quá nhỉ."},
+       {"jp": "娘[むすめ]さんは 今[いま] どちらに お住[す]まいですか。", "vn": "Con gái anh/chị hiện đang sống ở đâu vậy?"}
+     ]},
+    {"w": "じぶん", "k": "自分", "m": "bản thân, mình",
+     "examples": [
+       {"jp": "この 資料[しりょう]は 自分[じぶん]で 作[つく]りました。", "vn": "Tài liệu này tôi tự làm đấy."},
+       {"jp": "たまには 自分[じぶん]の 時間[じかん]も 大切[たいせつ]に した 方[ほう]が いいですよ。", "vn": "Thỉnh thoảng cũng nên trân trọng thời gian cho bản thân."}
+     ]},
+    {"w": "しょうらい", "k": "将来", "m": "tương lai",
+     "examples": [
+       {"jp": "将来[しょうらい]は 自分[じぶん]の 会社[かいしゃ]を 持[も]ちたいです。", "vn": "Trong tương lai tôi muốn có công ty riêng."},
+       {"jp": "将来[しょうらい]の ことは まだ よく 分[わ]かりません。", "vn": "Chuyện tương lai thì tôi vẫn chưa nghĩ kỹ."}
+     ]},
+    {"w": "しばらく", "k": "", "m": "một khoảng thời gian ngắn, một lúc, một lát",
+     "examples": [
+       {"jp": "しばらく お待[ま]ち ください。", "vn": "Xin đợi một chút."},
+       {"jp": "しばらく 会[あ]って いない 友達[ともだち]に 連絡[れんらく]して みました。", "vn": "Tôi đã thử liên lạc với người bạn lâu rồi chưa gặp."}
+     ]},
+    {"w": "たいてい", "k": "", "m": "thường, thông thường",
+     "examples": [
+       {"jp": "たいてい 7時[しちじ]ごろ 会社[かいしゃ]を 出[で]ます。", "vn": "Tôi thường rời công ty vào khoảng 7 giờ."},
+       {"jp": "週末[しゅうまつ]は たいてい 家[いえ]で のんびりして います。", "vn": "Cuối tuần tôi thường ở nhà thư giãn."}
+     ]},
+    {"w": "それに", "k": "", "m": "thêm nữa là, thêm vào đó là",
+     "examples": [
+       {"jp": "この プランは 安[やす]いです。それに、内容[ないよう]も いいです。", "vn": "Gói này rẻ. Thêm nữa là nội dung cũng tốt."},
+       {"jp": "今日[きょう]は 疲[つか]れました。それに、雨[あめ]も 降[ふ]って います。", "vn": "Hôm nay tôi mệt rồi. Thêm nữa trời còn đang mưa."}
+     ]},
+    {"w": "それで", "k": "", "m": "vì vậy, do đó",
+     "examples": [
+       {"jp": "電車[でんしゃ]が 止[と]まりました。それで、会議[かいぎ]に 遅刻[ちこく]しました。", "vn": "Tàu điện bị dừng. Vì vậy tôi đã đến họp muộn."},
+       {"jp": "今日[きょう]は 頭[あたま]が 痛[いた]いです。それで、早[はや]く 帰[かえ]ります。", "vn": "Hôm nay tôi bị đau đầu. Vì vậy tôi sẽ về sớm."}
+     ]}
   ],
   "expressions": [
     {"w": "[ちょっと] お願[ねが]いが あるんですが。", "m": "Tôi có (chút) việc muốn nhờ anh/chị."},

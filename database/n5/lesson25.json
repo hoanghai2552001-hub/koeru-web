@@ -3,23 +3,170 @@
   "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.154-155 (PDF trang 173-174)",
   "status": "REVIEW_REQUIRED",
   "vocab": [
-    {"w": "かんがえますⅡ", "k": "考えます", "m": "nghĩ, suy nghĩ"},
-    {"w": "つきますⅠ", "k": "着きます", "m": "đến"},
-    {"w": "とりますⅠ [としを～]", "k": "取ります [年を～]", "m": "có, thêm [tuổi]"},
-    {"w": "たりますⅡ", "k": "足ります", "m": "đủ"},
-    {"w": "いなか", "k": "田舎", "m": "quê, nông thôn"},
-    {"w": "チャンス", "k": "", "m": "cơ hội"},
-    {"w": "おく", "k": "億", "m": "một trăm triệu"},
-    {"w": "もし [～たら]", "k": "", "m": "nếu"},
-    {"w": "いみ", "k": "意味", "m": "nghĩa, ý nghĩa"}
+    {
+      "w": "かんがえますⅡ",
+      "k": "考えます",
+      "m": "nghĩ, suy nghĩ",
+      "examples": [
+        {
+          "jp": "もし 時間[じかん]が あったら、もっと 考[かんが]えます。",
+          "vn": "Nếu có thời gian thì tôi sẽ suy nghĩ thêm."
+        },
+        {
+          "jp": "いくら 考[かんが]えても、いい 案[あん]が 出[で]ません。",
+          "vn": "Dù nghĩ đến mấy cũng không ra được ý hay."
+        }
+      ]
+    },
+    {
+      "w": "つきますⅠ",
+      "k": "着きます",
+      "m": "đến",
+      "examples": [
+        {
+          "jp": "駅[えき]に 着[つ]いたら、電話[でんわ]して ください。",
+          "vn": "Khi đến ga thì hãy gọi điện cho tôi."
+        },
+        {
+          "jp": "会社[かいしゃ]に 着[つ]いても、まだ 誰[だれ]も いませんでした。",
+          "vn": "Dù đã đến công ty nhưng vẫn chưa có ai."
+        }
+      ]
+    },
+    {
+      "w": "とりますⅠ [としを～]",
+      "k": "取ります [年を～]",
+      "m": "có, thêm [tuổi]",
+      "examples": [
+        {
+          "jp": "年[とし]を 取[と]っても、元気[げんき]に 働[はたら]きたいです。",
+          "vn": "Dù có nhiều tuổi hơn tôi vẫn muốn làm việc khỏe mạnh."
+        },
+        {
+          "jp": "もし 年[とし]を 取[と]ったら、田舎[いなか]に 住[す]みたいです。",
+          "vn": "Nếu về già thì tôi muốn sống ở quê."
+        }
+      ]
+    },
+    {
+      "w": "たりますⅡ",
+      "k": "足ります",
+      "m": "đủ",
+      "examples": [
+        {
+          "jp": "予算[よさん]が 足[た]りなかったら、教[おし]えて ください。",
+          "vn": "Nếu ngân sách không đủ thì hãy cho tôi biết."
+        },
+        {
+          "jp": "いくら 頑張[がんば]っても、時間[じかん]が 足[た]りません。",
+          "vn": "Dù có cố gắng đến mấy thời gian vẫn không đủ."
+        }
+      ]
+    },
+    {
+      "w": "いなか",
+      "k": "田舎",
+      "m": "quê, nông thôn",
+      "examples": [
+        {
+          "jp": "もし 田舎[いなか]に 引[ひ]っ越[こ]したら、生活[せいかつ]が 変[か]わると 思[おも]います。",
+          "vn": "Nếu chuyển về quê thì tôi nghĩ cuộc sống sẽ thay đổi."
+        },
+        {
+          "jp": "田舎[いなか]は 静[しず]かで 家賃[やちん]も 安[やす]いです。",
+          "vn": "Ở quê thì yên tĩnh mà tiền thuê nhà cũng rẻ."
+        }
+      ]
+    },
+    {
+      "w": "チャンス",
+      "k": "",
+      "m": "cơ hội",
+      "examples": [
+        {
+          "jp": "いい チャンスが あったら、教[おし]えて ください。",
+          "vn": "Nếu có cơ hội tốt thì hãy cho tôi biết."
+        },
+        {
+          "jp": "いくら いい チャンスでも、準備[じゅんび]が なければ 失敗[しっぱい]します。",
+          "vn": "Dù là cơ hội tốt đến mấy nếu không chuẩn bị thì sẽ thất bại."
+        }
+      ]
+    },
+    {
+      "w": "おく",
+      "k": "億",
+      "m": "một trăm triệu",
+      "examples": [
+        {
+          "jp": "この 会社[かいしゃ]の 売[う]り上[あ]げは 1億円[いちおくえん]です。",
+          "vn": "Doanh số của công ty này là 1 trăm triệu yên."
+        },
+        {
+          "jp": "もし 1億円[いちおくえん] あったら、何[なに]を しますか。",
+          "vn": "Nếu có 100 triệu yên thì bạn sẽ làm gì?"
+        }
+      ]
+    },
+    {
+      "w": "もし [～たら]",
+      "k": "",
+      "m": "nếu",
+      "examples": [
+        {
+          "jp": "もし 雨[あめ]が 降[ふ]ったら、会議[かいぎ]は 中止[ちゅうし]です。",
+          "vn": "Nếu trời mưa thì cuộc họp sẽ bị hủy."
+        },
+        {
+          "jp": "もし 分[わ]からなかったら、聞[き]いて ください。",
+          "vn": "Nếu không hiểu thì hãy hỏi tôi."
+        }
+      ]
+    },
+    {
+      "w": "いみ",
+      "k": "意味",
+      "m": "nghĩa, ý nghĩa",
+      "examples": [
+        {
+          "jp": "この 言葉[ことば]の 意味[いみ]が わからなかったら、教[おし]えて ください。",
+          "vn": "Nếu không hiểu nghĩa của từ này thì hãy hỏi tôi."
+        },
+        {
+          "jp": "いくら 説明[せつめい]しても、意味[いみ]が 伝[つた]わりませんでした。",
+          "vn": "Dù giải thích đến mấy cũng không truyền đạt được ý nghĩa."
+        }
+      ]
+    }
   ],
   "expressions": [
-    {"w": "もしもし", "m": "A-lô"},
-    {"w": "転勤[てんきん]", "m": "việc chuyển địa điểm làm việc (～します: chuyển địa điểm làm việc)"},
-    {"w": "こと", "m": "việc, chuyện (～の こと: việc, chuyện về ~)"},
-    {"w": "暇[ひま]", "m": "thời gian rảnh"},
-    {"w": "[いろいろ] お世話[せわ]に なりました。", "m": "Cám ơn anh/chị đã giúp đỡ tôi (nhiều)."},
-    {"w": "頑張[がんば]りますⅠ", "m": "cố, cố gắng"},
-    {"w": "どうぞ お元気[げんき]で。", "m": "Chúc anh/chị mạnh khỏe. Anh/Chị hãy bảo trọng. (câu nói trước khi chia tay với ai đó mà có lẽ lâu nữa mới gặp lại)"}
+    {
+      "w": "もしもし",
+      "m": "A-lô"
+    },
+    {
+      "w": "転勤[てんきん]",
+      "m": "việc chuyển địa điểm làm việc (～します: chuyển địa điểm làm việc)"
+    },
+    {
+      "w": "こと",
+      "m": "việc, chuyện (～の こと: việc, chuyện về ~)"
+    },
+    {
+      "w": "暇[ひま]",
+      "m": "thời gian rảnh"
+    },
+    {
+      "w": "[いろいろ] お世話[せわ]に なりました。",
+      "m": "Cám ơn anh/chị đã giúp đỡ tôi (nhiều)."
+    },
+    {
+      "w": "頑張[がんば]りますⅠ",
+      "m": "cố, cố gắng"
+    },
+    {
+      "w": "どうぞ お元気[げんき]で。",
+      "m": "Chúc anh/chị mạnh khỏe. Anh/Chị hãy bảo trọng. (câu nói trước khi chia tay với ai đó mà có lẽ lâu nữa mới gặp lại)"
+    }
   ]
 }

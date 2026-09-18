@@ -3,52 +3,605 @@
   "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.46-47 (PDF trang 65-66)",
   "status": "REVIEW_REQUIRED",
   "vocab": [
-    {"w": "きります", "k": "切ります", "m": "cắt"},
-    {"w": "おくります", "k": "送ります", "m": "gửi"},
-    {"w": "あげます", "k": "", "m": "cho, tặng"},
-    {"w": "もらいます", "k": "", "m": "nhận"},
-    {"w": "かします", "k": "貸します", "m": "cho mượn, cho vay"},
-    {"w": "かります", "k": "借ります", "m": "mượn, vay"},
-    {"w": "おしえます", "k": "教えます", "m": "dạy"},
-    {"w": "ならいます", "k": "習います", "m": "học, tập"},
-    {"w": "かけます [でんわを～]", "k": "[電話を～]", "m": "gọi [điện thoại]"},
-    {"w": "て", "k": "手", "m": "tay"},
-    {"w": "はし", "k": "", "m": "đũa"},
-    {"w": "スプーン", "k": "", "m": "thìa"},
-    {"w": "ナイフ", "k": "", "m": "dao"},
-    {"w": "フォーク", "k": "", "m": "dĩa, nĩa"},
-    {"w": "はさみ", "k": "", "m": "kéo"},
-    {"w": "パソコン", "k": "", "m": "máy vi tính cá nhân"},
-    {"w": "ケータイ", "k": "", "m": "điện thoại di động"},
-    {"w": "メール", "k": "", "m": "thư điện tử, email"},
-    {"w": "ねんがじょう", "k": "年賀状", "m": "thiệp mừng năm mới"},
-    {"w": "パンチ", "k": "", "m": "cái đục lỗ"},
-    {"w": "ホッチキス", "k": "", "m": "cái dập ghim"},
-    {"w": "セロテープ", "k": "", "m": "băng dính"},
-    {"w": "けしゴム", "k": "消しゴム", "m": "cái tẩy, cục tẩy"},
-    {"w": "かみ", "k": "紙", "m": "giấy"},
-    {"w": "はな", "k": "花", "m": "hoa"},
-    {"w": "シャツ", "k": "", "m": "áo sơ mi"},
-    {"w": "プレゼント", "k": "", "m": "quà tặng, tặng phẩm"},
-    {"w": "にもつ", "k": "荷物", "m": "đồ đạc, hành lý"},
-    {"w": "おかね", "k": "お金", "m": "tiền"},
-    {"w": "きっぷ", "k": "切符", "m": "vé"},
-    {"w": "クリスマス", "k": "", "m": "Giáng sinh"},
-    {"w": "ちち", "k": "父", "m": "bố (dùng khi nói về bố mình)"},
-    {"w": "はは", "k": "母", "m": "mẹ (dùng khi nói về mẹ mình)"},
-    {"w": "おとうさん", "k": "お父さん", "m": "bố (dùng khi nói về bố người khác và dùng khi xưng hô với bố mình)"},
-    {"w": "おかあさん", "k": "お母さん", "m": "mẹ (dùng khi nói về mẹ người khác và dùng khi xưng hô với mẹ mình)"},
-    {"w": "もう", "k": "", "m": "đã, rồi"},
-    {"w": "まだ", "k": "", "m": "chưa"},
-    {"w": "これから", "k": "", "m": "từ bây giờ, sau đây"}
+    {
+      "w": "きります",
+      "k": "切ります",
+      "m": "cắt",
+      "examples": [
+        {
+          "jp": "はさみで 紙[かみ]を 切[き]ります。",
+          "vn": "Tôi cắt giấy bằng kéo."
+        },
+        {
+          "jp": "ナイフで 肉[にく]を 切[き]ります。",
+          "vn": "Tôi cắt thịt bằng dao."
+        }
+      ]
+    },
+    {
+      "w": "おくります",
+      "k": "送ります",
+      "m": "gửi",
+      "examples": [
+        {
+          "jp": "メールで レポートを 送[おく]ります。",
+          "vn": "Tôi gửi báo cáo qua email."
+        },
+        {
+          "jp": "もう 資料[しりょう]を 送[おく]りましたか。",
+          "vn": "Bạn đã gửi tài liệu chưa?"
+        }
+      ]
+    },
+    {
+      "w": "あげます",
+      "k": "",
+      "m": "cho, tặng",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんに プレゼントを あげます。",
+          "vn": "Tôi tặng quà cho anh Tanaka."
+        },
+        {
+          "jp": "同僚[どうりょう]に 花[はな]を あげました。",
+          "vn": "Tôi đã tặng hoa cho đồng nghiệp."
+        }
+      ]
+    },
+    {
+      "w": "もらいます",
+      "k": "",
+      "m": "nhận",
+      "examples": [
+        {
+          "jp": "先輩[せんぱい]に 本[ほん]を もらいました。",
+          "vn": "Tôi đã được tiền bối cho sách."
+        },
+        {
+          "jp": "会社[かいしゃ]から ボーナスを もらいます。",
+          "vn": "Tôi nhận được tiền thưởng từ công ty."
+        }
+      ]
+    },
+    {
+      "w": "かします",
+      "k": "貸します",
+      "m": "cho mượn, cho vay",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に パソコンを 貸[か]します。",
+          "vn": "Tôi cho đồng nghiệp mượn máy tính."
+        },
+        {
+          "jp": "傘[かさ]を 貸[か]しましょうか。",
+          "vn": "Tôi cho bạn mượn ô nhé?"
+        }
+      ]
+    },
+    {
+      "w": "かります",
+      "k": "借ります",
+      "m": "mượn, vay",
+      "examples": [
+        {
+          "jp": "先輩[せんぱい]に ペンを 借[か]ります。",
+          "vn": "Tôi mượn bút của tiền bối."
+        },
+        {
+          "jp": "会議室[かいぎしつ]の 鍵[かぎ]を 借[か]りました。",
+          "vn": "Tôi đã mượn chìa khóa phòng họp."
+        }
+      ]
+    },
+    {
+      "w": "おしえます",
+      "k": "教えます",
+      "m": "dạy",
+      "examples": [
+        {
+          "jp": "後輩[こうはい]に 仕事[しごと]を 教[おし]えます。",
+          "vn": "Tôi dạy việc cho hậu bối."
+        },
+        {
+          "jp": "田中[たなか]さんに 日本語[にほんご]を 教[おし]えました。",
+          "vn": "Tôi đã dạy tiếng Nhật cho anh Tanaka."
+        }
+      ]
+    },
+    {
+      "w": "ならいます",
+      "k": "習います",
+      "m": "học, tập",
+      "examples": [
+        {
+          "jp": "先輩[せんぱい]に パソコンの 使[つか]い方[かた]を 習[なら]います。",
+          "vn": "Tôi học cách dùng máy tính từ tiền bối."
+        },
+        {
+          "jp": "日本語[にほんご]を 習[なら]って います。",
+          "vn": "Tôi đang học tiếng Nhật."
+        }
+      ]
+    },
+    {
+      "w": "かけます [でんわを～]",
+      "k": "[電話を～]",
+      "m": "gọi [điện thoại]",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]に 電話[でんわ]を かけます。",
+          "vn": "Tôi gọi điện thoại cho đối tác."
+        },
+        {
+          "jp": "もう 田中[たなか]さんに 電話[でんわ]を かけましたか。",
+          "vn": "Bạn đã gọi điện cho anh Tanaka chưa?"
+        }
+      ]
+    },
+    {
+      "w": "て",
+      "k": "手",
+      "m": "tay",
+      "examples": [
+        {
+          "jp": "手[て]で 荷物[にもつ]を 持[も]ちます。",
+          "vn": "Tôi cầm hành lý bằng tay."
+        },
+        {
+          "jp": "手[て]を 洗[あら]って ください。",
+          "vn": "Hãy rửa tay giúp tôi."
+        }
+      ]
+    },
+    {
+      "w": "はし",
+      "k": "",
+      "m": "đũa",
+      "examples": [
+        {
+          "jp": "箸[はし]で ご飯[はん]を 食[た]べます。",
+          "vn": "Tôi ăn cơm bằng đũa."
+        },
+        {
+          "jp": "箸[はし]を 貸[か]して ください。",
+          "vn": "Cho tôi mượn đôi đũa."
+        }
+      ]
+    },
+    {
+      "w": "スプーン",
+      "k": "",
+      "m": "thìa",
+      "examples": [
+        {
+          "jp": "スプーンで スープを 飲[の]みます。",
+          "vn": "Tôi uống súp bằng thìa."
+        },
+        {
+          "jp": "スプーンを 貸[か]して ください。",
+          "vn": "Cho tôi mượn cái thìa."
+        }
+      ]
+    },
+    {
+      "w": "ナイフ",
+      "k": "",
+      "m": "dao",
+      "examples": [
+        {
+          "jp": "ナイフで 肉[にく]を 切[き]ります。",
+          "vn": "Tôi cắt thịt bằng dao."
+        },
+        {
+          "jp": "ナイフを 貸[か]して ください。",
+          "vn": "Cho tôi mượn con dao."
+        }
+      ]
+    },
+    {
+      "w": "フォーク",
+      "k": "",
+      "m": "dĩa, nĩa",
+      "examples": [
+        {
+          "jp": "フォークで ケーキを 食[た]べます。",
+          "vn": "Tôi ăn bánh bằng nĩa."
+        },
+        {
+          "jp": "フォークを もう 一[ひと]つ ください。",
+          "vn": "Cho tôi thêm một cái nĩa nữa."
+        }
+      ]
+    },
+    {
+      "w": "はさみ",
+      "k": "",
+      "m": "kéo",
+      "examples": [
+        {
+          "jp": "はさみで 紙[かみ]を 切[き]ります。",
+          "vn": "Tôi cắt giấy bằng kéo."
+        },
+        {
+          "jp": "はさみを 貸[か]して いただけませんか。",
+          "vn": "Anh/chị cho tôi mượn kéo được không ạ?"
+        }
+      ]
+    },
+    {
+      "w": "パソコン",
+      "k": "",
+      "m": "máy vi tính cá nhân",
+      "examples": [
+        {
+          "jp": "パソコンで レポートを 書[か]きます。",
+          "vn": "Tôi viết báo cáo bằng máy tính."
+        },
+        {
+          "jp": "同僚[どうりょう]に パソコンを 借[か]りました。",
+          "vn": "Tôi đã mượn máy tính từ đồng nghiệp."
+        }
+      ]
+    },
+    {
+      "w": "ケータイ",
+      "k": "",
+      "m": "điện thoại di động",
+      "examples": [
+        {
+          "jp": "ケータイで 写真[しゃしん]を 撮[と]ります。",
+          "vn": "Tôi chụp ảnh bằng điện thoại di động."
+        },
+        {
+          "jp": "ケータイで メールを 送[おく]りました。",
+          "vn": "Tôi đã gửi email bằng điện thoại di động."
+        }
+      ]
+    },
+    {
+      "w": "メール",
+      "k": "",
+      "m": "thư điện tử, email",
+      "examples": [
+        {
+          "jp": "メールで レポートを 送[おく]ります。",
+          "vn": "Tôi gửi báo cáo qua email."
+        },
+        {
+          "jp": "もう メールを 送[おく]りましたか。",
+          "vn": "Bạn đã gửi email chưa?"
+        }
+      ]
+    },
+    {
+      "w": "ねんがじょう",
+      "k": "年賀状",
+      "m": "thiệp mừng năm mới",
+      "examples": [
+        {
+          "jp": "取引先[とりひきさき]に 年賀状[ねんがじょう]を 送[おく]ります。",
+          "vn": "Tôi gửi thiệp năm mới cho đối tác."
+        },
+        {
+          "jp": "田中[たなか]さんから 年賀状[ねんがじょう]を もらいました。",
+          "vn": "Tôi đã nhận được thiệp năm mới từ anh Tanaka."
+        }
+      ]
+    },
+    {
+      "w": "パンチ",
+      "k": "",
+      "m": "cái đục lỗ",
+      "examples": [
+        {
+          "jp": "パンチで 紙[かみ]に 穴[あな]を あけます。",
+          "vn": "Tôi đục lỗ giấy bằng cái đục lỗ."
+        },
+        {
+          "jp": "パンチを 貸[か]して ください。",
+          "vn": "Cho tôi mượn cái đục lỗ."
+        }
+      ]
+    },
+    {
+      "w": "ホッチキス",
+      "k": "",
+      "m": "cái dập ghim",
+      "examples": [
+        {
+          "jp": "ホッチキスで 資料[しりょう]を 留[と]めます。",
+          "vn": "Tôi ghim tài liệu bằng cái dập ghim."
+        },
+        {
+          "jp": "ホッチキスを 借[か]りても いいですか。",
+          "vn": "Tôi mượn cái dập ghim được không?"
+        }
+      ]
+    },
+    {
+      "w": "セロテープ",
+      "k": "",
+      "m": "băng dính",
+      "examples": [
+        {
+          "jp": "セロテープで 紙[かみ]を 貼[は]ります。",
+          "vn": "Tôi dán giấy bằng băng dính."
+        },
+        {
+          "jp": "セロテープを 貸[か]して ください。",
+          "vn": "Cho tôi mượn cuộn băng dính."
+        }
+      ]
+    },
+    {
+      "w": "けしゴム",
+      "k": "消しゴム",
+      "m": "cái tẩy, cục tẩy",
+      "examples": [
+        {
+          "jp": "消[け]しゴムで 字[じ]を 消[け]します。",
+          "vn": "Tôi tẩy chữ bằng cục tẩy."
+        },
+        {
+          "jp": "消[け]しゴムを 貸[か]して ください。",
+          "vn": "Cho tôi mượn cục tẩy."
+        }
+      ]
+    },
+    {
+      "w": "かみ",
+      "k": "紙",
+      "m": "giấy",
+      "examples": [
+        {
+          "jp": "紙[かみ]に 名前[なまえ]を 書[か]きます。",
+          "vn": "Tôi viết tên lên giấy."
+        },
+        {
+          "jp": "紙[かみ]を もう 一枚[いちまい] ください。",
+          "vn": "Cho tôi thêm một tờ giấy nữa."
+        }
+      ]
+    },
+    {
+      "w": "はな",
+      "k": "花",
+      "m": "hoa",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に 花[はな]を あげました。",
+          "vn": "Tôi đã tặng hoa cho đồng nghiệp."
+        },
+        {
+          "jp": "受付[うけつけ]に 花[はな]を 飾[かざ]ります。",
+          "vn": "Tôi trang trí hoa ở quầy lễ tân."
+        }
+      ]
+    },
+    {
+      "w": "シャツ",
+      "k": "",
+      "m": "áo sơ mi",
+      "examples": [
+        {
+          "jp": "父[ちち]に シャツを あげました。",
+          "vn": "Tôi đã tặng áo sơ mi cho bố."
+        },
+        {
+          "jp": "新[あたら]しい シャツを 買[か]いました。",
+          "vn": "Tôi đã mua áo sơ mi mới."
+        }
+      ]
+    },
+    {
+      "w": "プレゼント",
+      "k": "",
+      "m": "quà tặng, tặng phẩm",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に プレゼントを あげます。",
+          "vn": "Tôi tặng quà cho đồng nghiệp."
+        },
+        {
+          "jp": "誕生日[たんじょうび]に プレゼントを もらいました。",
+          "vn": "Sinh nhật tôi đã được tặng quà."
+        }
+      ]
+    },
+    {
+      "w": "にもつ",
+      "k": "荷物",
+      "m": "đồ đạc, hành lý",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]の 荷物[にもつ]を 持[も]ちます。",
+          "vn": "Tôi cầm hành lý giúp đồng nghiệp."
+        },
+        {
+          "jp": "荷物[にもつ]を 送[おく]ります。",
+          "vn": "Tôi gửi hành lý."
+        }
+      ]
+    },
+    {
+      "w": "おかね",
+      "k": "お金",
+      "m": "tiền",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に お金[かね]を 貸[か]します。",
+          "vn": "Tôi cho đồng nghiệp mượn tiền."
+        },
+        {
+          "jp": "友達[ともだち]に お金[かね]を 借[か]りました。",
+          "vn": "Tôi đã mượn tiền của bạn."
+        }
+      ]
+    },
+    {
+      "w": "きっぷ",
+      "k": "切符",
+      "m": "vé",
+      "examples": [
+        {
+          "jp": "同僚[どうりょう]に 切符[きっぷ]を もらいました。",
+          "vn": "Tôi đã được đồng nghiệp cho vé."
+        },
+        {
+          "jp": "新幹線[しんかんせん]の 切符[きっぷ]を 買[か]います。",
+          "vn": "Tôi mua vé tàu Shinkansen."
+        }
+      ]
+    },
+    {
+      "w": "クリスマス",
+      "k": "",
+      "m": "Giáng sinh",
+      "examples": [
+        {
+          "jp": "クリスマスに 同僚[どうりょう]に プレゼントを あげます。",
+          "vn": "Giáng sinh tôi tặng quà cho đồng nghiệp."
+        },
+        {
+          "jp": "クリスマスカードを 送[おく]りました。",
+          "vn": "Tôi đã gửi thiệp Giáng sinh."
+        }
+      ]
+    },
+    {
+      "w": "ちち",
+      "k": "父",
+      "m": "bố (dùng khi nói về bố mình)",
+      "examples": [
+        {
+          "jp": "父[ちち]に 手紙[てがみ]を 送[おく]ります。",
+          "vn": "Tôi gửi thư cho bố."
+        },
+        {
+          "jp": "父[ちち]は 会社員[かいしゃいん]です。",
+          "vn": "Bố tôi là nhân viên công ty."
+        }
+      ]
+    },
+    {
+      "w": "はは",
+      "k": "母",
+      "m": "mẹ (dùng khi nói về mẹ mình)",
+      "examples": [
+        {
+          "jp": "母[はは]に プレゼントを あげました。",
+          "vn": "Tôi đã tặng quà cho mẹ."
+        },
+        {
+          "jp": "母[はは]から 電話[でんわ]を もらいました。",
+          "vn": "Tôi đã nhận được điện thoại từ mẹ."
+        }
+      ]
+    },
+    {
+      "w": "おとうさん",
+      "k": "お父さん",
+      "m": "bố (dùng khi nói về bố người khác và dùng khi xưng hô với bố mình)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんの お父[とう]さんは 医者[いしゃ]です。",
+          "vn": "Bố của anh Tanaka là bác sĩ."
+        },
+        {
+          "jp": "お父[とう]さんに プレゼントを あげましたか。",
+          "vn": "Bạn đã tặng quà cho bố chưa?"
+        }
+      ]
+    },
+    {
+      "w": "おかあさん",
+      "k": "お母さん",
+      "m": "mẹ (dùng khi nói về mẹ người khác và dùng khi xưng hô với mẹ mình)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんの お母[かあ]さんは 先生[せんせい]です。",
+          "vn": "Mẹ của anh Tanaka là giáo viên."
+        },
+        {
+          "jp": "お母[かあ]さんに 花[はな]を あげましたか。",
+          "vn": "Bạn đã tặng hoa cho mẹ chưa?"
+        }
+      ]
+    },
+    {
+      "w": "もう",
+      "k": "",
+      "m": "đã, rồi",
+      "examples": [
+        {
+          "jp": "もう レポートを 送[おく]りました。",
+          "vn": "Tôi đã gửi báo cáo rồi."
+        },
+        {
+          "jp": "もう 田中[たなか]さんに 電話[でんわ]を かけましたか。",
+          "vn": "Bạn đã gọi điện cho anh Tanaka chưa?"
+        }
+      ]
+    },
+    {
+      "w": "まだ",
+      "k": "",
+      "m": "chưa",
+      "examples": [
+        {
+          "jp": "まだ レポートを 送[おく]って いません。",
+          "vn": "Tôi vẫn chưa gửi báo cáo."
+        },
+        {
+          "jp": "まだ 田中[たなか]さんに 会[あ]って いません。",
+          "vn": "Tôi vẫn chưa gặp anh Tanaka."
+        }
+      ]
+    },
+    {
+      "w": "これから",
+      "k": "",
+      "m": "từ bây giờ, sau đây",
+      "examples": [
+        {
+          "jp": "これから 会議[かいぎ]を します。",
+          "vn": "Bây giờ chúng ta sẽ họp."
+        },
+        {
+          "jp": "これから レポートを 書[か]きます。",
+          "vn": "Từ bây giờ tôi sẽ viết báo cáo."
+        }
+      ]
+    }
   ],
   "expressions": [
-    {"w": "[～、] すてきですね。", "m": "[~] hay nhỉ./đẹp nhỉ."},
-    {"w": "いらっしゃい。", "m": "Rất hoan nghênh anh/chị đã đến chơi./Chào mừng anh/chị đã đến chơi."},
-    {"w": "どうぞ お上[あ]がり ください。", "m": "Mời anh/chị vào."},
-    {"w": "失礼[しつれい]します。", "m": "Xin phép tôi vào./Xin phép ~. (dùng khi bước vào nhà của người khác)"},
-    {"w": "[～は] いかがですか。", "m": "Anh/Chị dùng ~ nhé? (dùng khi mời ai đó cái gì)"},
-    {"w": "いただきます。", "m": "Mời anh/chị dùng ~. (cách nói dùng trước khi ăn hoặc uống)"},
-    {"w": "ごちそうさま[でした]。", "m": "Xin cám ơn anh/chị đã đãi tôi bữa ăn ngon. (câu nói dùng sau khi ăn xong)"}
+    {
+      "w": "[～、] すてきですね。",
+      "m": "[~] hay nhỉ./đẹp nhỉ."
+    },
+    {
+      "w": "いらっしゃい。",
+      "m": "Rất hoan nghênh anh/chị đã đến chơi./Chào mừng anh/chị đã đến chơi."
+    },
+    {
+      "w": "どうぞ お上[あ]がり ください。",
+      "m": "Mời anh/chị vào."
+    },
+    {
+      "w": "失礼[しつれい]します。",
+      "m": "Xin phép tôi vào./Xin phép ~. (dùng khi bước vào nhà của người khác)"
+    },
+    {
+      "w": "[～は] いかがですか。",
+      "m": "Anh/Chị dùng ~ nhé? (dùng khi mời ai đó cái gì)"
+    },
+    {
+      "w": "いただきます。",
+      "m": "Mời anh/chị dùng ~. (cách nói dùng trước khi ăn hoặc uống)"
+    },
+    {
+      "w": "ごちそうさま[でした]。",
+      "m": "Xin cám ơn anh/chị đã đãi tôi bữa ăn ngon. (câu nói dùng sau khi ăn xong)"
+    }
   ]
 }

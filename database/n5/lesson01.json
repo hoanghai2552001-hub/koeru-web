@@ -3,44 +3,496 @@
   "source": "Bản dịch và giải thích ngữ pháp - Tập 1, tr.10-11 (PDF trang 29-30)",
   "status": "REVIEW_REQUIRED",
   "vocab": [
-    {"w": "わたし", "k": "", "m": "tôi"},
-    {"w": "あなた", "k": "", "m": "anh/chị, ông/bà, bạn (ngôi thứ II số ít)"},
-    {"w": "あの ひと", "k": "あの 人", "m": "người kia, người đó, anh kia, chị kia (あの かた là cách nói lịch sự)"},
-    {"w": "～さん", "k": "", "m": "anh, chị, ông, bà (hậu tố thêm vào sau tên người khác thể hiện lịch sự)"},
-    {"w": "～ちゃん", "k": "", "m": "hậu tố thêm vào sau tên trẻ em thay cho ～さん"},
-    {"w": "～じん", "k": "～人", "m": "hậu tố mang nghĩa \"người ~\" (ví dụ アメリカじん: người Mỹ)"},
-    {"w": "せんせい", "k": "先生", "m": "thầy/cô (không dùng khi giới thiệu nghề giáo viên của chính mình)"},
-    {"w": "きょうし", "k": "教師", "m": "giáo viên"},
-    {"w": "がくせい", "k": "学生", "m": "học sinh, sinh viên"},
-    {"w": "かいしゃいん", "k": "会社員", "m": "nhân viên công ty"},
-    {"w": "しゃいん", "k": "社員", "m": "nhân viên Công ty ~ (dùng kèm theo tên công ty)"},
-    {"w": "ぎんこういん", "k": "銀行員", "m": "nhân viên ngân hàng"},
-    {"w": "いしゃ", "k": "医者", "m": "bác sĩ"},
-    {"w": "けんきゅうしゃ", "k": "研究者", "m": "nhà nghiên cứu"},
-    {"w": "だいがく", "k": "大学", "m": "đại học, trường đại học"},
-    {"w": "びょういん", "k": "病院", "m": "bệnh viện"},
-    {"w": "だれ", "k": "", "m": "ai (どなた là cách nói lịch sự, vị nào)"},
-    {"w": "～さい", "k": "～歳", "m": "~ tuổi"},
-    {"w": "なんさい", "k": "何歳", "m": "mấy tuổi, bao nhiêu tuổi (おいくつ là cách nói lịch sự)"},
-    {"w": "はい", "k": "", "m": "vâng, dạ"},
-    {"w": "いいえ", "k": "", "m": "không"},
-    {"w": "アメリカ", "k": "", "m": "Mỹ"},
-    {"w": "イギリス", "k": "", "m": "Anh"},
-    {"w": "インド", "k": "", "m": "Ấn Độ"},
-    {"w": "インドネシア", "k": "", "m": "In-đô-nê-xi-a"},
-    {"w": "かんこく", "k": "韓国", "m": "Hàn Quốc"},
-    {"w": "タイ", "k": "", "m": "Thái Lan"},
-    {"w": "ちゅうごく", "k": "中国", "m": "Trung Quốc"},
-    {"w": "ドイツ", "k": "", "m": "Đức"},
-    {"w": "にほん", "k": "日本", "m": "Nhật Bản"},
-    {"w": "ブラジル", "k": "", "m": "Braxin"}
+    {
+      "w": "わたし",
+      "k": "",
+      "m": "tôi",
+      "examples": [
+        {
+          "jp": "わたしは 会社員[かいしゃいん]です。",
+          "vn": "Tôi là nhân viên công ty."
+        },
+        {
+          "jp": "わたしは 学生[がくせい]じゃ ありません。",
+          "vn": "Tôi không phải là học sinh."
+        }
+      ]
+    },
+    {
+      "w": "あなた",
+      "k": "",
+      "m": "anh/chị, ông/bà, bạn (ngôi thứ II số ít)",
+      "examples": [
+        {
+          "jp": "あなたは 先生[せんせい]ですか。",
+          "vn": "Anh/chị có phải là giáo viên không?"
+        },
+        {
+          "jp": "あなたも 会社員[かいしゃいん]ですか。",
+          "vn": "Anh/chị cũng là nhân viên công ty à?"
+        }
+      ]
+    },
+    {
+      "w": "あの ひと",
+      "k": "あの 人",
+      "m": "người kia, người đó, anh kia, chị kia (あの かた là cách nói lịch sự)",
+      "examples": [
+        {
+          "jp": "あの 人[ひと]は 医者[いしゃ]です。",
+          "vn": "Người kia là bác sĩ."
+        },
+        {
+          "jp": "あの 人[ひと]も 会社[かいしゃ]の 社員[しゃいん]です。",
+          "vn": "Người kia cũng là nhân viên của công ty."
+        }
+      ]
+    },
+    {
+      "w": "～さん",
+      "k": "",
+      "m": "anh, chị, ông, bà (hậu tố thêm vào sau tên người khác thể hiện lịch sự)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 銀行員[ぎんこういん]です。",
+          "vn": "Anh Tanaka là nhân viên ngân hàng."
+        },
+        {
+          "jp": "山田[やまだ]さんは 会社員[かいしゃいん]じゃ ありません。研究者[けんきゅうしゃ]です。",
+          "vn": "Chị Yamada không phải là nhân viên công ty. Chị ấy là nhà nghiên cứu."
+        }
+      ]
+    },
+    {
+      "w": "～ちゃん",
+      "k": "",
+      "m": "hậu tố thêm vào sau tên trẻ em thay cho ～さん",
+      "examples": [
+        {
+          "jp": "ゆきちゃんは 学生[がくせい]です。",
+          "vn": "Bé Yuki là học sinh."
+        },
+        {
+          "jp": "けんちゃんも 学生[がくせい]ですか。",
+          "vn": "Bé Ken cũng là học sinh à?"
+        }
+      ]
+    },
+    {
+      "w": "～じん",
+      "k": "～人",
+      "m": "hậu tố mang nghĩa \"người ~\" (ví dụ アメリカじん: người Mỹ)",
+      "examples": [
+        {
+          "jp": "わたしは 日本人[にほんじん]じゃ ありません。",
+          "vn": "Tôi không phải là người Nhật."
+        },
+        {
+          "jp": "あの 人[ひと]は アメリカ人[じん]です。",
+          "vn": "Người kia là người Mỹ."
+        }
+      ]
+    },
+    {
+      "w": "せんせい",
+      "k": "先生",
+      "m": "thầy/cô (không dùng khi giới thiệu nghề giáo viên của chính mình)",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 先生[せんせい]です。",
+          "vn": "Anh Tanaka là giáo viên."
+        },
+        {
+          "jp": "先生[せんせい]も 病院[びょういん]の 人[ひと]ですか。",
+          "vn": "Thầy giáo cũng là người của bệnh viện à?"
+        }
+      ]
+    },
+    {
+      "w": "きょうし",
+      "k": "教師",
+      "m": "giáo viên",
+      "examples": [
+        {
+          "jp": "わたしは 教師[きょうし]です。",
+          "vn": "Tôi là giáo viên."
+        },
+        {
+          "jp": "山田[やまだ]さんは 大学[だいがく]の 教師[きょうし]です。",
+          "vn": "Anh Yamada là giáo viên đại học."
+        }
+      ]
+    },
+    {
+      "w": "がくせい",
+      "k": "学生",
+      "m": "học sinh, sinh viên",
+      "examples": [
+        {
+          "jp": "わたしは 学生[がくせい]です。",
+          "vn": "Tôi là học sinh."
+        },
+        {
+          "jp": "あの 人[ひと]は 学生[がくせい]じゃ ありません。会社員[かいしゃいん]です。",
+          "vn": "Người kia không phải là học sinh. Anh ấy là nhân viên công ty."
+        }
+      ]
+    },
+    {
+      "w": "かいしゃいん",
+      "k": "会社員",
+      "m": "nhân viên công ty",
+      "examples": [
+        {
+          "jp": "わたしは 会社員[かいしゃいん]です。",
+          "vn": "Tôi là nhân viên công ty."
+        },
+        {
+          "jp": "田中[たなか]さんも 会社員[かいしゃいん]です。",
+          "vn": "Anh Tanaka cũng là nhân viên công ty."
+        }
+      ]
+    },
+    {
+      "w": "しゃいん",
+      "k": "社員",
+      "m": "nhân viên Công ty ~ (dùng kèm theo tên công ty)",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは KOERUの 社員[しゃいん]です。",
+          "vn": "Chị Yamada là nhân viên công ty KOERU."
+        },
+        {
+          "jp": "わたしも KOERUの 社員[しゃいん]です。",
+          "vn": "Tôi cũng là nhân viên công ty KOERU."
+        }
+      ]
+    },
+    {
+      "w": "ぎんこういん",
+      "k": "銀行員",
+      "m": "nhân viên ngân hàng",
+      "examples": [
+        {
+          "jp": "あの 人[ひと]は 銀行員[ぎんこういん]です。",
+          "vn": "Người kia là nhân viên ngân hàng."
+        },
+        {
+          "jp": "田中[たなか]さんは 銀行員[ぎんこういん]じゃ ありません。",
+          "vn": "Anh Tanaka không phải là nhân viên ngân hàng."
+        }
+      ]
+    },
+    {
+      "w": "いしゃ",
+      "k": "医者",
+      "m": "bác sĩ",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは 医者[いしゃ]です。",
+          "vn": "Anh Yamada là bác sĩ."
+        },
+        {
+          "jp": "あの 人[ひと]も 医者[いしゃ]ですか。",
+          "vn": "Người kia cũng là bác sĩ à?"
+        }
+      ]
+    },
+    {
+      "w": "けんきゅうしゃ",
+      "k": "研究者",
+      "m": "nhà nghiên cứu",
+      "examples": [
+        {
+          "jp": "わたしは 大学[だいがく]の 研究者[けんきゅうしゃ]です。",
+          "vn": "Tôi là nhà nghiên cứu ở trường đại học."
+        },
+        {
+          "jp": "田中[たなか]さんは 研究者[けんきゅうしゃ]じゃ ありません。",
+          "vn": "Anh Tanaka không phải là nhà nghiên cứu."
+        }
+      ]
+    },
+    {
+      "w": "だいがく",
+      "k": "大学",
+      "m": "đại học, trường đại học",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは 大学[だいがく]の 先生[せんせい]です。",
+          "vn": "Anh Yamada là giáo viên đại học."
+        },
+        {
+          "jp": "わたしの 大学[だいがく]は 東京[とうきょう]です。",
+          "vn": "Trường đại học của tôi ở Tokyo."
+        }
+      ]
+    },
+    {
+      "w": "びょういん",
+      "k": "病院",
+      "m": "bệnh viện",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 病院[びょういん]の 医者[いしゃ]です。",
+          "vn": "Anh Tanaka là bác sĩ của bệnh viện."
+        },
+        {
+          "jp": "あの 人[ひと]も 病院[びょういん]の 人[ひと]ですか。",
+          "vn": "Người kia cũng là người của bệnh viện à?"
+        }
+      ]
+    },
+    {
+      "w": "だれ",
+      "k": "",
+      "m": "ai (どなた là cách nói lịch sự, vị nào)",
+      "examples": [
+        {
+          "jp": "あの 人[ひと]は 誰[だれ]ですか。",
+          "vn": "Người kia là ai vậy?"
+        },
+        {
+          "jp": "この 会社[かいしゃ]の 社員[しゃいん]は 誰[だれ]ですか。",
+          "vn": "Nhân viên công ty này là ai vậy?"
+        }
+      ]
+    },
+    {
+      "w": "～さい",
+      "k": "～歳",
+      "m": "~ tuổi",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 30歳[さい]です。",
+          "vn": "Anh Tanaka 30 tuổi."
+        },
+        {
+          "jp": "わたしも 30歳[さい]です。",
+          "vn": "Tôi cũng 30 tuổi."
+        }
+      ]
+    },
+    {
+      "w": "なんさい",
+      "k": "何歳",
+      "m": "mấy tuổi, bao nhiêu tuổi (おいくつ là cách nói lịch sự)",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは 何歳[なんさい]ですか。",
+          "vn": "Anh Yamada bao nhiêu tuổi vậy?"
+        },
+        {
+          "jp": "田中[たなか]さんは 何歳[なんさい]ですか。33歳[さい]です。",
+          "vn": "Anh Tanaka bao nhiêu tuổi vậy? 33 tuổi."
+        }
+      ]
+    },
+    {
+      "w": "はい",
+      "k": "",
+      "m": "vâng, dạ",
+      "examples": [
+        {
+          "jp": "はい、わたしは 会社員[かいしゃいん]です。",
+          "vn": "Vâng, tôi là nhân viên công ty."
+        },
+        {
+          "jp": "あなたは 学生[がくせい]ですか。はい、そうです。",
+          "vn": "Bạn có phải là học sinh không? Vâng, đúng vậy."
+        }
+      ]
+    },
+    {
+      "w": "いいえ",
+      "k": "",
+      "m": "không",
+      "examples": [
+        {
+          "jp": "いいえ、わたしは 医者[いしゃ]じゃ ありません。",
+          "vn": "Không, tôi không phải là bác sĩ."
+        },
+        {
+          "jp": "先生[せんせい]ですか。いいえ、会社員[かいしゃいん]です。",
+          "vn": "Bạn là giáo viên à? Không, tôi là nhân viên công ty."
+        }
+      ]
+    },
+    {
+      "w": "アメリカ",
+      "k": "",
+      "m": "Mỹ",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは アメリカの 会社[かいしゃ]の 社員[しゃいん]です。",
+          "vn": "Anh Tanaka là nhân viên của công ty Mỹ."
+        },
+        {
+          "jp": "あの 人[ひと]は アメリカ人[じん]です。",
+          "vn": "Người kia là người Mỹ."
+        }
+      ]
+    },
+    {
+      "w": "イギリス",
+      "k": "",
+      "m": "Anh",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは イギリスの 大学[だいがく]の 学生[がくせい]です。",
+          "vn": "Chị Yamada là học sinh của trường đại học Anh."
+        },
+        {
+          "jp": "あの 人[ひと]も イギリス人[じん]ですか。",
+          "vn": "Người kia cũng là người Anh à?"
+        }
+      ]
+    },
+    {
+      "w": "インド",
+      "k": "",
+      "m": "Ấn Độ",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは インドの 会社[かいしゃ]の 社員[しゃいん]です。",
+          "vn": "Anh Tanaka là nhân viên của công ty Ấn Độ."
+        },
+        {
+          "jp": "あの 人[ひと]は インド人[じん]じゃ ありません。",
+          "vn": "Người kia không phải là người Ấn Độ."
+        }
+      ]
+    },
+    {
+      "w": "インドネシア",
+      "k": "",
+      "m": "In-đô-nê-xi-a",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは インドネシアの 会社[かいしゃ]の 研究者[けんきゅうしゃ]です。",
+          "vn": "Anh Yamada là nhà nghiên cứu của công ty Indonesia."
+        },
+        {
+          "jp": "あの 人[ひと]は インドネシア人[じん]です。",
+          "vn": "Người kia là người Indonesia."
+        }
+      ]
+    },
+    {
+      "w": "かんこく",
+      "k": "韓国",
+      "m": "Hàn Quốc",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 韓国[かんこく]の 会社[かいしゃ]の 社員[しゃいん]です。",
+          "vn": "Anh Tanaka là nhân viên của công ty Hàn Quốc."
+        },
+        {
+          "jp": "あの 人[ひと]は 韓国人[じん]ですか。",
+          "vn": "Người kia là người Hàn Quốc à?"
+        }
+      ]
+    },
+    {
+      "w": "タイ",
+      "k": "",
+      "m": "Thái Lan",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは タイの 大学[だいがく]の 先生[せんせい]です。",
+          "vn": "Anh Yamada là giáo viên của trường đại học Thái Lan."
+        },
+        {
+          "jp": "あの 人[ひと]は タイ人[じん]じゃ ありません。",
+          "vn": "Người kia không phải là người Thái Lan."
+        }
+      ]
+    },
+    {
+      "w": "ちゅうごく",
+      "k": "中国",
+      "m": "Trung Quốc",
+      "examples": [
+        {
+          "jp": "田中[たなか]さんは 中国[ちゅうごく]の 会社[かいしゃ]の 社員[しゃいん]です。",
+          "vn": "Anh Tanaka là nhân viên của công ty Trung Quốc."
+        },
+        {
+          "jp": "あの 人[ひと]は 中国人[じん]です。",
+          "vn": "Người kia là người Trung Quốc."
+        }
+      ]
+    },
+    {
+      "w": "ドイツ",
+      "k": "",
+      "m": "Đức",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは ドイツの 大学[だいがく]の 研究者[けんきゅうしゃ]です。",
+          "vn": "Anh Yamada là nhà nghiên cứu của trường đại học Đức."
+        },
+        {
+          "jp": "あの 人[ひと]は ドイツ人[じん]ですか。",
+          "vn": "Người kia là người Đức à?"
+        }
+      ]
+    },
+    {
+      "w": "にほん",
+      "k": "日本",
+      "m": "Nhật Bản",
+      "examples": [
+        {
+          "jp": "わたしは 日本[にほん]の 会社[かいしゃ]の 社員[しゃいん]です。",
+          "vn": "Tôi là nhân viên của công ty Nhật Bản."
+        },
+        {
+          "jp": "田中[たなか]さんは 日本人[じん]です。",
+          "vn": "Anh Tanaka là người Nhật."
+        }
+      ]
+    },
+    {
+      "w": "ブラジル",
+      "k": "",
+      "m": "Braxin",
+      "examples": [
+        {
+          "jp": "山田[やまだ]さんは ブラジルの 会社[かいしゃ]の 社員[しゃいん]です。",
+          "vn": "Anh Yamada là nhân viên của công ty Brazil."
+        },
+        {
+          "jp": "あの 人[ひと]は ブラジル人[じん]じゃ ありません。",
+          "vn": "Người kia không phải là người Brazil."
+        }
+      ]
+    }
   ],
   "expressions": [
-    {"w": "初[はじ]めまして。", "m": "Rất hân hạnh được gặp anh/chị. (lời chào với người lần đầu tiên gặp)"},
-    {"w": "～から 来[き]ました。", "m": "Tôi đến từ ~."},
-    {"w": "[どうぞ] よろしく [お願[ねが]いします]。", "m": "Rất vui được làm quen với anh/chị. (câu kết thúc khi giới thiệu về mình)"},
-    {"w": "失礼[しつれい]ですが", "m": "Xin lỗi… (dùng khi hỏi thông tin cá nhân như tên, địa chỉ)"},
-    {"w": "お名前[なまえ]は？", "m": "Tên anh/chị là gì?"},
-    {"w": "こちらは ～さんです。", "m": "Đây là anh/chị/ông/bà ~."}
+    {
+      "w": "初[はじ]めまして。",
+      "m": "Rất hân hạnh được gặp anh/chị. (lời chào với người lần đầu tiên gặp)"
+    },
+    {
+      "w": "～から 来[き]ました。",
+      "m": "Tôi đến từ ~."
+    },
+    {
+      "w": "[どうぞ] よろしく [お願[ねが]いします]。",
+      "m": "Rất vui được làm quen với anh/chị. (câu kết thúc khi giới thiệu về mình)"
+    },
+    {
+      "w": "失礼[しつれい]ですが",
+      "m": "Xin lỗi… (dùng khi hỏi thông tin cá nhân như tên, địa chỉ)"
+    },
+    {
+      "w": "お名前[なまえ]は？",
+      "m": "Tên anh/chị là gì?"
+    },
+    {
+      "w": "こちらは ～さんです。",
+      "m": "Đây là anh/chị/ông/bà ~."
+    }
   ]
 }

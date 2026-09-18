@@ -6,132 +6,392 @@
     {
       "w": "はじまりますⅠ [しきが～]",
       "k": "始まります [式が～]",
-      "m": "bắt đầu [buổi lễ ~]"
+      "m": "bắt đầu [buổi lễ ~]",
+      "examples": [
+        {
+          "jp": "結婚式[けっこんしき]は 午後[ごご]2時[にじ]から 始[はじ]まります。",
+          "vn": "Lễ cưới bắt đầu từ 2 giờ chiều."
+        },
+        {
+          "jp": "入学式[にゅうがくしき]は もうすぐ 始[はじ]まります。",
+          "vn": "Lễ nhập học sắp bắt đầu rồi."
+        }
+      ]
     },
     {
       "w": "つづけますⅡ",
       "k": "続けます",
-      "m": "tiếp tục"
+      "m": "tiếp tục",
+      "examples": [
+        {
+          "jp": "この 仕事[しごと]を 5年[ごねん] 続[つづ]けようと 思[おも]って います。",
+          "vn": "Tôi định tiếp tục công việc này thêm 5 năm nữa."
+        },
+        {
+          "jp": "日本語[にほんご]の 勉強[べんきょう]を 続[つづ]ける つもりです。",
+          "vn": "Tôi dự định sẽ tiếp tục học tiếng Nhật."
+        }
+      ]
     },
     {
       "w": "みつけますⅡ",
       "k": "見つけます",
-      "m": "tìm, tìm thấy"
+      "m": "tìm, tìm thấy",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 仕事[しごと]を 見[み]つける つもりです。",
+          "vn": "Tôi dự định tìm một công việc mới."
+        },
+        {
+          "jp": "いい アパートを 見[み]つけようと 思[おも]って います。",
+          "vn": "Tôi đang có ý định tìm một căn hộ tốt."
+        }
+      ]
     },
     {
       "w": "うけますⅡ [しけんを～]",
       "k": "受けます [試験を～]",
-      "m": "thi [kỳ thi]"
+      "m": "thi [kỳ thi]",
+      "examples": [
+        {
+          "jp": "来月[らいげつ] 日本語[にほんご]能力[のうりょく]試験[しけん]を 受[う]ける 予定[よてい]です。",
+          "vn": "Tháng sau tôi dự định thi kỳ thi năng lực tiếng Nhật."
+        },
+        {
+          "jp": "まだ その 試験[しけん]を 受[う]けて いません。",
+          "vn": "Tôi vẫn chưa thi kỳ thi đó."
+        }
+      ]
     },
     {
       "w": "にゅうがくしますⅢ [だいがくに～]",
       "k": "入学します [大学に～]",
-      "m": "nhập học, vào [(trường) đại học]"
+      "m": "nhập học, vào [(trường) đại học]",
+      "examples": [
+        {
+          "jp": "娘[むすめ]は 来年[らいねん] 大学[だいがく]に 入学[にゅうがく]する 予定[よてい]です。",
+          "vn": "Con gái tôi dự định sang năm sẽ vào đại học."
+        },
+        {
+          "jp": "大学[だいがく]に 入学[にゅうがく]しようと 思[おも]って、勉強[べんきょう]して います。",
+          "vn": "Tôi đang học để định thi vào đại học."
+        }
+      ]
     },
     {
       "w": "そつぎょうしますⅢ [だいがくを～]",
       "k": "卒業します [大学を～]",
-      "m": "tốt nghiệp [(trường) đại học]"
+      "m": "tốt nghiệp [(trường) đại học]",
+      "examples": [
+        {
+          "jp": "息子[むすこ]は 来年[らいねん] 大学[だいがく]を 卒業[そつぎょう]する 予定[よてい]です。",
+          "vn": "Con trai tôi dự định năm sau tốt nghiệp đại học."
+        },
+        {
+          "jp": "まだ 大学[だいがく]を 卒業[そつぎょう]して いません。",
+          "vn": "Tôi vẫn chưa tốt nghiệp đại học."
+        }
+      ]
     },
     {
       "w": "しゅっせきしますⅢ [かいぎに～]",
       "k": "出席します [会議に～]",
-      "m": "tham dự, tham gia [cuộc họp]"
+      "m": "tham dự, tham gia [cuộc họp]",
+      "examples": [
+        {
+          "jp": "明日[あした]の 会議[かいぎ]に 出席[しゅっせき]する つもりです。",
+          "vn": "Ngày mai tôi dự định tham dự cuộc họp."
+        },
+        {
+          "jp": "部長[ぶちょう]は 会議[かいぎ]に 出席[しゅっせき]する 予定[よてい]です。",
+          "vn": "Trưởng phòng dự kiến sẽ tham dự cuộc họp."
+        }
+      ]
     },
     {
       "w": "きゅうけいしますⅢ",
       "k": "休憩します",
-      "m": "nghỉ, giải lao"
+      "m": "nghỉ, giải lao",
+      "examples": [
+        {
+          "jp": "そろそろ 休憩[きゅうけい]しませんか。",
+          "vn": "Chúng ta nghỉ giải lao một lát nhé?"
+        },
+        {
+          "jp": "10分[じゅっぷん]ほど 休憩[きゅうけい]しようと 思[おも]います。",
+          "vn": "Tôi định nghỉ giải lao khoảng 10 phút."
+        }
+      ]
     },
     {
       "w": "れんきゅう",
       "k": "連休",
-      "m": "ngày nghỉ liền nhau"
+      "m": "ngày nghỉ liền nhau",
+      "examples": [
+        {
+          "jp": "今度[こんど]の 連休[れんきゅう]は 何[なに]を する つもりですか。",
+          "vn": "Kỳ nghỉ liền này bạn định làm gì?"
+        },
+        {
+          "jp": "連休[れんきゅう]に 田舎[いなか]へ 帰[かえ]る 予定[よてい]です。",
+          "vn": "Dịp nghỉ liền tôi dự định về quê."
+        }
+      ]
     },
     {
       "w": "さくぶん",
       "k": "作文",
-      "m": "bài văn"
+      "m": "bài văn",
+      "examples": [
+        {
+          "jp": "日本語[にほんご]の クラスで 作文[さくぶん]を 書[か]く つもりです。",
+          "vn": "Tôi định viết bài văn trong lớp tiếng Nhật."
+        },
+        {
+          "jp": "まだ 作文[さくぶん]を 書[か]いて いません。",
+          "vn": "Tôi vẫn chưa viết bài văn."
+        }
+      ]
     },
     {
       "w": "てんらんかい",
       "k": "展覧会",
-      "m": "triển lãm"
+      "m": "triển lãm",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ] 絵[え]の 展覧会[てんらんかい]に 行[い]く つもりです。",
+          "vn": "Cuối tuần tôi định đi xem triển lãm tranh."
+        },
+        {
+          "jp": "会社[かいしゃ]の 展覧会[てんらんかい]に 出席[しゅっせき]する 予定[よてい]です。",
+          "vn": "Tôi dự kiến tham dự triển lãm của công ty."
+        }
+      ]
     },
     {
       "w": "けっこんしき",
       "k": "結婚式",
-      "m": "lễ cưới, đám cưới"
+      "m": "lễ cưới, đám cưới",
+      "examples": [
+        {
+          "jp": "来月[らいげつ] 友達[ともだち]の 結婚式[けっこんしき]に 出[で]る 予定[よてい]です。",
+          "vn": "Tháng sau tôi dự kiến dự đám cưới của bạn."
+        },
+        {
+          "jp": "結婚式[けっこんしき]は まだ 始[はじ]まって いません。",
+          "vn": "Lễ cưới vẫn chưa bắt đầu."
+        }
+      ]
     },
     {
       "w": "[お]そうしき",
       "k": "[お]葬式",
-      "m": "lễ tang, đám tang"
+      "m": "lễ tang, đám tang",
+      "examples": [
+        {
+          "jp": "明日[あした] お葬式[そうしき]に 出席[しゅっせき]する つもりです。",
+          "vn": "Ngày mai tôi định tham dự lễ tang."
+        },
+        {
+          "jp": "お葬式[そうしき]の 準備[じゅんび]を して います。",
+          "vn": "Tôi đang chuẩn bị cho lễ tang."
+        }
+      ]
     },
     {
       "w": "しき",
       "k": "式",
-      "m": "lễ, đám"
+      "m": "lễ, đám",
+      "examples": [
+        {
+          "jp": "式[しき]は 何時[なんじ]に 始[はじ]まる 予定[よてい]ですか。",
+          "vn": "Buổi lễ dự kiến bắt đầu lúc mấy giờ?"
+        },
+        {
+          "jp": "その 式[しき]には まだ 出[で]て いません。",
+          "vn": "Tôi vẫn chưa tham dự buổi lễ đó."
+        }
+      ]
     },
     {
       "w": "ほんしゃ",
       "k": "本社",
-      "m": "trụ sở chính"
+      "m": "trụ sở chính",
+      "examples": [
+        {
+          "jp": "来月[らいげつ]から 本社[ほんしゃ]で 働[はたら]く 予定[よてい]です。",
+          "vn": "Từ tháng sau tôi dự định sẽ làm việc ở trụ sở chính."
+        },
+        {
+          "jp": "本社[ほんしゃ]の 会議[かいぎ]に 出席[しゅっせき]する つもりです。",
+          "vn": "Tôi định tham dự cuộc họp ở trụ sở chính."
+        }
+      ]
     },
     {
       "w": "してん",
       "k": "支店",
-      "m": "chi nhánh"
+      "m": "chi nhánh",
+      "examples": [
+        {
+          "jp": "大阪[おおさか]の 支店[してん]に 異動[いどう]する 予定[よてい]です。",
+          "vn": "Tôi dự kiến sẽ chuyển sang chi nhánh Osaka."
+        },
+        {
+          "jp": "支店[してん]に まだ 連絡[れんらく]して いません。",
+          "vn": "Tôi vẫn chưa liên lạc với chi nhánh."
+        }
+      ]
     },
     {
       "w": "きょうかい",
       "k": "教会",
-      "m": "nhà thờ"
+      "m": "nhà thờ",
+      "examples": [
+        {
+          "jp": "結婚式[けっこんしき]は 教会[きょうかい]で 行[おこな]う 予定[よてい]です。",
+          "vn": "Lễ cưới dự định tổ chức ở nhà thờ."
+        },
+        {
+          "jp": "この 教会[きょうかい]は とても 古[ふる]いです。",
+          "vn": "Nhà thờ này rất cổ."
+        }
+      ]
     },
     {
       "w": "だいがくいん",
       "k": "大学院",
-      "m": "cao học, cơ sở giáo dục trên đại học"
+      "m": "cao học, cơ sở giáo dục trên đại học",
+      "examples": [
+        {
+          "jp": "卒業[そつぎょう]後[ご]、大学院[だいがくいん]に 進[すす]む つもりです。",
+          "vn": "Sau khi tốt nghiệp, tôi dự định học lên cao học."
+        },
+        {
+          "jp": "大学院[だいがくいん]で 経済[けいざい]を 研究[けんきゅう]しようと 思[おも]って います。",
+          "vn": "Tôi đang có ý định nghiên cứu kinh tế ở bậc cao học."
+        }
+      ]
     },
     {
       "w": "どうぶつえん",
       "k": "動物園",
-      "m": "vườn thú, vườn bách thú"
+      "m": "vườn thú, vườn bách thú",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ] 子供[こども]と 動物園[どうぶつえん]に 行[い]く つもりです。",
+          "vn": "Cuối tuần tôi định đưa con đi vườn thú."
+        },
+        {
+          "jp": "動物園[どうぶつえん]は まだ 行[い]った ことが ありません。",
+          "vn": "Tôi vẫn chưa từng đi vườn thú."
+        }
+      ]
     },
     {
       "w": "おんせん",
       "k": "温泉",
-      "m": "suối nước nóng"
+      "m": "suối nước nóng",
+      "examples": [
+        {
+          "jp": "今度[こんど]の 休[やす]みに 温泉[おんせん]へ 行[い]こうと 思[おも]って います。",
+          "vn": "Kỳ nghỉ tới tôi định đi suối nước nóng."
+        },
+        {
+          "jp": "温泉[おんせん]で ゆっくり 休憩[きゅうけい]する 予定[よてい]です。",
+          "vn": "Tôi dự định nghỉ ngơi thoải mái ở suối nước nóng."
+        }
+      ]
     },
     {
       "w": "おきゃく[さん]",
       "k": "お客[さん]",
-      "m": "khách hàng"
+      "m": "khách hàng",
+      "examples": [
+        {
+          "jp": "午後[ごご]、お客[きゃく]さんが 会社[かいしゃ]に 来[く]る 予定[よてい]です。",
+          "vn": "Chiều nay có khách hàng dự kiến đến công ty."
+        },
+        {
+          "jp": "お客[きゃく]さんは まだ 到着[とうちゃく]して いません。",
+          "vn": "Khách hàng vẫn chưa đến."
+        }
+      ]
     },
     {
       "w": "だれか",
       "k": "",
-      "m": "ai đó"
+      "m": "ai đó",
+      "examples": [
+        {
+          "jp": "誰[だれ]か この 資料[しりょう]を 確認[かくにん]して くれませんか。",
+          "vn": "Có ai đó kiểm tra giúp tôi tài liệu này được không?"
+        },
+        {
+          "jp": "誰[だれ]かに 相談[そうだん]しようと 思[おも]って います。",
+          "vn": "Tôi đang định bàn bạc với ai đó."
+        }
+      ]
     },
     {
       "w": "～の ほう",
       "k": "～の 方",
-      "m": "phía ~, hướng ~"
+      "m": "phía ~, hướng ~",
+      "examples": [
+        {
+          "jp": "こちらの 方[ほう]が 予算[よさん]に ちょうど いいです。",
+          "vn": "Cái phương án bên này thì vừa với ngân sách hơn."
+        },
+        {
+          "jp": "田中[たなか]さんの 方[ほう]に 聞[き]いて みます。",
+          "vn": "Tôi thử hỏi phía anh Tanaka xem sao."
+        }
+      ]
     },
     {
       "w": "ずっと",
       "k": "",
-      "m": "suốt, liền"
+      "m": "suốt, liền",
+      "examples": [
+        {
+          "jp": "ずっと この 会社[かいしゃ]で 働[はたら]く つもりです。",
+          "vn": "Tôi dự định làm ở công ty này mãi mãi."
+        },
+        {
+          "jp": "ずっと 会[あ]いたいと 思[おも]って いた 人[ひと]です。",
+          "vn": "Đây là người tôi vẫn luôn muốn gặp."
+        }
+      ]
     },
     {
       "w": "ピカソ",
       "k": "",
-      "m": "Pablo Picasso, danh họa người Tây Ban Nha (1881-1973)"
+      "m": "Pablo Picasso, danh họa người Tây Ban Nha (1881-1973)",
+      "examples": [
+        {
+          "jp": "ピカソの 絵[え]の 展覧会[てんらんかい]に 行[い]く 予定[よてい]です。",
+          "vn": "Tôi dự kiến đi xem triển lãm tranh của Picasso."
+        },
+        {
+          "jp": "ピカソに ついて もっと 知[し]りたいです。",
+          "vn": "Tôi muốn tìm hiểu thêm về Picasso."
+        }
+      ]
     },
     {
       "w": "うえのこうえん",
       "k": "上野公園",
-      "m": "Công viên Ueno (ở Tokyo)"
+      "m": "Công viên Ueno (ở Tokyo)",
+      "examples": [
+        {
+          "jp": "上野[うえの]公園[こうえん]で 花見[はなみ]を する つもりです。",
+          "vn": "Tôi định ngắm hoa anh đào ở công viên Ueno."
+        },
+        {
+          "jp": "上野[うえの]公園[こうえん]には まだ 行[い]った ことが ありません。",
+          "vn": "Tôi vẫn chưa từng đi công viên Ueno."
+        }
+      ]
     }
   ],
   "expressions": [

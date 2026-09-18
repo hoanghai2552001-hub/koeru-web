@@ -6,142 +6,422 @@
     {
       "w": "とどきますⅠ [にもつが～]",
       "k": "届きます [荷物が～]",
-      "m": "được gửi đến, được chuyển đến [hành lý ~]"
+      "m": "được gửi đến, được chuyển đến [hành lý ~]",
+      "examples": [
+        {
+          "jp": "注文[ちゅうもん]した 荷物[にもつ]が 今朝[けさ] 届[とど]きました。",
+          "vn": "Hàng tôi đặt đã được giao đến sáng nay."
+        },
+        {
+          "jp": "取引先[とりひきさき]から 資料[しりょう]が 届[とど]きました。",
+          "vn": "Tài liệu từ đối tác đã được gửi đến."
+        }
+      ]
     },
     {
       "w": "でますⅡ [しあいに～]",
       "k": "出ます [試合に～]",
-      "m": "tham gia, tham dự [trận đấu]"
+      "m": "tham gia, tham dự [trận đấu]",
+      "examples": [
+        {
+          "jp": "来月[らいげつ]、社内[しゃない]の テニス試合[しあい]に 出[で]ます。",
+          "vn": "Tháng sau tôi sẽ tham gia trận đấu tennis nội bộ công ty."
+        },
+        {
+          "jp": "毎日[まいにち] 練習[れんしゅう]するように して、試合[しあい]に 出[で]られるように なりました。",
+          "vn": "Tôi đã luyện tập mỗi ngày để có thể tham gia thi đấu."
+        }
+      ]
     },
     {
       "w": "うちますⅠ [ワープロを～]",
       "k": "打ちます",
-      "m": "đánh [máy chữ]"
+      "m": "đánh [máy chữ]",
+      "examples": [
+        {
+          "jp": "パソコンで 文字[もじ]を 打[う]つのに 慣[な]れました。",
+          "vn": "Tôi đã quen với việc gõ chữ trên máy tính."
+        },
+        {
+          "jp": "できるだけ 速[はや]く キーボードを 打[う]てるように 練習[れんしゅう]して います。",
+          "vn": "Tôi đang luyện tập để có thể gõ bàn phím nhanh nhất có thể."
+        }
+      ]
     },
     {
       "w": "ちょきんしますⅢ",
       "k": "貯金します",
-      "m": "tiết kiệm tiền, để dành tiền"
+      "m": "tiết kiệm tiền, để dành tiền",
+      "examples": [
+        {
+          "jp": "将来[しょうらい]の ために、毎月[まいつき] 貯金[ちょきん]する ように して います。",
+          "vn": "Tôi cố gắng tiết kiệm tiền mỗi tháng vì tương lai."
+        },
+        {
+          "jp": "ボーナスは 貯金[ちょきん]しようと 思[おも]って います。",
+          "vn": "Tôi định để dành tiền thưởng."
+        }
+      ]
     },
     {
       "w": "ふとりますⅠ",
       "k": "太ります",
-      "m": "béo lên, tăng cân"
+      "m": "béo lên, tăng cân",
+      "examples": [
+        {
+          "jp": "最近[さいきん] 忙[いそが]しくて 運動[うんどう]しないので、太[ふと]って きました。",
+          "vn": "Dạo này bận không tập thể dục nên tôi đã béo lên."
+        },
+        {
+          "jp": "太[ふと]らないように、夜遅[よるおそ]く 食[た]べない ように して います。",
+          "vn": "Tôi cố không ăn khuya để không bị béo lên."
+        }
+      ]
     },
     {
       "w": "やせますⅡ",
       "k": "",
-      "m": "gầy đi, giảm cân"
+      "m": "gầy đi, giảm cân",
+      "examples": [
+        {
+          "jp": "健康[けんこう]の ために 少[すこ]し 痩[や]せようと 思[おも]って います。",
+          "vn": "Tôi định giảm cân một chút vì sức khỏe."
+        },
+        {
+          "jp": "彼[かれ]は 最近[さいきん] かなり 痩[や]せましたね。",
+          "vn": "Dạo này anh ấy gầy đi khá nhiều nhỉ."
+        }
+      ]
     },
     {
       "w": "すぎますⅡ [7じを～]",
       "k": "過ぎます [7時を～]",
-      "m": "quá, qua [7 giờ]"
+      "m": "quá, qua [7 giờ]",
+      "examples": [
+        {
+          "jp": "もう 7時[しちじ]を 過[す]ぎたので、そろそろ 帰[かえ]ります。",
+          "vn": "Đã quá 7 giờ rồi nên tôi sắp về đây."
+        },
+        {
+          "jp": "会議[かいぎ]が 予定[よてい]時間[じかん]を 過[す]ぎて しまいました。",
+          "vn": "Cuộc họp đã kéo dài quá thời gian dự kiến."
+        }
+      ]
     },
     {
       "w": "なれますⅡ [しゅうかんに～]",
       "k": "慣れます [習慣に～]",
-      "m": "làm quen với [tập quán]"
+      "m": "làm quen với [tập quán]",
+      "examples": [
+        {
+          "jp": "新[あたら]しい 会社[かいしゃ]の 習慣[しゅうかん]に だんだん 慣[な]れて きました。",
+          "vn": "Tôi dần dần quen với tập quán của công ty mới."
+        },
+        {
+          "jp": "海外[かいがい]の 生活[せいかつ]に 慣[な]れるように 頑張[がんば]って います。",
+          "vn": "Tôi đang cố gắng để quen với cuộc sống ở nước ngoài."
+        }
+      ]
     },
     {
       "w": "かたい",
       "k": "硬い",
-      "m": "cứng"
+      "m": "cứng",
+      "examples": [
+        {
+          "jp": "この 椅子[いす]は 硬[かた]くて、長[なが]く 座[すわ]ると 疲[つか]れます。",
+          "vn": "Cái ghế này cứng, ngồi lâu thì mệt."
+        },
+        {
+          "jp": "この パンは ちょっと 硬[かた]いですね。",
+          "vn": "Bánh mì này hơi cứng nhỉ."
+        }
+      ]
     },
     {
       "w": "やわらかい",
       "k": "軟らかい",
-      "m": "mềm"
+      "m": "mềm",
+      "examples": [
+        {
+          "jp": "このソファーは 柔[やわ]らかくて 座[すわ]り心地[ごこち]が いいです。",
+          "vn": "Cái sofa này mềm, ngồi thoải mái."
+        },
+        {
+          "jp": "柔[やわ]らかい 布団[ふとん]で よく 眠[ねむ]れました。",
+          "vn": "Tôi ngủ ngon nhờ chăn mềm."
+        }
+      ]
     },
     {
       "w": "でんし～",
       "k": "電子～",
-      "m": "~ điện tử"
+      "m": "~ điện tử",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]の 資料[しりょう]は 電子[でんし]メールで 送[おく]ります。",
+          "vn": "Tài liệu cuộc họp tôi sẽ gửi qua thư điện tử."
+        },
+        {
+          "jp": "電子[でんし]辞書[じしょ]を 使[つか]うように なりました。",
+          "vn": "Tôi đã bắt đầu dùng từ điển điện tử."
+        }
+      ]
     },
     {
       "w": "けいたい～",
       "k": "携帯～",
-      "m": "~ cầm tay"
+      "m": "~ cầm tay",
+      "examples": [
+        {
+          "jp": "携帯[けいたい]電話[でんわ]の 番号[ばんごう]を 交換[こうかん]しましょう。",
+          "vn": "Chúng ta trao đổi số điện thoại di động nhé."
+        },
+        {
+          "jp": "会議中[かいぎちゅう]は 携帯[けいたい]を マナーモードに して ください。",
+          "vn": "Trong lúc họp xin để điện thoại ở chế độ im lặng."
+        }
+      ]
     },
     {
       "w": "こうじょう",
       "k": "工場",
-      "m": "nhà máy, phân xưởng"
+      "m": "nhà máy, phân xưởng",
+      "examples": [
+        {
+          "jp": "来週[らいしゅう]、地方[ちほう]の 工場[こうじょう]を 見学[けんがく]する 予定[よてい]です。",
+          "vn": "Tuần sau tôi dự kiến đi tham quan nhà máy ở địa phương."
+        },
+        {
+          "jp": "この 製品[せいひん]は 工場[こうじょう]で 作[つく]られて います。",
+          "vn": "Sản phẩm này được sản xuất tại nhà máy."
+        }
+      ]
     },
     {
       "w": "けんこう",
       "k": "健康",
-      "m": "sức khỏe"
+      "m": "sức khỏe",
+      "examples": [
+        {
+          "jp": "健康[けんこう]の ために、毎日[まいにち] 歩[ある]く ように して います。",
+          "vn": "Tôi cố gắng đi bộ mỗi ngày vì sức khỏe."
+        },
+        {
+          "jp": "健康[けんこう]診断[しんだん]の 結果[けっか]が 届[とど]きました。",
+          "vn": "Kết quả khám sức khỏe đã được gửi đến."
+        }
+      ]
     },
     {
       "w": "けんどう",
       "k": "剣道",
-      "m": "kiếm đạo"
+      "m": "kiếm đạo",
+      "examples": [
+        {
+          "jp": "息子[むすこ]は 剣道[けんどう]の 試合[しあい]に 出[で]ます。",
+          "vn": "Con trai tôi sẽ tham gia thi đấu kiếm đạo."
+        },
+        {
+          "jp": "剣道[けんどう]を 習[なら]うように なって 3年[さんねん]です。",
+          "vn": "Đã 3 năm kể từ khi tôi bắt đầu học kiếm đạo."
+        }
+      ]
     },
     {
       "w": "まいしゅう",
       "k": "毎週",
-      "m": "hàng tuần"
+      "m": "hàng tuần",
+      "examples": [
+        {
+          "jp": "毎週[まいしゅう] 月曜日[げつようび]に 部[ぶ]ミーティングが あります。",
+          "vn": "Hàng tuần vào thứ hai có họp bộ phận."
+        },
+        {
+          "jp": "毎週[まいしゅう] ジムに 通[かよ]う ように して います。",
+          "vn": "Tôi cố gắng đi phòng gym hàng tuần."
+        }
+      ]
     },
     {
       "w": "まいつき",
       "k": "毎月",
-      "m": "hàng tháng"
+      "m": "hàng tháng",
+      "examples": [
+        {
+          "jp": "毎月[まいつき] 決[き]まった 額[がく]を 貯金[ちょきん]して います。",
+          "vn": "Hàng tháng tôi tiết kiệm một khoản cố định."
+        },
+        {
+          "jp": "毎月[まいつき]の 報告書[ほうこくしょ]を 提出[ていしゅつ]しなければ なりません。",
+          "vn": "Tôi phải nộp báo cáo hàng tháng."
+        }
+      ]
     },
     {
       "w": "まいとし（まいねん）",
       "k": "毎年",
-      "m": "hàng năm"
+      "m": "hàng năm",
+      "examples": [
+        {
+          "jp": "毎年[まいとし] この 時期[じき]は とても 忙[いそが]しいです。",
+          "vn": "Hàng năm vào thời điểm này rất bận."
+        },
+        {
+          "jp": "毎年[まいねん] 健康[けんこう]診断[しんだん]を 受[う]けて います。",
+          "vn": "Hàng năm tôi đều đi khám sức khỏe."
+        }
+      ]
     },
     {
       "w": "やっと",
       "k": "",
-      "m": "cuối cùng thì"
+      "m": "cuối cùng thì",
+      "examples": [
+        {
+          "jp": "やっと プロジェクトが 終[お]わりました。",
+          "vn": "Cuối cùng dự án cũng xong rồi."
+        },
+        {
+          "jp": "何度[なんど]も 練習[れんしゅう]して、やっと できる ように なりました。",
+          "vn": "Sau nhiều lần luyện tập, cuối cùng tôi cũng làm được."
+        }
+      ]
     },
     {
       "w": "かなり",
       "k": "",
-      "m": "khá, tương đối"
+      "m": "khá, tương đối",
+      "examples": [
+        {
+          "jp": "今回[こんかい]の プロジェクトは かなり 難[むずか]しいです。",
+          "vn": "Dự án lần này khá là khó."
+        },
+        {
+          "jp": "彼[かれ]の 日本語[にほんご]は かなり 上手[じょうず]に なりました。",
+          "vn": "Tiếng Nhật của anh ấy đã giỏi lên khá nhiều."
+        }
+      ]
     },
     {
       "w": "かならず",
       "k": "必ず",
-      "m": "nhất định"
+      "m": "nhất định",
+      "examples": [
+        {
+          "jp": "会議[かいぎ]には 必[かなら]ず 出席[しゅっせき]して ください。",
+          "vn": "Xin nhất định phải tham dự cuộc họp."
+        },
+        {
+          "jp": "帰[かえ]る 前[まえ]に 必[かなら]ず 電気[でんき]を 消[け]して ください。",
+          "vn": "Trước khi về nhất định phải tắt đèn."
+        }
+      ]
     },
     {
       "w": "ぜったいに",
       "k": "絶対に",
-      "m": "nhất định, tuyệt đối"
+      "m": "nhất định, tuyệt đối",
+      "examples": [
+        {
+          "jp": "この 秘密[ひみつ]は 絶対[ぜったい]に 言[い]わないで ください。",
+          "vn": "Bí mật này xin tuyệt đối đừng nói ra."
+        },
+        {
+          "jp": "納期[のうき]だけは 絶対[ぜったい]に 守[まも]ります。",
+          "vn": "Riêng deadline thì tôi sẽ tuyệt đối tuân thủ."
+        }
+      ]
     },
     {
       "w": "じょうずに",
       "k": "上手に",
-      "m": "giỏi, khéo"
+      "m": "giỏi, khéo",
+      "examples": [
+        {
+          "jp": "彼女[かのじょ]は 英語[えいご]を 上手[じょうず]に 話[はな]します。",
+          "vn": "Cô ấy nói tiếng Anh rất giỏi."
+        },
+        {
+          "jp": "資料[しりょう]を 上手[じょうず]に まとめられる ように なりました。",
+          "vn": "Tôi đã có thể tổng hợp tài liệu một cách khéo léo."
+        }
+      ]
     },
     {
       "w": "できるだけ",
       "k": "",
-      "m": "cố gắng"
+      "m": "cố gắng",
+      "examples": [
+        {
+          "jp": "できるだけ 早[はや]く 返信[へんしん]します。",
+          "vn": "Tôi sẽ trả lời sớm nhất có thể."
+        },
+        {
+          "jp": "できるだけ 多[おお]くの お客様[きゃくさま]に 会[あ]う ように して います。",
+          "vn": "Tôi cố gắng gặp càng nhiều khách hàng càng tốt."
+        }
+      ]
     },
     {
       "w": "このごろ",
       "k": "",
-      "m": "gần đây, dạo này"
+      "m": "gần đây, dạo này",
+      "examples": [
+        {
+          "jp": "この頃[ごろ] 残業[ざんぎょう]が 多[おお]いです。",
+          "vn": "Dạo này tăng ca nhiều."
+        },
+        {
+          "jp": "この頃[ごろ] 早[はや]く 起[お]きる ように して います。",
+          "vn": "Dạo này tôi cố gắng dậy sớm."
+        }
+      ]
     },
     {
       "w": "～ずつ",
       "k": "",
-      "m": "từng ~, ~ một"
+      "m": "từng ~, ~ một",
+      "examples": [
+        {
+          "jp": "資料[しりょう]を 一人[ひとり]ずつ 配[くば]って ください。",
+          "vn": "Hãy phát tài liệu cho từng người một."
+        },
+        {
+          "jp": "毎日[まいにち] 少[すこ]しずつ 貯金[ちょきん]して います。",
+          "vn": "Mỗi ngày tôi tiết kiệm từng chút một."
+        }
+      ]
     },
     {
       "w": "その ほうが ～",
       "k": "",
-      "m": "cái đó ~ hơn, như thế ~ hơn"
+      "m": "cái đó ~ hơn, như thế ~ hơn",
+      "examples": [
+        {
+          "jp": "早[はや]く 決[き]めた ほうが いいですよ。その ほうが 楽[らく]です。",
+          "vn": "Nên quyết định sớm đi. Như thế sẽ nhàn hơn."
+        },
+        {
+          "jp": "オンライン会議[かいぎ]の ほうが 便利[べんり]です。",
+          "vn": "Họp online thì tiện hơn."
+        }
+      ]
     },
     {
       "w": "ショパン",
       "k": "",
-      "m": "Sô-panh, nhà soạn nhạc người Ba Lan (1810-1849)"
+      "m": "Sô-panh, nhà soạn nhạc người Ba Lan (1810-1849)",
+      "examples": [
+        {
+          "jp": "週末[しゅうまつ]、ショパンの コンサートに 行[い]きます。",
+          "vn": "Cuối tuần tôi sẽ đi xem hòa nhạc Chopin."
+        },
+        {
+          "jp": "ショパンの 曲[きょく]を 聞[き]くのが 好[す]きです。",
+          "vn": "Tôi thích nghe các bản nhạc của Chopin."
+        }
+      ]
     }
   ],
   "expressions": [
