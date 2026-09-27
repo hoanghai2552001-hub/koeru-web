@@ -1,0 +1,340 @@
+{
+  "1": {
+    "topic": "Rủ đi du lịch",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Rủ đi du lịch",
+        "spk": "A",
+        "zh": "你想什么时候去旅游？",
+        "p": "Nǐ xiǎng shénme shíhou qù lǚyóu?",
+        "vi": "Bạn muốn đi du lịch lúc nào?"
+      },
+      {
+        "part": 1,
+        "topic": "Rủ đi du lịch",
+        "spk": "B",
+        "zh": "我觉得下个月最好，我们一起去吧。",
+        "p": "Wǒ juéde xià ge yuè zuì hǎo, wǒmen yìqǐ qù ba.",
+        "vi": "Tôi thấy tháng sau là tốt nhất, chúng mình cùng đi nhé."
+      }
+    ]
+  },
+  "2": {
+    "topic": "Hỏi thăm sức khỏe",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hỏi thăm sức khỏe",
+        "spk": "A",
+        "zh": "你今天怎么没去跑步？",
+        "p": "Nǐ jīntiān zěnme méi qù pǎobù?",
+        "vi": "Sao hôm nay bạn không đi chạy bộ?"
+      },
+      {
+        "part": 1,
+        "topic": "Hỏi thăm sức khỏe",
+        "spk": "B",
+        "zh": "我有点儿累，想在家休息。",
+        "p": "Wǒ yǒudiǎnr lèi, xiǎng zài jiā xiūxi.",
+        "vi": "Tôi hơi mệt, muốn nghỉ ở nhà."
+      }
+    ]
+  },
+  "3": {
+    "topic": "Tìm đồng hồ",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Tìm đồng hồ",
+        "spk": "A",
+        "zh": "你看见我的手表了吗？",
+        "p": "Nǐ kànjiàn wǒ de shǒubiǎo le ma?",
+        "vi": "Bạn có thấy đồng hồ của tôi không?"
+      },
+      {
+        "part": 1,
+        "topic": "Tìm đồng hồ",
+        "spk": "B",
+        "zh": "在房间里，牛奶旁边。",
+        "p": "Zài fángjiān lǐ, niúnǎi pángbiān.",
+        "vi": "Ở trong phòng, cạnh hộp sữa."
+      }
+    ]
+  },
+  "4": {
+    "topic": "Mừng sinh nhật",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Mừng sinh nhật",
+        "spk": "A",
+        "zh": "生日快乐！这是给你的礼物。",
+        "p": "Shēngrì kuàilè! Zhè shì gěi nǐ de lǐwù.",
+        "vi": "Chúc mừng sinh nhật! Đây là quà tặng bạn."
+      },
+      {
+        "part": 1,
+        "topic": "Mừng sinh nhật",
+        "spk": "B",
+        "zh": "谢谢，你真好！晚上一起吃饭吧。",
+        "p": "Xièxie, nǐ zhēn hǎo! Wǎnshang yìqǐ chī fàn ba.",
+        "vi": "Cảm ơn, bạn tốt quá! Tối nay ăn cơm cùng nhau nhé."
+      }
+    ]
+  },
+  "5": {
+    "topic": "Chuẩn bị thi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Chuẩn bị thi",
+        "spk": "A",
+        "zh": "你准备好考试了吗？",
+        "p": "Nǐ zhǔnbèi hǎo kǎoshì le ma?",
+        "vi": "Bạn chuẩn bị thi xong chưa?"
+      },
+      {
+        "part": 1,
+        "topic": "Chuẩn bị thi",
+        "spk": "B",
+        "zh": "还没有，这几个词我不懂。",
+        "p": "Hái méiyǒu, zhè jǐ ge cí wǒ bù dǒng.",
+        "vi": "Chưa, tôi chưa hiểu mấy từ này."
+      },
+      {
+        "part": 1,
+        "topic": "Chuẩn bị thi",
+        "spk": "A",
+        "zh": "我可以帮助你。",
+        "p": "Wǒ kěyǐ bāngzhù nǐ.",
+        "vi": "Tôi có thể giúp bạn."
+      }
+    ]
+  },
+  "6": {
+    "topic": "Chọn hoạt động",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Chọn hoạt động",
+        "spk": "A",
+        "zh": "今天去打篮球，好吗？",
+        "p": "Jīntiān qù dǎ lánqiú, hǎo ma?",
+        "vi": "Hôm nay đi chơi bóng rổ nhé?"
+      },
+      {
+        "part": 1,
+        "topic": "Chọn hoạt động",
+        "spk": "B",
+        "zh": "因为下雨，所以我们去游泳吧。",
+        "p": "Yīnwèi xià yǔ, suǒyǐ wǒmen qù yóuyǒng ba.",
+        "vi": "Vì trời mưa nên chúng mình đi bơi nhé."
+      }
+    ]
+  },
+  "7": {
+    "topic": "Hỏi đường đến công ty",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hỏi đường đến công ty",
+        "spk": "A",
+        "zh": "你家离公司远吗？",
+        "p": "Nǐ jiā lí gōngsī yuǎn ma?",
+        "vi": "Nhà bạn xa công ty không?"
+      },
+      {
+        "part": 1,
+        "topic": "Hỏi đường đến công ty",
+        "spk": "B",
+        "zh": "不远，坐公共汽车二十分钟就到。",
+        "p": "Bù yuǎn, zuò gōnggòng qìchē èrshí fēnzhōng jiù dào.",
+        "vi": "Không xa, đi xe buýt hai mươi phút là tới."
+      }
+    ]
+  },
+  "8": {
+    "topic": "Nhờ tìm người",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Nhờ tìm người",
+        "spk": "A",
+        "zh": "您好，请问王老师在吗？",
+        "p": "Nín hǎo, qǐngwèn Wáng lǎoshī zài ma?",
+        "vi": "Xin chào, cho hỏi thầy Vương có ở đây không?"
+      },
+      {
+        "part": 1,
+        "topic": "Nhờ tìm người",
+        "spk": "B",
+        "zh": "他出去了。您找他有什么事情？",
+        "p": "Tā chūqu le. Nín zhǎo tā yǒu shénme shìqing?",
+        "vi": "Thầy ra ngoài rồi. Anh/chị tìm thầy có việc gì?"
+      }
+    ]
+  },
+  "9": {
+    "topic": "Thử lại bài tập",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Thử lại bài tập",
+        "spk": "A",
+        "zh": "这道题我又做错了。",
+        "p": "Zhè dào tí wǒ yòu zuò cuò le.",
+        "vi": "Tôi lại làm sai câu này rồi."
+      },
+      {
+        "part": 1,
+        "topic": "Thử lại bài tập",
+        "spk": "B",
+        "zh": "没关系，我们再做一次。",
+        "p": "Méi guānxi, wǒmen zài zuò yí cì.",
+        "vi": "Không sao, chúng mình làm lại một lần nữa."
+      }
+    ]
+  },
+  "10": {
+    "topic": "Gọi điện cho anh trai",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Gọi điện cho anh trai",
+        "spk": "A",
+        "zh": "哥哥正在做什么？",
+        "p": "Gēge zhèngzài zuò shénme?",
+        "vi": "Anh trai đang làm gì?"
+      },
+      {
+        "part": 1,
+        "topic": "Gọi điện cho anh trai",
+        "spk": "B",
+        "zh": "他正在上课，先别给他打电话。",
+        "p": "Tā zhèngzài shàng kè, xiān bié gěi tā dǎ diànhuà.",
+        "vi": "Anh ấy đang học, khoan gọi điện cho anh ấy."
+      }
+    ]
+  },
+  "11": {
+    "topic": "So sánh giá",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "So sánh giá",
+        "spk": "A",
+        "zh": "这家店的水果怎么样？",
+        "p": "Zhè jiā diàn de shuǐguǒ zěnmeyàng?",
+        "vi": "Trái cây ở cửa hàng này thế nào?"
+      },
+      {
+        "part": 1,
+        "topic": "So sánh giá",
+        "spk": "B",
+        "zh": "很好，也比那家便宜。",
+        "p": "Hěn hǎo, yě bǐ nà jiā piányi.",
+        "vi": "Rất tốt, lại rẻ hơn cửa hàng kia."
+      }
+    ]
+  },
+  "12": {
+    "topic": "Chọn áo ấm",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Chọn áo ấm",
+        "spk": "A",
+        "zh": "外面下雪了，你穿这件衣服吧。",
+        "p": "Wàimiàn xià xuě le, nǐ chuān zhè jiàn yīfu ba.",
+        "vi": "Bên ngoài có tuyết rồi, bạn mặc áo này nhé."
+      },
+      {
+        "part": 1,
+        "topic": "Chọn áo ấm",
+        "spk": "B",
+        "zh": "好，谢谢。学校离这里近吗？",
+        "p": "Hǎo, xièxie. Xuéxiào lí zhèlǐ jìn ma?",
+        "vi": "Được, cảm ơn. Trường cách đây có gần không?"
+      }
+    ]
+  },
+  "13": {
+    "topic": "Miêu tả người",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Miêu tả người",
+        "spk": "A",
+        "zh": "门口站着的人是谁？",
+        "p": "Ménkǒu zhàn zhe de rén shì shéi?",
+        "vi": "Người đang đứng ở cửa là ai?"
+      },
+      {
+        "part": 1,
+        "topic": "Miêu tả người",
+        "spk": "B",
+        "zh": "是我的朋友，他正笑着看我们呢。",
+        "p": "Shì wǒ de péngyou, tā zhèng xiào zhe kàn wǒmen ne.",
+        "vi": "Đó là bạn tôi, anh ấy đang mỉm cười nhìn chúng ta."
+      }
+    ]
+  },
+  "14": {
+    "topic": "Đổi kế hoạch",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Đổi kế hoạch",
+        "spk": "A",
+        "zh": "今天是晴天，我们出去走走吧。",
+        "p": "Jīntiān shì qíngtiān, wǒmen chūqu zǒuzou ba.",
+        "vi": "Hôm nay trời nắng, chúng mình ra ngoài đi dạo nhé."
+      },
+      {
+        "part": 1,
+        "topic": "Đổi kế hoạch",
+        "spk": "B",
+        "zh": "我很想去，但是还有工作。",
+        "p": "Wǒ hěn xiǎng qù, dànshì hái yǒu gōngzuò.",
+        "vi": "Tôi rất muốn đi, nhưng vẫn còn việc."
+      }
+    ]
+  },
+  "15": {
+    "topic": "Mua vé xem phim",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Mua vé xem phim",
+        "spk": "A",
+        "zh": "大家都去看电影吗？",
+        "p": "Dàjiā dōu qù kàn diànyǐng ma?",
+        "vi": "Mọi người đều đi xem phim à?"
+      },
+      {
+        "part": 1,
+        "topic": "Mua vé xem phim",
+        "spk": "B",
+        "zh": "是，我和妹妹也去，请帮我们买两张票。",
+        "p": "Shì, wǒ hé mèimei yě qù, qǐng bāng wǒmen mǎi liǎng zhāng piào.",
+        "vi": "Đúng vậy, tôi và em gái cũng đi, hãy mua giúp chúng tôi hai vé."
+      }
+    ]
+  }
+}

@@ -126,6 +126,50 @@
       "ex_p": "",
       "ex_vi": "",
       "_src": "ngoài bài"
+    },
+    {
+      "h": "为",
+      "p": "wèi",
+      "pos": "Giới từ",
+      "m": "vì; cho",
+      "hv": "vị",
+      "ex_zh": "这份礼物是为你准备的。",
+      "ex_p": "Zhè fèn lǐwù shì wèi nǐ zhǔnbèi de.",
+      "ex_vi": "Món quà này được chuẩn bị cho bạn.",
+      "_src": "HSK 2.0 chính thức — bù nguồn"
+    },
+    {
+      "h": "拿",
+      "p": "ná",
+      "pos": "Động từ",
+      "m": "cầm; lấy; mang",
+      "hv": "nã",
+      "ex_zh": "请帮我拿一下手机。",
+      "ex_p": "Qǐng bāng wǒ ná yíxià shǒujī.",
+      "ex_vi": "Vui lòng cầm giúp tôi chiếc điện thoại.",
+      "_src": "HSK 2.0 chính thức — bù nguồn"
+    },
+    {
+      "h": "长",
+      "p": "zhǎng",
+      "pos": "Động từ",
+      "m": "lớn lên; trưởng thành",
+      "hv": "trưởng",
+      "ex_zh": "孩子长得很快。",
+      "ex_p": "Háizi zhǎng de hěn kuài.",
+      "ex_vi": "Đứa trẻ lớn rất nhanh.",
+      "_src": "HSK 2.0 chính thức — bù nguồn"
+    },
+    {
+      "h": "还",
+      "p": "huán",
+      "pos": "Động từ",
+      "m": "trả; hoàn lại",
+      "hv": "hoàn",
+      "ex_zh": "我明天还你这本书。",
+      "ex_p": "Wǒ míngtiān huán nǐ zhè běn shū.",
+      "ex_vi": "Ngày mai tôi sẽ trả bạn quyển sách này.",
+      "_src": "HSK 2.0 chính thức — bù nguồn"
     }
   ],
   "grammar": [],

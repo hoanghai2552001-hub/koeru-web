@@ -136,7 +136,7 @@ a.back{text-decoration:none;color:var(--navy);font-weight:800;font-size:.85rem;m
 
 <!-- HOME -->
 <div id="home-screen" class="screen active">
-  <a href="pinyin.html" class="back">← HSK Practice</a>
+  <a href="hsk.html?view=practice" class="back">← KOERU Chinese</a>
 
   <div class="home-hero">
     <div class="app-logo">卡</div>
@@ -260,7 +260,7 @@ a.back{text-decoration:none;color:var(--navy);font-weight:800;font-size:.85rem;m
     <div class="modal-h">Nhận lộ trình tiếng Trung</div>
     <div class="modal-sub">KOERU gợi ý lộ trình HSK phù hợp với trình độ và mục tiêu của bạn — trong 24 giờ.</div>
     <div class="lead-success" id="lead-success">
-      ✅ Đã nhận thông tin! KOERU sẽ liên hệ bạn sớm.<br><br>
+      Đã mở Zalo KOERU. Hãy kiểm tra nội dung và bấm gửi trong Zalo để hoàn tất.<br><br>
       <button class="btn-submit" onclick="closeLead()">Tiếp tục ôn tập →</button>
     </div>
     <form class="lead-form" id="lead-form" onsubmit="submitLead(event)">
@@ -468,15 +468,14 @@ function submitLead(e){
     source: 'hsk_flashcard', cta_location: ctaLoc,
     createdAt: new Date().toISOString()
   };
-  try{
-    const leads = JSON.parse(localStorage.getItem('koeru_chinese_leads')||'[]');
-    leads.push(lead); localStorage.setItem('koeru_chinese_leads', JSON.stringify(leads));
-  }catch(_){}
+  const message = 'Xin chào KOERU, tôi muốn nhận lộ trình tiếng Trung.\n' +
+    'Tên: ' + lead.name + '\nLiên hệ: ' + lead.contact + '\nTrình độ: ' + lead.current_level +
+    '\nMục tiêu: ' + lead.goal + '\nThời gian học: ' + lead.available_time;
+  window.open('https://zalo.me/0797836395?text=' + encodeURIComponent(message), '_blank', 'noopener');
   const btn = document.getElementById('lead-submit');
-  btn.textContent = '✅ Đã gửi!'; btn.disabled = true;
+  btn.textContent = 'Đã mở Zalo'; btn.disabled = true;
   form.style.display = 'none';
   document.getElementById('lead-success').style.display = 'block';
-  localStorage.setItem('lead_source','hsk_flashcard');
 }
 
 // ── CLEANUP khi rời trang (không có timer nhưng để nhất quán) ──

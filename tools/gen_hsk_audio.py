@@ -64,12 +64,16 @@ def synthesize_google(text):
     return base64.b64decode(r.json()["audioContent"])
 
 
-def load_texts(levels, lesson_filter, with_dialogue):
+def load_texts(levels, lesson_filter, with_dialogue, with_examples=False):
     """Trả về list (text, nhãn) đã dedup theo text trên TOÀN BỘ các cấp — một từ
     xuất hiện ở cả HSK2 lẫn HSK3 chỉ sinh audio một lần (tên file theo chữ Hán)."""
     seen, out = set(), []
     for lv in levels:
         db = os.path.join(ROOT, "database", "hsk%d" % lv)
+        example_path = os.path.join(db, "curated_examples.json")
+        curated = json.load(io.open(example_path, encoding="utf-8")) if os.path.isfile(example_path) else {}
+        dialogue_path = os.path.join(db, "curated_dialogue.json")
+        dialogues = json.load(io.open(dialogue_path, encoding="utf-8")) if os.path.isfile(dialogue_path) else {}
         for path in sorted(glob.glob(os.path.join(db, "lesson*.json"))):
             d = json.load(io.open(path, encoding="utf-8"))
             if lesson_filter and d["lesson"] != lesson_filter:
@@ -81,8 +85,14 @@ def load_texts(levels, lesson_filter, with_dialogue):
                 if h and h not in seen:
                     seen.add(h)
                     out.append((h, "HSK%d bài %d · từ vựng" % (lv, d["lesson"])))
+                if with_examples:
+                    zh = (curated.get(v.get("h"), v).get("ex_zh") or "").strip()
+                    if zh and zh not in seen:
+                        seen.add(zh)
+                        out.append((zh, "HSK%d bài %d · ví dụ" % (lv, d["lesson"])))
             if with_dialogue:
-                for line in d.get("dialogue", []):
+                lines = dialogues.get(str(d["lesson"]), {}).get("lines", d.get("dialogue", []))
+                for line in lines:
                     zh = (line.get("zh") or "").strip()
                     if zh and zh not in seen:
                         seen.add(zh)
@@ -93,6 +103,7 @@ def load_texts(levels, lesson_filter, with_dialogue):
 def main():
     lesson_filter = None
     with_dialogue = False
+    with_examples = False
     dry = False
     levels = []
 
@@ -100,6 +111,8 @@ def main():
         low = arg.lower()
         if arg == "--dialogue":
             with_dialogue = True
+        elif arg == "--examples":
+            with_examples = True
         elif arg == "--dry-run":
             dry = True
         elif re.fullmatch(r"hsk[123]", low):
@@ -120,7 +133,7 @@ def main():
         sys.exit("Thiếu GOOGLE_TTS_API_KEY.\n"
                  "  PowerShell:  $env:GOOGLE_TTS_API_KEY='xxx'\n\n" + USAGE)
 
-    items = load_texts(levels, lesson_filter, with_dialogue)
+    items = load_texts(levels, lesson_filter, with_dialogue, with_examples)
     if not items:
         sys.exit("Không có nội dung nào khớp bộ lọc.\n\n" + USAGE)
 
@@ -130,6 +143,7 @@ def main():
     todo = [(t, lb) for t, lb in items
             if (t, lb) not in have and len(t) <= MAX_TTS_CHARS]
     print("Khớp %d mục · đã có sẵn %d · sẽ gọi API %d lần" % (len(items), len(have), len(todo)))
+    print("Nội dung cần tạo: %d ký tự" % sum(len(t) for t, _ in todo))
     if toolong:
         print("Bỏ qua %d đoạn dài quá %d ký tự (TTS từ chối; web dùng giọng trình duyệt):"
               % (len(toolong), MAX_TTS_CHARS))

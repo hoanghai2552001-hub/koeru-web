@@ -1,0 +1,372 @@
+{
+  "1": {
+    "topic": "Chào hỏi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Chào hỏi",
+        "spk": "A",
+        "zh": "你好！你好吗？",
+        "p": "Nǐ hǎo! Nǐ hǎo ma?",
+        "vi": "Xin chào! Bạn khỏe không?"
+      },
+      {
+        "part": 1,
+        "topic": "Chào hỏi",
+        "spk": "B",
+        "zh": "我很好，谢谢你。",
+        "p": "Wǒ hěn hǎo, xièxie nǐ.",
+        "vi": "Tôi khỏe, cảm ơn bạn."
+      }
+    ]
+  },
+  "2": {
+    "topic": "Mời uống nước",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Mời uống nước",
+        "spk": "A",
+        "zh": "你喝水吗？",
+        "p": "Nǐ hē shuǐ ma?",
+        "vi": "Bạn uống nước không?"
+      },
+      {
+        "part": 1,
+        "topic": "Mời uống nước",
+        "spk": "B",
+        "zh": "喝，谢谢。",
+        "p": "Hē, xièxie.",
+        "vi": "Có, cảm ơn."
+      },
+      {
+        "part": 1,
+        "topic": "Mời uống nước",
+        "spk": "A",
+        "zh": "不客气。",
+        "p": "Bú kèqi.",
+        "vi": "Không có gì."
+      }
+    ]
+  },
+  "3": {
+    "topic": "Làm quen",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Làm quen",
+        "spk": "A",
+        "zh": "你叫什么名字？",
+        "p": "Nǐ jiào shénme míngzi?",
+        "vi": "Bạn tên là gì?"
+      },
+      {
+        "part": 1,
+        "topic": "Làm quen",
+        "spk": "B",
+        "zh": "我叫小安。你是学生吗？",
+        "p": "Wǒ jiào Xiǎo Ān. Nǐ shì xuésheng ma?",
+        "vi": "Tôi tên là Tiểu An. Bạn là học sinh à?"
+      },
+      {
+        "part": 1,
+        "topic": "Làm quen",
+        "spk": "A",
+        "zh": "是，我是学生。",
+        "p": "Shì, wǒ shì xuésheng.",
+        "vi": "Đúng vậy, tôi là học sinh."
+      }
+    ]
+  },
+  "4": {
+    "topic": "Giới thiệu bạn học",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Giới thiệu bạn học",
+        "spk": "A",
+        "zh": "她是谁？",
+        "p": "Tā shì shéi?",
+        "vi": "Cô ấy là ai?"
+      },
+      {
+        "part": 1,
+        "topic": "Giới thiệu bạn học",
+        "spk": "B",
+        "zh": "她是我的同学，也是我的朋友。",
+        "p": "Tā shì wǒ de tóngxué, yě shì wǒ de péngyou.",
+        "vi": "Cô ấy là bạn học, cũng là bạn của tôi."
+      }
+    ]
+  },
+  "5": {
+    "topic": "Hỏi tuổi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hỏi tuổi",
+        "spk": "A",
+        "zh": "你女儿几岁了？",
+        "p": "Nǐ nǚ'ér jǐ suì le?",
+        "vi": "Con gái bạn mấy tuổi rồi?"
+      },
+      {
+        "part": 1,
+        "topic": "Hỏi tuổi",
+        "spk": "B",
+        "zh": "她六岁了。",
+        "p": "Tā liù suì le.",
+        "vi": "Cháu sáu tuổi rồi."
+      }
+    ]
+  },
+  "6": {
+    "topic": "Học viết",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Học viết",
+        "spk": "A",
+        "zh": "你会写这个字吗？",
+        "p": "Nǐ huì xiě zhè ge zì ma?",
+        "vi": "Bạn biết viết chữ này không?"
+      },
+      {
+        "part": 1,
+        "topic": "Học viết",
+        "spk": "B",
+        "zh": "会，我写给你看。",
+        "p": "Huì, wǒ xiě gěi nǐ kàn.",
+        "vi": "Biết, tôi viết cho bạn xem."
+      }
+    ]
+  },
+  "7": {
+    "topic": "Hẹn đi học",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hẹn đi học",
+        "spk": "A",
+        "zh": "今天星期几？",
+        "p": "Jīntiān xīngqī jǐ?",
+        "vi": "Hôm nay thứ mấy?"
+      },
+      {
+        "part": 1,
+        "topic": "Hẹn đi học",
+        "spk": "B",
+        "zh": "星期一。你去学校吗？",
+        "p": "Xīngqīyī. Nǐ qù xuéxiào ma?",
+        "vi": "Thứ hai. Bạn đi học không?"
+      },
+      {
+        "part": 1,
+        "topic": "Hẹn đi học",
+        "spk": "A",
+        "zh": "去，我们一起去。",
+        "p": "Qù, wǒmen yìqǐ qù.",
+        "vi": "Có, chúng mình cùng đi."
+      }
+    ]
+  },
+  "8": {
+    "topic": "Gọi đồ uống",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Gọi đồ uống",
+        "spk": "A",
+        "zh": "你想喝什么？",
+        "p": "Nǐ xiǎng hē shénme?",
+        "vi": "Bạn muốn uống gì?"
+      },
+      {
+        "part": 1,
+        "topic": "Gọi đồ uống",
+        "spk": "B",
+        "zh": "我想喝茶。一杯多少钱？",
+        "p": "Wǒ xiǎng hē chá. Yì bēi duōshao qián?",
+        "vi": "Tôi muốn uống trà. Một cốc bao nhiêu tiền?"
+      },
+      {
+        "part": 1,
+        "topic": "Gọi đồ uống",
+        "spk": "A",
+        "zh": "五块钱。",
+        "p": "Wǔ kuài qián.",
+        "vi": "Năm tệ."
+      }
+    ]
+  },
+  "9": {
+    "topic": "Hỏi công việc",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hỏi công việc",
+        "spk": "A",
+        "zh": "你在哪里工作？",
+        "p": "Nǐ zài nǎlǐ gōngzuò?",
+        "vi": "Bạn làm việc ở đâu?"
+      },
+      {
+        "part": 1,
+        "topic": "Hỏi công việc",
+        "spk": "B",
+        "zh": "我在医院工作，我是医生。",
+        "p": "Wǒ zài yīyuàn gōngzuò, wǒ shì yīshēng.",
+        "vi": "Tôi làm ở bệnh viện, tôi là bác sĩ."
+      }
+    ]
+  },
+  "10": {
+    "topic": "Tìm đồ",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Tìm đồ",
+        "spk": "A",
+        "zh": "我的书在哪里？",
+        "p": "Wǒ de shū zài nǎlǐ?",
+        "vi": "Sách của tôi ở đâu?"
+      },
+      {
+        "part": 1,
+        "topic": "Tìm đồ",
+        "spk": "B",
+        "zh": "在桌子上，杯子后面。",
+        "p": "Zài zhuōzi shang, bēizi hòumiàn.",
+        "vi": "Ở trên bàn, phía sau chiếc cốc."
+      }
+    ]
+  },
+  "11": {
+    "topic": "Hỏi giờ",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hỏi giờ",
+        "spk": "A",
+        "zh": "现在几点？",
+        "p": "Xiànzài jǐ diǎn?",
+        "vi": "Bây giờ mấy giờ?"
+      },
+      {
+        "part": 1,
+        "topic": "Hỏi giờ",
+        "spk": "B",
+        "zh": "十二点。我们回家吃饭吧。",
+        "p": "Shí'èr diǎn. Wǒmen huí jiā chī fàn ba.",
+        "vi": "Mười hai giờ. Chúng mình về nhà ăn cơm nhé."
+      }
+    ]
+  },
+  "12": {
+    "topic": "Thời tiết",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Thời tiết",
+        "spk": "A",
+        "zh": "今天天气怎么样？",
+        "p": "Jīntiān tiānqì zěnmeyàng?",
+        "vi": "Thời tiết hôm nay thế nào?"
+      },
+      {
+        "part": 1,
+        "topic": "Thời tiết",
+        "spk": "B",
+        "zh": "很冷，还下雨了。",
+        "p": "Hěn lěng, hái xià yǔ le.",
+        "vi": "Rất lạnh, còn mưa nữa."
+      }
+    ]
+  },
+  "13": {
+    "topic": "Gọi điện",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Gọi điện",
+        "spk": "A",
+        "zh": "喂，你现在做什么？",
+        "p": "Wèi, nǐ xiànzài zuò shénme?",
+        "vi": "A lô, bây giờ bạn đang làm gì?"
+      },
+      {
+        "part": 1,
+        "topic": "Gọi điện",
+        "spk": "B",
+        "zh": "我在看电视。你呢？",
+        "p": "Wǒ zài kàn diànshì. Nǐ ne?",
+        "vi": "Tôi đang xem ti vi. Còn bạn?"
+      },
+      {
+        "part": 1,
+        "topic": "Gọi điện",
+        "spk": "A",
+        "zh": "我在学习汉语。",
+        "p": "Wǒ zài xuéxí Hànyǔ.",
+        "vi": "Tôi đang học tiếng Trung."
+      }
+    ]
+  },
+  "14": {
+    "topic": "Mua quần áo",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Mua quần áo",
+        "spk": "A",
+        "zh": "这件衣服漂亮吗？",
+        "p": "Zhè jiàn yīfu piàoliang ma?",
+        "vi": "Chiếc áo này đẹp không?"
+      },
+      {
+        "part": 1,
+        "topic": "Mua quần áo",
+        "spk": "B",
+        "zh": "很漂亮，我很喜欢。",
+        "p": "Hěn piàoliang, wǒ hěn xǐhuan.",
+        "vi": "Đẹp lắm, tôi rất thích."
+      }
+    ]
+  },
+  "15": {
+    "topic": "Đi taxi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Đi taxi",
+        "spk": "A",
+        "zh": "我们坐出租车去吗？",
+        "p": "Wǒmen zuò chūzūchē qù ma?",
+        "vi": "Chúng mình đi taxi nhé?"
+      },
+      {
+        "part": 1,
+        "topic": "Đi taxi",
+        "spk": "B",
+        "zh": "好，我也想坐出租车。",
+        "p": "Hǎo, wǒ yě xiǎng zuò chūzūchē.",
+        "vi": "Được, tôi cũng muốn đi taxi."
+      }
+    ]
+  }
+}

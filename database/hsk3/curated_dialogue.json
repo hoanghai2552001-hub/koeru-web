@@ -1,0 +1,450 @@
+{
+  "1": {
+    "topic": "Hẹn cuối tuần",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hẹn cuối tuần",
+        "spk": "A",
+        "zh": "周末你有什么打算？",
+        "p": "Zhōumò nǐ yǒu shénme dǎsuàn?",
+        "vi": "Cuối tuần bạn có dự định gì?"
+      },
+      {
+        "part": 1,
+        "topic": "Hẹn cuối tuần",
+        "spk": "B",
+        "zh": "我想跟朋友去公园，你愿意一起去吗？",
+        "p": "Wǒ xiǎng gēn péngyou qù gōngyuán, nǐ yuànyì yìqǐ qù ma?",
+        "vi": "Tôi muốn ra công viên với bạn, bạn có muốn đi cùng không?"
+      }
+    ]
+  },
+  "2": {
+    "topic": "Hỏi thăm khi đau chân",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hỏi thăm khi đau chân",
+        "spk": "A",
+        "zh": "你怎么了？走得这么慢。",
+        "p": "Nǐ zěnme le? Zǒu de zhème màn.",
+        "vi": "Bạn sao vậy? Sao đi chậm thế?"
+      },
+      {
+        "part": 1,
+        "topic": "Hỏi thăm khi đau chân",
+        "spk": "B",
+        "zh": "昨天爬山爬了很久，今天腿有点儿疼。",
+        "p": "Zuótiān pá shān pá le hěn jiǔ, jīntiān tuǐ yǒudiǎnr téng.",
+        "vi": "Hôm qua tôi leo núi lâu quá, hôm nay chân hơi đau."
+      }
+    ]
+  },
+  "3": {
+    "topic": "Chọn quần áo đi chơi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Chọn quần áo đi chơi",
+        "spk": "A",
+        "zh": "明天爬山，我穿裙子还是裤子？",
+        "p": "Míngtiān pá shān, wǒ chuān qúnzi háishi kùzi?",
+        "vi": "Mai đi leo núi, tôi nên mặc váy hay quần?"
+      },
+      {
+        "part": 1,
+        "topic": "Chọn quần áo đi chơi",
+        "spk": "B",
+        "zh": "穿裤子吧，舒服一点儿，也要带水。",
+        "p": "Chuān kùzi ba, shūfu yìdiǎnr, yě yào dài shuǐ.",
+        "vi": "Mặc quần đi, thoải mái hơn, nhớ mang cả nước nữa."
+      }
+    ]
+  },
+  "4": {
+    "topic": "Đăng ký cuộc thi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Đăng ký cuộc thi",
+        "spk": "A",
+        "zh": "你想参加汉语比赛吗？",
+        "p": "Nǐ xiǎng cānjiā Hànyǔ bǐsài ma?",
+        "vi": "Bạn muốn tham gia cuộc thi tiếng Trung không?"
+      },
+      {
+        "part": 1,
+        "topic": "Đăng ký cuộc thi",
+        "spk": "B",
+        "zh": "想，但是我说得还不太好。",
+        "p": "Xiǎng, dànshì wǒ shuō de hái bú tài hǎo.",
+        "vi": "Có, nhưng tôi nói vẫn chưa tốt lắm."
+      },
+      {
+        "part": 1,
+        "topic": "Đăng ký cuộc thi",
+        "spk": "A",
+        "zh": "认真练习，一定会进步的。",
+        "p": "Rènzhēn liànxí, yídìng huì jìnbù de.",
+        "vi": "Luyện tập nghiêm túc thì nhất định sẽ tiến bộ."
+      }
+    ]
+  },
+  "5": {
+    "topic": "Xin nghỉ vì ốm",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Xin nghỉ vì ốm",
+        "spk": "A",
+        "zh": "我感冒了，还发烧，今天不能去上班。",
+        "p": "Wǒ gǎnmào le, hái fā shāo, jīntiān bù néng qù shàng bān.",
+        "vi": "Tôi bị cảm và sốt, hôm nay không đi làm được."
+      },
+      {
+        "part": 1,
+        "topic": "Xin nghỉ vì ốm",
+        "spk": "B",
+        "zh": "好好休息，照顾好自己。",
+        "p": "Hǎohāo xiūxi, zhàogù hǎo zìjǐ.",
+        "vi": "Nghỉ ngơi cho tốt, chăm sóc bản thân nhé."
+      }
+    ]
+  },
+  "6": {
+    "topic": "Nhờ giảng lại",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Nhờ giảng lại",
+        "spk": "A",
+        "zh": "老师，刚才那句话我没听明白。",
+        "p": "Lǎoshī, gāngcái nà jù huà wǒ méi tīng míngbai.",
+        "vi": "Thưa thầy/cô, em chưa hiểu câu vừa rồi."
+      },
+      {
+        "part": 1,
+        "topic": "Nhờ giảng lại",
+        "spk": "B",
+        "zh": "没关系，我再讲一遍，你仔细听。",
+        "p": "Méi guānxi, wǒ zài jiǎng yí biàn, nǐ zǐxì tīng.",
+        "vi": "Không sao, thầy/cô giảng lại một lần, em nghe kỹ nhé."
+      }
+    ]
+  },
+  "7": {
+    "topic": "Hẹn gặp đồng nghiệp",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Hẹn gặp đồng nghiệp",
+        "spk": "A",
+        "zh": "下班以后，你有时间吗？",
+        "p": "Xià bān yǐhòu, nǐ yǒu shíjiān ma?",
+        "vi": "Sau giờ làm bạn có thời gian không?"
+      },
+      {
+        "part": 1,
+        "topic": "Hẹn gặp đồng nghiệp",
+        "spk": "B",
+        "zh": "有，我们六点一刻在银行门口见吧。",
+        "p": "Yǒu, wǒmen liù diǎn yí kè zài yínháng ménkǒu jiàn ba.",
+        "vi": "Có, sáu giờ mười lăm gặp nhau ở cửa ngân hàng nhé."
+      }
+    ]
+  },
+  "8": {
+    "topic": "Tìm nhà vệ sinh",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Tìm nhà vệ sinh",
+        "spk": "A",
+        "zh": "请问，洗手间在几层？",
+        "p": "Qǐngwèn, xǐshǒujiān zài jǐ céng?",
+        "vi": "Xin hỏi nhà vệ sinh ở tầng mấy?"
+      },
+      {
+        "part": 1,
+        "topic": "Tìm nhà vệ sinh",
+        "spk": "B",
+        "zh": "在二层，坐电梯上去，右边就是。",
+        "p": "Zài èr céng, zuò diàntī shàngqu, yòubian jiù shì.",
+        "vi": "Ở tầng hai, đi thang máy lên, ngay bên phải."
+      }
+    ]
+  },
+  "9": {
+    "topic": "Trấn an trước buổi thi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Trấn an trước buổi thi",
+        "spk": "A",
+        "zh": "我有点儿担心明天的考试。",
+        "p": "Wǒ yǒudiǎnr dānxīn míngtiān de kǎoshì.",
+        "vi": "Tôi hơi lo về bài thi ngày mai."
+      },
+      {
+        "part": 1,
+        "topic": "Trấn an trước buổi thi",
+        "spk": "B",
+        "zh": "别担心，你准备得很好。先休息吧。",
+        "p": "Bié dānxīn, nǐ zhǔnbèi de hěn hǎo. Xiān xiūxi ba.",
+        "vi": "Đừng lo, bạn chuẩn bị rất tốt rồi. Nghỉ ngơi trước nhé."
+      }
+    ]
+  },
+  "10": {
+    "topic": "Tìm chỗ ở",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Tìm chỗ ở",
+        "spk": "A",
+        "zh": "你觉得这个地方怎么样？",
+        "p": "Nǐ juéde zhè ge dìfang zěnmeyàng?",
+        "vi": "Bạn thấy chỗ này thế nào?"
+      },
+      {
+        "part": 1,
+        "topic": "Tìm chỗ ở",
+        "spk": "B",
+        "zh": "环境不错，附近有地铁，上班很方便。",
+        "p": "Huánjìng búcuò, fùjìn yǒu dìtiě, shàng bān hěn fāngbiàn.",
+        "vi": "Môi trường khá tốt, gần tàu điện ngầm nên đi làm rất tiện."
+      }
+    ]
+  },
+  "11": {
+    "topic": "Mượn sách",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Mượn sách",
+        "spk": "A",
+        "zh": "这本书我可以借多久？",
+        "p": "Zhè běn shū wǒ kěyǐ jiè duō jiǔ?",
+        "vi": "Tôi có thể mượn cuốn sách này bao lâu?"
+      },
+      {
+        "part": 1,
+        "topic": "Mượn sách",
+        "spk": "B",
+        "zh": "两个星期。看完以后，请按时还。",
+        "p": "Liǎng ge xīngqī. Kàn wán yǐhòu, qǐng ànshí huán.",
+        "vi": "Hai tuần. Đọc xong nhớ trả đúng hạn nhé."
+      }
+    ]
+  },
+  "12": {
+    "topic": "Chuẩn bị ra sân bay",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Chuẩn bị ra sân bay",
+        "spk": "A",
+        "zh": "行李箱准备好了吗？护照带了吗？",
+        "p": "Xínglixiāng zhǔnbèi hǎo le ma? Hùzhào dài le ma?",
+        "vi": "Va li chuẩn bị xong chưa? Đã mang hộ chiếu chưa?"
+      },
+      {
+        "part": 1,
+        "topic": "Chuẩn bị ra sân bay",
+        "spk": "B",
+        "zh": "都准备好了，司机已经在楼下等我们了。",
+        "p": "Dōu zhǔnbèi hǎo le, sījī yǐjīng zài lóu xià děng wǒmen le.",
+        "vi": "Xong hết rồi, tài xế đang đợi chúng ta dưới nhà."
+      }
+    ]
+  },
+  "13": {
+    "topic": "Mua quà cho ông bà",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Mua quà cho ông bà",
+        "spk": "A",
+        "zh": "我想给爷爷奶奶买礼物，你有什么建议？",
+        "p": "Wǒ xiǎng gěi yéye nǎinai mǎi lǐwù, nǐ yǒu shénme jiànyì?",
+        "vi": "Tôi muốn mua quà cho ông bà, bạn có gợi ý gì không?"
+      },
+      {
+        "part": 1,
+        "topic": "Mua quà cho ông bà",
+        "spk": "B",
+        "zh": "他们喜欢喝茶，可以买一些茶。",
+        "p": "Tāmen xǐhuan hē chá, kěyǐ mǎi yìxiē chá.",
+        "vi": "Ông bà thích uống trà, bạn có thể mua trà."
+      }
+    ]
+  },
+  "14": {
+    "topic": "Dọn nhà trước khi có khách",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Dọn nhà trước khi có khách",
+        "spk": "A",
+        "zh": "客人快到了，我们先打扫房间吧。",
+        "p": "Kèrén kuài dào le, wǒmen xiān dǎsǎo fángjiān ba.",
+        "vi": "Khách sắp tới rồi, chúng mình dọn phòng trước nhé."
+      },
+      {
+        "part": 1,
+        "topic": "Dọn nhà trước khi có khách",
+        "spk": "B",
+        "zh": "好，我洗盘子，你把桌子擦干净。",
+        "p": "Hǎo, wǒ xǐ pánzi, nǐ bǎ zhuōzi cā gānjìng.",
+        "vi": "Được, tôi rửa đĩa, bạn lau sạch bàn nhé."
+      }
+    ]
+  },
+  "15": {
+    "topic": "Tìm cách học tốt hơn",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Tìm cách học tốt hơn",
+        "spk": "A",
+        "zh": "我想提高汉语水平，应该怎么练习？",
+        "p": "Wǒ xiǎng tígāo Hànyǔ shuǐpíng, yīnggāi zěnme liànxí?",
+        "vi": "Tôi muốn nâng trình độ tiếng Trung, nên luyện thế nào?"
+      },
+      {
+        "part": 1,
+        "topic": "Tìm cách học tốt hơn",
+        "spk": "B",
+        "zh": "每天听一段新闻，再用新词写几个句子。",
+        "p": "Měi tiān tīng yí duàn xīnwén, zài yòng xīn cí xiě jǐ ge jùzi.",
+        "vi": "Mỗi ngày nghe một đoạn tin tức rồi dùng từ mới viết vài câu."
+      }
+    ]
+  },
+  "16": {
+    "topic": "Lập kế hoạch khi trời mưa",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Lập kế hoạch khi trời mưa",
+        "spk": "A",
+        "zh": "如果明天下雨，我们还去吗？",
+        "p": "Rúguǒ míngtiān xià yǔ, wǒmen hái qù ma?",
+        "vi": "Nếu mai mưa, chúng mình vẫn đi chứ?"
+      },
+      {
+        "part": 1,
+        "topic": "Lập kế hoạch khi trời mưa",
+        "spk": "B",
+        "zh": "我认为可以改去图书馆。",
+        "p": "Wǒ rènwéi kěyǐ gǎi qù túshūguǎn.",
+        "vi": "Tôi nghĩ có thể đổi sang đi thư viện."
+      }
+    ]
+  },
+  "17": {
+    "topic": "Nhờ hàng xóm giúp",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Nhờ hàng xóm giúp",
+        "spk": "A",
+        "zh": "我明天有事，能请你帮我照顾一下猫吗？",
+        "p": "Wǒ míngtiān yǒu shì, néng qǐng nǐ bāng wǒ zhàogù yíxià māo ma?",
+        "vi": "Mai tôi có việc, nhờ bạn trông mèo giúp được không?"
+      },
+      {
+        "part": 1,
+        "topic": "Nhờ hàng xóm giúp",
+        "spk": "B",
+        "zh": "可以，你告诉我它喜欢吃什么就行。",
+        "p": "Kěyǐ, nǐ gàosu wǒ tā xǐhuan chī shénme jiù xíng.",
+        "vi": "Được, bạn chỉ cần nói cho tôi biết nó thích ăn gì."
+      }
+    ]
+  },
+  "18": {
+    "topic": "Chọn hoạt động văn hóa",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Chọn hoạt động văn hóa",
+        "spk": "A",
+        "zh": "学校下周有中国文化活动，你参加吗？",
+        "p": "Xuéxiào xià zhōu yǒu Zhōngguó wénhuà huódòng, nǐ cānjiā ma?",
+        "vi": "Tuần sau trường có hoạt động văn hóa Trung Quốc, bạn tham gia không?"
+      },
+      {
+        "part": 1,
+        "topic": "Chọn hoạt động văn hóa",
+        "spk": "B",
+        "zh": "参加，这是了解中国的好机会。",
+        "p": "Cānjiā, zhè shì liǎojiě Zhōngguó de hǎo jīhuì.",
+        "vi": "Có, đây là cơ hội tốt để tìm hiểu Trung Quốc."
+      }
+    ]
+  },
+  "19": {
+    "topic": "Tìm đường trong công viên",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Tìm đường trong công viên",
+        "spk": "A",
+        "zh": "我们刚才经过那棵大树了吗？",
+        "p": "Wǒmen gāngcái jīngguò nà kē dà shù le ma?",
+        "vi": "Lúc nãy chúng mình đã đi qua cây lớn kia chưa?"
+      },
+      {
+        "part": 1,
+        "topic": "Tìm đường trong công viên",
+        "spk": "B",
+        "zh": "经过了，树上还有一只黄色的小鸟。",
+        "p": "Jīngguò le, shù shang hái yǒu yì zhī huángsè de xiǎoniǎo.",
+        "vi": "Đi qua rồi, trên cây còn có một con chim nhỏ màu vàng."
+      }
+    ]
+  },
+  "20": {
+    "topic": "Động viên sau bài thi",
+    "source": "KOERU — hội thoại biên soạn",
+    "lines": [
+      {
+        "part": 1,
+        "topic": "Động viên sau bài thi",
+        "spk": "A",
+        "zh": "这次成绩不太好，我很难过。",
+        "p": "Zhè cì chéngjì bú tài hǎo, wǒ hěn nánguò.",
+        "vi": "Kết quả lần này không tốt lắm, tôi buồn quá."
+      },
+      {
+        "part": 1,
+        "topic": "Động viên sau bài thi",
+        "spk": "B",
+        "zh": "虽然没考好，但是你已经进步了。我们一起复习吧。",
+        "p": "Suīrán méi kǎo hǎo, dànshì nǐ yǐjīng jìnbù le. Wǒmen yìqǐ fùxí ba.",
+        "vi": "Dù thi chưa tốt nhưng bạn đã tiến bộ rồi. Chúng mình cùng ôn nhé."
+      }
+    ]
+  }
+}

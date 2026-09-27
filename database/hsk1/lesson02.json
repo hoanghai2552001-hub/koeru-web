@@ -151,5 +151,10 @@
     }
   ],
   "grammar": [],
-  "dialogue": []
+  "dialogue": [
+    {"part": 1, "topic": "Cảm ơn", "spk": "A", "p": "xièxie nǐ", "zh": "谢谢你！", "vi": "Cảm ơn bạn!"},
+    {"part": 1, "topic": "Cảm ơn", "spk": "B", "p": "bú kèqi", "zh": "不客气。", "vi": "Không có gì."},
+    {"part": 2, "topic": "Tạm biệt", "spk": "A", "p": "míngtiān jiàn", "zh": "明天见！", "vi": "Hẹn gặp lại ngày mai!"},
+    {"part": 2, "topic": "Tạm biệt", "spk": "B", "p": "zàijiàn", "zh": "再见！", "vi": "Tạm biệt!"}
+  ]
 }

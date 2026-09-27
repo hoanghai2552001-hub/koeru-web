@@ -82,6 +82,50 @@
       "ex_p": "",
       "ex_vi": "",
       "_src": "pinyin"
+    },
+    {
+      "h": "更",
+      "p": "gèng",
+      "pos": "Phó từ",
+      "m": "càng; hơn nữa",
+      "hv": "cánh",
+      "ex_zh": "今天比昨天更冷。",
+      "ex_p": "Jīntiān bǐ zuótiān gèng lěng.",
+      "ex_vi": "Hôm nay lạnh hơn hôm qua.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "火车站",
+      "p": "huǒchēzhàn",
+      "pos": "Danh từ",
+      "m": "ga tàu hỏa",
+      "hv": "hỏa xa trạm",
+      "ex_zh": "我们在火车站见。",
+      "ex_p": "Wǒmen zài huǒchēzhàn jiàn.",
+      "ex_vi": "Chúng ta gặp nhau ở ga tàu hỏa.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "日",
+      "p": "rì",
+      "pos": "Danh từ",
+      "m": "ngày; ngày trong tháng",
+      "hv": "nhật",
+      "ex_zh": "今天是五月一日。",
+      "ex_p": "Jīntiān shì wǔ yuè yí rì.",
+      "ex_vi": "Hôm nay là ngày 1 tháng 5.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "新年",
+      "p": "xīnnián",
+      "pos": "Danh từ",
+      "m": "năm mới",
+      "hv": "tân niên",
+      "ex_zh": "祝你新年快乐！",
+      "ex_p": "Zhù nǐ xīnnián kuàilè!",
+      "ex_vi": "Chúc bạn năm mới vui vẻ!",
+      "_src": "pptx-supplement-reviewed"
     }
   ],
   "grammar": [

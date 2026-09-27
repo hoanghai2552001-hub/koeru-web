@@ -28,6 +28,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.join(ROOT, "Tiếng Trung")
 CORRECTIONS = os.path.join(ROOT, "database", "hsk_corrections.json")
+OFFICIAL_COMPLETION = os.path.join(ROOT, "database", "hsk_official_completion.json")
 
 USAGE = ("Cách dùng:\n"
          "  python tools/extract_hsk_source.py [hsk1|hsk2|hsk3] [--dry-run]\n"
@@ -542,6 +543,25 @@ def build_level(lv, dry):
             print("   %-10s %-14s %s" % (w["h"], w["p"], w["m"][:40]))
         if len(left) > 30:
             print("   … và %d từ nữa" % (len(left) - 30))
+
+    # Một số file Excel nguồn cũ thiếu mục hoặc tách sai từ ghép so với danh sách
+    # HSK 2.0 chính thức. Giữ phần bù ở file riêng để lần trích xuất sau không mất.
+    completion = {}
+    if os.path.isfile(OFFICIAL_COMPLETION):
+        completion = json.load(io.open(OFFICIAL_COMPLETION, encoding="utf-8")).get("HSK%d" % lv, [])
+    if completion:
+        lessons.setdefault(0, {"vocab": [], "dialogue": [], "grammar": [], "topics": []})
+        present = {v["h"] for lesson in lessons.values() for v in lesson["vocab"]}
+        added = 0
+        for word in completion:
+            if word["h"] not in present:
+                entry = dict(word)
+                entry["_src"] = "HSK 2.0 chính thức — bù nguồn"
+                lessons[0]["vocab"].append(entry)
+                present.add(word["h"])
+                added += 1
+        if added:
+            print("ℹ Bổ sung %d từ từ database/hsk_official_completion.json" % added)
 
     no_vn = [h for h, _ in assigned.items()
              if not next(w["m"] for w in master if w["h"] == h)]

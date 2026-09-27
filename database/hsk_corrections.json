@@ -7,20 +7,753 @@
     "Khoá là chữ Hán. Chỉ ghi trường cần sửa (m = nghĩa, p = pinyin, hv = Hán Việt, pos = từ loại).",
     "Mỗi mục nên kèm 'why' để lần sau biết vì sao sửa."
   ],
-
   "HSK1": {
     "上午": {
       "m": "Buổi sáng",
       "why": "docx nguồn ghi 'Buổi trưa' — sai, 中午 mới là buổi trưa"
+    },
+    "好": {
+      "p": "hǎo",
+      "m": "tốt; khỏe",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "没": {
+      "p": "méi",
+      "m": "không có; chưa",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "小": {
+      "p": "xiǎo",
+      "m": "nhỏ; bé",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "是": {
+      "p": "shì",
+      "m": "là; đúng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "吗": {
+      "p": "ma",
+      "m": "trợ từ nghi vấn cuối câu hỏi có/không",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "月": {
+      "p": "yuè",
+      "m": "tháng; mặt trăng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "他": {
+      "p": "tā",
+      "m": "anh ấy; ông ấy",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "的": {
+      "p": "de",
+      "m": "trợ từ chỉ sở hữu hoặc nối định ngữ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "谁": {
+      "p": "shéi",
+      "m": "ai",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "她": {
+      "p": "tā",
+      "m": "cô ấy; bà ấy",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "哪(哪儿)": {
+      "p": "nǎ (nǎr)",
+      "m": "nào; đâu (哪儿: ở đâu)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "女儿": {
+      "p": "nǚ'ér",
+      "m": "con gái",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "饭馆": {
+      "p": "fànguǎn",
+      "m": "quán ăn; nhà hàng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "会": {
+      "p": "huì",
+      "m": "biết làm; có thể (kỹ năng đã học)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "星期": {
+      "p": "xīngqī",
+      "m": "tuần; thứ trong tuần",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "那(那儿)": {
+      "p": "nà (nàr)",
+      "m": "kia; chỗ kia",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "儿子": {
+      "p": "érzi",
+      "m": "con trai",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "里": {
+      "p": "lǐ",
+      "m": "bên trong",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "这(这儿)": {
+      "p": "zhè (zhèr)",
+      "m": "này; chỗ này",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "能": {
+      "p": "néng",
+      "m": "có thể; có khả năng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "住": {
+      "p": "zhù",
+      "m": "ở; sinh sống",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "时候": {
+      "p": "shíhou",
+      "m": "lúc; thời điểm",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "太": {
+      "p": "tài",
+      "m": "quá; rất",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "东西": {
+      "p": "dōngxi",
+      "m": "đồ vật; thứ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "少": {
+      "p": "shǎo",
+      "m": "ít",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "出租车": {
+      "p": "chūzūchē",
+      "m": "xe taxi",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "认识": {
+      "p": "rènshi",
+      "m": "biết; quen biết; nhận ra",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
     }
   },
-
   "HSK2": {
     "因为": {
       "m": "bởi vì; vì",
       "why": "bản '(9 cấp)' để nguyên tiếng Anh 'because' — vi phạm QA-1 (không để tiếng Anh thô)"
+    },
+    "男人": {
+      "p": "nánrén",
+      "m": "đàn ông; nam giới",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "女人": {
+      "p": "nǚrén",
+      "m": "phụ nữ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "运动": {
+      "p": "yùndòng",
+      "m": "vận động; thể thao",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "觉得": {
+      "p": "juéde",
+      "m": "cảm thấy; cho rằng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "药": {
+      "p": "yào",
+      "m": "thuốc",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "一起": {
+      "p": "yìqǐ",
+      "m": "cùng nhau",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "眼睛": {
+      "p": "yǎnjing",
+      "m": "mắt",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "为": {
+      "h": "为什么",
+      "p": "wèishénme",
+      "pos": "Đại từ nghi vấn",
+      "m": "tại sao; vì sao",
+      "hv": "vi thập ma",
+      "ex_zh": "你为什么学习汉语？",
+      "ex_p": "Nǐ wèishénme xuéxí Hànyǔ?",
+      "ex_vi": "Tại sao bạn học tiếng Trung?",
+      "why": "File nguồn tách 为什么 thành 为; khôi phục đúng mục từ trong danh sách HSK 2.0 chính thức."
+    },
+    "进": {
+      "p": "jìn",
+      "m": "vào; đi vào",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "身体": {
+      "p": "shēntǐ",
+      "m": "cơ thể; sức khỏe",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "出": {
+      "p": "chū",
+      "m": "ra; đi ra",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "号": {
+      "p": "hào",
+      "m": "số; ngày (trong tháng)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "累": {
+      "p": "lèi",
+      "m": "mệt",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "丈夫": {
+      "p": "zhàngfu",
+      "m": "chồng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "真": {
+      "p": "zhēn",
+      "m": "thật; thật sự",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "旁边": {
+      "p": "pángbiān",
+      "m": "bên cạnh",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "给": {
+      "p": "gěi",
+      "m": "cho; đưa cho",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "红": {
+      "p": "hóng",
+      "m": "đỏ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "晚上": {
+      "p": "wǎnshang",
+      "m": "buổi tối",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "非常": {
+      "p": "fēicháng",
+      "m": "rất; vô cùng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "就": {
+      "p": "jiù",
+      "m": "liền; ngay; thì (tùy ngữ cảnh)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "门": {
+      "p": "mén",
+      "m": "cửa",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "打篮球": {
+      "p": "dǎ lánqiú",
+      "m": "chơi bóng rổ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "所以": {
+      "p": "suǒyǐ",
+      "m": "cho nên; vì vậy",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "姐姐": {
+      "p": "jiějie",
+      "m": "chị gái",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "白": {
+      "p": "bái",
+      "m": "trắng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "让": {
+      "p": "ràng",
+      "m": "để; cho phép; nhường",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "告诉": {
+      "p": "gàosu",
+      "m": "nói cho biết; bảo",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "事情": {
+      "p": "shìqing",
+      "m": "việc; sự việc",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "错": {
+      "p": "cuò",
+      "m": "sai; nhầm",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "从": {
+      "p": "cóng",
+      "m": "từ (điểm xuất phát)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "完": {
+      "p": "wán",
+      "m": "xong; hết",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "次": {
+      "p": "cì",
+      "m": "lần",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "哥哥": {
+      "p": "gēge",
+      "m": "anh trai",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "比": {
+      "p": "bǐ",
+      "m": "so với (dùng để so sánh)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "卖": {
+      "p": "mài",
+      "m": "bán",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "得": {
+      "p": "de",
+      "m": "trợ từ nối động từ với bổ ngữ mức độ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "弟弟": {
+      "p": "dìdi",
+      "m": "em trai",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "阴": {
+      "p": "yīn",
+      "m": "âm u; nhiều mây",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "妹妹": {
+      "p": "mèimei",
+      "m": "em gái",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "踢": {
+      "h": "踢足球",
+      "p": "tī zúqiú",
+      "pos": "Động từ",
+      "m": "đá bóng; chơi bóng đá",
+      "hv": "thích túc cầu",
+      "ex_zh": "他下午和朋友踢足球。",
+      "ex_p": "Tā xiàwǔ hé péngyou tī zúqiú.",
+      "ex_vi": "Buổi chiều anh ấy đá bóng cùng bạn.",
+      "why": "File nguồn tách 踢足球 thành 踢; khôi phục đúng mục từ trong danh sách HSK 2.0 chính thức."
     }
   },
-
-  "HSK3": {}
+  "HSK3": {
+    "作用": {
+      "p": "zuòyòng",
+      "m": "tác dụng; vai trò",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "跟": {
+      "p": "gēn",
+      "m": "với; cùng; theo",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "班": {
+      "p": "bān",
+      "m": "lớp; ca làm việc",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "一直": {
+      "p": "yìzhí",
+      "m": "luôn; suốt; thẳng (theo hướng)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "夏": {
+      "p": "xià",
+      "m": "mùa hè",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "着急": {
+      "p": "zháojí",
+      "m": "sốt ruột; lo lắng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "地": {
+      "p": "de",
+      "m": "trợ từ nối trạng ngữ với động từ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "表示": {
+      "p": "biǎoshì",
+      "m": "biểu thị; bày tỏ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "带": {
+      "p": "dài",
+      "m": "mang theo; dẫn theo",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "使": {
+      "p": "shǐ",
+      "m": "làm cho; khiến",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "为什么": {
+      "p": "wèishénme",
+      "m": "tại sao",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "办公室": {
+      "p": "bàngōngshì",
+      "m": "văn phòng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "伞": {
+      "p": "sǎn",
+      "m": "ô; dù",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "只": {
+      "p": "zhǐ",
+      "m": "chỉ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "或者": {
+      "p": "huòzhě",
+      "m": "hoặc; hay là",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "记得": {
+      "p": "jìde",
+      "m": "nhớ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "放": {
+      "p": "fàng",
+      "m": "đặt; để",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "差": {
+      "p": "chà",
+      "m": "kém; thiếu; chênh lệch",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "绿": {
+      "p": "lǜ",
+      "m": "xanh lá cây",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "云": {
+      "p": "yún",
+      "m": "mây",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "认真": {
+      "p": "rènzhēn",
+      "m": "nghiêm túc; cẩn thận",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "年轻": {
+      "p": "niánqīng",
+      "m": "trẻ tuổi",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "草": {
+      "p": "cǎo",
+      "m": "cỏ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "裙子": {
+      "p": "qúnzi",
+      "m": "váy",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "越": {
+      "p": "yuè",
+      "m": "càng; vượt qua",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "清楚": {
+      "p": "qīngchu",
+      "m": "rõ ràng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "明白": {
+      "p": "míngbai",
+      "m": "hiểu; rõ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "锻炼": {
+      "p": "duànliàn",
+      "m": "rèn luyện; tập thể dục",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "更": {
+      "p": "gèng",
+      "m": "hơn; càng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "才": {
+      "p": "cái",
+      "m": "mới; chỉ (nhấn mạnh muộn hoặc ít)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "接": {
+      "p": "jiē",
+      "m": "đón; nhận",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "刻": {
+      "p": "kè",
+      "m": "khắc; mười lăm phút",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "兴趣": {
+      "p": "xìngqù",
+      "m": "hứng thú; sự quan tâm",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "熊猫": {
+      "p": "xióngmāo",
+      "m": "gấu trúc",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "一会儿": {
+      "p": "yíhuìr",
+      "m": "một lát",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "极": {
+      "p": "jí",
+      "m": "cực kỳ; rất",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "一样": {
+      "p": "yíyàng",
+      "m": "giống nhau",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "一定": {
+      "p": "yídìng",
+      "m": "nhất định; chắc chắn",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "先": {
+      "p": "xiān",
+      "m": "trước; trước tiên",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "教": {
+      "p": "jiāo",
+      "m": "dạy",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "地方": {
+      "p": "dìfang",
+      "m": "nơi; chỗ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "信": {
+      "p": "xìn",
+      "m": "thư; tin tưởng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "把": {
+      "p": "bǎ",
+      "m": "trợ từ đưa tân ngữ lên trước động từ; lượng từ cho vật có tay cầm",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "灯": {
+      "p": "dēng",
+      "m": "đèn",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "空调": {
+      "p": "kōngtiáo",
+      "m": "máy điều hòa",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "关": {
+      "p": "guān",
+      "m": "đóng; tắt",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "习惯": {
+      "p": "xíguàn",
+      "m": "thói quen; quen với",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "行李箱": {
+      "p": "xínglixiāng",
+      "m": "va li",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "需要": {
+      "p": "xūyào",
+      "m": "cần",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "奶奶": {
+      "p": "nǎinai",
+      "m": "bà nội",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "一般": {
+      "p": "yìbān",
+      "m": "thông thường; bình thường",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "愿意": {
+      "p": "yuànyì",
+      "m": "sẵn lòng; muốn",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "经常": {
+      "p": "jīngcháng",
+      "m": "thường xuyên",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "像": {
+      "p": "xiàng",
+      "m": "giống; như",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "月亮": {
+      "p": "yuèliang",
+      "m": "mặt trăng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "盘子": {
+      "p": "pánzi",
+      "m": "đĩa",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "阿姨": {
+      "p": "āyí",
+      "m": "cô; dì",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "敢": {
+      "p": "gǎn",
+      "m": "dám",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "声音": {
+      "p": "shēngyīn",
+      "m": "âm thanh; giọng nói",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "刷": {
+      "h": "刷牙",
+      "p": "shuā yá",
+      "pos": "Động từ",
+      "m": "đánh răng",
+      "hv": "xoát nha",
+      "ex_zh": "我每天早晚刷牙。",
+      "ex_p": "Wǒ měitiān zǎowǎn shuā yá.",
+      "ex_vi": "Mỗi ngày tôi đánh răng vào sáng và tối.",
+      "why": "File nguồn tách 刷牙 thành 刷; khôi phục đúng mục từ trong danh sách HSK 2.0 chính thức."
+    },
+    "刮": {
+      "h": "刮风",
+      "p": "guā fēng",
+      "pos": "Động từ",
+      "m": "có gió; gió thổi",
+      "hv": "quát phong",
+      "ex_zh": "外面刮风了。",
+      "ex_p": "Wàimiàn guā fēng le.",
+      "ex_vi": "Bên ngoài nổi gió rồi.",
+      "why": "File nguồn tách 刮风 thành 刮; khôi phục đúng mục từ trong danh sách HSK 2.0 chính thức."
+    },
+    "水平": {
+      "p": "shuǐpíng",
+      "m": "trình độ; mức độ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "其他": {
+      "p": "qítā",
+      "m": "khác; những cái khác",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "头发": {
+      "p": "tóufa",
+      "m": "tóc",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "关系": {
+      "p": "guānxi",
+      "m": "quan hệ; mối liên hệ",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "一共": {
+      "p": "yígòng",
+      "m": "tổng cộng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "选择": {
+      "p": "xuǎnzé",
+      "m": "lựa chọn",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "耳朵": {
+      "p": "ěrduo",
+      "m": "tai",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "黄": {
+      "p": "huáng",
+      "m": "vàng",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "鸟": {
+      "p": "niǎo",
+      "m": "chim",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "多么": {
+      "p": "duōme",
+      "m": "biết bao; làm sao (cảm thán)",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "脚": {
+      "p": "jiǎo",
+      "m": "chân; bàn chân",
+      "why": "Duyệt nghĩa thông dụng và âm đọc dùng trong bài sơ cấp; loại nghĩa hiếm/lỗi trích xuất. Đối chiếu CC-CEDICT; nghĩa Việt biên soạn KOERU."
+    },
+    "电子": {
+      "h": "电子邮件",
+      "p": "diànzǐ yóujiàn",
+      "pos": "Danh từ",
+      "m": "thư điện tử; email",
+      "hv": "điện tử bưu kiện",
+      "ex_zh": "我给你发了一封电子邮件。",
+      "ex_p": "Wǒ gěi nǐ fā le yì fēng diànzǐ yóujiàn.",
+      "ex_vi": "Tôi đã gửi cho bạn một email.",
+      "why": "File nguồn tách 电子邮件 thành 电子; khôi phục đúng mục từ trong danh sách HSK 2.0 chính thức."
+    }
+  }
 }

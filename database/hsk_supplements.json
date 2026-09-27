@@ -1,0 +1,42 @@
+{
+  "source": "Pinyin xuất hiện trên slide 生词 của HSK标准教程 nhưng không có trong danh sách từ vựng cấp độ đi kèm",
+  "reviewed": "2026-09-26",
+  "HSK1": {
+    "7": [
+      {"h":"词典","p":"cídiǎn","pos":"Danh từ","m":"từ điển","hv":"từ điển","ex_zh":"我有一本汉语词典。","ex_p":"Wǒ yǒu yì běn Hànyǔ cídiǎn.","ex_vi":"Tôi có một quyển từ điển tiếng Trung."},
+      {"h":"蓝色","p":"lánsè","pos":"Danh từ; Tính từ","m":"màu xanh lam","hv":"lam sắc","ex_zh":"我喜欢蓝色。","ex_p":"Wǒ xǐhuan lánsè.","ex_vi":"Tôi thích màu xanh lam."},
+      {"h":"时间","p":"shíjiān","pos":"Danh từ","m":"thời gian","hv":"thời gian","ex_zh":"你有时间吗？","ex_p":"Nǐ yǒu shíjiān ma?","ex_vi":"Bạn có thời gian không?"},
+      {"h":"银行","p":"yínháng","pos":"Danh từ","m":"ngân hàng","hv":"ngân hàng","ex_zh":"银行在哪儿？","ex_p":"Yínháng zài nǎr?","ex_vi":"Ngân hàng ở đâu?"}
+    ],
+    "15": [
+      {"h":"出","p":"chū","pos":"Động từ","m":"ra; đi ra","hv":"xuất","ex_zh":"我们出去吃饭吧。","ex_p":"Wǒmen chūqu chīfàn ba.","ex_vi":"Chúng ta ra ngoài ăn cơm nhé."},
+      {"h":"大学","p":"dàxué","pos":"Danh từ","m":"trường đại học; đại học","hv":"đại học","ex_zh":"我在北京大学学习。","ex_p":"Wǒ zài Běijīng Dàxué xuéxí.","ex_vi":"Tôi học tại Đại học Bắc Kinh."},
+      {"h":"饭店","p":"fàndiàn","pos":"Danh từ","m":"nhà hàng; khách sạn","hv":"phạn điếm","ex_zh":"我们在饭店吃饭。","ex_p":"Wǒmen zài fàndiàn chīfàn.","ex_vi":"Chúng tôi ăn cơm tại nhà hàng."},
+      {"h":"飞","p":"fēi","pos":"Động từ","m":"bay","hv":"phi","ex_zh":"鸟会飞。","ex_p":"Niǎo huì fēi.","ex_vi":"Chim biết bay."},
+      {"h":"一起","p":"yìqǐ","pos":"Phó từ","m":"cùng nhau","hv":"nhất khởi","ex_zh":"我们一起回家吧。","ex_p":"Wǒmen yìqǐ huí jiā ba.","ex_vi":"Chúng ta cùng về nhà nhé."}
+    ]
+  },
+  "HSK2": {
+    "13": [
+      {"h":"班","p":"bān","pos":"Danh từ","m":"lớp; ca làm việc","hv":"ban","ex_zh":"我们班有二十个学生。","ex_p":"Wǒmen bān yǒu èrshí gè xuésheng.","ex_vi":"Lớp chúng tôi có hai mươi học sinh."},
+      {"h":"宾馆","p":"bīnguǎn","pos":"Danh từ","m":"nhà khách; khách sạn","hv":"tân quán","ex_zh":"宾馆在前面的路口。","ex_p":"Bīnguǎn zài qiánmiàn de lùkǒu.","ex_vi":"Khách sạn ở giao lộ phía trước."},
+      {"h":"路口","p":"lùkǒu","pos":"Danh từ","m":"giao lộ; ngã tư","hv":"lộ khẩu","ex_zh":"在前面的路口左转。","ex_p":"Zài qiánmiàn de lùkǒu zuǒ zhuǎn.","ex_vi":"Rẽ trái ở giao lộ phía trước."},
+      {"h":"拿","p":"ná","pos":"Động từ","m":"cầm; lấy; mang","hv":"nã","ex_zh":"请帮我拿一下手机。","ex_p":"Qǐng bāng wǒ ná yíxià shǒujī.","ex_vi":"Vui lòng cầm giúp tôi chiếc điện thoại."},
+      {"h":"铅笔","p":"qiānbǐ","pos":"Danh từ","m":"bút chì","hv":"duyên bút","ex_zh":"我用铅笔写字。","ex_p":"Wǒ yòng qiānbǐ xiězì.","ex_vi":"Tôi dùng bút chì để viết chữ."},
+      {"h":"手","p":"shǒu","pos":"Danh từ","m":"tay","hv":"thủ","ex_zh":"吃饭前请先洗手。","ex_p":"Chīfàn qián qǐng xiān xǐshǒu.","ex_vi":"Trước khi ăn hãy rửa tay."},
+      {"h":"往","p":"wǎng","pos":"Giới từ","m":"về phía; hướng tới","hv":"vãng","ex_zh":"一直往前走。","ex_p":"Yìzhí wǎng qián zǒu.","ex_vi":"Cứ đi thẳng về phía trước."},
+      {"h":"一直","p":"yìzhí","pos":"Phó từ","m":"liên tục; luôn luôn; thẳng","hv":"nhất trực","ex_zh":"他一直住在北京。","ex_p":"Tā yìzhí zhù zài Běijīng.","ex_vi":"Anh ấy vẫn luôn sống ở Bắc Kinh."}
+    ],
+    "14": [
+      {"h":"等","p":"děng","pos":"Động từ","m":"đợi; chờ","hv":"đẳng","ex_zh":"请等我十分钟。","ex_p":"Qǐng děng wǒ shí fēnzhōng.","ex_vi":"Hãy đợi tôi mười phút."},
+      {"h":"打电话","p":"dǎ diànhuà","pos":"Động từ","m":"gọi điện thoại","hv":"đả điện thoại","ex_zh":"我晚上给妈妈打电话。","ex_p":"Wǒ wǎnshang gěi māma dǎ diànhuà.","ex_vi":"Buổi tối tôi gọi điện cho mẹ."},
+      {"h":"一百","p":"yì bǎi","pos":"Số từ","m":"một trăm","hv":"nhất bách","ex_zh":"这件衣服一百元。","ex_p":"Zhè jiàn yīfu yì bǎi yuán.","ex_vi":"Bộ quần áo này giá một trăm tệ."}
+    ],
+    "15": [
+      {"h":"更","p":"gèng","pos":"Phó từ","m":"càng; hơn nữa","hv":"cánh","ex_zh":"今天比昨天更冷。","ex_p":"Jīntiān bǐ zuótiān gèng lěng.","ex_vi":"Hôm nay lạnh hơn hôm qua."},
+      {"h":"火车站","p":"huǒchēzhàn","pos":"Danh từ","m":"ga tàu hỏa","hv":"hỏa xa trạm","ex_zh":"我们在火车站见。","ex_p":"Wǒmen zài huǒchēzhàn jiàn.","ex_vi":"Chúng ta gặp nhau ở ga tàu hỏa."},
+      {"h":"日","p":"rì","pos":"Danh từ","m":"ngày; ngày trong tháng","hv":"nhật","ex_zh":"今天是五月一日。","ex_p":"Jīntiān shì wǔ yuè yí rì.","ex_vi":"Hôm nay là ngày 1 tháng 5."},
+      {"h":"新年","p":"xīnnián","pos":"Danh từ","m":"năm mới","hv":"tân niên","ex_zh":"祝你新年快乐！","ex_p":"Zhù nǐ xīnnián kuàilè!","ex_vi":"Chúc bạn năm mới vui vẻ!"}
+    ]
+  }
+}

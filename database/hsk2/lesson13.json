@@ -60,6 +60,94 @@
       "ex_p": "",
       "ex_vi": "",
       "_src": "pinyin"
+    },
+    {
+      "h": "班",
+      "p": "bān",
+      "pos": "Danh từ",
+      "m": "lớp; ca làm việc",
+      "hv": "ban",
+      "ex_zh": "我们班有二十个学生。",
+      "ex_p": "Wǒmen bān yǒu èrshí gè xuésheng.",
+      "ex_vi": "Lớp chúng tôi có hai mươi học sinh.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "宾馆",
+      "p": "bīnguǎn",
+      "pos": "Danh từ",
+      "m": "nhà khách; khách sạn",
+      "hv": "tân quán",
+      "ex_zh": "宾馆在前面的路口。",
+      "ex_p": "Bīnguǎn zài qiánmiàn de lùkǒu.",
+      "ex_vi": "Khách sạn ở giao lộ phía trước.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "路口",
+      "p": "lùkǒu",
+      "pos": "Danh từ",
+      "m": "giao lộ; ngã tư",
+      "hv": "lộ khẩu",
+      "ex_zh": "在前面的路口左转。",
+      "ex_p": "Zài qiánmiàn de lùkǒu zuǒ zhuǎn.",
+      "ex_vi": "Rẽ trái ở giao lộ phía trước.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "拿",
+      "p": "ná",
+      "pos": "Động từ",
+      "m": "cầm; lấy; mang",
+      "hv": "nã",
+      "ex_zh": "请帮我拿一下手机。",
+      "ex_p": "Qǐng bāng wǒ ná yíxià shǒujī.",
+      "ex_vi": "Vui lòng cầm giúp tôi chiếc điện thoại.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "铅笔",
+      "p": "qiānbǐ",
+      "pos": "Danh từ",
+      "m": "bút chì",
+      "hv": "duyên bút",
+      "ex_zh": "我用铅笔写字。",
+      "ex_p": "Wǒ yòng qiānbǐ xiězì.",
+      "ex_vi": "Tôi dùng bút chì để viết chữ.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "手",
+      "p": "shǒu",
+      "pos": "Danh từ",
+      "m": "tay",
+      "hv": "thủ",
+      "ex_zh": "吃饭前请先洗手。",
+      "ex_p": "Chīfàn qián qǐng xiān xǐshǒu.",
+      "ex_vi": "Trước khi ăn hãy rửa tay.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "往",
+      "p": "wǎng",
+      "pos": "Giới từ",
+      "m": "về phía; hướng tới",
+      "hv": "vãng",
+      "ex_zh": "一直往前走。",
+      "ex_p": "Yìzhí wǎng qián zǒu.",
+      "ex_vi": "Cứ đi thẳng về phía trước.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "一直",
+      "p": "yìzhí",
+      "pos": "Phó từ",
+      "m": "liên tục; luôn luôn; thẳng",
+      "hv": "nhất trực",
+      "ex_zh": "他一直住在北京。",
+      "ex_p": "Tā yìzhí zhù zài Běijīng.",
+      "ex_vi": "Anh ấy vẫn luôn sống ở Bắc Kinh.",
+      "_src": "pptx-supplement-reviewed"
     }
   ],
   "grammar": [

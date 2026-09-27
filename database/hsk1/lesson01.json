@@ -151,5 +151,10 @@
     }
   ],
   "grammar": [],
-  "dialogue": []
+  "dialogue": [
+    {"part": 1, "topic": "Chào hỏi", "spk": "A", "p": "nǐ hǎo", "zh": "你好！", "vi": "Xin chào!"},
+    {"part": 1, "topic": "Chào hỏi", "spk": "B", "p": "nǐ hǎo", "zh": "你好！", "vi": "Xin chào!"},
+    {"part": 2, "topic": "Sở thích", "spk": "A", "p": "nǐ ài hē chá ma", "zh": "你爱喝茶吗？", "vi": "Bạn thích uống trà không?"},
+    {"part": 2, "topic": "Sở thích", "spk": "B", "p": "wǒ ài hē chá", "zh": "我爱喝茶。", "vi": "Tôi thích uống trà."}
+  ]
 }

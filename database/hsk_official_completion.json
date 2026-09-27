@@ -1,0 +1,77 @@
+{
+  "source": "新HSK1-4级词汇表 — Chinese Test Service, đối chiếu 2026-09-26",
+  "HSK2": [
+    {
+      "h": "对",
+      "p": "duì",
+      "pos": "Tính từ; Giới từ",
+      "m": "đúng; đối với",
+      "hv": "đối",
+      "ex_zh": "你说得对。",
+      "ex_p": "Nǐ shuō de duì.",
+      "ex_vi": "Bạn nói đúng."
+    },
+    {
+      "h": "要",
+      "p": "yào",
+      "pos": "Động từ năng nguyện",
+      "m": "muốn; cần; sẽ",
+      "hv": "yếu",
+      "ex_zh": "我要一杯茶。",
+      "ex_p": "Wǒ yào yì bēi chá.",
+      "ex_vi": "Tôi muốn một cốc trà."
+    },
+    {
+      "h": "过",
+      "p": "guo",
+      "pos": "Trợ từ",
+      "m": "đã từng",
+      "hv": "quá",
+      "ex_zh": "我去过北京。",
+      "ex_p": "Wǒ qù guo Běijīng.",
+      "ex_vi": "Tôi đã từng đến Bắc Kinh."
+    }
+  ],
+  "HSK3": [
+    {
+      "h": "为",
+      "p": "wèi",
+      "pos": "Giới từ",
+      "m": "vì; cho",
+      "hv": "vị",
+      "ex_zh": "这份礼物是为你准备的。",
+      "ex_p": "Zhè fèn lǐwù shì wèi nǐ zhǔnbèi de.",
+      "ex_vi": "Món quà này được chuẩn bị cho bạn."
+    },
+    {
+      "h": "拿",
+      "p": "ná",
+      "pos": "Động từ",
+      "m": "cầm; lấy; mang",
+      "hv": "nã",
+      "ex_zh": "请帮我拿一下手机。",
+      "ex_p": "Qǐng bāng wǒ ná yíxià shǒujī.",
+      "ex_vi": "Vui lòng cầm giúp tôi chiếc điện thoại."
+    },
+    {
+      "h": "长",
+      "p": "zhǎng",
+      "pos": "Động từ",
+      "m": "lớn lên; trưởng thành",
+      "hv": "trưởng",
+      "ex_zh": "孩子长得很快。",
+      "ex_p": "Háizi zhǎng de hěn kuài.",
+      "ex_vi": "Đứa trẻ lớn rất nhanh."
+    },
+    {
+      "h": "还",
+      "p": "huán",
+      "pos": "Động từ",
+      "m": "trả; hoàn lại",
+      "hv": "hoàn",
+      "ex_zh": "我明天还你这本书。",
+      "ex_p": "Wǒ míngtiān huán nǐ zhè běn shū.",
+      "ex_vi": "Ngày mai tôi sẽ trả bạn quyển sách này."
+    }
+  ]
+}

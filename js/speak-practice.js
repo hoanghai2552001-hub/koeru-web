@@ -168,6 +168,7 @@
   }
 
   function toggleRecord(){
+    if(!_state || _state.recordPending) return;
     var btn = document.querySelector('#sp-overlay [data-action="record"]');
     if(_state.recorder && _state.recorder.state === 'recording'){
       _state.recorder.stop();
@@ -179,10 +180,15 @@
     }
     setMsg('');
     var recIdx = _state.idx;
+    var session = _state;
+    var request = {};
+    session.recordRequest = request;
+    session.recordPending = request;
     navigator.mediaDevices.getUserMedia({ audio:true }).then(function(stream){
       // stale check: overlay đã đóng (_state null) hoặc đã chuyển sang từ/câu khác
       // trước khi ghi xong — nếu vậy chỉ giải phóng mic, không đụng vào UI/state nữa
-      if(!_state || _state.idx !== recIdx){ stream.getTracks().forEach(function(t){ t.stop(); }); return; }
+      if(_state !== session || session.recordPending !== request){ stream.getTracks().forEach(function(t){ t.stop(); }); return; }
+      session.recordPending = null;
       _state.stream = stream;
       var opts = {};
       if(window.MediaRecorder.isTypeSupported && window.MediaRecorder.isTypeSupported('audio/webm')){
@@ -192,15 +198,15 @@
       try { rec = new MediaRecorder(stream, opts); }
       catch(e){ rec = new MediaRecorder(stream); }
       _state.recorder = rec;
-      _state.chunks = [];
-      rec.ondataavailable = function(e){ if(e.data && e.data.size) _state.chunks.push(e.data); };
+      var chunks = [];
+      rec.ondataavailable = function(e){ if(e.data && e.data.size) chunks.push(e.data); };
       rec.onstop = function(){
         stream.getTracks().forEach(function(t){ t.stop(); });
-        var stale = !_state || _state.recorder !== rec || _state.idx !== recIdx;
+        var stale = _state !== session || session.recorder !== rec || session.idx !== recIdx;
         if(stale) return;
         _state.stream = null;
         if(_state.recordedUrl) URL.revokeObjectURL(_state.recordedUrl);
-        var blob = new Blob(_state.chunks, { type: rec.mimeType || 'audio/webm' });
+        var blob = new Blob(chunks, { type: rec.mimeType || 'audio/webm' });
         _state.recordedUrl = URL.createObjectURL(blob);
         var pb = document.getElementById('spPlayback');
         pb.src = _state.recordedUrl;
@@ -212,6 +218,9 @@
       btn.textContent = '⏺ Đang ghi... (bấm để dừng)';
       btn.classList.add('recording');
     }).catch(function(err){
+      if(_state !== session || session.recordRequest !== request) return;
+      session.recordPending = null;
+      stopStream();
       if(err && (err.name === 'NotAllowedError' || err.name === 'NotFoundError')){
         setMsg('Cần cấp quyền micro trong trình duyệt để ghi âm.');
       } else {
@@ -250,9 +259,13 @@
   }
 
   function go(delta){
-    if(_state.recorder && _state.recorder.state === 'recording') _state.recorder.stop();
     var next = _state.idx + delta;
     if(next < 0 || next >= _state.items.length) return;
+    _state.recordPending = null;
+    _state.recordRequest = null;
+    if(_state.recorder && _state.recorder.state === 'recording') _state.recorder.stop();
+    _state.recorder = null;
+    stopStream();
     _state.idx = next;
     render();
   }
@@ -271,6 +284,7 @@
 
   function open(items, opts){
     if(!items || !items.length){ console.warn('SpeakPractice.open: empty items'); return; }
+    if(_state) close();
     ensureUI();
     _state = { items: items, idx: 0, opts: opts || {}, stream: null, recorder: null, chunks: [], recordedUrl: null };
     document.getElementById('sp-overlay').classList.remove('hidden');

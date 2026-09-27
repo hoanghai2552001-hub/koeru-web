@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>KOERU — HSK 标准教程 1·2·3</title>
+<title>KOERU Chinese — Học và luyện tiếng Trung HSK 1–3</title>
+<meta name="description" content="Học tiếng Trung cùng KOERU: bài học HSK 1–3, game từ vựng, pinyin, luyện viết Hán tự và ghi âm luyện nói miễn phí.">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -219,6 +220,7 @@ body.no-pinyin .py-hide{visibility:hidden}
   .flash-card .front{font-size:2.2rem}
 }
 </style>
+<link rel="stylesheet" href="css/hsk-hub.css?v=d9b189b4">
 </head>
 <body>
 <button class="theme-toggle" id="btnTheme" title="Đổi giao diện sáng/tối">🌙</button>
@@ -227,39 +229,83 @@ body.no-pinyin .py-hide{visibility:hidden}
 <div class="wrap">
 
   <div id="home">
+    <header class="zh-header">
+      <a class="zh-brand" href="index.html" aria-label="KOERU — Về trang chủ">
+        <picture class="zh-brand-mark">
+          <source srcset="koeru-logo.webp" type="image/webp">
+          <img src="koeru-logo.png" alt="KOERU" width="54" height="54">
+        </picture>
+        <span class="zh-brand-caption">Ngoại ngữ Nhật Trung</span>
+      </a>
+      <span>HSK 标准教程 1–3</span>
+    </header>
+    <nav class="zh-nav" aria-label="Học tiếng Trung">
+      <button data-view="today" aria-pressed="true"><span aria-hidden="true">01</span> Hôm nay</button>
+      <button data-view="lessons" aria-pressed="false"><span aria-hidden="true">02</span> Bài học</button>
+      <button data-view="practice" aria-pressed="false"><span aria-hidden="true">03</span> Luyện tập</button>
+      <button data-view="speak" aria-pressed="false"><span aria-hidden="true">04</span> Luyện nói</button>
+      <button data-view="progress" aria-pressed="false"><span aria-hidden="true">05</span> Tiến bộ</button>
+    </nav>
     <span class="badge" id="homeBadge">HSK 标准教程 1</span>
     <div class="level-switch">
       <button data-lv="1">HSK 1<small>15 bài</small></button>
       <button data-lv="2">HSK 2<small>15 bài</small></button>
       <button data-lv="3">HSK 3<small>20 bài</small></button>
     </div>
+    <div class="zh-context hidden" id="hubContext"><label for="hubLessonSelect">Bài đang luyện</label><select id="hubLessonSelect"></select></div>
+    <section id="hubToday" data-panel="today"></section>
+    <section id="hubPractice" data-panel="practice" class="hidden"></section>
+    <section id="hubSpeak" data-panel="speak" class="hidden">
+      <h1>Luyện nói, bắt đầu từ một câu</h1>
+      <p class="sub">Nghe mẫu → ghi âm → nghe lại. Tập chậm, rõ từng âm rồi nói cả câu.</p>
+      <div class="card"><h2>Tự luyện theo bài đang học</h2><p class="sub">Bản ghi chỉ được phát lại trên thiết bị, không tải lên máy chủ. Đây là chế độ tự luyện, chưa chấm điểm phát âm bằng AI.</p>
+      <button class="btn btn-main" id="hubSpeakStart">🎤 Luyện từ vựng</button>
+      <button class="btn btn-ghost" id="hubDialogue">Luyện hội thoại theo bài</button>
+      <button class="btn btn-ghost" id="btnSpeakSaved">📌 Từ đã lưu khi luyện nói</button></div>
+    </section>
+    <section data-panel="progress" class="hidden">
+    <h1>Tiến bộ của bạn</h1><p class="sub">Lưu trên trình duyệt này. Nhận ra nghĩa, nghe, pinyin và viết là những kỹ năng riêng.</p>
+    <div class="card" id="progressSummary"></div><div id="hubSkills"></div>
+    <div class="card"><h2>Giữ lại tiến độ</h2><p class="sub">Tải bản sao trước khi đổi thiết bị hoặc xóa dữ liệu trình duyệt. Nhập bản sao chỉ bổ sung hoặc cập nhật mục có thời gian mới hơn.</p>
+    <button class="btn btn-ghost" id="hubExport">Tải bản sao tiến độ</button>
+    <label class="zh-import">Nhập bản sao <input type="file" id="hubImport" accept="application/json,.json"></label>
+    <p id="hubImportStatus" role="status"></p></div>
+    </section>
+    <section data-panel="lessons" class="hidden">
     <h1 id="homeTitle">15 bài · Từ vựng &amp; Mẫu câu</h1>
     <p class="sub">Ôn tập và kiểm tra bài về nhà theo giáo trình HSK 标准教程.
        Mỗi từ có chữ Hán, pinyin, Hán Việt, nghĩa và câu ví dụ.</p>
-    <div class="card" id="progressSummary"></div>
     <div class="review-bar">
       <button class="btn btn-main" id="btnDue">🔁 Ôn từ đến hạn</button>
       <button class="btn btn-ghost" id="btnWeak">◐ Ôn từ chưa vững</button>
     </div>
     <button class="btn btn-main" id="btnWorksheet">📝 Ôn tập nhiều bài · Phiếu kiểm tra từ vựng</button>
-    <button class="btn btn-ghost" id="btnSpeakSaved">📌 Từ đã lưu khi luyện nói</button>
-    <input class="search" id="searchBox" placeholder="🔍 Tra nhanh (chữ Hán / pinyin / nghĩa Việt)…">
+    <input class="search" id="searchBox" aria-label="Tra từ tiếng Trung" placeholder="🔍 Tra nhanh (chữ Hán / pinyin / nghĩa Việt)…">
     <div class="card hidden" id="searchResult"></div>
     <div class="grid" id="lessonGrid"></div>
+    </section>
+    <footer class="zh-footer">Miễn phí · Không cần tài khoản · HSK 标准教程 1–3<br>Tiến độ lưu trên thiết bị này. Audio tổng hợp được giữ làm phương án dự phòng và nội dung đang được rà soát. Dữ liệu nét chữ dùng Hanzi Writer Data (Arphic Public License); tham chiếu từ điển CC-CEDICT (CC BY-SA 4.0). <a href="https://github.com/hoanghai2552001-hub/koeru-web/issues/new" target="_blank" rel="noopener">Báo lỗi nội dung</a></footer>
   </div>
 
   <div id="detail" class="hidden">
-    <button class="back" id="btnBack">← Danh sách bài</button>
+    <button class="back" id="btnBack">← Không gian học tập</button>
     <span class="badge" id="dBadge"></span>
     <h1 id="dTitle"></h1>
+    <div class="zh-detail-tools" id="lessonNavigation"><button class="back" id="lessonPrevious">← Bài trước</button><span id="lessonPosition"></span><button class="back" id="lessonNext">Bài tiếp →</button></div>
+    <div class="zh-lesson-overview" id="lessonOverview"></div>
     <div class="tabs">
-      <button class="tab on" data-tab="vocab">Từ vựng</button>
-      <button class="tab" data-tab="flash">Flashcard</button>
-      <button class="tab" data-tab="tone">Thanh điệu</button>
-      <button class="tab" data-tab="grammar">Mẫu câu</button>
-      <button class="tab" data-tab="dialogue">Hội thoại</button>
-      <button class="tab" data-tab="write">Tập viết</button>
-      <button class="tab" data-tab="quiz">Kiểm tra</button>
+      <div class="tab-group"><span>Học nội dung</span>
+        <button class="tab on" data-tab="vocab">Từ vựng</button>
+        <button class="tab" data-tab="grammar">Mẫu câu</button>
+        <button class="tab" data-tab="dialogue">Hội thoại</button>
+      </div>
+      <div class="tab-group"><span>Luyện kỹ năng</span>
+        <button class="tab" data-tab="practice">Thực hành</button>
+        <button class="tab" data-tab="flash">Flashcard</button>
+        <button class="tab" data-tab="tone">Thanh điệu</button>
+        <button class="tab" data-tab="write">Tập viết</button>
+        <button class="tab" data-tab="quiz">Kiểm tra</button>
+      </div>
     </div>
     <div class="card" id="tabContent"></div>
   </div>
@@ -284,14 +330,16 @@ body.no-pinyin .py-hide{visibility:hidden}
 </div>
 
 <!-- Hanzi Writer (MIT) — nét chữ giản thể, dữ liệu Make Me a Hanzi tải lẻ từng chữ qua CDN -->
-<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
-<script src="js/koeru-mastery.js?v=4122d33f"></script>
+<script src="js/vendor/hanzi-writer.min.js?v=77e158e8"></script>
+<script src="js/koeru-mastery.js?v=54ec2d9f"></script>
 <script src="js/zh-text.js?v=0a8b99a2"></script>
 <script src="js/koeru-worksheet.js?v=f829b795"></script>
-<script src="js/speak-practice.js?v=465ee259"></script>
-<script src="hsk1-data.js?v=5ba8f49e"></script>
-<script src="hsk2-data.js?v=897c1976"></script>
-<script src="hsk3-data.js?v=3966d730"></script>
+<script src="js/speak-practice.js?v=003ff203"></script>
+<script src="hsk1-data.js?v=760bf5b8"></script>
+<script src="hsk2-data.js?v=a1c3fa91"></script>
+<script src="hsk3-data.js?v=1d871b21"></script>
+<script src="js/hsk-practice.js?v=eb91c3d8"></script>
+<script src="js/hsk-hub.js?v=89eec578"></script>
 <script>
 /* ═══════════════ KOERU · HSK 1 ═══════════════ */
 var qs = function(id){ return document.getElementById(id); };
@@ -324,7 +372,7 @@ var AUDIO_DIR = 'audio/hsk/';   // tools/gen_hsk_audio.py sinh ra <hanzi>.mp3
    Không tách thì học 人 bên tiếng Nhật sẽ bị tính là đã thuộc bên tiếng Trung. */
 var SRS = window.koeruMastery || null;
 function mKey(h){ return 'zh:' + h; }
-function mRecord(h, ok){ if(SRS) SRS.record(mKey(h), !!ok, 'hsk'); }
+function mRecord(h, ok, skill){ if(SRS) SRS.record(skill ? 'zh:skill:' + skill + ':' + h : mKey(h), !!ok, 'hsk'); }
 function mLevel(h){ return SRS ? SRS.getMasteryLevel(mKey(h)) : 0; }
 function mIsDue(h){ return SRS ? SRS.isDue(mKey(h)) : false; }
 // "Đã gặp" = có bản ghi trong store. KHÔNG dùng mastery > 0: từ trả lời SAI có
@@ -358,12 +406,12 @@ function weakWords(){
 /* ─── Giao diện sáng/tối + bật tắt pinyin ─── */
 var btnTheme = qs('btnTheme');
 function applyTheme(){
-  var light = load('koeru_theme', '') === 'light';
+  var light = load('koeru_theme', 'light') === 'light';
   document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark');
   btnTheme.textContent = light ? '☀' : '🌙';
 }
 btnTheme.onclick = function(){
-  store('koeru_theme', load('koeru_theme', '') === 'light' ? 'dark' : 'light');
+  store('koeru_theme', load('koeru_theme', 'light') === 'light' ? 'dark' : 'light');
   applyTheme();
 };
 applyTheme();
@@ -401,26 +449,41 @@ function speakZH(text){
     window.speechSynthesis.speak(u);
   }
 }
-function playAudio(btn, hanzi){
+function audioFileKey(hanzi, pinyin){
+  var key = hanzi.split(/[（(]/)[0].trim();
+  var py = (pinyin || '').normalize('NFC').toLowerCase();
+  if(key === '长' && py.indexOf('zhǎng') === 0) return '长__zhang3';
+  if(key === '还' && py.indexOf('huán') === 0) return '还__huan2';
+  return key;
+}
+function audioUrl(hanzi, pinyin){
+  return AUDIO_DIR + encodeURIComponent(audioFileKey(hanzi, pinyin)) + '.mp3';
+}
+function playAudio(btn, hanzi, pinyin){
+  if(activeAudio){ activeAudio.pause(); activeAudio.onended = null; activeAudio.onerror = null; }
+  document.querySelectorAll('.play.playing').forEach(function(b){ b.classList.remove('playing'); });
+  if(window.speechSynthesis) window.speechSynthesis.cancel();
   if(btn) btn.classList.add('playing');
   var clear = function(){ if(btn) btn.classList.remove('playing'); };
-  var a = new Audio(AUDIO_DIR + encodeURIComponent(hanzi) + '.mp3');
+  var a = new Audio(audioUrl(hanzi, pinyin));
+  activeAudio = a;
   a.onended = clear;
   a.onerror = function(){ clear(); speakZH(hanzi); };
-  a.play().then(function(){}).catch(function(){ clear(); speakZH(hanzi); });
+  a.play().then(function(){}).catch(function(){ if(activeAudio === a){ clear(); speakZH(hanzi); } });
 }
-function playBtnHtml(hanzi){
-  return '<button class="play" data-zh="' + esc(hanzi) + '" title="Nghe">🔊</button>';
+function playBtnHtml(hanzi, pinyin){
+  return '<button class="play" data-zh="' + esc(hanzi) + '" data-pinyin="' + esc(pinyin || '') + '" title="Nghe">🔊</button>';
 }
 function bindPlay(root){
   root.querySelectorAll('.play').forEach(function(b){
-    b.onclick = function(e){ e.stopPropagation(); playAudio(b, b.dataset.zh); };
+    b.onclick = function(e){ e.stopPropagation(); playAudio(b, b.dataset.zh, b.dataset.pinyin); };
   });
 }
 
 /* ─── Chuyển cấp HSK1 / HSK2 / HSK3 ─── */
 function setLevel(lv){
   if(!LEVELS[lv]) return;
+  stopLessonActivity();
   curLevel = lv;
   LV = LEVELS[lv];
   DATA = LV.data;
@@ -436,6 +499,7 @@ function setLevel(lv){
   qs('searchResult').classList.add('hidden');
   renderLevelSwitch();
   renderHome();
+  applyPy();
 }
 function renderLevelSwitch(){
   document.querySelectorAll('.level-switch button').forEach(function(b){
@@ -457,14 +521,15 @@ function renderHome(){
   g.innerHTML = DATA.map(function(l){
     return '<button class="lesson-card" data-l="' + l.lesson + '">' +
       '<b>' + lessonName(l.lesson) + '</b>' +
-      '<span class="zh">' + (l.lesson === 0 ? '' : esc(l.title || '—')) + '</span>' +
+      '<span class="zh">' + esc(l.title || (l.vocab.slice(0, 3).map(function(v){ return v.h; }).join(' · '))) + '</span>' +
       '<span class="st">' + l.vocab.length + ' từ' +
         (l.lesson === 0 ? ' · không thuộc bài nào' : ' · ' + l.grammar.length + ' mẫu câu') + '</span>' +
       (function(){
         var hi = l.vocab.filter(function(v){ return mLevel(v.h) >= 4; }).length;
         var due = l.vocab.filter(function(v){ return mIsDue(v.h); }).length;
-        if(due) return '<span class="mini due-pill">' + due + ' ôn</span>';
-        return hi ? '<span class="mini mdots m-hi">' + hi + '/' + l.vocab.length + '</span>' : '';
+        var seen = l.vocab.filter(function(v){ return mSeen(v.h); }).length;
+        return '<span class="zh-lesson-status">' + (due ? due + ' từ đến hạn ôn' : (seen ? seen + '/' + l.vocab.length + ' từ đã học' : 'Bắt đầu bài học →')) + '</span>' +
+          '<progress class="zh-lesson-progress" value="' + hi + '" max="' + Math.max(1, l.vocab.length) + '" aria-label="Số từ đã vững"></progress>';
       })() +
       '</button>';
   }).join('');
@@ -472,6 +537,7 @@ function renderHome(){
     b.onclick = function(){ openLesson(+b.dataset.l); };
   });
   renderProgress();
+  HSKHub.render();
 }
 function renderProgress(){
   var totalWords = DATA.reduce(function(s, l){ return s + l.vocab.length; }, 0);
@@ -511,7 +577,7 @@ qs('searchBox').oninput = function(){
   box.classList.remove('hidden');
   if(!hits.length){ box.innerHTML = '<span class="sub">Không tìm thấy từ nào.</span>'; return; }
   box.innerHTML = '<div class="tbl-scroll"><table><tbody>' + hits.slice(0, 40).map(function(h){
-    return '<tr><td class="zh">' + esc(h.v.h) + ' ' + playBtnHtml(h.v.h) + '</td>' +
+    return '<tr><td class="zh">' + esc(h.v.h) + ' ' + playBtnHtml(h.v.h, h.v.p) + '</td>' +
            '<td class="py py-hide">' + esc(h.v.p) + '</td>' +
            '<td class="vn">' + esc(h.v.m) + '</td>' +
            '<td class="pos">Bài ' + h.l + '</td></tr>';
@@ -522,6 +588,7 @@ qs('searchBox').oninput = function(){
 
 /* ─── Chế độ ôn tập: deck gộp mọi bài của cấp hiện tại ─── */
 function openReview(kind){
+  stopLessonActivity();
   var items = kind === 'due' ? dueWords() : weakWords();
   if(!items.length){
     alert(kind === 'due'
@@ -536,6 +603,8 @@ function openReview(kind){
     vocab: items.map(function(x){ return x.v; }),
     grammar: [], dialogue: [], topics: []
   };
+  qs('lessonNavigation').classList.add('hidden');
+  qs('lessonOverview').classList.add('hidden');
   flashIdx = 0; toneIdx = 0; toneScore = { ok: 0, n: 0 };
   qs('home').classList.add('hidden');
   qs('worksheet').classList.add('hidden');
@@ -555,6 +624,9 @@ qs('btnWeak').onclick = function(){ openReview('weak'); };
 var curLesson = null, curTab = 'vocab';
 
 function openLesson(n){
+  stopLessonActivity();
+  store(K('last_lesson'), n);
+  flashIdx = 0; toneIdx = 0; writeIdx = 0; toneScore = { ok: 0, n: 0 };
   curLesson = lessonOf(n);
   curTab = 'vocab';
   qs('home').classList.add('hidden');
@@ -563,14 +635,29 @@ function openLesson(n){
   qs('dBadge').textContent = n === 0 ? 'NGOÀI GIÁO TRÌNH' : ('BÀI ' + n);
   qs('dTitle').textContent = n === 0 ? 'Từ ngoài giáo trình'
     : (curLesson.title ? (curLesson.title + ' · Bài ' + n) : ('Bài ' + n));
+  qs('lessonNavigation').classList.remove('hidden');
+  qs('lessonOverview').classList.remove('hidden');
+  var lessonIndex = DATA.findIndex(function(l){ return l.lesson === n; });
+  qs('lessonPosition').textContent = curLesson.vocab.length + ' từ · HSK ' + curLevel;
+  var learned = curLesson.vocab.filter(function(v){ return mSeen(v.h); }).length;
+  qs('lessonOverview').innerHTML =
+    '<span><b>' + curLesson.vocab.length + '</b> từ vựng</span>' +
+    '<span><b>' + curLesson.grammar.length + '</b> mẫu câu</span>' +
+    '<span><b>' + curLesson.dialogue.length + '</b> lượt thoại</span>' +
+    '<span><b>' + learned + '/' + curLesson.vocab.length + '</b> từ đã học</span>';
+  qs('lessonPrevious').disabled = lessonIndex <= 0;
+  qs('lessonNext').disabled = lessonIndex >= DATA.length - 1;
+  qs('lessonPrevious').onclick = function(){ if(lessonIndex > 0) openLesson(DATA[lessonIndex - 1].lesson); };
+  qs('lessonNext').onclick = function(){ if(lessonIndex < DATA.length - 1) openLesson(DATA[lessonIndex + 1].lesson); };
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('on', t.dataset.tab === 'vocab'); });
   renderTab();
   window.scrollTo(0, 0);
 }
 qs('btnBack').onclick = function(){
+  stopLessonActivity();
   qs('detail').classList.add('hidden');
   qs('home').classList.remove('hidden');
-  renderProgress();
+  renderHome();
 };
 document.querySelectorAll('.tab').forEach(function(t){
   t.onclick = function(){
@@ -580,7 +667,17 @@ document.querySelectorAll('.tab').forEach(function(t){
     renderTab();
   };
 });
+var lessonTimer = null, activeAudio = null;
+function stopLessonActivity(){
+  clearTimeout(lessonTimer);
+  delete qs('tabContent').dataset.answered;
+  if(activeAudio){ activeAudio.pause(); activeAudio.onerror = null; activeAudio = null; }
+  if(window.speechSynthesis){ window.speechSynthesis.cancel(); window.speechSynthesis.onvoiceschanged = null; }
+  if(_hw){ _hw.cancelQuiz(); _hw = null; }
+  HSKPractice.stop();
+}
 function renderTab(){
+  stopLessonActivity();
   var l = curLesson, box = qs('tabContent');
   if(curTab === 'vocab') renderVocab(l, box);
   else if(curTab === 'flash') renderFlash(l, box);
@@ -589,38 +686,44 @@ function renderTab(){
   else if(curTab === 'dialogue') renderDialogue(l, box);
   else if(curTab === 'write') renderWrite(l, box);
   else if(curTab === 'quiz') renderQuizStart(l, box);
+  else if(curTab === 'practice') HSKPractice.menu(l, box);
 }
 
 /* Tab 1 — Từ vựng */
 function renderVocab(l, box){
   if(!l.vocab.length){ box.innerHTML = '<span class="sub">Bài này chưa có từ vựng.</span>'; return; }
-  var rows = l.vocab.map(function(v){
-    var ex = v.ex_zh
-      ? '<span class="ex"><b>' + esc(v.ex_zh) + '</b> — ' + esc(v.ex_vi) +
-        '<br><span class="py-hide">' + esc(v.ex_p) + '</span></span>'
-      : '';
-    return '<tr>' +
-      '<td class="zh">' + esc(v.h) + '<br>' + playBtnHtml(v.h) + '</td>' +
-      '<td class="py py-hide">' + esc(v.p) + '</td>' +
-      '<td class="hv">' + esc(v.hv || '—') + '</td>' +
-      '<td class="vn">' + esc(v.m) + ex + '</td>' +
-      '<td class="pos">' + esc(v.pos || '') + '</td>' +
-      '<td class="pos">' + mDots(v.h) + '</td>' +
-    '</tr>';
-  }).join('');
-  box.innerHTML =
-    '<button class="btn btn-ghost" id="btnSpeakLesson">🎤 Luyện nói ' + l.vocab.length + ' từ của bài này</button>' +
-    '<div class="tbl-scroll"><table><thead><tr>' +
-      '<th>Chữ Hán</th><th>Pinyin</th><th class="hv-th">Hán Việt</th><th>Nghĩa &amp; ví dụ</th>' +
-      '<th>Từ loại</th><th>Thuộc</th>' +
-    '</tr></thead><tbody>' + rows + '</tbody></table></div>';
-  bindPlay(box);
+  box.innerHTML = '<div class="zh-vocab-toolbar"><p class="sub">Nghe từng từ, đọc ví dụ rồi thử nhớ lại bằng flashcard.</p><button class="btn btn-ghost" id="btnSpeakLesson">🎤 Luyện nói cả bài</button></div>' +
+    '<label class="zh-local-search" for="vocabFilter">Tìm trong bài<input class="search" id="vocabFilter" placeholder="Chữ Hán, pinyin hoặc nghĩa Việt…"></label><p id="vocabCount" class="zh-note" role="status"></p><div class="zh-vocab-grid" id="vocabCards"></div>';
+  function draw(){
+    var q = qs('vocabFilter').value.trim().toLowerCase(), py = ZH.plainPinyin(q);
+    var words = l.vocab.filter(function(v){ return !q || v.h.indexOf(q) >= 0 || v.m.toLowerCase().indexOf(q) >= 0 || (py.length >= 2 && ZH.plainPinyin(v.p).indexOf(py) >= 0); });
+    qs('vocabCount').textContent = words.length + ' / ' + l.vocab.length + ' từ';
+    qs('vocabCards').innerHTML = words.length ? words.map(function(v){
+      return '<article class="zh-vocab-card"><div class="zh-vocab-top"><div><h2 lang="zh-CN">' + esc(v.h) + '</h2><p class="zh-reading py-hide">' + esc(v.p) + '</p></div>' + playBtnHtml(v.h, v.p) + '</div>' +
+        '<p class="zh-meaning">' + esc(v.m) + '</p><div class="zh-vocab-meta"><span>' + esc(v.pos || 'Từ vựng') + '</span>' + mDots(v.h) + '</div>' +
+        '<div class="zh-stroke-links" aria-label="Xem nét viết">' + Array.from(new Set(v.h.match(/[一-鿿]/g) || [])).map(function(ch){ return '<button class="play" data-write-char="' + esc(ch) + '">Viết ' + esc(ch) + '</button>'; }).join('') + '</div>' +
+        (v.ex_zh ? '<div class="zh-example"><span class="zh-example-label">TRONG CUỘC SỐNG</span><p lang="zh-CN">' + esc(v.ex_zh) + '</p><p class="py-hide">' + esc(v.ex_p) + '</p><p>' + esc(v.ex_vi) + '</p><button class="play" data-zh="' + esc(v.ex_zh) + '" data-pinyin="' + esc(v.ex_p || '') + '">Nghe câu ví dụ</button></div>' : '') +
+        (v.hv ? '<details class="zh-word-details"><summary>Hán Việt</summary><p>' + esc(v.hv) + '</p></details>' : '') + '</article>';
+    }).join('') : '<p class="sub">Không có từ phù hợp. Thử tìm bằng chữ Hán hoặc nghĩa Việt.</p>';
+    bindPlay(qs('vocabCards'));
+    qs('vocabCards').querySelectorAll('[data-write-char]').forEach(function(button){
+      button.onclick = function(){
+        writeIdx = lessonChars(l).findIndex(function(item){ return item.ch === button.dataset.writeChar; });
+        curTab = 'write';
+        document.querySelectorAll('.tab').forEach(function(tab){ tab.classList.toggle('on', tab.dataset.tab === 'write'); });
+        renderTab();
+        qs('dTitle').scrollIntoView({block:'start'});
+      };
+    });
+  }
+  qs('vocabFilter').oninput = draw;
+  draw();
   qs('btnSpeakLesson').onclick = function(){ openSpeak(l.vocab, lessonName(l.lesson)); };
 }
 
 function openSpeak(vocab, title){
   var items = vocab.map(function(v){
-    return { word: v.h, reading: v.p, meaning: v.m, mp3: AUDIO_DIR + encodeURIComponent(v.h) + '.mp3' };
+    return { word: v.h, reading: v.p, meaning: v.m, mp3: audioUrl(v.h, v.p) };
   });
   SpeakPractice.open(items, { title: title, lang: 'zh-CN', textApi: ZH });
 }
@@ -687,15 +790,15 @@ function renderTone(l, box){
     '<div class="tone-opts">' + TONE_LABEL.map(function(t){
       return '<button data-n="' + t.n + '">' + t.t + '<small>' + t.d + '</small></button>';
     }).join('') + '</div>';
-  qs('tonePlay').onclick = function(){ playAudio(null, v.h); };
-  playAudio(null, v.h);
+  qs('tonePlay').onclick = function(){ playAudio(null, v.h, v.p); };
+  playAudio(null, v.h, v.p);
   box.querySelectorAll('.tone-opts button').forEach(function(b){
     b.onclick = function(){
       if(box.dataset.answered) return;
       box.dataset.answered = '1';
       toneScore.n++;
       var picked = +b.dataset.n;
-      mRecord(v.h, picked === answer);
+      mRecord(v.h, picked === answer, 'tone');
       if(picked === answer){ toneScore.ok++; b.classList.add('right'); }
       else{
         b.classList.add('wrong');
@@ -704,7 +807,7 @@ function renderTone(l, box){
         });
       }
       qs('tonePy').classList.remove('masked');
-      setTimeout(function(){
+      lessonTimer = setTimeout(function(){
         delete box.dataset.answered;
         toneIdx = (toneIdx + 1) % l.vocab.length;
         renderTone(l, box);
@@ -742,13 +845,13 @@ function renderDialogue(l, box){
       (topics ? '<br>Các đoạn của bài: ' + esc(topics) : '') + '</div>';
     return;
   }
-  var html = '', lastPart = null;
+  var html = '<p class="zh-note">' + esc(l.dialogue_source || '') + '</p>', lastPart = null;
   l.dialogue.forEach(function(d){
     if(d.part !== lastPart){
-      html += '<div class="dlg-topic">课文 ' + d.part + '：' + esc(d.topic) + '</div>';
+      html += '<div class="dlg-topic">Tình huống ' + d.part + ' · ' + esc(d.topic) + '</div>';
       lastPart = d.part;
     }
-    html += '<div class="dlg-line">' + playBtnHtml(d.zh) +
+    html += '<div class="dlg-line">' + playBtnHtml(d.zh, d.p) +
       (d.spk ? '<span class="dlg-spk">' + esc(d.spk) + '</span>' : '') +
       '<div class="txt"><div class="zh">' + esc(d.zh) + '</div>' +
       '<div class="py py-hide">' + esc(d.p) + '</div>' +
@@ -782,6 +885,7 @@ function lessonChars(l){
 }
 
 function renderWrite(l, box){
+  if(_hw){ _hw.cancelQuiz(); _hw = null; }
   var chars = lessonChars(l);
   if(!chars.length){ box.innerHTML = '<span class="sub">Bài này chưa có chữ Hán.</span>'; return; }
   if(writeIdx >= chars.length) writeIdx = 0;
@@ -809,6 +913,12 @@ function renderWrite(l, box){
   var hint = qs('hwHint');
   var css = getComputedStyle(document.body);
   _hw = HanziWriter.create('hwTarget', it.ch, {
+    charDataLoader: function(char){
+      return fetch('data/hanzi-strokes/' + encodeURIComponent(char) + '.json').then(function(response){
+        if(!response.ok) throw new Error('Không tải được nét chữ');
+        return response.json();
+      });
+    },
     width: 220, height: 220, padding: 8,
     strokeColor: css.getPropertyValue('--accent').trim() || '#e8845a',
     outlineColor: css.getPropertyValue('--line-strong').trim() || 'rgba(255,255,255,.18)',
@@ -832,7 +942,7 @@ function renderWrite(l, box){
       onMistake: function(d){ hint.textContent = 'Chưa đúng nét ' + d.strokeNum + ' — thử lại.'; },
       onComplete: function(d){
         // Không sai nét nào = viết được -> tính là thuộc; có sai -> cần ôn lại
-        mRecord(v.h, d.totalMistakes === 0);
+        mRecord(it.ch, d.totalMistakes === 0, 'write');
         hint.innerHTML = d.totalMistakes === 0
           ? '<span style="color:var(--ok)">✓ Đúng hết, không sai nét nào.</span>'
           : '<span style="color:var(--gold)">Xong — sai ' + d.totalMistakes + ' nét. Nên viết lại.</span>';
@@ -881,7 +991,7 @@ function renderQuiz(l, box){
     '<div class="q-progress">Câu ' + (quiz.i + 1) + '/' + quiz.pool.length +
       ' · Đúng <b class="pct-ok">' + quiz.ok + '</b></div>' +
     '<div class="q-prompt' + (mode === 1 ? ' small' : '') + '">' + prompt +
-      (mode !== 1 ? ' ' + playBtnHtml(v.h) : '') + '</div>' +
+      (mode !== 1 ? ' ' + playBtnHtml(v.h, v.p) : '') + '</div>' +
     '<div class="opts">' + opts.map(function(o){
       return '<button class="opt" data-h="' + esc(o.h) + '">' + esc(keyOf(o)) + '</button>';
     }).join('') + '</div>';
@@ -895,7 +1005,7 @@ function renderQuiz(l, box){
       if(ok) quiz.ok++;
       b.classList.add(ok ? 'right' : 'wrong');
       if(!ok) box.querySelectorAll('.opt').forEach(function(x){ if(x.dataset.h === v.h) x.classList.add('right'); });
-      setTimeout(function(){ delete box.dataset.answered; quiz.i++; renderQuiz(l, box); }, 900);
+      lessonTimer = setTimeout(function(){ delete box.dataset.answered; quiz.i++; renderQuiz(l, box); }, 900);
     };
   });
 }
@@ -905,6 +1015,7 @@ var wsSelected = load(K('ws_sel'), [1]);
 var wsToggles = load(K('ws_tog'), { hint: true, fillPinyin: true, fillMeaning: false, fillHanzi: false });
 
 function openWorksheet(){
+  stopLessonActivity();
   qs('home').classList.add('hidden');
   qs('detail').classList.add('hidden');
   qs('worksheet').classList.remove('hidden');
@@ -916,7 +1027,7 @@ qs('btnWorksheet').onclick = openWorksheet;
 qs('btnWsBack').onclick = function(){
   qs('worksheet').classList.add('hidden');
   qs('home').classList.remove('hidden');
-  renderProgress();
+  renderHome();
 };
 
 function wsPool(){
@@ -993,7 +1104,7 @@ function renderWsTable(){
     if(!wsToggles.fillHanzi){
       // Khi KHÔNG kiểm tra nghĩa thì hiện nghĩa để học sinh biết đang hỏi từ nào
       var ref = !wsToggles.fillMeaning ? '<br><span class="sub" style="font-size:.72rem">' + esc(v.m) + '</span>' : '';
-      r += '<td class="zh">' + esc(v.h) + ' ' + playBtnHtml(v.h) + ref + '</td>';
+      r += '<td class="zh">' + esc(v.h) + ' ' + playBtnHtml(v.h, v.p) + ref + '</td>';
     }
     if(wsToggles.hint){
       var blur = wsToggles.fillPinyin ? ' ws-hint-hidden' : '';
@@ -1084,6 +1195,8 @@ if(!DATA.length){
 } else {
   renderHome();
 }
+HSKHub.init();
+window.addEventListener('pagehide', stopLessonActivity);
 </script>
 </body>
 </html>

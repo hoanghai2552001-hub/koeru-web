@@ -73,6 +73,61 @@
       "ex_p": "Tīng yīnyuè",
       "ex_vi": "Nghe nhạc",
       "_src": "pinyin"
+    },
+    {
+      "h": "出",
+      "p": "chū",
+      "pos": "Động từ",
+      "m": "ra; đi ra",
+      "hv": "xuất",
+      "ex_zh": "我们出去吃饭吧。",
+      "ex_p": "Wǒmen chūqu chīfàn ba.",
+      "ex_vi": "Chúng ta ra ngoài ăn cơm nhé.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "大学",
+      "p": "dàxué",
+      "pos": "Danh từ",
+      "m": "trường đại học; đại học",
+      "hv": "đại học",
+      "ex_zh": "我在北京大学学习。",
+      "ex_p": "Wǒ zài Běijīng Dàxué xuéxí.",
+      "ex_vi": "Tôi học tại Đại học Bắc Kinh.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "饭店",
+      "p": "fàndiàn",
+      "pos": "Danh từ",
+      "m": "nhà hàng; khách sạn",
+      "hv": "phạn điếm",
+      "ex_zh": "我们在饭店吃饭。",
+      "ex_p": "Wǒmen zài fàndiàn chīfàn.",
+      "ex_vi": "Chúng tôi ăn cơm tại nhà hàng.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "飞",
+      "p": "fēi",
+      "pos": "Động từ",
+      "m": "bay",
+      "hv": "phi",
+      "ex_zh": "鸟会飞。",
+      "ex_p": "Niǎo huì fēi.",
+      "ex_vi": "Chim biết bay.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "一起",
+      "p": "yìqǐ",
+      "pos": "Phó từ",
+      "m": "cùng nhau",
+      "hv": "nhất khởi",
+      "ex_zh": "我们一起回家吧。",
+      "ex_p": "Wǒmen yìqǐ huí jiā ba.",
+      "ex_vi": "Chúng ta cùng về nhà nhé.",
+      "_src": "pptx-supplement-reviewed"
     }
   ],
   "grammar": [

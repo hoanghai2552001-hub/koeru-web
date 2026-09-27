@@ -186,14 +186,14 @@
       "_src": "pinyin"
     },
     {
-      "h": "电子",
-      "p": "diàn zǐ",
-      "pos": "",
-      "m": "điện tử",
-      "hv": "điện tử",
-      "ex_zh": "",
-      "ex_p": "",
-      "ex_vi": "",
+      "h": "电子邮件",
+      "p": "diànzǐ yóujiàn",
+      "pos": "Danh từ",
+      "m": "thư điện tử; email",
+      "hv": "điện tử bưu kiện",
+      "ex_zh": "我给你发了一封电子邮件。",
+      "ex_p": "Wǒ gěi nǐ fā le yì fēng diànzǐ yóujiàn.",
+      "ex_vi": "Tôi đã gửi cho bạn một email.",
       "_src": "hanzi"
     }
   ],

@@ -26,6 +26,14 @@ def build(lv):
         print("⚠ Bỏ qua HSK%d — chưa có %s (chạy extract_hsk_source.py trước)" % (lv, db_dir))
         return
 
+    curated_path = os.path.join(db_dir, "curated_examples.json")
+    curated = {}
+    if os.path.isfile(curated_path):
+        curated = json.load(io.open(curated_path, encoding="utf-8"))
+    corrections = json.load(io.open(os.path.join(ROOT, "database", "hsk_corrections.json"), encoding="utf-8")).get("HSK%d" % lv, {})
+    dialogue_path = os.path.join(db_dir, "curated_dialogue.json")
+    dialogues = json.load(io.open(dialogue_path, encoding="utf-8")) if os.path.isfile(dialogue_path) else {}
+
     lessons = {}
     for p in sorted(glob.glob(os.path.join(db_dir, "lesson*.json"))):
         d = json.load(io.open(p, encoding="utf-8"))
@@ -40,6 +48,10 @@ def build(lv):
         vocab = []
         for v in d.get("vocab", []):
             v = dict(v)
+            v.update({k: value for k, value in corrections.get(v.get("h"), {}).items() if k != "why"})
+            # Prefer authored examples in the app; original lesson JSON stays intact.
+            if v.get("h") in curated:
+                v.update(curated[v["h"]])
             v.pop("_src", None)      # cờ nội bộ để soát, không cần lên web
             vocab.append(v)
         data.append({
@@ -49,7 +61,8 @@ def build(lv):
             "topics": d.get("topics", []),
             "vocab": vocab,
             "grammar": d.get("grammar", []),
-            "dialogue": d.get("dialogue", []),
+            "dialogue": dialogues[str(n)]["lines"] if str(n) in dialogues else d.get("dialogue", []),
+            "dialogue_source": dialogues.get(str(n), {}).get("source", "Tài liệu nguồn — chưa duyệt"),
         })
 
     with io.open(out, "w", encoding="utf-8") as f:
@@ -64,7 +77,7 @@ def build(lv):
     size = os.path.getsize(out) / 1024
     print("HSK%d → hsk%d-data.js  (%.0f KB)" % (lv, lv, size))
     print("   %d/%d bài có từ vựng · %d từ · %d lượt hội thoại · %d bài có mẫu câu"
-          % (sum(1 for l in data if l["vocab"]), total_lessons, nv, nd,
+          % (sum(1 for l in data if l["lesson"] != 0 and l["vocab"]), total_lessons, nv, nd,
              sum(1 for l in data if l["grammar"])))
     pending = [l["lesson"] for l in data if l["status"] != "OK"]
     if pending:

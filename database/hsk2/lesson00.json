@@ -49,6 +49,39 @@
       "ex_p": "",
       "ex_vi": "",
       "_src": "ngoài bài"
+    },
+    {
+      "h": "对",
+      "p": "duì",
+      "pos": "Tính từ; Giới từ",
+      "m": "đúng; đối với",
+      "hv": "đối",
+      "ex_zh": "你说得对。",
+      "ex_p": "Nǐ shuō de duì.",
+      "ex_vi": "Bạn nói đúng.",
+      "_src": "HSK 2.0 chính thức — bù nguồn"
+    },
+    {
+      "h": "要",
+      "p": "yào",
+      "pos": "Động từ năng nguyện",
+      "m": "muốn; cần; sẽ",
+      "hv": "yếu",
+      "ex_zh": "我要一杯茶。",
+      "ex_p": "Wǒ yào yì bēi chá.",
+      "ex_vi": "Tôi muốn một cốc trà.",
+      "_src": "HSK 2.0 chính thức — bù nguồn"
+    },
+    {
+      "h": "过",
+      "p": "guo",
+      "pos": "Trợ từ",
+      "m": "đã từng",
+      "hv": "quá",
+      "ex_zh": "我去过北京。",
+      "ex_p": "Wǒ qù guo Běijīng.",
+      "ex_vi": "Tôi đã từng đến Bắc Kinh.",
+      "_src": "HSK 2.0 chính thức — bù nguồn"
     }
   ],
   "grammar": [],

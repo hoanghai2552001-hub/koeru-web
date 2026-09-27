@@ -60,6 +60,39 @@
       "ex_p": "",
       "ex_vi": "",
       "_src": "hanzi"
+    },
+    {
+      "h": "等",
+      "p": "děng",
+      "pos": "Động từ",
+      "m": "đợi; chờ",
+      "hv": "đẳng",
+      "ex_zh": "请等我十分钟。",
+      "ex_p": "Qǐng děng wǒ shí fēnzhōng.",
+      "ex_vi": "Hãy đợi tôi mười phút.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "打电话",
+      "p": "dǎ diànhuà",
+      "pos": "Động từ",
+      "m": "gọi điện thoại",
+      "hv": "đả điện thoại",
+      "ex_zh": "我晚上给妈妈打电话。",
+      "ex_p": "Wǒ wǎnshang gěi māma dǎ diànhuà.",
+      "ex_vi": "Buổi tối tôi gọi điện cho mẹ.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "一百",
+      "p": "yì bǎi",
+      "pos": "Số từ",
+      "m": "một trăm",
+      "hv": "nhất bách",
+      "ex_zh": "这件衣服一百元。",
+      "ex_p": "Zhè jiàn yīfu yì bǎi yuán.",
+      "ex_vi": "Bộ quần áo này giá một trăm tệ.",
+      "_src": "pptx-supplement-reviewed"
     }
   ],
   "grammar": [

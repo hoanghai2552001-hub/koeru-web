@@ -161,14 +161,14 @@
       "_src": "hanzi"
     },
     {
-      "h": "为",
-      "p": "wéi",
-      "pos": "",
-      "m": "làm (gì) (trợ từ kết hợp với ''何'' biểu thị nghi vấn)",
-      "hv": "vi.vị.vy",
-      "ex_zh": "",
-      "ex_p": "",
-      "ex_vi": "",
+      "h": "为什么",
+      "p": "wèishénme",
+      "pos": "Đại từ nghi vấn",
+      "m": "tại sao; vì sao",
+      "hv": "vi thập ma",
+      "ex_zh": "你为什么学习汉语？",
+      "ex_p": "Nǐ wèishénme xuéxí Hànyǔ?",
+      "ex_vi": "Tại sao bạn học tiếng Trung?",
       "_src": "hanzi"
     },
     {
@@ -183,14 +183,14 @@
       "_src": "hanzi"
     },
     {
-      "h": "踢",
-      "p": "tī",
-      "pos": "",
-      "m": "đá",
-      "hv": "thích",
-      "ex_zh": "",
-      "ex_p": "",
-      "ex_vi": "",
+      "h": "踢足球",
+      "p": "tī zúqiú",
+      "pos": "Động từ",
+      "m": "đá bóng; chơi bóng đá",
+      "hv": "thích túc cầu",
+      "ex_zh": "他下午和朋友踢足球。",
+      "ex_p": "Tā xiàwǔ hé péngyou tī zúqiú.",
+      "ex_vi": "Buổi chiều anh ấy đá bóng cùng bạn.",
       "_src": "hanzi"
     }
   ],

@@ -189,6 +189,19 @@ class KoeruMastery {
     };
   }
 
+  /** Bản sao dữ liệu tiến độ để export cục bộ. */
+  export() {
+    return JSON.parse(JSON.stringify(this._data));
+  }
+
+  /** Nhận dữ liệu đã được phía giao diện kiểm tra trước khi lưu. */
+  import(data) {
+    if (!data || typeof data !== 'object' || Array.isArray(data)) return false;
+    this._data = data;
+    this._save();
+    return true;
+  }
+
   /**
    * Sắp xếp deck ưu tiên:
    *  1. Đến hạn ôn (quá hạn lâu nhất đầu)

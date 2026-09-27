@@ -51,6 +51,50 @@
       "ex_p": "",
       "ex_vi": "",
       "_src": "hanzi"
+    },
+    {
+      "h": "词典",
+      "p": "cídiǎn",
+      "pos": "Danh từ",
+      "m": "từ điển",
+      "hv": "từ điển",
+      "ex_zh": "我有一本汉语词典。",
+      "ex_p": "Wǒ yǒu yì běn Hànyǔ cídiǎn.",
+      "ex_vi": "Tôi có một quyển từ điển tiếng Trung.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "蓝色",
+      "p": "lánsè",
+      "pos": "Danh từ; Tính từ",
+      "m": "màu xanh lam",
+      "hv": "lam sắc",
+      "ex_zh": "我喜欢蓝色。",
+      "ex_p": "Wǒ xǐhuan lánsè.",
+      "ex_vi": "Tôi thích màu xanh lam.",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "时间",
+      "p": "shíjiān",
+      "pos": "Danh từ",
+      "m": "thời gian",
+      "hv": "thời gian",
+      "ex_zh": "你有时间吗？",
+      "ex_p": "Nǐ yǒu shíjiān ma?",
+      "ex_vi": "Bạn có thời gian không?",
+      "_src": "pptx-supplement-reviewed"
+    },
+    {
+      "h": "银行",
+      "p": "yínháng",
+      "pos": "Danh từ",
+      "m": "ngân hàng",
+      "hv": "ngân hàng",
+      "ex_zh": "银行在哪儿？",
+      "ex_p": "Yínháng zài nǎr?",
+      "ex_vi": "Ngân hàng ở đâu?",
+      "_src": "pptx-supplement-reviewed"
     }
   ],
   "grammar": [

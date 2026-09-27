@@ -1,0 +1,732 @@
+{
+  "元": {
+    "ex_zh": "请给我这件红衣服，多少钱一件？一百元。",
+    "ex_p": "Qǐng gěi wǒ zhè jiàn hóng yīfu, duōshao qián yí jiàn? Yì bǎi yuán.",
+    "ex_vi": "Cho tôi chiếc áo đỏ này. Bao nhiêu tiền một chiếc? Một trăm tệ."
+  },
+  "件": {
+    "ex_zh": "请给我这件红衣服，多少钱一件？一百元。",
+    "ex_p": "Qǐng gěi wǒ zhè jiàn hóng yīfu, duōshao qián yí jiàn? Yì bǎi yuán.",
+    "ex_vi": "Cho tôi chiếc áo đỏ này. Bao nhiêu tiền một chiếc? Một trăm tệ."
+  },
+  "红": {
+    "ex_zh": "请给我这件红衣服，多少钱一件？一百元。",
+    "ex_p": "Qǐng gěi wǒ zhè jiàn hóng yīfu, duōshao qián yí jiàn? Yì bǎi yuán.",
+    "ex_vi": "Cho tôi chiếc áo đỏ này. Bao nhiêu tiền một chiếc? Một trăm tệ."
+  },
+  "给": {
+    "ex_zh": "请给我这件红衣服，多少钱一件？一百元。",
+    "ex_p": "Qǐng gěi wǒ zhè jiàn hóng yīfu, duōshao qián yí jiàn? Yì bǎi yuán.",
+    "ex_vi": "Cho tôi chiếc áo đỏ này. Bao nhiêu tiền một chiếc? Một trăm tệ."
+  },
+  "船": {
+    "ex_zh": "船上有一个男人和两个女人。",
+    "ex_p": "Chuán shang yǒu yí ge nánrén hé liǎng ge nǚrén.",
+    "ex_vi": "Trên thuyền có một người đàn ông và hai người phụ nữ."
+  },
+  "男人": {
+    "ex_zh": "船上有一个男人和两个女人。",
+    "ex_p": "Chuán shang yǒu yí ge nánrén hé liǎng ge nǚrén.",
+    "ex_vi": "Trên thuyền có một người đàn ông và hai người phụ nữ."
+  },
+  "女人": {
+    "ex_zh": "船上有一个男人和两个女人。",
+    "ex_p": "Chuán shang yǒu yí ge nánrén hé liǎng ge nǚrén.",
+    "ex_vi": "Trên thuyền có một người đàn ông và hai người phụ nữ."
+  },
+  "旅游": {
+    "ex_zh": "你觉得什么时候去北京旅游最好？",
+    "ex_p": "Nǐ juéde shénme shíhou qù Běijīng lǚyóu zuì hǎo?",
+    "ex_vi": "Bạn thấy đi du lịch Bắc Kinh lúc nào là tốt nhất?"
+  },
+  "最": {
+    "ex_zh": "你觉得什么时候去北京旅游最好？",
+    "ex_p": "Nǐ juéde shénme shíhou qù Běijīng lǚyóu zuì hǎo?",
+    "ex_vi": "Bạn thấy đi du lịch Bắc Kinh lúc nào là tốt nhất?"
+  },
+  "觉得": {
+    "ex_zh": "你觉得什么时候去北京旅游最好？",
+    "ex_p": "Nǐ juéde shénme shíhou qù Běijīng lǚyóu zuì hǎo?",
+    "ex_vi": "Bạn thấy đi du lịch Bắc Kinh lúc nào là tốt nhất?"
+  },
+  "运动": {
+    "ex_zh": "我们一起去运动吧，我也想跑步。",
+    "ex_p": "Wǒmen yìqǐ qù yùndòng ba, wǒ yě xiǎng pǎobù.",
+    "ex_vi": "Chúng mình cùng đi tập thể dục nhé, tôi cũng muốn chạy bộ."
+  },
+  "一起": {
+    "ex_zh": "我们一起去运动吧，我也想跑步。",
+    "ex_p": "Wǒmen yìqǐ qù yùndòng ba, wǒ yě xiǎng pǎobù.",
+    "ex_vi": "Chúng mình cùng đi tập thể dục nhé, tôi cũng muốn chạy bộ."
+  },
+  "也": {
+    "ex_zh": "我们一起去运动吧，我也想跑步。",
+    "ex_p": "Wǒmen yìqǐ qù yùndòng ba, wǒ yě xiǎng pǎobù.",
+    "ex_vi": "Chúng mình cùng đi tập thể dục nhé, tôi cũng muốn chạy bộ."
+  },
+  "药": {
+    "ex_zh": "我生病了，医生让我吃药。",
+    "ex_p": "Wǒ shēngbìng le, yīshēng ràng wǒ chī yào.",
+    "ex_vi": "Tôi bị ốm, bác sĩ bảo tôi uống thuốc."
+  },
+  "生病": {
+    "ex_zh": "我生病了，医生让我吃药。",
+    "ex_p": "Wǒ shēngbìng le, yīshēng ràng wǒ chī yào.",
+    "ex_vi": "Tôi bị ốm, bác sĩ bảo tôi uống thuốc."
+  },
+  "新": {
+    "ex_zh": "这是我的新手机，它很好用。",
+    "ex_p": "Zhè shì wǒ de xīn shǒujī, tā hěn hǎo yòng.",
+    "ex_vi": "Đây là điện thoại mới của tôi, dùng rất tiện."
+  },
+  "它": {
+    "ex_zh": "这是我的新手机，它很好用。",
+    "ex_p": "Zhè shì wǒ de xīn shǒujī, tā hěn hǎo yòng.",
+    "ex_vi": "Đây là điện thoại mới của tôi, dùng rất tiện."
+  },
+  "回答": {
+    "ex_zh": "这个问题我不懂，你能回答吗？",
+    "ex_p": "Zhè ge wèntí wǒ bù dǒng, nǐ néng huídá ma?",
+    "ex_vi": "Tôi không hiểu câu hỏi này, bạn trả lời được không?"
+  },
+  "问题": {
+    "ex_zh": "这个问题我不懂，你能回答吗？",
+    "ex_p": "Zhè ge wèntí wǒ bù dǒng, nǐ néng huídá ma?",
+    "ex_vi": "Tôi không hiểu câu hỏi này, bạn trả lời được không?"
+  },
+  "懂": {
+    "ex_zh": "这个问题我不懂，你能回答吗？",
+    "ex_p": "Zhè ge wèntí wǒ bù dǒng, nǐ néng huídá ma?",
+    "ex_vi": "Tôi không hiểu câu hỏi này, bạn trả lời được không?"
+  },
+  "眼睛": {
+    "ex_zh": "我的眼睛很累，想休息一下。",
+    "ex_p": "Wǒ de yǎnjing hěn lèi, xiǎng xiūxi yíxià.",
+    "ex_vi": "Mắt tôi rất mỏi, tôi muốn nghỉ một chút."
+  },
+  "休息": {
+    "ex_zh": "我的眼睛很累，想休息一下。",
+    "ex_p": "Wǒ de yǎnjing hěn lèi, xiǎng xiūxi yíxià.",
+    "ex_vi": "Mắt tôi rất mỏi, tôi muốn nghỉ một chút."
+  },
+  "累": {
+    "ex_zh": "我的眼睛很累，想休息一下。",
+    "ex_p": "Wǒ de yǎnjing hěn lèi, xiǎng xiūxi yíxià.",
+    "ex_vi": "Mắt tôi rất mỏi, tôi muốn nghỉ một chút."
+  },
+  "为": {
+    "ex_zh": "我为妈妈准备了生日礼物。",
+    "ex_p": "Wǒ wèi māma zhǔnbèi le shēngrì lǐwù.",
+    "ex_vi": "Tôi đã chuẩn bị quà sinh nhật cho mẹ."
+  },
+  "准备": {
+    "ex_zh": "我为妈妈准备了生日礼物。",
+    "ex_p": "Wǒ wèi māma zhǔnbèi le shēngrì lǐwù.",
+    "ex_vi": "Tôi đã chuẩn bị quà sinh nhật cho mẹ."
+  },
+  "生日": {
+    "ex_zh": "我为妈妈准备了生日礼物。",
+    "ex_p": "Wǒ wèi māma zhǔnbèi le shēngrì lǐwù.",
+    "ex_vi": "Tôi đã chuẩn bị quà sinh nhật cho mẹ."
+  },
+  "进": {
+    "ex_zh": "请从这个门进去，从那个门出去。",
+    "ex_p": "Qǐng cóng zhè ge mén jìnqu, cóng nà ge mén chūqu.",
+    "ex_vi": "Hãy đi vào cửa này và đi ra cửa kia."
+  },
+  "出": {
+    "ex_zh": "请从这个门进去，从那个门出去。",
+    "ex_p": "Qǐng cóng zhè ge mén jìnqu, cóng nà ge mén chūqu.",
+    "ex_vi": "Hãy đi vào cửa này và đi ra cửa kia."
+  },
+  "门": {
+    "ex_zh": "请从这个门进去，从那个门出去。",
+    "ex_p": "Qǐng cóng zhè ge mén jìnqu, cóng nà ge mén chūqu.",
+    "ex_vi": "Hãy đi vào cửa này và đi ra cửa kia."
+  },
+  "踢": {
+    "ex_zh": "我每天跑步，星期天踢足球。",
+    "ex_p": "Wǒ měi tiān pǎobù, xīngqītiān tī zúqiú.",
+    "ex_vi": "Tôi chạy bộ mỗi ngày, chủ nhật đá bóng."
+  },
+  "每": {
+    "ex_zh": "我每天跑步，星期天踢足球。",
+    "ex_p": "Wǒ měi tiān pǎobù, xīngqītiān tī zúqiú.",
+    "ex_vi": "Tôi chạy bộ mỗi ngày, chủ nhật đá bóng."
+  },
+  "跑步": {
+    "ex_zh": "我每天跑步，星期天踢足球。",
+    "ex_p": "Wǒ měi tiān pǎobù, xīngqītiān tī zúqiú.",
+    "ex_vi": "Tôi chạy bộ mỗi ngày, chủ nhật đá bóng."
+  },
+  "时间": {
+    "ex_zh": "你今天忙吗？有时间一起吃饭吗？",
+    "ex_p": "Nǐ jīntiān máng ma? Yǒu shíjiān yìqǐ chī fàn ma?",
+    "ex_vi": "Hôm nay bạn bận không? Có thời gian ăn cơm cùng nhau không?"
+  },
+  "忙": {
+    "ex_zh": "你今天忙吗？有时间一起吃饭吗？",
+    "ex_p": "Nǐ jīntiān máng ma? Yǒu shíjiān yìqǐ chī fàn ma?",
+    "ex_vi": "Hôm nay bạn bận không? Có thời gian ăn cơm cùng nhau không?"
+  },
+  "早上": {
+    "ex_zh": "我每天早上七点起床。",
+    "ex_p": "Wǒ měi tiān zǎoshang qī diǎn qǐchuáng.",
+    "ex_vi": "Mỗi sáng tôi thức dậy lúc bảy giờ."
+  },
+  "起床": {
+    "ex_zh": "我每天早上七点起床。",
+    "ex_p": "Wǒ měi tiān zǎoshang qī diǎn qǐchuáng.",
+    "ex_vi": "Mỗi sáng tôi thức dậy lúc bảy giờ."
+  },
+  "高": {
+    "ex_zh": "哥哥比我高。",
+    "ex_p": "Gēge bǐ wǒ gāo.",
+    "ex_vi": "Anh trai cao hơn tôi."
+  },
+  "比": {
+    "ex_zh": "哥哥比我高。",
+    "ex_p": "Gēge bǐ wǒ gāo.",
+    "ex_vi": "Anh trai cao hơn tôi."
+  },
+  "哥哥": {
+    "ex_zh": "哥哥比我高。",
+    "ex_p": "Gēge bǐ wǒ gāo.",
+    "ex_vi": "Anh trai cao hơn tôi."
+  },
+  "知道": {
+    "ex_zh": "你知道今天几号吗？",
+    "ex_p": "Nǐ zhīdào jīntiān jǐ hào ma?",
+    "ex_vi": "Bạn có biết hôm nay ngày mấy không?"
+  },
+  "号": {
+    "ex_zh": "你知道今天几号吗？",
+    "ex_p": "Nǐ zhīdào jīntiān jǐ hào ma?",
+    "ex_vi": "Bạn có biết hôm nay ngày mấy không?"
+  },
+  "身体": {
+    "ex_zh": "游泳对身体很好。",
+    "ex_p": "Yóuyǒng duì shēntǐ hěn hǎo.",
+    "ex_vi": "Bơi lội rất tốt cho sức khỏe."
+  },
+  "游泳": {
+    "ex_zh": "游泳对身体很好。",
+    "ex_p": "Yóuyǒng duì shēntǐ hěn hǎo.",
+    "ex_vi": "Bơi lội rất tốt cho sức khỏe."
+  },
+  "手表": {
+    "ex_zh": "这块手表一千元，太贵了。",
+    "ex_p": "Zhè kuài shǒubiǎo yì qiān yuán, tài guì le.",
+    "ex_vi": "Chiếc đồng hồ này một nghìn tệ, đắt quá."
+  },
+  "千": {
+    "ex_zh": "这块手表一千元，太贵了。",
+    "ex_p": "Zhè kuài shǒubiǎo yì qiān yuán, tài guì le.",
+    "ex_vi": "Chiếc đồng hồ này một nghìn tệ, đắt quá."
+  },
+  "贵": {
+    "ex_zh": "这块手表一千元，太贵了。",
+    "ex_p": "Zhè kuài shǒubiǎo yì qiān yuán, tài guì le.",
+    "ex_vi": "Chiếc đồng hồ này một nghìn tệ, đắt quá."
+  },
+  "牛奶": {
+    "ex_zh": "早上我喝牛奶，吃鸡蛋。",
+    "ex_p": "Zǎoshang wǒ hē niúnǎi, chī jīdàn.",
+    "ex_vi": "Buổi sáng tôi uống sữa và ăn trứng gà."
+  },
+  "鸡蛋": {
+    "ex_zh": "早上我喝牛奶，吃鸡蛋。",
+    "ex_p": "Zǎoshang wǒ hē niúnǎi, chī jīdàn.",
+    "ex_vi": "Buổi sáng tôi uống sữa và ăn trứng gà."
+  },
+  "报纸": {
+    "ex_zh": "他每天给爷爷送报纸。",
+    "ex_p": "Tā měi tiān gěi yéye sòng bàozhǐ.",
+    "ex_vi": "Anh ấy đưa báo cho ông nội mỗi ngày."
+  },
+  "送": {
+    "ex_zh": "他每天给爷爷送报纸。",
+    "ex_p": "Tā měi tiān gěi yéye sòng bàozhǐ.",
+    "ex_vi": "Anh ấy đưa báo cho ông nội mỗi ngày."
+  },
+  "房间": {
+    "ex_zh": "丈夫和妻子在房间里看电视。",
+    "ex_p": "Zhàngfu hé qīzi zài fángjiān lǐ kàn diànshì.",
+    "ex_vi": "Hai vợ chồng đang xem ti vi trong phòng."
+  },
+  "丈夫": {
+    "ex_zh": "丈夫和妻子在房间里看电视。",
+    "ex_p": "Zhàngfu hé qīzi zài fángjiān lǐ kàn diànshì.",
+    "ex_vi": "Hai vợ chồng đang xem ti vi trong phòng."
+  },
+  "妻子": {
+    "ex_zh": "丈夫和妻子在房间里看电视。",
+    "ex_p": "Zhàngfu hé qīzi zài fángjiān lǐ kàn diànshì.",
+    "ex_vi": "Hai vợ chồng đang xem ti vi trong phòng."
+  },
+  "左边": {
+    "ex_zh": "左边是学校，右边是商店，医院在商店旁边。",
+    "ex_p": "Zuǒbian shì xuéxiào, yòubian shì shāngdiàn, yīyuàn zài shāngdiàn pángbiān.",
+    "ex_vi": "Bên trái là trường học, bên phải là cửa hàng; bệnh viện ở cạnh cửa hàng."
+  },
+  "旁边": {
+    "ex_zh": "左边是学校，右边是商店，医院在商店旁边。",
+    "ex_p": "Zuǒbian shì xuéxiào, yòubian shì shāngdiàn, yīyuàn zài shāngdiàn pángbiān.",
+    "ex_vi": "Bên trái là trường học, bên phải là cửa hàng; bệnh viện ở cạnh cửa hàng."
+  },
+  "右边": {
+    "ex_zh": "左边是学校，右边是商店，医院在商店旁边。",
+    "ex_p": "Zuǒbian shì xuéxiào, yòubian shì shāngdiàn, yīyuàn zài shāngdiàn pángbiān.",
+    "ex_vi": "Bên trái là trường học, bên phải là cửa hàng; bệnh viện ở cạnh cửa hàng."
+  },
+  "真": {
+    "ex_zh": "这件衣服的颜色真好看，有白的和黑的吗？",
+    "ex_p": "Zhè jiàn yīfu de yánsè zhēn hǎokàn, yǒu bái de hé hēi de ma?",
+    "ex_vi": "Màu áo này đẹp thật, có màu trắng và màu đen không?"
+  },
+  "颜色": {
+    "ex_zh": "这件衣服的颜色真好看，有白的和黑的吗？",
+    "ex_p": "Zhè jiàn yīfu de yánsè zhēn hǎokàn, yǒu bái de hé hēi de ma?",
+    "ex_vi": "Màu áo này đẹp thật, có màu trắng và màu đen không?"
+  },
+  "白": {
+    "ex_zh": "这件衣服的颜色真好看，有白的和黑的吗？",
+    "ex_p": "Zhè jiàn yīfu de yánsè zhēn hǎokàn, yǒu bái de hé hēi de ma?",
+    "ex_vi": "Màu áo này đẹp thật, có màu trắng và màu đen không?"
+  },
+  "黑": {
+    "ex_zh": "这件衣服的颜色真好看，有白的和黑的吗？",
+    "ex_p": "Zhè jiàn yīfu de yánsè zhēn hǎokàn, yǒu bái de hé hēi de ma?",
+    "ex_vi": "Màu áo này đẹp thật, có màu trắng và màu đen không?"
+  },
+  "张": {
+    "ex_zh": "我要买两张火车票。",
+    "ex_p": "Wǒ yào mǎi liǎng zhāng huǒchē piào.",
+    "ex_vi": "Tôi muốn mua hai vé tàu hỏa."
+  },
+  "票": {
+    "ex_zh": "我要买两张火车票。",
+    "ex_p": "Wǒ yào mǎi liǎng zhāng huǒchē piào.",
+    "ex_vi": "Tôi muốn mua hai vé tàu hỏa."
+  },
+  "晚上": {
+    "ex_zh": "晚上我们一起吃饭，祝你生日快乐！",
+    "ex_p": "Wǎnshang wǒmen yìqǐ chī fàn, zhù nǐ shēngrì kuàilè!",
+    "ex_vi": "Tối nay chúng mình ăn cơm cùng nhau, chúc bạn sinh nhật vui vẻ!"
+  },
+  "快乐": {
+    "ex_zh": "晚上我们一起吃饭，祝你生日快乐！",
+    "ex_p": "Wǎnshang wǒmen yìqǐ chī fàn, zhù nǐ shēngrì kuàilè!",
+    "ex_vi": "Tối nay chúng mình ăn cơm cùng nhau, chúc bạn sinh nhật vui vẻ!"
+  },
+  "问": {
+    "ex_zh": "服务员，请问您，这个菜叫什么？",
+    "ex_p": "Fúwùyuán, qǐngwèn nín, zhè ge cài jiào shénme?",
+    "ex_vi": "Bạn phục vụ ơi, xin hỏi món này tên là gì?"
+  },
+  "服务员": {
+    "ex_zh": "服务员，请问您，这个菜叫什么？",
+    "ex_p": "Fúwùyuán, qǐngwèn nín, zhè ge cài jiào shénme?",
+    "ex_vi": "Bạn phục vụ ơi, xin hỏi món này tên là gì?"
+  },
+  "您": {
+    "ex_zh": "服务员，请问您，这个菜叫什么？",
+    "ex_p": "Fúwùyuán, qǐngwèn nín, zhè ge cài jiào shénme?",
+    "ex_vi": "Bạn phục vụ ơi, xin hỏi món này tên là gì?"
+  },
+  "非常": {
+    "ex_zh": "我非常喜欢中国菜。",
+    "ex_p": "Wǒ fēicháng xǐhuan Zhōngguó cài.",
+    "ex_vi": "Tôi rất thích món ăn Trung Quốc."
+  },
+  "已经": {
+    "ex_zh": "考试已经开始了。",
+    "ex_p": "Kǎoshì yǐjīng kāishǐ le.",
+    "ex_vi": "Kỳ thi đã bắt đầu rồi."
+  },
+  "开始": {
+    "ex_zh": "考试已经开始了。",
+    "ex_p": "Kǎoshì yǐjīng kāishǐ le.",
+    "ex_vi": "Kỳ thi đã bắt đầu rồi."
+  },
+  "考试": {
+    "ex_zh": "考试已经开始了。",
+    "ex_p": "Kǎoshì yǐjīng kāishǐ le.",
+    "ex_vi": "Kỳ thi đã bắt đầu rồi."
+  },
+  "长": {
+    "ex_zh": "这两条裤子太长了。",
+    "ex_p": "Zhè liǎng tiáo kùzi tài cháng le.",
+    "ex_vi": "Hai chiếc quần này dài quá."
+  },
+  "两": {
+    "ex_zh": "这两条裤子太长了。",
+    "ex_p": "Zhè liǎng tiáo kùzi tài cháng le.",
+    "ex_vi": "Hai chiếc quần này dài quá."
+  },
+  "介绍": {
+    "ex_zh": "请你给大家介绍一下自己。",
+    "ex_p": "Qǐng nǐ gěi dàjiā jièshào yíxià zìjǐ.",
+    "ex_vi": "Bạn hãy giới thiệu bản thân với mọi người nhé."
+  },
+  "大家": {
+    "ex_zh": "请你给大家介绍一下自己。",
+    "ex_p": "Qǐng nǐ gěi dàjiā jièshào yíxià zìjǐ.",
+    "ex_vi": "Bạn hãy giới thiệu bản thân với mọi người nhé."
+  },
+  "就": {
+    "ex_zh": "我十分钟就到。",
+    "ex_p": "Wǒ shí fēnzhōng jiù dào.",
+    "ex_vi": "Mười phút nữa tôi sẽ tới."
+  },
+  "到": {
+    "ex_zh": "我十分钟就到。",
+    "ex_p": "Wǒ shí fēnzhōng jiù dào.",
+    "ex_vi": "Mười phút nữa tôi sẽ tới."
+  },
+  "鱼": {
+    "ex_zh": "鱼和羊肉都很好吃。",
+    "ex_p": "Yú hé yángròu dōu hěn hǎochī.",
+    "ex_vi": "Cá và thịt dê đều rất ngon."
+  },
+  "好吃": {
+    "ex_zh": "鱼和羊肉都很好吃。",
+    "ex_p": "Yú hé yángròu dōu hěn hǎochī.",
+    "ex_vi": "Cá và thịt dê đều rất ngon."
+  },
+  "羊肉": {
+    "ex_zh": "鱼和羊肉都很好吃。",
+    "ex_p": "Yú hé yángròu dōu hěn hǎochī.",
+    "ex_vi": "Cá và thịt dê đều rất ngon."
+  },
+  "吧": {
+    "ex_zh": "你还想喝咖啡吗？再喝一杯吧。",
+    "ex_p": "Nǐ hái xiǎng hē kāfēi ma? Zài hē yì bēi ba.",
+    "ex_vi": "Bạn còn muốn uống cà phê không? Uống thêm một cốc nhé."
+  },
+  "还": {
+    "ex_zh": "你还想喝咖啡吗？再喝一杯吧。",
+    "ex_p": "Nǐ hái xiǎng hē kāfēi ma? Zài hē yì bēi ba.",
+    "ex_vi": "Bạn còn muốn uống cà phê không? Uống thêm một cốc nhé."
+  },
+  "咖啡": {
+    "ex_zh": "你还想喝咖啡吗？再喝一杯吧。",
+    "ex_p": "Nǐ hái xiǎng hē kāfēi ma? Zài hē yì bēi ba.",
+    "ex_vi": "Bạn còn muốn uống cà phê không? Uống thêm một cốc nhé."
+  },
+  "可以": {
+    "ex_zh": "这个词是什么意思？你可以告诉我吗？",
+    "ex_p": "Zhè ge cí shì shénme yìsi? Nǐ kěyǐ gàosu wǒ ma?",
+    "ex_vi": "Từ này có nghĩa gì? Bạn có thể nói cho tôi biết không?"
+  },
+  "意思": {
+    "ex_zh": "这个词是什么意思？你可以告诉我吗？",
+    "ex_p": "Zhè ge cí shì shénme yìsi? Nǐ kěyǐ gàosu wǒ ma?",
+    "ex_vi": "Từ này có nghĩa gì? Bạn có thể nói cho tôi biết không?"
+  },
+  "外": {
+    "ex_zh": "我的自行车在门外。",
+    "ex_p": "Wǒ de zìxíngchē zài mén wài.",
+    "ex_vi": "Xe đạp của tôi ở ngoài cửa."
+  },
+  "自行车": {
+    "ex_zh": "我的自行车在门外。",
+    "ex_p": "Wǒ de zìxíngchē zài mén wài.",
+    "ex_vi": "Xe đạp của tôi ở ngoài cửa."
+  },
+  "打篮球": {
+    "ex_zh": "因为下雨，所以我们今天不打篮球。",
+    "ex_p": "Yīnwèi xià yǔ, suǒyǐ wǒmen jīntiān bù dǎ lánqiú.",
+    "ex_vi": "Vì trời mưa nên hôm nay chúng tôi không chơi bóng rổ."
+  },
+  "因为": {
+    "ex_zh": "因为下雨，所以我们今天不打篮球。",
+    "ex_p": "Yīnwèi xià yǔ, suǒyǐ wǒmen jīntiān bù dǎ lánqiú.",
+    "ex_vi": "Vì trời mưa nên hôm nay chúng tôi không chơi bóng rổ."
+  },
+  "所以": {
+    "ex_zh": "因为下雨，所以我们今天不打篮球。",
+    "ex_p": "Yīnwèi xià yǔ, suǒyǐ wǒmen jīntiān bù dǎ lánqiú.",
+    "ex_vi": "Vì trời mưa nên hôm nay chúng tôi không chơi bóng rổ."
+  },
+  "公斤": {
+    "ex_zh": "这两公斤羊肉一百元。",
+    "ex_p": "Zhè liǎng gōngjīn yángròu yì bǎi yuán.",
+    "ex_vi": "Hai cân thịt dê này giá một trăm tệ."
+  },
+  "百": {
+    "ex_zh": "这两公斤羊肉一百元。",
+    "ex_p": "Zhè liǎng gōngjīn yángròu yì bǎi yuán.",
+    "ex_vi": "Hai cân thịt dê này giá một trăm tệ."
+  },
+  "姐姐": {
+    "ex_zh": "姐姐在和孩子一起玩。",
+    "ex_p": "Jiějie zài hé háizi yìqǐ wán.",
+    "ex_vi": "Chị gái đang chơi cùng đứa trẻ."
+  },
+  "玩": {
+    "ex_zh": "姐姐在和孩子一起玩。",
+    "ex_p": "Jiějie zài hé háizi yìqǐ wán.",
+    "ex_vi": "Chị gái đang chơi cùng đứa trẻ."
+  },
+  "孩子": {
+    "ex_zh": "姐姐在和孩子一起玩。",
+    "ex_p": "Jiějie zài hé háizi yìqǐ wán.",
+    "ex_vi": "Chị gái đang chơi cùng đứa trẻ."
+  },
+  "教室": {
+    "ex_zh": "教室离这里不远。",
+    "ex_p": "Jiàoshì lí zhèlǐ bù yuǎn.",
+    "ex_vi": "Phòng học cách đây không xa."
+  },
+  "远": {
+    "ex_zh": "教室离这里不远。",
+    "ex_p": "Jiàoshì lí zhèlǐ bù yuǎn.",
+    "ex_vi": "Phòng học cách đây không xa."
+  },
+  "离": {
+    "ex_zh": "教室离这里不远。",
+    "ex_p": "Jiàoshì lí zhèlǐ bù yuǎn.",
+    "ex_vi": "Phòng học cách đây không xa."
+  },
+  "路": {
+    "ex_zh": "去机场的路上，我们经过了你的公司。",
+    "ex_p": "Qù jīchǎng de lù shang, wǒmen jīngguò le nǐ de gōngsī.",
+    "ex_vi": "Trên đường ra sân bay, chúng tôi đã đi ngang công ty bạn."
+  },
+  "机场": {
+    "ex_zh": "去机场的路上，我们经过了你的公司。",
+    "ex_p": "Qù jīchǎng de lù shang, wǒmen jīngguò le nǐ de gōngsī.",
+    "ex_vi": "Trên đường ra sân bay, chúng tôi đã đi ngang công ty bạn."
+  },
+  "公司": {
+    "ex_zh": "去机场的路上，我们经过了你的公司。",
+    "ex_p": "Qù jīchǎng de lù shang, wǒmen jīngguò le nǐ de gōngsī.",
+    "ex_vi": "Trên đường ra sân bay, chúng tôi đã đi ngang công ty bạn."
+  },
+  "公共汽车": {
+    "ex_zh": "坐公共汽车去学校要半个小时。",
+    "ex_p": "Zuò gōnggòng qìchē qù xuéxiào yào bàn ge xiǎoshí.",
+    "ex_vi": "Đi xe buýt đến trường mất nửa tiếng."
+  },
+  "小时": {
+    "ex_zh": "坐公共汽车去学校要半个小时。",
+    "ex_p": "Zuò gōnggòng qìchē qù xuéxiào yào bàn ge xiǎoshí.",
+    "ex_vi": "Đi xe buýt đến trường mất nửa tiếng."
+  },
+  "快": {
+    "ex_zh": "你走得太快了，慢一点儿吧。",
+    "ex_p": "Nǐ zǒu de tài kuài le, màn yìdiǎnr ba.",
+    "ex_vi": "Bạn đi nhanh quá, chậm lại một chút nhé."
+  },
+  "慢": {
+    "ex_zh": "你走得太快了，慢一点儿吧。",
+    "ex_p": "Nǐ zǒu de tài kuài le, màn yìdiǎnr ba.",
+    "ex_vi": "Bạn đi nhanh quá, chậm lại một chút nhé."
+  },
+  "走": {
+    "ex_zh": "你走得太快了，慢一点儿吧。",
+    "ex_p": "Nǐ zǒu de tài kuài le, màn yìdiǎnr ba.",
+    "ex_vi": "Bạn đi nhanh quá, chậm lại một chút nhé."
+  },
+  "再": {
+    "ex_zh": "请让我再看一下。",
+    "ex_p": "Qǐng ràng wǒ zài kàn yíxià.",
+    "ex_vi": "Cho tôi xem lại một chút nhé."
+  },
+  "让": {
+    "ex_zh": "请让我再看一下。",
+    "ex_p": "Qǐng ràng wǒ zài kàn yíxià.",
+    "ex_vi": "Cho tôi xem lại một chút nhé."
+  },
+  "告诉": {
+    "ex_zh": "我有事情找老师，请告诉我他在哪儿。",
+    "ex_p": "Wǒ yǒu shìqing zhǎo lǎoshī, qǐng gàosu wǒ tā zài nǎr.",
+    "ex_vi": "Tôi có việc cần gặp thầy, hãy cho tôi biết thầy ở đâu."
+  },
+  "找": {
+    "ex_zh": "我有事情找老师，请告诉我他在哪儿。",
+    "ex_p": "Wǒ yǒu shìqing zhǎo lǎoshī, qǐng gàosu wǒ tā zài nǎr.",
+    "ex_vi": "Tôi có việc cần gặp thầy, hãy cho tôi biết thầy ở đâu."
+  },
+  "事情": {
+    "ex_zh": "我有事情找老师，请告诉我他在哪儿。",
+    "ex_p": "Wǒ yǒu shìqing zhǎo lǎoshī, qǐng gàosu wǒ tā zài nǎr.",
+    "ex_vi": "Tôi có việc cần gặp thầy, hãy cho tôi biết thầy ở đâu."
+  },
+  "唱歌": {
+    "ex_zh": "她喜欢唱歌，也喜欢跳舞。",
+    "ex_p": "Tā xǐhuan chàng gē, yě xǐhuan tiào wǔ.",
+    "ex_vi": "Cô ấy thích hát và cũng thích nhảy múa."
+  },
+  "跳舞": {
+    "ex_zh": "她喜欢唱歌，也喜欢跳舞。",
+    "ex_p": "Tā xǐhuan chàng gē, yě xǐhuan tiào wǔ.",
+    "ex_vi": "Cô ấy thích hát và cũng thích nhảy múa."
+  },
+  "第一": {
+    "ex_zh": "第一题我做错了。",
+    "ex_p": "Dì yī tí wǒ zuò cuò le.",
+    "ex_vi": "Tôi làm sai câu đầu tiên rồi."
+  },
+  "错": {
+    "ex_zh": "第一题我做错了。",
+    "ex_p": "Dì yī tí wǒ zuò cuò le.",
+    "ex_vi": "Tôi làm sai câu đầu tiên rồi."
+  },
+  "题": {
+    "ex_zh": "第一题我做错了。",
+    "ex_p": "Dì yī tí wǒ zuò cuò le.",
+    "ex_vi": "Tôi làm sai câu đầu tiên rồi."
+  },
+  "从": {
+    "ex_zh": "我每天从家里坐车去上班。",
+    "ex_p": "Wǒ měi tiān cóng jiā lǐ zuò chē qù shàng bān.",
+    "ex_vi": "Mỗi ngày tôi đi xe từ nhà đến chỗ làm."
+  },
+  "上班": {
+    "ex_zh": "我每天从家里坐车去上班。",
+    "ex_p": "Wǒ měi tiān cóng jiā lǐ zuò chē qù shàng bān.",
+    "ex_vi": "Mỗi ngày tôi đi xe từ nhà đến chỗ làm."
+  },
+  "希望": {
+    "ex_zh": "欢迎你来我家，希望你玩得快乐。",
+    "ex_p": "Huānyíng nǐ lái wǒ jiā, xīwàng nǐ wán de kuàilè.",
+    "ex_vi": "Chào mừng bạn đến nhà tôi, mong bạn chơi vui vẻ."
+  },
+  "欢迎": {
+    "ex_zh": "欢迎你来我家，希望你玩得快乐。",
+    "ex_p": "Huānyíng nǐ lái wǒ jiā, xīwàng nǐ wán de kuàilè.",
+    "ex_vi": "Chào mừng bạn đến nhà tôi, mong bạn chơi vui vẻ."
+  },
+  "完": {
+    "ex_zh": "这本书我看完了，还想再看一次。",
+    "ex_p": "Zhè běn shū wǒ kàn wán le, hái xiǎng zài kàn yí cì.",
+    "ex_vi": "Tôi đọc xong cuốn sách này rồi, vẫn muốn đọc lại một lần nữa."
+  },
+  "次": {
+    "ex_zh": "这本书我看完了，还想再看一次。",
+    "ex_p": "Zhè běn shū wǒ kàn wán le, hái xiǎng zài kàn yí cì.",
+    "ex_vi": "Tôi đọc xong cuốn sách này rồi, vẫn muốn đọc lại một lần nữa."
+  },
+  "向": {
+    "ex_zh": "请向左走，商店就在前面。",
+    "ex_p": "Qǐng xiàng zuǒ zǒu, shāngdiàn jiù zài qiánmiàn.",
+    "ex_vi": "Hãy đi về bên trái, cửa hàng ở ngay phía trước."
+  },
+  "课": {
+    "ex_zh": "上课时别说话，有问题可以请老师帮助你。",
+    "ex_p": "Shàng kè shí bié shuō huà, yǒu wèntí kěyǐ qǐng lǎoshī bāngzhù nǐ.",
+    "ex_vi": "Đừng nói chuyện trong giờ học; có câu hỏi thì có thể nhờ thầy cô giúp."
+  },
+  "帮助": {
+    "ex_zh": "上课时别说话，有问题可以请老师帮助你。",
+    "ex_p": "Shàng kè shí bié shuō huà, yǒu wèntí kěyǐ qǐng lǎoshī bāngzhù nǐ.",
+    "ex_vi": "Đừng nói chuyện trong giờ học; có câu hỏi thì có thể nhờ thầy cô giúp."
+  },
+  "别": {
+    "ex_zh": "上课时别说话，有问题可以请老师帮助你。",
+    "ex_p": "Shàng kè shí bié shuō huà, yǒu wèntí kěyǐ qǐng lǎoshī bāngzhù nǐ.",
+    "ex_vi": "Đừng nói chuyện trong giờ học; có câu hỏi thì có thể nhờ thầy cô giúp."
+  },
+  "西瓜": {
+    "ex_zh": "这家商店卖的西瓜很便宜。",
+    "ex_p": "Zhè jiā shāngdiàn mài de xīguā hěn piányi.",
+    "ex_vi": "Dưa hấu bán ở cửa hàng này rất rẻ."
+  },
+  "卖": {
+    "ex_zh": "这家商店卖的西瓜很便宜。",
+    "ex_p": "Zhè jiā shāngdiàn mài de xīguā hěn piányi.",
+    "ex_vi": "Dưa hấu bán ở cửa hàng này rất rẻ."
+  },
+  "便宜": {
+    "ex_zh": "这家商店卖的西瓜很便宜。",
+    "ex_p": "Zhè jiā shāngdiàn mài de xīguā hěn piányi.",
+    "ex_vi": "Dưa hấu bán ở cửa hàng này rất rẻ."
+  },
+  "正在": {
+    "ex_zh": "他正在用手机打电话。",
+    "ex_p": "Tā zhèngzài yòng shǒujī dǎ diànhuà.",
+    "ex_vi": "Anh ấy đang gọi điện bằng điện thoại di động."
+  },
+  "手机": {
+    "ex_zh": "他正在用手机打电话。",
+    "ex_p": "Tā zhèngzài yòng shǒujī dǎ diànhuà.",
+    "ex_vi": "Anh ấy đang gọi điện bằng điện thoại di động."
+  },
+  "洗": {
+    "ex_zh": "这件衣服洗好了，你可以穿了。",
+    "ex_p": "Zhè jiàn yīfu xǐ hǎo le, nǐ kěyǐ chuān le.",
+    "ex_vi": "Áo này giặt xong rồi, bạn mặc được rồi."
+  },
+  "穿": {
+    "ex_zh": "这件衣服洗好了，你可以穿了。",
+    "ex_p": "Zhè jiàn yīfu xǐ hǎo le, nǐ kěyǐ chuān le.",
+    "ex_vi": "Áo này giặt xong rồi, bạn mặc được rồi."
+  },
+  "可能": {
+    "ex_zh": "他去年去过北京，可能知道那家饭馆。",
+    "ex_p": "Tā qùnián qù guo Běijīng, kěnéng zhīdào nà jiā fànguǎn.",
+    "ex_vi": "Năm ngoái anh ấy từng đến Bắc Kinh, có thể biết quán ăn đó."
+  },
+  "去年": {
+    "ex_zh": "他去年去过北京，可能知道那家饭馆。",
+    "ex_p": "Tā qùnián qù guo Běijīng, kěnéng zhīdào nà jiā fànguǎn.",
+    "ex_vi": "Năm ngoái anh ấy từng đến Bắc Kinh, có thể biết quán ăn đó."
+  },
+  "姓": {
+    "ex_zh": "我姓王，你姓什么？",
+    "ex_p": "Wǒ xìng Wáng, nǐ xìng shénme?",
+    "ex_vi": "Tôi họ Vương, bạn họ gì?"
+  },
+  "得": {
+    "ex_zh": "弟弟汉语说得很好。",
+    "ex_p": "Dìdi Hànyǔ shuō de hěn hǎo.",
+    "ex_vi": "Em trai nói tiếng Trung rất tốt."
+  },
+  "弟弟": {
+    "ex_zh": "弟弟汉语说得很好。",
+    "ex_p": "Dìdi Hànyǔ shuō de hěn hǎo.",
+    "ex_vi": "Em trai nói tiếng Trung rất tốt."
+  },
+  "雪": {
+    "ex_zh": "学校很近，但是今天下雪，我们坐车去吧。",
+    "ex_p": "Xuéxiào hěn jìn, dànshì jīntiān xià xuě, wǒmen zuò chē qù ba.",
+    "ex_vi": "Trường rất gần, nhưng hôm nay có tuyết, chúng mình đi xe nhé."
+  },
+  "近": {
+    "ex_zh": "学校很近，但是今天下雪，我们坐车去吧。",
+    "ex_p": "Xuéxiào hěn jìn, dànshì jīntiān xià xuě, wǒmen zuò chē qù ba.",
+    "ex_vi": "Trường rất gần, nhưng hôm nay có tuyết, chúng mình đi xe nhé."
+  },
+  "着": {
+    "ex_zh": "她笑着说：欢迎你！",
+    "ex_p": "Tā xiào zhe shuō: huānyíng nǐ!",
+    "ex_vi": "Cô ấy mỉm cười nói: Chào mừng bạn!"
+  },
+  "笑": {
+    "ex_zh": "她笑着说：欢迎你！",
+    "ex_p": "Tā xiào zhe shuō: huānyíng nǐ!",
+    "ex_vi": "Cô ấy mỉm cười nói: Chào mừng bạn!"
+  },
+  "晴": {
+    "ex_zh": "昨天是晴天，但是今天是阴天。",
+    "ex_p": "Zuótiān shì qíngtiān, dànshì jīntiān shì yīntiān.",
+    "ex_vi": "Hôm qua trời nắng, nhưng hôm nay trời âm u."
+  },
+  "但是": {
+    "ex_zh": "昨天是晴天，但是今天是阴天。",
+    "ex_p": "Zuótiān shì qíngtiān, dànshì jīntiān shì yīntiān.",
+    "ex_vi": "Hôm qua trời nắng, nhưng hôm nay trời âm u."
+  },
+  "阴": {
+    "ex_zh": "昨天是晴天，但是今天是阴天。",
+    "ex_p": "Zuótiān shì qíngtiān, dànshì jīntiān shì yīntiān.",
+    "ex_vi": "Hôm qua trời nắng, nhưng hôm nay trời âm u."
+  },
+  "妹妹": {
+    "ex_zh": "妹妹在房间里学习。",
+    "ex_p": "Mèimei zài fángjiān lǐ xuéxí.",
+    "ex_vi": "Em gái đang học trong phòng."
+  }
+}
