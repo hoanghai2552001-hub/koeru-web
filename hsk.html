@@ -284,7 +284,7 @@ body.no-pinyin .py-hide{visibility:hidden}
     <div class="card hidden" id="searchResult"></div>
     <div class="grid" id="lessonGrid"></div>
     </section>
-    <footer class="zh-footer">Miễn phí · Không cần tài khoản · HSK 标准教程 1–3<br>Tiến độ lưu trên thiết bị này. Audio tổng hợp được giữ làm phương án dự phòng và nội dung đang được rà soát. Dữ liệu nét chữ dùng Hanzi Writer Data (Arphic Public License); tham chiếu từ điển CC-CEDICT (CC BY-SA 4.0). <a href="https://github.com/hoanghai2552001-hub/koeru-web/issues/new" target="_blank" rel="noopener">Báo lỗi nội dung</a></footer>
+    <footer class="zh-footer">Miễn phí · Không cần tài khoản · HSK 标准教程 1–3<br>Tiến độ lưu trên thiết bị này. Audio tổng hợp được giữ làm phương án dự phòng và nội dung đang được rà soát. Dữ liệu nét chữ dùng Hanzi Writer Data (Arphic Public License); tham chiếu từ điển CC-CEDICT (CC BY-SA 4.0). <a href="hsk-teacher-qa.html">Bàn QA giáo viên</a> · <a href="https://github.com/hoanghai2552001-hub/koeru-web/issues/new" target="_blank" rel="noopener">Báo lỗi nội dung</a></footer>
   </div>
 
   <div id="detail" class="hidden">
@@ -703,7 +703,7 @@ function renderVocab(l, box){
         '<p class="zh-meaning">' + esc(v.m) + '</p><div class="zh-vocab-meta"><span>' + esc(v.pos || 'Từ vựng') + '</span>' + mDots(v.h) + '</div>' +
         '<div class="zh-stroke-links" aria-label="Xem nét viết">' + Array.from(new Set(v.h.match(/[一-鿿]/g) || [])).map(function(ch){ return '<button class="play" data-write-char="' + esc(ch) + '">Viết ' + esc(ch) + '</button>'; }).join('') + '</div>' +
         (v.ex_zh ? '<div class="zh-example"><span class="zh-example-label">TRONG CUỘC SỐNG</span><p lang="zh-CN">' + esc(v.ex_zh) + '</p><p class="py-hide">' + esc(v.ex_p) + '</p><p>' + esc(v.ex_vi) + '</p><button class="play" data-zh="' + esc(v.ex_zh) + '" data-pinyin="' + esc(v.ex_p || '') + '">Nghe câu ví dụ</button></div>' : '') +
-        (v.hv ? '<details class="zh-word-details"><summary>Hán Việt</summary><p>' + esc(v.hv) + '</p></details>' : '') + '</article>';
+        ((v.hv || v.note) ? '<details class="zh-word-details"><summary>Hán Việt & ghi chú</summary>' + (v.hv ? '<p>' + esc(v.hv) + '</p>' : '') + (v.note ? '<p class="zh-note">' + esc(v.note) + '</p>' : '') + '</details>' : '') + '</article>';
     }).join('') : '<p class="sub">Không có từ phù hợp. Thử tìm bằng chữ Hán hoặc nghĩa Việt.</p>';
     bindPlay(qs('vocabCards'));
     qs('vocabCards').querySelectorAll('[data-write-char]').forEach(function(button){
@@ -740,7 +740,7 @@ function renderFlash(l, box, pool){
   box.innerHTML =
     '<div class="flash-bar"><span class="flash-count">' + (flashIdx + 1) + ' / ' + pool.length +
       ' · ' + mDots(v.h) + '</span>' +
-      '<button class="play" data-zh="' + esc(v.h) + '">🔊 Nghe</button></div>' +
+      '<button class="play" data-zh="' + esc(v.h) + '" data-pinyin="' + esc(v.p) + '">🔊 Nghe</button></div>' +
     '<div class="flash-card" id="fcard">' +
       '<div class="front">' + esc(v.h) + '</div>' +
       '<div class="back"><span class="bpy">' + esc(v.p) + '</span>' + esc(v.m) +

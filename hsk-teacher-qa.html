@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KOERU · Bàn QA audio HSK</title>
+<meta name="description" content="Bàn duyệt từ vựng, pinyin, nghĩa và thu âm HSK dành cho giáo viên.">
+<link rel="stylesheet" href="css/hsk-teacher-qa.css?v=c4defe9c">
+</head>
+<body>
+<header class="qa-header">
+  <a class="qa-brand" href="hsk.html"><img src="koeru-logo.webp" alt="KOERU"><span>KOERU<br><small>QA tiếng Trung</small></span></a>
+  <div><span class="eyebrow">BÀN BIÊN TẬP GIÁO VIÊN</span><h1>Nghe, sửa và thu lại từng từ HSK</h1><p>Mọi thay đổi được lưu trên thiết bị cho tới khi giáo viên xuất gói bàn giao.</p></div>
+</header>
+
+<main class="qa-layout">
+  <aside class="qa-sidebar">
+    <div class="qa-stats" id="qaStats"></div>
+    <label>Tìm từ<input id="qaSearch" type="search" placeholder="汉字 · pinyin · nghĩa"></label>
+    <div class="qa-filters">
+      <label>Cấp<select id="qaLevel"><option value="all">HSK 1–3</option><option value="1">HSK 1</option><option value="2">HSK 2</option><option value="3">HSK 3</option></select></label>
+      <label>Trạng thái<select id="qaStatus"><option value="all">Tất cả</option><option value="pending">Chưa duyệt</option><option value="approved">Đã duyệt</option><option value="rerecord">Cần thu lại</option><option value="rejected">Có lỗi</option></select></label>
+    </div>
+    <details class="qa-help"><summary>Cách đưa bản duyệt vào web</summary><p>Xuất gói QA, đặt file vào thư mục dự án rồi chạy:</p><code>python tools/apply_hsk_teacher_qa.py &lt;file.json&gt;</code><p>Chỉ các mục đánh dấu <b>Đạt</b> mới được nhập.</p></details>
+    <div class="qa-list" id="qaList" role="listbox" aria-label="Danh sách từ vựng"></div>
+  </aside>
+
+  <section class="qa-editor" id="qaEditor">
+    <div class="qa-empty">Chọn một từ để bắt đầu QA.</div>
+  </section>
+</main>
+
+<footer class="qa-footer">
+  <label class="reviewer">Người duyệt <input id="qaReviewer" placeholder="Tên giáo viên"></label>
+  <button id="qaExport" class="btn primary">Xuất gói QA</button>
+  <label class="btn secondary">Nhập bản QA<input id="qaImport" type="file" accept="application/json,.json" hidden></label>
+  <span id="qaMessage" role="status"></span>
+</footer>
+
+<script src="hsk1-data.js?v=760bf5b8"></script>
+<script src="hsk2-data.js?v=a1c3fa91"></script>
+<script src="hsk3-data.js?v=1d871b21"></script>
+<script src="js/hsk-teacher-qa.js?v=bf54beef"></script>
+</body>
+</html>
